@@ -1,0 +1,176 @@
+[
+  {
+    "slug": "conversion-rate-optimization-2026",
+    "title": "10 Conversion Rate Optimization Checklist Items for 2026",
+    "category": "Conversion Rate",
+    "date": "Aug 15, 2026",
+    "readTime": "6 min read",
+    "author": "Mahmudul Hasan",
+    "authorRole": "Growth Strategist",
+    "authorAvatar": "https://i.pravatar.cc/150?img=52",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    "desc": "Make checkouts simple and maximize order value. We list the ten must-have UI elements for mobile viewports to stop cart drop-offs.",
+    "body": [
+      { "type": "p", "content": "Every percentage point of conversion matters. In 2026, the bar for a high-performing storefront has risen dramatically — customers expect faster load times, frictionless checkout flows, and personalized experiences from the first tap." },
+      { "type": "h2", "content": "Why CRO Still Matters More Than Traffic" },
+      { "type": "p", "content": "Driving traffic is expensive. Converting existing visitors is a far more profitable lever. A 1% improvement in conversion rate on a store generating ৳50,000/month in revenue translates to ৳500 in additional monthly revenue — without spending a single taka on ads." },
+      { "type": "quote", "content": "Traffic brings visitors. Conversion rate brings customers. Focus on the latter before scaling the former." },
+      { "type": "h2", "content": "The 10-Item CRO Checklist" },
+      { "type": "list", "content": [
+        "Reduce checkout steps to 3 or fewer pages",
+        "Add trust badges (SSL, payment icons) above the fold",
+        "Display real-time stock levels to create urgency",
+        "Use a persistent sticky cart on mobile viewports",
+        "Offer guest checkout — never force account creation",
+        "A/B test your primary CTA button copy and color",
+        "Add product video loops on key item listings",
+        "Implement exit-intent popups with a time-limited offer",
+        "Ensure your site loads under 2 seconds on 4G networks",
+        "Show delivery estimates directly on product pages"
+      ]},
+      { "type": "h2", "content": "Mobile Viewport Priorities" },
+      { "type": "p", "content": "Over 72% of Softune merchant traffic originates from mobile browsers. If your checkout funnel is not optimized for a 390px viewport width, you are leaving a significant portion of revenue on the table. Focus on tap target sizes (minimum 44px), thumb-reachable CTAs, and reducing form field count." },
+      { "type": "callout", "content": "Quick Win: Move your checkout button to the bottom of the screen on mobile. Thumb-reachable CTAs consistently outperform top-positioned buttons by 18–34% in mobile conversion studies." },
+      { "type": "h3", "content": "Trust Elements That Convert" },
+      { "type": "p", "content": "Trust is the silent conversion killer. Customers who trust your brand buy faster and return more often. Place security badges near your Add to Cart button, show authentic product review counts, and always display a clear return policy before the checkout confirmation step." },
+      { "type": "h2", "content": "Measuring and Iterating" },
+      { "type": "p", "content": "CRO is not a one-time audit — it's a continuous practice. Set up funnel tracking in your analytics dashboard, identify the highest drop-off pages, hypothesize a fix, deploy it, and measure the result over a statistically significant sample. Repeat this loop every two weeks for compound gains throughout the year." }
+    ]
+  },
+  {
+    "slug": "pos-integration-local-brands",
+    "title": "Why Point-of-Sale (POS) Integration is Crucial for Local Brands",
+    "category": "POS & Retail",
+    "date": "Aug 10, 2026",
+    "readTime": "5 min read",
+    "author": "Tariqul Islam",
+    "authorRole": "Retail Systems Analyst",
+    "authorAvatar": "https://i.pravatar.cc/150?img=48",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+    "desc": "Unify online catalog inventories and retail storefront counters. Avoid overselling items and automate tax reporting automatically.",
+    "body": [
+      { "type": "p", "content": "For local and independent brands operating both physical counters and online stores, inventory management is the perpetual challenge. A POS system that communicates directly with your digital catalog is no longer a luxury — it's a baseline requirement for avoiding costly oversells and operational chaos." },
+      { "type": "h2", "content": "The Inventory Sync Problem" },
+      { "type": "p", "content": "Without integration, teams are forced to manually reconcile stock levels across physical counters and online carts. A customer purchases your last unit at the retail counter at 2pm. By 2:05pm, the same item sells online. You now have a broken promise and a frustrated customer." },
+      { "type": "quote", "content": "A disconnected POS isn't just an inconvenience — it's a liability that directly erodes customer trust and repeat purchase rates." },
+      { "type": "h2", "content": "Key Benefits of Unified POS-Online Integration" },
+      { "type": "list", "content": [
+        "Real-time inventory sync across all sales channels",
+        "Automated low-stock alerts before oversells occur",
+        "Unified customer purchase history across both channels",
+        "Single dashboard for tax calculation and reporting",
+        "Consolidated revenue analytics and daily reconciliation"
+      ]},
+      { "type": "h2", "content": "How Softune Handles This" },
+      { "type": "p", "content": "Softune's POS integration layer maintains a single source-of-truth inventory database. When a sale is processed on the physical counter terminal, the online catalog stock is decremented in under 200 milliseconds. This means your digital storefront is always displaying accurate, real-time availability to customers." },
+      { "type": "callout", "content": "Softune merchants using unified POS integration report a 91% reduction in customer support tickets related to oversells and inventory discrepancies." }
+    ]
+  },
+  {
+    "slug": "schema-json-ld-structured-data",
+    "title": "Understanding Schema JSON-LD Structured Data for Ecommerce",
+    "category": "SEO Strategy",
+    "date": "Aug 05, 2026",
+    "readTime": "8 min read",
+    "author": "Kamrul Hasan",
+    "authorRole": "Platform Architect",
+    "authorAvatar": "https://i.pravatar.cc/150?img=68",
+    "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80",
+    "desc": "Rank higher on Google search engine databases. Learn how schemas display prices, review ratings, and availability directly on results.",
+    "body": [
+      { "type": "p", "content": "Structured data is one of the most underutilized SEO levers in ecommerce. JSON-LD schema markup tells search engines exactly what your page content means — enabling rich results like price, availability, and review stars directly in Google's search listings." },
+      { "type": "h2", "content": "What is JSON-LD Schema?" },
+      { "type": "p", "content": "JSON-LD (JavaScript Object Notation for Linked Data) is a method of encoding Linked Data using JSON. For ecommerce, the most valuable schema types are Product, BreadcrumbList, FAQPage, and Organization. These are injected as a script tag in your page head and are invisible to users but fully readable by search crawlers." },
+      { "type": "h2", "content": "Key Schema Types for Online Stores" },
+      { "type": "list", "content": [
+        "Product — price, currency, availability, SKU, and review aggregate",
+        "BreadcrumbList — hierarchy navigation for category and product pages",
+        "Organization — brand name, logo, contact, and social profiles",
+        "FAQPage — expandable rich results for support and product FAQ sections",
+        "SiteLinksSearchBox — inline search bar in brand Google knowledge panels"
+      ]},
+      { "type": "callout", "content": "Softune automatically injects Product and BreadcrumbList schemas on all storefront product and category pages — no manual setup required." }
+    ]
+  },
+  {
+    "slug": "zero-downtime-store-migrations",
+    "title": "The Ultimate Guide to Zero-Downtime Store Migrations",
+    "category": "Store Setup",
+    "date": "Jul 28, 2026",
+    "readTime": "7 min read",
+    "author": "Alex Rivera",
+    "authorRole": "Migration Specialist",
+    "authorAvatar": "https://i.pravatar.cc/150?img=33",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+    "desc": "Platform migrations don't have to break your business. How to map sitemaps, establish 301 redirects, and keep customer logs intact.",
+    "body": [
+      { "type": "p", "content": "Migrating your ecommerce store to a new platform is one of the highest-risk operations a merchant can undertake. Done wrong, it results in lost SEO rankings, broken checkout flows, and confused customers. Done right, it's a clean transition that your customers never even notice." },
+      { "type": "h2", "content": "Pre-Migration Audit" },
+      { "type": "list", "content": [
+        "Export complete product catalog with all variant data and images",
+        "Document all existing URL structures for sitemap redirect mapping",
+        "Back up customer records, order history, and loyalty point balances",
+        "List all active third-party integrations (payment, courier, analytics)",
+        "Screenshot all custom theme customizations and CSS overrides"
+      ]},
+      { "type": "h2", "content": "301 Redirects: Your SEO Safety Net" },
+      { "type": "p", "content": "Every changed URL from your old store must have a corresponding 301 redirect to the new URL. This preserves PageRank signals accumulated over time and prevents 404 errors from eroding your search visibility. Map redirects before you go live, not after." },
+      { "type": "callout", "content": "A store with 500 products and no redirect map can lose up to 40% of its organic traffic within 30 days of migration. Always prepare your redirect map first." }
+    ]
+  },
+  {
+    "slug": "courier-automation-sms-tracking",
+    "title": "Courier Automations: SMS Alerts and Live Logistics Tracking",
+    "category": "Logistics",
+    "date": "Jul 20, 2026",
+    "readTime": "4 min read",
+    "author": "Jessica Mercer",
+    "authorRole": "Logistics Analyst",
+    "authorAvatar": "https://i.pravatar.cc/150?img=47",
+    "image": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80",
+    "desc": "Lower support ticket logs. Automatically update customer packages with real-time route statuses and delivery confirmations.",
+    "body": [
+      { "type": "p", "content": "Where is my order? This single question accounts for over 35% of all ecommerce customer support tickets. Automated SMS and push notifications eliminate this inquiry entirely by keeping customers proactively informed at every delivery milestone." },
+      { "type": "h2", "content": "Trigger Points to Automate" },
+      { "type": "list", "content": [
+        "Order confirmed — immediate confirmation with order summary",
+        "Packed & dispatched — courier name and tracking ID shared",
+        "Out for delivery — estimated delivery window sent",
+        "Delivered — confirmation with photo proof if available",
+        "Delivery failed — reschedule link sent automatically"
+      ]},
+      { "type": "quote", "content": "Proactive delivery notifications reduce inbound support volume by an average of 38% within the first month of implementation." },
+      { "type": "callout", "content": "Softune's courier module integrates with Pathao, Steadfast, RedX, and Paperfly — with automatic SMS triggers built into each status update." }
+    ]
+  },
+  {
+    "slug": "brand-identity-online-retail",
+    "title": "How to Build an Unforgettable Brand Identity for Online Retail",
+    "category": "Design System",
+    "date": "Jul 12, 2026",
+    "readTime": "6 min read",
+    "author": "Sarah Connor",
+    "authorRole": "Brand Strategist",
+    "authorAvatar": "https://i.pravatar.cc/150?img=32",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    "thumb": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+    "desc": "Craft cohesive styling templates. Learn how layouts, custom font choices, and primary colors construct professional-grade sites.",
+    "body": [
+      { "type": "p", "content": "In a marketplace crowded with identical product photos and generic storefronts, brand identity is your competitive moat. Customers who recognize your visual language buy more frequently, refer more often, and forgive minor service hiccups more readily." },
+      { "type": "h2", "content": "The Three Pillars of Digital Brand Identity" },
+      { "type": "list", "content": [
+        "Color system — primary, secondary, and neutral palette applied consistently",
+        "Typography — heading and body font pairing that reflects brand personality",
+        "Imagery style — consistent photo tone, crop ratio, and background treatment"
+      ]},
+      { "type": "h2", "content": "Applying Brand to Your Storefront" },
+      { "type": "p", "content": "Your theme should feel like a natural extension of your brand, not a template you filled in. Start with your color primary applied to your CTA buttons and header. Apply your heading font to product titles. Use your imagery style consistently across hero banners, product cards, and email headers." },
+      { "type": "callout", "content": "Softune's theme editor lets you set a global brand color, two font families, and a button radius — and applies them everywhere across your storefront automatically." }
+    ]
+  }
+]
