@@ -185,7 +185,7 @@ export function Header() {
             </a>
             <Button
               as="a"
-              href="#login"
+              href="https://dashboard.softune.xyz/"
               variant="primary"
               className="gap-2 px-6 py-2.5 text-base font-semibold"
             >
