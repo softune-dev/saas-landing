@@ -273,7 +273,7 @@ export function Header() {
                 ))}
                 <Button
                   as="a"
-                  href="https://dashboard.softune.xyz/"
+                  href="/"
                   onClick={() => setOpen(false)}
                   variant="primary"
                   className="mt-4 gap-2 px-6 py-3 text-base font-semibold"
