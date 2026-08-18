@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
@@ -265,8 +265,9 @@ function ArticleBody({ body }: { body: { type: string; content: string | string[
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = ARTICLES[params.slug] || ARTICLES[DEFAULT_ARTICLE_SLUG];
+export default function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = use(params);
+  const article = ARTICLES[resolvedParams.slug] || ARTICLES[DEFAULT_ARTICLE_SLUG];
   const [shareOpen, setShareOpen] = useState(false);
 
   return (
