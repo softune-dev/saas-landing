@@ -33,599 +33,510 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
   "multiple-themes": {
     slug: "multiple-themes",
     pillText: "Storefront Design",
-    titleStart: "Stunning Storefront",
+    titleStart: "Three Storefront",
     titleHighlight: "Themes",
-    titleEnd: "That Sell",
-    description: "Give your e-commerce brand the representation it deserves. Select from our collection of highly optimized, conversion-driven storefront layouts that load in milliseconds.",
-    introTitle: "Create a storefront that stands out and converts customers",
-    introDesc: "Our layouts are designed by retail experts to reduce checkout friction, load pages instantly, and show your products in the best light. No matter your industry, we have a layout that fits your brand identity.",
+    titleEnd: "To Start From",
+    description:
+      "Aurora, Bazaar, and Sweets — three built storefront themes you can customize and publish under your own domain. Pick the one closest to your brand and make it yours.",
+    introTitle: "Edit your storefront with a live preview, not a guess",
+    introDesc:
+      "The theme editor shows your changes on a real desktop and mobile preview as you make them, so what you see while editing is what your customers will see when you publish.",
     alternating: [
       {
-        pillText: "Visual Theme Editor",
+        pillText: "Live Preview",
         pillIcon: "/icons/themes.svg",
-        titleStart: "Customize Layouts Without",
-        titleHighlight: "Coding",
-        titleEnd: "",
-        description: "Choose from professional themes and customize elements visually. Adjust colors, layout structure, fonts, and banners in real-time.",
-        bullets: [
-          "Drag-and-drop structural blocks",
-          "Real-time visual customization",
-          "Adjust typography and color styles instantly"
-        ]
-      },
-      {
-        pillText: "Mobile Optimization",
-        pillIcon: "/icons/delivery.svg",
-        titleStart: "Built for the",
+        titleStart: "See Changes on Desktop and",
         titleHighlight: "Mobile",
-        titleEnd: "Shopper First",
-        description: "Over 70% of web checkouts happen on mobile screens. Our layouts adapt perfectly to mobile viewports to minimize cart abandonment.",
+        titleEnd: "At Once",
+        description:
+          "Edit colors, fonts, and section content in a two-pane editor with a live preview beside it, so you're never editing blind.",
         bullets: [
-          "Fluid responsive design components",
-          "Swipeable galleries and cart drawers",
-          "Fast mobile checkout layouts"
-        ]
+          "Side-by-side desktop and mobile preview",
+          "Edits apply instantly in the preview",
+          "Nothing goes live until you publish",
+        ],
       },
       {
-        pillText: "Industry Tailored",
+        pillText: "Section Control",
         pillIcon: "/icons/color.svg",
-        titleStart: "Designed For Your Specific",
-        titleHighlight: "Niche",
+        titleStart: "Rearrange Your Homepage",
+        titleHighlight: "Sections",
         titleEnd: "",
-        description: "Whether you run an apparel boutique, a tech outlet, or a gourmet bakery, we provide specialized theme systems tailored to your industry.",
+        description:
+          "Drag and drop the sections on your storefront's pages into the order that fits your store, without touching code.",
         bullets: [
-          "Bespoke layouts for multiple niches",
-          "Optimized feature lists and display elements",
-          "Conversion-optimized call-to-actions"
-        ]
+          "Drag-and-drop section reordering",
+          "Per-section content editing",
+          "Same editor across all three themes",
+        ],
       },
       {
-        pillText: "Lightning Performance",
+        pillText: "Publish on Demand",
         pillIcon: "/icons/zap.svg",
-        titleStart: "Load Pages in the Blink of an",
-        titleHighlight: "Eye",
+        titleStart: "Publish When You're",
+        titleHighlight: "Ready",
         titleEnd: "",
-        description: "Ensure your store ranks higher on Google and holds visitor attention with clean, optimized layouts that achieve perfect PageSpeed scores.",
+        description:
+          "Changes stay in draft until you choose to publish, so you can build out a new look without customers seeing a half-finished store.",
         bullets: [
-          "Perfect Google Core Web Vitals out of the box",
-          "Built-in WebP image optimization",
-          "Fast Next.js static rendering"
-        ]
-      }
+          "Draft and publish are separate steps",
+          "Your own subdomain or a custom domain",
+          "Switch themes without losing your data",
+        ],
+      },
     ],
-    extraTitle: "Design details that drive performance",
-    extraDesc: "We go beyond aesthetic style, building technical optimizations directly into our layouts so your store gets more sales.",
+    extraTitle: "Pick a theme, make it yours",
+    extraDesc:
+      "Each theme covers the same page and section contract, so switching between them later doesn't mean rebuilding your store.",
     extraCards: [
-      { title: "SEO Ready", desc: "Clean schema markup ensures Google understands your catalog structures.", icon: "/icons/analytics.svg" },
-      { title: "Lightweight Code", desc: "No bloated Javascript. Only fast, optimized scripts run on the browser.", icon: "/icons/zap.svg" },
-      { title: "System Dark Mode", desc: "Provide a comfortable reading environment that adapts to client preferences.", icon: "/icons/themes.svg" }
-    ]
+      { title: "Aurora", desc: "A clean, editorial layout built for general retail.", icon: "/icons/themes.svg" },
+      { title: "Bazaar", desc: "A denser, catalog-first layout for larger inventories.", icon: "/icons/color.svg" },
+      { title: "Sweets", desc: "A warm, product-photo-led layout for food and gift stores.", icon: "/icons/zap.svg" },
+    ],
   },
   "ai-assistant": {
     slug: "ai-assistant",
-    pillText: "AI Superpowers",
-    titleStart: "Automate Store Management with",
-    titleHighlight: "AI",
-    titleEnd: "Assistant",
-    description: "Write product descriptions, optimize SEO metadata, segment customers, and draft support responses in seconds using Softune's integrated AI tool.",
-    introTitle: "Work smarter and save hours of administrative tasks every day",
-    introDesc: "Stop spending hours writing copy and editing tags. Our built-in AI understands your retail inventory and drafts engaging, targeted sales material with a single click.",
+    pillText: "AI Tools",
+    titleStart: "AI That Writes and",
+    titleHighlight: "Suggests",
+    titleEnd: "— You Approve",
+    description:
+      "Softune's AI writes product descriptions and proposes theme changes from a plain-English prompt. It never edits your store directly — every suggestion comes back as a change you review and approve.",
+    introTitle: "AI drafts the first pass, you stay in control of what ships",
+    introDesc:
+      "Every AI output — a product description, a theme color patch, a proposed product edit — goes through the same review step a manual edit would. Nothing reaches your live store without you approving it.",
     alternating: [
       {
         pillText: "Product Copy",
         pillIcon: "/icons/ai-pencil.svg",
-        titleStart: "Write Beautiful Product",
+        titleStart: "Write Product",
         titleHighlight: "Descriptions",
-        titleEnd: "Instantly",
-        description: "Input a few bullet points, select a brand voice, and watch our AI model write professional, engaging product descriptions in seconds.",
+        titleEnd: "in One Click",
+        description:
+          "Generate a first-draft description for any product, then edit it like you would any other field before saving.",
         bullets: [
-          "Custom tone selection (playful, professional, bold)",
-          "Highlights feature lists and key specifications",
-          "Multi-language generation support"
-        ]
+          "One click from the product editor",
+          "Fully editable after generating",
+          "Uses your product's existing details",
+        ],
       },
       {
-        pillText: "Smart SEO Tags",
-        pillIcon: "/icons/analytics.svg",
-        titleStart: "Optimize Your Search Engine",
-        titleHighlight: "Visibility",
+        pillText: "AI Suggest",
+        pillIcon: "/icons/themes.svg",
+        titleStart: "Describe a Look, Get a Theme",
+        titleHighlight: "Patch",
         titleEnd: "",
-        description: "Let AI generate highly relevant title tags and meta descriptions that capture organic search traffic and follow Google standards.",
+        description:
+          "Type something like \"make it feel like a coffee shop\" and AI Suggest proposes colors, typography, and copy — shown as a patch you approve before it touches your live site.",
         bullets: [
-          "Keyword-optimized page titles",
-          "Compelling meta descriptions that drive clicks",
-          "Automated image alt tag suggestions"
-        ]
+          "Prompts turn into color, font, and copy suggestions",
+          "Every suggestion is a reviewable patch, not an auto-apply",
+          "Uses the same fields the manual editor uses",
+        ],
       },
       {
-        pillText: "Customer Insights",
-        pillIcon: "/icons/user.svg",
-        titleStart: "Segment Customers and Predict",
-        titleHighlight: "Sales",
-        titleEnd: "",
-        description: "AI tracks customer purchase intervals to highlight recurring buyers, suggest product recommendations, and target cohorts.",
-        bullets: [
-          "Predict high-value customer cohorts",
-          "Personalized recommendations based on cart data",
-          "Automated follow-up text suggestions"
-        ]
-      },
-      {
-        pillText: "Support Drafts",
+        pillText: "AI Chat",
         pillIcon: "/icons/chat.svg",
-        titleStart: "Draft Friendly Support Replies in",
-        titleHighlight: "Seconds",
+        titleStart: "Ask About Your Store's",
+        titleHighlight: "Numbers",
         titleEnd: "",
-        description: "Resolve support queries faster. AI drafts responses to common customer questions using context from your inventory and orders database.",
+        description:
+          "Ask the AI assistant about your business overview, products, orders, or sales summary, and it looks up the real answer from your store's own data.",
         bullets: [
-          "Pre-populated invoice and courier details",
-          "Polite and professional text tone",
-          "Easily editable draft fields"
-        ]
-      }
+          "Reads your real business overview, products, and orders",
+          "Can propose a new product, a category change, or a product edit",
+          "Proposed changes still need your confirmation before saving",
+        ],
+      },
     ],
-    extraTitle: "Powerful intelligence built right in",
-    extraDesc: "No third-party API configurations or subscription tokens needed. We provide access to advanced AI directly from your store settings.",
+    extraTitle: "Built with limits, on purpose",
+    extraDesc:
+      "AI in Softune only ever proposes a change through the same paths a manual edit uses — there's no path from a prompt straight to your live store.",
     extraCards: [
-      { title: "Context Aware", desc: "Our AI understands your unique store inventory, categories, and brand style.", icon: "/icons/ai-pencil.svg" },
-      { title: "Ultra Fast", desc: "Generates product copy, tags, or support responses in under 2 seconds.", icon: "/icons/zap.svg" },
-      { title: "Included Token Credits", desc: "Token credits are pre-loaded monthly inside all store accounts.", icon: "/icons/wallet.svg" }
-    ]
+      { title: "Review Before Apply", desc: "Every AI suggestion is a patch you approve, never an auto-apply.", icon: "/icons/lock.svg" },
+      { title: "Scoped Actions", desc: "AI chat can propose specific product or category changes — nothing broader.", icon: "/icons/ai-pencil.svg" },
+      { title: "Daily Request Limits", desc: "Usage is capped per day based on your plan, shown right on your dashboard.", icon: "/icons/wallet.svg" },
+    ],
   },
   "fraud-protection": {
     slug: "fraud-protection",
     pillText: "Order Safety",
-    titleStart: "Stop Risky Orders Before They",
-    titleHighlight: "Ship",
+    titleStart: "Keep a Blocklist, Set Your",
+    titleHighlight: "Rules",
     titleEnd: "",
     description:
-      "Protect COD-heavy stores with checkout rules and a phone blocklist. Softune flags suspicious first-time high-value orders, burst orders from one number, and known bad phones—before you fulfill.",
-    introTitle: "Built for merchants who lose money on fake and abusive orders",
+      "Block known bad phone numbers automatically at checkout, and configure thresholds for high-value first orders and repeat-order bursts — all from one screen, no separate fraud tool to sign up for.",
+    introTitle: "Your own blocklist, stored with your store",
     introDesc:
-      "Fraud Protection lives in your Softune dashboard alongside Orders and Customers. Turn on the rules that match your risk tolerance, maintain a blocklist, and review flagged checkouts without leaving the platform.",
+      "Fraud Protection lives in your Softune dashboard next to Orders. Add numbers to a blocklist and set the thresholds that match how your store actually gets abused.",
     alternating: [
       {
-        pillText: "High-Value Holds",
-        pillIcon: "/icons/orders.svg",
-        titleStart: "Hold First-Time",
-        titleHighlight: "High-Value",
-        titleEnd: "Orders",
-        description:
-          "When a new customer places an order over your threshold, Softune can hold it for review so you approve before booking a courier.",
-        bullets: [
-          "Configurable minimum order value",
-          "Targets first-time buyers only",
-          "Clear review queue in your dashboard",
-        ],
-      },
-      {
-        pillText: "Burst Detection",
-        pillIcon: "/icons/analytics.svg",
-        titleStart: "Flag Burst Orders From One",
-        titleHighlight: "Phone",
-        titleEnd: "",
-        description:
-          "If the same phone places multiple orders inside a short window, Softune flags them so you can catch coordinated abuse early.",
-        bullets: [
-          "Adjustable time window in minutes",
-          "Phone-based matching at checkout",
-          "Works alongside your normal order flow",
-        ],
-      },
-      {
-        pillText: "Blocklist",
+        pillText: "Phone Blocklist",
         pillIcon: "/icons/lock.svg",
-        titleStart: "Block Known Bad",
+        titleStart: "Maintain a Blocklist of Known Bad",
         titleHighlight: "Numbers",
         titleEnd: "",
         description:
-          "Maintain a phone blocklist from the Fraud Protection screen. Blocklisted numbers are rejected at checkout with a note for your team.",
+          "Add a number to your store's blocklist and it's rejected automatically at checkout — not just flagged for later review.",
         bullets: [
-          "Add or remove numbers anytime",
-          "Optional notes for your staff",
-          "Immediate effect on new checkouts",
+          "Enforced live at checkout, not just logged",
+          "Optional notes so your team has context",
+          "Scoped to your store, not shared across tenants",
         ],
       },
       {
-        pillText: "Site Controls",
+        pillText: "Configurable Rules",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Set Thresholds for High-Value and",
+        titleHighlight: "Burst",
+        titleEnd: "Orders",
+        description:
+          "Configure a threshold for first-time high-value orders and a window for detecting repeat orders from the same number — these save with your store today, ready for checkout enforcement as it rolls out.",
+        bullets: [
+          "High-value order threshold, first-time buyers",
+          "Burst-order detection window",
+          "Each rule can be toggled independently",
+        ],
+      },
+      {
+        pillText: "Per-Site Settings",
         pillIcon: "/icons/domain.svg",
         titleStart: "Rules Saved With Your",
         titleHighlight: "Store",
         titleEnd: "",
         description:
-          "Fraud rules are stored per site in Softune Site Settings—so each storefront can run the protection profile that fits its risk.",
+          "Fraud settings live in your site's own settings, so each storefront you run can carry a different configuration.",
         bullets: [
-          "Per-site enablement and thresholds",
+          "Per-site rule storage",
           "No separate fraud SaaS to connect",
           "Same tenant isolation as the rest of Softune",
         ],
       },
     ],
-    extraTitle: "Practical protection for COD markets",
+    extraTitle: "Built around COD reality",
     extraDesc:
-      "Designed around how Softune merchants actually get burned: fake phones, repeat abusers, and oversized first orders—not generic card-fraud theater.",
+      "This is a blocklist and a set of thresholds you control — not automated card-fraud scoring. It's built for how Softune merchants actually get burned.",
     extraCards: [
-      {
-        title: "Review Before Ship",
-        desc: "Hold risky orders so courier costs aren’t wasted on returns.",
-        icon: "/icons/delivery.svg",
-      },
-      {
-        title: "Team Notes",
-        desc: "Blocklist entries keep context so your staff know why a number was banned.",
-        icon: "/icons/book.svg",
-      },
-      {
-        title: "Toggle Per Rule",
-        desc: "Enable only the checks you need—nothing forced on by default.",
-        icon: "/icons/zap.svg",
-      },
+      { title: "Your Numbers, Your Rules", desc: "Nothing forced on by default — enable only what you need.", icon: "/icons/zap.svg" },
+      { title: "Team Notes", desc: "Blocklist entries can carry a note so staff know the context.", icon: "/icons/book.svg" },
+      { title: "No Extra Signup", desc: "Configured from the same dashboard as your orders and site settings.", icon: "/icons/delivery.svg" },
     ],
   },
   "courier": {
     slug: "courier",
-    pillText: "Automated Logistics",
-    titleStart: "Connect Store to Top",
+    pillText: "Delivery",
+    titleStart: "Connect Your Own",
     titleHighlight: "Courier",
-    titleEnd: "Networks",
-    description: "Say goodbye to manual shipping bookings. Book couriers, print labels, calculate rates, and sync tracking codes in one click.",
-    introTitle: "Streamline shipping operations and get packages out faster",
-    introDesc: "Manage all courier bookings, labels, and tracking details from your central Softune dashboard. No more copy-pasting order details into separate shipping portals.",
+    titleEnd: "Account",
+    description:
+      "Connect your Steadfast courier account to Softune with your own API credentials — Softune verifies them and keeps them stored securely for your store.",
+    introTitle: "Your courier account, connected to your store",
+    introDesc:
+      "Courier connections use your own account credentials, not a shared Softune account, so bookings and billing stay under your name with your courier.",
     alternating: [
       {
-        pillText: "One-click Bookings",
+        pillText: "Steadfast Integration",
         pillIcon: "/icons/delivery.svg",
-        titleStart: "Book Couriers in a Single",
-        titleHighlight: "Click",
+        titleStart: "Connect Your",
+        titleHighlight: "Steadfast",
+        titleEnd: "Account",
+        description:
+          "Enter your Steadfast API key and secret, and Softune verifies the connection directly against Steadfast before saving it.",
+        bullets: [
+          "Uses your own Steadfast account, not a shared one",
+          "Credentials verified on connect",
+          "Credentials stored encrypted",
+        ],
+      },
+      {
+        pillText: "More Providers Coming",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Pathao and RedX Are",
+        titleHighlight: "On the Way",
         titleEnd: "",
-        description: "Choose an order, select a shipping provider, and submit. Customer shipping coordinates are synced directly to courier portals.",
+        description:
+          "Steadfast is live today; Pathao and RedX connections are on our roadmap for the courier settings screen.",
         bullets: [
-          "Automatic pickup booking",
-          "Addresses validated automatically",
-          "Courier API rates calculated in real-time"
-        ]
+          "One connections screen for all your couriers",
+          "Same credential-verification approach for each",
+          "No change to your workflow when new ones land",
+        ],
       },
-      {
-        pillText: "Batch Labels",
-        pillIcon: "/icons/themes.svg",
-        titleStart: "Print Custom Branded Shipping",
-        titleHighlight: "Labels",
-        titleEnd: "in Batches",
-        description: "Select multiple orders and export clean, printable shipping labels instantly. Includes order items inside packing lists for warehouse teams.",
-        bullets: [
-          "Batch barcode label printing",
-          "Custom branded layouts with logos",
-          "Integrated pick-lists save time"
-        ]
-      },
-      {
-        pillText: "Tracking Sync",
-        pillIcon: "/icons/analytics.svg",
-        titleStart: "Notify Customers With Live",
-        titleHighlight: "Tracking",
-        titleEnd: "URLs",
-        description: "When shipping labels are created, courier tracking IDs sync to order details, and tracking updates send automatically to customers.",
-        bullets: [
-          "Automatic tracking ID attachment",
-          "Email and SMS shipping alerts",
-          "Branded self-service order tracking portals"
-        ]
-      },
-      {
-        pillText: "Dynamic Rates",
-        pillIcon: "/icons/wallet.svg",
-        titleStart: "Show Live Shipping Rates at",
-        titleHighlight: "Checkout",
-        titleEnd: "",
-        description: "Provide accurate shipping options based on customer location, package dimensions, and weight directly on checkout screens.",
-        bullets: [
-          "Calculates rates from multiple carriers",
-          "Custom shipping rule presets",
-          "Free shipping threshold logic"
-        ]
-      }
     ],
-    extraTitle: "Ship with confidence, scale your business",
-    extraDesc: "We support integrations with local shipping networks and international shipping services to cover all business stages.",
+    extraTitle: "Simple, verified connections",
+    extraDesc:
+      "Courier integration today is about connecting and verifying your own account — booking, label, and rate automation are on our roadmap, not live yet.",
     extraCards: [
-      { title: "Bulk Fulfillment", desc: "Select up to 100 orders and ship them all simultaneously with one click.", icon: "/icons/delivery.svg" },
-      { title: "Return Shipping", desc: "Allow buyers to self-request and print discount return shipping labels.", icon: "/icons/domain.svg" },
-      { title: "Carrier Coverage", desc: "Integrated with local couriers, regional networks, and global shippers.", icon: "/icons/splash.svg" }
-    ]
+      { title: "Your Account Stays Yours", desc: "Softune never books or bills on your behalf without your own credentials.", icon: "/icons/lock.svg" },
+      { title: "Verified on Connect", desc: "We check your credentials against the courier's own API before saving.", icon: "/icons/zap.svg" },
+      { title: "Encrypted Storage", desc: "Courier credentials are encrypted at rest, same as payment credentials.", icon: "/icons/domain.svg" },
+    ],
   },
   "store-analytics": {
     slug: "store-analytics",
-    pillText: "Data-Driven Growth",
-    titleStart: "Understand Store Performance with",
-    titleHighlight: "Analytics",
+    pillText: "Store Analytics",
+    titleStart: "See Revenue, Orders, and",
+    titleHighlight: "Trends",
     titleEnd: "",
-    description: "Make informed decisions with detailed data. Monitor your conversions, trace customer journeys, and measure campaigns directly from the dashboard.",
-    introTitle: "Stop guessing what drives your ecommerce sales",
-    introDesc: "Know exactly which marketing channel, keyword, or product category generates revenue. Our built-in analytics dashboard converts raw data into simple, actionable trends.",
+    description:
+      "Track revenue, order count, average order value, and refund rate — each compared to the previous period — plus a weekly revenue trend, top categories, and your best-selling products.",
+    introTitle: "Your own numbers, not a generic dashboard",
+    introDesc:
+      "Analytics run on your store's real orders — pick a window from 1 to 26 weeks and see how revenue, orders, and refunds moved period over period.",
     alternating: [
       {
-        pillText: "Funnel Analytics",
+        pillText: "Revenue & Orders",
         pillIcon: "/icons/analytics.svg",
-        titleStart: "Monitor Customer Purchase",
-        titleHighlight: "Funnels",
+        titleStart: "Track Revenue, Orders, and",
+        titleHighlight: "AOV",
         titleEnd: "",
-        description: "See where prospective buyers drop off. Track visitors from landing pages, to product selections, cart updates, and checkouts.",
+        description:
+          "See revenue, order count, average order value, and refund rate for your chosen window, each with a period-over-period change.",
         bullets: [
-          "Identify and fix high cart abandonment steps",
-          "Checkout funnel drop-off analytics",
-          "Mobile vs desktop conversion statistics"
-        ]
+          "Configurable 1–26 week window",
+          "Period-over-period percent change on every metric",
+          "A weekly revenue trend chart",
+        ],
       },
       {
-        pillText: "Cohort Tracking",
-        pillIcon: "/icons/user.svg",
-        titleStart: "Measure Customer Loyalty and",
-        titleHighlight: "LTV",
-        titleEnd: "",
-        description: "Group customers based on first-purchase date to track cohort activity, average order values (AOV), and customer lifetime value (LTV).",
-        bullets: [
-          "Cohort retention charts",
-          "Lifetime value (LTV) metrics",
-          "Repeat purchase frequency trends"
-        ]
-      },
-      {
-        pillText: "Campaign Payouts",
+        pillText: "Categories & Best Sellers",
         pillIcon: "/icons/color.svg",
-        titleStart: "Trace Revenue Back to Specific",
-        titleHighlight: "Campaigns",
+        titleStart: "See What's",
+        titleHighlight: "Actually Selling",
         titleEnd: "",
-        description: "Identify top-performing channels. Track revenue from social media platforms, search engine queries, or specific influencer discount codes.",
+        description:
+          "A breakdown of revenue by your top categories, plus your top 5 best-selling products by quantity, for the same window.",
         bullets: [
-          "UTM parameter tracking for campaigns",
-          "Revenue attribution by discount code",
-          "Referrer source sales segmentation"
-        ]
+          "Top 8 categories by revenue share",
+          "Top 5 products by quantity sold",
+          "Same window as your revenue numbers",
+        ],
       },
       {
-        pillText: "Live Feed",
-        pillIcon: "/icons/zap.svg",
-        titleStart: "Watch Store Activity in",
-        titleHighlight: "Real-Time",
+        pillText: "Weekly Report Table",
+        pillIcon: "/icons/themes.svg",
+        titleStart: "A Week-by-Week Sales",
+        titleHighlight: "Report",
         titleEnd: "",
-        description: "See live store visitor numbers, checkout starts, and sales as they happen. Perfect for launch days and flash sales.",
+        description:
+          "A table breaking down orders, customers, revenue, and refunds by week, so you can see the shape of your sales, not just a total.",
         bullets: [
-          "Real-time customer activity stream",
-          "Live shopping cart status checks",
-          "Geographic visitor charts"
-        ]
-      }
+          "Orders, customers, revenue, and refunds per week",
+          "Net revenue after refunds",
+          "Same data that powers the charts above",
+        ],
+      },
     ],
-    extraTitle: "Deep reporting tools without the complexity",
-    extraDesc: "We structure data cleanly, saving you the hassle of navigating overly technical external analytics portals.",
+    extraTitle: "What this doesn't do — yet",
+    extraDesc:
+      "This is order-based analytics, not visitor tracking. Softune doesn't record site visits, so there's no funnel, cohort, or campaign-attribution data here.",
     extraCards: [
-      { title: "Exportable Reports", desc: "Download sales, tax, product, and customer logs in CSV/PDF.", icon: "/icons/analytics.svg" },
-      { title: "One-click Pixels", desc: "Add Meta, Google, and TikTok tracking pixels with simple toggles.", icon: "/icons/zap.svg" },
-      { title: "KPI Overviews", desc: "Pin your most relevant sales metrics directly to the home screen.", icon: "/icons/themes.svg" }
-    ]
-  },
-  "customer-management": {
-    slug: "customer-management",
-    pillText: "CRM & Relationships",
-    titleStart: "Build Long-Term Customer",
-    titleHighlight: "Loyalty",
-    titleEnd: "",
-    description: "Build detailed buyer profiles, trace interaction history, and issue loyalty rewards to turn first-time shoppers into repeat brand advocates.",
-    introTitle: "Place customer relationships at the center of your store operations",
-    introDesc: "Understand customer shopping habits. Track purchase history, store communication logs, customer tags, and lifetime values all inside your user profile database.",
-    alternating: [
-      {
-        pillText: "Buyer Profiles",
-        pillIcon: "/icons/user.svg",
-        titleStart: "Comprehensive Customer Profile",
-        titleHighlight: "Insights",
-        titleEnd: "",
-        description: "View individual purchase timelines, product preferences, average order values, and specific delivery addresses.",
-        bullets: [
-          "Ordered items and transaction history",
-          "Lifetime value metrics and statistics",
-          "Internal notes and team labels"
-        ]
-      },
-      {
-        pillText: "Smart Segmentation",
-        pillIcon: "/icons/analytics.svg",
-        titleStart: "Segment Customers for Targeted",
-        titleHighlight: "Marketing",
-        titleEnd: "",
-        description: "Filter customer cohorts by total spend, purchase frequency, order recency, and specific product interests.",
-        bullets: [
-          "Filter by high-spend or high-volume VIP cohorts",
-          "Locate inactive customers for win-back campaigns",
-          "Export custom email segments"
-        ]
-      },
-      {
-        pillText: "Loyalty Rewards",
-        pillIcon: "/icons/color.svg",
-        titleStart: "Encourage Repeat Purchases With",
-        titleHighlight: "Rewards",
-        titleEnd: "",
-        description: "Create customer loyalty programs. Reward buyers with points for checkouts, brand referrals, and social follows.",
-        bullets: [
-          "Point systems for order checkouts",
-          "Custom birthday and referral incentives",
-          "Redeem points directly on checkout screens"
-        ]
-      },
-      {
-        pillText: "Direct Outreach",
-        pillIcon: "/icons/chat.svg",
-        titleStart: "Send SMS & Email Campaign",
-        titleHighlight: "Notifications",
-        titleEnd: "",
-        description: "Draft and send updates directly to specific customer groups. Send special loyalty discounts or new product announcements.",
-        bullets: [
-          "Pre-built email campaign template setups",
-          "Transactional and marketing SMS support",
-          "Opt-in and opt-out preferences tracking"
-        ]
-      }
+      { title: "Order-Based, Not Visitor-Based", desc: "Numbers come from real orders — there's no traffic or session tracking.", icon: "/icons/analytics.svg" },
+      { title: "One Dashboard Screen", desc: "No separate analytics tool to connect or configure.", icon: "/icons/zap.svg" },
+      { title: "Your Store Only", desc: "Every number here is scoped to your own tenant.", icon: "/icons/lock.svg" },
     ],
-    extraTitle: "Grow sales through loyal customers",
-    extraDesc: "We build tools that make it simple to nurture customer relationships and increase store retention rates.",
-    extraCards: [
-      { title: "Store Credits", desc: "Refund store credit directly to buyer balances to retain revenue.", icon: "/icons/wallet.svg" },
-      { title: "Notes & Labels", desc: "Tag VIP customers and add context notes for support teams.", icon: "/icons/user.svg" },
-      { title: "Privacy Compliance", desc: "Built-in GDPR and CCPA compliance settings protect customer profiles.", icon: "/icons/lock.svg" }
-    ]
   },
   "orders": {
     slug: "orders",
-    pillText: "Workflow Automation",
-    titleStart: "Optimized Order Management",
-    titleHighlight: "Engine",
-    titleEnd: "",
-    description: "Handle bulk orders, issue partial refunds, print packing slips, and process drop-ship shipments from a single consolidated screen.",
-    introTitle: "Handle large volumes of retail orders without hitting bottlenecks",
-    introDesc: "Manage order lifecycles from submission, payment capture, fulfillment, packing, and courier booking to final delivery tracking.",
+    pillText: "Order Management",
+    titleStart: "Orders That Stay",
+    titleHighlight: "Accurate",
+    titleEnd: "Over Time",
+    description:
+      "Search, filter, and update orders from one screen — and every order keeps a permanent snapshot of what was actually sold, so editing a product later never rewrites a past sale.",
+    introTitle: "Your order history doesn't change when your catalog does",
+    introDesc:
+      "Every order item stores its own name, SKU, price, and quantity at the moment of sale. Edit or even delete the product later, and the order still shows exactly what the customer bought.",
     alternating: [
       {
-        pillText: "Bulk Processing",
+        pillText: "Search & Filter",
         pillIcon: "/icons/orders.svg",
-        titleStart: "Process Hundreds of Orders",
-        titleHighlight: "Simultaneously",
+        titleStart: "Find Any Order by Number or",
+        titleHighlight: "Customer",
         titleEnd: "",
-        description: "Select multiple orders from lists to book courier pickups, print packing slips, or update statuses in batches.",
+        description:
+          "Search by order number or customer details, and filter by status, to get to the order you're looking for quickly.",
         bullets: [
-          "Batch shipping label exports",
-          "Bulk order status updates",
-          "Group order receipts and invoices"
-        ]
+          "Search by order number or customer info",
+          "Filter by order status",
+          "Up to 500 orders per page",
+        ],
       },
       {
-        pillText: "Flexible Refunds",
-        pillIcon: "/icons/wallet.svg",
-        titleStart: "Execute Fast Partial Fulfillments &",
-        titleHighlight: "Refunds",
+        pillText: "Immutable History",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Past Orders Stay",
+        titleHighlight: "Accurate",
         titleEnd: "",
-        description: "Manage complex orders. Refund specific products, adjust shipping fees, and fulfill separate items from multiple warehouses.",
+        description:
+          "Order line items snapshot the product's name, SKU, and price at time of sale — editing or deleting that product afterward never changes what the order record shows.",
         bullets: [
-          "Item-level partial fulfillment checks",
-          "Calculate and process partial refunds",
-          "Automatic stock count restorations"
-        ]
+          "Name, SKU, and price locked in at time of sale",
+          "Deleting a product doesn't break its past orders",
+          "Server-priced from your catalog, not client-submitted",
+        ],
       },
       {
-        pillText: "Packing Slips",
+        pillText: "Print Delivery Slips",
         pillIcon: "/icons/themes.svg",
-        titleStart: "Branded Packing Slips with",
-        titleHighlight: "Barcodes",
+        titleStart: "Print an Invoice or Delivery",
+        titleHighlight: "Slip",
         titleEnd: "",
-        description: "Print clear packing slips for warehouse teams. Includes customer addresses, item coordinates, and barcode tracking tags.",
+        description:
+          "Print a delivery slip or invoice for any order in one click, straight from the order detail screen.",
         bullets: [
-          "Branded templates with store branding logos",
-          "Order item lists and quantity details",
-          "Barcode elements speed up box scanning"
-        ]
+          "One-click print from any order",
+          "Includes order number, date, and items",
+          "No separate document tool needed",
+        ],
       },
-      {
-        pillText: "Status Automation",
-        pillIcon: "/icons/zap.svg",
-        titleStart: "Auto-trigger Workflows on Status",
-        titleHighlight: "Changes",
-        titleEnd: "",
-        description: "Create rules that trigger actions when orders transition. For example, automatically alert couriers when orders transition to 'Fulfillment'.",
-        bullets: [
-          "Custom order workflow rules",
-          "Automated customer notification emails",
-          "Syncs details to third-party shipping platforms"
-        ]
-      }
     ],
-    extraTitle: "Scale order operations cleanly",
-    extraDesc: "We focus on optimizing order processing details so your customer support volume remains low.",
+    extraTitle: "What this doesn't do — yet",
+    extraDesc:
+      "Order status and notes can be updated today; refunds, bulk order actions, and packing-slip barcodes aren't built yet.",
     extraCards: [
-      { title: "Smart Fulfillment Rules", desc: "Route orders to nearest retail nodes to save courier transit times.", icon: "/icons/delivery.svg" },
-      { title: "Self-service Tracking", desc: "Buyers check order status and download invoice PDFs in self-service.", icon: "/icons/domain.svg" },
-      { title: "Official Invoices", desc: "Auto-generate official, tax-compliant PDF invoices for tax records.", icon: "/icons/billing.svg" }
-    ]
+      { title: "Status & Notes", desc: "Update an order's status and notes as it moves through fulfillment.", icon: "/icons/zap.svg" },
+      { title: "Server-Priced Totals", desc: "Totals are calculated from your catalog, not trusted from the request.", icon: "/icons/wallet.svg" },
+      { title: "Tenant-Scoped", desc: "Every order belongs to one store — no cross-store visibility.", icon: "/icons/lock.svg" },
+    ],
   },
   "payments": {
     slug: "payments",
-    pillText: "High-Converting Checkout",
-    titleStart: "Secure Global Payment",
-    titleHighlight: "Gateways",
-    titleEnd: "",
-    description: "Support credit cards, local digital wallets, cash on delivery, and installment checkouts. Protect transactions with advanced AI fraud shields.",
-    introTitle: "Provide customers with their preferred payment options",
-    introDesc: "Eliminate checkout abandonment by offering flexible payment configurations. Integrate card processors, local wallets, and BNPL installment terms.",
+    pillText: "Payments",
+    titleStart: "Cash on Delivery and",
+    titleHighlight: "Manual Payments",
+    titleEnd: "Today",
+    description:
+      "Accept cash on delivery, or let customers pay to your own bKash, Nagad, or Rocket number and submit a transaction ID for you to verify — the payment methods that actually work at checkout right now.",
+    introTitle: "Built for how COD-first stores actually take payment",
+    introDesc:
+      "Cash on delivery and manual mobile-wallet payments are live at checkout today. Gateway connections for automated card and wallet processing can be configured, ready for when live checkout support ships.",
     alternating: [
       {
-        pillText: "Local & Global",
+        pillText: "Cash on Delivery",
         pillIcon: "/icons/wallet.svg",
-        titleStart: "Integrate Local Wallets and",
-        titleHighlight: "Gateways",
+        titleStart: "Accept Cash on",
+        titleHighlight: "Delivery",
         titleEnd: "",
-        description: "Connect store with Stripe, PayPal, SSLCommerz, bKash, Nagad, and local digital wallets inside unified checkout screens.",
+        description:
+          "Turn on COD with an optional fee, no account or credentials required to set up.",
         bullets: [
-          "Accept bKash, Nagad, and wallet payments",
-          "Secure credit and debit card processors",
-          "Integrated Cash-on-Delivery payment routing"
-        ]
+          "No credentials needed to enable",
+          "Optional COD fee configuration",
+          "Live at checkout today",
+        ],
       },
       {
-        pillText: "Installment BNPL",
+        pillText: "Manual Wallet Payments",
         pillIcon: "/icons/billing.svg",
-        titleStart: "Offer Installment Checkouts with",
-        titleHighlight: "BNPL",
+        titleStart: "Take bKash, Nagad, or Rocket",
+        titleHighlight: "Manually",
         titleEnd: "",
-        description: "Boost conversions on high-ticket products by allowing buyers to split checkouts into interest-free monthly payments.",
+        description:
+          "Customers send payment to your own number and submit a transaction ID at checkout, which you verify from your dashboard.",
         bullets: [
-          "Direct integration with BNPL providers",
-          "Show monthly installments on product pages",
-          "High cart value checkout completions"
-        ]
+          "Customer pays your own wallet number directly",
+          "Transaction ID submitted with the order",
+          "You verify it manually before fulfilling",
+        ],
       },
       {
-        pillText: "Fraud Prevention",
+        pillText: "Gateway Connections",
         pillIcon: "/icons/lock.svg",
-        titleStart: "Protect Your Revenue with AI",
-        titleHighlight: "Fraud Shield",
+        titleStart: "Store Gateway Credentials for",
+        titleHighlight: "What's Next",
         titleEnd: "",
-        description: "Monitor purchase indicators and card details in real-time. Flag high-risk transactions before processing checkout capturing.",
+        description:
+          "Connect and store credentials for bKash, Nagad, SSLCommerz, or Rocket gateway accounts now — automated checkout support for these is on our roadmap, not live yet.",
         bullets: [
-          "Verify checkout patterns and card matches",
-          "Automated chargeback risk warning metrics",
-          "Filter out known spam email and IP blocks"
-        ]
+          "Credentials stored encrypted",
+          "Ready ahead of automated checkout support",
+          "No automated processing through these yet",
+        ],
+      },
+    ],
+    extraTitle: "What this doesn't do — yet",
+    extraDesc:
+      "There's no BNPL, no saved cards, no multi-currency, and no automated fraud scoring on payments today — this is a COD- and manual-payment-first setup.",
+    extraCards: [
+      { title: "COD-First", desc: "Built around cash-on-delivery, the dominant payment method for these stores.", icon: "/icons/wallet.svg" },
+      { title: "Manual Verification", desc: "You confirm manual wallet payments yourself before fulfilling.", icon: "/icons/lock.svg" },
+      { title: "Encrypted Credentials", desc: "Any gateway credentials you connect are encrypted at rest.", icon: "/icons/domain.svg" },
+    ],
+  },
+  "customer-management": {
+    slug: "customer-management",
+    pillText: "Real Customers",
+    titleStart: "Know Who's",
+    titleHighlight: "Buying Again",
+    titleEnd: "",
+    description:
+      "Every order is automatically linked to a real customer record by phone number, so you can finally tell a first-time buyer from your fifth-time regular — with their full order history, total spend, and last order date in one place.",
+    introTitle: "A customer record, not just an order form",
+    introDesc:
+      "The first time a phone number checks out, Softune creates a customer record for it. The next order from that same number — however it's typed — links to the same record, building real history instead of disconnected orders.",
+    alternating: [
+      {
+        pillText: "Automatic Matching",
+        pillIcon: "/icons/user.svg",
+        titleStart: "Created Automatically From",
+        titleHighlight: "Real Orders",
+        titleEnd: "",
+        description:
+          "No customer form to fill out — a record is created the first time a phone number places an order, and every later order from that number links to the same one.",
+        bullets: [
+          "No manual data entry required",
+          "Matches phone numbers across formats automatically",
+          "Works from both storefront checkout and manual orders",
+        ],
       },
       {
-        pillText: "One-page Checkout",
-        pillIcon: "/icons/zap.svg",
-        titleStart: "Optimize Conversions with One-page",
-        titleHighlight: "Checkout",
+        pillText: "Order History",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "See Every Order, Total Spend, and",
+        titleHighlight: "Last Visit",
         titleEnd: "",
-        description: "Speed up purchasing. One-page checkouts pre-populate buyer details and combine cart checks and payments into a single step.",
+        description:
+          "Open a customer and see their order count, total spent, last order date, and every linked order in one screen.",
         bullets: [
-          "Form details auto-filled for returning buyers",
-          "Optimized layout fields reduce purchase friction",
-          "Guest checkouts enabled without force-signup"
-        ]
-      }
+          "Order count and total spend, computed live",
+          "Full linked order history in one view",
+          "Search and filter your customer list",
+        ],
+      },
+      {
+        pillText: "Export & Contact",
+        pillIcon: "/icons/wallet.svg",
+        titleStart: "Export Your List, Edit",
+        titleHighlight: "Contact Info",
+        titleEnd: "",
+        description:
+          "Export your customer list to CSV any time, and edit a customer's name or email directly from their profile.",
+        bullets: [
+          "One-click CSV export",
+          "Edit name and email per customer",
+          "Copy phone and email straight from the profile",
+        ],
+      },
     ],
-    extraTitle: "Settle transactions cleanly, count your revenue",
-    extraDesc: "We provide secure checkout structures that automate bookkeeping and keep accounting teams happy.",
+    extraTitle: "What this doesn't do — yet",
+    extraDesc:
+      "This is real customer tracking, not a full CRM — there's no loyalty points, no segmentation, and no SMS/email campaign tool built on top of it yet.",
     extraCards: [
-      { title: "Direct Reconciliation", desc: "Sync transaction logs with banks to verify payouts on the dashboard.", icon: "/icons/wallet.svg" },
-      { title: "Multi-Currency", desc: "Display prices in local currency while settling in your home currency.", icon: "/icons/domain.svg" },
-      { title: "Saved Payment Details", desc: "PCI-compliant card saving makes checkout fast for repeat buyers.", icon: "/icons/lock.svg" }
-    ]
-  }
+      { title: "Phone-First", desc: "Built for COD stores where phone, not email, is the reliable identifier.", icon: "/icons/wallet.svg" },
+      { title: "Only Forward-Looking", desc: "Orders placed before this shipped aren't retroactively linked.", icon: "/icons/lock.svg" },
+      { title: "Per-Store", desc: "Customer records are scoped to your storefront, not shared across accounts.", icon: "/icons/domain.svg" },
+    ],
+  },
 };
 
 export const FEATURES_LIST = [
-  { slug: "multiple-themes", title: "Multiple Themes", icon: "/icons/themes.svg", desc: "Conversion-optimized templates" },
-  { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Automate descriptions & SEO" },
-  { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Checkout rules & phone blocklist" },
-  { slug: "courier", title: "Courier Integration", icon: "/icons/delivery.svg", desc: "Automated logistics & labels" },
-  { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Funnel conversions & LTV" },
-  { slug: "customer-management", title: "Customer Management", icon: "/icons/user.svg", desc: "Buyer profiles & loyalty" },
-  { slug: "orders", title: "Orders Management", icon: "/icons/orders.svg", desc: "Consolidated bulk processing" },
-  { slug: "payments", title: "Payment Integration", icon: "/icons/wallet.svg", desc: "Secure local & global gateways" },
+  { slug: "multiple-themes", title: "Multiple Themes", icon: "/icons/themes.svg", desc: "Aurora, Bazaar, and Sweets" },
+  { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "AI descriptions and theme suggestions" },
+  { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and order rules" },
+  { slug: "courier", title: "Courier Integration", icon: "/icons/delivery.svg", desc: "Connect your Steadfast account" },
+  { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, orders, and trends" },
+  { slug: "customer-management", title: "Customers", icon: "/icons/user.svg", desc: "Real customer records, built from orders" },
+  { slug: "orders", title: "Orders Management", icon: "/icons/orders.svg", desc: "Search, filter, and immutable history" },
+  { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD and manual wallet payments" },
 ];

@@ -16,14 +16,14 @@ import {
 } from "react-icons/si";
 
 const stack = [
-  { name: "Next.js", color: "#000000", Icon: SiNextdotjs },
+  { name: "Next.js", color: "var(--color-ink)", Icon: SiNextdotjs },
   { name: "React", color: "#087EA4", Icon: SiReact },
   { name: "Python", color: "#3776AB", Icon: SiPython },
   { name: "FastAPI", color: "#009688", Icon: SiFastapi },
   { name: "Supabase", color: "#3ECF8E", Icon: SiSupabase },
   { name: "PostgreSQL", color: "#336791", Icon: SiPostgresql },
   { name: "Tailwind CSS", color: "#38B2AC", Icon: SiTailwindcss },
-  { name: "Vercel", color: "#000000", Icon: SiVercel },
+  { name: "Vercel", color: "var(--color-ink)", Icon: SiVercel },
   { name: "Redis", color: "#DC382D", Icon: SiRedis },
   { name: "RabbitMQ", color: "#FF6600", Icon: SiRabbitmq },
 ];

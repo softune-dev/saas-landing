@@ -20,7 +20,7 @@ const links = [
         href: "/features/store-analytics",
         icon: "/icons/analytics.svg",
       },
-      { label: "Customer Management", href: "/features/customer-management", icon: "/icons/user.svg" },
+      { label: "Customers", href: "/features/customer-management", icon: "/icons/user.svg" },
       { label: "Orders", href: "/features/orders", icon: "/icons/orders.svg" },
       { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
     ],
