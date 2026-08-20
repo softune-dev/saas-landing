@@ -1,42 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const features = [
-  { icon: "/icons/themes.svg", title: "Multiple Themes" },
-  { icon: "/icons/domain.svg", title: "Multi Store Management" },
-  { icon: "/icons/shop-bag.svg", title: "POS System" },
-  { icon: "/icons/color.svg", title: "Theme Customize" },
-  { icon: "/icons/zap.svg", title: "Store Customize" },
+  { icon: "/icons/shop-bag.svg", title: "Product Management" },
+  { icon: "/icons/book.svg", title: "Category Organization" },
+  { icon: "/icons/orders.svg", title: "Order Management" },
   { icon: "/icons/analytics.svg", title: "Store Analytics" },
+  { icon: "/icons/themes.svg", title: "Multi-Theme System" },
+  { icon: "/icons/color.svg", title: "AI Theme Editor" },
   { icon: "/icons/user.svg", title: "Customer Management" },
-  { icon: "/icons/cart.svg", title: "Orders Management" },
-  { icon: "/icons/lock.svg", title: "Payment Gateway" },
-  { icon: "/icons/book.svg", title: "Product Management" },
-  { icon: "/icons/gemini.svg", title: "AI Assistant" },
-  { icon: "/icons/help-desk.svg", title: "Helpdesk System" },
-  { icon: "/icons/save.svg", title: "Inventory Tracking" },
-  { icon: "/icons/splash.svg", title: "Courier Integration" },
-  { icon: "/icons/lock.svg", title: "Fraud Detection" },
-  { icon: "/icons/chat.svg", title: "Customer Insights" },
+  { icon: "/icons/delivery.svg", title: "Courier Integrations" },
+  { icon: "/icons/wallet.svg", title: "Payment Integrations" },
+  { icon: "/icons/save.svg", title: "Add-Ons Marketplace" },
+  { icon: "/icons/domain.svg", title: "Site Settings" },
+  { icon: "/icons/lock.svg", title: "Fraud Protection" },
+  { icon: "/icons/splash.svg", title: "Media Library" },
+  { icon: "/icons/ai-pencil.svg", title: "AI Assistant" },
+  { icon: "/icons/play.svg", title: "Guided Onboarding" },
+  { icon: "/icons/billing.svg", title: "Billing & Tracking" },
 ];
 
 export function Features() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section
       id="features"
       className="border-y border-[var(--color-line)] bg-[#FAF9F6]"
     >
-      <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div className="flex flex-col items-center text-center mx-auto">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-5 md:px-8 md:py-28">
+        <div className="mx-auto flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-4 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-white p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
           >
-            <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
+            <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
                 className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
                 style={{ animationDuration: "2s" }}
@@ -44,35 +47,37 @@ export function Features() {
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="size-3 md:size-3.5 object-contain"
+                className="size-3 object-contain md:size-3.5"
               />
             </div>
-            <span className="text-[13px] md:text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
               Core Features
             </span>
           </motion.div>
 
-          <h2 className="max-w-3xl font-extrabold tracking-tight text-4xl leading-[1.1] text-[var(--color-ink)] sm:text-5xl md:text-6xl">
-           Manage Everything in {" "}
-            <span className="relative inline-block whitespace-nowrap px-4 py-0.5 ml-1">
-              <span className="absolute inset-0 -rotate-1 top-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
+          <h2 className="max-w-3xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
+            Manage Everything in{" "}
+            <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+              <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
               <em className="relative not-italic text-white">One Place</em>
             </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-[var(--color-muted)] font-medium md:text-[17px] lg:text-lg">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
             From powerful multi-store capabilities to deep AI integrations, Softune packs all the essential tools you need out of the box.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-left">
+        <div className="mt-10 grid gap-4 text-left sm:mt-16 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-6 md:p-8 transition-all duration-300 cursor-pointer group"
+              transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
+              className={`group relative cursor-pointer overflow-hidden rounded-[20px] border border-[#D4D4D4] bg-white p-5 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] sm:p-6 md:p-8 ${
+                !showAll && i >= 6 ? "hidden md:block" : ""
+              }`}
             >
               {/* Top Right Intense Dots */}
               <div className="pointer-events-none absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_70%)] opacity-80" />
@@ -94,6 +99,17 @@ export function Features() {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="mt-6 flex justify-center md:hidden">
+            <button
+              onClick={() => setShowAll(true)}
+              className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
+            >
+              View all 16 features
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

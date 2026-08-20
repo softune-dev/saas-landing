@@ -28,44 +28,48 @@ const cards = [
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-        
-        {/* Left Side: Content & Cards */}
+    <section
+      id="contact"
+      className="mx-auto max-w-7xl overflow-x-clip px-4 py-14 sm:px-5 md:px-8 md:py-32"
+    >
+      <div className="grid min-w-0 grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-24">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-6 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-white p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
           >
-            <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
+            <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
                 className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
                 style={{ animationDuration: "2s" }}
               />
-              <img src="/icons/chat.svg" alt="" className="size-3 md:size-3.5 object-contain relative z-10" />
+              <img
+                src="/icons/chat.svg"
+                alt=""
+                className="relative z-10 size-3 object-contain md:size-3.5"
+              />
             </div>
-            <span className="text-[13px] md:text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
               Contact Us
             </span>
           </motion.div>
 
-          <h2 className="font-extrabold tracking-tight text-4xl leading-[1.15] text-[var(--color-ink)] sm:text-5xl">
-            Let's build something <br/>
-            <span className="relative inline-block whitespace-nowrap px-4 py-0.5 mt-2">
+          <h2 className="text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15]">
+            Let&apos;s build something <br />
+            <span className="relative mt-2 inline-block px-2.5 py-0.5 sm:whitespace-nowrap sm:px-4">
               <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
               <em className="relative not-italic text-white">extraordinary.</em>
             </span>
           </h2>
-          
-          <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-[var(--color-muted)] font-medium">
+
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px]">
             Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softune.
           </p>
 
-          {/* Cards Grid */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 md:gap-6">
             {cards.map((card, i) => (
               <motion.div
                 key={card.title}
@@ -105,56 +109,69 @@ export function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="rounded-[2.5rem] border border-[#D4D4D4] bg-white p-8 md:p-12 shadow-2xl shadow-[var(--color-brand)]/5"
+          className="w-full min-w-0 max-w-full rounded-[1.75rem] border border-[#D4D4D4] bg-white p-5 shadow-xl shadow-[var(--color-brand)]/5 sm:rounded-[2.5rem] sm:p-8 sm:shadow-2xl md:p-12"
         >
-          <h3 className="text-2xl font-extrabold text-[var(--color-ink)] mb-8 tracking-tight">
+          <h3 className="mb-6 text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:mb-8 sm:text-2xl">
             Send us a message
           </h3>
-          
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+          <form
+            className="flex flex-col gap-5 sm:gap-6"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-[14px] font-bold text-[var(--color-ink)]">First Name</label>
-                <input 
-                  type="text" 
+                <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                  First Name
+                </label>
+                <input
+                  type="text"
                   placeholder="John"
                   required
-                  className="rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[14px] font-bold text-[var(--color-ink)]">Last Name</label>
-                <input 
-                  type="text" 
+                <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                  Last Name
+                </label>
+                <input
+                  type="text"
                   placeholder="Doe"
                   required
-                  className="rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">Email Address</label>
-              <input 
-                type="email" 
+              <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                Email Address
+              </label>
+              <input
+                type="email"
                 placeholder="john@company.com"
                 required
-                className="rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">Phone Number</label>
-              <input 
-                type="tel" 
+              <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                Phone Number
+              </label>
+              <input
+                type="tel"
                 placeholder="+1 (555) 000-0000"
-                className="rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">Message</label>
-              <textarea 
+              <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                Message
+              </label>
+              <textarea
                 rows={4}
                 required
                 placeholder="How can we help you?"
@@ -162,29 +179,46 @@ export function Contact() {
               />
             </div>
 
-            <div className="flex items-center gap-3 mt-2">
+            <div className="mt-1 flex items-center gap-3 sm:mt-2">
               <div className="relative flex items-center justify-center">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   id="verify-human"
                   required
-                  className="peer size-5 appearance-none rounded-[6px] border-2 border-[#D4D4D4] bg-[#FAFAFA] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[#A3A3A3] cursor-pointer"
+                  className="peer size-5 cursor-pointer appearance-none rounded-[6px] border-2 border-[#D4D4D4] bg-[#FAFAFA] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[#A3A3A3]"
                 />
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="pointer-events-none absolute size-3.5 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  className="pointer-events-none absolute size-3.5 text-white opacity-0 transition-opacity peer-checked:opacity-100"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
-              <label htmlFor="verify-human" className="text-[14.5px] font-bold text-[var(--color-ink)] cursor-pointer select-none">
+              <label
+                htmlFor="verify-human"
+                className="cursor-pointer text-[14px] font-bold text-[var(--color-ink)] select-none sm:text-[14.5px]"
+              >
                 I am human (Verify)
               </label>
             </div>
 
-            <Button 
+            <Button
               type="submit"
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl py-6 text-[15px] font-extrabold animate-shine bg-[var(--color-brand)] text-white hover:opacity-90 shadow-lg shadow-[var(--color-brand)]/20"
+              className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 sm:mt-4 sm:py-6"
             >
               Send Message
-              <img src="/icons/send.svg" alt="" className="size-5 object-contain brightness-0 invert" />
+              <img
+                src="/icons/send.svg"
+                alt=""
+                className="size-5 object-contain brightness-0 invert"
+              />
             </Button>
           </form>
         </motion.div>

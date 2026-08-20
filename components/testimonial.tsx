@@ -53,66 +53,87 @@ export function Testimonial() {
   };
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-      
-      {/* Header Section */}
-      <div className="flex flex-col items-center text-center mx-auto mb-16 md:mb-20">
+    <section className="mx-auto max-w-6xl px-4 py-14 sm:px-5 md:px-8 md:py-28">
+      <div className="mx-auto mb-10 flex flex-col items-center text-center md:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-6 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-white p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+          className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
         >
-          <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
+          <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
             <span
               className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
               style={{ animationDuration: "2s" }}
             />
-            <img src="/icons/chat.svg" alt="" className="size-3 md:size-3.5 object-contain relative z-10" />
+            <img
+              src="/icons/chat.svg"
+              alt=""
+              className="relative z-10 size-3 object-contain md:size-3.5"
+            />
           </div>
-          <span className="text-[13px] md:text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+          <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
             Testimonials
           </span>
         </motion.div>
 
-        <h2 className="max-w-3xl font-extrabold tracking-tight text-4xl leading-[1.15] text-[var(--color-ink)] sm:text-5xl md:text-5xl">
+        <h2 className="max-w-3xl text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15] md:text-5xl">
           Loved By Fast-Growing{" "}
-          <span className="relative inline-block whitespace-nowrap px-4 py-0.5 ml-1">
+          <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
             <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
             <em className="relative not-italic text-white">Brands</em>
           </span>
         </h2>
-        <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-[var(--color-muted)] font-medium md:text-[18px]">
+        <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
           See what our merchants have to say about building with Softune.
         </p>
       </div>
 
-      <div className="mx-auto max-w-5xl text-center relative px-8 sm:px-16 md:px-32">
-        
-        {/* Navigation Arrows at Sides */}
-        <button 
+      <div className="relative mx-auto max-w-5xl px-11 text-center sm:px-16 md:px-32">
+        <button
+          type="button"
           onClick={handlePrev}
-          className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 flex size-10 md:size-12 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:bg-[#FAFAFA] hover:border-[var(--color-ink)] hover:shadow-md active:scale-95 z-10"
+          className="absolute top-1/2 left-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[#FAFAFA] hover:shadow-md active:scale-95 md:left-4 md:size-12"
           aria-label="Previous testimonial"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="size-4 md:size-5" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            className="size-4 md:size-5"
+            strokeWidth={2.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
         </button>
 
-        <button 
+        <button
+          type="button"
           onClick={handleNext}
-          className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 flex size-10 md:size-12 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:bg-[#FAFAFA] hover:border-[var(--color-ink)] hover:shadow-md active:scale-95 z-10"
+          className="absolute top-1/2 right-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[#FAFAFA] hover:shadow-md active:scale-95 md:right-4 md:size-12"
           aria-label="Next testimonial"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="size-4 md:size-5" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            className="size-4 md:size-5"
+            strokeWidth={2.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </button>
 
-        {/* Fixed height container to prevent layout shift */}
-        <div className="relative w-full min-h-[380px] sm:min-h-[260px] md:min-h-[240px] lg:min-h-[220px]">
+        <div className="relative w-full min-h-[420px] sm:min-h-[280px] md:min-h-[240px] lg:min-h-[220px]">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.blockquote
               key={index}
@@ -122,23 +143,23 @@ export function Testimonial() {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10"
+              className="absolute inset-x-0 top-1/2 z-10 flex -translate-y-1/2 flex-col items-center justify-center"
             >
-              <p className="font-display text-2xl leading-snug text-[var(--color-ink)] sm:text-3xl md:text-[2.15rem]">
+              <p className="font-display text-[1.25rem] leading-snug text-[var(--color-ink)] sm:text-3xl md:text-[2.15rem]">
                 “{testimonials[index].text}”
               </p>
-              
-              <footer className="mt-8 md:mt-10 flex items-center justify-center gap-4">
-                <img 
-                  src={testimonials[index].avatar} 
-                  alt={testimonials[index].name} 
-                  className="size-12 md:size-14 rounded-full object-cover border border-[#D4D4D4] shadow-sm"
+
+              <footer className="mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-4 md:mt-10">
+                <img
+                  src={testimonials[index].avatar}
+                  alt={testimonials[index].name}
+                  className="size-11 rounded-full border border-[#D4D4D4] object-cover shadow-sm sm:size-12 md:size-14"
                 />
-                <div className="text-left flex flex-col justify-center">
-                  <p className="text-[15px] md:text-[16px] font-bold text-[var(--color-ink)] leading-tight">
+                <div className="flex flex-col justify-center text-left">
+                  <p className="text-[15px] leading-tight font-bold text-[var(--color-ink)] md:text-[16px]">
                     {testimonials[index].name}
                   </p>
-                  <p className="mt-1 text-[13.5px] md:text-[14.5px] text-[var(--color-muted)] leading-tight">
+                  <p className="mt-1 text-[13px] leading-tight text-[var(--color-muted)] md:text-[14.5px]">
                     {testimonials[index].role}
                   </p>
                 </div>

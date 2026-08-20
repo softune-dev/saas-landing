@@ -6,6 +6,7 @@ import { Features } from "@/components/features";
 import { Themes } from "@/components/themes";
 import { Technologies } from "@/components/technologies";
 import { PlatformFeatures } from "@/components/platform-features";
+import { AddonsShowcase } from "@/components/addons-showcase";
 import { Testimonial } from "@/components/testimonial";
 import { Pricing } from "@/components/pricing";
 import { Comparison } from "@/components/comparison";
@@ -29,6 +30,7 @@ export default function HomePage() {
         <Themes />
         <PlatformFeatures />
         <Features />
+        <AddonsShowcase />
         <Technologies />
         <Pricing />
         <Comparison />

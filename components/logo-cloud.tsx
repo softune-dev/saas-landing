@@ -15,8 +15,8 @@ const brands = [
 
 export function LogoCloud() {
   return (
-    <section className="py-10">
-      <p className="mb-6 text-center text-[11px] font-medium tracking-[0.18em] text-[var(--color-muted-soft)] uppercase">
+    <section className="overflow-hidden py-8 md:py-10">
+      <p className="mb-5 px-4 text-center text-[10px] font-medium tracking-[0.16em] text-[var(--color-muted-soft)] uppercase sm:mb-6 sm:text-[11px] sm:tracking-[0.18em]">
         Built for teams who ship storefronts weekly
       </p>
       <div 

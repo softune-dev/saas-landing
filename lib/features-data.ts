@@ -172,76 +172,95 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Included Token Credits", desc: "Token credits are pre-loaded monthly inside all store accounts.", icon: "/icons/wallet.svg" }
     ]
   },
-  "pos-system": {
-    slug: "pos-system",
-    pillText: "Omnichannel Selling",
-    titleStart: "Unified Point of Sale for",
-    titleHighlight: "Retail",
-    titleEnd: "Outlets",
-    description: "Bridge the gap between online and brick-and-mortar. Synchronize inventory, orders, and customer databases in real-time with Softune POS.",
-    introTitle: "Manage physical registers and digital orders from one screen",
-    introDesc: "Stop maintaining separate inventories for your physical store and digital website. Softune POS updates stock counts across both systems instantly with every checkout.",
+  "fraud-protection": {
+    slug: "fraud-protection",
+    pillText: "Order Safety",
+    titleStart: "Stop Risky Orders Before They",
+    titleHighlight: "Ship",
+    titleEnd: "",
+    description:
+      "Protect COD-heavy stores with checkout rules and a phone blocklist. Softune flags suspicious first-time high-value orders, burst orders from one number, and known bad phones—before you fulfill.",
+    introTitle: "Built for merchants who lose money on fake and abusive orders",
+    introDesc:
+      "Fraud Protection lives in your Softune dashboard alongside Orders and Customers. Turn on the rules that match your risk tolerance, maintain a blocklist, and review flagged checkouts without leaving the platform.",
     alternating: [
       {
-        pillText: "Real-time Sync",
-        pillIcon: "/icons/billing.svg",
-        titleStart: "Synchronize Stock Counts",
-        titleHighlight: "Instantly",
-        titleEnd: "",
-        description: "Avoid stockouts and accidental overselling. When an item is scanned and sold at your retail register, it is removed from your online catalog.",
+        pillText: "High-Value Holds",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Hold First-Time",
+        titleHighlight: "High-Value",
+        titleEnd: "Orders",
+        description:
+          "When a new customer places an order over your threshold, Softune can hold it for review so you approve before booking a courier.",
         bullets: [
-          "Universal inventory synchronization",
-          "Immediate sales updates on dashboard",
-          "Automatic stock count alerts"
-        ]
+          "Configurable minimum order value",
+          "Targets first-time buyers only",
+          "Clear review queue in your dashboard",
+        ],
       },
       {
-        pillText: "Offline Mode",
-        pillIcon: "/icons/delivery.svg",
-        titleStart: "Keep Selling Even When",
-        titleHighlight: "Offline",
+        pillText: "Burst Detection",
+        pillIcon: "/icons/analytics.svg",
+        titleStart: "Flag Burst Orders From One",
+        titleHighlight: "Phone",
         titleEnd: "",
-        description: "Don't let spotty internet connections halt your retail sales. POS queue syncs pending payments to servers as soon as connection returns.",
+        description:
+          "If the same phone places multiple orders inside a short window, Softune flags them so you can catch coordinated abuse early.",
         bullets: [
-          "Local database handles transactions offline",
-          "Automatic sync when connections restore",
-          "No lost transaction details"
-        ]
+          "Adjustable time window in minutes",
+          "Phone-based matching at checkout",
+          "Works alongside your normal order flow",
+        ],
       },
       {
-        pillText: "CRM Integration",
-        pillIcon: "/icons/user.svg",
-        titleStart: "Unified Customer Loyalty Profiles",
-        titleHighlight: "Everywhere",
+        pillText: "Blocklist",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Block Known Bad",
+        titleHighlight: "Numbers",
         titleEnd: "",
-        description: "Track repeat customers across both channels. Buyers can earn loyalty points online and redeem them inside your brick-and-mortar store.",
+        description:
+          "Maintain a phone blocklist from the Fraud Protection screen. Blocklisted numbers are rejected at checkout with a note for your team.",
         bullets: [
-          "Omnichannel customer profiles",
-          "Share store credits and loyalty points",
-          "Review buyer purchase history at the register"
-        ]
+          "Add or remove numbers anytime",
+          "Optional notes for your staff",
+          "Immediate effect on new checkouts",
+        ],
       },
       {
-        pillText: "Hardware Support",
-        pillIcon: "/icons/zap.svg",
-        titleStart: "Works With Standard Retail",
-        titleHighlight: "Hardware",
+        pillText: "Site Controls",
+        pillIcon: "/icons/domain.svg",
+        titleStart: "Rules Saved With Your",
+        titleHighlight: "Store",
         titleEnd: "",
-        description: "Our responsive POS web application runs on iPads, tablets, or laptops, and integrates with card terminals and barcode scanners.",
+        description:
+          "Fraud rules are stored per site in Softune Site Settings—so each storefront can run the protection profile that fits its risk.",
         bullets: [
-          "Plugs into USB/Bluetooth barcode scanners",
-          "Compatible with local receipt printers",
-          "Easy tablet and touch terminal layouts"
-        ]
-      }
+          "Per-site enablement and thresholds",
+          "No separate fraud SaaS to connect",
+          "Same tenant isolation as the rest of Softune",
+        ],
+      },
     ],
-    extraTitle: "Enterprise retail utility made simple",
-    extraDesc: "We build POS solutions that don't require expensive training sessions or complicated hardware setups.",
+    extraTitle: "Practical protection for COD markets",
+    extraDesc:
+      "Designed around how Softune merchants actually get burned: fake phones, repeat abusers, and oversized first orders—not generic card-fraud theater.",
     extraCards: [
-      { title: "Quick Cashouts", desc: "Scan barcode, pick payment type, and print receipt in under 5 seconds.", icon: "/icons/billing.svg" },
-      { title: "Staff Shift Logs", desc: "Keep track of staff sales commissions, drawer balances, and cashier shifts.", icon: "/icons/user.svg" },
-      { title: "Custom Receipts", desc: "Send SMS receipts or print branded paper receipts with QR codes.", icon: "/icons/delivery.svg" }
-    ]
+      {
+        title: "Review Before Ship",
+        desc: "Hold risky orders so courier costs aren’t wasted on returns.",
+        icon: "/icons/delivery.svg",
+      },
+      {
+        title: "Team Notes",
+        desc: "Blocklist entries keep context so your staff know why a number was banned.",
+        icon: "/icons/book.svg",
+      },
+      {
+        title: "Toggle Per Rule",
+        desc: "Enable only the checks you need—nothing forced on by default.",
+        icon: "/icons/zap.svg",
+      },
+    ],
   },
   "courier": {
     slug: "courier",
@@ -603,10 +622,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
 export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Multiple Themes", icon: "/icons/themes.svg", desc: "Conversion-optimized templates" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Automate descriptions & SEO" },
-  { slug: "pos-system", title: "POS System", icon: "/icons/billing.svg", desc: "Omnichannel inventory sync" },
+  { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Checkout rules & phone blocklist" },
   { slug: "courier", title: "Courier Integration", icon: "/icons/delivery.svg", desc: "Automated logistics & labels" },
   { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Funnel conversions & LTV" },
   { slug: "customer-management", title: "Customer Management", icon: "/icons/user.svg", desc: "Buyer profiles & loyalty" },
   { slug: "orders", title: "Orders Management", icon: "/icons/orders.svg", desc: "Consolidated bulk processing" },
-  { slug: "payments", title: "Payment Integration", icon: "/icons/wallet.svg", desc: "Secure local & global gateways" }
+  { slug: "payments", title: "Payment Integration", icon: "/icons/wallet.svg", desc: "Secure local & global gateways" },
 ];

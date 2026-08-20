@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, ShoppingCart, ChevronDown, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 
@@ -12,7 +12,7 @@ const links = [
     submenus: [
       { label: "Multiple Themes", href: "/features/multiple-themes", icon: "/icons/themes.svg" },
       { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
-      { label: "POS System", href: "/features/pos-system", icon: "/icons/billing.svg" },
+      { label: "Fraud Protection", href: "/features/fraud-protection", icon: "/icons/lock.svg" },
       { label: "Courier", href: "/features/courier", icon: "/icons/delivery.svg" },
       {
         label: "Store Analytics",
@@ -24,29 +24,7 @@ const links = [
       { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
     ],
   },
-  {
-    label: "Services",
-    href: "#services",
-    submenus: [
-      { label: "Store Setup", href: "/services/store-setup", icon: "/icons/domain.svg" },
-      {
-        label: "Theme Design",
-        href: "/services/theme-design",
-        icon: "/icons/color.svg",
-      },
-      { label: "SEO Optimization", href: "/services/seo-optimization", icon: "/icons/analytics.svg" },
-      {
-        label: "Store Migration",
-        href: "/services/store-migration",
-        icon: "/icons/arrow-link.svg",
-      },
-      {
-        label: "Consultation",
-        href: "/services/consultation",
-        icon: "/icons/chat.svg",
-      },
-    ],
-  },
+  { label: "Add-Ons", href: "#addons" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   {
@@ -65,11 +43,12 @@ const links = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   return (
     <>
       {/* Top Announcement Bar */}
-      <div className="relative z-40 flex h-[44px] w-full items-center justify-between overflow-hidden bg-[#c147b6] px-4 text-white sm:px-6 lg:px-8">
+      <div className="relative z-40 flex h-11 w-full items-center justify-between overflow-hidden bg-[#c147b6] px-3 text-white sm:h-[44px] sm:px-6 lg:px-8">
         <div className="hidden items-center gap-2 sm:flex">
           <img
             src="/sale.svg"
@@ -77,16 +56,31 @@ export function Header() {
             className="h-12 w-auto object-contain"
           />
         </div>
-        <div className="flex-1 text-center text-lg font-medium z-10">
+
+        {/* Mobile: compact copy + discount chip */}
+        <div className="flex flex-1 items-center justify-between gap-2 sm:hidden">
+          <p className="min-w-0 truncate text-[13px] font-semibold tracking-tight">
+            Launch Sale is on! 🎉
+          </p>
+          <a
+            href="#sale"
+            className="inline-flex shrink-0 items-center rounded-full border border-white/40 bg-gradient-to-r from-[#10b981] to-[#34d399] px-2.5 py-1 text-[11px] font-black tracking-tight text-[#1a1a1a]"
+          >
+            20% OFF
+          </a>
+        </div>
+
+        {/* Desktop: full message */}
+        <div className="z-10 hidden flex-1 text-center text-lg font-medium sm:block">
           Launch Sale is on! 🎉 Get ready to boost your sales with{" "}
-          <span className="text-[#a3ffaa] cursor-pointer underline underline-offset-2">
+          <span className="cursor-pointer text-[#a3ffaa] underline underline-offset-2">
             exclusive discounts!
           </span>
         </div>
-        <div className="hidden sm:flex z-10">
+        <div className="z-10 hidden sm:flex">
           <a
             href="#sale"
-            className="animate-shine flex h-[120px] -my-[38px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-10 leading-tight transition-transform hover:scale-[1.02]"
+            className="animate-shine -my-[38px] flex h-[120px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-10 leading-tight transition-transform hover:scale-[1.02]"
           >
             <span className="text-[14px] font-bold tracking-tight text-[#1a1a1a]">
               GET
@@ -98,16 +92,16 @@ export function Header() {
 
       <header className="sticky top-0 z-50 flex flex-col border-b border-[var(--color-line)]/80 bg-white/90 backdrop-blur-md">
         {/* Main Navbar */}
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 md:h-20 md:px-8">
-          <a href="/" className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
+        <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 md:h-20 md:px-8">
+          <a href="/" className="flex min-w-0 items-center gap-2 md:gap-3">
+            <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm md:size-10">
               <img
                 src="/logo.svg"
                 alt="Softune"
-                className="h-8 w-auto object-contain brightness-0 invert"
+                className="h-6 w-auto object-contain brightness-0 invert md:h-8"
               />
             </div>
-            <span className="text-xl font-bold tracking-tight text-[var(--color-ink)]">
+            <span className="truncate text-lg font-bold tracking-tight text-[var(--color-ink)] md:text-xl">
               Softune
             </span>
           </a>
@@ -122,43 +116,42 @@ export function Header() {
               >
                 <a
                   href={l.href}
-                  className="font-[family-name:var(--font-dm-sans)] flex items-center gap-1 text-lg font-medium tracking-tight  text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
+                  className="font-[family-name:var(--font-dm-sans)] flex items-center gap-1 text-lg font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
                 >
                   {l.label}
                   {l.submenus && <ChevronDown className="size-4" />}
                 </a>
 
-                {/* Desktop Dropdown */}
                 {l.submenus && (
                   <AnimatePresence>
                     {openDropdown === l.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className={`absolute left-0 top-full rounded-b-xl border border-[var(--color-line)] border-t-0 bg-[var(--color-surface)] p-3 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] ${
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.18 }}
+                        className={`absolute left-0 top-full z-50 mt-0 overflow-hidden rounded-b-2xl border border-[var(--color-line)] border-t-0 bg-[#f0f1f3] p-2 shadow-[0_24px_48px_-16px_rgba(0,0,0,0.18)] ${
                           l.submenus.length > 3
-                            ? "w-[540px] grid grid-cols-2 gap-x-6 gap-y-1 before:absolute before:inset-y-4 before:left-1/2 before:-translate-x-1/2 before:w-[1px] before:bg-[var(--color-line)]"
-                            : "w-56 flex flex-col gap-1"
+                            ? "grid w-[480px] grid-cols-2 gap-0.5"
+                            : "flex w-56 flex-col gap-0.5"
                         }`}
                       >
                         {l.submenus.map((sub) => (
                           <a
                             key={sub.label}
                             href={sub.href}
-                            className="group flex items-center gap-3 rounded-md px-3 py-1.5 text-sm font-medium text-[var(--color-muted)] hover:bg-[var(--color-canvas)] hover:text-[var(--color-ink)] transition-colors"
+                            className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[#e4e5e8]"
                           >
                             {sub.icon && (
-                              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#f3f4f6] transition-colors group-hover:bg-[var(--color-brand)]">
+                              <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#e4e5e8] transition-colors group-hover:bg-[var(--color-brand)]">
                                 <img
                                   src={sub.icon}
                                   alt=""
-                                  className="size-5 object-contain opacity-70 transition-all group-hover:opacity-100 group-hover:brightness-0 group-hover:invert"
+                                  className="size-4 object-contain transition-all group-hover:brightness-0 group-hover:invert"
                                 />
                               </div>
                             )}
-                            <span>{sub.label}</span>
+                            <span className="tracking-tight">{sub.label}</span>
                           </a>
                         ))}
                       </motion.div>
@@ -172,7 +165,7 @@ export function Header() {
           <div className="hidden items-center gap-5 md:flex">
             <a
               href="#cart"
-              className="relative flex items-center justify-center text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors"
+              className="relative flex items-center justify-center text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
             >
               <img
                 src="/icons/cart.svg"
@@ -187,28 +180,23 @@ export function Header() {
               as="a"
               href="https://dashboard.softune.xyz/"
               variant="primary"
-              className="gap-2 px-6 py-2.5 text-base font-semibold"
+              className="px-6 py-2.5 text-base font-semibold shadow-md"
             >
-              <img
-                src="/icons/user.svg"
-                alt=""
-                className="size-4 object-contain brightness-0 invert"
-              />
               Login
             </Button>
           </div>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex shrink-0 items-center gap-2 md:hidden">
             <a
               href="#cart"
-              className="relative flex items-center justify-center text-[var(--color-ink)]"
+              className="relative flex size-9 items-center justify-center text-[var(--color-ink)]"
             >
               <img
                 src="/icons/cart.svg"
                 alt="Cart"
                 className="size-5 object-contain"
               />
-              <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-[var(--color-brand)] text-[9px] font-bold text-white">
+              <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-[var(--color-brand)] text-[9px] font-bold text-white">
                 0
               </span>
             </a>
@@ -216,6 +204,7 @@ export function Header() {
               type="button"
               className="inline-flex size-9 items-center justify-center rounded-full text-[var(--color-ink)]"
               aria-label="Menu"
+              aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -231,60 +220,73 @@ export function Header() {
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden border-t border-[var(--color-line)] md:hidden"
             >
-              <div className="flex flex-col gap-1 px-5 py-4">
-                {links.map((l) => (
-                  <div key={l.label}>
-                    <a
-                      href={l.href}
-                      onClick={() => !l.submenus && setOpen(false)}
-                      className="font-[family-name:var(--font-dm-sans)] flex w-full items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[var(--color-ink)]"
-                    >
-                      {l.label}
-                      {l.submenus && (
-                        <ChevronDown className="size-4 text-[var(--color-muted)]" />
+              <div className="flex max-h-[min(70vh,32rem)] flex-col gap-0.5 overflow-y-auto px-4 py-3">
+                {links.map((l) => {
+                  const expanded = mobileExpanded === l.label;
+                  return (
+                    <div key={l.label}>
+                      {l.submenus ? (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setMobileExpanded(expanded ? null : l.label)
+                          }
+                          className="font-[family-name:var(--font-dm-sans)] flex w-full items-center justify-between rounded-lg px-2 py-3 text-base font-semibold text-[var(--color-ink)]"
+                        >
+                          {l.label}
+                          <ChevronDown
+                            className={[
+                              "size-4 text-[var(--color-muted)] transition-transform",
+                              expanded ? "rotate-180" : "",
+                            ].join(" ")}
+                          />
+                        </button>
+                      ) : (
+                        <a
+                          href={l.href}
+                          onClick={() => setOpen(false)}
+                          className="font-[family-name:var(--font-dm-sans)] flex w-full items-center rounded-lg px-2 py-3 text-base font-semibold text-[var(--color-ink)]"
+                        >
+                          {l.label}
+                        </a>
                       )}
-                    </a>
-                    {l.submenus && (
-                      <div
-                        className={`ml-4 flex flex-col gap-1 border-l-2 border-[var(--color-line)] pl-2 mt-1 ${l.submenus.length > 3 ? "grid grid-cols-1" : ""}`}
-                      >
-                        {l.submenus.map((sub) => (
-                          <a
-                            key={sub.label}
-                            href={sub.href}
-                            onClick={() => setOpen(false)}
-                            className="group flex items-center gap-3 rounded-lg px-2 py-1.5 text-sm font-medium text-[var(--color-muted)]"
-                          >
-                            {sub.icon && (
-                              <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f3f4f6] transition-colors group-hover:bg-[var(--color-brand)]">
-                                <img
-                                  src={sub.icon}
-                                  alt=""
-                                  className="size-4 object-contain opacity-70 transition-all group-hover:opacity-100 group-hover:brightness-0 group-hover:invert"
-                                />
-                              </div>
-                            )}
-                            <span>{sub.label}</span>
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <Button
-                  as="a"
-                  href="/"
-                  onClick={() => setOpen(false)}
-                  variant="primary"
-                  className="mt-4 gap-2 px-6 py-3 text-base font-semibold"
-                >
-                  <img
-                    src="/icons/user.svg"
-                    alt=""
-                    className="size-4 object-contain brightness-0 invert"
-                  />
-                  Login
-                </Button>
+                      {l.submenus && expanded ? (
+                        <div className="mb-2 ml-2 flex flex-col gap-0.5 border-l-2 border-[var(--color-line)] pl-2">
+                          {l.submenus.map((sub) => (
+                            <a
+                              key={sub.label}
+                              href={sub.href}
+                              onClick={() => setOpen(false)}
+                              className="group flex min-h-11 items-center gap-2.5 rounded-lg px-2 py-2 text-sm font-medium text-[var(--color-muted)]"
+                            >
+                              {sub.icon ? (
+                                <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#e4e5e8] transition-colors group-hover:bg-[var(--color-brand)]">
+                                  <img
+                                    src={sub.icon}
+                                    alt=""
+                                    className="size-3.5 object-contain transition-all group-hover:brightness-0 group-hover:invert"
+                                  />
+                                </div>
+                              ) : null}
+                              <span>{sub.label}</span>
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+                <div className="mt-3 flex flex-col gap-2">
+                  <Button
+                    as="a"
+                    href="https://dashboard.softune.xyz/"
+                    onClick={() => setOpen(false)}
+                    variant="primary"
+                    className="w-full justify-center py-3 text-base font-semibold"
+                  >
+                    Get Started
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ) : null}

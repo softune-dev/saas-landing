@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Manrope, DM_Sans, Outfit, Niconne } from "next/font/google";
-import { ChatWidget } from "@/components/chat-widget";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -52,7 +51,6 @@ export default function RootLayout({
     >
       <body className="min-h-screen antialiased">
         {children}
-        <ChatWidget />
       </body>
     </html>
   );

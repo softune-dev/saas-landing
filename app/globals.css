@@ -21,12 +21,23 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background-color: #fdfdfd;
   color: var(--color-ink);
   font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+/* Horizontal carousels (themes) keep native scroll without a visible bar */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .bg-dot-grid {
