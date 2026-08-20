@@ -147,15 +147,15 @@ export default function DocArticlePage() {
     <>
       <ReadingProgress />
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
-        <div className="relative overflow-hidden border-b border-[var(--color-line)] bg-[#f0f1f3] px-5 pt-10 pb-12 text-center">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
+        <div className="relative overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-5 pt-10 pb-12 text-center">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -165,7 +165,7 @@ export default function DocArticlePage() {
               <img
                 src={article.categoryIcon}
                 alt=""
-                className="size-3.5 object-contain"
+                className="size-3.5 object-contain dark:invert"
               />
             </div>
             <a
@@ -245,8 +245,8 @@ export default function DocArticlePage() {
           <div className="flex items-start gap-10 lg:gap-14">
             <div className="hidden w-56 shrink-0 lg:block">
               <div className="sticky top-24">
-                <div className="overflow-hidden rounded-[12px] border border-[#D4D4D4] bg-white">
-                  <div className="flex items-center gap-2 border-b border-[#D4D4D4] bg-[#f8f8f7] px-4 py-3">
+                <div className="overflow-hidden rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)]">
+                  <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
                       On This Page
@@ -256,9 +256,9 @@ export default function DocArticlePage() {
                     {article.toc.map((item, i) => (
                       <li
                         key={i}
-                        className="group flex cursor-pointer items-start gap-2.5 py-1.5"
+                        className="group flex cursor-pointer items-baseline gap-2.5 py-1.5"
                       >
-                        <span className="mt-[3px] shrink-0 text-[11px] font-black tabular-nums text-[var(--color-brand)]">
+                        <span className="shrink-0 text-[11px] font-black tabular-nums text-[var(--color-brand)]">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="text-[12.5px] leading-snug font-semibold text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-brand)]">
@@ -269,8 +269,8 @@ export default function DocArticlePage() {
                   </ul>
                 </div>
 
-                <div className="mt-4 overflow-hidden rounded-[12px] border border-[#D4D4D4] bg-white">
-                  <div className="flex items-center gap-2 border-b border-[#D4D4D4] bg-[#f8f8f7] px-4 py-3">
+                <div className="mt-4 overflow-hidden rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)]">
+                  <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
                       Details
@@ -321,13 +321,13 @@ export default function DocArticlePage() {
                 <div className="flex shrink-0 gap-2">
                   <button
                     type="button"
-                    className="flex items-center gap-2 rounded-full border border-[#D4D4D4] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+                    className="flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
                   >
                     Yes
                   </button>
                   <button
                     type="button"
-                    className="flex items-center gap-2 rounded-full border border-[#D4D4D4] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+                    className="flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
                   >
                     No
                   </button>
@@ -337,8 +337,8 @@ export default function DocArticlePage() {
 
             <div className="hidden w-52 shrink-0 xl:block">
               <div className="sticky top-24">
-                <div className="overflow-hidden rounded-[12px] border border-[#D4D4D4] bg-white">
-                  <div className="flex items-center gap-2 border-b border-[#D4D4D4] bg-[#f8f8f7] px-4 py-3">
+                <div className="overflow-hidden rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)]">
+                  <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
                       Related Docs
@@ -349,12 +349,12 @@ export default function DocArticlePage() {
                       <li key={doc.slug}>
                         <a
                           href={`/support/documentation/${doc.slug}`}
-                          className="group flex cursor-pointer items-start gap-2.5 border-b border-[#f0f0f0] py-2.5 last:border-0"
+                          className="group flex cursor-pointer items-start gap-2.5 border-b border-[var(--color-line)] py-2.5 last:border-0"
                         >
                           <img
                             src="/icons/empty.svg"
                             alt=""
-                            className="mt-0.5 size-3.5 shrink-0 opacity-40 transition-opacity group-hover:opacity-100"
+                            className="mt-0.5 size-3.5 shrink-0 opacity-40 transition-opacity group-hover:opacity-100 dark:invert"
                           />
                           <div>
                             <p className="text-[12.5px] leading-snug font-semibold text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-brand)]">

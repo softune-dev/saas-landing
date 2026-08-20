@@ -39,7 +39,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -77,7 +77,7 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative overflow-hidden p-6 rounded-[20px] border border-[#D4D4D4] bg-[#FAFAFA] transition-all hover:bg-white hover:border-[var(--color-brand)] shadow-sm hover:shadow-md flex flex-col items-start"
+                className="group relative overflow-hidden p-6 rounded-[20px] border border-[var(--color-line)] bg-[var(--color-canvas)] transition-all hover:bg-[var(--color-surface)] hover:border-[var(--color-brand)] shadow-sm hover:shadow-md flex flex-col items-start"
               >
                 <div className="absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_60%)] pointer-events-none opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
                 
@@ -109,7 +109,7 @@ export function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-full min-w-0 max-w-full rounded-[1.75rem] border border-[#D4D4D4] bg-white p-5 shadow-xl shadow-[var(--color-brand)]/5 sm:rounded-[2.5rem] sm:p-8 sm:shadow-2xl md:p-12"
+          className="w-full min-w-0 max-w-full rounded-[1.75rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 shadow-xl shadow-[var(--color-brand)]/5 sm:rounded-[2.5rem] sm:p-8 sm:shadow-2xl md:p-12"
         >
           <h3 className="mb-6 text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:mb-8 sm:text-2xl">
             Send us a message
@@ -128,7 +128,7 @@ export function Contact() {
                   type="text"
                   placeholder="John"
                   required
-                  className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -139,7 +139,7 @@ export function Contact() {
                   type="text"
                   placeholder="Doe"
                   required
-                  className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
                 />
               </div>
             </div>
@@ -152,7 +152,7 @@ export function Contact() {
                 type="email"
                 placeholder="john@company.com"
                 required
-                className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
               />
             </div>
 
@@ -163,7 +163,7 @@ export function Contact() {
               <input
                 type="tel"
                 placeholder="+1 (555) 000-0000"
-                className="min-h-12 rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
               />
             </div>
 
@@ -175,7 +175,7 @@ export function Contact() {
                 rows={4}
                 required
                 placeholder="How can we help you?"
-                className="resize-none rounded-xl border border-[#D4D4D4] bg-[#FAFAFA] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-white focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                className="resize-none rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
               />
             </div>
 
@@ -185,7 +185,7 @@ export function Contact() {
                   type="checkbox"
                   id="verify-human"
                   required
-                  className="peer size-5 cursor-pointer appearance-none rounded-[6px] border-2 border-[#D4D4D4] bg-[#FAFAFA] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[#A3A3A3]"
+                  className="peer size-5 cursor-pointer appearance-none rounded-[6px] border-2 border-[var(--color-line)] bg-[var(--color-canvas)] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[var(--color-muted)]"
                 />
                 <svg
                   viewBox="0 0 24 24"

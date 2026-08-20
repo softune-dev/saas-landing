@@ -28,10 +28,10 @@ export default function FeaturePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         
         {/* Hero Section (Changelog Inspired) */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           {/* Masked Grid Layer */}
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           
@@ -43,11 +43,11 @@ export default function FeaturePage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <img src="/icons/zap.svg" alt="Zap" className="size-3.5 object-contain" />
+              <img src="/icons/zap.svg" alt="Zap" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
               {feature.pillText}
@@ -103,13 +103,13 @@ export default function FeaturePage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                       >
-                        <div className="mb-3 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-white p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                        <div className="mb-3 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                           <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
                             <span
                               className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
                               style={{ animationDuration: "2s" }}
                             />
-                            <img src={section.pillIcon} alt="" className="size-3 md:size-3.5 object-contain relative z-10" />
+                            <img src={section.pillIcon} alt="" className="size-3 md:size-3.5 object-contain relative z-10 dark:invert" />
                           </div>
                           <span className="text-[13px] md:text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
                             {section.pillText}
@@ -155,7 +155,7 @@ export default function FeaturePage() {
                       transition={{ duration: 0.5 }}
                       className="flex-1 w-full"
                     >
-                      <div className="relative aspect-[4/3] w-full rounded-[24px] md:rounded-[32px] overflow-hidden bg-[#EBEBEB] border border-[#E5E5E5] shadow-lg">
+                      <div className="relative aspect-[4/3] w-full rounded-[24px] md:rounded-[32px] overflow-hidden bg-[var(--color-canvas)] border border-[var(--color-line)] shadow-lg">
                         {/* Placeholder for video */}
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="text-[var(--color-muted)] font-medium text-lg">Video Placeholder</span>
@@ -170,7 +170,7 @@ export default function FeaturePage() {
         </section>
 
         {/* Extra Info Grid (3 Cards) */}
-        <section className="py-24 bg-[#FAF9F6] border-b border-[var(--color-line)]">
+        <section className="py-24 bg-[var(--color-canvas)] border-b border-[var(--color-line)]">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="flex flex-col items-center text-center mx-auto mb-16">
               <h2 className="max-w-3xl mx-auto font-extrabold tracking-tight text-4xl sm:text-5xl leading-[1.1] text-[var(--color-ink)]">
@@ -190,7 +190,7 @@ export default function FeaturePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
-                  className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-8 md:p-10 transition-all duration-300 cursor-pointer group text-left"
+                  className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 md:p-10 transition-all duration-300 cursor-pointer group text-left"
                 >
                   {/* Background Dots Gradient */}
                   <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
@@ -219,7 +219,7 @@ export default function FeaturePage() {
         </section>
 
         {/* Feature Navigation Cards (Jump to other features) */}
-        <section className="py-24 bg-[#FAF9F6]">
+        <section className="py-24 bg-[var(--color-canvas)]">
           <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
             <h2 className="max-w-2xl mx-auto font-extrabold tracking-tight text-4xl sm:text-5xl leading-[1.1] text-[var(--color-ink)] mb-16">
               Explore More
@@ -251,8 +251,8 @@ export default function FeaturePage() {
                     className={`relative overflow-hidden rounded-[24px] border ${
                       isActive 
                         ? 'border-[var(--color-brand)] ring-1 ring-[var(--color-brand)] shadow-md' 
-                        : 'border-[#D4D4D4] hover:border-[var(--color-brand)]'
-                    } bg-white p-6 md:p-8 transition-all duration-300 cursor-pointer group`}
+                        : 'border-[var(--color-line)] hover:border-[var(--color-brand)]'
+                    } bg-[var(--color-surface)] p-6 md:p-8 transition-all duration-300 cursor-pointer group`}
                   >
                     {/* Top Right Intense Dots */}
                     <div className="pointer-events-none absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_70%)] opacity-80" />

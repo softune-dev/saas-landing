@@ -4,7 +4,7 @@ const cols = [
     links: [
       { label: "Features", href: "/features/multiple-themes" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Store Setup Guide", href: "/services/store-setup" },
+      { label: "Add-Ons", href: "#addons" },
       { label: "Documentation", href: "/support/documentation" },
       { label: "Blog & Resources", href: "/blog" },
       { label: "Community Forum", href: "/support/community" },
@@ -36,7 +36,7 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-line)] bg-[#FAF9F6]">
+    <footer className="border-t border-[var(--color-line)] bg-[var(--color-canvas)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-5 lg:grid-cols-5 lg:gap-16">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[var(--color-line)] bg-white py-6">
+      <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-5 md:flex-row md:gap-4 md:px-8">
           <div className="order-3 flex-1 text-center text-[13px] font-medium text-[var(--color-muted)] sm:text-[14px] md:order-1 md:text-left">
             © {new Date().getFullYear()} Softune. All rights reserved.{" "}
@@ -166,7 +166,7 @@ export function Footer() {
             <span className="mx-2 hidden text-[#D4D4D4] lg:inline">|</span>
             Created with ❤️ by{" "}
             <a
-              href="https://kamarulhasan.site"
+              href="https://kamrulhasan.site"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold text-[var(--color-brand)] transition-all hover:underline"

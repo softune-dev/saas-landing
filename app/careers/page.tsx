@@ -74,10 +74,10 @@ export default function CareersPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
 
         {/* Hero */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -85,11 +85,11 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <img src="/icons/user.svg" alt="" className="size-3.5 object-contain" />
+              <img src="/icons/user.svg" alt="" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">We're Hiring</span>
           </motion.div>
@@ -138,7 +138,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-8 transition-all duration-300 group text-left cursor-pointer"
+                className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 transition-all duration-300 group text-left cursor-pointer"
               >
                 <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
                 <div className="relative z-10">
@@ -160,7 +160,7 @@ export default function CareersPage() {
         </section>
 
         {/* Open Roles */}
-        <section className="py-14 border-y border-[var(--color-line)] bg-[#f3f4f6]/40 relative overflow-hidden">
+        <section className="py-14 border-y border-[var(--color-line)] bg-[var(--color-canvas)]/40 relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_80%)] opacity-5" />
           <div className="max-w-5xl mx-auto px-5 md:px-8">
             <div className="text-center mb-16">
@@ -181,7 +181,7 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
-                  className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-8 transition-all duration-300 group cursor-pointer"
+                  className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)] opacity-50" />
                   <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
@@ -200,7 +200,7 @@ export default function CareersPage() {
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {role.tags.map((tag) => (
-                          <span key={tag} className="text-[12px] font-semibold text-[var(--color-ink)] bg-[#f0f1f3] px-3 py-1 rounded-full border border-[#D4D4D4]">
+                          <span key={tag} className="text-[12px] font-semibold text-[var(--color-ink)] bg-[var(--color-canvas)] px-3 py-1 rounded-full border border-[var(--color-line)]">
                             {tag}
                           </span>
                         ))}

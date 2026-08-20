@@ -41,9 +41,9 @@ export default function DocumentationPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section (Changelog Inspired) */}
-        <div className="relative overflow-hidden rounded-b-[4rem] border-b-[6px] border-white bg-[#f0f1f3] pt-12 pb-14 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] px-5">
+        <div className="relative overflow-hidden rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] bg-[var(--color-canvas)] pt-12 pb-14 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] px-5">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -52,7 +52,7 @@ export default function DocumentationPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -62,7 +62,7 @@ export default function DocumentationPage() {
               <img
                 src="/icons/book.svg"
                 alt="Docs"
-                className="size-3.5 object-contain"
+                className="size-3.5 object-contain dark:invert"
               />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
@@ -102,21 +102,21 @@ export default function DocumentationPage() {
             transition={{ duration: 0.5, delay: 0.22 }}
             className="relative z-10 mx-auto max-w-lg"
           >
-            <div className="relative flex items-center rounded-full border border-[#D4D4D4] bg-white p-1 shadow-sm transition-all hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15">
+            <div className="relative flex items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 shadow-sm transition-all hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15">
               <Search className="ml-4 size-5 text-[var(--color-muted)]" />
               <input
                 type="text"
                 placeholder="Search articles, APIs, guides..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full border-0 bg-transparent px-3 py-2 text-[15px] font-medium text-[var(--color-ink)] outline-none placeholder-[#A3A3A3]"
+                className="w-full border-0 bg-transparent px-3 py-2 text-[15px] font-medium text-[var(--color-ink)] outline-none placeholder-[var(--color-muted-soft)]"
               />
             </div>
           </motion.div>
         </div>
 
         {/* Categories Grid */}
-        <section className="bg-[#FAF9F6] py-24">
+        <section className="bg-[var(--color-canvas)] py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredCategories.map((cat, i) => {
@@ -128,7 +128,7 @@ export default function DocumentationPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.45, delay: i * 0.08 }}
-                    className="group relative overflow-hidden rounded-[24px] border border-[#D4D4D4] bg-white p-6 text-left transition-all duration-300 hover:border-[var(--color-brand)] md:p-10"
+                    className="group relative overflow-hidden rounded-[24px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 text-left transition-all duration-300 hover:border-[var(--color-brand)] md:p-10"
                   >
                     <div className="pointer-events-none absolute top-0 right-0 h-2/3 w-2/3 bg-dot-grid-dense opacity-80 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)]" />
 
@@ -154,7 +154,7 @@ export default function DocumentationPage() {
                                 <img
                                   src="/icons/doc.svg"
                                   alt=""
-                                  className="size-4 object-contain opacity-70"
+                                  className="size-4 object-contain opacity-70 dark:invert"
                                 />
                                 {art.title}
                               </span>

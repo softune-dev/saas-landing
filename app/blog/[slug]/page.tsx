@@ -72,10 +72,10 @@ function ShareDrawer({ title, open, onClose }: { title: string; open: boolean; o
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-[28px] px-6 pt-4 pb-10 md:hidden border-t border-[var(--color-line)]"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] rounded-t-[28px] px-6 pt-4 pb-10 md:hidden border-t border-[var(--color-line)]"
       >
         {/* Handle */}
-        <div className="w-10 h-1 rounded-full bg-[#D4D4D4] mx-auto mb-6" />
+        <div className="w-10 h-1 rounded-full bg-[var(--color-line)] mx-auto mb-6" />
         <p className="text-[17px] font-extrabold text-[var(--color-ink)] mb-5">Share This Article</p>
         <div className="grid grid-cols-2 gap-3 mb-4">
           {shares.map((s) => (
@@ -84,7 +84,7 @@ function ShareDrawer({ title, open, onClose }: { title: string; open: boolean; o
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-2xl border border-[#D4D4D4] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-ink)] px-4 py-3.5 transition-all duration-200 font-semibold text-[14px]"
+              className="flex items-center gap-3 rounded-2xl border border-[var(--color-line)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-ink)] px-4 py-3.5 transition-all duration-200 font-semibold text-[14px]"
             >
               {s.icon}
               {s.label}
@@ -93,7 +93,7 @@ function ShareDrawer({ title, open, onClose }: { title: string; open: boolean; o
         </div>
         <button
           onClick={copyLink}
-          className="w-full flex items-center justify-center gap-2 rounded-2xl border border-[#D4D4D4] hover:border-[var(--color-brand)] text-[var(--color-ink)] hover:text-[var(--color-brand)] px-4 py-3.5 transition-all duration-200 font-semibold text-[14px]"
+          className="w-full flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-line)] hover:border-[var(--color-brand)] text-[var(--color-ink)] hover:text-[var(--color-brand)] px-4 py-3.5 transition-all duration-200 font-semibold text-[14px]"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
@@ -127,7 +127,7 @@ function FloatingShare({ title }: { title: string }) {
       <a
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`}
         target="_blank" rel="noopener noreferrer"
-        className="flex items-center justify-center size-10 rounded-full border border-[#D4D4D4] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
+        className="flex items-center justify-center size-10 rounded-full border border-[var(--color-line)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 4l11.733 16h4.267l-11.733-16z"/><path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772"/>
@@ -138,7 +138,7 @@ function FloatingShare({ title }: { title: string }) {
       <a
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
         target="_blank" rel="noopener noreferrer"
-        className="flex items-center justify-center size-10 rounded-full border border-[#D4D4D4] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
+        className="flex items-center justify-center size-10 rounded-full border border-[var(--color-line)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -150,7 +150,7 @@ function FloatingShare({ title }: { title: string }) {
       <a
         href={`https://wa.me/?text=${encodeURIComponent(title + " " + url)}`}
         target="_blank" rel="noopener noreferrer"
-        className="flex items-center justify-center size-10 rounded-full border border-[#D4D4D4] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
+        className="flex items-center justify-center size-10 rounded-full border border-[var(--color-line)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-muted)] transition-all duration-200"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
@@ -160,7 +160,7 @@ function FloatingShare({ title }: { title: string }) {
       {/* Copy */}
       <button
         onClick={copyLink}
-        className={`flex items-center justify-center size-10 rounded-full border transition-all duration-200 ${copied ? "border-[var(--color-brand)] text-[var(--color-brand)]" : "border-[#D4D4D4] text-[var(--color-muted)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"}`}
+        className={`flex items-center justify-center size-10 rounded-full border transition-all duration-200 ${copied ? "border-[var(--color-brand)] text-[var(--color-brand)]" : "border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"}`}
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
@@ -168,7 +168,7 @@ function FloatingShare({ title }: { title: string }) {
       </button>
 
       {/* Divider */}
-      <div className="w-px h-8 bg-[#D4D4D4] mx-auto mt-1" />
+      <div className="w-px h-8 bg-[var(--color-line)] mx-auto mt-1" />
     </div>
   );
 }
@@ -190,7 +190,7 @@ function ReadingProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-[#D4D4D4]/40">
+    <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-[var(--color-line)]/40">
       <motion.div
         className="h-full bg-[var(--color-brand)] origin-left"
         style={{ scaleX: progress / 100 }}
@@ -274,7 +274,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
     <>
       <ReadingProgress />
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
 
         {/* Hero — Full-bleed Image + Overlay */}
         <div className="relative w-full overflow-hidden" style={{ height: "clamp(340px, 55vw, 620px)" }}>
@@ -357,7 +357,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
 
               {/* Mobile Share Button */}
-              <div className="mt-10 flex md:hidden items-center justify-between p-5 rounded-[20px] bg-white border border-[#D4D4D4]">
+              <div className="mt-10 flex md:hidden items-center justify-between p-5 rounded-[20px] bg-[var(--color-surface)] border border-[var(--color-line)]">
                 <div>
                   <p className="text-[15px] font-extrabold text-[var(--color-ink)]">Enjoyed this article?</p>
                   <p className="text-[13px] text-[var(--color-muted)] font-medium mt-0.5">Share it with your network</p>
@@ -379,15 +379,15 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
             <div className="hidden lg:block w-64 shrink-0">
               <div className="sticky top-28 space-y-4">
                 {/* TOC */}
-                <div className="rounded-[12px] border border-[#D4D4D4] bg-white overflow-hidden">
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[#D4D4D4] bg-[#f8f8f7]">
+                <div className="rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)] overflow-hidden">
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-line)] bg-[var(--color-canvas)]">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">In This Article</p>
                   </div>
                   <ul className="p-4 space-y-1">
                     {article.body.filter(b => b.type === "h2" || b.type === "h3").map((b, i) => (
-                      <li key={i} className="group flex items-start gap-2.5 py-1.5 cursor-pointer">
-                        <span className="mt-[3px] shrink-0 text-[11px] font-black tabular-nums text-[var(--color-brand)]">{String(i + 1).padStart(2, "0")}</span>
+                      <li key={i} className="group flex items-baseline gap-2.5 py-1.5 cursor-pointer">
+                        <span className="shrink-0 text-[11px] font-black tabular-nums text-[var(--color-brand)]">{String(i + 1).padStart(2, "0")}</span>
                         <span className="text-[13px] font-semibold text-[var(--color-muted)] group-hover:text-[var(--color-brand)] transition-colors leading-snug">
                           {b.content as string}
                         </span>
@@ -397,8 +397,8 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                 </div>
 
                 {/* Meta info */}
-                <div className="rounded-[12px] border border-[#D4D4D4] bg-white overflow-hidden">
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[#D4D4D4] bg-[#f8f8f7]">
+                <div className="rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)] overflow-hidden">
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-line)] bg-[var(--color-canvas)]">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">Article Details</p>
                   </div>
@@ -438,10 +438,10 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="relative overflow-hidden rounded-[20px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white transition-all duration-300 group flex flex-col cursor-pointer"
+                className="relative overflow-hidden rounded-[20px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col cursor-pointer"
               >
                 <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
-                <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-[#D4D4D4]/60 shrink-0 z-10">
+                <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-[var(--color-line)]/60 shrink-0 z-10">
                   <img src={post.image} alt={post.title} className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="relative z-10 p-5 flex flex-col flex-1">

@@ -61,7 +61,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="border-b border-[var(--color-line)] bg-[#FAF9F6] pt-10 pb-14 md:pb-20"
+      className="border-b border-[var(--color-line)] bg-[var(--color-canvas)] pt-10 pb-14 md:pb-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="mx-auto mb-8 flex flex-col items-center text-center">
@@ -70,7 +70,7 @@ export function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -80,7 +80,7 @@ export function Pricing() {
               <img
                 src="/icons/billing.svg"
                 alt=""
-                className="size-3 object-contain md:size-3.5"
+                className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -97,21 +97,17 @@ export function Pricing() {
               <em className="relative not-italic text-white">Brands</em>
             </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
-            Whether you&apos;re just starting out or managing multiple
-            high-volume storefronts, we have a plan built for your exact needs.
-          </p>
         </div>
 
         {/* Billing toggle — flex-1 halves keep the sliding pill correct on narrow screens */}
         <div className="mb-10 flex justify-center md:mb-16">
-          <div className="relative flex w-full max-w-[320px] items-center rounded-full border border-[#D4D4D4] bg-white p-1.5 sm:max-w-none sm:w-auto">
+          <div className="relative flex w-full max-w-[320px] items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 sm:max-w-none sm:w-auto">
             <button
               type="button"
               onClick={() => setIsAnnual(false)}
               className={`relative z-10 min-h-11 flex-1 rounded-full px-3 py-2.5 text-[14px] font-bold transition-colors duration-200 sm:w-32 sm:flex-none ${
                 !isAnnual
-                  ? "text-white"
+                  ? "text-[var(--color-surface)]"
                   : "text-[var(--color-ink)] hover:text-[var(--color-ink-soft)]"
               }`}
             >
@@ -122,14 +118,14 @@ export function Pricing() {
               onClick={() => setIsAnnual(true)}
               className={`relative z-10 min-h-11 flex-1 rounded-full px-3 py-2.5 text-[14px] font-bold transition-colors duration-200 sm:w-36 sm:flex-none ${
                 isAnnual
-                  ? "text-white"
+                  ? "text-[var(--color-surface)]"
                   : "text-[var(--color-ink)] hover:text-[var(--color-ink-soft)]"
               }`}
             >
               Yearly{" "}
               <span
                 className={`ml-0.5 text-[10px] tracking-wider uppercase ${
-                  isAnnual ? "text-white/80" : "text-[var(--color-brand)]"
+                  isAnnual ? "text-[var(--color-surface)]/80" : "text-[var(--color-brand)]"
                 }`}
               >
                 -20%
@@ -158,8 +154,8 @@ export function Pricing() {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className={`relative flex flex-col rounded-[20px] transition-shadow duration-300 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] sm:rounded-[24px] ${
                   isDark
-                    ? "z-10 bg-[var(--color-ink)] shadow-xl md:-mt-4 md:mb-4"
-                    : "overflow-hidden border border-[#D4D4D4] bg-white"
+                    ? "z-10 bg-[#171717] shadow-xl md:-mt-4 md:mb-4"
+                    : "overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)]"
                 }`}
               >
                 {isDark && (
@@ -222,7 +218,7 @@ export function Pricing() {
 
                 <div
                   className={`relative z-10 flex flex-1 flex-col p-6 pt-6 sm:p-8 sm:pt-8 ${
-                    isDark ? "rounded-[20px] bg-white sm:rounded-[24px]" : ""
+                    isDark ? "rounded-[20px] bg-[var(--color-surface)] sm:rounded-[24px]" : ""
                   }`}
                 >
                   <div className="pointer-events-none absolute right-0 bottom-0 h-full w-full rounded-[20px] bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_bottom_right,black_0%,transparent_60%)] sm:rounded-[24px]" />
@@ -252,7 +248,7 @@ export function Pricing() {
                       src="/icons/arrow-right.svg"
                       alt=""
                       className={`size-4 object-contain ${
-                        isDark ? "brightness-0 invert" : "opacity-60"
+                        isDark ? "brightness-0 invert" : "opacity-60 dark:invert"
                       }`}
                     />
                   </Button>
@@ -268,7 +264,7 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="relative mt-6 flex flex-col items-stretch justify-between gap-6 overflow-hidden rounded-[20px] border border-[#D4D4D4] bg-white p-6 transition-shadow duration-300 hover:shadow-lg sm:mt-8 sm:rounded-[24px] sm:p-8 md:flex-row md:items-end md:gap-8 md:p-10"
+          className="relative mt-6 flex flex-col items-stretch justify-between gap-6 overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-shadow duration-300 hover:shadow-lg sm:mt-8 sm:rounded-[24px] sm:p-8 md:flex-row md:items-end md:gap-8 md:p-10"
         >
           <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)]" />
 

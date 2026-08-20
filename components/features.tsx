@@ -28,7 +28,7 @@ export function Features() {
   return (
     <section
       id="features"
-      className="border-y border-[var(--color-line)] bg-[#FAF9F6]"
+      className="border-y border-[var(--color-line)] bg-[var(--color-canvas)]"
     >
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-5 md:px-8 md:py-28">
         <div className="mx-auto flex flex-col items-center text-center">
@@ -37,7 +37,7 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -47,7 +47,7 @@ export function Features() {
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="size-3 object-contain md:size-3.5"
+                className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -62,9 +62,6 @@ export function Features() {
               <em className="relative not-italic text-white">One Place</em>
             </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
-            From powerful multi-store capabilities to deep AI integrations, Softune packs all the essential tools you need out of the box.
-          </p>
         </div>
 
         <div className="mt-10 grid gap-4 text-left sm:mt-16 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
@@ -75,7 +72,7 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
-              className={`group relative cursor-pointer overflow-hidden rounded-[20px] border border-[#D4D4D4] bg-white p-5 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] sm:p-6 md:p-8 ${
+              className={`group relative cursor-pointer overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] sm:p-6 md:p-8 ${
                 !showAll && i >= 6 ? "hidden md:block" : ""
               }`}
             >

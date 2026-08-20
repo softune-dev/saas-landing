@@ -30,7 +30,7 @@ const stack = [
 
 export function Technologies() {
   return (
-    <section className="bg-[#FAF9F6] py-14 md:py-20">
+    <section className="bg-[var(--color-canvas)] py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
         <div className="mx-auto flex flex-col items-center text-center">
           <motion.div
@@ -38,7 +38,7 @@ export function Technologies() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -48,7 +48,7 @@ export function Technologies() {
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="size-3 object-contain md:size-3.5"
+                className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -65,9 +65,6 @@ export function Technologies() {
               <em className="relative not-italic text-white">Technologies</em>
             </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
-            We use industry-leading tools and frameworks to ensure your store is blazing fast, secure, and infinitely scalable.
-          </p>
         </div>
       </div>
 

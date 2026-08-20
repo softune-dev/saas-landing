@@ -36,7 +36,7 @@ const items = [
 
 export function Why() {
   return (
-    <section id="product" className="bg-[#FAF9F6] py-14 md:py-20">
+    <section id="product" className="bg-[var(--color-canvas)] py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
         <div className="mx-auto flex flex-col items-center text-center">
         <motion.div
@@ -44,7 +44,7 @@ export function Why() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
+          className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
         >
           <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
             <span
@@ -54,7 +54,7 @@ export function Why() {
             <img
               src="/icons/zap.svg"
               alt="Zap"
-              className="size-3 md:size-3.5 object-contain"
+              className="size-3 md:size-3.5 object-contain dark:invert"
             />
           </div>
           <span className="text-[13px] md:text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
@@ -71,9 +71,6 @@ export function Why() {
             <em className="relative not-italic text-white">Softune</em>
           </span>
         </h2>
-        <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
-         Simple, affordable, and powerful. Everything you need to sell online in one place.
-        </p>
       </div>
 
       <div className="mt-10 grid gap-4 sm:gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
@@ -84,7 +81,7 @@ export function Why() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.45, delay: i * 0.08 }}
-            className="group relative cursor-pointer overflow-hidden rounded-[20px] border border-[#D4D4D4] bg-white p-6 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] md:p-10"
+            className="group relative cursor-pointer overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] md:p-10"
           >
             {/* Background Dots Gradient */}
             <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />

@@ -4,7 +4,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Calendar, Clock, User, ArrowRight, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BLOG_POSTS } from "@/lib/blog-data";
 
@@ -15,10 +15,10 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         
         {/* Hero Section (Changelog Inspired) */}
-        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -27,14 +27,14 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <img src="/icons/book.svg" alt="Blog" className="size-3.5 object-contain" />
+              <Newspaper className="size-3.5 text-[var(--color-brand)]" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Softune Blog & Insights
+              Softune Journal
             </span>
           </motion.div>
 
@@ -45,10 +45,10 @@ export default function BlogPage() {
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: 'var(--font-outfit)' }}
           >
-            eCommerce Growth & Tech
+            Blog &
             <span className="relative inline-block px-3 py-1 mx-1">
               <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Blog</em>
+              <em className="relative not-italic text-white">Insights</em>
             </span>
           </motion.h1>
           
@@ -58,26 +58,22 @@ export default function BlogPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Discover retail guides, platform features, conversion optimization strategies, and tips to scale your digital storefront.
+            Practical guides, ecommerce strategies, product updates, and growth tactics for online store owners.
           </motion.p>
         </div>
 
-        {/* Blog Feed Section */}
-        <section className="py-24 max-w-7xl mx-auto px-5 md:px-8">
-          
-          {/* Featured Post Card */}
-          <motion.a
-            href={`/blog/${featuredPost.slug}`}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        {/* Featured Post */}
+        <section className="py-12 max-w-7xl mx-auto px-5 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white transition-all duration-300 group text-left flex flex-col lg:flex-row mb-16 cursor-pointer"
+            className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group text-left flex flex-col lg:flex-row mb-16 cursor-pointer"
           >
             <div className="pointer-events-none absolute bottom-0 right-0 w-1/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
 
             {/* Edge-to-edge Thumbnail */}
-            <div className="lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[400px] w-full overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-[#D4D4D4]/60 relative shrink-0 z-10">
+            <div className="lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[400px] w-full overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-[var(--color-line)]/60 relative shrink-0 z-10">
               <img 
                 src={featuredPost.image} 
                 alt={featuredPost.title} 
@@ -88,7 +84,7 @@ export default function BlogPage() {
             {/* Content */}
             <div className="lg:w-1/2 flex flex-col justify-between relative z-10 p-6 md:p-10">
               <div>
-                <span className="bg-[#FAF9F6] border border-[var(--color-line)] text-[12px] font-extrabold text-[var(--color-brand)] uppercase px-3 py-1 rounded-full">
+                <span className="bg-[var(--color-canvas)] border border-[var(--color-line)] text-[12px] font-extrabold text-[var(--color-brand)] uppercase px-3 py-1 rounded-full">
                   Featured: {featuredPost.category}
                 </span>
 
@@ -105,15 +101,15 @@ export default function BlogPage() {
                 <div className="flex items-center gap-6 text-[13px] font-bold text-[var(--color-muted)]">
                   <span className="flex items-center gap-1.5"><Calendar className="size-4" />{featuredPost.date}</span>
                   <span className="flex items-center gap-1.5"><Clock className="size-4" />{featuredPost.readTime}</span>
-                  <span className="flex items-center gap-1.5"><User className="size-4" />{featuredPost.author}</span>
                 </div>
 
-                <span className="inline-flex items-center gap-1 text-[14px] font-bold text-[var(--color-brand)] hover:underline">
-                  Read Article →
+                <span className="inline-flex items-center gap-2 text-[14px] font-bold text-[var(--color-brand)] hover:underline">
+                  Read Article
+                  <img src="/icons/arrow-right.svg" alt="" className="size-3.5 object-contain dark:invert" />
                 </span>
               </div>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* Grid of Recent Posts */}
           <div>
@@ -130,12 +126,12 @@ export default function BlogPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white transition-all duration-300 group flex flex-col text-left cursor-pointer"
+            className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col text-left cursor-pointer"
                 >
                   <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
                   
                   {/* Edge-to-edge Thumbnail */}
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-[#D4D4D4]/60 shrink-0 z-10">
+                  <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-[var(--color-line)]/60 shrink-0 z-10">
                     <img 
                       src={post.image} 
                       alt={post.title} 

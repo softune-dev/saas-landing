@@ -82,10 +82,10 @@ export default function BrandKitPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
 
         {/* Hero */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -93,11 +93,11 @@ export default function BrandKitPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <img src="/icons/domain.svg" alt="" className="size-3.5 object-contain" />
+              <img src="/icons/domain.svg" alt="" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">Brand Assets</span>
           </motion.div>
@@ -146,10 +146,10 @@ export default function BrandKitPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white transition-all duration-300 group flex flex-col"
+                className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col"
               >
                 {/* Preview */}
-                <div className={`relative flex items-center justify-center aspect-video w-full border-b border-[#D4D4D4]/60 ${asset.bg}`}>
+                <div className={`relative flex items-center justify-center aspect-video w-full border-b border-[var(--color-line)]/60 ${asset.bg}`}>
                   <img
                     src={asset.preview}
                     alt={asset.title}
@@ -173,9 +173,9 @@ export default function BrandKitPage() {
                           key={dl.label}
                           href={dl.href}
                           download
-                          className="inline-flex items-center gap-1.5 rounded-full border border-[#D4D4D4] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-ink)] text-[13px] font-bold px-4 py-2 transition-all duration-200"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-line)] hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] text-[var(--color-ink)] text-[13px] font-bold px-4 py-2 transition-all duration-200"
                         >
-                          <img src="/icons/save.svg" alt="" className="size-3.5 object-contain opacity-60" />
+                          <img src="/icons/save.svg" alt="" className="size-3.5 object-contain opacity-60 dark:invert" />
                           {dl.label}
                         </a>
                       ))}
@@ -207,7 +207,7 @@ export default function BrandKitPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white transition-all duration-300 group cursor-pointer flex flex-col"
+                className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group cursor-pointer flex flex-col"
               >
                 {/* Color Swatch */}
                 <div
@@ -228,7 +228,7 @@ export default function BrandKitPage() {
         </section>
 
         {/* Typography */}
-        <section className="py-24 border-y border-[var(--color-line)] bg-[#f3f4f6]/40 relative overflow-hidden">
+        <section className="py-24 border-y border-[var(--color-line)] bg-[var(--color-canvas)]/40 relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_80%)] opacity-5" />
           <div className="max-w-7xl mx-auto px-5 md:px-8">
             <div className="text-center mb-16">
@@ -249,7 +249,7 @@ export default function BrandKitPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
-                  className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-8 transition-all duration-300 group text-left"
+                  className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 transition-all duration-300 group text-left"
                 >
                   <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
                   <div className="relative z-10">
@@ -289,7 +289,7 @@ export default function BrandKitPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-8 transition-all duration-300 group text-left cursor-pointer"
+                className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 transition-all duration-300 group text-left cursor-pointer"
               >
                 <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
                 <div className="relative z-10">
@@ -316,7 +316,7 @@ export default function BrandKitPage() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white border border-[#D4D4D4] rounded-[32px] p-8 md:p-12 text-center relative overflow-hidden"
+            className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[32px] p-8 md:p-12 text-center relative overflow-hidden"
           >
             <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)] opacity-80" />
             <div className="relative z-10 max-w-2xl mx-auto">

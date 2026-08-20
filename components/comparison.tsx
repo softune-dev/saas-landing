@@ -34,7 +34,7 @@ const CrossIcon = () => (
 
 export function Comparison() {
   return (
-    <section className="border-b border-[var(--color-line)] bg-[#FAF9F6] py-14 md:py-24">
+    <section className="border-b border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-5 md:px-8">
         <div className="mx-auto mb-8 flex flex-col items-center text-center md:mb-10">
           <motion.div
@@ -42,7 +42,7 @@ export function Comparison() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -52,7 +52,7 @@ export function Comparison() {
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="relative z-10 size-3 object-contain md:size-3.5"
+                className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -81,16 +81,16 @@ export function Comparison() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto overflow-hidden rounded-[20px] border border-[#D4D4D4] bg-white shadow-[0_8px_40px_-12px_rgba(0,0,0,0.05)] sm:rounded-[24px] md:rounded-[32px]"
+          className="mx-auto overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.05)] sm:rounded-[24px] md:rounded-[32px]"
         >
           <div className="-mx-px overflow-x-auto overscroll-x-contain">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>
-                <tr className="border-b border-[#D4D4D4]">
+                <tr className="border-b border-[var(--color-line)]">
                   <th className="w-1/2 p-4 text-[14px] font-bold text-[var(--color-ink)] sm:p-6 sm:text-[15px] md:p-8 md:text-[17px]">
                     Features
                   </th>
-                  <th className="w-1/4 border-l border-[#D4D4D4] bg-[#FAFAFA] p-4 text-center text-[14px] font-bold text-[var(--color-muted)] sm:p-6 sm:text-[15px] md:p-8 md:text-[16px]">
+                  <th className="w-1/4 border-l border-[var(--color-line)] bg-[var(--color-canvas)] p-4 text-center text-[14px] font-bold text-[var(--color-muted)] sm:p-6 sm:text-[15px] md:p-8 md:text-[16px]">
                     Others
                   </th>
                   <th className="w-1/4 border-l border-[var(--color-brand)] bg-[var(--color-brand)] p-4 sm:p-6 md:p-8">
@@ -107,11 +107,11 @@ export function Comparison() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#D4D4D4]/40">
+              <tbody className="divide-y divide-[var(--color-line)]">
                 {features.map((feature, i) => (
                   <tr
                     key={i}
-                    className="group transition-colors hover:bg-[#FAFAFA]/60"
+                    className="group transition-colors hover:bg-[var(--color-line)]/30"
                   >
                     <td className="px-4 py-4 text-[13px] font-medium text-[var(--color-ink-soft)] transition-colors group-hover:text-[var(--color-ink)] sm:px-6 sm:py-5 sm:text-[14px] md:px-8 md:py-6 md:text-[15.5px]">
                       <span className="mr-1 inline-block w-5 font-semibold text-[var(--color-muted)] sm:w-6">
@@ -119,7 +119,7 @@ export function Comparison() {
                       </span>{" "}
                       {feature}
                     </td>
-                    <td className="border-l border-[#D4D4D4]/40 bg-[#FAFAFA]/30 p-4 sm:p-5 md:p-6">
+                    <td className="border-l border-[var(--color-line)] bg-[var(--color-canvas)]/30 p-4 sm:p-5 md:p-6">
                       <CrossIcon />
                     </td>
                     <td className="relative border-l border-white/10 bg-[var(--color-brand)] p-4 sm:p-5 md:p-6">

@@ -4,7 +4,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 const privacySections = [
   {
@@ -33,9 +33,9 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -44,14 +44,14 @@ export default function PrivacyPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <Shield className="size-3.5 text-[var(--color-brand)]" />
+              <ShieldCheck className="size-3.5 text-[var(--color-brand)]" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Data Safety
+              Data Protection
             </span>
           </motion.div>
 
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Your trust is our priority. Learn how we store your catalog databases, process secured payments, and isolate merchant data safely.
+            Your trust is our foundation. Learn how we collect, protect, and handle your merchant and customer data responsibly.
           </motion.p>
         </div>
 
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative bg-white border border-[#D4D4D4] rounded-[32px] p-8 md:p-12 text-left overflow-hidden shadow-sm"
+            className="relative bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[32px] p-8 md:p-12 text-left overflow-hidden shadow-sm"
           >
             {/* Background Dots */}
             <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-1/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-30" />
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
               <div className="border-b border-[var(--color-line)] pb-6">
                 <p className="text-[14px] font-bold text-[var(--color-brand)] uppercase tracking-wider mb-2">Effective Date: August 18, 2026</p>
                 <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium">
-                  At Softune, we respect your storefront operations and merchant privacy. This document guides you through our information schemas, analytical trackers, and data encryption practices.
+                  At Softune, we respect your privacy and are committed to protecting the personal data of our store owners, partners, and visitors.
                 </p>
               </div>
 
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
                 </div>
               ))}
 
-              <div className="bg-[#FAF9F6] border border-[#D4D4D4] rounded-2xl p-6 mt-8">
+              <div className="bg-[var(--color-canvas)] border border-[var(--color-line)] rounded-2xl p-6 mt-8">
                 <p className="text-[14.5px] text-[var(--color-muted)] font-semibold leading-relaxed">
                   Have questions about your data or wish to request database deletion? Contact our team at{" "}
                   <a href="/support/contact" className="text-[var(--color-brand)] font-bold hover:underline transition-all">

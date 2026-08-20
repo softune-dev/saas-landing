@@ -60,7 +60,7 @@ export function Testimonial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
+          className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
         >
           <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
             <span
@@ -70,7 +70,7 @@ export function Testimonial() {
             <img
               src="/icons/chat.svg"
               alt=""
-              className="relative z-10 size-3 object-contain md:size-3.5"
+              className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
             />
           </div>
           <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -94,7 +94,7 @@ export function Testimonial() {
         <button
           type="button"
           onClick={handlePrev}
-          className="absolute top-1/2 left-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[#FAFAFA] hover:shadow-md active:scale-95 md:left-4 md:size-12"
+          className="absolute top-1/2 left-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[var(--color-canvas)] hover:shadow-md active:scale-95 md:left-4 md:size-12"
           aria-label="Previous testimonial"
         >
           <svg
@@ -115,7 +115,7 @@ export function Testimonial() {
         <button
           type="button"
           onClick={handleNext}
-          className="absolute top-1/2 right-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4D4D4] bg-white text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[#FAFAFA] hover:shadow-md active:scale-95 md:right-4 md:size-12"
+          className="absolute top-1/2 right-0 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] shadow-sm transition-all hover:border-[var(--color-ink)] hover:bg-[var(--color-canvas)] hover:shadow-md active:scale-95 md:right-4 md:size-12"
           aria-label="Next testimonial"
         >
           <svg
@@ -153,7 +153,7 @@ export function Testimonial() {
                 <img
                   src={testimonials[index].avatar}
                   alt={testimonials[index].name}
-                  className="size-11 rounded-full border border-[#D4D4D4] object-cover shadow-sm sm:size-12 md:size-14"
+                  className="size-11 rounded-full border border-[var(--color-line)] object-cover shadow-sm sm:size-12 md:size-14"
                 />
                 <div className="flex flex-col justify-center text-left">
                   <p className="text-[15px] leading-tight font-bold text-[var(--color-ink)] md:text-[16px]">

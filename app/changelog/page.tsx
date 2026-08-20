@@ -69,9 +69,9 @@ const changelogData = [
 
 function Badge({ type }: { type: string }) {
   const colors: Record<string, string> = {
-    Feature: "bg-[#E6F4EA] text-[#137333] border-[#137333]/20",
-    Improvement: "bg-[#F3E8FD] text-[#6B21A8] border-[#6B21A8]/20",
-    "Bug Fix": "bg-[#FCE8E6] text-[#C5221F] border-[#C5221F]/20",
+    Feature: "bg-[#E6F4EA] text-[#137333] border-[#137333]/20 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20",
+    Improvement: "bg-[#F3E8FD] text-[#6B21A8] border-[#6B21A8]/20 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20",
+    "Bug Fix": "bg-[#FCE8E6] text-[#C5221F] border-[#C5221F]/20 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20",
   };
 
   const style = colors[type] || "bg-gray-100 text-gray-700 border-gray-200";
@@ -89,11 +89,11 @@ export default function ChangelogPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
-        {/* Header Section (Hero Inspired) */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
+        {/* Hero Section */}
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           {/* Masked Grid Layer */}
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center_40%,transparent_0%,black_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
 
           {/* Bottom Gradient Fade */}
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
@@ -103,7 +103,7 @@ export default function ChangelogPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -113,7 +113,7 @@ export default function ChangelogPage() {
               <img
                 src="/icons/zap.svg"
                 alt="Zap"
-                className="size-3.5 object-contain"
+                className="size-3.5 object-contain dark:invert"
               />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
@@ -156,7 +156,7 @@ export default function ChangelogPage() {
             className="hidden lg:block w-[260px] shrink-0"
           >
             <div className="sticky top-32 space-y-4">
-              <h4 className="text-[12px] font-extrabold text-[var(--color-muted)] uppercase tracking-widest mb-6 border-b border-[#E5E5E5] pb-3">
+              <h4 className="text-[12px] font-extrabold text-[var(--color-muted)] uppercase tracking-widest mb-6 border-b border-[var(--color-line)] pb-3">
                 Release History
               </h4>
               <nav className="flex flex-col gap-4">
@@ -167,7 +167,7 @@ export default function ChangelogPage() {
                     className="group flex flex-col gap-1"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="flex size-1.5 rounded-full bg-[#D4D4D4] group-hover:bg-[var(--color-brand)] transition-colors"></span>
+                      <span className="flex size-1.5 rounded-full bg-[var(--color-line)] group-hover:bg-[var(--color-brand)] transition-colors"></span>
                       <span className="text-[14.5px] font-bold text-[var(--color-ink)] group-hover:text-[var(--color-brand)] transition-colors">
                         {log.serial} - {log.title}
                       </span>
@@ -207,13 +207,13 @@ export default function ChangelogPage() {
                     <span className="text-[16px] font-bold text-[var(--color-ink)]">
                       {log.date}
                     </span>
-                    <span className="h-4 w-px bg-[#D4D4D4] mx-1"></span>
+                    <span className="h-4 w-px bg-[var(--color-line)] mx-1"></span>
                     <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-brand)]/10 text-[var(--color-brand)] text-[12px] font-bold">
                       {log.version}
                     </span>
                   </div>
 
-                  <div className="rounded-[24px] border border-[#E5E5E5] bg-white p-6 md:p-10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.05)] transition-shadow hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)]">
+                  <div className="rounded-[24px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 md:p-10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.05)] transition-shadow hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)]">
                     {/* Title with Serial */}
                     <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[var(--color-ink)] mb-4 flex items-center gap-3">
                       <span className="text-[var(--color-brand)]">

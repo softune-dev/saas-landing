@@ -23,8 +23,8 @@ export function Button({
   const variants = {
     primary: "bg-[var(--color-brand)] text-white hover:opacity-90",
     ink: "bg-[var(--color-ink)] text-white hover:opacity-90",
-    outline: "border border-[var(--color-line)] bg-[#fdfdfd] text-[var(--color-ink)] hover:bg-[var(--color-canvas)]",
-    secondary: "bg-[#E8E8E8] text-[var(--color-ink)] border border-transparent hover:bg-white hover:border-[#D4D4D4] transition-all duration-200",
+    outline: "border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] hover:bg-[var(--color-canvas)]",
+    secondary: "bg-[var(--color-line)] text-[var(--color-ink)] border border-transparent hover:bg-[var(--color-surface)] hover:border-[var(--color-line)] transition-all duration-200",
   };
 
   const finalClasses = [baseClasses, variants[variant], className].filter(Boolean).join(" ");

@@ -74,10 +74,10 @@ export default function CommunityPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         
         {/* Hero Section (Changelog Inspired) */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -86,11 +86,11 @@ export default function CommunityPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
-              <img src="/icons/user.svg" alt="User" className="size-3.5 object-contain" />
+              <img src="/icons/user.svg" alt="User" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
               Connect with Sellers
@@ -139,13 +139,13 @@ export default function CommunityPage() {
                       className={`px-4 py-2.5 rounded-full text-[13.5px] font-bold tracking-tight transition-all duration-300 flex items-center gap-2 border border-transparent ${
                         isActive
                           ? "bg-[var(--color-brand)] text-white"
-                          : "bg-[#E8E8E8]/60 text-[var(--color-muted)] hover:bg-[#E8E8E8]/90 hover:text-[var(--color-ink)]"
+                          : "bg-[var(--color-line)] text-[var(--color-muted)] hover:bg-[var(--color-line)]/80 hover:text-[var(--color-ink)]"
                       }`}
                     >
                       <img 
                         src={cat.icon} 
                         alt="" 
-                        className={`size-4 object-contain ${isActive ? "brightness-0 invert" : ""}`} 
+                        className={`size-4 object-contain ${isActive ? "brightness-0 invert" : "dark:invert"}`} 
                       />
                       <span>{cat.label}</span>
                     </button>
@@ -162,7 +162,7 @@ export default function CommunityPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="relative overflow-hidden rounded-[24px] border border-[#D4D4D4] hover:border-[var(--color-brand)] bg-white p-6 transition-all duration-300 group text-left cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
+                    className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-6 transition-all duration-300 group text-left cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
                   >
                     {/* Background Dots Gradient on Right Side */}
                     <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
@@ -173,7 +173,7 @@ export default function CommunityPage() {
                       </div>
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="bg-[#FAF9F6] border border-[var(--color-line)] text-[11px] font-extrabold text-[var(--color-muted)] uppercase px-2 py-0.5 rounded">
+                          <span className="bg-[var(--color-canvas)] border border-[var(--color-line)] text-[11px] font-extrabold text-[var(--color-muted)] uppercase px-2 py-0.5 rounded">
                             {disc.tag}
                           </span>
                           <span className="text-[12px] text-[var(--color-muted)] font-bold">
@@ -188,7 +188,7 @@ export default function CommunityPage() {
 
                     <div className="flex items-center gap-6 border-t md:border-t-0 pt-3 md:pt-0 border-[var(--color-line)] shrink-0 self-end md:self-auto text-[var(--color-muted)]">
                       <span className="flex items-center gap-1.5 text-[13px] font-bold">
-                        <img src="/icons/chat.svg" alt="" className="size-4 object-contain opacity-70" />
+                        <img src="/icons/chat.svg" alt="" className="size-4 object-contain opacity-70 dark:invert" />
                         {disc.replies}
                       </span>
                       <span className="flex items-center gap-1.5 text-[13px] font-bold">
@@ -209,7 +209,7 @@ export default function CommunityPage() {
             <div className="lg:col-span-4 space-y-6">
               
               {/* Join Card */}
-              <div className="bg-white border border-[#D4D4D4] rounded-[24px] p-8 text-left relative overflow-hidden">
+              <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden">
                 <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-40" />
                 <h3 className="text-xl font-black text-[var(--color-ink)] mb-4">
                   Join the Community
@@ -236,11 +236,11 @@ export default function CommunityPage() {
               </div>
 
               {/* Forum Guidelines */}
-              <div className="bg-white border border-[#D4D4D4] rounded-[24px] p-8 text-left relative overflow-hidden">
+              <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden">
                 <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
                 
                 <h3 className="text-[16px] font-extrabold text-[var(--color-ink)] mb-4 flex items-center gap-2 relative z-10">
-                  <img src="/icons/lock.svg" alt="" className="size-4.5 object-contain" />
+                  <img src="/icons/lock.svg" alt="" className="size-4.5 object-contain dark:invert" />
                   Forum Guidelines
                 </h3>
                 <ul className="space-y-3 text-[13.5px] text-[var(--color-muted)] font-medium">

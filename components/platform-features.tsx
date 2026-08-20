@@ -3,104 +3,122 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
-const sections = [
+export type FeatureSection = {
+  pillText: string;
+  pillIcon: string;
+  titleStart: string;
+  titleHighlight: string;
+  titleEnd: string;
+  description: string;
+  bullets: string[];
+  videoBrief: string;
+  buttons: { text: string; variant: "primary" | "outline" }[];
+};
+
+export const sections: FeatureSection[] = [
   {
-    pillText: "Unified Dashboard",
+    pillText: "Store Overview",
     pillIcon: "/icons/analytics.svg",
-    titleStart: "Manage Everything From Your",
-    titleHighlight: "Dashboard",
+    titleStart: "All Your Tools in",
+    titleHighlight: "One Dashboard",
     titleEnd: "",
-    description: "Get a complete overview of your store at a glance. See real-time sales, manage pending orders, and track your active subscription limits all from a single screen.",
+    description: "Track revenue, order counts, AI credits, and storage from a single dashboard.",
     bullets: [
-      "Real-time sales and revenue tracking",
-      "Unified view of products and categories",
-      "Clear AI credit and storage tracking"
+      "Built-in payment gateways and checkout terms",
+      "Integrated local courier and delivery systems",
+      "Product catalog and inventory management center"
     ],
+    videoBrief: "Opens on the main dashboard, hovers over revenue stats, scrolls to plan limits, and ends on storage usage.",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "See Features", variant: "outline" }
     ]
   },
   {
-    pillText: "Product Management",
+    pillText: "Product Catalog",
     pillIcon: "/icons/shop-bag.svg",
-    titleStart: "Add",
-    titleHighlight: "Products",
-    titleEnd: "in Minutes, Not Hours",
-    description: "Manage your entire product catalog effortlessly. Add products with unlimited variants (sizes, colors), categorize them smoothly, and let AI write your descriptions.",
+    titleStart: "Generate Text With",
+    titleHighlight: "One-Click AI",
+    titleEnd: "",
+    description: "Create product descriptions using AI, then edit the text before saving.",
     bullets: [
-      "Unlimited product variants support",
-      "AI-generated product descriptions",
-      "Instant media library uploads"
+      "One-click AI product description builder",
+      "Editable text editor for generated content",
+      "Size, color, and SKU variant management"
     ],
+    videoBrief: "Opens product creator, clicks AI Description, edits one line, and clicks Save.",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "Explore Catalog", variant: "outline" }
     ]
   },
   {
-    pillText: "Order Fulfillment",
+    pillText: "Order History",
     pillIcon: "/icons/delivery.svg",
-    titleStart: "Process Orders & Manage",
-    titleHighlight: "Fulfillment",
-    titleEnd: "Seamlessly",
-    description: "Handle incoming orders from cart to delivery. Filter by payment status, print PDF invoices in one click, and manage local courier deliveries.",
+    titleStart: "Protected Sales Records &",
+    titleHighlight: "PDF Invoices",
+    titleEnd: "",
+    description: "Order items save product details at purchase time, keeping past invoices accurate even if products are edited later.",
     bullets: [
-      "One-click PDF invoice generation",
-      "Built-in delivery and courier management",
-      "Real-time payment status tracking"
+      "Protected past order receipts saved at time of sale",
+      "One-click downloadable PDF invoices",
+      "Past sales records stay accurate when catalog items change"
     ],
+    videoBrief: "Opens an order, downloads the PDF invoice, changes product price in catalog, and confirms old order stays unchanged.",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "View Orders", variant: "outline" }
     ]
   },
   {
-    pillText: "Business Insights",
-    pillIcon: "/icons/analytics.svg",
-    titleStart: "Understand Your Business With",
-    titleHighlight: "Built-in",
-    titleEnd: "Analytics",
-    description: "Get actionable insights into sales trends, order volume, and top-selling categories. Export your raw data to CSV, PDF, or JSON instantly to run your own reports.",
+    pillText: "Multi-Device Editor",
+    pillIcon: "/icons/themes.svg",
+    titleStart: "Preview Stores on",
+    titleHighlight: "Multiple Devices",
+    titleEnd: "",
+    description: "Switch between desktop, tablet, and mobile viewports directly inside the theme editor to inspect your storefront layout.",
     bullets: [
-      "Real-time sales trends and revenue",
-      "1-click CSV, PDF, and JSON exports",
-      "Visual month-over-month comparisons"
+      "Multi-device viewport toggles for desktop, tablet, and mobile",
+      "Interactive live editor showing real-time storefront changes",
+      "Responsive layout previews across all target screen sizes"
     ],
+    videoBrief: "Opens the theme editor, clicks the desktop icon, switches to tablet view, toggles mobile view, and edits a section header.",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "View Analytics", variant: "outline" }
+      { text: "Try Preview", variant: "outline" }
     ]
   },
   {
-    pillText: "AI Theme Editor",
+    pillText: "Storefront Design",
     pillIcon: "/icons/themes.svg",
-    titleStart: "Design Your Store With",
+    titleStart: "Customize Themes With",
     titleHighlight: "AI Suggest",
     titleEnd: "",
-    description: "Customize your Aurora, Bazaar, or Sweets theme with a live-preview editor. Use 'AI Suggest' to instantly generate brand colors, typography, and section copy based on a simple prompt.",
+    description: "Type a prompt to generate theme color, font, and copy updates, then review the patch before publishing.",
     bullets: [
-      "Live preview for desktop and mobile",
-      "AI Suggest for instant brand themes",
-      "Drag-and-drop section reordering"
+      "AI prompt for proposed color, font, and copy updates",
+      "Review modal to inspect changes before going live",
+      "Live desktop and mobile split preview"
     ],
+    videoBrief: "Types prompt in theme editor, reviews suggested color patch in modal, and clicks Apply to update split preview.",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "Browse Themes", variant: "outline" }
     ]
   },
   {
-    pillText: "Add-Ons Marketplace",
+    pillText: "App Extensions",
     pillIcon: "/icons/save.svg",
-    titleStart: "Expand Your Store With",
-    titleHighlight: "26 Add-Ons",
+    titleStart: "Connect Integrations In",
+    titleHighlight: "Add-Ons Store",
     titleEnd: "",
-    description: "Connect your store to the tools you need. Install one-click extensions across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights.",
+    description: "Enable payment gateways, tracking pixels, and customer chat extensions with one click.",
     bullets: [
-      "Payment gateways (Stripe, SSLCommerz, bKash)",
-      "Marketing tools (Facebook Pixel, SEO)",
-      "Customer engagement (Live chat, WhatsApp)"
+      "Payment integrations for Stripe, SSLCommerz, and bKash",
+      "Facebook Pixel and SEO tools",
+      "WhatsApp messaging and live chat add-ons"
     ],
+    videoBrief: "Opens Add-Ons page, filters engagement apps, clicks Install on WhatsApp Alerts, and toggles active status.",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "View All Add-Ons", variant: "outline" }
@@ -116,7 +134,7 @@ const CheckIcon = () => (
 
 export function PlatformFeatures() {
   return (
-    <section className="overflow-hidden border-y border-[var(--color-line)] bg-[#FAF9F6] py-14 md:py-32">
+    <section className="overflow-hidden border-y border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-14 md:gap-40">
           {sections.map((section, index) => {
@@ -136,7 +154,7 @@ export function PlatformFeatures() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4">
+                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4">
                       <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
                         <span
                           className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
@@ -145,7 +163,7 @@ export function PlatformFeatures() {
                         <img
                           src={section.pillIcon}
                           alt=""
-                          className="relative z-10 size-3 object-contain md:size-3.5"
+                          className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
                         />
                       </div>
                       <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -211,7 +229,7 @@ export function PlatformFeatures() {
                       <img
                         src="/icons/arrow-right.svg"
                         alt=""
-                        className="size-4 object-contain opacity-60"
+                        className="size-4 object-contain opacity-60 dark:invert"
                       />
                     </Button>
                   </motion.div>
@@ -224,11 +242,14 @@ export function PlatformFeatures() {
                   transition={{ duration: 0.5 }}
                   className="w-full flex-1"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] border border-[#E5E5E5] bg-[#EBEBEB] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm font-medium text-[var(--color-muted)] sm:text-lg">
-                        Video Placeholder
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                      <span className="text-sm font-semibold text-[var(--color-ink)] sm:text-base">
+                        Demo Video Placeholder
                       </span>
+                      <p className="mt-2 max-w-sm text-xs font-normal leading-relaxed text-[var(--color-muted)]">
+                        {section.videoBrief}
+                      </p>
                     </div>
                   </div>
                 </motion.div>

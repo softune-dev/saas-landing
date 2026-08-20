@@ -5,40 +5,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-
-const DASHBOARD_PAIRS = [
-  { desktop: "/dashboard.png", mobile: "/dashboard-m1.png" },
-  { desktop: "/dashboard2.png", mobile: "/dashboard-m2.png" },
-] as const;
-
-const PAIR_INTERVAL_MS = 5000;
+import { useTheme } from "next-themes";
 
 /**
  * Centered SaaS hero: copy in the middle band, dashboard mock
  * near the bottom with breathing room below.
  */
 export function Hero() {
-  const [pairIndex, setPairIndex] = useState(0);
-  const pair = DASHBOARD_PAIRS[pairIndex];
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    for (const p of DASHBOARD_PAIRS) {
-      const d = new window.Image();
-      d.src = p.desktop;
-      const m = new window.Image();
-      m.src = p.mobile;
-    }
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setPairIndex((i) => (i + 1) % DASHBOARD_PAIRS.length);
-    }, PAIR_INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, []);
+  const isDark = !mounted || resolvedTheme === "dark";
+  const desktopSrc = isDark ? "/dashboard-d.png" : "/dashboard-l.png";
+  const mobileSrc = isDark ? "/dashboard-d-m.png" : "/dashboard-l-m.png";
 
   return (
-    <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-white bg-[#f0f1f3] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px]">
+    <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px]">
       {/* Masked Grid Layer */}
       <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_50%_30%,transparent_0%,black_55%)]" />
 
@@ -51,7 +37,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="mb-5 flex w-max max-w-full items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-7 md:gap-3 md:p-1.5 md:pr-4"
+          className="mb-5 flex w-max max-w-full items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-7 md:gap-3 md:p-1.5 md:pr-4"
         >
           <div className="relative flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
             <span
@@ -151,7 +137,7 @@ export function Hero() {
             <img
               src="/icons/play.svg"
               alt=""
-              className="size-3.5 object-contain md:size-4"
+              className="size-3.5 object-contain md:size-4 dark:invert"
             />
             See Demo
           </Button>
@@ -168,9 +154,9 @@ export function Hero() {
         >
           <div className="overflow-hidden rounded-xl border border-[var(--color-line)] shadow-[0_24px_80px_-28px_rgba(12,12,12,0.4)] sm:rounded-2xl">
             <div className="relative w-full overflow-hidden bg-[var(--color-canvas)]">
-              {/* Spacer keeps layout height stable while pairs crossfade */}
+              {/* Spacer keeps layout height stable */}
               <img
-                src={DASHBOARD_PAIRS[0].desktop}
+                src="/dashboard-l.png"
                 alt=""
                 aria-hidden
                 className="block h-auto w-full opacity-0"
@@ -179,8 +165,8 @@ export function Hero() {
               />
               <AnimatePresence mode="sync" initial={false}>
                 <motion.img
-                  key={pair.desktop}
-                  src={pair.desktop}
+                  key={desktopSrc}
+                  src={desktopSrc}
                   alt="Softune merchant dashboard"
                   className="absolute inset-0 h-full w-full object-cover object-left-top"
                   width={1440}
@@ -188,14 +174,14 @@ export function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.55, ease: "easeInOut" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
                 />
               </AnimatePresence>
               {/* Mobile preview — rounded clip + shadow on the same box */}
-              <div className="pointer-events-none absolute right-[4%] bottom-2 z-10 w-[20%] max-w-[280px] overflow-hidden rounded-2xl shadow-[0_24px_56px_-8px_rgba(0,0,0,0.55),0_12px_24px_-10px_rgba(0,0,0,0.35)] sm:right-[4%] sm:bottom-3 sm:rounded-[1.25rem] md:right-[6%] md:bottom-4">
+              <div className="pointer-events-none absolute right-[4%] bottom-2 z-10 w-[20%] max-w-[280px] overflow-hidden rounded-lg shadow-[0_24px_56px_-8px_rgba(0,0,0,0.55),0_12px_24px_-10px_rgba(0,0,0,0.35)] sm:right-[4%] sm:bottom-3 sm:rounded-[1.25rem] md:right-[6%] md:bottom-4">
                 <div className="relative">
                   <img
-                    src={DASHBOARD_PAIRS[0].mobile}
+                    src="/dashboard-l-m.png"
                     alt=""
                     aria-hidden
                     className="block h-auto w-full opacity-0"
@@ -204,16 +190,16 @@ export function Hero() {
                   />
                   <AnimatePresence mode="sync" initial={false}>
                     <motion.img
-                      key={pair.mobile}
-                      src={pair.mobile}
+                      key={mobileSrc}
+                      src={mobileSrc}
                       alt="Softune dashboard on mobile"
-                      className="absolute inset-0 h-full w-full rounded-2xl object-cover object-top sm:rounded-[1.25rem]"
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover object-top sm:rounded-[1.25rem]"
                       width={442}
                       height={939}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.55, ease: "easeInOut" }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
                     />
                   </AnimatePresence>
                 </div>

@@ -58,7 +58,7 @@ export function Themes() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
+          className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:gap-3 md:p-1.5 md:pr-4"
         >
           <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
             <span
@@ -68,7 +68,7 @@ export function Themes() {
             <img
               src="/icons/themes.svg"
               alt="Themes"
-              className="size-3 object-contain md:size-3.5"
+              className="size-3 object-contain md:size-3.5 dark:invert"
             />
           </div>
           <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
@@ -83,14 +83,11 @@ export function Themes() {
             <em className="relative not-italic text-white">Business</em>
           </span>
         </h2>
-        <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px] lg:text-lg">
-          Select from professionally designed themes that match your brand.
-          Customize colors, layouts, and content—no coding required.
-        </p>
       </div>
 
       <p className="mt-8 text-center text-[12px] font-medium text-[var(--color-muted-soft)] sm:hidden">
-        Swipe to browse themes →
+        Swipe to browse themes
+        <ArrowRight className="ml-2 inline-block size-3 text-[var(--color-muted-soft)]" />
       </p>
 
       <div
@@ -98,21 +95,17 @@ export function Themes() {
         className="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto no-scrollbar pb-8 sm:mt-10 sm:gap-6 sm:pb-10 md:mt-10"
       >
         {themes.map((t, i) => (
-          <motion.article
+          <article
             key={t.name}
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
             className="group flex w-[82vw] shrink-0 snap-start flex-col sm:w-[60vw] md:w-[45vw] lg:w-[calc(33.333%-1rem)]"
           >
-            <div className="relative flex h-[300px] w-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] transition-transform duration-500 sm:h-[400px] md:h-[500px] lg:h-[600px]">
+            <div className="relative flex h-[400px] w-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] transition-transform duration-500 sm:h-[400px] md:h-[500px] lg:h-[600px]">
               <div className="flex shrink-0 items-center justify-between border-b border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2.5 sm:px-4 sm:py-3">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="size-2.5 rounded-full bg-[#ff5f57] sm:size-3" />
                   <span className="size-2.5 rounded-full bg-[#febc2e] sm:size-3" />
                   <span className="size-2.5 rounded-full bg-[#28c840] sm:size-3" />
-                  <div className="ml-2 hidden h-6 max-w-[200px] min-w-[120px] flex-1 items-center rounded-md border border-[var(--color-line)] bg-white px-2 sm:ml-3 sm:flex">
+                  <div className="ml-2 hidden h-6 max-w-[200px] min-w-[120px] flex-1 items-center rounded-md border border-[var(--color-line)] bg-[var(--color-canvas)] px-2 sm:ml-3 sm:flex">
                     <span className="truncate text-[10px] font-medium text-[var(--color-muted)]">
                       {t.name.toLowerCase()}.softune.com
                     </span>
@@ -155,7 +148,7 @@ export function Themes() {
                 />
               </div>
             </div>
-          </motion.article>
+          </article>
         ))}
       </div>
 

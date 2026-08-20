@@ -64,8 +64,8 @@ export function Faq() {
         transition={{ duration: 0.4, delay: index * 0.05 }}
         className={`group rounded-[20px] border transition-all duration-300 ${
           isOpen 
-            ? "border-[var(--color-brand)] bg-white" 
-            : "border-[#D4D4D4] bg-white hover:border-[#A3A3A3]"
+            ? "border-[var(--color-brand)] bg-[var(--color-surface)]" 
+            : "border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-brand)]"
         }`}
       >
         <button
@@ -82,7 +82,7 @@ export function Faq() {
           <div className={`flex size-8 md:size-10 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
             isOpen 
               ? "bg-[var(--color-brand)] text-white" 
-              : "bg-[#F5F5F5] text-[var(--color-muted)] group-hover:bg-[var(--color-brand)]/10 group-hover:text-[var(--color-brand)]"
+              : "bg-[var(--color-canvas)] text-[var(--color-muted)] group-hover:bg-[var(--color-brand)]/10 group-hover:text-[var(--color-brand)]"
           }`}>
             <svg 
               className={`size-4 md:size-5 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
@@ -114,7 +114,7 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="w-full border-b border-[var(--color-line)] bg-[#FAF9F6] py-14 md:py-24"
+      className="w-full border-b border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="mx-auto mb-8 flex flex-col items-center text-center md:mb-12">
@@ -123,7 +123,7 @@ export function Faq() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-white p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
           >
             <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <span
@@ -133,7 +133,7 @@ export function Faq() {
               <img
                 src="/icons/help-desk.svg"
                 alt=""
-                className="relative z-10 size-3 object-contain md:size-3.5"
+                className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">

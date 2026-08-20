@@ -29,9 +29,9 @@ export default function CookiePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[#f0f1f3] rounded-b-[4rem] border-b-[6px] border-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -40,7 +40,7 @@ export default function CookiePage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-white p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
@@ -81,7 +81,7 @@ export default function CookiePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative bg-white border border-[#D4D4D4] rounded-[32px] p-8 md:p-12 text-left overflow-hidden shadow-sm"
+            className="relative bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[32px] p-8 md:p-12 text-left overflow-hidden shadow-sm"
           >
             {/* Background Dots */}
             <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-1/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-30" />
@@ -108,7 +108,7 @@ export default function CookiePage() {
                 </div>
               ))}
 
-              <div className="bg-[#FAF9F6] border border-[#D4D4D4] rounded-2xl p-6 mt-8">
+              <div className="bg-[var(--color-canvas)] border border-[var(--color-line)] rounded-2xl p-6 mt-8">
                 <p className="text-[14.5px] text-[var(--color-muted)] font-semibold leading-relaxed">
                   Have inquiries regarding your cookies settings or wish to revoke analytical consent? Send us a request via the{" "}
                   <a href="/support/contact" className="text-[var(--color-brand)] font-bold hover:underline transition-all">
