@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Only real channel today — no live chat or phone line exists, so neither
+// is listed here. Adding a fake one back is worse than having just one.
 const cards = [
   {
     title: "Email Support",
@@ -14,20 +16,6 @@ const cards = [
     detail: "support@softune.com",
     href: "mailto:support@softune.com",
     icon: "/icons/chat.svg",
-  },
-  {
-    title: "Live Chat Widget",
-    desc: "Talk instantly with developers directly in-app.",
-    detail: "Average reply: 3 mins",
-    href: "#",
-    icon: "/icons/help-desk.svg",
-  },
-  {
-    title: "Priority Call Desk",
-    desc: "Emergency line for premium & enterprise accounts.",
-    detail: "+1 (800) 555-0199",
-    href: "tel:+18005550199",
-    icon: "/icons/domain.svg",
   },
 ];
 
@@ -41,11 +29,25 @@ export default function ContactSupportPage() {
     message: ""
   });
 
+  // There's no backend endpoint for platform-level (not per-merchant-site)
+  // contact requests — this used to just flip formSubmitted to true with no
+  // message ever actually sent anywhere. A real mailto: at least gets the
+  // message to a real inbox via the visitor's own email client, instead of
+  // silently discarding it while showing a fake "Message Sent!" screen.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.firstName && formData.lastName && formData.email && formData.message) {
-      setFormSubmitted(true);
-    }
+    if (!(formData.firstName && formData.lastName && formData.email && formData.message)) return;
+
+    const subject = `Support request from ${formData.firstName} ${formData.lastName}`;
+    const bodyLines = [
+      formData.message,
+      "",
+      `Email: ${formData.email}`,
+      formData.phone ? `Phone: ${formData.phone}` : null,
+    ].filter(Boolean);
+    const mailto = `mailto:support@softune.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    setFormSubmitted(true);
   };
 
   return (
@@ -160,9 +162,9 @@ export default function ContactSupportPage() {
                     <div className="size-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
                       <CheckCircle2 className="size-10" />
                     </div>
-                    <h3 className="text-xl font-bold text-[var(--color-ink)]">Message Sent!</h3>
+                    <h3 className="text-xl font-bold text-[var(--color-ink)]">Almost there!</h3>
                     <p className="text-[15px] text-[var(--color-muted)] max-w-md">
-                      Thank you, <span className="font-bold">{formData.firstName}</span>. We have received your message and will reach back at <span className="font-bold">{formData.email}</span> shortly.
+                      Thanks, <span className="font-bold">{formData.firstName}</span> — your email client should have opened with your message pre-filled. Hit send there to reach us, and we&apos;ll reply at <span className="font-bold">{formData.email}</span>.
                     </p>
                     <Button variant="outline" className="mt-6" onClick={() => {
                       setFormSubmitted(false);

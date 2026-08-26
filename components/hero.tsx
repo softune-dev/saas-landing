@@ -21,7 +21,6 @@ export function Hero() {
 
   const isDark = !mounted || resolvedTheme === "dark";
   const desktopSrc = isDark ? "/dashboard-d.png" : "/dashboard-l.png";
-  const mobileSrc = isDark ? "/dashboard-d-m.png" : "/dashboard-l-m.png";
 
   return (
     <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px]">
@@ -177,33 +176,6 @@ export function Hero() {
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                 />
               </AnimatePresence>
-              {/* Mobile preview — rounded clip + shadow on the same box */}
-              <div className="pointer-events-none absolute right-[4%] bottom-2 z-10 w-[20%] max-w-[280px] overflow-hidden rounded-lg shadow-[0_24px_56px_-8px_rgba(0,0,0,0.55),0_12px_24px_-10px_rgba(0,0,0,0.35)] sm:right-[4%] sm:bottom-3 sm:rounded-[1.25rem] md:right-[6%] md:bottom-4">
-                <div className="relative">
-                  <img
-                    src="/dashboard-l-m.png"
-                    alt=""
-                    aria-hidden
-                    className="block h-auto w-full opacity-0"
-                    width={442}
-                    height={939}
-                  />
-                  <AnimatePresence mode="sync" initial={false}>
-                    <motion.img
-                      key={mobileSrc}
-                      src={mobileSrc}
-                      alt="Softune dashboard on mobile"
-                      className="absolute inset-0 h-full w-full rounded-lg object-cover object-top sm:rounded-[1.25rem]"
-                      width={442}
-                      height={939}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.35, ease: "easeInOut" }}
-                    />
-                  </AnimatePresence>
-                </div>
-              </div>
             </div>
           </div>
         </motion.div>
