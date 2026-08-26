@@ -148,7 +148,7 @@ export default function BrandKitPage() {
                   <img
                     src={asset.preview}
                     alt={asset.title}
-                    className={`h-12 w-auto object-contain ${asset.invert ? "brightness-0 invert" : ""}`}
+                    className="h-12 w-auto object-contain"
                   />
                 </div>
 
