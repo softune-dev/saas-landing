@@ -49,7 +49,7 @@ export function Contact() {
               <img
                 src="/icons/chat.svg"
                 alt=""
-                className="relative z-10 size-3 object-contain md:size-3.5"
+                className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
