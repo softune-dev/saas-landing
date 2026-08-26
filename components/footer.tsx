@@ -1,3 +1,5 @@
+import { SoftuneLogo } from "@/components/brand/softune-logo";
+
 const cols = [
   {
     title: "Product",
@@ -15,7 +17,7 @@ const cols = [
     links: [
       { label: "Contact Us", href: "/support/contact" },
       { label: "Help Center", href: "/support/faq" },
-      { label: "Email Support", href: "mailto:support@softune.com" },
+      { label: "Email Support", href: "mailto:hello@softune.xyz" },
       { label: "Video Tutorials", href: "/support/tutorials" },
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Privacy Policy", href: "/privacy" },
@@ -39,17 +41,8 @@ export function Footer() {
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-canvas)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-5 lg:grid-cols-5 lg:gap-16">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
-              <img
-                src="/logo.svg"
-                alt="Softune Logo"
-                className="h-8 w-auto object-contain brightness-0 invert"
-              />
-            </div>
-            <span className="text-[20px] font-extrabold tracking-tight text-[var(--color-ink)]">
-              Softune
-            </span>
+          <div className="flex items-center">
+            <SoftuneLogo className="h-12 w-auto sm:h-14" />
           </div>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             Softune is the ecommerce platform built for small businesses and
@@ -182,17 +175,17 @@ export function Footer() {
               </span>
               <div className="grid w-full max-w-[280px] grid-cols-3 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
                 <img
-                  src="/icons/bkash.svg"
+                  src="/icons/bkash.webp"
                   alt="bKash"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
-                  src="/icons/nagad.svg"
+                  src="/icons/nagad.webp"
                   alt="Nagad"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
-                  src="/icons/sslcommerz.svg"
+                  src="/icons/sslcommerz.webp"
                   alt="SSLCommerz"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />

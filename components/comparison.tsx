@@ -1,137 +1,247 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Check, X } from "lucide-react";
+import { Button } from "./ui/button";
 
-const features = [
-  <><span className="text-[var(--color-brand)] font-semibold">Native AI Assistant</span> baked into the dashboard</>,
-  <><span className="text-[var(--color-brand)] font-semibold">1-Click Theme Switching</span> between distinct storefronts</>,
-  <>Built-in <span className="text-[var(--color-brand)] font-semibold">Guided Onboarding</span> & setup checklist</>,
-  <>Unified <span className="text-[var(--color-brand)] font-semibold">Product & Variant</span> management</>,
-  <>Seamless <span className="text-[var(--color-brand)] font-semibold">Payment Gateway</span> integrations</>,
-  <>Plug-and-play <span className="text-[var(--color-brand)] font-semibold">Courier Integrations</span></>,
-  <><span className="text-[var(--color-brand)] font-semibold">Add-Ons Marketplace</span> with 26 native apps</>,
-  <>Instant <span className="text-[var(--color-brand)] font-semibold">CSV, PDF & JSON</span> data exports</>,
-  <>Built-in <span className="text-[var(--color-brand)] font-semibold">Media Library</span> with clear storage limits</>,
-  <>Dynamic <span className="text-[var(--color-brand)] font-semibold">AI Theme Editor</span> with brand suggestions</>,
-  <>Predictable, <span className="text-[var(--color-brand)] font-semibold">transparent pricing & caps</span></>
+type Row = {
+  softune: string;
+  others: string;
+};
+
+/** Softune differentiators first: AI and themes lead; ops stack follows. */
+const rows: Row[] = [
+  {
+    softune: "Native AI Assistant baked into the dashboard",
+    others: "Bolt-on chat widgets or paid AI upsells",
+  },
+  {
+    softune: "1-click theme switching across Aurora, Bazaar & Sweets",
+    others: "One rigid template you are stuck with",
+  },
+  {
+    softune: "Guided onboarding checklist and product tour",
+    others: "Setup docs and YouTube as your “support”",
+  },
+  {
+    softune: "AI Theme Editor with brand color suggestions",
+    others: "Manual brand setup with no guidance",
+  },
+  {
+    softune: "Unified products & variants in one place",
+    others: "Product tools split across plugins",
+  },
+  {
+    softune: "Payments & courier integrations wired in",
+    others: "Gateway plugins you install and maintain",
+  },
+  {
+    softune: "Add-Ons Marketplace with 26 native apps",
+    others: "Fragile third-party apps with store fees",
+  },
+  {
+    softune: "Transparent plan caps for storage & AI credits",
+    others: "Surprise overages and unclear limits",
+  },
+  {
+    softune: "Instant CSV, PDF & JSON exports",
+    others: "Limited or paywalled data exports",
+  },
 ];
-
-const CheckIcon = () => (
-  <div className="mx-auto flex size-7 items-center justify-center rounded-full bg-white/20 text-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] border border-white/10 transition-transform duration-300 group-hover:scale-[1.15]">
-    <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-  </div>
-);
-
-const CrossIcon = () => (
-  <div className="mx-auto flex size-7 items-center justify-center rounded-full bg-red-50 text-red-500 border border-red-100 transition-transform duration-300 group-hover:scale-[1.15]">
-    <svg className="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </div>
-);
 
 export function Comparison() {
   return (
-    <section className="border-b border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-5 md:px-8">
-        <div className="mx-auto mb-8 flex flex-col items-center text-center md:mb-10">
+    <section
+      id="comparison"
+      className="border-b border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-24"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
+        <div className="mx-auto mb-10 flex flex-col items-center text-center md:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 md:mb-6 md:gap-3 md:p-1.5 md:pr-4"
           >
-            <div className="relative flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
-              <span
-                className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
-                style={{ animationDuration: "2s" }}
-              />
+            <div className="flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
+                className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Comparison
+              Softune vs Others
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15] md:text-5xl">
-            Why Softune Beats{" "}
+            Built different,{" "}
             <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">The Competition</em>
+              <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)]" />
+              <em className="relative not-italic text-white">on purpose</em>
             </span>
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
-            See how Softune compares to other ecommerce platforms.
+            Typical platforms stitch tools together. Softune ships AI, themes,
+            and ops in one place, so you sell instead of assemble.
           </p>
         </div>
 
-        <p className="mb-3 text-center text-[12px] font-medium text-[var(--color-muted-soft)] sm:hidden">
-          Swipe to compare →
-        </p>
+        <div className="grid items-stretch gap-4 md:grid-cols-2 md:gap-5">
+          {/* Softune first on mobile; column 2 on desktop. */}
+          <motion.article
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.06 }}
+            className="relative flex flex-col overflow-hidden rounded-xl border-2 border-[var(--color-brand)] md:col-start-2 md:row-start-1"
+          >
+            <div className="relative overflow-hidden border-b border-[var(--color-brand)] bg-[var(--color-ink)] px-5 py-6 sm:px-7 sm:py-7 dark:bg-[#0c0c0c]">
+              {/* Always-dark header: white dots so they read on ink in light mode too. */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute top-0 right-0 h-full w-3/4 opacity-90 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_75%)]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(rgba(255,255,255,0.18) 1.5px, transparent 1.5px)",
+                  backgroundSize: "8px 8px",
+                }}
+              />
+              <div className="relative z-10">
+                <p className="mb-4 text-[11px] font-bold tracking-[0.14em] text-[var(--color-brand)] uppercase">
+                  Recommended
+                </p>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo-white.png"
+                  alt="Softune"
+                  className="h-10 w-auto object-contain sm:h-12"
+                />
+                <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
+                  Native AI, real themes, and ops that ship with the store.
+                </p>
+              </div>
+            </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.05)] sm:rounded-[24px] md:rounded-[32px]"
-        >
-          <div className="-mx-px overflow-x-auto overscroll-x-contain">
-            <table className="w-full min-w-[560px] border-collapse text-left">
-              <thead>
-                <tr className="border-b border-[var(--color-line)]">
-                  <th className="w-1/2 p-4 text-[14px] font-bold text-[var(--color-ink)] sm:p-6 sm:text-[15px] md:p-8 md:text-[17px]">
-                    Features
-                  </th>
-                  <th className="w-1/4 border-l border-[var(--color-line)] bg-[var(--color-canvas)] p-4 text-center text-[14px] font-bold text-[var(--color-muted)] sm:p-6 sm:text-[15px] md:p-8 md:text-[16px]">
-                    Others
-                  </th>
-                  <th className="w-1/4 border-l border-[var(--color-brand)] bg-[var(--color-brand)] p-4 sm:p-6 md:p-8">
-                    <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                      <img
-                        src="/logo.svg"
-                        alt=""
-                        className="h-4 object-contain brightness-0 invert sm:h-5 md:h-6"
-                      />
-                      <span className="text-[15px] font-extrabold text-white sm:text-[17px] md:text-[19px]">
-                        Softune
-                      </span>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[var(--color-line)]">
-                {features.map((feature, i) => (
-                  <tr
-                    key={i}
-                    className="group transition-colors hover:bg-[var(--color-line)]/30"
-                  >
-                    <td className="px-4 py-4 text-[13px] font-medium text-[var(--color-ink-soft)] transition-colors group-hover:text-[var(--color-ink)] sm:px-6 sm:py-5 sm:text-[14px] md:px-8 md:py-6 md:text-[15.5px]">
-                      <span className="mr-1 inline-block w-5 font-semibold text-[var(--color-muted)] sm:w-6">
-                        {i + 1}.
-                      </span>{" "}
-                      {feature}
-                    </td>
-                    <td className="border-l border-[var(--color-line)] bg-[var(--color-canvas)]/30 p-4 sm:p-5 md:p-6">
-                      <CrossIcon />
-                    </td>
-                    <td className="relative border-l border-white/10 bg-[var(--color-brand)] p-4 sm:p-5 md:p-6">
-                      <div className="pointer-events-none absolute inset-0 border-b border-white/10" />
-                      <CheckIcon />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.div>
+            <ul className="flex flex-1 flex-col bg-[var(--color-surface)]">
+              {rows.map((row, i) => (
+                <li
+                  key={row.softune}
+                  className={`flex items-start gap-3 px-5 py-3.5 sm:px-7 sm:py-4 ${
+                    i < rows.length - 1
+                      ? "border-b border-[var(--color-line)]"
+                      : ""
+                  }`}
+                >
+                  <Check
+                    className="mt-0.5 size-4 shrink-0 text-[var(--color-brand)]"
+                    strokeWidth={2.75}
+                  />
+                  <span className="text-[14px] leading-snug font-semibold text-[var(--color-ink)] sm:text-[15px]">
+                    {row.softune}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] p-5 sm:p-7">
+              <Button
+                as="a"
+                href="/signup"
+                variant="primary"
+                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
+              >
+                Start with Softune
+                <img
+                  src="/icons/arrow-right.svg"
+                  alt=""
+                  className="size-4 object-contain brightness-0 invert"
+                />
+              </Button>
+            </div>
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="relative flex flex-col overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] md:col-start-1 md:row-start-1"
+          >
+            {/*
+              Header must not use canvas: section is canvas in light mode, so a
+              canvas list looked like it had no card body. Tint header off surface
+              instead; list stays pure surface against the page canvas.
+            */}
+            <div
+              className="relative overflow-hidden border-b border-[var(--color-line)] px-5 py-6 sm:px-7 sm:py-7"
+              style={{
+                backgroundColor:
+                  "color-mix(in srgb, var(--color-ink) 6%, var(--color-surface))",
+              }}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute top-0 right-0 h-full w-[85%] opacity-100 [mask-image:radial-gradient(circle_at_top_right,black_10%,transparent_78%)]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(color-mix(in srgb, var(--color-ink) 22%, transparent) 1.5px, transparent 1.5px)",
+                  backgroundSize: "8px 8px",
+                }}
+              />
+              <div className="relative z-10">
+                <p className="mb-3 text-[11px] font-bold tracking-[0.14em] text-[var(--color-muted)] uppercase">
+                  Typical platforms
+                </p>
+                <h3 className="text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-2xl">
+                  The usual stack
+                </h3>
+                <p className="mt-3 max-w-[280px] text-[14px] leading-snug font-medium text-[var(--color-muted)]">
+                  Plugins, upsells, and workarounds assembled by you.
+                </p>
+              </div>
+            </div>
+
+            <ul className="flex flex-1 flex-col bg-[var(--color-surface)]">
+              {rows.map((row, i) => (
+                <li
+                  key={row.others}
+                  className={`flex items-start gap-3 px-5 py-3.5 sm:px-7 sm:py-4 ${
+                    i < rows.length - 1
+                      ? "border-b border-[var(--color-line)]"
+                      : ""
+                  }`}
+                >
+                  <X
+                    className="mt-0.5 size-4 shrink-0 text-[var(--color-muted-soft)]"
+                    strokeWidth={2.5}
+                  />
+                  <span className="text-[14px] leading-snug font-medium text-[var(--color-muted)] sm:text-[15px]">
+                    {row.others}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] p-5 sm:p-7">
+              <Button
+                as="a"
+                href="#pricing"
+                variant="secondary"
+                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
+              >
+                See Softune plans
+                <img
+                  src="/icons/arrow-right.svg"
+                  alt=""
+                  className="size-4 object-contain opacity-60 dark:invert"
+                />
+              </Button>
+            </div>
+          </motion.article>
+        </div>
       </div>
     </section>
   );

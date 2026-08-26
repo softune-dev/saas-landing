@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SoftuneLogo } from "@/components/brand/softune-logo";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
 
@@ -94,17 +95,8 @@ export function Header() {
       <header className="sticky top-0 z-50 flex flex-col border-b border-[var(--color-line)] bg-[var(--color-surface)]/90 backdrop-blur-md">
         {/* Main Navbar */}
         <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 md:h-20 md:px-8">
-          <a href="/" className="flex min-w-0 items-center gap-2 md:gap-3">
-            <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm md:size-10">
-              <img
-                src="/logo.svg"
-                alt="Softune"
-                className="h-6 w-auto object-contain brightness-0 invert md:h-8"
-              />
-            </div>
-            <span className="truncate text-lg font-bold tracking-tight text-[var(--color-ink)] md:text-xl">
-              Softune
-            </span>
+          <a href="/" className="flex min-w-0 items-center">
+            <SoftuneLogo className="h-9 w-auto md:h-11" />
           </a>
 
           <nav className="hidden h-full items-center gap-8 md:flex">
@@ -144,11 +136,11 @@ export function Header() {
                             className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-line)]/50"
                           >
                             {sub.icon && (
-                              <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
+                              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
                                 <img
                                   src={sub.icon}
                                   alt=""
-                                  className="size-4 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
+                                  className="size-5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
                                 />
                               </div>
                             )}
@@ -171,9 +163,9 @@ export function Header() {
               <img
                 src="/icons/cart.svg"
                 alt="Cart"
-                className="size-5 object-contain dark:invert"
+                className="size-6 object-contain dark:invert"
               />
-              <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-[var(--color-brand)] text-[9px] font-bold text-white">
+              <span className="absolute -right-2.5 -top-2.5 flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
                 0
               </span>
             </a>
@@ -192,25 +184,25 @@ export function Header() {
             <ThemeToggle className="ml-0" />
             <a
               href="#cart"
-              className="relative flex size-9 items-center justify-center text-[var(--color-ink)]"
+              className="relative flex size-10 items-center justify-center text-[var(--color-ink)]"
             >
               <img
                 src="/icons/cart.svg"
                 alt="Cart"
-                className="size-5 object-contain dark:invert"
+                className="size-6 object-contain dark:invert"
               />
-              <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-[var(--color-brand)] text-[9px] font-bold text-white">
+              <span className="absolute right-0 top-0 flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
                 0
               </span>
             </a>
             <button
               type="button"
-              className="inline-flex size-9 items-center justify-center rounded-full text-[var(--color-ink)]"
+              className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)]"
               aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              {open ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
           </div>
         </div>
@@ -238,24 +230,15 @@ export function Header() {
             >
               {/* Header inside sidebar */}
               <div className="flex h-16 items-center justify-between px-6 border-b border-line shrink-0">
-                <a href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-                  <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand shadow-sm">
-                    <img
-                      src="/logo.svg"
-                      alt="Softune"
-                      className="h-5 w-auto object-contain brightness-0 invert"
-                    />
-                  </div>
-                  <span className="text-lg font-bold tracking-tight text-ink">
-                    Softune
-                  </span>
+                <a href="/" className="flex items-center" onClick={() => setOpen(false)}>
+                  <SoftuneLogo className="h-10 w-auto" />
                 </a>
                 <button
                   onClick={() => setOpen(false)}
-                  className="flex size-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-line/40"
+                  className="flex size-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-line/40"
                   aria-label="Close menu"
                 >
-                  <X className="size-5" />
+                  <X className="size-6" />
                 </button>
               </div>
 
@@ -292,11 +275,11 @@ export function Header() {
                                     className="group flex items-center gap-3 rounded-xl px-2 py-2 text-[15px] font-semibold text-muted hover:text-ink transition-colors"
                                   >
                                     {sub.icon && (
-                                      <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
-                                        <img 
-                                          src={sub.icon} 
-                                          alt="" 
-                                          className="size-4 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all" 
+                                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
+                                        <img
+                                          src={sub.icon}
+                                          alt=""
+                                          className="size-5 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"
                                         />
                                       </div>
                                     )}

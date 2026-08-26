@@ -53,39 +53,21 @@ export const sections: FeatureSection[] = [
     ]
   },
   {
-    pillText: "Order History",
-    pillIcon: "/icons/delivery.svg",
-    titleStart: "Protected Sales Records &",
-    titleHighlight: "PDF Invoices",
+    pillText: "Multi-Store Access",
+    pillIcon: "/icons/user.svg",
+    titleStart: "Run Every Store",
+    titleHighlight: "From One Login",
     titleEnd: "",
-    description: "Order items save product details at purchase time, keeping past invoices accurate even if products are edited later.",
+    description: "Own more than one store? Switch between them instantly from the account menu — no logging out, no separate sessions to juggle.",
     bullets: [
-      "Protected past order receipts saved at time of sale",
-      "One-click downloadable PDF invoices",
-      "Past sales records stay accurate when catalog items change"
+      "One click switches your active store, no logout required",
+      "Each store shows its own logo, never mixed up with the others",
+      "Add up to three stores to the same account switcher"
     ],
-    videoBrief: "Opens an order, downloads the PDF invoice, changes product price in catalog, and confirms old order stays unchanged.",
+    videoBrief: "Opens the account menu, shows two store logos in the switcher, clicks the second one, and lands on that store's dashboard instantly.",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "View Orders", variant: "outline" }
-    ]
-  },
-  {
-    pillText: "Multi-Device Editor",
-    pillIcon: "/icons/themes.svg",
-    titleStart: "Preview Stores on",
-    titleHighlight: "Multiple Devices",
-    titleEnd: "",
-    description: "Switch between desktop, tablet, and mobile viewports directly inside the theme editor to inspect your storefront layout.",
-    bullets: [
-      "Multi-device viewport toggles for desktop, tablet, and mobile",
-      "Interactive live editor showing real-time storefront changes",
-      "Responsive layout previews across all target screen sizes"
-    ],
-    videoBrief: "Opens the theme editor, clicks the desktop icon, switches to tablet view, toggles mobile view, and edits a section header.",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "Try Preview", variant: "outline" }
+      { text: "See How It Works", variant: "outline" }
     ]
   },
   {
@@ -104,24 +86,6 @@ export const sections: FeatureSection[] = [
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "Browse Themes", variant: "outline" }
-    ]
-  },
-  {
-    pillText: "App Extensions",
-    pillIcon: "/icons/save.svg",
-    titleStart: "Connect Integrations In",
-    titleHighlight: "Add-Ons Store",
-    titleEnd: "",
-    description: "Enable payment gateways, tracking pixels, and customer chat extensions with one click.",
-    bullets: [
-      "Payment integrations for Stripe, SSLCommerz, and bKash",
-      "Facebook Pixel and SEO tools",
-      "WhatsApp messaging and live chat add-ons"
-    ],
-    videoBrief: "Opens Add-Ons page, filters engagement apps, clicks Install on WhatsApp Alerts, and toggles active status.",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "View All Add-Ons", variant: "outline" }
     ]
   }
 ];

@@ -77,7 +77,7 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative overflow-hidden p-6 rounded-[20px] border border-[var(--color-line)] bg-[var(--color-canvas)] transition-all hover:bg-[var(--color-surface)] hover:border-[var(--color-brand)] shadow-sm hover:shadow-md flex flex-col items-start"
+                className="group relative flex flex-col items-start overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-all hover:border-[var(--color-brand)]"
               >
                 <div className="absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_60%)] pointer-events-none opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
                 

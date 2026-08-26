@@ -4,56 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "./ui/button";
-
-const plans = [
-  {
-    name: "Starter",
-    priceMonthly: 1190,
-    priceAnnually: 950,
-    description: "Perfect for new stores and small businesses getting started.",
-    features: [
-      "50 Products limit",
-      "500MB Media storage",
-      "Fraud protection",
-      "Theme editor",
-      "Basic analytics",
-      "0% Transaction Fee",
-    ],
-  },
-  {
-    name: "Growth",
-    priceMonthly: 2990,
-    priceAnnually: 2390,
-    popular: true,
-    description: "Everything you need to scale your growing e-commerce brand.",
-    features: [
-      "500 Products limit",
-      "2GB Media storage",
-      "80 AI credits/day",
-      "All Payments & Couriers",
-      "AI Assistant Included",
-      "Fraud protection",
-      "Advanced Analytics",
-      "Priority email support",
-      "0% Transaction Fee",
-    ],
-  },
-  {
-    name: "Business",
-    priceMonthly: 6990,
-    priceAnnually: 5590,
-    description: "Built for teams managing multiple client storefronts.",
-    features: [
-      "Everything in Growth, plus:",
-      "Unlimited Products",
-      "3 Storefronts included",
-      "5GB Media storage",
-      "250 AI credits/day",
-      "All Add-Ons & tools included",
-      "Account Manager",
-    ],
-  },
-];
+import { plans } from "@/lib/pricing-data";
 
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -99,7 +50,6 @@ export function Pricing() {
           </h2>
         </div>
 
-        {/* Billing toggle — flex-1 halves keep the sliding pill correct on narrow screens */}
         <div className="mb-10 flex justify-center md:mb-16">
           <div className="relative flex w-full max-w-[320px] items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 sm:max-w-none sm:w-auto">
             <button
@@ -144,7 +94,7 @@ export function Pricing() {
 
         <div className="grid items-start gap-5 overflow-x-clip px-1 sm:gap-6 sm:px-0 md:grid-cols-3 lg:gap-8">
           {plans.map((plan, i) => {
-            const isDark = plan.popular;
+            const popular = Boolean(plan.popular);
             return (
               <motion.div
                 key={plan.name}
@@ -153,37 +103,27 @@ export function Pricing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className={`relative flex flex-col rounded-[20px] transition-shadow duration-300 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] sm:rounded-[24px] ${
-                  isDark
-                    ? "z-10 bg-[#171717] shadow-xl md:-mt-4 md:mb-4"
+                  popular
+                    ? "z-10 overflow-hidden bg-[var(--color-ink)] shadow-[0_28px_64px_-20px_rgba(0,0,0,0.45)] ring-2 ring-[var(--color-brand)] md:-mt-4 md:mb-4 dark:bg-[#0c0c0c] dark:ring-[var(--color-brand)]"
                     : "overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)]"
                 }`}
               >
-                {isDark && (
-                  <>
-                    <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-b-xl bg-[var(--color-brand)] px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-sm sm:px-4">
-                      Most Popular
-                    </div>
-                    <div className="absolute -top-3 -left-3 z-30 flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-lg sm:-top-4 sm:-left-4 sm:size-12">
-                      <img
-                        src="/icons/splash.svg"
-                        alt="Sparkle"
-                        className="size-5 object-contain brightness-0 invert sm:size-6"
-                      />
-                    </div>
-                  </>
-                )}
+                {popular ? (
+                  <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-b-xl bg-[var(--color-brand)] px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-sm sm:px-4">
+                    Most Popular
+                  </div>
+                ) : null}
 
+                {/* Side plans: brand-orange header. Middle: dark ink header. */}
                 <div
-                  className={`relative z-10 p-6 pb-6 sm:p-8 sm:pb-8 ${
-                    !isDark
-                      ? "rounded-b-[20px] bg-[var(--color-brand)] sm:rounded-b-[24px]"
-                      : "pt-10"
+                  className={`relative z-10 p-6 pb-6 text-white sm:p-8 sm:pb-8 ${
+                    popular
+                      ? "bg-transparent pt-10"
+                      : "rounded-b-[20px] bg-[var(--color-brand)] sm:rounded-b-[24px]"
                   }`}
                 >
                   <div className="mb-5 sm:mb-6">
-                    <h3 className="text-xl font-bold text-white">
-                      {plan.name}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">{plan.name}</h3>
                     <p className="mt-2 min-h-[40px] text-[14px] text-white/80">
                       {plan.description}
                     </p>
@@ -203,32 +143,48 @@ export function Pricing() {
                   </div>
 
                   <div className="min-h-[20px]">
-                    {isAnnual && (
+                    {isAnnual ? (
                       <p
                         className={`text-[13px] font-semibold ${
-                          !isDark ? "text-white" : "text-[var(--color-brand)]"
+                          popular
+                            ? "text-[var(--color-brand)]"
+                            : "text-white"
                         }`}
                       >
                         Billed ৳{(plan.priceAnnually * 12).toLocaleString()}{" "}
                         yearly
                       </p>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 
                 <div
                   className={`relative z-10 flex flex-1 flex-col p-6 pt-6 sm:p-8 sm:pt-8 ${
-                    isDark ? "rounded-[20px] bg-[var(--color-surface)] sm:rounded-[24px]" : ""
+                    popular
+                      ? "mx-3 mb-3 rounded-[18px] bg-[var(--color-surface)] sm:mx-4 sm:mb-4 sm:rounded-[20px]"
+                      : ""
                   }`}
                 >
-                  <div className="pointer-events-none absolute right-0 bottom-0 h-full w-full rounded-[20px] bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_bottom_right,black_0%,transparent_60%)] sm:rounded-[24px]" />
+                  {!popular ? (
+                    <div className="pointer-events-none absolute right-0 bottom-0 h-full w-full rounded-[20px] bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_bottom_right,black_0%,transparent_60%)] sm:rounded-[24px]" />
+                  ) : null}
 
                   <div className="relative z-10 mb-6 flex-1 space-y-3 sm:mb-8 sm:space-y-3.5">
                     {plan.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
-                        <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f0fdf4]">
+                        <div
+                          className={`flex size-5 shrink-0 items-center justify-center rounded-full ${
+                            popular
+                              ? "bg-[var(--color-brand)]/12"
+                              : "bg-[#f0fdf4] dark:bg-emerald-500/15"
+                          }`}
+                        >
                           <Check
-                            className="size-3.5 text-[#16a34a]"
+                            className={`size-3.5 ${
+                              popular
+                                ? "text-[var(--color-brand)]"
+                                : "text-[#16a34a] dark:text-emerald-400"
+                            }`}
                             strokeWidth={3}
                           />
                         </div>
@@ -240,7 +196,7 @@ export function Pricing() {
                   </div>
 
                   <Button
-                    variant={isDark ? "primary" : "secondary"}
+                    variant={popular ? "primary" : "secondary"}
                     className="relative z-10 flex min-h-12 w-full items-center justify-center gap-2 py-3.5 text-[14px] font-bold"
                   >
                     Get Started
@@ -248,7 +204,9 @@ export function Pricing() {
                       src="/icons/arrow-right.svg"
                       alt=""
                       className={`size-4 object-contain ${
-                        isDark ? "brightness-0 invert" : "opacity-60 dark:invert"
+                        popular
+                          ? "brightness-0 invert"
+                          : "opacity-60 dark:invert"
                       }`}
                     />
                   </Button>
@@ -258,67 +216,109 @@ export function Pricing() {
           })}
         </div>
 
-        {/* Custom Plan Card at Bottom */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="relative mt-6 flex flex-col items-stretch justify-between gap-6 overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-shadow duration-300 hover:shadow-lg sm:mt-8 sm:rounded-[24px] sm:p-8 md:flex-row md:items-end md:gap-8 md:p-10"
+          className="relative mt-6 overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] sm:mt-8 sm:rounded-[24px]"
         >
-          <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)]" />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute top-0 right-0 h-2/3 w-2/3 bg-dot-grid-dense opacity-90 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_75%)]"
+          />
 
-          <div className="relative z-10 w-full max-w-2xl">
-            <h3 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
-              Enterprise & Custom
-            </h3>
-            <ul className="mt-5 space-y-3">
-              <li className="flex items-start gap-3">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f0fdf4]">
-                  <Check className="size-3.5 text-[#16a34a]" strokeWidth={3} />
+          <div className="relative z-10 grid items-center gap-8 p-6 sm:gap-10 sm:p-8 md:grid-cols-[1.15fr_0.85fr] md:p-10 lg:gap-12">
+            <div className="min-w-0">
+              <span className="inline-flex items-center rounded-full border border-[var(--color-brand)]/25 bg-[var(--color-brand)]/10 px-3 py-1 text-[11px] font-bold tracking-wider text-[var(--color-brand)] uppercase">
+                Enterprise
+              </span>
+              <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-3xl">
+                Custom stores, built for your brand
+              </h3>
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[var(--color-muted)]">
+                Beyond shared templates: bespoke storefronts, integrations, and
+                support tailored to how your team actually sells.
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "Fully bespoke design, not the shared template system",
+                  "Custom integrations negotiated to what they actually use",
+                  "Custom AI credit allowance",
+                  "Dedicated support",
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-3">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
+                      <Check
+                        className="size-3.5 text-[var(--color-brand)]"
+                        strokeWidth={3}
+                      />
+                    </div>
+                    <span className="text-[15px] leading-snug font-medium text-[var(--color-ink-soft)]">
+                      {line}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                variant="primary"
+                className="mt-7 flex min-h-12 w-full items-center justify-center gap-2 px-8 py-3.5 text-[15px] font-bold sm:w-auto"
+              >
+                Contact Sales
+                <img
+                  src="/icons/arrow-right.svg"
+                  alt=""
+                  className="size-4 object-contain brightness-0 invert"
+                />
+              </Button>
+            </div>
+
+            {/* Static angled storefront stack — same idea as dashboard My Shop tiles */}
+            <div className="relative mx-auto flex h-[220px] w-full max-w-[320px] items-center justify-center sm:h-[260px] md:max-w-none">
+              {(
+                [
+                  {
+                    src: "/theme_aurora.jpg",
+                    label: "Aurora",
+                    rotate: -10,
+                    x: -28,
+                    z: 1,
+                  },
+                  {
+                    src: "/theme_bazaar.jpg",
+                    label: "Bazaar",
+                    rotate: 4,
+                    x: 8,
+                    z: 2,
+                  },
+                  {
+                    src: "/theme_mishthan.jpg",
+                    label: "Custom",
+                    rotate: 14,
+                    x: 42,
+                    z: 3,
+                  },
+                ] as const
+              ).map((card) => (
+                <div
+                  key={card.src}
+                  className="absolute aspect-[3/4] w-[42%] overflow-hidden rounded-xl bg-[var(--color-canvas)] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.35)] ring-1 ring-black/10 sm:w-[46%] sm:rounded-2xl"
+                  style={{
+                    zIndex: card.z,
+                    transform: `translateX(${card.x}px) rotate(${card.rotate}deg)`,
+                  }}
+                >
+                  <img
+                    src={card.src}
+                    alt={card.label}
+                    className="size-full object-cover"
+                  />
+                  <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-2.5 pt-8 pb-2 text-[11px] font-bold tracking-wide text-white uppercase">
+                    {card.label}
+                  </span>
                 </div>
-                <span className="text-[15px] leading-snug text-[var(--color-muted)] font-medium">
-                  Fully bespoke design, not the shared template system
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f0fdf4]">
-                  <Check className="size-3.5 text-[#16a34a]" strokeWidth={3} />
-                </div>
-                <span className="text-[15px] leading-snug text-[var(--color-muted)] font-medium">
-                  Custom integrations negotiated to what they actually use
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f0fdf4]">
-                  <Check className="size-3.5 text-[#16a34a]" strokeWidth={3} />
-                </div>
-                <span className="text-[15px] leading-snug text-[var(--color-muted)] font-medium">
-                  Custom AI credit allowance
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f0fdf4]">
-                  <Check className="size-3.5 text-[#16a34a]" strokeWidth={3} />
-                </div>
-                <span className="text-[15px] leading-snug text-[var(--color-muted)] font-medium">
-                  Dedicated support
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="relative z-10 shrink-0 w-full md:w-auto">
-            <Button
-              variant="primary"
-              className="w-full md:w-auto px-8 py-3.5 flex items-center justify-center gap-2 text-[15px] font-bold"
-            >
-              Contact Sales
-              <img
-                src="/icons/arrow-right.svg"
-                alt=""
-                className="size-4 object-contain brightness-0 invert"
-              />
-            </Button>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

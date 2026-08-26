@@ -1,24 +1,27 @@
-"use client";
+import { StructuredData } from "@/components/structured-data";
+import { plans } from "@/lib/pricing-data";
+import { breadcrumbSchema, pricingSchema } from "@/lib/schema";
+import { pageSeo } from "@/lib/seo";
+import PricingPage from "./pricing-content";
 
-import React from "react";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { Pricing } from "@/components/pricing";
-import { Testimonial } from "@/components/testimonial";
-import { Faq } from "@/components/faq";
-import { Contact } from "@/components/contact";
+export const metadata = pageSeo({
+  title: "Pricing",
+  description:
+    "Simple, transparent pricing for Softune's ecommerce platform — pick a plan for AI credits, storage, and features that fit your store's stage.",
+  path: "/pricing",
+});
 
-export default function PricingPage() {
+export default function Page() {
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
-        <Pricing />
-        <Testimonial />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ])}
+      />
+      <StructuredData data={pricingSchema(plans)} />
+      <PricingPage />
     </>
   );
 }
