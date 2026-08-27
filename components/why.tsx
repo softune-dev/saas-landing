@@ -14,13 +14,8 @@ const items = [
   },
   {
     icon: "/icons/save.svg",
-    title: "Scalable Storage & AI",
-    body: "Resources scale with your business plan - up to 250 AI actions/day and 5GB of media storage on the Business tier.",
-  },
-  {
-    icon: "/icons/play.svg",
-    title: "Guided Onboarding",
-    body: "Never get lost. Every new store includes a step-by-step Getting Started checklist and an interactive product tour that guides you through your new dashboard.",
+    title: "Scalable Storage",
+    body: "Resources scale with your business plan - up to 5GB of media storage on the Business tier.",
   },
   {
     icon: "/icons/shop-bag.svg",
