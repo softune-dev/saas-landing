@@ -10,15 +10,15 @@ import { plans } from "@/lib/pricing-data";
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true);
 
-  // Same theme-aware dashboard screenshot as the Hero — crossfades between
-  // light/dark instead of a hydration-mismatched flash on first paint.
+  // Real Enterprise-card artwork, theme-matched — same mount-guard pattern
+  // as the Hero to avoid a hydration mismatch on first paint.
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
   const isDark = !mounted || resolvedTheme === "dark";
-  const dashboardSrc = isDark ? "/dashboard-d.png" : "/dashboard-l.png";
+  const enterpriseImageSrc = isDark ? "/price-enter-d.png" : "/price-enter-l.png";
 
   return (
     <section
@@ -284,16 +284,16 @@ export function Pricing() {
               </Button>
             </div>
 
-            {/* Dashboard preview, cropped to its right half (the live
-             * storefront pane, not the editor sidebar) — padding on the img
-             * itself (not the wrapper) gives the top/right/bottom gaps and
-             * lets rounded-2xl clip the image's own corners directly. */}
+            {/* Real Enterprise artwork, theme-matched. Outer padding gives
+             * the top/right/bottom gap; rounded-2xl clips the image itself. */}
             <div className="relative hidden md:block">
-              <img
-                src={dashboardSrc}
-                alt="Softune merchant dashboard"
-                className="absolute inset-0 h-full w-full rounded-2xl object-cover object-right pt-10 pr-4 pb-4"
-              />
+              <div className="absolute inset-0 pt-2 pr-2 pb-2">
+                <img
+                  src={enterpriseImageSrc}
+                  alt=""
+                  className="h-full w-full rounded-2xl object-cover object-right"
+                />
+              </div>
             </div>
           </div>
         </motion.div>
