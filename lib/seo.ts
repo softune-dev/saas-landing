@@ -24,7 +24,9 @@ export function pageSeo({
   image?: string;
   noindex?: boolean;
 }): Metadata {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Launch beautiful stores that sell`;
+  const fullTitle = title
+    ? `${title} | ${SITE_NAME}`
+    : `${SITE_NAME} — Ecommerce Website Builder for Bangladesh | bKash, Nagad, COD`;
   const canonical = `${SITE_URL}${path === "/" ? "" : path}`;
   const ogImage = image || "/og-image.png";
 

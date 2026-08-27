@@ -3,6 +3,11 @@
 import { motion } from "framer-motion";
 const items = [
   {
+    icon: "/icons/wallet.svg",
+    title: "Built for Bangladeshi Merchants",
+    body: "bKash, Nagad, and Cash on Delivery checkout, plus local courier delivery — built in from day one, not bolted on as an afterthought.",
+  },
+  {
     icon: "/icons/themes.svg",
     title: "Real Multi-Theme System",
     body: "Don't settle for one rigid template. Switch instantly between our Aurora, Bazaar, and Sweets storefronts to perfectly match your brand's aesthetic.",

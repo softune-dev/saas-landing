@@ -69,7 +69,7 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.05 }}
           className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[2.15rem] leading-[0.95] font-black tracking-tighter text-[var(--color-ink)] sm:gap-x-3 sm:text-[3.2rem] sm:leading-[1.05] md:text-[4rem] lg:gap-y-3 lg:text-[4.5rem]"
         >
-          <span>Start selling online,</span>
+          <span>Start selling online in Bangladesh,</span>
           <span className="inline-flex items-center gap-x-2 sm:gap-x-3">
             <span className="relative inline-block px-3 py-1 sm:whitespace-nowrap sm:px-4 sm:py-1.5">
               <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm sm:top-1" />
@@ -91,8 +91,9 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg"
         >
-          Create your dream storefront, manage inventory, and scale your sales
-          with an AI assistant woven into every part of your dashboard.
+          Create your dream storefront with bKash, Nagad, and Cash on Delivery
+          checkout, local courier delivery, and an AI assistant woven into
+          every part of your dashboard — built for Bangladeshi merchants.
         </motion.p>
 
         <motion.div
