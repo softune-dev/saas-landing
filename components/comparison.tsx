@@ -7,47 +7,59 @@ import { Button } from "./ui/button";
 type Row = {
   softune: string;
   others: string;
+  /** True = both sides genuinely have this (doc explicitly flags it as
+   * table stakes among BD builders) — shown as a check on both columns
+   * instead of a manufactured "win," which is what actually makes the
+   * other rows' claims credible. */
+  parity?: boolean;
 };
 
-/** Softune differentiators first: AI and themes lead; ops stack follows. */
+/**
+ * Every row here is a verified, sourced claim from
+ * docs/market-analysis-comparison.md's research into real Bangladesh-native
+ * store builders — never a named competitor (per that doc's own guidance,
+ * exact BD competitor pricing/features shift and aren't fully public), and
+ * never a claim that doc couldn't back with a real source. Rows we could
+ * have added but left out on purpose: "unclear limits," "no guidance," or
+ * any other generic dig no source actually verified about a real BD
+ * builder — padding the list with those would be exactly the kind of
+ * self-praise this rewrite was meant to replace.
+ */
 const rows: Row[] = [
   {
-    softune: "Native AI Assistant baked into the dashboard",
-    others: "Bolt-on chat widgets or paid AI upsells",
+    softune: "0% transaction fee, every plan",
+    others: "Some take a cut of every order you sell",
   },
   {
-    softune: "1-click theme switching across Aurora, Bazaar & Sweets",
-    others: "One rigid template you are stuck with",
+    softune: "No setup fee, ever",
+    others: "Some charge a one-time setup fee (e.g. ৳5,000)",
   },
   {
-    softune: "Guided onboarding checklist and product tour",
-    others: "Setup docs and YouTube as your “support”",
+    softune: "AI assistant across products, categories & theme direction",
+    others: "Rare, and usually just one narrow AI writing tool",
   },
   {
-    softune: "AI Theme Editor with brand color suggestions",
-    others: "Manual brand setup with no guidance",
+    softune: "Multiple real storefront themes + a live AI theme editor",
+    others: "Usually one fixed theme per merchant",
   },
   {
-    softune: "Unified products & variants in one place",
-    others: "Product tools split across plugins",
+    softune: "26 built-in add-ons, categorized by use case",
+    others: "Limited or no add-on ecosystem",
   },
   {
-    softune: "Payments & courier integrations wired in",
-    others: "Gateway plugins you install and maintain",
-  },
-  {
-    softune: "Add-Ons Marketplace with 26 native apps",
-    others: "Fragile third-party apps with store fees",
-  },
-  {
-    softune: "Transparent plan caps for storage & AI credits",
-    others: "Surprise overages and unclear limits",
-  },
-  {
-    softune: "Instant CSV, PDF & JSON exports",
-    others: "Limited or paywalled data exports",
+    softune: "Native bKash, Nagad, COD & courier delivery",
+    others: "Standard here too, since most BD builders offer it",
+    parity: true,
   },
 ];
+
+/** Sourced directly (see docs/market-analysis-comparison.md §2) — unlike the
+ * BD builders above, Shopify's pricing is fully public, so it's safe to
+ * name and cite an exact number for, not just describe generically. */
+const globalComparison = {
+  name: "Shopify",
+  fact: "charges roughly 2.8%–3.0% per sale on top of its subscription",
+};
 
 export function Comparison() {
   return (
@@ -72,20 +84,21 @@ export function Comparison() {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Softune vs Others
+              Softune vs Bangladeshi Builders
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15] md:text-5xl">
-            Built different,{" "}
+            No hidden{" "}
             <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
               <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)]" />
-              <em className="relative not-italic text-white">on purpose</em>
+              <em className="relative not-italic text-white">costs</em>
             </span>
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
-            Typical platforms stitch tools together. Softune ships AI, themes,
-            and ops in one place, so you sell instead of assemble.
+            Most Bangladeshi store builders charge extra somewhere: a setup
+            fee, a cut of every order, or a paywalled feature. Softune
+            doesn&apos;t.
           </p>
         </div>
 
@@ -120,7 +133,8 @@ export function Comparison() {
                   className="h-10 w-auto object-contain sm:h-12"
                 />
                 <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
-                  Native AI, real themes, and ops that ship with the store.
+                  No transaction fee, no setup fee, and a real AI assistant
+                  with storefront themes built in.
                 </p>
               </div>
             </div>
@@ -193,13 +207,13 @@ export function Comparison() {
               />
               <div className="relative z-10">
                 <p className="mb-3 text-[11px] font-bold tracking-[0.14em] text-[var(--color-muted)] uppercase">
-                  Typical platforms
+                  Typical BD builders
                 </p>
                 <h3 className="text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-2xl">
-                  The usual stack
+                  What you'll find elsewhere
                 </h3>
                 <p className="mt-3 max-w-[280px] text-[14px] leading-snug font-medium text-[var(--color-muted)]">
-                  Plugins, upsells, and workarounds assembled by you.
+                  Usually costs more and does less.
                 </p>
               </div>
             </div>
@@ -214,10 +228,17 @@ export function Comparison() {
                       : ""
                   }`}
                 >
-                  <X
-                    className="mt-0.5 size-4 shrink-0 text-[var(--color-muted-soft)]"
-                    strokeWidth={2.5}
-                  />
+                  {row.parity ? (
+                    <Check
+                      className="mt-0.5 size-4 shrink-0 text-[var(--color-muted-soft)]"
+                      strokeWidth={2.5}
+                    />
+                  ) : (
+                    <X
+                      className="mt-0.5 size-4 shrink-0 text-[var(--color-muted-soft)]"
+                      strokeWidth={2.5}
+                    />
+                  )}
                   <span className="text-[14px] leading-snug font-medium text-[var(--color-muted)] sm:text-[15px]">
                     {row.others}
                   </span>
@@ -242,6 +263,26 @@ export function Comparison() {
             </div>
           </motion.article>
         </div>
+
+        {/* Global platforms have fully public pricing, unlike the BD
+         * builders above — safe to name and cite an exact sourced number
+         * for (docs/market-analysis-comparison.md §2), rather than the
+         * anonymized framing the local comparison uses. */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.12 }}
+          className="mx-auto mt-6 flex max-w-3xl flex-col items-center gap-1.5 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-6 py-5 text-center sm:mt-8"
+        >
+          <p className="text-[14px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[15px]">
+            Comparing to a global platform instead?{" "}
+            <span className="font-semibold text-[var(--color-ink)]">
+              {globalComparison.name}
+            </span>{" "}
+            {globalComparison.fact}. Softune&apos;s is 0%, on every plan.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
