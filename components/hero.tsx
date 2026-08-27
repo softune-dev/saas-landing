@@ -69,7 +69,7 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.05 }}
           className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[2.15rem] leading-[0.95] font-black tracking-tighter text-[var(--color-ink)] sm:gap-x-3 sm:text-[3.2rem] sm:leading-[1.05] md:text-[4rem] lg:gap-y-3 lg:text-[4.5rem]"
         >
-          <span>Everything You Need,</span>
+          <span>Everything you need to</span>
           <span className="inline-flex items-center gap-x-2 sm:gap-x-3">
             <span className="relative inline-block px-3 py-1 sm:whitespace-nowrap sm:px-4 sm:py-1.5">
               <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm sm:top-1" />
@@ -79,9 +79,10 @@ export function Hero() {
                   alt=""
                   className="size-[0.75em] object-contain brightness-0 invert"
                 />
-                {""}Start Selling.
+                {""}Start Selling
               </em>
             </span>
+            <span>Online.</span>
           </span>
         </motion.h1>
 
