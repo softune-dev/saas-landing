@@ -228,8 +228,8 @@ export function Pricing() {
             className="pointer-events-none absolute top-0 right-0 h-2/3 w-2/3 bg-dot-grid-dense opacity-90 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_75%)]"
           />
 
-          <div className="relative z-10 grid items-center gap-8 p-6 sm:gap-10 sm:p-8 md:grid-cols-[1.15fr_0.85fr] md:p-10 lg:gap-12">
-            <div className="min-w-0">
+          <div className="relative z-10">
+            <div className="min-w-0 p-6 sm:p-8 md:p-10">
               <span className="inline-flex items-center rounded-full border border-[var(--color-brand)]/25 bg-[var(--color-brand)]/10 px-3 py-1 text-[11px] font-bold tracking-wider text-[var(--color-brand)] uppercase">
                 Enterprise
               </span>
@@ -271,53 +271,6 @@ export function Pricing() {
                   className="size-4 object-contain brightness-0 invert"
                 />
               </Button>
-            </div>
-
-            {/* Static angled storefront stack — same idea as dashboard My Shop tiles */}
-            <div className="relative mx-auto flex h-[220px] w-full max-w-[320px] items-center justify-center sm:h-[260px] md:max-w-none">
-              {(
-                [
-                  {
-                    src: "/theme_aurora.jpg",
-                    label: "Aurora",
-                    rotate: -10,
-                    x: -28,
-                    z: 1,
-                  },
-                  {
-                    src: "/theme_bazaar.jpg",
-                    label: "Bazaar",
-                    rotate: 4,
-                    x: 8,
-                    z: 2,
-                  },
-                  {
-                    src: "/theme_mishthan.jpg",
-                    label: "Custom",
-                    rotate: 14,
-                    x: 42,
-                    z: 3,
-                  },
-                ] as const
-              ).map((card) => (
-                <div
-                  key={card.src}
-                  className="absolute aspect-[3/4] w-[42%] overflow-hidden rounded-xl bg-[var(--color-canvas)] shadow-[0_18px_40px_-16px_rgba(0,0,0,0.35)] ring-1 ring-black/10 sm:w-[46%] sm:rounded-2xl"
-                  style={{
-                    zIndex: card.z,
-                    transform: `translateX(${card.x}px) rotate(${card.rotate}deg)`,
-                  }}
-                >
-                  <img
-                    src={card.src}
-                    alt={card.label}
-                    className="size-full object-cover"
-                  />
-                  <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-2.5 pt-8 pb-2 text-[11px] font-bold tracking-wide text-white uppercase">
-                    {card.label}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
         </motion.div>
