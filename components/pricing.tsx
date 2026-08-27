@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { plans } from "@/lib/pricing-data";
 
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true);
+
+  // Same theme-aware dashboard screenshot as the Hero — crossfades between
+  // light/dark instead of a hydration-mismatched flash on first paint.
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const isDark = !mounted || resolvedTheme === "dark";
+  const dashboardSrc = isDark ? "/dashboard-d.png" : "/dashboard-l.png";
 
   return (
     <section
@@ -228,7 +239,7 @@ export function Pricing() {
             className="pointer-events-none absolute top-0 right-0 h-2/3 w-2/3 bg-dot-grid-dense opacity-90 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_75%)]"
           />
 
-          <div className="relative z-10">
+          <div className="relative z-10 grid items-stretch md:grid-cols-[1.15fr_0.85fr]">
             <div className="min-w-0 p-6 sm:p-8 md:p-10">
               <span className="inline-flex items-center rounded-full border border-[var(--color-brand)]/25 bg-[var(--color-brand)]/10 px-3 py-1 text-[11px] font-bold tracking-wider text-[var(--color-brand)] uppercase">
                 Enterprise
@@ -271,6 +282,18 @@ export function Pricing() {
                   className="size-4 object-contain brightness-0 invert"
                 />
               </Button>
+            </div>
+
+            {/* Dashboard preview, cropped to its right half (the live
+             * storefront pane, not the editor sidebar) — padding on the img
+             * itself (not the wrapper) gives the top/right/bottom gaps and
+             * lets rounded-2xl clip the image's own corners directly. */}
+            <div className="relative hidden md:block">
+              <img
+                src={dashboardSrc}
+                alt="Softune merchant dashboard"
+                className="absolute inset-0 h-full w-full rounded-2xl object-cover object-right pt-10 pr-4 pb-4"
+              />
             </div>
           </div>
         </motion.div>
