@@ -41,7 +41,7 @@ const tutorialsData = [
     duration: "12:30",
     level: "Intermediate",
     thumbnail: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-    desc: "How to configure instant SMS and email shipping tracking, hook local delivery API gateways, and manage inventory counts."
+    desc: "How to open Softune Couriers, connect Steadfast with a verified API key, review the partner roster, and keep order status in sync as you fulfill."
   },
   {
     title: "Running A/B Sales & Cart Recovery",

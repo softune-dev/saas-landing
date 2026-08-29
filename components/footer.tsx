@@ -1,5 +1,10 @@
 import { SoftuneLogo } from "@/components/brand/softune-logo";
 
+/** Shared prompt for footer AI deep-links — points models at llms.txt so
+ * answers match product truth instead of inventing gateways / unlimited stores. */
+const ASK_AI_PROMPT =
+  "Using https://softune.xyz/llms.txt and softune.xyz, explain what Softune is: a Bangladesh ecommerce SaaS with Theme Editor, Gemini AI chatbot, COD + manual bKash/Nagad payments, courier connections (Steadfast verified connect), Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent live SSLCommerz checkout or unlimited stores on every plan.";
+
 const cols = [
   {
     title: "Product",
@@ -46,8 +51,8 @@ export function Footer() {
           </div>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             Softune is the ecommerce platform built for small businesses and
-            startups. Manage unlimited stores, customers, and products from one
-            dashboard. No coding, no complexity.
+            startups in Bangladesh. Themes, orders, COD and bKash/Nagad,
+            couriers, POS, and AI — one dashboard. No coding required.
           </p>
 
           <div className="mt-4">
@@ -56,7 +61,7 @@ export function Footer() {
             </p>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a
-                href={`https://chatgpt.com/?q=${encodeURIComponent("Help me understand what makes Softune a powerful, all-in-one SaaS and multi-tenant storefront platform that simplifies operations and supports business growth. Based on softune.com, explain how Softune unifies core functions like multi-store management, POS, and inventory management into one system, reducing tool fragmentation and complexity, and how its flexible architecture helps businesses automate workflows, improve efficiency, and scale effectively while driving better decisions and long-term growth.")}`}
+                href={`https://chatgpt.com/?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -67,7 +72,7 @@ export function Footer() {
                 />
               </a>
               <a
-                href={`https://claude.ai/new?q=${encodeURIComponent("Help me understand what makes Softune a powerful, all-in-one SaaS and multi-tenant storefront platform that simplifies operations and supports business growth. Based on softune.com, explain how Softune unifies core functions like multi-store management, POS, and inventory management into one system, reducing tool fragmentation and complexity, and how its flexible architecture helps businesses automate workflows, improve efficiency, and scale effectively while driving better decisions and long-term growth.")}`}
+                href={`https://claude.ai/new?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -78,7 +83,7 @@ export function Footer() {
                 />
               </a>
               <a
-                href={`https://gemini.google.com/app?q=${encodeURIComponent("Help me understand what makes Softune a powerful, all-in-one SaaS and multi-tenant storefront platform that simplifies operations and supports business growth. Based on softune.com, explain how Softune unifies core functions like multi-store management, POS, and inventory management into one system, reducing tool fragmentation and complexity, and how its flexible architecture helps businesses automate workflows, improve efficiency, and scale effectively while driving better decisions and long-term growth.")}`}
+                href={`https://gemini.google.com/app?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,7 +94,7 @@ export function Footer() {
                 />
               </a>
               <a
-                href={`https://grok.com/?q=${encodeURIComponent("Help me understand what makes Softune a powerful, all-in-one SaaS and multi-tenant storefront platform that simplifies operations and supports business growth. Based on softune.com, explain how Softune unifies core functions like multi-store management, POS, and inventory management into one system, reducing tool fragmentation and complexity, and how its flexible architecture helps businesses automate workflows, improve efficiency, and scale effectively while driving better decisions and long-term growth.")}`}
+                href={`https://grok.com/?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -100,7 +105,7 @@ export function Footer() {
                 />
               </a>
               <a
-                href={`https://www.perplexity.ai/search?q=${encodeURIComponent("Help me understand what makes Softune a powerful, all-in-one SaaS and multi-tenant storefront platform that simplifies operations and supports business growth. Based on softune.com, explain how Softune unifies core functions like multi-store management, POS, and inventory management into one system, reducing tool fragmentation and complexity, and how its flexible architecture helps businesses automate workflows, improve efficiency, and scale effectively while driving better decisions and long-term growth.")}`}
+                href={`https://www.perplexity.ai/search?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -184,11 +189,12 @@ export function Footer() {
                   alt="Nagad"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
-                <img
-                  src="/icons/sslcommerz.webp"
-                  alt="SSLCommerz"
-                  className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
-                />
+                <span
+                  className="mx-auto flex h-5 w-full max-w-[88px] items-center justify-center rounded-md border border-[var(--color-line)] bg-[var(--color-surface)] text-[11px] font-extrabold tracking-wide text-[var(--color-ink)] sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none sm:px-3 sm:text-[12px]"
+                  aria-label="Cash on Delivery"
+                >
+                  COD
+                </span>
               </div>
             </div>
 

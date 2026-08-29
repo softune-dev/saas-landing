@@ -45,23 +45,23 @@ const changelogData = [
       {
         type: "Feature",
         content:
-          "Multi-tenant dashboard for agencies to manage unlimited clients.",
+          "Multi-tenant dashboard for merchants and agencies managing client storefronts.",
       },
       {
         type: "Feature",
-        content: "Drag-and-drop visual theme editor with real-time preview.",
+        content: "Live Theme Editor with desktop and mobile preview.",
       },
       {
         type: "Feature",
-        content: "Integrated POS system for omnichannel selling.",
+        content: "Store Sale POS for counter and in-person orders.",
       },
       {
         type: "Feature",
-        content: "AI-powered product description and SEO metadata generator.",
+        content: "AI product descriptions and Theme Editor AI Suggest (merchant confirms before publish).",
       },
       {
         type: "Feature",
-        content: "Advanced analytics, reporting, and order tracking.",
+        content: "Analytics from real orders, COD + manual bKash/Nagad, and courier connections.",
       },
     ],
   },

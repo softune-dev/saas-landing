@@ -102,7 +102,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "Themes — open the theme editor for your storefront",
           "Customers — buyers who have ordered from you",
           "Courier — connect delivery partners",
-          "Payments — gateways and Cash on Delivery",
+          "Payments — COD and manual bKash/Nagad",
           "Add-Ons — native marketplace extensions",
         ],
       },
@@ -158,8 +158,8 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "1. Add your first product — create a sellable item under Products",
           "2. Create a category — open Categories and add at least one group",
           "3. Add logo & business info — Site Settings / Account business details so the store looks like your brand",
-          "4. Connect a payment method — Payments (gateway and/or Cash on Delivery)",
-          "5. Set up courier — Courier partners for handoff",
+          "4. Connect a payment method — Payments (COD and/or manual bKash/Nagad)",
+          "5. Set up courier — Couriers screen (Steadfast verified connect when ready)",
           "6. Upload product/store photos — media for products and brand assets",
           "7. Add FAQs — Site Settings FAQs shoppers can read",
           "8. Add legal pages — Privacy and Terms in Site Settings legal docs",
@@ -704,28 +704,28 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect Softune Payments — local gateways Softune supports — and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
+    "Connect Softune Payments — Cash on Delivery and manual bKash/Nagad — and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
     [
       {
         type: "p",
         content:
-          "Menu → Payments is where Softune connects the ways customers pay. Softune is built around local gateway integrations and Cash on Delivery. Payments (with Courier) shows as Included by Default on the Add-Ons page — core infrastructure, not one of the 25 optional marketplace Add-Ons.",
+          "Menu → Payments is where Softune connects the ways customers pay. Softune checkout today supports Cash on Delivery and manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID). Payments (with Courier) shows as Included by Default on the Add-Ons page — core infrastructure, not one of the 25 optional marketplace Add-Ons.",
       },
-      { type: "h2", content: "Connect a gateway" },
+      { type: "h2", content: "Enable a payment method" },
       {
         type: "list",
         content: [
           "1. Open Menu → Payments",
-          "2. Choose a Softune-supported gateway you already have a merchant account for",
-          "3. Enter the credentials Softune requests for that provider",
+          "2. Choose Cash on Delivery and/or a Softune wallet method (bKash or Nagad)",
+          "3. Enter the merchant wallet number Softune asks for (wallet methods)",
           "4. Enable the method for the store",
-          "5. Place a test checkout and confirm Softune records the order correctly",
+          "5. Place a test checkout and confirm Softune records the order and any transaction ID correctly",
         ],
       },
       {
         type: "callout",
         content:
-          "Softune documentation does not claim Stripe/PayPal universality or multi-currency setup. Only enable methods Softune lists and that you can settle.",
+          "Softune does not offer live auto-checkout through SSLCommerz, Stripe, or PayPal today. Only enable methods Softune lists and that you can settle by hand.",
       },
       { type: "h2", content: "Included by Default vs Add-Ons catalog" },
       {
@@ -750,7 +750,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Cash on Delivery (COD) is a first-class Softune payment path for markets where buyers prefer to pay on delivery. Enable it from Payments alongside any connected gateways.",
+          "Cash on Delivery (COD) is a first-class Softune payment path for markets where buyers prefer to pay on delivery. Enable it from Payments alongside manual bKash/Nagad when you use wallet checkout.",
       },
       { type: "h2", content: "Enable COD" },
       {
@@ -788,33 +788,33 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Menu → Courier connects Softune to real Bangladesh courier partners so you can hand off orders without retyping customer details. Like Payments, Courier is Included by Default on the Add-Ons page — not one of the 25 optional Add-Ons.",
+          "Menu → Couriers lists Softune’s Bangladesh courier partners on one screen. Steadfast supports a verified API-key connect today; other partners appear on the same roster as Softune enables each connection. Like Payments, Courier is Included by Default on the Add-Ons page — not one of the 25 optional Add-Ons.",
       },
       { type: "h2", content: "Connect a partner" },
       {
         type: "list",
         content: [
-          "1. Open Menu → Courier",
-          "2. Choose a Softune-supported Bangladesh partner",
-          "3. Enter API credentials or account details Softune requests",
-          "4. Save and verify Softune shows the partner as connected",
-          "5. Fulfill a low-risk test order through Softune into that partner",
+          "1. Open Menu → Couriers",
+          "2. Choose a Softune-supported Bangladesh partner (Steadfast is available for verified connect)",
+          "3. Enter the API credentials Softune requests",
+          "4. Save and confirm Softune verifies and shows the partner as connected",
+          "5. Keep order status in Softune in sync with how you fulfill outside the dashboard",
         ],
       },
-      { type: "h2", content: "Day-to-day handoff" },
+      { type: "h2", content: "Day-to-day fulfillment" },
       {
         type: "list",
         content: [
           "Open the order in Orders",
           "Confirm address and phone",
-          "Use Softune’s courier handoff for the connected partner",
-          "Track status with your partner’s tools and update Softune order status honestly",
+          "Book or hand off with your connected courier using their tools or Softune’s handoff when available for that partner",
+          "Update Softune order status honestly after the courier accepts the parcel",
         ],
       },
       {
         type: "callout",
         content:
-          "Softune’s courier story is domestic Bangladesh logistics. Softune docs do not claim arbitrary cross-border parcel networks.",
+          "Softune’s courier story is domestic Bangladesh logistics. Softune does not claim real-time public tracking or auto-booking for every partner on the roster.",
       },
       { type: "h2", content: "Getting Started step" },
       {

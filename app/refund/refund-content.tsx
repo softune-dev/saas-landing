@@ -21,7 +21,7 @@ const refundSections = [
   },
   {
     title: "Refund Processing & Gateways",
-    content: "Approved refunds are credited back to your original payment mode (Stripe, PayPal, or local merchant wallets) within 5 to 10 working days, subject to processing fees or gateway policies."
+    content: "Approved Softune subscription refunds are credited back to your original payment method within 5 to 10 working days, subject to the payment provider’s processing times and any applicable fees."
   }
 ];
 

@@ -9,42 +9,42 @@
 export const homeFaqs = [
   {
     q: "What is Softune?",
-    a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups. Create professional online stores, manage products and orders, process payments, and grow your business—all from one intuitive dashboard.",
+    a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD and manual bKash/Nagad payments, connect couriers, run Store Sale (POS), and grow from one dashboard.",
   },
   {
     q: "Do I need coding skills to use Softune?",
-    a: "No. Softune is built for non-technical users. Launch stores, add products, manage orders, and customize your storefront using our drag-and-drop interface—no coding or technical expertise required.",
+    a: "No. Softune is built for non-technical users. Launch a store, add products, manage orders, and customize your storefront in the Theme Editor — no coding required.",
   },
   {
     q: "Can I manage multiple stores from one dashboard?",
-    a: "Yes. Softune's multi-store management lets you handle unlimited stores from a single dashboard, making it easy to scale your business and manage inventory, orders, and customers across all stores.",
+    a: "Yes. Softune lets you switch between stores from one dashboard. The Business plan includes up to 3 storefronts on a single account. Softune does not offer unlimited stores on every plan.",
   },
   {
     q: "What payment methods does Softune support?",
-    a: "Softune supports Cash on Delivery (COD) by default. Additional payment gateways can be integrated based on your plan to expand your payment options.",
+    a: "Softune supports Cash on Delivery (COD) plus manual bKash and Nagad: shoppers pay your wallet number and submit a transaction ID, then you verify before shipping. Live auto-checkout through SSLCommerz or other card gateways is not available yet.",
   },
   {
     q: "How long does it take to launch my store?",
-    a: "Minutes. With our AI-powered store setup and pre-built themes, you can have your online store live and accepting orders in just minutes, not weeks.",
+    a: "Minutes. Pick a pre-built theme, add products, enable a payment method, and publish — your store can be live and accepting orders the same day.",
   },
   {
     q: "Is my customer data secure?",
-    a: "Yes. Softune uses enterprise-grade security with real-time fraud detection, secure payment processing, and automatic backups to protect your business and customer data.",
+    a: "Yes. Softune isolates each merchant’s data by tenant, stores sensitive credentials encrypted, and includes rule-based Fraud Protection (phone blocklist plus checkout rules) to reduce COD abuse. Softune does not claim machine-learning fraud scoring.",
   },
   {
     q: "Can I customize my store's design?",
-    a: "Absolutely. Choose from professional themes or use our AI-powered theme editor to customize colors, layouts, fonts, and branding without touching any code.",
+    a: "Yes. Choose a professional theme and use Softune’s Theme Editor to change colors, fonts, sections, and branding with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.",
   },
   {
     q: "What courier services are integrated with Softune?",
-    a: "Softune integrates with major Bangladeshi courier services. Orders sync automatically, shipment tracking is real-time, and customers receive automatic shipping updates.",
+    a: "Softune’s Couriers screen lists major Bangladesh partners including Steadfast, Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo. Steadfast supports a verified API-key connect today; Softune does not claim real-time tracking or auto-booking for every partner.",
   },
   {
     q: "Can I upgrade or downgrade my plan anytime?",
-    a: "Yes. You can upgrade to a higher plan or downgrade anytime. Changes take effect immediately, and your billing is pro-rated based on usage.",
+    a: "Yes. You can move between Starter, Growth, and Business. See the live pricing page for current limits and what’s included on each plan.",
   },
   {
     q: "How does Softune's AI help my business?",
-    a: "Softune's AI assists with store setup and optimization, provides actionable analytics and insights on your performance, helps refine your theme design, and improves your store's SEO automatically.",
+    a: "Softune’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live — Softune does not auto-rewrite your store SEO without review.",
   },
 ];

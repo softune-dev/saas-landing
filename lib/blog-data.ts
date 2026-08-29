@@ -280,7 +280,6 @@ export const ARTICLES: Record<string, BlogPost> = {
         type: "list",
         content: [
           "বিকাশ ও নগদ ম্যানুয়াল পেমেন্ট — কোনো মার্চেন্ট অ্যাকাউন্ট ছাড়াই শুরু করা যায়",
-          "SSLCommerz-সহ অটোমেটিক গেটওয়ে অপশনও যুক্ত করার সুবিধা",
           "ট্রানজেকশন আইডি ড্যাশবোর্ড থেকেই দেখে অর্ডার কনফার্ম করার ব্যবস্থা",
           "COD, বিকাশ, নগদ — সবকটা অপশন একসাথে চালানোর সুবিধা",
           "০% ট্রানজেকশন ফি — আপনার লাভ থেকে কোনো বাড়তি কাটা যায় না",
@@ -562,7 +561,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "stop-whatsapp-orders-sell-from-shop": {
     slug: "stop-whatsapp-orders-sell-from-shop",
     title: "হোয়াটসঅ্যাপে অর্ডার নেওয়া বন্ধ করুন — নিজের শপ থেকে বিক্রি করুন",
-    category: "Website",
+    category: "ওয়েবসাইট",
     date: "Aug 28, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -654,7 +653,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "sell-clothes-online-beginner-guide": {
     slug: "sell-clothes-online-beginners-guide",
     title: "অনলাইনে জামা-কাপড় বিক্রি করার সহজ গাইড (নতুনদের জন্য)",
-    category: "Fashion",
+    category: "ফ্যাশন",
     date: "Aug 29, 2026",
     readTime: "6 min read",
     author: "Softune Team",
@@ -745,7 +744,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "know-if-online-shop-profitable": {
     slug: "know-if-online-shop-making-profit",
     title: "কীভাবে বুঝবেন আপনার অনলাইন শপ লাভ করছে কিনা",
-    category: "Business Management",
+    category: "ব্যবসা পরিচালনা",
     date: "Aug 29, 2026",
     readTime: "6 min read",
     author: "Softune Team",
@@ -833,7 +832,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "grow-business-online-without-showroom": {
     slug: "grow-online-business-without-physical-shop",
     title: "শোরুম ছাড়াই কীভাবে অনলাইনে ব্যবসা বড় করবেন",
-    category: "Business Management",
+    category: "ব্যবসা পরিচালনা",
     date: "Aug 29, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -926,7 +925,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "first-month-orders-new-online-shop": {
     slug: "get-orders-first-month-new-shop",
     title: "প্রথম মাসেই অর্ডার পেতে যা যা করবেন (নতুন অনলাইন শপের জন্য)",
-    category: "Getting Started",
+    category: "শুরু করুন",
     date: "Aug 29, 2026",
     readTime: "6 min read",
     author: "Softune Team",
@@ -1017,7 +1016,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "why-customers-cancel-orders-fix": {
     slug: "why-customers-cancel-orders-solution",
     title: "কাস্টমার কেন অর্ডার দিয়ে ক্যানসেল করে? এবং এর সমাধান",
-    category: "Security",
+    category: "নিরাপত্তা",
     date: "Aug 29, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -1111,7 +1110,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "30-din-business-challenge-guide": {
     slug: "30-day-business-challenge-low-capital-profit",
     title: "৩০ দিনের বিজনেস চ্যালেঞ্জ: কম পুঁজিতে শুরু করে দ্রুত লাভ তোলার পরিকল্পনা",
-    category: "Getting Started",
+    category: "শুরু করুন",
     date: "Aug 29, 2026",
     readTime: "7 min read",
     author: "Softune Team",
@@ -1211,7 +1210,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "eid-online-shop-checklist": {
     slug: "eid-online-shop-checklist",
     title: "ঈদের আগে অনলাইন শপ কীভাবে রেডি করবেন (চেকলিস্ট)",
-    category: "Checklist",
+    category: "চেকলিস্ট",
     date: "Jun 25, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -1300,7 +1299,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "get-old-customers-to-order-again": {
     slug: "get-old-customers-to-order-again",
     title: "পুরনো কাস্টমারকে আবার কীভাবে অর্ডার করাবেন",
-    category: "Customer Service",
+    category: "কাস্টমার সার্ভিস",
     date: "Jun 21, 2026",
     readTime: "4 min read",
     author: "Softune Team",
@@ -1388,7 +1387,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "20000-taka-capital-best-business-ideas": {
     slug: "20000-taka-capital-best-business-ideas",
     title: "২০ হাজার টাকার পুঁজিতে কোন ব্যবসা সবচেয়ে বেশি লাভজনক",
-    category: "Challenge",
+    category: "চ্যালেঞ্জ",
     date: "Jun 17, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -1480,7 +1479,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "viral-business-challenge-lessons": {
     slug: "viral-business-challenge-lessons",
     title: "সোশ্যাল মিডিয়ার ভাইরাল বিজনেস চ্যালেঞ্জ থেকে যা শিখবেন, যা এড়িয়ে চলবেন",
-    category: "Challenge",
+    category: "চ্যালেঞ্জ",
     date: "Aug 29, 2026",
     readTime: "6 min read",
     author: "Softune Team",
@@ -1571,7 +1570,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "start-business-with-one-product": {
     slug: "start-business-with-one-product",
     title: "একটা প্রোডাক্ট দিয়েই কীভাবে অনলাইন ব্যবসা শুরু করবেন",
-    category: "Getting Started",
+    category: "শুরু করুন",
     date: "Aug 29, 2026",
     readTime: "5 min read",
     author: "Softune Team",
@@ -1659,7 +1658,7 @@ export const ARTICLES: Record<string, BlogPost> = {
   "fast-sales-growth-low-capital-tactics": {
     slug: "fast-sales-growth-low-capital-tactics",
     title: "কম পুঁজিতে দ্রুত বিক্রি বাড়ানোর কার্যকর কৌশল",
-    category: "Challenge",
+    category: "চ্যালেঞ্জ",
     date: "Aug 29, 2026",
     readTime: "6 min read",
     author: "Softune Team",

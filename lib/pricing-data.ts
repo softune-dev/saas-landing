@@ -35,7 +35,7 @@ export const plans = [
       "2GB Media storage",
       "AI Assistant Included",
       "2,400 AI credits/mo (80/day)",
-      "All Payments & Couriers",
+      "Payments & Couriers",
       "Fraud protection",
       "Advanced Analytics",
       "Priority email support",

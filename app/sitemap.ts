@@ -33,6 +33,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.priority,
   }));
 
+  // Public AI-crawler brief — not an HTML route, but search/LLM systems
+  // that read sitemaps should still discover /llms.txt alongside the site.
+  const llmsEntry: MetadataRoute.Sitemap[number] = {
+    url: `${SITE_URL}/llms.txt`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  };
+
   const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: now,
@@ -56,5 +65,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticEntries, ...blogEntries, ...featureEntries, ...docEntries];
+  return [llmsEntry, ...staticEntries, ...blogEntries, ...featureEntries, ...docEntries];
 }

@@ -31,7 +31,7 @@ export function personSchema() {
     url: "https://kamrulhasan.site",
     jobTitle: "Founder & Developer",
     description:
-      "Built Softune end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, and the payment and courier integrations underneath it.",
+      "Built Softune end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, COD and manual wallet payments, courier connections, and Store Sale POS.",
     worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     // Real profiles only, pulled from kamrulhasan.site/contact — sameAs is
     // how search engines/LLMs link these as the same verified person
@@ -53,7 +53,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/logo-dark.png`,
     description:
-      "Multi-tenant ecommerce SaaS for agencies and merchants. Themes, products, orders, and AI — one platform to build, publish, and grow storefronts.",
+      "Multi-tenant ecommerce SaaS for Bangladesh merchants and agencies. Themes, products, orders, COD and bKash/Nagad, couriers, POS, analytics, and AI — one platform to build, publish, and grow storefronts.",
     founder: founderRef(),
     // sameAs (social profile links) intentionally omitted — the footer's
     // social icons are all placeholder "#" hrefs today. Add real profile

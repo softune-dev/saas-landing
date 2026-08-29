@@ -47,7 +47,7 @@ const rows: Row[] = [
     others: "Limited or no add-on ecosystem",
   },
   {
-    softune: "Native bKash, Nagad, COD & courier delivery",
+    softune: "Native bKash, Nagad, COD & courier roster",
     others: "Standard here too, since most BD builders offer it",
     parity: true,
   },

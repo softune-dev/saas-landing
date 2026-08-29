@@ -32,6 +32,14 @@ export interface FeatureData {
    * redundant. Leave unset for features like Theme Editor that have a
    * genuinely different visual per section. */
   heroImage?: { light: string; dark: string };
+  /** Solid-color placeholder used in place of heroImage when no real
+   * screenshot exists yet. The component renders a styled div at the same
+   * aspect-[16/9] size. Remove this field and add heroImage once a real
+   * screenshot is available.
+   *
+   * TODO: Replace with a real heroImage once the Marketing & Tracking
+   *       screenshot is captured. */
+  heroPlaceholderColor?: string;
   introTitle: string;
   introDesc: string;
   alternating: AlternatingItem[];
@@ -251,145 +259,144 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
   "courier": {
     slug: "courier",
     pillText: "Couriers",
-    titleStart: "Connect Your",
-    titleHighlight: "Courier",
+    titleStart: "Ship With the",
+    titleHighlight: "Partners You Use",
     titleEnd: "",
     description:
-      "Connect your own Steadfast account with API credentials Softune verifies and stores securely. More courier partners are on the same connections screen as they go live.",
+      "Softune’s Courier screen covers Steadfast, Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo. Connect your own merchant account so billing stays with you.",
     heroImage: { light: "/feature/courier-l.webp", dark: "/feature/courier-d.webp" },
-    introTitle: "Your courier account, linked to Softune",
+    introTitle: "Nine courier partners on one Softune screen",
     introDesc:
-      "Softune does not use a shared Softune courier login. You connect your own credentials so courier billing and ownership stay with you.",
+      "Softune does not use a shared Softune courier login. You connect your own credentials. Steadfast can verify and save today; the full partner list lives on the same Couriers page.",
     alternating: [
       {
-        pillText: "Steadfast",
+        pillText: "Partner Roster",
         pillIcon: "/icons/delivery.svg",
+        titleStart: "All Partners,",
+        titleHighlight: "One Place",
+        titleEnd: "",
+        description:
+          "See every Softune courier option in one dashboard list instead of hunting separate apps for each logistics brand.",
+        bullets: [
+          "Steadfast",
+          "Pathao Courier",
+          "RedX",
+          "Paperfly",
+          "eCourier",
+          "Carrybee",
+        ],
+      },
+      {
+        pillText: "Steadfast Live",
+        pillIcon: "/icons/zap.svg",
         titleStart: "Connect",
         titleHighlight: "Steadfast",
         titleEnd: "",
         description:
           "Enter your Steadfast API key and secret. Softune checks them against Steadfast before saving the connection.",
         bullets: [
-          "Uses your own Steadfast account",
+          "Uses your own Steadfast merchant account",
           "Credentials verified on connect",
           "Credentials stored encrypted",
-          "Manage bookings from your dashboard",
           "Reconnect anytime if keys change",
+          "Same Couriers screen as every other partner",
         ],
       },
       {
-        pillText: "More Couriers",
-        pillIcon: "/icons/zap.svg",
-        titleStart: "More Partners,",
-        titleHighlight: "One Screen",
-        titleEnd: "",
-        description:
-          "Pathao, RedX, and other partners share the same Courier connections screen Softune uses for Steadfast.",
-        bullets: [
-          "One connections screen for courier partners",
-          "Same verify-then-save approach",
-          "Request the partner Softune should enable for your store",
-          "New partners appear on the same screen",
-          "No code changes needed per courier",
-        ],
-      },
-      {
-        pillText: "Secure Storage",
+        pillText: "Secure Setup",
         pillIcon: "/icons/lock.svg",
-        titleStart: "Safe",
-        titleHighlight: "Credentials",
+        titleStart: "Your Keys,",
+        titleHighlight: "Your Account",
         titleEnd: "",
         description:
-          "Courier keys are encrypted at rest, the same way Softune protects payment credentials.",
+          "Courier credentials are encrypted at rest, scoped per store, and never shared Softune logins. Other partners on the roster use the same connections pattern as Softune enables each one.",
         bullets: [
           "Encrypted credential storage",
           "Per-store courier settings",
           "No shared Softune courier account",
-          "Keys are never shown back in plain text",
+          "One screen for the full partner list",
           "Same encryption Softune uses for payments",
         ],
       },
     ],
-    extraTitle: "Connected and secure",
+    extraTitle: "Built for Bangladesh logistics",
     extraDesc:
-      "Softune verifies your courier credentials on connect and keeps them encrypted with your store.",
+      "From Steadfast to Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo — Softune keeps courier choice on one Couriers screen.",
     extraCards: [
-      { title: "Your Account", desc: "Softune never books under a shared Softune courier login.", icon: "/icons/lock.svg" },
-      { title: "Verified Connect", desc: "Credentials are checked with the courier API before save.", icon: "/icons/zap.svg" },
-      { title: "Encrypted", desc: "Keys are encrypted at rest like payment credentials.", icon: "/icons/domain.svg" },
+      { title: "Full Roster", desc: "Nine courier brands listed in Softune Couriers, not a single-partner dead end.", icon: "/icons/delivery.svg" },
+      { title: "Verified Connect", desc: "Steadfast keys are checked with the courier API before save.", icon: "/icons/zap.svg" },
+      { title: "Encrypted", desc: "Courier credentials are encrypted at rest like payment credentials.", icon: "/icons/lock.svg" },
     ],
   },
   "store-analytics": {
     slug: "store-analytics",
     pillText: "Store Analytics",
-    titleStart: "See What",
-    titleHighlight: "Sold",
+    titleStart: "Know Your",
+    titleHighlight: "Real Numbers",
     titleEnd: "",
     description:
-      "Track revenue, orders, average order value, and refunds from your real Softune orders. Export CSV, JSON, or PDF when you need a report.",
+      "Track revenue, visitor traffic, conversion rate, and profit from your Softune storefront and orders. Export CSV, JSON, or PDF when you need a report.",
     heroImage: { light: "/feature/analytics-l.webp", dark: "/feature/analytics-d.webp" },
-    introTitle: "Numbers from real orders",
+    introTitle: "Sales, traffic, and profit in one place",
     introDesc:
-      "Pick a 1 to 26 week window and Softune shows how revenue, orders, and refunds moved period over period, plus best sellers and category share.",
+      "Pick a 1 to 26 week window. Softune shows revenue, orders, refunds, unique visitors, conversion rate, and profit when you have set Cost Prices on products.",
     alternating: [
       {
-        pillText: "Key Metrics",
+        pillText: "Sales Metrics",
         pillIcon: "/icons/analytics.svg",
         titleStart: "Revenue,",
         titleHighlight: "Orders, AOV",
         titleEnd: "",
         description:
-          "See revenue, order count, average order value, and refund rate for your window, each with a period-over-period change.",
+          "See revenue, order count, average order value, and refund rate for your window, each with a period-over-period change, plus best sellers and category share.",
         bullets: [
           "1 to 26 week reporting window",
           "Period-over-period change on each metric",
-          "Weekly revenue trend chart",
-          "Compare the current period to the prior one",
-          "Spot dips or spikes at a glance",
+          "Weekly revenue trend and best sellers",
+          "CSV, JSON, and PDF export when you need a report",
         ],
       },
       {
-        pillText: "Best Sellers",
-        pillIcon: "/icons/shop-bag.svg",
-        titleStart: "See What",
-        titleHighlight: "Sells",
+        pillText: "Visitor Traffic",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Real Visitors,",
+        titleHighlight: "Conversion Rate",
         titleEnd: "",
         description:
-          "Break down revenue by top categories and see your top products by quantity sold in the same window.",
+          "Softune tracks unique visitors on your storefront and shows Conversion Rate (orders ÷ unique visitors) next to your sales numbers, so you can see whether traffic is turning into orders.",
         bullets: [
-          "Top categories by revenue share",
-          "Top products by quantity sold",
-          "Same window as your headline metrics",
-          "Know which categories drive revenue",
-          "Spot low performers early",
+          "Unique visitor counts from your live storefront",
+          "Conversion Rate = orders ÷ unique visitors",
+          "Traffic and conversion in the same date window as revenue",
+          "Built into Softune analytics, no extra visitor tag for this view",
         ],
       },
       {
-        pillText: "Export",
-        pillIcon: "/icons/doc.svg",
-        titleStart: "Export",
-        titleHighlight: "Reports",
+        pillText: "Profit Tracking",
+        pillIcon: "/icons/wallet.svg",
+        titleStart: "Know Your",
+        titleHighlight: "Real Profit",
         titleEnd: "",
         description:
-          "Download analytics as CSV, JSON, or PDF so you can share numbers outside Softune when needed.",
+          "Set a Cost Price per product and Softune shows profit (revenue minus cost) alongside revenue. Profit is only as complete as the cost data you enter — products without Cost Price do not contribute to the profit figure yet.",
         bullets: [
-          "CSV, JSON, and PDF export",
-          "Week-by-week sales report table",
-          "No separate analytics tool to connect",
-          "Share reports outside the dashboard",
-          "Keep records for accounting or investors",
+          "Set Cost Price per product in the product editor",
+          "Profit = revenue minus cost from real orders",
+          "Shown beside revenue so you see both at a glance",
+          "No Cost Price yet? Revenue stays accurate; profit waits on your cost data",
         ],
       },
     ],
-    extraTitle: "Built on real sales",
+    extraTitle: "Built on what actually happened",
     extraDesc:
-      "Softune analytics follow your orders, best sellers, and revenue so you can act on what actually sold.",
+      "Softune analytics follow your orders, storefront visitors, and the cost prices you set — not estimates or invented funnels.",
     extraCards: [
-      { title: "Order-Based", desc: "Numbers come from real orders, not guesswork.", icon: "/icons/analytics.svg" },
-      { title: "One Screen", desc: "No third-party analytics product to wire up.", icon: "/icons/zap.svg" },
-      { title: "Your Store Only", desc: "Every metric is scoped to your tenant.", icon: "/icons/lock.svg" },
+      { title: "Order-Based", desc: "Revenue and orders come from real Softune checkouts.", icon: "/icons/analytics.svg" },
+      { title: "Real Traffic", desc: "Visitor counts and conversion rate come from your storefront.", icon: "/icons/zap.svg" },
+      { title: "Honest Profit", desc: "Profit only fills in after you set Cost Price on products.", icon: "/icons/wallet.svg" },
     ],
   },
+
   "orders": {
     slug: "orders",
     pillText: "Orders",
@@ -514,12 +521,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Easy Setup",
         titleEnd: "",
         description:
-          "Payment methods stay centralized in Softune. Connect what you need, keep credentials secure, and avoid juggling separate payment plugins.",
+          "Payment methods stay centralized in Softune. Enable COD and wallet methods, keep credentials secure, and avoid juggling separate payment plugins.",
         bullets: [
           "Centralized payment tools in one dashboard",
-          "SSLCommerz and other gateways when you need them",
+          "COD plus manual bKash and Nagad today",
           "Encrypted credential storage",
-          "Switch providers without rebuilding checkout",
+          "Switch methods without rebuilding checkout",
           "One place to audit every payment method",
         ],
       },
@@ -604,15 +611,162 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Per Store", desc: "Customer lists stay scoped to each storefront.", icon: "/icons/domain.svg" },
     ],
   },
+  "marketing-tracking": {
+    slug: "marketing-tracking",
+    pillText: "Marketing & Tracking",
+    titleStart: "Pixels That",
+    titleHighlight: "Actually Work",
+    titleEnd: "",
+    description:
+      "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softune store. Softune fires real ecommerce events — ViewContent, AddToCart, InitiateCheckout, Purchase — not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
+    // TODO: Replace heroPlaceholderColor with a real heroImage once a
+    //       Marketing & Tracking screenshot is captured. Remove this field
+    //       and add: heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" }
+    heroPlaceholderColor: "#1a1a2e",
+    introTitle: "Real events on every platform, server-side where it counts",
+    introDesc:
+      "Softune fires ecommerce events — not just PageView — across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softune's own server, deduplicated against the browser pixel automatically.",
+    alternating: [
+      {
+        pillText: "Meta & TikTok Pixels",
+        pillIcon: "/icons/analytics.svg",
+        titleStart: "Real Events,",
+        titleHighlight: "Not Just PageView",
+        titleEnd: "",
+        description:
+          "Facebook/Meta Pixel and TikTok Pixel both fire the full ecommerce event set: ViewContent when a shopper views a product, AddToCart, InitiateCheckout, and Purchase on order completion. Previously only a generic PageView was sent.",
+        bullets: [
+          "ViewContent, AddToCart, InitiateCheckout, Purchase events",
+          "Facebook/Meta Pixel — real ecommerce events (upgraded from PageView only)",
+          "TikTok Pixel — new, same event set",
+          "Add your Pixel ID from the Softune integrations screen",
+          "No custom code or tag setup required",
+        ],
+      },
+      {
+        pillText: "GTM & GA4",
+        pillIcon: "/icons/analytics.svg",
+        titleStart: "Your GTM,",
+        titleHighlight: "Connected",
+        titleEnd: "",
+        description:
+          "Google Tag Manager uses a container-based approach: add your own GTM ID and Softune loads your container, so you control what fires from inside GTM. Google Analytics (GA4) is also supported and now fires the same real ecommerce events alongside other pixels.",
+        bullets: [
+          "Google Tag Manager — container-based, add your own GTM ID",
+          "You manage tags inside GTM as normal",
+          "GA4 — real ecommerce events (upgraded from PageView only)",
+          "GTM and GA4 can run alongside Meta and TikTok pixels",
+          "One integrations screen for all tracking connections",
+        ],
+      },
+      {
+        pillText: "Meta Conversions API",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Server-Side",
+        titleHighlight: "Purchase Tracking",
+        titleEnd: "",
+        description:
+          "Meta Conversions API (CAPI) sends Purchase events directly from Softune's server to Meta — not just from the customer's browser. This means sales still get tracked even when the customer's browser ad blocker or iOS privacy settings strip the client-side pixel. Events are automatically deduplicated against the browser pixel so there's no double-counting.",
+        bullets: [
+          "Purchase sent server-side from Softune, not the customer's browser",
+          "Survives ad blockers and iOS privacy restrictions that strip browser pixels",
+          "Automatic deduplication against the browser-side Meta Pixel",
+          "No double-counting — each sale reported once to Meta",
+          "A real edge over setups that only fire client-side pixels",
+        ],
+      },
+    ],
+    extraTitle: "Tracking that survives the real web",
+    extraDesc:
+      "Browser pixels alone miss sales blocked by ad blockers and iOS. Softune's server-side Meta CAPI layer closes that gap for Meta campaigns.",
+    extraCards: [
+      { title: "Full Event Set", desc: "ViewContent, AddToCart, InitiateCheckout, Purchase — not just PageView.", icon: "/icons/analytics.svg" },
+      { title: "Server-Side CAPI", desc: "Purchase events from Softune's server survive ad blockers and iOS privacy settings.", icon: "/icons/lock.svg" },
+      { title: "No Double-Count", desc: "Browser pixel and CAPI are deduplicated automatically — one sale, one event.", icon: "/icons/zap.svg" },
+    ],
+  },
+  "store-sale": {
+    slug: "store-sale",
+    pillText: "Store Sale",
+    titleStart: "Sell In Person,",
+    titleHighlight: "Same Catalog",
+    titleEnd: "",
+    description:
+      "Softune Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt — without a separate POS product.",
+    // TODO: Replace heroPlaceholderColor with a real heroImage once a
+    //       Store Sale / POS screenshot is captured. Remove this field and add:
+    //       heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" }
+    heroPlaceholderColor: "#0f172a",
+    introTitle: "Counter sales that use your real Softune inventory",
+    introDesc:
+      "Store Sale creates orders on the same catalog and stock your storefront uses, tagged as POS channel so you can tell walk-in sales from online checkouts.",
+    alternating: [
+      {
+        pillText: "Fast Catalog",
+        pillIcon: "/icons/shop-bag.svg",
+        titleStart: "Find Products",
+        titleHighlight: "Fast",
+        titleEnd: "",
+        description:
+          "Search by name or SKU, filter by category, and add items from a compact list. A USB barcode scanner can type into the same search field.",
+        bullets: [
+          "Category chips to show All or one category",
+          "Compact product rows with price and stock",
+          "Pagination so long catalogs stay manageable",
+          "Uses your live Softune products, not a separate POS catalog",
+        ],
+      },
+      {
+        pillText: "Current Sale",
+        pillIcon: "/icons/cart.svg",
+        titleStart: "Build the",
+        titleHighlight: "Sale",
+        titleEnd: "",
+        description:
+          "Adjust quantities, remove lines, add optional customer name or phone, and choose Cash, Card, or Mobile Banking as the payment label recorded on the order.",
+        bullets: [
+          "Quantity steppers and line totals",
+          "Optional customer name and phone",
+          "Payment method saved on the order meta",
+          "Complete Sale creates a real Softune order",
+        ],
+      },
+      {
+        pillText: "Receipts & History",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Receipts and",
+        titleHighlight: "Recent Sales",
+        titleEnd: "",
+        description:
+          "After a sale, Softune shows a thermal-style receipt you can print, and a Recent Sales list of walk-in orders you can open in the same order detail modal used elsewhere in the dashboard.",
+        bullets: [
+          "Printable receipt with shop name, date, time, and totals",
+          "Recent Sales filtered to Store Sale (POS) orders",
+          "Open any recent sale to review status and items",
+          "Not a full cash-drawer register — no drawer session or refunds-at-counter flow",
+        ],
+      },
+    ],
+    extraTitle: "Same stock, clearer channel",
+    extraDesc:
+      "Store Sale writes to Softune orders with channel set to POS, so analytics and order history can separate walk-in sales from storefront checkouts.",
+    extraCards: [
+      { title: "Live Catalog", desc: "Products and stock come from the same Softune catalog as your online store.", icon: "/icons/shop-bag.svg" },
+      { title: "Print Receipt", desc: "Browser print of a shop-style slip — no separate printer SDK required.", icon: "/icons/doc.svg" },
+      { title: "Recent Sales", desc: "Open past walk-in orders without leaving Store Sale.", icon: "/icons/orders.svg" },
+    ],
+  },
 };
 
 export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Live preview, sections, and AI Suggest" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "bKash, Nagad, and COD in one place" },
-  { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Connect your Steadfast account" },
-  { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
+  { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
+  { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },
+  { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, profit, traffic, and conversion" },
+  { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, Paperfly, and more" },
   { slug: "orders", title: "Orders", icon: "/icons/orders.svg", desc: "Search, snapshots, and print slips" },
   { slug: "customer-management", title: "Customers", icon: "/icons/user.svg", desc: "Phone-matched buyers from orders" },
-  { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, best sellers, export" },
+  { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
 ];

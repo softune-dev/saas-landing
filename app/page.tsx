@@ -7,7 +7,7 @@ import HomePage from "./home-content";
 export const metadata = pageSeo({
   title: null,
   description:
-    "Built for Bangladeshi merchants: bKash, Nagad, and Cash on Delivery checkout, plus local courier delivery, all built in. Themes, products, orders, and AI — one platform to launch and grow your online store.",
+    "Built for Bangladeshi merchants: Cash on Delivery plus bKash and Nagad checkout, courier connections, Store Sale POS, Theme Editor, and Gemini AI — one Softune dashboard to launch and grow your online store.",
   path: "/",
 });
 

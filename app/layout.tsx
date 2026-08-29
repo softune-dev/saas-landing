@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   // pageSeo(). Kept as a sane default for any page that doesn't.
   title: "Softune — Launch beautiful stores that sell",
   description:
-    "Multi-tenant ecommerce SaaS for agencies and merchants. Themes, products, orders, and AI — one platform to build, publish, and grow storefronts.",
+    "Multi-tenant ecommerce SaaS for Bangladesh merchants and agencies. Themes, products, orders, COD and bKash/Nagad, couriers, POS, and AI — one platform to build, publish, and grow storefronts.",
   // Bare /favicon.ico comes from app/favicon.ico (file convention, immune to
   // metadataBase). The rest of the real favicon set (from public/favicon/)
   // is wired explicitly here for the sizes/devices the file convention

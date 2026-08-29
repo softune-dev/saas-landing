@@ -41,7 +41,7 @@ const timeline = [
   {
     year: "2026",
     title: "Built & Live",
-    desc: "Went full-time on Softune. The dashboard, storefront themes, AI tooling, local payments (bKash, Nagad, SSLCommerz), and courier integrations were built out and the platform went live.",
+    desc: "Went full-time on Softune. The dashboard, storefront themes, AI tooling, local payments  (bKash, Nagad, SSLCommerz), courier connections, Store Sale POS, and analytics were built out and the platform went live.",
     icon: "/icons/analytics.svg"
   }
 ];

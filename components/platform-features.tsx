@@ -13,6 +13,11 @@ export type FeatureSection = {
   bullets: string[];
   /** Base name under /showcase — uses `{name}-l.webp` / `{name}-d.webp`. */
   showcase: string;
+  /**
+   * Solid-color stand-in when showcase screenshots are not ready yet.
+   * TODO: remove once `/showcase/{showcase}-l.webp` and `-d.webp` exist.
+   */
+  placeholderColor?: string;
   buttons: { text: string; variant: "primary" | "outline" }[];
 };
 
@@ -26,9 +31,11 @@ export const sections: FeatureSection[] = [
     description:
       "Edit your storefront in Softune’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
     bullets: [
-      "Live preview while you edit, no guesswork",
-      "AI Suggest for brand colors, layout, and storefront text",
-      "Desktop and mobile views before you go live",
+      "Live preview of your real theme while you edit",
+      "AI Suggest for brand colors, fonts, and storefront text",
+      "Desktop, tablet, and mobile preview widths",
+      "Drag-and-drop homepage sections without code",
+      "Draft changes stay private until you publish",
     ],
     showcase: "editor",
     buttons: [
@@ -47,7 +54,9 @@ export const sections: FeatureSection[] = [
     bullets: [
       "Powered by Google Gemini for clear, fast answers",
       "Ask about products, orders, and sales in plain language",
-      "Propose product or category changes you still confirm before save",
+      "Answers come from your own Softune store data",
+      "Propose product or category changes you still confirm",
+      "Stay inside Softune — no extra AI app to open",
     ],
     showcase: "chat",
     buttons: [
@@ -62,11 +71,13 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "bKash, Nagad, COD, and payment gateways live in one place. Connect once, keep checkout easy, and manage everything from a single Payments screen.",
+      "bKash, Nagad, and COD live in one place. Shoppers pay your wallet or choose Cash on Delivery; you verify transaction IDs before shipping — all from a single Payments screen.",
     bullets: [
-      "bKash, Nagad, COD, and gateway checkout in one setup",
-      "Centralized payment tools, not scattered plugins",
-      "Easy to connect, easy to change, easy to run daily",
+      "bKash and Nagad wallet payments with transaction ID on each order",
+      "Cash on Delivery with optional fee when you need it",
+      "Merchant verifies wallet payments before shipping",
+      "Centralized setup instead of scattered payment plugins",
+      "Encrypted credentials stored with your store",
     ],
     showcase: "payment",
     buttons: [
@@ -81,11 +92,13 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Own Your Domain",
     titleEnd: "",
     description:
-      "Help shoppers find you with clear SEO fields and your own domain, all from Site Settings.",
+      "Softune Site Settings covers search listings, social share previews, tracking pixels, and your custom domain — so discovery and measurement live next to the store you publish.",
     bullets: [
-      "Page titles and meta descriptions you can edit",
-      "Connect your own domain without extra hosting",
-      "Publish a clean storefront ready for search",
+      "Titles, meta descriptions, keywords, favicon, and AI help for SEO copy",
+      "Open Graph title, description, and image for cleaner Facebook and chat previews",
+      "Sitemap and indexing controls, plus Google Analytics and Search Console",
+      "Meta Pixel, TikTok Pixel, Google Tag Manager, and Meta Conversions API (CAPI)",
+      "Connect your own domain without a separate hosting stack",
     ],
     showcase: "seo",
     buttons: [
@@ -102,14 +115,39 @@ export const sections: FeatureSection[] = [
     description:
       "Generate product copy in one click, then regenerate any description anytime until it sounds right.",
     bullets: [
-      "Create descriptive text with AI in one click",
-      "Regenerate any product description whenever you want",
-      "Edit the result before you save and publish",
+      "Create product descriptions with AI in one click",
+      "Regenerate any description until the wording fits",
+      "Edit the draft fully before you save",
+      "Uses your product details as context for better copy",
+      "Works inside the Softune product editor you already use",
     ],
     showcase: "ai",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "Try AI Copy", variant: "outline" },
+    ],
+  },
+  {
+    pillText: "POS",
+    pillIcon: "/icons/cart.svg",
+    titleStart: "Sell In Person,",
+    titleHighlight: "Same Catalog",
+    titleEnd: "",
+    description:
+      "Softune POS is walk-in checkout on your live product catalog. Search, filter by category, complete the sale, print a receipt, and review recent POS orders.",
+    bullets: [
+      "Same Softune products and stock as your online store",
+      "Category filters, compact product rows, and pagination",
+      "Cash, card, or mobile banking labels on each sale",
+      "Printable shop-style receipt with date, time, and totals",
+      "Recent Sales list for walk-in (POS) orders",
+    ],
+    showcase: "pos",
+    // TODO: Replace placeholderColor with real /showcase/pos-l.webp and pos-d.webp.
+    placeholderColor: "#0f172a",
+    buttons: [
+      { text: "Get Started", variant: "primary" },
+      { text: "See POS", variant: "outline" },
     ],
   },
 ];
@@ -129,6 +167,7 @@ export function PlatformFeatures() {
             const isImageRight = index % 2 === 0;
             const liteSrc = `/showcase/${section.showcase}-l.webp`;
             const darkSrc = `/showcase/${section.showcase}-d.webp`;
+            const usePlaceholder = Boolean(section.placeholderColor);
 
             return (
               <div
@@ -233,19 +272,33 @@ export function PlatformFeatures() {
                   className="w-full flex-1"
                 >
                   <div className="relative aspect-square w-full overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
-                    {/* Light / dark assets from public/showcase */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={liteSrc}
-                      alt={section.pillText}
-                      className="absolute inset-0 size-full object-cover dark:hidden"
-                    />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={darkSrc}
-                      alt={section.pillText}
-                      className="absolute inset-0 hidden size-full object-cover dark:block"
-                    />
+                    {usePlaceholder ? (
+                      // TODO: Swap for real /showcase/{name}-l.webp and -d.webp screenshots.
+                      <div
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{ backgroundColor: section.placeholderColor }}
+                      >
+                        <span className="text-sm font-medium tracking-wide text-white/40 select-none">
+                          Screenshot coming soon
+                        </span>
+                      </div>
+                    ) : (
+                      <>
+                        {/* Light / dark assets from public/showcase */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={liteSrc}
+                          alt={section.pillText}
+                          className="absolute inset-0 size-full object-cover dark:hidden"
+                        />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={darkSrc}
+                          alt={section.pillText}
+                          className="absolute inset-0 hidden size-full object-cover dark:block"
+                        />
+                      </>
+                    )}
                   </div>
                 </motion.div>
               </div>

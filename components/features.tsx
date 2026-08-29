@@ -3,23 +3,24 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+/** Ordered by attention / conversion priority. First 6 show on mobile before “View all”. */
 const features = [
-  { icon: "/icons/shop-bag.svg", title: "Product Management" },
-  { icon: "/icons/book.svg", title: "Category Organization" },
-  { icon: "/icons/orders.svg", title: "Order Management" },
-  { icon: "/icons/analytics.svg", title: "Store Analytics" },
-  { icon: "/icons/themes.svg", title: "Multi-Theme System" },
   { icon: "/icons/color.svg", title: "AI Theme Editor" },
-  { icon: "/icons/user.svg", title: "Customer Management" },
-  { icon: "/icons/delivery.svg", title: "Local Courier Delivery" },
-  { icon: "/icons/wallet.svg", title: "bKash, Nagad & COD Payments" },
-  { icon: "/icons/save.svg", title: "Add-Ons Marketplace" },
-  { icon: "/icons/domain.svg", title: "Site Settings" },
-  { icon: "/icons/lock.svg", title: "Fraud Protection" },
-  { icon: "/icons/splash.svg", title: "Media Library" },
   { icon: "/icons/ai-pencil.svg", title: "AI Assistant" },
+  { icon: "/icons/wallet.svg", title: "bKash, Nagad & COD" },
+  { icon: "/icons/cart.svg", title: "POS" },
+  { icon: "/icons/billing.svg", title: "Marketing & Tracking" },
+  { icon: "/icons/analytics.svg", title: "Store Analytics" },
+  { icon: "/icons/orders.svg", title: "Order Management" },
+  { icon: "/icons/shop-bag.svg", title: "Product Catalog" },
+  { icon: "/icons/delivery.svg", title: "Courier Delivery" },
+  { icon: "/icons/user.svg", title: "Customer Management" },
+  { icon: "/icons/lock.svg", title: "Fraud Protection" },
+  { icon: "/icons/domain.svg", title: "SEO & Domains" },
+  { icon: "/icons/save.svg", title: "Add-Ons Marketplace" },
+  { icon: "/icons/book.svg", title: "Categories" },
+  { icon: "/icons/splash.svg", title: "Media Library" },
   { icon: "/icons/play.svg", title: "Guided Onboarding" },
-  { icon: "/icons/billing.svg", title: "Billing & Tracking" },
 ];
 
 export function Features() {

@@ -79,7 +79,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
     icon: "payments",
     articles: [
       {
-        title: "Connecting payment gateways",
+        title: "Connecting payment methods",
         slug: "connecting-payment-gateways",
       },
       { title: "Cash on Delivery for your store", slug: "cash-on-delivery" },

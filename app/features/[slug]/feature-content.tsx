@@ -38,6 +38,10 @@ export default function FeaturePage() {
   const feature = FEATURE_PAGES[slug] || FEATURE_PAGES["multiple-themes"];
   const isDark = !mounted || resolvedTheme === "dark";
   const heroImageSrc = feature.heroImage && (isDark ? feature.heroImage.dark : feature.heroImage.light);
+  // heroPlaceholderColor is used when no real screenshot exists yet —
+  // renders a solid-color block at the same aspect-[16/9] size as heroImage.
+  // TODO: Remove once a real heroImage is supplied for the feature.
+  const heroPlaceholderColor = feature.heroPlaceholderColor;
 
   return (
     <>
@@ -100,6 +104,7 @@ export default function FeaturePage() {
             {feature.description}
           </motion.p>
 
+          {/* Real screenshot */}
           {heroImageSrc && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -113,9 +118,29 @@ export default function FeaturePage() {
               <img src={heroImageSrc} alt={feature.pillText} className="size-full object-cover" />
             </motion.div>
           )}
+
+          {/* Solid-color placeholder — shown when no real heroImage exists yet.
+              TODO: Remove this block and add heroImage to features-data.ts
+                    once the screenshot is captured. */}
+          {!heroImageSrc && heroPlaceholderColor && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="relative z-10 mx-auto mt-10 w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-[24px] border border-[var(--color-line)] shadow-lg flex items-center justify-center"
+              style={{ backgroundColor: heroPlaceholderColor }}
+            >
+              <span className="text-white/40 font-medium text-sm tracking-wide select-none">
+                Screenshot coming soon
+              </span>
+            </motion.div>
+          )}
         </div>
 
-        {heroImageSrc ? (
+        {/* Layout switch: stacked full-width cards when the feature has a single
+            shared hero visual (either a real heroImage or a heroPlaceholderColor),
+            alternating left/right media sections when each section has its own image. */}
+        {(heroImageSrc || heroPlaceholderColor) ? (
           /* Full-width stacked cards — used instead of the alternating
              media layout when a feature has just one shared hero image
              (see FeatureData.heroImage) rather than a distinct visual per

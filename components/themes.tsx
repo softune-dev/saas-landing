@@ -107,7 +107,7 @@ export function Themes() {
                   <span className="size-2.5 rounded-full bg-[#28c840] sm:size-3" />
                   <div className="ml-2 hidden h-6 max-w-[200px] min-w-[120px] flex-1 items-center rounded-md border border-[var(--color-line)] bg-[var(--color-canvas)] px-2 sm:ml-3 sm:flex">
                     <span className="truncate text-[10px] font-medium text-[var(--color-muted)]">
-                      {t.name.toLowerCase()}.softune.com
+                      {t.name.toLowerCase()}.softune.xyz
                     </span>
                   </div>
                 </div>

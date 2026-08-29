@@ -21,7 +21,7 @@ const privacySections = [
   },
   {
     title: "Third-Party Sharing & APIs",
-    content: "We never lease, sell, or rent your database records to marketing firms. We only forward essential logistics payload data to payment aggregators (Stripe, SSLCommerz) and delivery providers (Courier partners) to complete transactions."
+    content: "We never lease, sell, or rent your database records to marketing firms. We only forward essential logistics payload data to delivery providers (courier partners you connect) and other processors you explicitly enable, so orders can be fulfilled."
   },
   {
     title: "Your Rights & Access Options",

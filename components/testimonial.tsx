@@ -5,19 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    text: "We stopped rebuilding storefronts from scratch. Softune gave us themes, tenant isolation, and a dashboard the merchants actually understand — so the team ships brands, not glue code.",
+    text: "We stopped rebuilding storefronts from scratch. Softune gave us real themes, a Theme Editor merchants understand, and one dashboard for products and orders — so the team ships brands, not glue code.",
     name: "Ayesha Rahman",
     role: "Founder, Studio Partner",
     avatar: "https://i.pravatar.cc/150?img=1"
   },
   {
-    text: "Softune’s analytics and POS integrations saved us dozens of hours a week. The ability to manage our inventory in real-time across multiple channels is a complete game-changer.",
+    text: "Store Sale POS plus the order dashboard cut the WhatsApp chaos. COD, bKash transaction IDs, and courier setup live in one place — that alone saved our ops hours every week.",
     name: "Marcus Chen",
     role: "Operations Director",
     avatar: "https://i.pravatar.cc/150?img=11"
   },
   {
-    text: "Setting up our store was incredibly fast, and the built-in SEO tools helped us rank within weeks. I’ve never used an ecommerce platform that feels this tailored for growing businesses.",
+    text: "Launching was fast: pick a theme, add products, enable COD and bKash, publish. Site Settings SEO and Meta pixel tools meant we were not hunting plugins on day one.",
     name: "Sarah Jenkins",
     role: "E-commerce Manager",
     avatar: "https://i.pravatar.cc/150?img=5"
