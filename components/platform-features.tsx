@@ -13,10 +13,7 @@ export type FeatureSection = {
   bullets: string[];
   /** Base name under /showcase — uses `{name}-l.webp` / `{name}-d.webp`. */
   showcase: string;
-  /**
-   * Solid-color stand-in when showcase screenshots are not ready yet.
-   * TODO: remove once `/showcase/{showcase}-l.webp` and `-d.webp` exist.
-   */
+  /** Optional solid-color stand-in if a showcase asset is temporarily missing. */
   placeholderColor?: string;
   buttons: { text: string; variant: "primary" | "outline" }[];
 };
@@ -143,8 +140,6 @@ export const sections: FeatureSection[] = [
       "Recent Sales list for walk-in (POS) orders",
     ],
     showcase: "pos",
-    // TODO: Replace placeholderColor with real /showcase/pos-l.webp and pos-d.webp.
-    placeholderColor: "#0f172a",
     buttons: [
       { text: "Get Started", variant: "primary" },
       { text: "See POS", variant: "outline" },
@@ -273,7 +268,6 @@ export function PlatformFeatures() {
                 >
                   <div className="relative aspect-square w-full overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
                     {usePlaceholder ? (
-                      // TODO: Swap for real /showcase/{name}-l.webp and -d.webp screenshots.
                       <div
                         className="absolute inset-0 flex items-center justify-center"
                         style={{ backgroundColor: section.placeholderColor }}

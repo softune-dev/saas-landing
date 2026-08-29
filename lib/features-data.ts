@@ -34,11 +34,7 @@ export interface FeatureData {
   heroImage?: { light: string; dark: string };
   /** Solid-color placeholder used in place of heroImage when no real
    * screenshot exists yet. The component renders a styled div at the same
-   * aspect-[16/9] size. Remove this field and add heroImage once a real
-   * screenshot is available.
-   *
-   * TODO: Replace with a real heroImage once the Marketing & Tracking
-   *       screenshot is captured. */
+   * aspect-[16/9] size. Prefer heroImage once a real screenshot is available. */
   heroPlaceholderColor?: string;
   introTitle: string;
   introDesc: string;
@@ -619,10 +615,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softune store. Softune fires real ecommerce events — ViewContent, AddToCart, InitiateCheckout, Purchase — not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
-    // TODO: Replace heroPlaceholderColor with a real heroImage once a
-    //       Marketing & Tracking screenshot is captured. Remove this field
-    //       and add: heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" }
-    heroPlaceholderColor: "#1a1a2e",
+    heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
     introTitle: "Real events on every platform, server-side where it counts",
     introDesc:
       "Softune fires ecommerce events — not just PageView — across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softune's own server, deduplicated against the browser pixel automatically.",
@@ -693,10 +686,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "Softune Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt — without a separate POS product.",
-    // TODO: Replace heroPlaceholderColor with a real heroImage once a
-    //       Store Sale / POS screenshot is captured. Remove this field and add:
-    //       heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" }
-    heroPlaceholderColor: "#0f172a",
+    heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
     introTitle: "Counter sales that use your real Softune inventory",
     introDesc:
       "Store Sale creates orders on the same catalog and stock your storefront uses, tagged as POS channel so you can tell walk-in sales from online checkouts.",
