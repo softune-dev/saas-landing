@@ -6,6 +6,8 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { RecaptchaCheckbox } from "@/components/ui/recaptcha-checkbox";
+import { hasRecaptcha } from "@/lib/recaptcha";
 
 // Only real channels today. Add a new entry here the moment another one
 // exists (a support phone line, live chat, etc.) — a fake placeholder is
@@ -29,6 +31,7 @@ const cards = [
 
 export default function ContactSupportPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -45,6 +48,7 @@ export default function ContactSupportPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!(formData.firstName && formData.lastName && formData.email && formData.message)) return;
+    if (hasRecaptcha && !recaptchaToken) return;
 
     const subject = `Support request from ${formData.firstName} ${formData.lastName}`;
     const bodyLines = [
@@ -176,6 +180,7 @@ export default function ContactSupportPage() {
                     </p>
                     <Button variant="outline" className="mt-6" onClick={() => {
                       setFormSubmitted(false);
+                      setRecaptchaToken(null);
                       setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
                     }}>
                       Send Another Message
@@ -253,39 +258,14 @@ export default function ContactSupportPage() {
                       />
                     </div>
 
-                    <div className="mt-1 flex items-center gap-3 sm:mt-2">
-                      <div className="relative flex items-center justify-center">
-                        <input
-                          type="checkbox"
-                          id="verify-human"
-                          required
-                          className="peer size-5 cursor-pointer appearance-none rounded-[6px] border-2 border-[var(--color-line)] bg-[var(--color-canvas)] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[var(--color-muted)]"
-                        />
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={3}
-                          className="pointer-events-none absolute size-3.5 text-white opacity-0 transition-opacity peer-checked:opacity-100"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </div>
-                      <label
-                        htmlFor="verify-human"
-                        className="cursor-pointer text-[14px] font-bold text-[var(--color-ink)] select-none sm:text-[14.5px]"
-                      >
-                        I am human (Verify)
-                      </label>
+                    <div className="mt-1 sm:mt-2">
+                      <RecaptchaCheckbox onVerify={setRecaptchaToken} />
                     </div>
 
                     <Button
                       type="submit"
-                      className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 sm:mt-4 sm:py-6"
+                      disabled={hasRecaptcha && !recaptchaToken}
+                      className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
                     >
                       Send Message
                       <img

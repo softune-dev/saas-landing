@@ -18,7 +18,7 @@ export default function BlogPage() {
       <main className="min-h-screen bg-[var(--color-canvas)]">
         
         {/* Hero Section (Changelog Inspired) */}
-        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
@@ -64,7 +64,8 @@ export default function BlogPage() {
 
         {/* Featured Post */}
         <section className="py-12 max-w-7xl mx-auto px-5 md:px-8">
-          <motion.div
+          <motion.a
+            href={`/blog/${featuredPost.slug}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -72,13 +73,18 @@ export default function BlogPage() {
           >
             <div className="pointer-events-none absolute bottom-0 right-0 w-1/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
 
-            {/* Edge-to-edge Thumbnail */}
-            <div className="lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[400px] w-full overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-[var(--color-line)]/60 relative shrink-0 z-10">
-              <img 
-                src={featuredPost.image} 
-                alt={featuredPost.title} 
-                className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+            {/* Edge-to-edge Thumbnail — solid color when there's no real photo yet */}
+            <div
+              className="lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[400px] w-full overflow-hidden bg-slate-900 relative shrink-0 z-10"
+              style={featuredPost.color ? { backgroundColor: featuredPost.color } : undefined}
+            >
+              {featuredPost.image ? (
+                <img
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : null}
             </div>
 
             {/* Content */}
@@ -109,7 +115,7 @@ export default function BlogPage() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </motion.a>
 
           {/* Grid of Recent Posts */}
           <div>
@@ -122,21 +128,26 @@ export default function BlogPage() {
                 <motion.a
                   href={`/blog/${post.slug}`}
                   key={post.title}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.25 }}
             className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col text-left cursor-pointer"
                 >
                   <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
                   
-                  {/* Edge-to-edge Thumbnail */}
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-[var(--color-line)]/60 shrink-0 z-10">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                  {/* Edge-to-edge Thumbnail — solid color when there's no real photo yet */}
+                  <div
+                    className="relative aspect-video w-full overflow-hidden bg-slate-900 shrink-0 z-10"
+                    style={post.color ? { backgroundColor: post.color } : undefined}
+                  >
+                    {post.image ? (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : null}
                   </div>
 
                   {/* Card Content */}
@@ -146,7 +157,7 @@ export default function BlogPage() {
                         {post.category}
                       </span>
 
-                      <h4 className="mt-2 text-[18px] md:text-[20px] font-bold tracking-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)] leading-snug">
+                      <h4 className="mt-2 text-[19px] md:text-[20px] font-semibold tracking-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)] leading-snug">
                         {post.title}
                       </h4>
 

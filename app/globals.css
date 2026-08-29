@@ -28,8 +28,13 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-instrument), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Noto Sans Bengali only supplies glyphs Manrope/Instrument Serif lack
+     (Bangla script) — CSS font-family fallback is per-glyph, so Latin/
+     English text still renders in the site's real fonts untouched; only
+     Bangla characters (blog posts, etc.) fall through to it. Same font,
+     same idea as the dashboard/Bazaar's own Bangla support. */
+  --font-sans: var(--font-manrope), var(--font-bn), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), var(--font-inter), var(--font-bn), ui-sans-serif, system-ui, sans-serif;
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-ink: var(--ink);

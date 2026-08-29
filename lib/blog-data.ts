@@ -1,4 +1,3 @@
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 export type BodyBlock =
   | { type: "h2"; content: string }
@@ -17,176 +16,1780 @@ export interface BlogPost {
   author: string;
   authorRole: string;
   authorAvatar: string;
-  image: string;
+  image?: string;
+  color?: string;
+  lang?: "en" | "bn";
   desc: string;
   body: BodyBlock[];
 }
 
-// ─── Post Listing (used on /blog) ────────────────────────────────────────────
-
-export const BLOG_POSTS: Omit<BlogPost, "body" | "authorRole" | "authorAvatar">[] = [
-  {
-    slug: "conversion-rate-optimization-2026",
-    title: "10 Conversion Rate Optimization Checklist Items for 2026",
-    category: "Conversion Rate",
-    date: "Aug 15, 2026",
-    readTime: "6 min read",
-    author: "Mahmudul Hasan",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    desc: "Make checkouts simple and maximize order value. We list the ten must-have UI elements for mobile viewports to stop cart drop-offs.",
-  },
-  {
-    slug: "pos-integration-local-brands",
-    title: "Why Point-of-Sale (POS) Integration is Crucial for Local Brands",
-    category: "POS & Retail",
-    date: "Aug 10, 2026",
-    readTime: "5 min read",
-    author: "Tariqul Islam",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-    desc: "Unify online catalog inventories and retail storefront counters. Avoid overselling items and automate tax reporting automatically.",
-  },
-  {
-    slug: "conversion-rate-optimization-2026",
-    title: "Understanding Schema JSON-LD Structured Data for Ecommerce",
-    category: "SEO Strategy",
-    date: "Aug 05, 2026",
-    readTime: "8 min read",
-    author: "Kamrul Hasan",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80",
-    desc: "Rank higher on Google search engine databases. Learn how schemas display prices, review ratings, and availability directly on results.",
-  },
-  {
-    slug: "conversion-rate-optimization-2026",
-    title: "The Ultimate Guide to Zero-Downtime Store Migrations",
-    category: "Store Setup",
-    date: "Jul 28, 2026",
-    readTime: "7 min read",
-    author: "Alex Rivera",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-    desc: "Platform migrations don't have to break your business. How to map sitemaps, establish 301 redirects, and keep customer logs intact.",
-  },
-  {
-    slug: "conversion-rate-optimization-2026",
-    title: "Courier Automations: SMS Alerts and Live Logistics Tracking",
-    category: "Logistics",
-    date: "Jul 20, 2026",
-    readTime: "4 min read",
-    author: "Jessica Mercer",
-    image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80",
-    desc: "Lower support ticket logs. Automatically update customer packages with real-time route statuses and delivery confirmations.",
-  },
-  {
-    slug: "conversion-rate-optimization-2026",
-    title: "How to Build an Unforgettable Brand Identity for Online Retail",
-    category: "Design System",
-    date: "Jul 12, 2026",
-    readTime: "6 min read",
-    author: "Sarah Connor",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-    desc: "Craft cohesive styling templates. Learn how layouts, custom font choices, and primary colors construct professional-grade sites.",
-  },
-];
-
-// ─── Related Posts (used on article page sidebar) ────────────────────────────
-
-export const RELATED_POSTS = [
-  {
-    title: "Why Point-of-Sale (POS) Integration is Crucial for Local Brands",
-    category: "POS & Retail",
-    date: "Aug 10, 2026",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
-    slug: "pos-integration-local-brands",
-  },
-  {
-    title: "Understanding Schema JSON-LD Structured Data for Ecommerce",
-    category: "SEO Strategy",
-    date: "Aug 05, 2026",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=600&q=80",
-    slug: "conversion-rate-optimization-2026",
-  },
-  {
-    title: "How to Build an Unforgettable Brand Identity for Online Retail",
-    category: "Design System",
-    date: "Jul 12, 2026",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80",
-    slug: "conversion-rate-optimization-2026",
-  },
-];
-
-// ─── Full Articles (used on /blog/[slug]) ────────────────────────────────────
 
 export const ARTICLES: Record<string, BlogPost> = {
-  "conversion-rate-optimization-2026": {
-    slug: "conversion-rate-optimization-2026",
-    title: "10 Conversion Rate Optimization Checklist Items for 2026",
-    category: "Conversion Rate",
-    date: "Aug 15, 2026",
-    readTime: "6 min read",
-    author: "Mahmudul Hasan",
-    authorRole: "Growth Strategist",
-    authorAvatar: "https://i.pravatar.cc/150?img=52",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    desc: "Make checkouts simple and maximize order value. We list the ten must-have UI elements for mobile viewports to stop cart drop-offs.",
+  "facebook-page-to-website-bangladesh": {
+    slug: "facebook-page-to-website-bangladesh",
+    title: "Facebook Page দিয়ে ব্যবসা? এখনই একটা Website বানানো উচিত কেন",
+    category: "Website",
+    date: "Aug 20, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/facebook-page-to-website-bangladesh.webp",
+    lang: "bn",
+    desc: "Facebook Page দিয়ে অনলাইন ব্যবসা করছেন? জেনে নিন কেন নিজের একটা Website থাকা জরুরি, আর কীভাবে Softune দিয়ে মাত্র কয়েক মিনিটে নিজের শপ শুরু করবেন।",
     body: [
-      { type: "p", content: "Every percentage point of conversion matters. In 2026, the bar for a high-performing storefront has risen dramatically — customers expect faster load times, frictionless checkout flows, and personalized experiences from the first tap." },
-      { type: "h2", content: "Why CRO Still Matters More Than Traffic" },
-      { type: "p", content: "Driving traffic is expensive. Converting existing visitors is a far more profitable lever. A 1% improvement in conversion rate on a store generating ৳50,000/month in revenue translates to ৳500 in additional monthly revenue — without spending a single taka on ads." },
-      { type: "quote", content: "Traffic brings visitors. Conversion rate brings customers. Focus on the latter before scaling the former." },
-      { type: "h2", content: "The 10-Item CRO Checklist" },
-      { type: "list", content: [
-        "Reduce checkout steps to 3 or fewer pages",
-        "Add trust badges (SSL, payment icons) above the fold",
-        "Display real-time stock levels to create urgency",
-        "Use a persistent sticky cart on mobile viewports",
-        "Offer guest checkout — never force account creation",
-        "A/B test your primary CTA button copy and color",
-        "Add product video loops on key item listings",
-        "Implement exit-intent popups with a time-limited offer",
-        "Ensure your site loads under 2 seconds on 4G networks",
-        "Show delivery estimates directly on product pages",
-      ]},
-      { type: "h2", content: "Mobile Viewport Priorities" },
-      { type: "p", content: "Over 72% of Softune merchant traffic originates from mobile browsers. If your checkout funnel is not optimized for a 390px viewport width, you are leaving a significant portion of revenue on the table. Focus on tap target sizes (minimum 44px), thumb-reachable CTAs, and reducing form field count." },
-      { type: "callout", content: "Quick Win: Move your checkout button to the bottom of the screen on mobile. Thumb-reachable CTAs consistently outperform top-positioned buttons by 18-34% in mobile conversion studies." },
-      { type: "h3", content: "Trust Elements That Convert" },
-      { type: "p", content: "Trust is the silent conversion killer. Customers who trust your brand buy faster and return more often. Place security badges near your Add to Cart button, show authentic product review counts, and always display a clear return policy before the checkout confirmation step." },
-      { type: "h2", content: "Measuring and Iterating" },
-      { type: "p", content: "CRO is not a one-time audit — it's a continuous practice. Set up funnel tracking in your analytics dashboard, identify the highest drop-off pages, hypothesize a fix, deploy it, and measure the result over a statistically significant sample. Repeat this loop every two weeks for compound gains throughout the year." },
+      {
+        type: "p",
+        content:
+          "বাংলাদেশে হাজার হাজার উদ্যোক্তা তাদের ব্যবসা শুরু করেছেন একটা Facebook Page দিয়ে। কারণটাও সহজ — খরচ নেই, কোডিং জানার দরকার নেই, আর কাস্টমারও তো এমনিতেই Facebook-এ আছে। কিন্তু যেই ব্যবসা একটু বড় হতে শুরু করে, তখনই বোঝা যায় — শুধু Facebook Page দিয়ে বেশিদূর যাওয়া যায় না।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে আলোচনা করব ঠিক কী কী সমস্যা হয় শুধু Facebook Page-এ ব্যবসা চালালে, আর কেন এখনই নিজের একটা ওয়েবসাইট থাকা উচিত।",
+      },
+      { type: "h2", content: "Facebook Page-এ ব্যবসা চালালে যেসব সমস্যা হয়" },
+      { type: "h3", content: "১. কাস্টমার লিস্ট আপনার না" },
+      {
+        type: "p",
+        content:
+          "Facebook Page-এ যত কাস্টমার আসুক, সেই ডেটা কিন্তু আপনার হাতে নেই — সব Facebook-এর কাছে। কাল যদি Page ব্যান হয়ে যায়, বা অ্যাক্সেস হারিয়ে ফেলেন, আপনার বছরের পর বছরের কাস্টমার লিস্ট এক নিমিষে হাওয়া।",
+      },
+      { type: "h3", content: "২. Order ম্যানেজ করা কঠিন হয়ে যায়" },
+      {
+        type: "p",
+        content:
+          "Messenger, WhatsApp, কমেন্টে অর্ডার — সব জায়গা থেকে ম্যানুয়ালি অর্ডার লিখে রাখা, স্টক মিলানো, ডেলিভারি ট্র্যাক করা — ব্যবসা বড় হলে এই সিস্টেম আর টেকে না। ভুল হওয়ার সম্ভাবনাও বেড়ে যায়।",
+      },
+      { type: "h3", content: "৩. কাস্টমারের বিশ্বাস কম থাকে" },
+      {
+        type: "p",
+        content:
+          "নতুন কাস্টমার যখন দেখে শুধু একটা Facebook Page, প্রোডাক্ট প্রাইসিং, রিটার্ন পলিসি, বা পেমেন্ট অপশন কিছুই স্পষ্ট না — তখন অনেকেই কিনতে ভয় পায়। একটা প্রফেশনাল ওয়েবসাইট থাকলে কাস্টমারের কাছে ব্র্যান্ডটা অনেক বেশি বিশ্বাসযোগ্য মনে হয়।",
+      },
+      { type: "h3", content: "৪. Google Search-এ খুঁজে পাওয়া যায় না" },
+      {
+        type: "p",
+        content:
+          'কেউ যদি "ঢাকায় ভালো লেডিস ফ্যাশন শপ" লিখে Google-এ সার্চ করে, একটা Facebook Page সেখানে সহজে আসে না। কিন্তু নিজের ওয়েবসাইট থাকলে সেটা Search Engine-এ র‍্যাঙ্ক করার সুযোগ পায় — মানে বিনামূল্যে নতুন কাস্টমার।',
+      },
+      { type: "h2", content: "নিজের ওয়েবসাইট থাকলে কী কী সুবিধা পাবেন" },
+      {
+        type: "list",
+        content: [
+          "নিজের ব্র্যান্ড নামে ডোমেইন (যেমন: yourshop.com)",
+          "প্রোডাক্ট ক্যাটাগরি, দাম, স্টক — সব গোছানো",
+          "COD (Cash on Delivery), বিকাশ, নগদ — সব পেমেন্ট অপশন এক জায়গায়",
+          "Steadfast, Pathao-এর মতো কুরিয়ারের সাথে সরাসরি সংযোগ",
+          "কাস্টমার নিজে অর্ডার দিয়ে ট্র্যাক করতে পারে — আপনাকে বারবার মেসেজ করা লাগে না",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "সমস্যা হলো, নিজে থেকে ডেভেলপার দিয়ে একটা ই-কমার্স ওয়েবসাইট বানাতে গেলে খরচ পড়ে যায় ১৫,০০০ থেকে ৫০,০০০+ টাকা, সাথে হোস্টিং আর মেইনটেনেন্সের ঝামেলা তো আছেই। বেশিরভাগ ছোট ও মাঝারি ব্যবসায়ীর জন্য এটা বাস্তবসম্মত না।",
+      },
+      { type: "h2", content: "এখানেই Softune কাজে আসে" },
+      {
+        type: "p",
+        content:
+          "Softune হলো বিশেষভাবে বাংলাদেশি ব্যবসায়ীদের জন্য বানানো একটি ওয়েবসাইট বিল্ডার, যেখানে আপনি কোনো কোডিং জানা ছাড়াই নিজের প্রফেশনাল অনলাইন শপ দাঁড় করাতে পারবেন — কয়েক মিনিটেই।",
+      },
+      { type: "p", content: "Softune দিয়ে আপনি পাচ্ছেন:" },
+      {
+        type: "list",
+        content: [
+          "রেডিমেড, সুন্দর টেমপ্লেট — ফ্যাশন, জেনারেল শপ, বেকারি — যেকোনো ধরনের ব্যবসার জন্য",
+          "COD, বিকাশ ও নগদ ম্যানুয়াল পেমেন্ট — বাংলাদেশি কাস্টমারের অভ্যাস অনুযায়ী",
+          "Steadfast কুরিয়ার ইন্টিগ্রেশন — অর্ডার সরাসরি বুক করার সুবিধা",
+          "Order, Product, Customer ম্যানেজমেন্ট — একই ড্যাশবোর্ড থেকে সব নিয়ন্ত্রণ",
+          "ফ্রড প্রোটেকশন — ফেক অর্ডার ঠেকানোর সিস্টেম, শুরু থেকেই",
+          "মাত্র ৳১,১৯০/মাস থেকে শুরু — কোনো বড় এককালীন খরচ ছাড়াই",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "আপনি যদি এখনো শুধু Facebook Page দিয়ে ব্যবসা চালান, তাহলে বলা যায় — আপনি নিজের ব্যবসাটাকে অন্য একটা প্ল্যাটফর্মের হাতে ছেড়ে রেখেছেন। Softune দিয়ে সেই নিয়ন্ত্রণটা আবার নিজের হাতে নিয়ে আসুন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "Facebook Page ব্যবসা শুরু করার জন্য ভালো একটা জায়গা, কিন্তু ব্যবসা টিকিয়ে রাখা আর বড় করার জন্য নিজের একটা ওয়েবসাইট থাকা এখন প্রায় বাধ্যতামূলক হয়ে দাঁড়িয়েছে। আর সেটা বানানো যতটা কঠিন মনে হয়, ততটা কঠিন না — Softune দিয়ে আপনি আজই শুরু করতে পারেন, একদম নিজের বাজেটের মধ্যে।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার নিজের অনলাইন শপ শুরু করুন — মাত্র কয়েক মিনিটে।",
+      },
+    ],
+  },
+  "cash-on-delivery-setup-bangladesh": {
+    slug: "cod-cash-on-delivery-setup-bangladesh",
+    title: "COD (Cash on Delivery) কীভাবে সেটাপ করবেন আপনার অনলাইন শপে",
+    category: "Payments",
+    date: "Aug 22, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/cash-on-delivery-setup-bangladesh.webp",
+    lang: "bn",
+    desc: "অর্ডার দিয়ে ক্যানসেল করা প্রায় সব অনলাইন শপের কমন সমস্যা। জেনে নিন এর আসল কারণগুলো, আর কীভাবে Softune দিয়ে এই ক্যানসেলেশন রেট কমিয়ে আনবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "বাংলাদেশে অনলাইনে কেনাকাতার সবচেয়ে জনপ্রিয় পেমেন্ট মেথড হলো Cash on Delivery বা COD — প্রায় ৭০-৮০% অর্ডার এখনো এই পদ্ধতিতেই হয়। কারণ সহজ: কাস্টমার প্রোডাক্ট হাতে পাওয়ার আগে টাকা দিতে চায় না, বিশেষ করে নতুন কোনো শপ থেকে কিনলে।",
+      },
+      {
+        type: "p",
+        content:
+          "তাই আপনার অনলাইন শপে COD ঠিকভাবে সেটাপ না থাকলে, অনেক কাস্টমারই অর্ডার না দিয়ে চলে যাবে। আজকে দেখব কীভাবে সঠিকভাবে COD সেটাপ করবেন, আর কোন কোন ভুল থেকে সাবধান থাকতে হবে।",
+      },
+      { type: "h2", content: "COD সেটাপ করার আগে যা জানা দরকার" },
+      { type: "h3", content: "১. ডেলিভারি চার্জ স্পষ্ট রাখুন" },
+      {
+        type: "p",
+        content:
+          "কাস্টমার যেন চেকআউটের আগেই ডেলিভারি চার্জ দেখতে পায় — ঢাকার ভিতরে আর বাইরে আলাদা চার্জ হলে সেটাও স্পষ্টভাবে লিখুন। হঠাৎ করে চেকআউটে এসে বাড়তি চার্জ দেখলে অনেক কাস্টমার অর্ডার বাতিল করে দেয়।",
+      },
+      { type: "h3", content: "২. কুরিয়ার পার্টনার ঠিক করুন" },
+      {
+        type: "p",
+        content:
+          "Steadfast, Pathao, RedX — এদের মধ্যে যেকোনো একটা বা একাধিক কুরিয়ারের সাথে যুক্ত থাকা জরুরি, যাতে অর্ডার হওয়ার সাথে সাথে সরাসরি বুকিং হয়ে যায়। ম্যানুয়ালি প্রতিটা অর্ডার কুরিয়ার অফিসে গিয়ে বুক করা সময়সাপেক্ষ এবং ভুল হওয়ার সম্ভাবনা বেশি।",
+      },
+      { type: "h3", content: "৩. ফেক অর্ডার ঠেকানোর ব্যবস্থা রাখুন" },
+      {
+        type: "p",
+        content:
+          "COD-তে সবচেয়ে বড় সমস্যা হলো ফেক অর্ডার — কেউ ভুয়া নম্বর বা ঠিকানা দিয়ে অর্ডার করে, প্রোডাক্ট পাঠানোর পর ডেলিভারি রিফিউজ করে। এতে কুরিয়ার চার্জ আর সময় দুটোই লস হয়। অর্ডার কনফার্ম করার আগে ফোন নম্বর ভেরিফাই করা, বা আগে থেকে সন্দেহজনক নম্বর ব্লক করে রাখা — এই সিস্টেম না থাকলে লস বাড়তেই থাকবে।",
+      },
+      { type: "h2", content: "ধাপে ধাপে COD সেটাপ করার নিয়ম" },
+      {
+        type: "list",
+        content: [
+          "চেকআউট পেজে পেমেন্ট অপশনে 'Cash on Delivery' যোগ করুন",
+          "প্রতিটা এরিয়ার জন্য আলাদা ডেলিভারি চার্জ সেট করুন (ঢাকা ভিতরে/বাইরে)",
+          "কুরিয়ার পার্টনার (Steadfast/Pathao) কানেক্ট করুন যাতে অর্ডার অটো বুক হয়",
+          "ফ্রড প্রোটেকশন চালু করুন — সন্দেহজনক নম্বর অটো ব্লক হবে",
+          "অর্ডার কনফার্মেশন SMS/WhatsApp পাঠানোর ব্যবস্থা রাখুন",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "আলাদা আলাদা প্লাগইন বা টুল দিয়ে এই পুরো সিস্টেম বসাতে গেলে সময় ও টাকা দুটোই বেশি লাগে, আর একটার সাথে আরেকটা ঠিকমতো কানেক্টও হয় না অনেক সময়।",
+      },
+      { type: "h2", content: "Softune দিয়ে COD সেটাপ করা যত সহজ" },
+      {
+        type: "p",
+        content:
+          "Softune-এ COD পেমেন্ট অপশন প্রথম থেকেই বিল্ট-ইন — আলাদা কোনো প্লাগইন লাগানোর দরকার নেই। শপ খোলার সাথে সাথেই আপনি COD চালু করতে পারবেন কয়েক ক্লিকেই।",
+      },
+      { type: "p", content: "Softune-এ COD সেটাপ করলে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "বিল্ট-ইন COD পেমেন্ট অপশন — কোনো অতিরিক্ত সেটআপ ছাড়াই",
+          "এরিয়া অনুযায়ী আলাদা ডেলিভারি চার্জ সেট করার সুবিধা",
+          "Steadfast কুরিয়ার ইন্টিগ্রেশন — অর্ডার অটো বুকিং",
+          "ফ্রড প্রোটেকশন — ফেক অর্ডার ও সন্দেহজনক নম্বর আগেই ব্লক",
+          "বিকাশ ও নগদের সাথেও COD একসাথে চালানোর সুবিধা",
+          "সব অর্ডার এক ড্যাশবোর্ড থেকেই ট্র্যাক করার ব্যবস্থা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "COD ঠিকভাবে সেটাপ না থাকলে প্রতিটা ফেক অর্ডারে আপনার কুরিয়ার খরচ আর সময় দুটোই নষ্ট হয়। Softune-এর ফ্রড প্রোটেকশন দিয়ে এই লসটা শুরু থেকেই ঠেকানো যায়।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "বাংলাদেশের কাস্টমারদের কাছে COD এখনো সবচেয়ে বিশ্বাসযোগ্য পেমেন্ট মেথড, তাই এটা সঠিকভাবে সেটাপ করাই আপনার অর্ডার সংখ্যা বাড়ানোর সবচেয়ে সহজ উপায়। Softune দিয়ে আপনি এই পুরো সিস্টেমটাই পাবেন একদম প্রথম থেকে — কোনো আলাদা প্লাগইন বা ডেভেলপার ছাড়াই।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপে COD, বিকাশ ও নগদ পেমেন্ট চালু করুন — মাত্র কয়েক মিনিটে।",
+      },
+    ],
+  },
+  "add-bkash-nagad-payment-website": {
+    slug: "bkash-nagad-payment-website-setup",
+    title: "বিকাশ আর নগদ পেমেন্ট আপনার ওয়েবসাইটে কীভাবে যোগ করবেন",
+    category: "Payments",
+    date: "Aug 24, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/add-bkash-nagad-payment-website.webp",
+    lang: "bn",
+    desc: "কাস্টমার এখন বিকাশ-নগদেই পেমেন্ট করতে বেশি স্বাচ্ছন্দ্য বোধ করে। জেনে নিন কীভাবে আপনার ওয়েবসাইটে বিকাশ ও নগদ পেমেন্ট যোগ করবেন, আর কোন পদ্ধতি আপনার শপের জন্য সবচেয়ে ভালো।",
+    body: [
+      {
+        type: "p",
+        content:
+          "COD-এর পাশাপাশি বাংলাদেশের কাস্টমাররা এখন বিকাশ আর নগদেও আগেভাগে পেমেন্ট করতে অভ্যস্ত হয়ে যাচ্ছে — বিশেষ করে যারা আগে থেকেই মোবাইল ব্যাংকিং ব্যবহার করে। শুধু COD-এর উপর নির্ভর করলে আপনি এই কাস্টমারদের একটা বড় অংশ হারাতে পারেন।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব বিকাশ-নগদ পেমেন্ট আপনার ওয়েবসাইটে যোগ করার সহজ উপায়গুলো, আর কোন পদ্ধতি আপনার ব্যবসার জন্য মানানসই।",
+      },
+      { type: "h2", content: "বিকাশ-নগদ পেমেন্ট নেওয়ার দুইটা পদ্ধতি" },
+      { type: "h3", content: "১. ম্যানুয়াল পেমেন্ট (Send Money / Payment)" },
+      {
+        type: "p",
+        content:
+          "কাস্টমার নিজে বিকাশ বা নগদ অ্যাপ থেকে আপনার নম্বরে টাকা পাঠায়, তারপর ট্রানজেকশন আইডি ওয়েবসাইটে লিখে অর্ডার কনফার্ম করে। এতে কোনো মার্চেন্ট অ্যাকাউন্ট বা এগ্রিমেন্ট লাগে না — শুধু আপনার পার্সোনাল বা এজেন্ট নম্বর থাকলেই চলে। ছোট ও নতুন শপের জন্য এটাই সবচেয়ে সহজ শুরু।",
+      },
+      { type: "h3", content: "২. অটোমেটিক গেটওয়ে (Merchant Account)" },
+      {
+        type: "p",
+        content:
+          "বিকাশ বা SSLCommerz-এর মতো পেমেন্ট গেটওয়ে দিয়ে কাস্টমার সরাসরি ওয়েবসাইট থেকেই পেমেন্ট করে, আর টাকা সাথে সাথে ভেরিফাই হয়ে যায়। এর জন্য মার্চেন্ট অ্যাকাউন্ট লাগে, কিছু কাগজপত্র জমা দিতে হয়, আর প্রতি ট্রানজেকশনে সাধারণত একটা চার্জ কাটা হয়। অর্ডার ভলিউম বেশি হলে এই পদ্ধতি সময় বাঁচায়।",
+      },
+      { type: "h2", content: "কোন পদ্ধতি আপনার জন্য ভালো" },
+      {
+        type: "list",
+        content: [
+          "নতুন শপ, কম অর্ডার — ম্যানুয়াল পেমেন্ট দিয়ে শুরু করুন",
+          "মাসে অনেক অর্ডার, ভেরিফিকেশনে সময় বেশি লাগছে — অটোমেটিক গেটওয়ে বিবেচনা করুন",
+          "দুটো পদ্ধতিই একসাথে রাখা সবচেয়ে নিরাপদ — কাস্টমারকে অপশন দিন",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "সমস্যা হলো, ম্যানুয়াল পেমেন্ট নিজে থেকে সেটাপ করলে প্রতিটা ট্রানজেকশন আইডি হাতে চেক করতে হয়, ভুল ট্রানজেকশন আইডি দিয়ে অর্ডার করার ঘটনাও কম না। আর গেটওয়ে যোগ করতে গেলে ডেভেলপার লাগে, ইন্টিগ্রেশনে সময় যায়।",
+      },
+      { type: "h2", content: "Softune-এ বিকাশ-নগদ যেভাবে কাজ করে" },
+      {
+        type: "p",
+        content:
+          "Softune-এ বিকাশ ও নগদ ম্যানুয়াল পেমেন্ট প্রথম থেকেই বিল্ট-ইন — চেকআউটে গিয়ে শুধু আপনার নম্বর বসিয়ে দিলেই কাস্টমার পেমেন্ট করতে পারবে।",
+      },
+      { type: "p", content: "Softune-এ পেমেন্ট সেটাপ করলে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "বিকাশ ও নগদ ম্যানুয়াল পেমেন্ট — কোনো মার্চেন্ট অ্যাকাউন্ট ছাড়াই শুরু করা যায়",
+          "SSLCommerz-সহ অটোমেটিক গেটওয়ে অপশনও যুক্ত করার সুবিধা",
+          "ট্রানজেকশন আইডি ড্যাশবোর্ড থেকেই দেখে অর্ডার কনফার্ম করার ব্যবস্থা",
+          "COD, বিকাশ, নগদ — সবকটা অপশন একসাথে চালানোর সুবিধা",
+          "০% ট্রানজেকশন ফি — আপনার লাভ থেকে কোনো বাড়তি কাটা যায় না",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "কাস্টমারকে যত বেশি পেমেন্ট অপশন দেবেন, চেকআউটে অর্ডার বাতিল হওয়ার সম্ভাবনা তত কমবে। Softune দিয়ে বিকাশ, নগদ ও COD — সবকিছু একসাথে চালানো যায় কোনো বাড়তি ঝামেলা ছাড়াই।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "বিকাশ-নগদ পেমেন্ট যোগ করা মানেই আপনার শপে নতুন এক শ্রেণির কাস্টমার আসার রাস্তা খুলে দেওয়া। আর এটা সেটাপ করতে ডেভেলপার বা জটিল ইন্টিগ্রেশনের দরকার নেই — Softune দিয়ে এটা প্রথম থেকেই রেডি থাকে।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপে বিকাশ ও নগদ পেমেন্ট চালু করুন — একদম বিনা ঝামেলায়।",
+      },
+    ],
+  },
+  "stop-fake-orders-fraud-protection": {
+    slug: "fake-order-fraud-prevention-online-shop",
+    title: "ফেক অর্ডার আর প্রতারণা থেকে বাঁচার সহজ উপায়",
+    category: "Security",
+    date: "Aug 26, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/stop-fake-orders-fraud-protection.webp",
+    lang: "bn",
+    desc: "COD-নির্ভর online শপের সবচেয়ে বড় মাথাব্যথা ফেক অর্ডার। জেনে নিন ফেক অর্ডার চেনার উপায়, ঠেকানোর সহজ কৌশল, আর কীভাবে Softune-এর ফ্রড প্রোটেকশন এই ঝামেলা কমায়।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনলাইন শপ চালাতে গিয়ে যে সমস্যাটা প্রায় সবাইকেই ভোগায়, সেটা হলো ফেক অর্ডার। কেউ ভুয়া নাম-ঠিকানা দিয়ে অর্ডার করে, প্রোডাক্ট কুরিয়ারে পাঠানোর পর ফোন ধরে না বা ডেলিভারি রিফিউজ করে দেয়। এতে প্রোডাক্ট প্যাকিং খরচ, কুরিয়ার চার্জ, আর সময় — সবই লস হয়ে যায়।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব ফেক অর্ডার কেন হয়, কীভাবে চিনবেন, আর কী কী উপায়ে এটা কমিয়ে আনা যায়।",
+      },
+      { type: "h2", content: "ফেক অর্ডার কেন হয়" },
+      {
+        type: "list",
+        content: [
+          "প্রতিযোগী শপ ইচ্ছাকৃতভাবে ফেক অর্ডার দিয়ে ক্ষতি করার চেষ্টা করে",
+          "কাস্টমার মজা করে বা ভুলবশত অর্ডার করে ফেলে, পরে আর রিসিভ করে না",
+          "একই নম্বর/ঠিকানা দিয়ে বারবার অর্ডার করে ডেলিভারি সময় রিফিউজ করার অভ্যাস",
+          "ভুয়া নম্বর দিয়ে অর্ডার করা হয়, যেটা আসলে চালুই না",
+        ],
+      },
+      { type: "h2", content: "ফেক অর্ডার চেনার উপায়" },
+      { type: "h3", content: "১. ফোন নম্বর ভেরিফাই করুন" },
+      {
+        type: "p",
+        content:
+          "অর্ডার কনফার্ম করার আগে কল করে বা SMS/WhatsApp-এ কনফার্মেশন নিন। যেসব নম্বরে কল যায় না বা কেউ রেসপন্স করে না, সেগুলো বাতিল করে দিন।",
+      },
+      { type: "h3", content: "২. বারবার রিফিউজ করা নম্বর ট্র্যাক করুন" },
+      {
+        type: "p",
+        content:
+          "যে নম্বর বা ঠিকানা থেকে আগে একাধিকবার ডেলিভারি রিফিউজ হয়েছে, সেগুলোর একটা তালিকা রাখুন। এই তালিকা থাকলে ভবিষ্যতে একই নম্বর থেকে অর্ডার এলে আগেভাগেই সতর্ক হওয়া যায়।",
+      },
+      { type: "h3", content: "৩. পার্শিয়াল অ্যাডভান্স নেওয়ার কথা ভাবুন" },
+      {
+        type: "p",
+        content:
+          "নতুন বা সন্দেহজনক কাস্টমারের ক্ষেত্রে ডেলিভারি চার্জের একটা অংশ অ্যাডভান্স হিসেবে বিকাশ/নগদে নিয়ে নিলে ফেক অর্ডারের সম্ভাবনা অনেকটাই কমে যায়।",
+      },
+      {
+        type: "p",
+        content:
+          "কিন্তু প্রতিটা অর্ডার হাতে হাতে চেক করা, রিফিউজ হওয়া নম্বরের তালিকা নিজে মনে রাখা — এটা সময়সাপেক্ষ, আর শপ বড় হলে এই কাজ একা সামলানো কঠিন হয়ে যায়।",
+      },
+      { type: "h2", content: "Softune-এর ফ্রড প্রোটেকশন যেভাবে সাহায্য করে" },
+      {
+        type: "p",
+        content:
+          "Softune-এ ফ্রড প্রোটেকশন ফিচারটা প্রথম থেকেই বিল্ট-ইন থাকে — নতুন শপ হলেও, আগে থেকে কোনো অর্ডার হিস্ট্রি না থাকলেও এটা কাজ করে।",
+      },
+      { type: "p", content: "Softune-এর ফ্রড প্রোটেকশনে যা যা থাকছে:" },
+      {
+        type: "list",
+        content: [
+          "সন্দেহজনক ফোন নম্বর ও ঠিকানা অটোমেটিক ব্লকলিস্টে যোগ করার সুবিধা",
+          "বারবার রিফিউজ হওয়া অর্ডারের প্যাটার্ন চিহ্নিত করা",
+          "অর্ডার কনফার্ম করার আগে রুল-ভিত্তিক সতর্কতা দেখানো",
+          "কোনো আগের অর্ডার হিস্ট্রি ছাড়াই নতুন শপেও কাজ করে",
+          "সব সন্দেহজনক অর্ডার এক জায়গায় দেখে দ্রুত সিদ্ধান্ত নেওয়ার সুবিধা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "প্রতিটা ফেক অর্ডারে শুধু কুরিয়ার চার্জই না, আপনার সময় আর প্রোডাক্টও নষ্ট হয়। Softune-এর ফ্রড প্রোটেকশন এই ক্ষতিটা অর্ডার কনফার্ম হওয়ার আগেই ঠেকিয়ে দেয়।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ফেক অর্ডার পুরোপুরি বন্ধ করা কঠিন, কিন্তু সঠিক সিস্টেম থাকলে এর ক্ষতি অনেকটাই কমিয়ে আনা যায়। ম্যানুয়ালি প্রতিটা নম্বর ট্র্যাক করার বদলে, Softune-এর মতো বিল্ট-ইন ফ্রড প্রোটেকশন দিয়ে এই কাজটা শুরু থেকেই অটোমেটিক করে রাখুন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপে ফ্রড প্রোটেকশন চালু করুন — ফেক অর্ডার ঠেকান শুরু থেকেই।",
+      },
+    ],
+  },
+  "start-online-shop-950-taka": {
+    slug: "start-online-shop-950-taka",
+    title: "মাত্র ৯৫০ টাকায় নিজের অনলাইন শপ শুরু করুন",
+    category: "Getting Started",
+    date: "Aug 28, 2026",
+    readTime: "4 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/start-online-shop-950-taka.webp",
+    lang: "bn",
+    desc: "ওয়েবসাইট বানাতে লাখ টাকা লাগবে ভেবে পিছিয়ে আছেন? জেনে নিন কীভাবে খুব অল্প খরচে Softune দিয়ে নিজের প্রফেশনাল অনলাইন শপ শুরু করবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেকেই মনে করেন নিজের একটা অনলাইন শপ ওয়েবসাইট বানাতে হলে লাখ টাকা লাগবে, ডেভেলপার হায়ার করতে হবে, মাসের পর মাস অপেক্ষা করতে হবে। এই ভুল ধারণার কারণে অনেক উদ্যোক্তাই শুধু Facebook Page-এর উপর নির্ভর করে থাকেন, নিজের ওয়েবসাইট বানানোর কথা ভাবেনও না।",
+      },
+      {
+        type: "p",
+        content:
+          "বাস্তবতা হলো, এখন খুব অল্প খরচেই নিজের প্রফেশনাল অনলাইন শপ শুরু করা যায় — কোনো ডেভেলপার বা কোডিং জ্ঞান ছাড়াই।",
+      },
+      { type: "h2", content: "নিজে ওয়েবসাইট বানালে খরচ কেমন হয়" },
+      {
+        type: "list",
+        content: [
+          "ডেভেলপার হায়ার করে বানালে: ১৫,০০০ – ৫০,০০০+ টাকা এককালীন",
+          "হোস্টিং ও ডোমেইন: বছরে আলাদা করে ৩,০০০ – ৮,০০০ টাকা",
+          "মেইনটেনেন্স ও আপডেট: প্রতি মাসে বাড়তি খরচ",
+          "কোনো সমস্যা হলে ঠিক করার জন্য আবার ডেভেলপারকে টাকা দিতে হয়",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "এই পুরো হিসাব মিলিয়ে দেখলে, একটা ছোট শপের জন্য শুরুতেই অনেক টাকা চলে যায় — যেখানে ব্যবসাটাই তখনো দাঁড়ায়নি।",
+      },
+      { type: "h2", content: "Softune দিয়ে মাসে মাত্র ৳৯৫০ থেকে শুরু" },
+      {
+        type: "p",
+        content:
+          "Softune-এর Starter প্ল্যানে মাসে মাত্র ৳৯৫০ টাকা থেকে শুরু করে আপনি নিজের প্রফেশনাল অনলাইন শপ চালু করতে পারবেন — কোনো বড় এককালীন খরচ ছাড়াই, কোনো ডেভেলপার ছাড়াই।",
+      },
+      { type: "p", content: "এই খরচের মধ্যেই আপনি পাচ্ছেন:" },
+      {
+        type: "list",
+        content: [
+          "৫০টি প্রোডাক্ট পর্যন্ত আপলোড করার সুযোগ",
+          "৫০০MB মিডিয়া স্টোরেজ",
+          "ফ্রড প্রোটেকশন — ফেক অর্ডার ঠেকানোর ব্যবস্থা",
+          "থিম এডিটর দিয়ে নিজের মতো করে ডিজাইন সাজানোর সুবিধা",
+          "বেসিক অ্যানালিটিক্স — কে, কী কিনছে সব ট্র্যাক করা",
+          "০% ট্রানজেকশন ফি — আপনার বিক্রি থেকে কোনো বাড়তি কাটা নেই",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "বছরে একসাথে পেমেন্ট করলে আরও কম খরচে শুরু করা যায়, আর ব্যবসা বড় হলে যেকোনো সময় Growth বা Business প্ল্যানে আপগ্রেড করার সুযোগও থাকছে।",
+      },
+      {
+        type: "quote",
+        content:
+          "একটা প্রফেশনাল ওয়েবসাইট থাকা মানেই কাস্টমারের কাছে বাড়তি বিশ্বাসযোগ্যতা। Softune দিয়ে সেই বিশ্বাসযোগ্যতা তৈরি করতে এখন আর বড় বাজেট লাগে না।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "টাকার অভাবে নিজের ওয়েবসাইট বানানোর কথা আর পিছিয়ে রাখার দরকার নেই। Softune দিয়ে আপনি খুব কম খরচে, কয়েক মিনিটেই নিজের অনলাইন শপ দাঁড় করাতে পারবেন — আর ব্যবসা বাড়ার সাথে সাথে প্ল্যানও বাড়াতে পারবেন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে মাত্র ৳৯৫০ টাকায় আপনার অনলাইন শপ শুরু করুন।",
+      },
+    ],
+  },
+  "manage-delivery-steadfast-pathao": {
+    slug: "manage-delivery-steadfast-pathao",
+    title: "স্টিডফাস্ট, পাঠাও দিয়ে ডেলিভারি ম্যানেজ করবেন কীভাবে",
+    category: "Delivery",
+    date: "Aug 28, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/manage-delivery-steadfast-pathao.webp",
+    lang: "bn",
+    desc: "প্রতিটা অর্ডার হাতে হাতে কুরিয়ারে বুক করা কঠিন কাজ। জেনে নিন কীভাবে স্টিডফাস্ট বা পাঠাও দিয়ে ডেলিভারি ম্যানেজ করবেন, আর Softune দিয়ে এই পুরো প্রসেস অটোমেটিক করবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অর্ডার বাড়ার সাথে সাথে সবচেয়ে বড় যে সমস্যাটা দেখা দেয়, সেটা হলো ডেলিভারি ম্যানেজমেন্ট। প্রতিটা অর্ডার আলাদা করে কুরিয়ার অফিসে গিয়ে বুক করা, প্যাকেজ ট্র্যাক করা, কাস্টমারকে আপডেট দেওয়া — একা হাতে সামলাতে গেলে সময়ই বেশি চলে যায়, ভুলও হয় বেশি।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব স্টিডফাস্ট আর পাঠাও দিয়ে ডেলিভারি কীভাবে ম্যানেজ করবেন, আর কীভাবে এই কাজটা অনেক সহজ করে ফেলা যায়।",
+      },
+      { type: "h2", content: "কুরিয়ার ম্যানেজমেন্টে সাধারণত যে সমস্যা হয়" },
+      {
+        type: "list",
+        content: [
+          "প্রতিটা অর্ডার আলাদা করে কুরিয়ার অ্যাপ বা ওয়েবসাইটে গিয়ে বুক করা লাগে",
+          "কাস্টমারের ঠিকানা-নম্বর কপি-পেস্ট করতে গিয়ে ভুল হয়ে যায়",
+          "কোন অর্ডার কোন স্ট্যাটাসে আছে তা আলাদা করে চেক করতে হয়",
+          "কাস্টমারকে ট্র্যাকিং লিংক ম্যানুয়ালি পাঠাতে হয়",
+        ],
+      },
+      { type: "h2", content: "স্টিডফাস্ট বনাম পাঠাও — কোনটা কেমন" },
+      {
+        type: "p",
+        content:
+          "স্টিডফাস্ট মূলত ই-কমার্স ব্যবসার জন্য গড়ে তোলা, তাই বাল্ক অর্ডার বুকিং ও COD সেটেলমেন্টে বেশ সহজ। পাঠাও-এর কুরিয়ার সার্ভিসও দ্রুত ডেলিভারির জন্য পরিচিত, বিশেষ করে ঢাকার ভিতরে। অনেক ব্যবসায়ীই এলাকাভেদে দুইটা কুরিয়ারই ব্যবহার করেন, যাতে একটাতে সমস্যা হলে অন্যটা দিয়ে চালানো যায়।",
+      },
+      { type: "h2", content: "ডেলিভারি ম্যানেজমেন্ট সহজ করার উপায়" },
+      {
+        type: "list",
+        content: [
+          "অর্ডার আসার সাথে সাথে সরাসরি কুরিয়ারে বুক করার ব্যবস্থা রাখুন",
+          "একই ড্যাশবোর্ড থেকে সব অর্ডারের ডেলিভারি স্ট্যাটাস দেখুন",
+          "কাস্টমারকে অটোমেটিক SMS বা WhatsApp আপডেট পাঠান",
+          "এলাকাভেদে একাধিক কুরিয়ার অপশন খোলা রাখুন",
+        ],
+      },
+      { type: "h2", content: "Softune দিয়ে স্টিডফাস্ট ইন্টিগ্রেশন যেভাবে কাজ করে" },
+      {
+        type: "p",
+        content:
+          "Softune-এ স্টিডফাস্ট কুরিয়ার ইন্টিগ্রেশন প্রথম থেকেই বিল্ট-ইন। অর্ডার আসার সাথে সাথে আপনার ড্যাশবোর্ড থেকেই সরাসরি বুকিং দেওয়া যায় — আলাদা করে কুরিয়ার অ্যাপে গিয়ে কিছু করতে হয় না।",
+      },
+      { type: "p", content: "Softune-এ ডেলিভারি ম্যানেজ করলে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "স্টিডফাস্ট ইন্টিগ্রেশন — এক ক্লিকে অর্ডার বুকিং",
+          "সব অর্ডারের ডেলিভারি স্ট্যাটাস এক ড্যাশবোর্ড থেকেই ট্র্যাক করা",
+          "কাস্টমারের ঠিকানা-নম্বর অটো-ফিল হয়ে যাওয়ায় ভুল কম হয়",
+          "অর্ডার ও কুরিয়ার তথ্য এক জায়গায় গোছানো থাকে",
+          "এলাকাভেদে ডেলিভারি চার্জ আলাদা করে সেট করার সুবিধা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "প্রতিটা অর্ডার হাতে হাতে বুক করার সময়টা আসলে আপনার ব্যবসা বাড়ানোর সময়। Softune দিয়ে ডেলিভারি বুকিং অটোমেটিক করে সেই সময়টা কাজে লাগান।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ডেলিভারি ম্যানেজমেন্ট যত সহজ হবে, আপনি তত বেশি অর্ডার সামলাতে পারবেন — কোনো বাড়তি লোক না রেখেই। Softune দিয়ে স্টিডফাস্ট ইন্টিগ্রেশন সেটাপ করে এই পুরো প্রসেসটাই অটোমেটিক করে ফেলুন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে স্টিডফাস্ট ইন্টিগ্রেশন চালু করুন — ডেলিভারি ম্যানেজ করুন এক ক্লিকে।",
+      },
+    ],
+  },
+  "stop-whatsapp-orders-sell-from-shop": {
+    slug: "stop-whatsapp-orders-sell-from-shop",
+    title: "হোয়াটসঅ্যাপে অর্ডার নেওয়া বন্ধ করুন — নিজের শপ থেকে বিক্রি করুন",
+    category: "Website",
+    date: "Aug 28, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/stop-whatsapp-orders-sell-from-shop.webp",
+    lang: "bn",
+    desc: "শুধু WhatsApp দিয়ে অর্ডার নিলে ব্যবসা একটা পর্যায়ের পর আর বাড়ে না। জেনে নিন কেন নিজের অনলাইন শপ থেকে বিক্রি করা জরুরি, আর কীভাবে Softune দিয়ে এই পরিবর্তনটা সহজে করবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেক ব্যবসায়ীই এখন WhatsApp-এর মাধ্যমে অর্ডার নেন — কাস্টমার মেসেজ করে, প্রোডাক্টের ছবি পাঠানো হয়, দাম বলা হয়, তারপর ম্যানুয়ালি অর্ডার লিখে রাখা হয়। শুরুতে এটা সহজ মনে হলেও, অর্ডার বাড়ার সাথে সাথে এই সিস্টেমেই সবচেয়ে বেশি সমস্যা তৈরি হয়।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব শুধু WhatsApp-এ অর্ডার নিলে কী কী সমস্যা হয়, আর কেন নিজের একটা শপ থেকে বিক্রি করা এখন সময়ের দাবি।",
+      },
+      { type: "h2", content: "শুধু WhatsApp-এ অর্ডার নিলে যেসব সমস্যা হয়" },
+      { type: "h3", content: "১. একসাথে অনেক কাস্টমার সামলানো কঠিন" },
+      {
+        type: "p",
+        content:
+          "একসাথে অনেকগুলো চ্যাট চলতে থাকলে কোন কাস্টমার কী অর্ডার করেছে, কে পেমেন্ট করেছে, কার ডেলিভারি বাকি — এসব গুলিয়ে ফেলা খুব সহজ। একটা ভুল মেসেজেই একজন কাস্টমার হারিয়ে যেতে পারে।",
+      },
+      { type: "h3", content: "২. প্রোডাক্ট খোঁজা কাস্টমারের জন্য কষ্টকর" },
+      {
+        type: "p",
+        content:
+          "নতুন কাস্টমার আপনার সব প্রোডাক্ট, দাম, স্টক জানতে চাইলে তাকে বারবার মেসেজ করে জিজ্ঞেস করতে হয়। এতে অনেক কাস্টমারই ধৈর্য হারিয়ে অন্য কোথাও চলে যায়।",
+      },
+      { type: "h3", content: "৩. রেকর্ড রাখা কঠিন হয়ে যায়" },
+      {
+        type: "p",
+        content:
+          "কে কবে কী কিনেছে, কার কাছে কত পাওনা, কোন প্রোডাক্ট বেশি বিক্রি হচ্ছে — এসব হিসাব চ্যাট স্ক্রল করে বের করা প্রায় অসম্ভব হয়ে যায় ব্যবসা একটু বড় হলে।",
+      },
+      { type: "h2", content: "নিজের শপ থাকলে যা বদলে যায়" },
+      {
+        type: "list",
+        content: [
+          "কাস্টমার নিজেই প্রোডাক্ট দেখে, দাম দেখে, অর্ডার করতে পারে — বারবার মেসেজ করা লাগে না",
+          "প্রতিটা অর্ডার অটোমেটিক রেকর্ড হয়ে থাকে, হিসাব রাখতে হয় না আলাদা করে",
+          "কাস্টমার নিজে অর্ডার ট্র্যাক করতে পারে",
+          "একসাথে শত শত অর্ডার এলেও সিস্টেম গুলিয়ে যায় না",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "WhatsApp কাস্টমার সাপোর্ট আর সম্পর্ক তৈরির জন্য দারুণ একটা টুল — কিন্তু পুরো ব্যবসাটাই যদি WhatsApp-এর উপর দাঁড়িয়ে থাকে, তাহলে ব্যবসা বাড়ার সাথে সাথে সেটাই বড় বাধা হয়ে দাঁড়ায়।",
+      },
+      { type: "h2", content: "Softune দিয়ে এই পরিবর্তনটা যেভাবে সহজ হয়" },
+      {
+        type: "p",
+        content:
+          "Softune দিয়ে আপনি নিজের একটা প্রফেশনাল অনলাইন শপ চালু করতে পারবেন, আর WhatsApp-কে রাখতে পারবেন শুধু কাস্টমার সাপোর্টের জন্য — অর্ডার নেওয়ার জন্য না।",
+      },
+      { type: "p", content: "Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "নিজের ব্র্যান্ডেড অনলাইন শপ — প্রোডাক্ট, দাম, স্টক সব গোছানো",
+          "COD, বিকাশ, নগদ — কাস্টমার নিজে বেছে নিয়ে পেমেন্ট করতে পারে",
+          "প্রতিটা অর্ডার অটোমেটিক ড্যাশবোর্ডে সেভ হয়",
+          "WhatsApp Alerts অ্যাড-অন — অর্ডার আপডেট অটোমেটিক পাঠানো যায়",
+          "কাস্টমার হিস্ট্রি, বিক্রির হিসাব — সব এক জায়গায়",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "WhatsApp-এ অর্ডার নেওয়া মানে প্রতিটা বিক্রির জন্য নিজেই ম্যানুয়ালি কাজ করা। Softune দিয়ে নিজের শপ থাকলে সেই কাজটাই সিস্টেম নিজে থেকে করে দেয়।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "WhatsApp দিয়ে ব্যবসা শুরু করাটা ভুল কিছু না, কিন্তু সেখানেই আটকে থাকলে ব্যবসা একটা পর্যায়ের পর আর বাড়তে পারে না। Softune দিয়ে নিজের শপ চালু করুন, WhatsApp-কে রাখুন শুধু সম্পর্ক তৈরির জায়গা হিসেবে।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে নিজের অনলাইন শপ শুরু করুন — WhatsApp-নির্ভরতা থেকে বেরিয়ে আসুন।",
+      },
+    ],
+  },
+  "sell-clothes-online-beginner-guide": {
+    slug: "sell-clothes-online-beginners-guide",
+    title: "অনলাইনে জামা-কাপড় বিক্রি করার সহজ গাইড (নতুনদের জন্য)",
+    category: "Fashion",
+    date: "Aug 29, 2026",
+    readTime: "6 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/sell-clothes-online-beginner-guide.webp",
+    lang: "bn",
+    desc: "নতুন করে অনলাইনে জামা-কাপড়ের ব্যবসা শুরু করতে চান? জেনে নিন সাইজ, ছবি, দাম থেকে শুরু করে শপ সাজানো পর্যন্ত পুরো গাইড, আর কীভাবে Softune দিয়ে ফ্যাশন শপ দাঁড় করাবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "বাংলাদেশে অনলাইন ফ্যাশন ব্যবসা এখন সবচেয়ে জনপ্রিয় ক্যাটাগরিগুলোর একটা — জামা, শাড়ি, পাঞ্জাবি, বাচ্চাদের পোশাক থেকে শুরু করে এক্সেসরিজ পর্যন্ত সবকিছুই এখন অনলাইনে ভালো বিক্রি হয়। কিন্তু নতুন হিসেবে শুরু করতে গেলে অনেকেই বুঝে উঠতে পারেন না ঠিক কোথা থেকে শুরু করবেন।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব অনলাইনে জামা-কাপড় বিক্রি শুরু করার জন্য ধাপে ধাপে যা যা করা দরকার।",
+      },
+      { type: "h2", content: "১. আপনার নিশ (Niche) ঠিক করুন" },
+      {
+        type: "p",
+        content:
+          "সব ধরনের পোশাক একসাথে বিক্রি করার চেষ্টা না করে একটা নির্দিষ্ট ক্যাটাগরি বেছে নিন — যেমন শুধু মেয়েদের থ্রি-পিস, বা শুধু বাচ্চাদের পোশাক। নির্দিষ্ট নিশ থাকলে কাস্টমার সহজে মনে রাখে, আর মার্কেটিংও সহজ হয়।",
+      },
+      { type: "h2", content: "২. প্রোডাক্ট ছবি প্রফেশনাল রাখুন" },
+      {
+        type: "p",
+        content:
+          "ফ্যাশন প্রোডাক্টে ছবিই সবচেয়ে বড় বিক্রির হাতিয়ার। প্রাকৃতিক আলোয় ছবি তুলুন, একাধিক অ্যাঙ্গেল থেকে দেখান, আর সম্ভব হলে মডেল পরে ছবি দিন যাতে কাস্টমার বুঝতে পারে পোশাকটা গায়ে কেমন লাগবে।",
+      },
+      { type: "h2", content: "৩. সাইজ চার্ট স্পষ্ট করে দিন" },
+      {
+        type: "p",
+        content:
+          "অনলাইনে কাপড় কেনার সবচেয়ে বড় ভয় হলো সাইজ মিলবে কিনা। প্রতিটা প্রোডাক্টে বুক, কোমর, লম্বার মাপ স্পষ্ট করে লিখে দিন। এতে সাইজ না মেলার কারণে রিটার্ন অনেক কমে যায়।",
+      },
+      { type: "h2", content: "৪. ভ্যারিয়েন্ট ঠিকমতো ম্যানেজ করুন" },
+      {
+        type: "p",
+        content:
+          "একই ডিজাইনের আলাদা সাইজ, রং থাকলে সেগুলো আলাদা ভ্যারিয়েন্ট হিসেবে যোগ করুন, যাতে কোনটার স্টক আছে আর কোনটা শেষ — কাস্টমার নিজেই দেখতে পায়।",
+      },
+      { type: "h2", content: "৫. পেমেন্ট ও ডেলিভারি অপশন সহজ রাখুন" },
+      {
+        type: "list",
+        content: [
+          "COD রাখুন — ফ্যাশন প্রোডাক্টে এটাই সবচেয়ে বেশি ব্যবহৃত হয়",
+          "বিকাশ, নগদ পেমেন্ট অপশনও যোগ করুন",
+          "রিটার্ন-এক্সচেঞ্জ পলিসি স্পষ্টভাবে লিখে দিন — সাইজ না মিললে কী হবে",
+        ],
+      },
+      { type: "h2", content: "Softune দিয়ে ফ্যাশন শপ শুরু করা যত সহজ" },
+      {
+        type: "p",
+        content:
+          "Softune-এর Aurora থিমটা বিশেষভাবে ফ্যাশন ব্র্যান্ডদের জন্য ডিজাইন করা — ক্লিন লেআউট, প্রোডাক্ট গ্যালারি, আর ভ্যারিয়েন্ট ম্যানেজমেন্ট সবই বিল্ট-ইন।",
+      },
+      { type: "p", content: "Softune-এ ফ্যাশন শপ চালাতে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "Aurora থিম — ফ্যাশন ব্র্যান্ডের জন্য রেডিমেড ডিজাইন",
+          "সাইজ ও কালার ভ্যারিয়েন্ট ম্যানেজমেন্ট",
+          "AI দিয়ে এক ক্লিকে প্রোডাক্ট ডেসক্রিপশন লেখার সুবিধা",
+          "COD, বিকাশ, নগদ — সব পেমেন্ট অপশন",
+          "ফ্রড প্রোটেকশন — ফেক অর্ডার ঠেকানোর ব্যবস্থা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "ফ্যাশন ব্যবসায় প্রথম ইমপ্রেশনটাই সবচেয়ে গুরুত্বপূর্ণ। Softune-এর Aurora থিম দিয়ে সেই প্রথম ইমপ্রেশনটাই প্রফেশনাল করে তুলুন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "অনলাইনে জামা-কাপড় বিক্রি শুরু করা কঠিন কিছু না, যদি সঠিক নিয়ম মেনে শুরু করেন। ছবি, সাইজ চার্ট, ভ্যারিয়েন্ট আর পেমেন্ট অপশন ঠিক থাকলে বিক্রি বাড়তে সময় লাগে না। Softune দিয়ে এই পুরো সেটাপটাই পাবেন এক জায়গায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার ফ্যাশন শপ শুরু করুন — Aurora থিম দিয়ে প্রফেশনাল লুক পান প্রথম দিনেই।",
+      },
+    ],
+  },
+  "know-if-online-shop-profitable": {
+    slug: "know-if-online-shop-making-profit",
+    title: "কীভাবে বুঝবেন আপনার অনলাইন শপ লাভ করছে কিনা",
+    category: "Business Management",
+    date: "Aug 29, 2026",
+    readTime: "6 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/know-if-online-shop-profitable.webp",
+    lang: "bn",
+    desc: "অনেক অর্ডার আসছে মানেই লাভ হচ্ছে না। জেনে নিন আপনার অনলাইন শপ আসলেই লাভজনক কিনা তা বোঝার সহজ হিসাব, আর কীভাবে Softune-এর অ্যানালিটিক্স দিয়ে এটা ট্র্যাক করবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেক ব্যবসায়ীই মনে করেন অর্ডার বেশি আসছে মানেই ব্যবসা ভালো চলছে। কিন্তু বাস্তবতা হলো, অর্ডার বেশি হলেও অনেক সময় দেখা যায় হাতে টাকা তেমন থাকছে না — কারণ প্রোডাক্ট খরচ, ডেলিভারি চার্জ, বিজ্ঞাপন খরচ সব মিলিয়ে লাভের অংশ অনেক কমে যায়।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব কীভাবে বুঝবেন আপনার শপ আসলেই লাভ করছে কিনা, আর কোন হিসাবগুলো নিয়মিত রাখা দরকার।",
+      },
+      { type: "h2", content: "শুধু বিক্রি দেখলে হবে না, লাভ হিসাব করুন" },
+      {
+        type: "p",
+        content:
+          "একটা প্রোডাক্ট ৫০০ টাকায় বিক্রি হলেই সেটা ৫০০ টাকা লাভ না। প্রোডাক্টের কেনা দাম, প্যাকেজিং, ডেলিভারি চার্জ (যেটা অনেক সময় দোকানদারকে বহন করতে হয়), আর বিজ্ঞাপন খরচ বাদ দিলে আসল লাভ কত থাকে সেটাই আসল হিসাব।",
+      },
+      { type: "h2", content: "যেসব খরচ প্রায়ই হিসাবের বাইরে থেকে যায়" },
+      {
+        type: "list",
+        content: [
+          "ডেলিভারি রিফিউজ ও ফেক অর্ডারের কারণে হওয়া লস",
+          "রিটার্ন-এক্সচেঞ্জের কুরিয়ার খরচ",
+          "Facebook Ads বা বুস্টিং-এর খরচ",
+          "সাবস্ক্রিপশন, ওয়েবসাইট, প্যাকেজিং-এর মাসিক খরচ",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "এই খরচগুলো আলাদা করে হিসাব না রাখলে, মাস শেষে অর্ডার অনেক দেখেও বোঝা যায় না আসলে লাভ থাকল নাকি লস হলো।",
+      },
+      { type: "h2", content: "লাভ বোঝার সহজ হিসাব" },
+      {
+        type: "list",
+        content: [
+          "মোট বিক্রি − প্রোডাক্ট খরচ − ডেলিভারি খরচ − বিজ্ঞাপন খরচ = আসল লাভ",
+          "প্রতি মাসে অন্তত একবার এই হিসাব বের করুন",
+          "কোন প্রোডাক্ট বেশি লাভ দিচ্ছে আর কোনটা শুধু বিক্রি বাড়াচ্ছে কিন্তু লাভ কম — সেটা আলাদা করে দেখুন",
+        ],
+      },
+      { type: "h2", content: "Softune-এর অ্যানালিটিক্স দিয়ে যা সহজে দেখা যায়" },
+      {
+        type: "p",
+        content:
+          "প্রতিটা হিসাব খাতায় বা এক্সেল শিটে ম্যানুয়ালি রাখা সময়সাপেক্ষ, আর ভুল হওয়ার সম্ভাবনাও বেশি। Softune-এর ড্যাশবোর্ডে এই হিসাবগুলো অটোমেটিক ট্র্যাক হতে থাকে।",
+      },
+      { type: "p", content: "Softune-এর অ্যানালিটিক্সে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "রেভিনিউ, অর্ডার সংখ্যা, ও ট্রেন্ড এক জায়গায়",
+          "কোন প্রোডাক্ট বেশি বিক্রি হচ্ছে তা দেখার সুবিধা",
+          "Growth ও Business প্ল্যানে অ্যাডভান্সড অ্যানালিটিক্স",
+          "CSV, PDF, JSON ফরম্যাটে ডেটা এক্সপোর্ট করার সুবিধা — নিজের হিসাব নিজে বিশ্লেষণ করার জন্য",
+          "ফ্রড প্রোটেকশন — অপ্রয়োজনীয় লস আগেই ঠেকিয়ে দেওয়া",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "অর্ডার সংখ্যা দেখে খুশি হওয়ার আগে লাভের হিসাবটা দেখুন। Softune-এর অ্যানালিটিক্স দিয়ে এই হিসাবটা প্রতিদিনই আপনার চোখের সামনে থাকবে।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ব্যবসা টিকিয়ে রাখতে হলে শুধু বিক্রি বাড়ালেই হবে না, লাভের হিসাবটাও নিয়মিত রাখতে হবে। Softune দিয়ে এই হিসাবটা রাখা সহজ হয়ে যায় — কারণ প্রতিটা অর্ডার, খরচ, আর ট্রেন্ড এক জায়গা থেকেই দেখা যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপের আসল লাভ-ক্ষতির হিসাব রাখা শুরু করুন।",
+      },
+    ],
+  },
+  "grow-business-online-without-showroom": {
+    slug: "grow-online-business-without-physical-shop",
+    title: "শোরুম ছাড়াই কীভাবে অনলাইনে ব্যবসা বড় করবেন",
+    category: "Business Management",
+    date: "Aug 29, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/grow-business-online-without-showroom.webp",
+    lang: "bn",
+    desc: "শোরুম ভাড়া, কর্মচারী, বিদ্যুৎ বিল — এসব ছাড়াই অনলাইনে ব্যবসা বড় করা সম্ভব। জেনে নিন কীভাবে শুধু একটা অনলাইন শপ দিয়েই ব্যবসা স্কেল করবেন, আর Softune কীভাবে এতে সাহায্য করে।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেকেই মনে করেন ব্যবসা বড় করতে হলে একটা শোরুম বা দোকান থাকা জরুরি। কিন্তু বাস্তবতা হলো, এখন হাজার হাজার সফল ব্যবসা চলছে শুধুমাত্র অনলাইনে — কোনো ফিজিক্যাল শোরুম ছাড়াই, ভাড়া-বিদ্যুৎ-কর্মচারীর বাড়তি খরচ ছাড়াই।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব শোরুম ছাড়া কীভাবে অনলাইনে ব্যবসা বড় করা যায়, আর কোন কৌশলগুলো এক্ষেত্রে সবচেয়ে বেশি কাজে দেয়।",
+      },
+      { type: "h2", content: "শোরুম না থাকার সুবিধা" },
+      {
+        type: "list",
+        content: [
+          "দোকান ভাড়া, বিদ্যুৎ বিল, কর্মচারী বেতন — এসব খরচ নেই",
+          "সারা দেশের কাস্টমারের কাছে পৌঁছানো যায়, শুধু একটা এলাকায় আটকে থাকতে হয় না",
+          "স্টক কম রেখেও ব্যবসা চালানো যায়, বড় বিনিয়োগ ছাড়াই শুরু করা যায়",
+          "সময় ও পরিশ্রম বেশি যায় প্রোডাক্ট আর মার্কেটিং-এ, দোকান সামলাতে না",
+        ],
+      },
+      { type: "h2", content: "শোরুম ছাড়া ব্যবসা বড় করার কৌশল" },
+      { type: "h3", content: "১. একটা প্রফেশনাল অনলাইন শপ দাঁড় করান" },
+      {
+        type: "p",
+        content:
+          "শুধু Facebook Page না রেখে নিজের একটা ওয়েবসাইট রাখুন, যেখানে কাস্টমার সব প্রোডাক্ট নিজে দেখে অর্ডার করতে পারে। এটাই আপনার ডিজিটাল শোরুম।",
+      },
+      { type: "h3", content: "২. কাস্টমারের বিশ্বাস তৈরি করুন" },
+      {
+        type: "p",
+        content:
+          "রিভিউ, প্রোডাক্ট ছবি, স্পষ্ট রিটার্ন পলিসি — এগুলো দিয়ে কাস্টমারের কাছে বিশ্বাসযোগ্যতা তৈরি করুন, যাতে শোরুমে না গিয়েও তারা নিশ্চিন্তে অর্ডার করতে পারে।",
+      },
+      { type: "h3", content: "৩. ডেলিভারি সিস্টেম শক্তিশালী রাখুন" },
+      {
+        type: "p",
+        content:
+          "শোরুম না থাকলে ডেলিভারিই আপনার আর কাস্টমারের মধ্যে একমাত্র সংযোগ। দ্রুত ও নির্ভরযোগ্য কুরিয়ার সার্ভিসের সাথে যুক্ত থাকা তাই সবচেয়ে বেশি জরুরি।",
+      },
+      { type: "h3", content: "৪. একাধিক পেমেন্ট অপশন রাখুন" },
+      {
+        type: "p",
+        content:
+          "COD, বিকাশ, নগদ — যত বেশি পেমেন্ট অপশন থাকবে, তত বেশি কাস্টমার সহজে অর্ডার করতে পারবে।",
+      },
+      { type: "h2", content: "Softune দিয়ে শোরুম ছাড়াই ব্যবসা বড় করা" },
+      {
+        type: "p",
+        content:
+          "Softune-এ আপনি একটা সম্পূর্ণ অনলাইন শপ চালু করতে পারবেন যেটা আপনার ডিজিটাল শোরুম হিসেবে কাজ করবে — প্রোডাক্ট দেখানো থেকে শুরু করে অর্ডার নেওয়া, পেমেন্ট নেওয়া, ডেলিভারি ম্যানেজ করা পর্যন্ত সবকিছু।",
+      },
+      { type: "p", content: "Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "প্রফেশনাল থিম দিয়ে সাজানো অনলাইন শপ — শোরুমের বিকল্প",
+          "COD, বিকাশ, নগদ — সব পেমেন্ট অপশন এক জায়গায়",
+          "স্টিডফাস্ট কুরিয়ার ইন্টিগ্রেশন — দ্রুত ডেলিভারি ম্যানেজমেন্ট",
+          "একাধিক স্টোর এক অ্যাকাউন্ট থেকে চালানোর সুবিধা — ব্যবসা বড় হলে",
+          "ফ্রড প্রোটেকশন ও অ্যানালিটিক্স — নিরাপদে স্কেল করার জন্য",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "শোরুম ছাড়া ব্যবসা মানে সীমাবদ্ধতা না, বরং পুরো দেশের কাস্টমারের কাছে পৌঁছানোর সুযোগ। Softune দিয়ে সেই সুযোগটাই কাজে লাগান।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "শোরুম থাকা মানেই ব্যবসা বড় — এই ধারণা এখন আর সত্যি না। সঠিক অনলাইন শপ, নির্ভরযোগ্য ডেলিভারি, আর সহজ পেমেন্ট সিস্টেম থাকলে শোরুম ছাড়াই ব্যবসা অনেক দূর নিয়ে যাওয়া যায়। Softune দিয়ে সেই পুরো সিস্টেমটাই একসাথে পাবেন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার ডিজিটাল শোরুম তৈরি করুন — কোনো ভাড়া বা বাড়তি খরচ ছাড়াই।",
+      },
+    ],
+  },
+  "first-month-orders-new-online-shop": {
+    slug: "get-orders-first-month-new-shop",
+    title: "প্রথম মাসেই অর্ডার পেতে যা যা করবেন (নতুন অনলাইন শপের জন্য)",
+    category: "Getting Started",
+    date: "Aug 29, 2026",
+    readTime: "6 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/first-month-orders-new-online-shop.webp",
+    lang: "bn",
+    desc: "শপ খুলেই বসে থাকলে অর্ডার আসবে না। জেনে নিন নতুন অনলাইন শপে প্রথম মাসেই অর্ডার পাওয়ার প্র্যাক্টিক্যাল কৌশল, আর কীভাবে Softune দিয়ে শুরুটা মজবুত করবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "নতুন অনলাইন শপ খোলার পর সবচেয়ে বড় প্রশ্ন থাকে — প্রথম অর্ডারটা আসবে কীভাবে? অনেকেই শপ খুলেই বসে থাকেন, ভাবেন এমনিতেই কাস্টমার চলে আসবে। বাস্তবতা হলো, প্রথম মাসে অর্ডার পেতে হলে কিছু নির্দিষ্ট কাজ করতেই হয়।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব নতুন শপে প্রথম মাসেই অর্ডার আনার জন্য কী কী করা দরকার।",
+      },
+      { type: "h2", content: "১. শপ চালুর আগেই প্রস্তুতি নিন" },
+      {
+        type: "list",
+        content: [
+          "কমপক্ষে ১০-১৫টা প্রোডাক্ট ভালো ছবি ও বিবরণসহ রেডি রাখুন",
+          "দাম, ডেলিভারি চার্জ, রিটার্ন পলিসি স্পষ্টভাবে লিখে রাখুন",
+          "COD, বিকাশ, নগদ — পেমেন্ট অপশনগুলো আগেই চালু করে রাখুন",
+        ],
+      },
+      { type: "h2", content: "২. পরিচিত মানুষ দিয়ে শুরু করুন" },
+      {
+        type: "p",
+        content:
+          "প্রথম কয়েকটা অর্ডার সাধারণত আসে পরিচিত মানুষ, বন্ধু-বান্ধব, বা আত্মীয়দের কাছ থেকে। শপের লিংক তাদের সাথে শেয়ার করুন, তাদের কাছ থেকে প্রথম রিভিউ ও ফিডব্যাক নিন — এটা পরে নতুন কাস্টমারের বিশ্বাস তৈরি করতে কাজে লাগবে।",
+      },
+      { type: "h2", content: "৩. Facebook ও Instagram-এ নিয়মিত পোস্ট করুন" },
+      {
+        type: "p",
+        content:
+          "শুধু একবার পোস্ট করে বসে থাকলে চলবে না। প্রতিদিন বা সপ্তাহে কয়েকবার প্রোডাক্ট, অফার, বা কাস্টমারের রিভিউ পোস্ট করুন। শুরুতে অল্প বাজেটে বুস্ট করেও এলাকাভিত্তিক টার্গেটেড কাস্টমারদের কাছে পৌঁছানো যায়।",
+      },
+      { type: "h2", content: "৪. একটা লঞ্চ অফার দিন" },
+      {
+        type: "p",
+        content:
+          "প্রথম কয়েকদিনের জন্য একটা ছোট ডিসকাউন্ট বা ফ্রি ডেলিভারি অফার দিলে দ্বিধায় থাকা কাস্টমাররাও অর্ডার দিতে উৎসাহ পায়। এতে প্রথম কিছু রিভিউ ও অর্ডার হিস্ট্রি তৈরি হয়ে যায়, যা পরবর্তী কাস্টমারদের বিশ্বাস বাড়ায়।",
+      },
+      { type: "h2", content: "৫. দ্রুত রেসপন্স দিন" },
+      {
+        type: "p",
+        content:
+          "নতুন শপে কেউ মেসেজ করলে বা অর্ডার দিলে যত দ্রুত সম্ভব রেসপন্স দিন। শুরুর দিকে প্রতিটা কাস্টমারই গুরুত্বপূর্ণ — দেরি হলে অনেকেই অন্য শপে চলে যায়।",
+      },
+      { type: "h2", content: "Softune দিয়ে শুরুটা মজবুত করুন" },
+      {
+        type: "p",
+        content:
+          "Softune-এর Guided Onboarding চেকলিস্ট নতুন শপ মালিকদের ঠিক এই কাজগুলোই ধাপে ধাপে করিয়ে নেয় — প্রোডাক্ট যোগ করা থেকে পেমেন্ট চালু করা পর্যন্ত, যাতে কোনো ধাপ মিস না হয়।",
+      },
+      { type: "p", content: "Softune দিয়ে নতুন শপ শুরু করলে যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "ধাপে ধাপে Getting Started চেকলিস্ট ও ইন্টারঅ্যাকটিভ টুর",
+          "AI দিয়ে দ্রুত প্রোডাক্ট ডেসক্রিপশন লেখার সুবিধা",
+          "COD, বিকাশ, নগদ — প্রথম দিন থেকেই সব পেমেন্ট অপশন চালু",
+          "ফ্রড প্রোটেকশন — শুরু থেকেই ফেক অর্ডার থেকে নিরাপদ",
+          "বেসিক অ্যানালিটিক্স দিয়ে প্রথম অর্ডারগুলোর ট্রেন্ড দেখা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "প্রথম মাসের অর্ডারগুলোই পরের কয়েক মাসের ভিত্তি তৈরি করে। Softune-এর অনবোর্ডিং চেকলিস্ট দিয়ে সেই ভিত্তিটা শুরু থেকেই ঠিকভাবে গড়ে তুলুন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "নতুন শপে প্রথম অর্ডার পাওয়া কঠিন মনে হলেও, সঠিক প্রস্তুতি আর নিয়মিত চেষ্টা থাকলে প্রথম মাসেই ভালো সাড়া পাওয়া সম্ভব। Softune দিয়ে শুরু করলে এই পুরো প্রক্রিয়াটা অনেক সহজ ও গোছানো হয়ে যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপ শুরু করুন — প্রথম অর্ডারের পথে এগিয়ে যান আজই।",
+      },
+    ],
+  },
+  "why-customers-cancel-orders-fix": {
+    slug: "why-customers-cancel-orders-solution",
+    title: "কাস্টমার কেন অর্ডার দিয়ে ক্যানসেল করে? এবং এর সমাধান",
+    category: "Security",
+    date: "Aug 29, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/why-customers-cancel-orders-fix.webp",
+    lang: "bn",
+    desc: "অর্ডার দিয়ে ক্যানসেল করা প্রায় সব অনলাইন শপের কমন সমস্যা। জেনে নিন এর আসল কারণগুলো, আর কীভাবে Softune দিয়ে এই ক্যানসেলেশন রেট কমিয়ে আনবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "একজন কাস্টমার অর্ডার দিয়েও পরে ক্যানসেল করে দেয় — এটা প্রায় প্রতিটা অনলাইন শপ মালিকের পরিচিত সমস্যা। এতে শুধু বিক্রি কমে যায় তা না, প্রোডাক্ট প্রস্তুত করার সময় আর কুরিয়ার বুকিং করা থাকলে সেটাও লস।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব কাস্টমাররা কেন অর্ডার ক্যানসেল করে, আর এই সমস্যা কমানোর জন্য কী করা যায়।",
+      },
+      { type: "h2", content: "অর্ডার ক্যানসেলের সাধারণ কারণ" },
+      {
+        type: "list",
+        content: [
+          "ডেলিভারি চার্জ চেকআউটে গিয়ে হঠাৎ বেশি মনে হওয়া",
+          "ডেলিভারি সময় নিয়ে অনিশ্চয়তা — কবে পাবে তা স্পষ্ট না জানা",
+          "প্রোডাক্ট নিয়ে সন্দেহ — ছবির সাথে আসল প্রোডাক্ট মিলবে কিনা",
+          "হুট করে অর্ডার দিয়ে পরে মত পরিবর্তন করা",
+          "পেমেন্ট বা কনফার্মেশন প্রসেস জটিল মনে হওয়া",
+        ],
+      },
+      { type: "h2", content: "ক্যানসেলেশন কমানোর উপায়" },
+      { type: "h3", content: "১. চেকআউটেই সব চার্জ স্পষ্ট দেখান" },
+      {
+        type: "p",
+        content:
+          "প্রোডাক্ট পেজেই ডেলিভারি চার্জ ও সম্ভাব্য সময় উল্লেখ করুন, যাতে চেকআউটে গিয়ে কাস্টমার অবাক না হয়।",
+      },
+      { type: "h3", content: "২. অর্ডারের পর দ্রুত কনফার্মেশন পাঠান" },
+      {
+        type: "p",
+        content:
+          "অর্ডারের সাথে সাথে SMS বা WhatsApp-এ কনফার্মেশন মেসেজ পাঠালে কাস্টমার নিশ্চিন্ত থাকে যে অর্ডারটা সঠিকভাবে গেছে, আর মত পরিবর্তনের সুযোগ কমে যায়।",
+      },
+      { type: "h3", content: "৩. প্রোডাক্ট রিভিউ ও রেটিং দেখান" },
+      {
+        type: "p",
+        content:
+          "আগের কাস্টমারদের রিভিউ থাকলে নতুন কাস্টমার প্রোডাক্ট নিয়ে সন্দেহ কম করে, ফলে অর্ডার দিয়ে পরে ভয় পেয়ে ক্যানসেল করার প্রবণতা কমে।",
+      },
+      { type: "h3", content: "৪. সন্দেহজনক অর্ডার আগেভাগে চিহ্নিত করুন" },
+      {
+        type: "p",
+        content:
+          "যেসব নম্বর বা কাস্টমার আগে একাধিকবার ক্যানসেল করেছে, তাদের ক্ষেত্রে অর্ডার কনফার্ম করার আগে একটু বাড়তি যাচাই করে নিন।",
+      },
+      { type: "h2", content: "Softune দিয়ে ক্যানসেলেশন কীভাবে কমানো যায়" },
+      {
+        type: "p",
+        content:
+          "Softune-এ চেকআউট পেজ শুরু থেকেই ডেলিভারি চার্জ ও পেমেন্ট অপশন স্পষ্টভাবে দেখায়, যাতে কাস্টমার কোনো সারপ্রাইজ ছাড়াই অর্ডার সম্পন্ন করতে পারে।",
+      },
+      { type: "p", content: "Softune-এ যা যা এই সমস্যা কমাতে সাহায্য করে:" },
+      {
+        type: "list",
+        content: [
+          "স্বচ্ছ চেকআউট — ডেলিভারি চার্জ ও পেমেন্ট অপশন আগে থেকেই স্পষ্ট",
+          "ফ্রড প্রোটেকশন — বারবার ক্যানসেল করা নম্বর চিহ্নিত করা",
+          "Product Reviews অ্যাড-অন — কাস্টমারের বিশ্বাস বাড়ানো",
+          "WhatsApp Alerts অ্যাড-অন — অর্ডার কনফার্মেশন অটোমেটিক পাঠানো",
+          "অর্ডার হিস্ট্রি ড্যাশবোর্ডে দেখে প্যাটার্ন বোঝার সুবিধা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "বেশিরভাগ ক্যানসেলেশন আসলে অনিশ্চয়তা থেকে হয় — কাস্টমার নিশ্চিত না ডেলিভারি চার্জ, সময়, বা প্রোডাক্ট নিয়ে। Softune দিয়ে এই অনিশ্চয়তাটাই আগে থেকে দূর করে দিন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "অর্ডার ক্যানসেলেশন পুরোপুরি বন্ধ করা যায় না, কিন্তু স্বচ্ছ চেকআউট, দ্রুত কনফার্মেশন, আর ফ্রড প্রোটেকশন থাকলে এই হার অনেকটাই কমিয়ে আনা যায়। Softune দিয়ে এই সবকিছুই শুরু থেকে বিল্ট-ইন পাবেন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপে স্বচ্ছ চেকআউট ও ফ্রড প্রোটেকশন চালু করুন।",
+      },
+    ],
+  },
+  "30-din-business-challenge-guide": {
+    slug: "30-day-business-challenge-low-capital-profit",
+    title: "৩০ দিনের বিজনেস চ্যালেঞ্জ: কম পুঁজিতে শুরু করে দ্রুত লাভ তোলার পরিকল্পনা",
+    category: "Getting Started",
+    date: "Aug 29, 2026",
+    readTime: "7 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/30-din-business-challenge-guide.webp",
+    lang: "bn",
+    desc: "মাত্র ৩০ দিনে কম পুঁজি দিয়ে অনলাইন ব্যবসা দাঁড় করানো সম্ভব। জেনে নিন সপ্তাহভিত্তিক পরিকল্পনা, আর কীভাবে Softune দিয়ে এই চ্যালেঞ্জটা বাস্তবে রূপ দেবেন।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেকেই ব্যবসা শুরু করার কথা ভাবেন, কিন্তু বড় পুঁজি বা দীর্ঘ পরিকল্পনার অভাবে শুরুটাই করা হয় না। বাস্তবতা হলো, কম পুঁজি দিয়েও একটা পরিকল্পিত ৩০ দিনের চ্যালেঞ্জ নিয়ে শুরু করলে প্রথম মাসের মধ্যেই একটা কার্যকর অনলাইন ব্যবসা দাঁড় করানো সম্ভব।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব সপ্তাহভিত্তিক একটা ৩০ দিনের পরিকল্পনা, যেটা অনুসরণ করলে কম পুঁজিতেই দ্রুত লাভের পথে যাওয়া যায়।",
+      },
+      { type: "h2", content: "সপ্তাহ ১: প্রস্তুতি ও রিসার্চ" },
+      {
+        type: "list",
+        content: [
+          "একটা নির্দিষ্ট নিশ ও ৫-১০টা প্রোডাক্ট বেছে নিন যেগুলোর চাহিদা আছে",
+          "প্রতিযোগীদের দাম ও অফার দেখে নিজের প্রাইসিং ঠিক করুন",
+          "সাপ্লায়ার বা পাইকারি সোর্স ঠিক করুন যাতে অল্প পুঁজিতেও স্টক জোগাড় করা যায়",
+        ],
+      },
+      { type: "h2", content: "সপ্তাহ ২: শপ সেটাপ ও লঞ্চ" },
+      {
+        type: "list",
+        content: [
+          "অনলাইন শপ চালু করুন, প্রোডাক্ট ছবি ও দাম যোগ করুন",
+          "COD, বিকাশ, নগদ পেমেন্ট অপশন চালু করুন",
+          "পরিচিত মানুষদের কাছে শপের লিংক শেয়ার করে প্রথম অর্ডারগুলো আনুন",
+        ],
+      },
+      { type: "h2", content: "সপ্তাহ ৩: মার্কেটিং ও প্রথম বিক্রি" },
+      {
+        type: "list",
+        content: [
+          "Facebook ও Instagram-এ নিয়মিত পোস্ট করুন, অল্প বাজেটে বুস্ট করুন",
+          "প্রথম কাস্টমারদের কাছ থেকে রিভিউ সংগ্রহ করুন",
+          "একটা লঞ্চ অফার বা ফ্রি ডেলিভারি দিয়ে অর্ডার সংখ্যা বাড়ান",
+        ],
+      },
+      { type: "h2", content: "সপ্তাহ ৪: হিসাব ও পরবর্তী পরিকল্পনা" },
+      {
+        type: "list",
+        content: [
+          "মোট বিক্রি, খরচ, ও আসল লাভ হিসাব করুন",
+          "কোন প্রোডাক্ট সবচেয়ে বেশি বিক্রি হয়েছে তা চিহ্নিত করুন",
+          "পরের মাসের জন্য স্টক ও বিজ্ঞাপন বাজেট ঠিক করুন",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "এই পুরো চ্যালেঞ্জে সবচেয়ে বড় বাধা হয় আলাদা আলাদা টুল ম্যানেজ করা — শপ সেটাপের জন্য একটা, পেমেন্টের জন্য আরেকটা, হিসাবের জন্য আলাদা এক্সেল শিট।",
+      },
+      { type: "h2", content: "Softune দিয়ে ৩০ দিনের চ্যালেঞ্জ সহজ করুন" },
+      {
+        type: "p",
+        content:
+          "Softune-এ শপ সেটাপ, পেমেন্ট, ডেলিভারি, আর অ্যানালিটিক্স — সবকিছু এক জায়গায় থাকায় সপ্তাহ ১ থেকে সপ্তাহ ৪ পর্যন্ত পুরো প্রসেসটাই দ্রুত এগোয়।",
+      },
+      { type: "p", content: "এই চ্যালেঞ্জে Softune যেভাবে সাহায্য করে:" },
+      {
+        type: "list",
+        content: [
+          "Guided Onboarding চেকলিস্ট — সপ্তাহ ১-২ এর কাজ ধাপে ধাপে গাইড করে",
+          "AI দিয়ে দ্রুত প্রোডাক্ট ডেসক্রিপশন — সময় বাঁচায় সপ্তাহ ১-এ",
+          "COD, বিকাশ, নগদ — সপ্তাহ ২ থেকেই সব পেমেন্ট রেডি",
+          "ফ্রড প্রোটেকশন — সপ্তাহ ৩-৪ এ অর্ডার বাড়ার সাথে নিরাপত্তা",
+          "বিল্ট-ইন অ্যানালিটিক্স — সপ্তাহ ৪-এ লাভ-ক্ষতির হিসাব সহজে বের করা",
+          "৳৯৫০/মাস থেকে শুরু — কম পুঁজির চ্যালেঞ্জের সাথে মানানসই",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "৩০ দিনের চ্যালেঞ্জে সবচেয়ে বড় শত্রু সময় নষ্ট হওয়া। Softune দিয়ে শপ সেটাপ থেকে হিসাব রাখা পর্যন্ত সবকিছু এক জায়গায় থাকায় সেই সময়টা বেঁচে যায়।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "কম পুঁজি মানেই ব্যবসা শুরু করা যাবে না — এটা ঠিক না। একটা স্পষ্ট ৩০ দিনের পরিকল্পনা মেনে চললে অল্প বিনিয়োগেই প্রথম মাসে একটা কার্যকর অনলাইন ব্যবসা দাঁড় করানো সম্ভব। Softune দিয়ে শুরু করলে এই চ্যালেঞ্জটা আরও গোছানো ও দ্রুত হয়ে যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার ৩০ দিনের বিজনেস চ্যালেঞ্জ শুরু করুন।",
+      },
+    ],
+  },
+  "eid-online-shop-checklist": {
+    slug: "eid-online-shop-checklist",
+    title: "ঈদের আগে অনলাইন শপ কীভাবে রেডি করবেন (চেকলিস্ট)",
+    category: "Checklist",
+    date: "Jun 25, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/eid-online-shop-checklist.webp",
+    lang: "bn",
+    desc: "ঈদের ভিড় সামলাতে আগে থেকেই যেসব প্রস্তুতি নিয়ে রাখা দরকার, তার পূর্ণ চেকলিস্ট।",
+    body: [
+      {
+        type: "p",
+        content:
+          "ঈদ বাংলাদেশের অনলাইন ব্যবসার জন্য বছরের সবচেয়ে বড় সময় — অর্ডার হঠাৎ কয়েকগুণ বেড়ে যায়, কিন্তু আগে থেকে প্রস্তুতি না থাকলে এই ভিড় সামলাতে গিয়ে স্টক শেষ হয়ে যাওয়া, ডেলিভারি দেরি, বা কাস্টমার সাপোর্টে হিমশিম খাওয়ার মতো সমস্যা হয়।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব ঈদের আগে আপনার অনলাইন শপ কীভাবে ধাপে ধাপে রেডি করবেন, যাতে ভিড়ের মধ্যেও ব্যবসা মসৃণভাবে চলে।",
+      },
+      { type: "h2", content: "ঈদ প্রস্তুতি চেকলিস্ট" },
+      { type: "h3", content: "১. স্টক আগেভাগে বাড়িয়ে রাখুন" },
+      {
+        type: "p",
+        content:
+          "যেসব প্রোডাক্ট ঈদে বেশি বিক্রি হয় সেগুলোর স্টক অন্তত ২-৩ সপ্তাহ আগে থেকে বাড়িয়ে রাখুন। শেষ মুহূর্তে সাপ্লায়ারের কাছ থেকে মাল না পাওয়ার ঝুঁকি এড়াতে এটা জরুরি।",
+      },
+      { type: "h3", content: "২. ডেলিভারি সময় স্পষ্ট করে জানান" },
+      {
+        type: "p",
+        content:
+          "ঈদের আগে কুরিয়ার সার্ভিসেও চাপ বেশি থাকে, ডেলিভারি স্বাভাবিকের চেয়ে দেরি হতে পারে। প্রোডাক্ট পেজেই লিখে দিন 'ঈদের আগে হাতে পেতে হলে এই তারিখের মধ্যে অর্ডার করুন' — এতে কাস্টমারের প্রত্যাশা ঠিক থাকে, অভিযোগও কমে।",
+      },
+      { type: "h3", content: "৩. পেমেন্ট অপশন ও চেকআউট চেক করে নিন" },
+      {
+        type: "p",
+        content:
+          "ভিড়ের সময় চেকআউটে কোনো সমস্যা হলে সরাসরি বিক্রি হারাতে হয়। ঈদের আগে একবার নিজে অর্ডার দিয়ে COD, বিকাশ, নগদ — সব পেমেন্ট অপশন ঠিকমতো কাজ করছে কিনা টেস্ট করে নিন।",
+      },
+      { type: "h3", content: "৪. ঈদ স্পেশাল অফার সাজিয়ে রাখুন" },
+      {
+        type: "p",
+        content:
+          "আগে থেকেই একটা ঈদ কালেকশন বা ডিসকাউন্ট অফার সাজিয়ে রাখুন। বেশিরভাগ কাস্টমার ঈদের ১-২ সপ্তাহ আগে থেকেই কেনাকাটা শুরু করে, তাই অফার আগে থেকে রেডি না থাকলে সেই সময়টা মিস হয়ে যায়।",
+      },
+      { type: "h3", content: "৫. ফেক অর্ডার নিয়ে সতর্ক থাকুন" },
+      {
+        type: "p",
+        content:
+          "উৎসবের সময় অর্ডার ভলিউম বাড়ার সাথে সাথে ফেক অর্ডারও বাড়ে। প্রতিটা অর্ডার হাতে যাচাই করার সময় নাও থাকতে পারে, তাই অটোমেটিক ফ্রড প্রোটেকশন থাকা এই সময় সবচেয়ে বেশি কাজে দেয়।",
+      },
+      { type: "h2", content: "Softune দিয়ে ঈদের প্রস্তুতি সহজ করুন" },
+      {
+        type: "p",
+        content:
+          "Softune-এর ড্যাশবোর্ড থেকেই স্টক, অর্ডার, পেমেন্ট, আর ডেলিভারি — সবকিছু একসাথে ম্যানেজ করা যায়, তাই ঈদের ভিড়েও আলাদা আলাদা টুল সামলাতে হয় না।",
+      },
+      { type: "p", content: "ঈদের ভিড় সামলাতে Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "এক ড্যাশবোর্ড থেকে স্টক ও অর্ডার ট্র্যাক করা",
+          "Discount Codes অ্যাড-অন — ঈদ অফার সহজে সেটাপ করা যায়",
+          "COD, বিকাশ, নগদ — সব পেমেন্ট আগে থেকেই টেস্ট করে রাখা যায়",
+          "ফ্রড প্রোটেকশন — ভিড়ের সময় ফেক অর্ডার অটোমেটিক আটকানো",
+          "স্টিডফাস্ট ইন্টিগ্রেশন — বাড়তি অর্ডারও দ্রুত বুক করা যায়",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "ঈদের ভিড়ে প্রস্তুতি নেওয়া আর শেষ মুহূর্তে হুড়াহুড়ি করার মধ্যে পার্থক্যটাই ঠিক করে দেয় আপনি এই সিজনে কতটা বিক্রি করতে পারবেন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ঈদের আগেই এই চেকলিস্ট মিলিয়ে নিলে ভিড়ের মধ্যেও আপনার শপ স্বাভাবিকভাবে চলবে, কাস্টমারও সন্তুষ্ট থাকবে। Softune দিয়ে স্টক থেকে ডেলিভারি পর্যন্ত সবকিছু এক জায়গা থেকে ম্যানেজ করে এই প্রস্তুতিটা আরও সহজ করে ফেলুন।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপ ঈদের জন্য প্রস্তুত করুন।",
+      },
+    ],
+  },
+  "get-old-customers-to-order-again": {
+    slug: "get-old-customers-to-order-again",
+    title: "পুরনো কাস্টমারকে আবার কীভাবে অর্ডার করাবেন",
+    category: "Customer Service",
+    date: "Jun 21, 2026",
+    readTime: "4 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/get-old-customers-to-order-again.webp",
+    lang: "bn",
+    desc: "নতুন কাস্টমার খোঁজার আগে পুরনো কাস্টমারকে ফিরিয়ে আনার সহজ কিছু উপায়।",
+    body: [
+      {
+        type: "p",
+        content:
+          "নতুন কাস্টমার আনতে বিজ্ঞাপনে টাকা খরচ করা সবসময়ই বেশি ব্যয়বহুল, যেখানে পুরনো কাস্টমারকে আবার অর্ডার করানো তুলনামূলক অনেক সহজ ও কম খরচের — কারণ তারা আপনার শপ ও প্রোডাক্ট নিয়ে আগে থেকেই পরিচিত।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব পুরনো কাস্টমারকে আবার অর্ডার করানোর কিছু সহজ ও কার্যকর উপায়।",
+      },
+      { type: "h2", content: "পুরনো কাস্টমার ফিরিয়ে আনার উপায়" },
+      { type: "h3", content: "১. অর্ডারের পর যোগাযোগ রাখুন" },
+      {
+        type: "p",
+        content:
+          "প্রোডাক্ট হাতে পাওয়ার পর একটা ফলো-আপ মেসেজ পাঠান — কেমন লেগেছে জানতে চান। এতে কাস্টমার মনে করে তার কথা গুরুত্ব পাচ্ছে, আর আপনার শপের কথা মনেও থাকে।",
+      },
+      { type: "h3", content: "২. লয়্যালটি বা রিপিট ডিসকাউন্ট দিন" },
+      {
+        type: "p",
+        content:
+          "দ্বিতীয়বার অর্ডার করলে ছোট একটা ডিসকাউন্ট বা পয়েন্ট দিলে কাস্টমার আবার ফিরে আসার একটা কারণ পায়। এই খরচ নতুন কাস্টমার আনার বিজ্ঞাপন খরচের চেয়ে অনেক কম।",
+      },
+      { type: "h3", content: "৩. নতুন প্রোডাক্ট এলে জানান" },
+      {
+        type: "p",
+        content:
+          "নতুন কালেকশন বা প্রোডাক্ট এলে আগের কাস্টমারদের SMS বা WhatsApp-এ জানিয়ে দিন। যারা আগে একবার কিনেছে, তাদের কাছে বিক্রি হওয়ার সম্ভাবনা নতুন কাস্টমারের চেয়ে অনেক বেশি।",
+      },
+      { type: "h3", content: "৪. রিভিউ চাইতে ভুলবেন না" },
+      {
+        type: "p",
+        content:
+          "প্রোডাক্ট ব্যবহারের কিছুদিন পর রিভিউ চাইলে কাস্টমার আবার আপনার শপে ফিরে আসে, আর সেই রিভিউ নতুন কাস্টমারের বিশ্বাসও বাড়ায়।",
+      },
+      {
+        type: "p",
+        content:
+          "এই পুরো প্রক্রিয়াটা ম্যানুয়ালি প্রতিটা কাস্টমারের জন্য আলাদা করে মনে রেখে করা কঠিন, বিশেষ করে কাস্টমার সংখ্যা বাড়লে।",
+      },
+      { type: "h2", content: "Softune দিয়ে পুরনো কাস্টমার ধরে রাখা সহজ" },
+      {
+        type: "p",
+        content:
+          "Softune-এ প্রতিটা কাস্টমারের অর্ডার হিস্ট্রি ড্যাশবোর্ড থেকেই দেখা যায়, আর কিছু অ্যাড-অন দিয়ে এই পুরো ফলো-আপ প্রক্রিয়াটা অনেকটাই অটোমেটিক করে ফেলা যায়।",
+      },
+      { type: "p", content: "পুরনো কাস্টমার ফেরাতে Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "Loyalty Points অ্যাড-অন — রিপিট অর্ডারে পয়েন্ট দেওয়ার সুবিধা",
+          "Review Reminder অ্যাড-অন — অটোমেটিক রিভিউ চাওয়ার মেসেজ",
+          "WhatsApp Alerts ও SMS Updates — নতুন প্রোডাক্ট বা অফার জানানো",
+          "Customer Management — প্রতিটা কাস্টমারের অর্ডার হিস্ট্রি এক জায়গায়",
+          "Referral Program অ্যাড-অন — পুরনো কাস্টমার দিয়ে নতুন কাস্টমার আনা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "একজন নতুন কাস্টমার বানানোর চেয়ে একজন পুরনো কাস্টমারকে আবার অর্ডার করানো অনেক সহজ ও সস্তা। Softune-এর টুলগুলো দিয়ে এই কাজটাই অটোমেটিক করে ফেলুন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "শুধু নতুন কাস্টমার খোঁজার পেছনে না ছুটে, পুরনো কাস্টমারদের সাথে সম্পর্ক ধরে রাখাটাও সমান জরুরি। Softune দিয়ে এই সম্পর্ক ধরে রাখার পুরো সিস্টেমটাই সহজে সেটাপ করে ফেলা যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার পুরনো কাস্টমারদের আবার অর্ডারে ফিরিয়ে আনুন।",
+      },
+    ],
+  },
+  "20000-taka-capital-best-business-ideas": {
+    slug: "20000-taka-capital-best-business-ideas",
+    title: "২০ হাজার টাকার পুঁজিতে কোন ব্যবসা সবচেয়ে বেশি লাভজনক",
+    category: "Challenge",
+    date: "Jun 17, 2026",
+    readTime: "5 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/20000-taka-capital-best-business-ideas.webp",
+    lang: "bn",
+    desc: "সীমিত ২০ হাজার টাকা পুঁজি দিয়ে বাংলাদেশে কোন ধরনের অনলাইন ব্যবসা দ্রুত রিটার্ন দেয়, বাস্তব উদাহরণসহ।",
+    body: [
+      {
+        type: "p",
+        content:
+          "২০ হাজার টাকা শুনতে কম মনে হলেও, সঠিক প্রোডাক্ট আর পরিকল্পনা থাকলে এই পুঁজি দিয়েই একটা লাভজনক অনলাইন ব্যবসা শুরু করা সম্ভব। আসল চ্যালেঞ্জ হলো এমন প্রোডাক্ট বেছে নেওয়া যেখানে বড় স্টকের দরকার নেই, কিন্তু চাহিদা ভালো।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব ২০ হাজার টাকা পুঁজিতে কোন ধরনের ব্যবসা সবচেয়ে বেশি লাভজনক হতে পারে, বাস্তব উদাহরণসহ।",
+      },
+      { type: "h2", content: "কম পুঁজিতে ভালো চলে এমন কিছু ব্যবসা" },
+      { type: "h3", content: "১. ফ্যাশন এক্সেসরিজ (গহনা, ব্যাগ, হিজাব)" },
+      {
+        type: "p",
+        content:
+          "এই ক্যাটাগরিতে প্রতিটা প্রোডাক্টের দাম কম, কিন্তু লাভের মার্জিন তুলনামূলক বেশি। ২০ হাজার টাকায় ৫০-৭০টা আইটেমের একটা ছোট কালেকশন সহজেই শুরু করা যায়।",
+      },
+      { type: "h3", content: "২. কসমেটিকস ও স্কিন কেয়ার (ছোট প্যাকেজে)" },
+      {
+        type: "p",
+        content:
+          "বিউটি প্রোডাক্ট এখন দ্রুত বাড়ছে বাংলাদেশে। ছোট সাইজের বা লোকাল ব্র্যান্ডের প্রোডাক্ট দিয়ে শুরু করলে পুঁজি কম লাগে, আর রিপিট কাস্টমারও বেশি পাওয়া যায়।",
+      },
+      { type: "h3", content: "৩. হোমমেড ফুড আইটেম (আচার, মসলা, বেকারি)" },
+      {
+        type: "p",
+        content:
+          "কাঁচামালের খরচ কম, আর লোকালি বানানো যায় বলে বড় স্টক জমিয়ে রাখারও দরকার নেই — অর্ডার অনুযায়ী বানিয়ে ডেলিভারি দেওয়া যায়।",
+      },
+      { type: "h3", content: "৪. প্রিন্ট-অন-ডিমান্ড প্রোডাক্ট (কাস্টম টি-শার্ট, মগ)" },
+      {
+        type: "p",
+        content:
+          "অর্ডার আসার পরই প্রিন্ট করানো হয় বলে আগে থেকে বড় স্টক লাগে না, ফলে পুঁজি আটকে থাকে না। ২০ হাজার টাকা দিয়ে শুধু ডিজাইন ও প্রথম কিছু স্যাম্পল বানালেই শুরু করা যায়।",
+      },
+      { type: "h2", content: "কম পুঁজিতে ব্যবসা সফল করার মূল শর্ত" },
+      {
+        type: "list",
+        content: [
+          "একসাথে অনেক প্রোডাক্ট না এনে ৫-১০টা প্রোডাক্ট দিয়ে শুরু করুন",
+          "বড় বিজ্ঞাপন বাজেটের বদলে অর্গানিক পোস্ট ও পরিচিত মানুষদের মাধ্যমে শুরু করুন",
+          "লাভের একটা অংশ আবার স্টকে পুনর্বিনিয়োগ করুন, পুরোটা তুলে ফেলবেন না",
+        ],
+      },
+      { type: "h2", content: "Softune দিয়ে কম পুঁজিতে শুরু করা" },
+      {
+        type: "p",
+        content:
+          "প্রোডাক্ট আইডিয়া যাই হোক না কেন, বিক্রি করার জন্য একটা প্রফেশনাল প্ল্যাটফর্ম দরকার হয়। Softune-এর Starter প্ল্যান ৳৯৫০/মাস থেকে শুরু, যা ২০ হাজার টাকা পুঁজির মধ্যেই সহজে ফিট হয়ে যায়।",
+      },
+      { type: "p", content: "কম পুঁজির ব্যবসার জন্য Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "৳৯৫০/মাস থেকে শুরু — বড় এককালীন খরচ ছাড়াই",
+          "৫০টা প্রোডাক্ট পর্যন্ত আপলোড — ছোট কালেকশন দিয়ে শুরুর জন্য যথেষ্ট",
+          "COD, বিকাশ, নগদ — কম বাজেটেও সব পেমেন্ট অপশন",
+          "AI দিয়ে দ্রুত প্রোডাক্ট ডেসক্রিপশন — আলাদা কপিরাইটার লাগে না",
+          "ফ্রড প্রোটেকশন — সীমিত পুঁজিতে একটাও ফেক অর্ডারের লস বহন করা কঠিন",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "কম পুঁজিতে ব্যবসা মানে কম রিস্ক না নেওয়া, বরং সঠিক জায়গায় বিনিয়োগ করা। প্রোডাক্টে যতটুকু টাকা যাচ্ছে, প্ল্যাটফর্মেও ততটুকু বিশ্বাসযোগ্য জায়গায় রাখা দরকার।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "২০ হাজার টাকা পুঁজি কম মনে হলেও, সঠিক প্রোডাক্ট বেছে আর ছোট পরিসরে শুরু করলে এখান থেকেই একটা টেকসই ব্যবসা দাঁড় করানো সম্ভব। Softune দিয়ে শুরু করলে প্ল্যাটফর্মের খরচও পুঁজির মধ্যেই থেকে যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার কম পুঁজির ব্যবসা শুরু করুন — ৳৯৫০/মাস থেকেই।",
+      },
+    ],
+  },
+  "viral-business-challenge-lessons": {
+    slug: "viral-business-challenge-lessons",
+    title: "সোশ্যাল মিডিয়ার ভাইরাল বিজনেস চ্যালেঞ্জ থেকে যা শিখবেন, যা এড়িয়ে চলবেন",
+    category: "Challenge",
+    date: "Aug 29, 2026",
+    readTime: "6 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/viral-business-challenge-lessons.webp",
+    lang: "bn",
+    desc: "TikTok বা Facebook Reels-এ ভাইরাল হওয়া বিজনেস চ্যালেঞ্জ থেকে বাস্তবে কাজে লাগানোর মতো শিক্ষা কী, আর কোন ফাঁদগুলো এড়িয়ে চলা উচিত।",
+    body: [
+      {
+        type: "p",
+        content:
+          "আজকাল প্রায়ই দেখা যায় — কেউ একজন '৭ দিনে ৫ লাখ টাকা বিক্রি', বা 'শুধু একটা রিল দিয়ে ব্যবসা ভাইরাল' এই ধরনের ভিডিও বানাচ্ছে, আর হাজার হাজার মানুষ সেটা দেখে অনুপ্রাণিত হয়ে একই পথে হাঁটার চেষ্টা করছে। এই ভাইরাল চ্যালেঞ্জগুলো দেখতে আকর্ষণীয় লাগলেও, বাস্তবে সব কিছু ঠিক সেভাবে কাজ করে না।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব এই ভাইরাল বিজনেস চ্যালেঞ্জগুলো থেকে আসলে কী শেখা যায়, আর কোন ফাঁদে পা দেওয়া থেকে সাবধান থাকা উচিত।",
+      },
+      { type: "h2", content: "ভাইরাল চ্যালেঞ্জ থেকে যা সত্যিই শেখার আছে" },
+      { type: "h3", content: "১. কনসিসটেন্সি কাজ করে" },
+      {
+        type: "p",
+        content:
+          "যারা সত্যিই সফল হয়েছে, তারা একদিনে ভাইরাল হয়নি — নিয়মিত পোস্ট করে, প্রতিদিন প্রোডাক্ট দেখিয়ে ধীরে ধীরে অডিয়েন্স তৈরি করেছে। ভিডিওতে যেটা '৭ দিনে' দেখানো হয়, তার পেছনে অনেক সময় মাসের পর মাসের প্রস্তুতি থাকে।",
+      },
+      { type: "h3", content: "২. একটা নির্দিষ্ট নিশ থাকা জরুরি" },
+      {
+        type: "p",
+        content:
+          "যেসব চ্যালেঞ্জ আসলেই কাজ করেছে, সেগুলোর পেছনে একটা স্পষ্ট নিশ ছিল — শুধু একটা নির্দিষ্ট ধরনের প্রোডাক্ট নিয়ে ফোকাস করা। সব কিছু একসাথে বিক্রি করার চেষ্টা করলে ভাইরাল হওয়ার সম্ভাবনাও কমে যায়।",
+      },
+      { type: "h2", content: "যেসব ফাঁদ এড়িয়ে চলা উচিত" },
+      { type: "h3", content: "১. না বুঝে বড় বিনিয়োগ করা" },
+      {
+        type: "p",
+        content:
+          "ভিডিও দেখে অনুপ্রাণিত হয়ে অনেকেই একসাথে সব পুঁজি একটা প্রোডাক্টের বড় স্টকে ঢেলে দেয়, অথচ নিজের এলাকায় সেই প্রোডাক্টের চাহিদা আছে কিনা যাচাই করে না।",
+      },
+      { type: "h3", content: "২. শুধু ভিউয়ের পেছনে ছোটা" },
+      {
+        type: "p",
+        content:
+          "একটা ভিডিও ভাইরাল হলেই যে বিক্রি বাড়বে, তা না। ভিউ বেশি হলেও যদি চেকআউট প্রসেস জটিল হয়, পেমেন্ট অপশন সীমিত থাকে, বা ডেলিভারি সিস্টেম দুর্বল থাকে — তাহলে সেই ভিউ কাস্টমারে রূপান্তরিত হয় না।",
+      },
+      { type: "h3", content: "৩. দীর্ঘমেয়াদী পরিকল্পনা ছাড়াই ঝাঁপ দেওয়া" },
+      {
+        type: "p",
+        content:
+          "ভাইরাল ট্রেন্ডের পেছনে ছুটে অনেকেই ভুলে যায় যে একটা ব্যবসা টিকিয়ে রাখতে হলে স্টক, ডেলিভারি, কাস্টমার সাপোর্ট — সবকিছুর একটা স্থায়ী সিস্টেম থাকা দরকার, শুধু একটা ভাইরাল মোমেন্ট না।",
+      },
+      { type: "h2", content: "Softune দিয়ে ভাইরাল মোমেন্টকে টেকসই ব্যবসায় রূপ দিন" },
+      {
+        type: "p",
+        content:
+          "একটা ভিডিও ভাইরাল হলে হঠাৎ অনেক ভিজিটর আসতে পারে — সেই মুহূর্তে আপনার শপ যদি রেডি না থাকে, তাহলে পুরো সুযোগটাই হাতছাড়া হয়ে যায়। Softune দিয়ে শপ আগে থেকেই প্রফেশনালভাবে সাজানো থাকলে সেই ভিড় সামলানো সহজ হয়।",
+      },
+      { type: "p", content: "ভাইরাল মোমেন্ট কাজে লাগাতে Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "দ্রুত লোড হওয়া প্রফেশনাল স্টোরফ্রন্ট — হঠাৎ ভিজিটর বাড়লেও সামলাতে পারে",
+          "COD, বিকাশ, নগদ — সহজ চেকআউট, ভিউকে অর্ডারে রূপান্তর করতে সাহায্য করে",
+          "ফ্রড প্রোটেকশন — হঠাৎ অর্ডার বাড়লেও ফেক অর্ডার আটকানো যায়",
+          "বিল্ট-ইন অ্যানালিটিক্স — কোন পোস্ট থেকে আসলে বিক্রি হচ্ছে তা বোঝা",
+          "Guided Onboarding — শুরু থেকেই একটা স্থায়ী সিস্টেম দাঁড় করানো",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "ভাইরাল হওয়াটা সৌভাগ্যের ব্যাপার হতে পারে, কিন্তু সেই মুহূর্তকে বিক্রিতে রূপান্তর করাটা নির্ভর করে আপনার শপ কতটা প্রস্তুত তার উপর।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ভাইরাল বিজনেস চ্যালেঞ্জ দেখে অনুপ্রাণিত হওয়া ভালো, কিন্তু সেটাকে হুবহু কপি করার চেষ্টা না করে তার পেছনের আসল শিক্ষাগুলো — কনসিসটেন্সি, নির্দিষ্ট নিশ, আর প্রস্তুতি — কাজে লাগানোই বুদ্ধিমানের কাজ। Softune দিয়ে শপ আগে থেকে রেডি রাখলে যেকোনো ভাইরাল মোমেন্ট আসলেই কাজে লাগানো যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার শপ প্রস্তুত রাখুন — পরের ভাইরাল মোমেন্টের জন্য।",
+      },
     ],
   },
 
-  "pos-integration-local-brands": {
-    slug: "pos-integration-local-brands",
-    title: "Why Point-of-Sale (POS) Integration is Crucial for Local Brands",
-    category: "POS & Retail",
-    date: "Aug 10, 2026",
+  "start-business-with-one-product": {
+    slug: "start-business-with-one-product",
+    title: "একটা প্রোডাক্ট দিয়েই কীভাবে অনলাইন ব্যবসা শুরু করবেন",
+    category: "Getting Started",
+    date: "Aug 29, 2026",
     readTime: "5 min read",
-    author: "Tariqul Islam",
-    authorRole: "Retail Systems Analyst",
-    authorAvatar: "https://i.pravatar.cc/150?img=48",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-    desc: "Unify online catalog inventories and retail storefront counters. Avoid overselling items and automate tax reporting automatically.",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/start-business-with-one-product.webp",
+    lang: "bn",
+    desc: "অনেক প্রোডাক্ট দিয়ে শুরু করার দরকার নেই। জেনে নিন কীভাবে মাত্র একটা প্রোডাক্ট দিয়েও একটা লাভজনক অনলাইন ব্যবসা দাঁড় করানো যায়।",
     body: [
-      { type: "p", content: "For local and independent brands operating both physical counters and online stores, inventory management is the perpetual challenge. A POS system that communicates directly with your digital catalog is no longer a luxury — it's a baseline requirement for avoiding costly oversells and operational chaos." },
-      { type: "h2", content: "The Inventory Sync Problem" },
-      { type: "p", content: "Without integration, teams are forced to manually reconcile stock levels across physical counters and online carts. A customer purchases your last unit at the retail counter at 2pm. By 2:05pm, the same item sells online. You now have a broken promise and a frustrated customer." },
-      { type: "quote", content: "A disconnected POS isn't just an inconvenience — it's a liability that directly erodes customer trust and repeat purchase rates." },
-      { type: "h2", content: "Key Benefits of Unified POS-Online Integration" },
-      { type: "list", content: [
-        "Real-time inventory sync across all sales channels",
-        "Automated low-stock alerts before oversells occur",
-        "Unified customer purchase history across both channels",
-        "Single dashboard for tax calculation and reporting",
-        "Consolidated revenue analytics and daily reconciliation",
-      ]},
-      { type: "h2", content: "How Softune Handles This" },
-      { type: "p", content: "Softune's POS integration layer maintains a single source-of-truth inventory database. When a sale is processed on the physical counter terminal, the online catalog stock is decremented in under 200 milliseconds. This means your digital storefront is always displaying accurate, real-time availability to customers." },
-      { type: "callout", content: "Softune merchants using unified POS integration report a 91% reduction in customer support tickets related to oversells and inventory discrepancies." },
+      {
+        type: "p",
+        content:
+          "নতুন ব্যবসা শুরু করতে গেলে অনেকেই ভাবেন শুরুতেই ২০-৩০টা প্রোডাক্ট থাকা দরকার, নাহলে কাস্টমার আকৃষ্ট হবে না। কিন্তু বাস্তবে অনেক সফল ব্র্যান্ডই শুরু হয়েছে মাত্র একটা প্রোডাক্ট দিয়ে — আর সেই একটা প্রোডাক্টেই ফোকাস করে ব্র্যান্ড দাঁড় করিয়েছে।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব কেন একটা প্রোডাক্ট দিয়ে শুরু করা ভালো একটা কৌশল হতে পারে, আর কীভাবে এটা কাজে লাগাবেন।",
+      },
+      { type: "h2", content: "একটা প্রোডাক্ট দিয়ে শুরু করার সুবিধা" },
+      {
+        type: "list",
+        content: [
+          "কম পুঁজিতেই শুরু করা যায় — একটা প্রোডাক্টের জন্য বড় স্টক লাগে না",
+          "মার্কেটিং সহজ হয় — একটা প্রোডাক্টের সুবিধা-অসুবিধা নিয়ে স্পষ্টভাবে কথা বলা যায়",
+          "প্রোডাক্ট নিয়ে দ্রুত ফিডব্যাক পাওয়া যায়, সেই অনুযায়ী উন্নতি করা যায়",
+          "কাস্টমার সহজে মনে রাখে — 'ওই এক জিনিসের জন্য বিখ্যাত শপ' হিসেবে পরিচিতি পাওয়া যায়",
+        ],
+      },
+      { type: "h2", content: "কীভাবে সঠিক প্রোডাক্ট বেছে নেবেন" },
+      { type: "h3", content: "১. এমন একটা সমস্যার সমাধান খুঁজুন যা মানুষ বারবার খোঁজে" },
+      {
+        type: "p",
+        content:
+          "যেসব প্রোডাক্ট মানুষ নিয়মিত কেনে বা যার একটা নির্দিষ্ট সমস্যার সমাধান হয়, সেগুলো একটা প্রোডাক্ট নিয়ে ব্যবসা শুরু করার জন্য ভালো। যেমন — নির্দিষ্ট এক ধরনের স্কিন কেয়ার আইটেম, বা এক ধরনের হোমমেড খাবার।",
+      },
+      { type: "h3", content: "২. প্রতিযোগিতা যাচাই করুন" },
+      {
+        type: "p",
+        content:
+          "আপনার বেছে নেওয়া প্রোডাক্টে অন্য কেউ কীভাবে বিক্রি করছে দেখুন। প্রতিযোগিতা থাকলেও সমস্যা নেই, বরং সেটা প্রমাণ করে চাহিদা আছে — আপনার কাজ হলো একটু ভালো বা ভিন্নভাবে সেই প্রোডাক্ট উপস্থাপন করা।",
+      },
+      { type: "h2", content: "একটা প্রোডাক্ট থেকে কীভাবে বড় হবেন" },
+      {
+        type: "p",
+        content:
+          "একটা প্রোডাক্ট দিয়ে ব্র্যান্ড ও কাস্টমার বেস তৈরি হয়ে গেলে, সেই কাস্টমারদের চাহিদা বুঝে ধীরে ধীরে সম্পর্কিত আরও প্রোডাক্ট যোগ করা যায় — শুরুতেই সব কিছু একসাথে না এনে।",
+      },
+      { type: "h2", content: "Softune দিয়ে একটা প্রোডাক্ট নিয়ে শুরু করা" },
+      {
+        type: "p",
+        content:
+          "একটা প্রোডাক্ট নিয়ে শুরু করলেও, শপটাকে প্রফেশনাল দেখানো জরুরি — যাতে কাস্টমার বিশ্বাস করে অর্ডার করতে পারে। Softune দিয়ে এক বা একাধিক প্রোডাক্ট নিয়েই একটা পূর্ণাঙ্গ প্রফেশনাল শপ দাঁড় করানো যায়।",
+      },
+      { type: "p", content: "একটা প্রোডাক্ট নিয়ে শুরু করলে Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "Starter প্ল্যানে ৳৯৫০/মাস থেকে শুরু — একটা প্রোডাক্টের জন্যও যথেষ্ট",
+          "AI দিয়ে প্রোডাক্টের আকর্ষণীয় ডেসক্রিপশন লেখার সুবিধা",
+          "COD, বিকাশ, নগদ — কাস্টমার নিজের পছন্দমতো পেমেন্ট করতে পারে",
+          "থিম এডিটর দিয়ে প্রোডাক্টের জন্য উপযুক্ত ব্র্যান্ড লুক তৈরি করা",
+          "ব্যবসা বাড়লে সহজেই নতুন প্রোডাক্ট যোগ করার সুবিধা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "একটা প্রোডাক্টে গভীরভাবে ফোকাস করা, দশটা প্রোডাক্টে ছড়িয়ে যাওয়ার চেয়ে অনেক সময় বেশি কার্যকর হয়। Softune দিয়ে সেই এক প্রোডাক্টকেই প্রফেশনালভাবে উপস্থাপন করুন।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "ব্যবসা শুরু করতে হলে অনেক প্রোডাক্ট থাকা জরুরি না — একটা ভালো প্রোডাক্ট, স্পষ্ট মার্কেটিং, আর প্রফেশনাল উপস্থাপনা থাকলেই যথেষ্ট। Softune দিয়ে সেই শুরুটা করে ফেলুন আজই।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে আপনার প্রথম প্রোডাক্ট নিয়ে অনলাইন শপ শুরু করুন।",
+      },
+    ],
+  },
+
+  "fast-sales-growth-low-capital-tactics": {
+    slug: "fast-sales-growth-low-capital-tactics",
+    title: "কম পুঁজিতে দ্রুত বিক্রি বাড়ানোর কার্যকর কৌশল",
+    category: "Challenge",
+    date: "Aug 29, 2026",
+    readTime: "6 min read",
+    author: "Softune Team",
+    authorRole: "Softune",
+    authorAvatar: "/logo-icon.png",
+    image: "/blogs/fast-sales-growth-low-capital-tactics.webp",
+    lang: "bn",
+    desc: "বড় বিজ্ঞাপন বাজেট ছাড়াই বিক্রি দ্রুত বাড়ানো সম্ভব। জেনে নিন কম পুঁজিতে কাজ করা বাস্তবসম্মত কিছু কৌশল, আর Softune কীভাবে এই প্রক্রিয়াটা সহজ করে।",
+    body: [
+      {
+        type: "p",
+        content:
+          "অনেকেই মনে করেন বিক্রি বাড়াতে হলে বড় বিজ্ঞাপন বাজেট দরকার। কিন্তু কম পুঁজি নিয়ে যারা ব্যবসা করেন, তাদের জন্য সঠিক কিছু কৌশল অনুসরণ করলে বড় বাজেট ছাড়াই দ্রুত বিক্রি বাড়ানো সম্ভব।",
+      },
+      {
+        type: "p",
+        content:
+          "আজকে দেখব কম পুঁজিতেও কার্যকর কিছু বিক্রি বাড়ানোর কৌশল।",
+      },
+      { type: "h2", content: "কম খরচে কার্যকর কিছু কৌশল" },
+      { type: "h3", content: "১. মাইক্রো-টার্গেটেড বিজ্ঞাপন ব্যবহার করুন" },
+      {
+        type: "p",
+        content:
+          "পুরো দেশে বিজ্ঞাপন না চালিয়ে, নির্দিষ্ট এলাকা বা নির্দিষ্ট বয়সের কাস্টমারদের টার্গেট করে অল্প বাজেটে বুস্ট করুন। এতে টাকা কম খরচ হয়ে বেশি রেজাল্ট পাওয়া যায়।",
+      },
+      { type: "h3", content: "২. কাস্টমারকে কাস্টমার আনতে উৎসাহ দিন" },
+      {
+        type: "p",
+        content:
+          "একজন কাস্টমার নতুন কাস্টমার রেফার করলে ছোট একটা ডিসকাউন্ট বা গিফট দিন। এতে বিজ্ঞাপন খরচ ছাড়াই মুখে মুখে প্রচার হয়, যেটা বিশ্বাসযোগ্যতাও বেশি তৈরি করে।",
+      },
+      { type: "h3", content: "৩. বান্ডল অফার দিন" },
+      {
+        type: "p",
+        content:
+          "দুই বা তিনটা প্রোডাক্ট একসাথে সামান্য ছাড়ে বিক্রি করলে গড় অর্ডার ভ্যালু বেড়ে যায় — নতুন কাস্টমার না এনেও বিক্রির পরিমাণ বাড়ানো যায়।",
+      },
+      { type: "h3", content: "৪. আর্জেন্সি তৈরি করুন" },
+      {
+        type: "p",
+        content:
+          "'স্টক সীমিত' বা 'শুধু এই সপ্তাহের জন্য অফার' — এই ধরনের বার্তা কাস্টমারকে দ্রুত সিদ্ধান্ত নিতে সাহায্য করে, যা কনভার্সন রেট বাড়ায় কোনো বাড়তি খরচ ছাড়াই।",
+      },
+      { type: "h3", content: "৫. এক্সিস্টিং কাস্টমারকে আবার টার্গেট করুন" },
+      {
+        type: "p",
+        content:
+          "নতুন কাস্টমার আনার চেয়ে পুরনো কাস্টমারকে আবার অর্ডার করানো অনেক কম খরচের। আগের কাস্টমারদের নতুন প্রোডাক্ট বা অফার সম্পর্কে জানান।",
+      },
+      { type: "h2", content: "Softune দিয়ে কম খরচে দ্রুত বিক্রি বাড়ানো" },
+      {
+        type: "p",
+        content:
+          "এই কৌশলগুলো কার্যকরভাবে চালাতে হলে একটা ভালো প্ল্যাটফর্ম দরকার, যেখানে অফার, রেফারেল, আর কাস্টমার ট্র্যাকিং একসাথে করা যায়।",
+      },
+      { type: "p", content: "কম পুঁজিতে বিক্রি বাড়াতে Softune-এ যা যা পাবেন:" },
+      {
+        type: "list",
+        content: [
+          "Discount Codes অ্যাড-অন — বান্ডল ও সীমিত সময়ের অফার সহজে সেটাপ",
+          "Referral Program অ্যাড-অন — কাস্টমার দিয়ে কাস্টমার আনা",
+          "Purchase Notification অ্যাড-অন — 'এইমাত্র কেনা হলো' দেখিয়ে আর্জেন্সি তৈরি",
+          "Customer Management — পুরনো কাস্টমারদের সহজে আবার টার্গেট করা",
+          "বিল্ট-ইন অ্যানালিটিক্স — কোন কৌশল আসলে কাজ করছে তা দেখা",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "বড় বাজেট না থাকলেও সঠিক কৌশল আর সঠিক প্ল্যাটফর্ম থাকলে বিক্রি বাড়ানো সম্ভব। Softune দিয়ে এই কৌশলগুলো বাস্তবায়ন করা অনেক সহজ হয়ে যায়।",
+      },
+      { type: "h2", content: "শেষ কথা" },
+      {
+        type: "p",
+        content:
+          "বিক্রি বাড়াতে সবসময় বড় বিজ্ঞাপন বাজেট লাগে না — সঠিক কৌশল, বিদ্যমান কাস্টমারদের সঠিকভাবে কাজে লাগানো, আর একটা ভালো প্ল্যাটফর্ম থাকলেই কম পুঁজিতেও দ্রুত ফলাফল পাওয়া সম্ভব। Softune দিয়ে এই পুরো কাজটাই এক জায়গা থেকে করা যায়।",
+      },
+      {
+        type: "callout",
+        content:
+          "আজই Softune দিয়ে কম খরচে আপনার বিক্রি বাড়ানোর কৌশল শুরু করুন।",
+      },
     ],
   },
 };
 
-export const DEFAULT_ARTICLE_SLUG = "conversion-rate-optimization-2026";
+// ─── Post Listing (used on /blog) ────────────────────────────────────────────
+// Derived from ARTICLES — the object key is the canonical slug (matches the
+// /blog/[slug] route), so listing links can never point at a stale internal
+// `slug` field that drifted from the actual URL.
+
+export const BLOG_POSTS: Omit<
+  BlogPost,
+  "body" | "authorRole" | "authorAvatar"
+>[] = Object.entries(ARTICLES).map(([slug, a]) => ({
+  slug,
+  title: a.title,
+  category: a.category,
+  date: a.date,
+  readTime: a.readTime,
+  author: a.author,
+  image: a.image,
+  color: a.color,
+  lang: a.lang,
+  desc: a.desc,
+}));
+
+// ─── Related Posts (used on article page sidebar) ────────────────────────────
+// Computed per-article instead of a fixed list — same category first, then
+// backfilled with the newest other posts so every article always gets a full
+// set of genuinely relevant (or at least non-repetitive) related cards.
+
+export type RelatedPost = {
+  title: string;
+  category: string;
+  date: string;
+  readTime: string;
+  slug: string;
+  image?: string;
+  color?: string;
+};
+
+export function getRelatedPosts(
+  currentSlug: string,
+  category: string,
+  limit = 3
+): RelatedPost[] {
+  const others = BLOG_POSTS.filter((p) => p.slug !== currentSlug);
+  const sameCategory = others.filter((p) => p.category === category);
+  const rest = others.filter((p) => p.category !== category);
+  return [...sameCategory, ...rest].slice(0, limit);
+}

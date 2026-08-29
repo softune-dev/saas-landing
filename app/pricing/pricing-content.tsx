@@ -12,9 +12,8 @@ export default function PricingPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAF9F6]">
+      <main className="min-h-screen bg-[var(--color-canvas)]">
         <Pricing />
-        <Testimonial />
         <Faq />
         <Contact />
       </main>

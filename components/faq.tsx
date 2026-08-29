@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { homeFaqs as faqs } from "@/lib/home-faq-data";
 
 export function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   const half = Math.ceil(faqs.length / 2);
   const leftColumn = faqs.slice(0, half);

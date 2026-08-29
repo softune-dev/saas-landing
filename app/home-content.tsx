@@ -25,7 +25,6 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <LogoCloud />
         <Why />
         <Themes />
         <PlatformFeatures />
@@ -34,7 +33,6 @@ export default function HomePage() {
         <Technologies />
         <Pricing />
         <Comparison />
-        <Testimonial />
         <Faq />
         <Contact />
       </main>

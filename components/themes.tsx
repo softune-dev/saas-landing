@@ -13,7 +13,7 @@ const themes = [
       "A minimalist, high-end editorial layout designed to put your photography center stage. Perfect for fashion, jewelry, and luxury brands.",
     color: "#1c1917",
     surface: "#faf9f6",
-    image: "/theme_aurora.jpg",
+    image: "/theme_aurora.webp",
   },
   {
     name: "Bazaar",
@@ -22,7 +22,7 @@ const themes = [
       "A clean, data-dense interface built for massive catalogs. Features advanced filtering, bold categories, and high-conversion product grids.",
     color: "#2563EB",
     surface: "#f8fafc",
-    image: "/theme_bazaar.jpg",
+    image: "/theme_bazaar.webp",
   },
   {
     name: "Mishthan",
@@ -31,7 +31,7 @@ const themes = [
       "Warm, inviting, and deliciously crafted. Uses soft tones and elegant typography to make your food and artisanal products irresistible.",
     color: "#DC5200",
     surface: "#faf5ef",
-    image: "/themes/mishthan.webp",
+    image: "/theme_mishthan.webp",
   },
 ];
 

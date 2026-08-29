@@ -11,87 +11,111 @@ export type FeatureSection = {
   titleEnd: string;
   description: string;
   bullets: string[];
-  videoBrief: string;
+  /** Base name under /showcase — uses `{name}-l.webp` / `{name}-d.webp`. */
+  showcase: string;
   buttons: { text: string; variant: "primary" | "outline" }[];
 };
 
 export const sections: FeatureSection[] = [
   {
-    pillText: "Store Overview",
-    pillIcon: "/icons/analytics.svg",
-    titleStart: "All Your Tools in",
-    titleHighlight: "One Dashboard",
+    pillText: "Theme Editor",
+    pillIcon: "/icons/color.svg",
+    titleStart: "Design Your Store",
+    titleHighlight: "Live",
     titleEnd: "",
-    description: "Track revenue, order counts, AI credits, and storage from a single dashboard.",
+    description:
+      "Edit your storefront in Softune’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
     bullets: [
-      "Built-in payment gateways and checkout terms",
-      "Integrated local courier and delivery systems",
-      "Product catalog and inventory management center"
+      "Live preview while you edit, no guesswork",
+      "AI Suggest for brand colors, layout, and storefront text",
+      "Desktop and mobile views before you go live",
     ],
-    videoBrief: "Opens on the main dashboard, hovers over revenue stats, scrolls to plan limits, and ends on storage usage.",
+    showcase: "editor",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "See Features", variant: "outline" }
-    ]
+      { text: "Open Editor", variant: "outline" },
+    ],
   },
   {
-    pillText: "Product Catalog",
-    pillIcon: "/icons/shop-bag.svg",
-    titleStart: "Generate Text With",
-    titleHighlight: "One-Click AI",
+    pillText: "AI Chatbot",
+    pillIcon: "/icons/chat.svg",
+    titleStart: "Ask Softune,",
+    titleHighlight: "Get Answers",
     titleEnd: "",
-    description: "Create product descriptions using AI, then edit the text before saving.",
+    description:
+      "Chat with Softune’s built-in AI, powered by Google Gemini. It reads your real products, orders, and sales, then helps you act without leaving the dashboard.",
     bullets: [
-      "One-click AI product description builder",
-      "Editable text editor for generated content",
-      "Size, color, and SKU variant management"
+      "Powered by Google Gemini for clear, fast answers",
+      "Ask about products, orders, and sales in plain language",
+      "Propose product or category changes you still confirm before save",
     ],
-    videoBrief: "Opens product creator, clicks AI Description, edits one line, and clicks Save.",
+    showcase: "chat",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "Explore Catalog", variant: "outline" }
-    ]
+      { text: "See AI Chat", variant: "outline" },
+    ],
   },
   {
-    pillText: "Multi-Store Access",
-    pillIcon: "/icons/user.svg",
-    titleStart: "Run Every Store",
-    titleHighlight: "From One Login",
+    pillText: "Payments",
+    pillIcon: "/icons/wallet.svg",
+    titleStart: "Payments,",
+    titleHighlight: "Made Simple",
     titleEnd: "",
-    description: "Own more than one store? Switch between them instantly from the account menu — no logging out, no separate sessions to juggle.",
+    description:
+      "bKash, Nagad, COD, and payment gateways live in one place. Connect once, keep checkout easy, and manage everything from a single Payments screen.",
     bullets: [
-      "One click switches your active store, no logout required",
-      "Each store shows its own logo, never mixed up with the others",
-      "Add up to three stores to the same account switcher"
+      "bKash, Nagad, COD, and gateway checkout in one setup",
+      "Centralized payment tools, not scattered plugins",
+      "Easy to connect, easy to change, easy to run daily",
     ],
-    videoBrief: "Opens the account menu, shows two store logos in the switcher, clicks the second one, and lands on that store's dashboard instantly.",
+    showcase: "payment",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "See How It Works", variant: "outline" }
-    ]
+      { text: "See Payments", variant: "outline" },
+    ],
   },
   {
-    pillText: "Storefront Design",
-    pillIcon: "/icons/themes.svg",
-    titleStart: "Customize Themes With",
-    titleHighlight: "AI Suggest",
+    pillText: "SEO & Domains",
+    pillIcon: "/icons/domain.svg",
+    titleStart: "Rank Your Store,",
+    titleHighlight: "Own Your Domain",
     titleEnd: "",
-    description: "Type a prompt to generate theme color, font, and copy updates, then review the patch before publishing.",
+    description:
+      "Help shoppers find you with clear SEO fields and your own domain, all from Site Settings.",
     bullets: [
-      "AI prompt for proposed color, font, and copy updates",
-      "Review modal to inspect changes before going live",
-      "Live desktop and mobile split preview"
+      "Page titles and meta descriptions you can edit",
+      "Connect your own domain without extra hosting",
+      "Publish a clean storefront ready for search",
     ],
-    videoBrief: "Types prompt in theme editor, reviews suggested color patch in modal, and clicks Apply to update split preview.",
+    showcase: "seo",
     buttons: [
       { text: "Get Started", variant: "primary" },
-      { text: "Browse Themes", variant: "outline" }
-    ]
-  }
+      { text: "Explore SEO", variant: "outline" },
+    ],
+  },
+  {
+    pillText: "AI Writing",
+    pillIcon: "/icons/ai-pencil.svg",
+    titleStart: "AI Text,",
+    titleHighlight: "One Click",
+    titleEnd: "",
+    description:
+      "Generate product copy in one click, then regenerate any description anytime until it sounds right.",
+    bullets: [
+      "Create descriptive text with AI in one click",
+      "Regenerate any product description whenever you want",
+      "Edit the result before you save and publish",
+    ],
+    showcase: "ai",
+    buttons: [
+      { text: "Get Started", variant: "primary" },
+      { text: "Try AI Copy", variant: "outline" },
+    ],
+  },
 ];
 
 const CheckIcon = () => (
-  <svg className="size-6 shrink-0 text-[var(--color-brand)] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+  <svg className="mt-0.5 size-6 shrink-0 text-[var(--color-brand)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   </svg>
 );
@@ -102,13 +126,15 @@ export function PlatformFeatures() {
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-14 md:gap-40">
           {sections.map((section, index) => {
-            const isVideoRight = index % 2 === 0;
+            const isImageRight = index % 2 === 0;
+            const liteSrc = `/showcase/${section.showcase}-l.webp`;
+            const darkSrc = `/showcase/${section.showcase}-d.webp`;
 
             return (
               <div
-                key={index}
+                key={section.showcase}
                 className={`flex flex-col items-center gap-8 md:gap-12 lg:gap-20 ${
-                  isVideoRight ? "lg:flex-row" : "lg:flex-row-reverse"
+                  isImageRight ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
               >
                 <div className="w-full flex-1 space-y-6 md:space-y-8">
@@ -157,8 +183,8 @@ export function PlatformFeatures() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="max-w-xl space-y-3 sm:space-y-4"
                   >
-                    {section.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-start gap-3">
+                    {section.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-3">
                         <CheckIcon />
                         <span className="text-[15px] leading-relaxed font-medium text-[var(--color-ink-soft)] sm:text-[16px]">
                           {bullet}
@@ -206,15 +232,20 @@ export function PlatformFeatures() {
                   transition={{ duration: 0.5 }}
                   className="w-full flex-1"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                      <span className="text-sm font-semibold text-[var(--color-ink)] sm:text-base">
-                        Demo Video Placeholder
-                      </span>
-                      <p className="mt-2 max-w-sm text-xs font-normal leading-relaxed text-[var(--color-muted)]">
-                        {section.videoBrief}
-                      </p>
-                    </div>
+                  <div className="relative aspect-square w-full overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] shadow-lg sm:rounded-[24px] md:rounded-[32px]">
+                    {/* Light / dark assets from public/showcase */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={liteSrc}
+                      alt={section.pillText}
+                      className="absolute inset-0 size-full object-cover dark:hidden"
+                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={darkSrc}
+                      alt={section.pillText}
+                      className="absolute inset-0 hidden size-full object-cover dark:block"
+                    />
                   </div>
                 </motion.div>
               </div>

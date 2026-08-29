@@ -47,7 +47,7 @@ const timeline = [
 ];
 
 const stats = [
-  { label: "Active Storefronts", value: "12,000+", icon: "/icons/domain.svg" },
+  { label: "Active Merchants", value: "Worldwide", icon: "/icons/domain.svg" },
   { label: "Average Page Load", value: "15ms", icon: "/icons/zap.svg" },
   { label: "Uptime SLA", value: "99.99%", icon: "/icons/lock.svg" },
   { label: "Plugin Costs Saved", value: "৳4,500/mo", icon: "/icons/wallet.svg" }

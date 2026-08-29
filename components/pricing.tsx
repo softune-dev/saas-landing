@@ -18,7 +18,7 @@ export function Pricing() {
     setMounted(true);
   }, []);
   const isDark = !mounted || resolvedTheme === "dark";
-  const enterpriseImageSrc = isDark ? "/price-enter-d.png" : "/price-enter-l.png";
+  const enterpriseImageSrc = isDark ? "/price-enter-d.webp" : "/price-enter-l.webp";
 
   return (
     <section

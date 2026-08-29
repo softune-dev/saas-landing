@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Manrope, DM_Sans, Outfit, Niconne } from "next/font/google";
+import { Instrument_Serif, Manrope, DM_Sans, Outfit, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { StructuredData } from "@/components/structured-data";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -37,6 +37,18 @@ const instrument = Instrument_Serif({
   style: ["normal", "italic"],
   variable: "--font-instrument",
   display: "swap",
+});
+
+// Manrope has no Bengali glyphs — this is a per-glyph CSS fallback (see
+// globals.css's --font-sans), same idea as the dashboard's own Bangla
+// support: Latin text stays in Manrope untouched, only Bangla characters
+// (blog posts) fall through to this. Noto Sans Bengali is Google's actual
+// public font for Bengali script, same font family Bazaar/the dashboard
+// already use for this exact purpose.
+const notoSansBengali = Noto_Sans_Bengali({
+  variable: "--font-bn",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -78,7 +90,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${outfit.variable} ${niconne.variable}`}
+      className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${outfit.variable} ${niconne.variable} ${notoSansBengali.variable}`}
     >
       <body className="min-h-screen antialiased bg-[var(--color-canvas)] text-[var(--color-ink)] transition-colors duration-200">
         {/* Sitewide entity schema — every page carries these two so an AI

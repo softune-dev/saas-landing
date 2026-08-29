@@ -93,6 +93,7 @@ export function articleSchema({
   path,
   datePublished,
   author,
+  lang,
 }: {
   title: string;
   description: string;
@@ -103,17 +104,26 @@ export function articleSchema({
    * the field if it doesn't parse rather than emitting an invalid date. */
   datePublished: string;
   author: string;
+  /** BCP-47 language of the post's actual text (e.g. "bn") — Google detects
+   * this from content either way, but it's a small extra signal. Omitted
+   * (schema-wide default is English) when not given. */
+  lang?: string;
 }) {
   const parsed = new Date(datePublished);
   const iso = Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+  // Google's rich-results validator requires an absolute URL here — unlike
+  // <meta property="og:image">, which Next resolves against metadataBase
+  // automatically, this JSON-LD is rendered as-is with no such resolution.
+  const absoluteImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     description,
-    image,
+    image: absoluteImage,
     url: `${SITE_URL}${path}`,
     ...(iso ? { datePublished: iso } : {}),
+    ...(lang ? { inLanguage: lang } : {}),
     author: { "@type": "Person", name: author },
     publisher: {
       "@type": "Organization",

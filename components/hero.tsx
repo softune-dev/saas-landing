@@ -20,10 +20,10 @@ export function Hero() {
   }, []);
 
   const isDark = !mounted || resolvedTheme === "dark";
-  const desktopSrc = isDark ? "/dashboard-d.png" : "/dashboard-l.png";
+  const desktopSrc = isDark ? "/dashboard-d.webp" : "/dashboard-l.webp";
 
   return (
-    <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px]">
+    <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px] md:border-t-0">
       {/* Masked Grid Layer */}
       <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_50%_30%,transparent_0%,black_55%)]" />
 
@@ -157,7 +157,7 @@ export function Hero() {
             <div className="relative w-full overflow-hidden bg-[var(--color-canvas)]">
               {/* Spacer keeps layout height stable */}
               <img
-                src="/dashboard-l.png"
+                src="/dashboard-l.webp"
                 alt=""
                 aria-hidden
                 className="block h-auto w-full opacity-0"

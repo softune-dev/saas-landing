@@ -115,10 +115,10 @@ export function Footer() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="#" className="transition-transform hover:scale-105">
-              <img src="/googleplay.png" alt="Get it on Google Play" className="h-[80px] w-auto object-contain" />
+              <img src="/googleplay.webp" alt="Get it on Google Play" className="h-[80px] w-auto object-contain" />
             </a>
             <a href="#" className="transition-transform">
-              <img src="/appstore.png" alt="Download on the App Store" className="h-[40px] w-auto object-contain" />
+              <img src="/appstore.webp" alt="Download on the App Store" className="h-[40px] w-auto object-contain" />
             </a>
           </div>
         </div>

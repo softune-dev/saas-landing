@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { RecaptchaCheckbox } from "./ui/recaptcha-checkbox";
+import { hasRecaptcha } from "@/lib/recaptcha";
 
 const cards = [
   {
@@ -27,6 +30,8 @@ const cards = [
 ];
 
 export function Contact() {
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+
   return (
     <section
       id="contact"
@@ -179,39 +184,14 @@ export function Contact() {
               />
             </div>
 
-            <div className="mt-1 flex items-center gap-3 sm:mt-2">
-              <div className="relative flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  id="verify-human"
-                  required
-                  className="peer size-5 cursor-pointer appearance-none rounded-[6px] border-2 border-[var(--color-line)] bg-[var(--color-canvas)] transition-all checked:border-[var(--color-brand)] checked:bg-[var(--color-brand)] hover:border-[var(--color-muted)]"
-                />
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                  className="pointer-events-none absolute size-3.5 text-white opacity-0 transition-opacity peer-checked:opacity-100"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <label
-                htmlFor="verify-human"
-                className="cursor-pointer text-[14px] font-bold text-[var(--color-ink)] select-none sm:text-[14.5px]"
-              >
-                I am human (Verify)
-              </label>
+            <div className="mt-1 sm:mt-2">
+              <RecaptchaCheckbox onVerify={setRecaptchaToken} />
             </div>
 
             <Button
               type="submit"
-              className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 sm:mt-4 sm:py-6"
+              disabled={hasRecaptcha && !recaptchaToken}
+              className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
             >
               Send Message
               <img
