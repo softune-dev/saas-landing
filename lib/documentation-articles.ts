@@ -502,38 +502,38 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Storefront & Themes ───────────────────────────────────────────────────
   "choosing-a-theme": article(
     "choosing-a-theme",
-    "Compare Softune’s real templates — Aurora, Bazaar, and Sweets — and pick the storefront design that fits your brand before editing.",
+    "Compare Softune’s real templates — Fashion, Emporium, and Vault — and pick the storefront design that fits your brand before editing.",
     [
       {
         type: "p",
         content:
-          "Softune ships three full live storefront designs: Aurora, Bazaar, and Sweets. Each implements Softune’s shared page and section contract, so switching templates changes visual design without rebuilding your product catalog from scratch.",
+          "Softune ships three full live storefront designs: Fashion, Emporium, and Vault. Each implements Softune’s shared page and section contract, so switching templates changes visual design without rebuilding your product catalog from scratch.",
       },
       { type: "h2", content: "The three templates" },
-      { type: "h3", content: "Aurora" },
+      { type: "h3", content: "Fashion" },
       {
         type: "p",
         content:
-          "Aurora suits fashion and editorial brands — photography-forward layouts that keep the catalog feeling premium.",
+          "Fashion suits fashion and editorial brands — photography-forward layouts that keep the catalog feeling premium.",
       },
-      { type: "h3", content: "Bazaar" },
+      { type: "h3", content: "Emporium" },
       {
         type: "p",
         content:
-          "Bazaar fits denser marketplace browsing — strong for larger catalogs and category-heavy shopping.",
+          "Emporium fits shops that sell across many categories — dense catalogs, bold category browsing, and marketplace-style grids.",
       },
-      { type: "h3", content: "Sweets" },
+      { type: "h3", content: "Vault" },
       {
         type: "p",
         content:
-          "Sweets is warm and inviting — a natural fit for bakery, confectionery, and food-led brands.",
+          "Vault is for digital goods — courses, templates, software, and downloads — with a product focus that feels instant to buy.",
       },
       { type: "h2", content: "How to choose" },
       {
         type: "list",
         content: [
           "1. Open Menu → Themes",
-          "2. Preview Aurora, Bazaar, and Sweets against your real products",
+          "2. Preview Fashion, Emporium, and Vault against your real products",
           "3. Pick the template whose homepage rhythm matches how customers shop you",
           "4. Continue into the theme editor to set Brand, Colors, Header, Pages, and Sections",
         ],

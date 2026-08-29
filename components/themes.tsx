@@ -1,55 +1,42 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 const themes = [
   {
-    name: "Aurora",
+    name: "Fashion",
     vibe: "Fashion editorial",
     description:
       "A minimalist, high-end editorial layout designed to put your photography center stage. Perfect for fashion, jewelry, and luxury brands.",
     color: "#1c1917",
     surface: "#faf9f6",
-    image: "/theme_aurora.webp",
+    image: "/theme-fashion.webp",
+    demoUrl: "https://aurora-owner.softune.xyz/",
   },
   {
-    name: "Bazaar",
-    vibe: "General marketplace",
+    name: "Emporium",
+    vibe: "Everything under one roof",
     description:
-      "A clean, data-dense interface built for massive catalogs. Features advanced filtering, bold categories, and high-conversion product grids.",
+      "Built for shops that sell across many aisles — apparel, gadgets, home, beauty — with bold category browsing and dense product grids that still feel easy to shop.",
     color: "#2563EB",
     surface: "#f8fafc",
-    image: "/theme_bazaar.webp",
+    image: "/theme-bazaar.webp",
+    demoUrl: "https://niyenen.softune.xyz/",
   },
   {
-    name: "Mishthan",
-    vibe: "Bakery & sweets",
+    name: "Vault",
+    vibe: "Digital goods & downloads",
     description:
-      "Warm, inviting, and deliciously crafted. Uses soft tones and elegant typography to make your food and artisanal products irresistible.",
+      "Made for selling what you can't ship in a box — courses, templates, software, and downloadable files — with a clean product focus and checkout that feels instant.",
     color: "#DC5200",
     surface: "#faf5ef",
     image: "/theme_mishthan.webp",
+    demoUrl: "https://onedigitalspot.vercel.app/",
   },
 ];
 
 export function Themes() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -400, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 400, behavior: "smooth" });
-    }
-  };
-
   return (
     <section id="themes" className="mx-auto max-w-[1400px] px-4 py-14 sm:px-5 md:px-8 md:py-20">
       <div className="mx-auto flex flex-col items-center text-center">
@@ -76,42 +63,45 @@ export function Themes() {
           </span>
         </motion.div>
 
-        <h2 className="max-w-2xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
-          Trendy Themes for Every{" "}
+        <h2 className="max-w-3xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
+          Start with a theme.{" "}
           <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
             <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
-            <em className="relative not-italic text-white">Business</em>
+            <em className="relative not-italic text-white">Make it yours</em>
           </span>
         </h2>
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
+          You&apos;re never locked to one look. Change colors, fonts, sections,
+          and copy in the Theme Editor until the storefront feels like your
+          brand, then switch themes anytime without rebuilding your catalog.
+        </p>
       </div>
 
-      <p className="mt-8 text-center text-[12px] font-medium text-[var(--color-muted-soft)] sm:hidden">
-        Swipe to browse themes
-        <ArrowRight className="ml-2 inline-block size-3 text-[var(--color-muted-soft)]" />
-      </p>
-
-      <div
-        ref={carouselRef}
-        className="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto no-scrollbar pb-8 sm:mt-10 sm:gap-6 sm:pb-10 md:mt-10"
-      >
-        {themes.map((t, i) => (
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 md:mt-10 lg:grid-cols-3">
+        {themes.map((t) => (
           <article
             key={t.name}
-            className="group flex w-[82vw] shrink-0 snap-start flex-col sm:w-[60vw] md:w-[45vw] lg:w-[calc(33.333%-1rem)]"
+            className="group flex w-full flex-col"
           >
             <div className="relative flex h-[400px] w-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.1)] transition-transform duration-500 sm:h-[400px] md:h-[500px] lg:h-[600px]">
-              <div className="flex shrink-0 items-center justify-between border-b border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2.5 sm:px-4 sm:py-3">
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="size-2.5 rounded-full bg-[#ff5f57] sm:size-3" />
-                  <span className="size-2.5 rounded-full bg-[#febc2e] sm:size-3" />
-                  <span className="size-2.5 rounded-full bg-[#28c840] sm:size-3" />
-                  <div className="ml-2 hidden h-6 max-w-[200px] min-w-[120px] flex-1 items-center rounded-md border border-[var(--color-line)] bg-[var(--color-canvas)] px-2 sm:ml-3 sm:flex">
+              <div className="relative z-10 flex shrink-0 items-center justify-between border-b border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2.5 sm:px-4 sm:py-3">
+                <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+                  <span className="size-2.5 shrink-0 rounded-full bg-[#ff5f57] sm:size-3" />
+                  <span className="size-2.5 shrink-0 rounded-full bg-[#febc2e] sm:size-3" />
+                  <span className="size-2.5 shrink-0 rounded-full bg-[#28c840] sm:size-3" />
+                  <div className="ml-2 hidden h-6 max-w-[200px] min-w-0 flex-1 items-center rounded-md border border-[var(--color-line)] bg-[var(--color-canvas)] px-2 sm:ml-3 sm:flex">
                     <span className="truncate text-[10px] font-medium text-[var(--color-muted)]">
                       {t.name.toLowerCase()}.softune.xyz
                     </span>
                   </div>
                 </div>
-                <div className="group/link flex cursor-pointer items-center justify-center">
+                <a
+                  href={t.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open live ${t.name} demo`}
+                  className="group/link flex shrink-0 items-center justify-center rounded-md p-1 transition-colors hover:bg-[var(--color-canvas)]"
+                >
                   <div
                     className="size-5 bg-[var(--color-ink)] transition-colors group-hover/link:bg-[var(--color-brand)]"
                     style={{
@@ -121,24 +111,37 @@ export function Themes() {
                       WebkitMaskPosition: "center",
                     }}
                   />
-                </div>
+                </a>
               </div>
 
+              {/* Tall mobile-site shot: rests at top, auto-scrolls on hover */}
               <div
-                className="relative w-full flex-1"
+                className="theme-shot-frame relative min-h-0 w-full flex-1 overflow-hidden"
                 style={{ backgroundColor: t.surface }}
-              />
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={t.image}
+                  alt={`${t.name} theme preview`}
+                  className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"
+                />
+              </div>
 
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex cursor-pointer items-center gap-3 p-4 sm:p-5 md:p-8">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0" />
+              <a
+                href={t.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-x-0 bottom-0 z-[1] flex items-center gap-3 p-4 transition-opacity duration-300 group-hover:opacity-0 sm:p-5 md:p-8"
+              >
                 <h3
-                  className="text-3xl text-white drop-shadow-md transition-colors group-hover:text-[var(--color-brand)] sm:text-4xl md:text-5xl"
+                  className="text-3xl text-white drop-shadow-md transition-colors hover:text-[var(--color-brand)] sm:text-4xl md:text-5xl"
                   style={{ fontFamily: "var(--font-niconne)" }}
                 >
                   {t.name}
                 </h3>
                 <div
-                  className="mt-1 size-5 bg-white transition-all duration-300 group-hover:translate-x-2 group-hover:bg-[var(--color-brand)] sm:mt-2 sm:size-6"
+                  className="mt-1 size-5 bg-white transition-all duration-300 sm:mt-2 sm:size-6"
                   style={{
                     WebkitMaskImage: "url(/icons/arrow-right.svg)",
                     WebkitMaskSize: "contain",
@@ -146,7 +149,7 @@ export function Themes() {
                     WebkitMaskPosition: "center",
                   }}
                 />
-              </div>
+              </a>
             </div>
           </article>
         ))}

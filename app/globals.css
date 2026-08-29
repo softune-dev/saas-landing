@@ -72,6 +72,21 @@ body {
   display: none;
 }
 
+/* Tall theme screenshots: rest at the top, auto-scroll on card hover.
+   Uses container query height (cqh) so the travel distance matches the
+   preview frame at every breakpoint — short shots barely move. */
+.theme-shot-frame {
+  container-type: size;
+}
+.theme-shot-img {
+  transform: translateY(0);
+  transition: transform 0.7s ease-out;
+}
+.group:hover .theme-shot-img {
+  transform: translateY(min(0px, calc(100cqh - 100%)));
+  transition: transform 12s linear;
+}
+
 .bg-dot-grid {
   background-image: radial-gradient(rgba(0, 0, 0, 0.04) 2.5px, transparent 2.5px);
   background-size: 16px 16px;

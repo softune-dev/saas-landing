@@ -131,7 +131,7 @@ export function Hero() {
           </div>
           <Button
             as="a"
-            href="/templates/aurora"
+            href="/#themes"
             variant="outline"
             className="flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[var(--color-brand)]/5 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
           >

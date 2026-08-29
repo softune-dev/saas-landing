@@ -105,11 +105,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Start from a theme that fits",
     extraDesc:
-      "Aurora, Bazaar, and Mishthan share the same editor, so you customize one clear design system instead of fighting a rigid template.",
+      "Fashion, Emporium, and Vault share the same editor, so you customize one clear design system instead of fighting a rigid template.",
     extraCards: [
-      { title: "Aurora", desc: "Clean editorial layout for fashion and general retail.", icon: "/icons/themes.svg" },
-      { title: "Bazaar", desc: "Catalog-first layout for bigger product lists.", icon: "/icons/color.svg" },
-      { title: "Mishthan", desc: "Warm product-photo layout for food and gift shops.", icon: "/icons/zap.svg" },
+      { title: "Fashion", desc: "Editorial layout for apparel, jewelry, and photo-led brands.", icon: "/icons/themes.svg" },
+      { title: "Emporium", desc: "Many aisles under one roof — dense catalogs and category browsing.", icon: "/icons/color.svg" },
+      { title: "Vault", desc: "Built for courses, templates, software, and other digital goods.", icon: "/icons/zap.svg" },
     ],
   },
   "ai-assistant": {
