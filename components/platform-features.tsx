@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export type FeatureSection = {
   pillText: string;
@@ -128,6 +130,18 @@ const CheckIcon = () => (
 );
 
 export function PlatformFeatures() {
+  // Same mounted-gate pattern as Hero: avoids a hydration mismatch (server
+  // always renders the same theme) while still picking ONE image per
+  // section instead of shipping both light+dark variants and hiding one
+  // with CSS — that was fetching roughly double the bytes this section
+  // needed for every visitor.
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const isDark = !mounted || resolvedTheme === "dark";
+
   return (
     <section className="overflow-hidden border-y border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
@@ -220,21 +234,14 @@ export function PlatformFeatures() {
                         </span>
                       </div>
                     ) : (
-                      <>
-                        {/* Light / dark assets from public/showcase */}
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={liteSrc}
-                          alt={section.pillText}
-                          className="absolute inset-0 size-full object-cover dark:hidden"
-                        />
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={darkSrc}
-                          alt={section.pillText}
-                          className="absolute inset-0 hidden size-full object-cover dark:block"
-                        />
-                      </>
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={isDark ? darkSrc : liteSrc}
+                        alt={section.pillText}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 size-full object-cover"
+                      />
                     )}
                   </div>
                 </motion.div>

@@ -123,6 +123,8 @@ export function Themes() {
                 <img
                   src={t.image}
                   alt={`${t.name} theme preview`}
+                  loading="lazy"
+                  decoding="async"
                   className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"
                 />
               </div>
