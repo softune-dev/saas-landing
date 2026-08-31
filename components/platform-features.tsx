@@ -173,6 +173,8 @@ export function PlatformFeatures() {
                           style={{ animationDuration: "2s" }}
                         />
                         <img
+            loading="lazy"
+            decoding="async"
                           src={section.pillIcon}
                           alt=""
                           className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"

@@ -110,6 +110,8 @@ export function Contact() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/chat.svg"
                 alt=""
                 className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
@@ -148,6 +150,8 @@ export function Contact() {
                   <div className="mb-4 inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
                     <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                       <img
+            loading="lazy"
+            decoding="async"
                         src={card.icon}
                         alt=""
                         className="size-4 object-contain brightness-0 invert"
@@ -298,6 +302,8 @@ export function Contact() {
                 {busy ? "Sending…" : "Send Message"}
                 {!busy ? (
                   <img
+            loading="lazy"
+            decoding="async"
                     src="/icons/send.svg"
                     alt=""
                     className="size-5 object-contain brightness-0 invert"

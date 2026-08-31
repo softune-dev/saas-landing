@@ -60,6 +60,8 @@ export function Header() {
       <div className="relative z-40 flex h-11 w-full items-center justify-between overflow-hidden bg-[#c147b6] px-3 text-white sm:h-[44px] sm:px-6 lg:px-8">
         <div className="hidden items-center gap-2 sm:flex">
           <img
+            loading="lazy"
+            decoding="async"
             src="/sale.svg"
             alt="Softune launch sale"
             width={180}
@@ -147,6 +149,8 @@ export function Header() {
                             {sub.icon && (
                               <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
                                 <img
+            loading="lazy"
+            decoding="async"
                                   src={sub.icon}
                                   alt=""
                                   className="size-5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
@@ -260,6 +264,8 @@ export function Header() {
                                     {sub.icon && (
                                       <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
                                         <img
+            loading="lazy"
+            decoding="async"
                                           src={sub.icon}
                                           alt=""
                                           className="size-5 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"

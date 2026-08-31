@@ -110,6 +110,8 @@ export function Features() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/zap.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
@@ -148,6 +150,8 @@ export function Features() {
                 <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
                   <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                     <img
+            loading="lazy"
+            decoding="async"
                       src={f.icon}
                       alt=""
                       className="size-4 object-contain brightness-0 invert"

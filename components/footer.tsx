@@ -67,6 +67,8 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/chatgpt.webp"
                   alt="ChatGPT"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -78,6 +80,8 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/claud.webp"
                   alt="Claude"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -89,6 +93,8 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/gemini.webp"
                   alt="Gemini"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -100,6 +106,8 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/grok.webp"
                   alt="Grok"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -111,6 +119,8 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/perplexity.webp"
                   alt="Perplexity"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -121,10 +131,14 @@ export function Footer() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="#" className="transition-transform hover:scale-105">
-              <img src="/googleplay.webp" alt="Get it on Google Play" className="h-[80px] w-auto object-contain" />
+              <img
+            loading="lazy"
+            decoding="async" src="/googleplay.webp" alt="Get it on Google Play" className="h-[80px] w-auto object-contain" />
             </a>
             <a href="#" className="transition-transform">
-              <img src="/appstore.webp" alt="Download on the App Store" className="h-[40px] w-auto object-contain" />
+              <img
+            loading="lazy"
+            decoding="async" src="/appstore.webp" alt="Download on the App Store" className="h-[40px] w-auto object-contain" />
             </a>
           </div>
         </div>
@@ -181,16 +195,22 @@ export function Footer() {
               </span>
               <div className="grid w-full max-w-[360px] grid-cols-4 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/bkash.webp"
                   alt="bKash"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/nagad.webp"
                   alt="Nagad"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/sslcommerz.webp"
                   alt="SSLCommerz"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
@@ -210,6 +230,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/facebook.webp"
                   alt="Facebook"
                   className="size-6 object-contain"
@@ -220,6 +242,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/insta.webp"
                   alt="Instagram"
                   className="size-6 object-contain"
@@ -230,6 +254,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/linkedin.webp"
                   alt="LinkedIn"
                   className="size-6 object-contain"
@@ -240,6 +266,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/google.webp"
                   alt="Google"
                   className="size-6 object-contain"

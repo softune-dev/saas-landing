@@ -78,6 +78,8 @@ export function Comparison() {
           >
             <div className="flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/zap.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
@@ -128,6 +130,8 @@ export function Comparison() {
                 </p>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/logo-white.png"
                   alt="Softune"
                   className="h-10 w-auto object-contain sm:h-12"
@@ -169,6 +173,8 @@ export function Comparison() {
               >
                 Start with Softune
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/arrow-right.svg"
                   alt=""
                   className="size-4 object-contain brightness-0 invert"
@@ -255,6 +261,8 @@ export function Comparison() {
               >
                 See Softune plans
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/arrow-right.svg"
                   alt=""
                   className="size-4 object-contain opacity-60 dark:invert"

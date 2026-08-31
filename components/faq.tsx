@@ -89,6 +89,8 @@ export function Faq() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/help-desk.svg"
                 alt=""
                 className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"

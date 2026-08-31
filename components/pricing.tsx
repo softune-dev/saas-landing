@@ -40,6 +40,8 @@ export function Pricing() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/billing.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
@@ -214,6 +216,8 @@ export function Pricing() {
                   >
                     Get Started
                     <img
+            loading="lazy"
+            decoding="async"
                       src="/icons/arrow-right.svg"
                       alt=""
                       className={`size-4 object-contain ${
@@ -279,6 +283,8 @@ export function Pricing() {
               >
                 Contact Sales
                 <img
+            loading="lazy"
+            decoding="async"
                   src="/icons/arrow-right.svg"
                   alt=""
                   className="size-4 object-contain brightness-0 invert"

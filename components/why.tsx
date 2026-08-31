@@ -54,6 +54,8 @@ export function Why() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/zap.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
@@ -91,6 +93,8 @@ export function Why() {
                 <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
                   <div className="flex size-12 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                     <img
+            loading="lazy"
+            decoding="async"
                       src={item.icon}
                       alt=""
                       className="size-5 object-contain brightness-0 invert"

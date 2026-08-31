@@ -53,6 +53,8 @@ export function AddonsShowcase() {
                 style={{ animationDuration: "2s" }}
               />
               <img
+            loading="lazy"
+            decoding="async"
                 src="/icons/save.svg"
                 alt=""
                 className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
@@ -91,6 +93,8 @@ export function AddonsShowcase() {
                 ].join(" ")}
               >
                 <img
+            loading="lazy"
+            decoding="async"
                   src={addon.logoSrc}
                   alt={`${addon.name} Softune add-on`}
                   width={64}

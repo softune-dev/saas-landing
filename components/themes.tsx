@@ -53,6 +53,8 @@ export function Themes() {
               style={{ animationDuration: "2s" }}
             />
             <img
+            loading="lazy"
+            decoding="async"
               src="/icons/themes.svg"
               alt="Themes"
               className="size-3 object-contain md:size-3.5 dark:invert"
@@ -166,6 +168,8 @@ export function Themes() {
         >
           View all themes
           <img
+            loading="lazy"
+            decoding="async"
             src="/icons/arrow-right.svg"
             alt=""
             className="size-4 object-contain brightness-0 invert transition-transform group-hover:translate-x-1"
