@@ -10,7 +10,7 @@ import "./globals.css";
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
-  weight: ["400", "700", "800", "900"],
+  weight: ["800", "900"],
   display: "swap",
 });
 
@@ -19,6 +19,7 @@ const niconne = Niconne({
   weight: ["400"],
   variable: "--font-niconne",
   display: "swap",
+  preload: false,
 });
 
 const manrope = Manrope({
@@ -30,8 +31,9 @@ const manrope = Manrope({
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: false,
 });
 
 const instrument = Instrument_Serif({
@@ -40,6 +42,7 @@ const instrument = Instrument_Serif({
   style: ["normal", "italic"],
   variable: "--font-instrument",
   display: "swap",
+  preload: false,
 });
 
 // Manrope has no Bengali glyphs — this is a per-glyph CSS fallback (see
@@ -52,6 +55,8 @@ const notoSansBengali = Noto_Sans_Bengali({
   variable: "--font-bn",
   subsets: ["bengali"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -130,6 +135,20 @@ export default function RootLayout({
     >
       <head>
         <link rel="describedby" href="/llms.txt" />
+        <link
+          rel="preload"
+          as="image"
+          href="/dashboard-d-mobile.webp"
+          type="image/webp"
+          media="(max-width: 767px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/dashboard-d.webp"
+          type="image/webp"
+          media="(min-width: 768px)"
+        />
       </head>
       <body className="min-h-screen antialiased bg-[var(--color-canvas)] text-[var(--color-ink)] transition-colors duration-200">
         {/* Sitewide entity schema — every page carries these two so an AI
@@ -141,10 +160,8 @@ export default function RootLayout({
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
 
-        {/* Tawk.to live chat widget. afterInteractive so it never competes
-            with the initial page render/LCP — chat can load a beat later
-            without anyone noticing. */}
-        <Script id="tawk-to" strategy="afterInteractive">
+        {/* Tawk.to — lazyOnload so it doesn't compete with LCP/TBT on mobile. */}
+        <Script id="tawk-to" strategy="lazyOnload">
           {`
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
             (function () {

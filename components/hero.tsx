@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
@@ -63,11 +63,8 @@ export function Hero() {
           </Link>
         </motion.div>
 
-        <motion.h1
+        <h1
           style={{ fontFamily: "var(--font-outfit)" }}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.05 }}
           className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[1.85rem] leading-[1.05] font-black tracking-tighter text-[var(--color-ink)] sm:gap-x-3 sm:text-[3.2rem] sm:leading-[1.05] md:text-[4rem] lg:gap-y-3 lg:text-[4.5rem]"
         >
           <span>Everything you need to</span>
@@ -85,7 +82,7 @@ export function Hero() {
             </span>
             <span>Online.</span>
           </span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -149,12 +146,7 @@ export function Hero() {
 
       {/* Dashboard — sized for the 1440×956 asset, with bottom gap */}
       <div className="relative z-10 mx-auto w-full max-w-[1480px] shrink-0 px-3 pb-8 sm:px-5 sm:pb-10 md:px-6 md:pb-14 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full"
-        >
+        <div className="relative mx-auto w-full">
           <div className="overflow-hidden rounded-xl border border-[var(--color-line)] shadow-[0_24px_80px_-28px_rgba(12,12,12,0.4)] sm:rounded-2xl">
             {/* aspect-ratio reserves the layout space instead of loading a
                 second hidden copy of the image just to size the box. */}
@@ -162,28 +154,26 @@ export function Hero() {
               className="relative w-full overflow-hidden bg-[var(--color-canvas)]"
               style={{ aspectRatio: "1440 / 956" }}
             >
-              <AnimatePresence mode="sync" initial={false}>
-                <motion.img
-                  key={desktopSrc}
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={mobileSrc}
+                  type="image/webp"
+                />
+                <img
                   src={desktopSrc}
-                  srcSet={`${mobileSrc} 800w, ${desktopSrc} 1440w`}
-                  sizes="(max-width: 767px) 100vw, 1440px"
                   alt="Softune merchant dashboard"
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover object-left-top"
                   width={1440}
                   height={956}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="absolute inset-0 h-full w-full object-cover object-left-top"
                 />
-              </AnimatePresence>
+              </picture>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
