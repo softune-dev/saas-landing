@@ -3,13 +3,13 @@ import { SoftuneLogo } from "@/components/brand/softune-logo";
 /** Shared prompt for footer AI deep-links — points models at llms.txt so
  * answers match product truth instead of inventing gateways / unlimited stores. */
 const ASK_AI_PROMPT =
-  "Using https://softune.xyz/llms.txt and softune.xyz, explain what Softune is: a Bangladesh ecommerce SaaS with Theme Editor, Gemini AI chatbot, COD + manual bKash/Nagad payments, courier connections (Steadfast verified connect), Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent live SSLCommerz checkout or unlimited stores on every plan.";
+  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softune is: a Bangladesh ecommerce SaaS with Theme Editor, Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
 
 const cols = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "/features/multiple-themes" },
+      { label: "Features", href: "/features" },
       { label: "Pricing", href: "/pricing" },
       { label: "Add-Ons", href: "#addons" },
       { label: "Documentation", href: "/support/documentation" },
@@ -22,7 +22,7 @@ const cols = [
     links: [
       { label: "Contact Us", href: "/support/contact" },
       { label: "Help Center", href: "/support/faq" },
-      { label: "Email Support", href: "mailto:hello@softune.xyz" },
+      { label: "Email Support", href: "mailto:support@softunebd.com" },
       { label: "Video Tutorials", href: "/support/tutorials" },
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Privacy Policy", href: "/privacy" },
@@ -51,8 +51,9 @@ export function Footer() {
           </div>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             Softune is the ecommerce platform built for small businesses and
-            startups in Bangladesh. Themes, orders, COD and bKash/Nagad,
-            couriers, POS, and AI — one dashboard. No coding required.
+            startups in Bangladesh. Themes, orders, COD, bKash, Nagad,
+            SSLCommerz, couriers, POS, and AI — one dashboard. No coding
+            required.
           </p>
 
           <div className="mt-4">
@@ -178,7 +179,7 @@ export function Footer() {
               <span className="shrink-0 text-sm font-medium tracking-tight text-[var(--color-muted)] sm:text-base">
                 Secured Payment :
               </span>
-              <div className="grid w-full max-w-[280px] grid-cols-3 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
+              <div className="grid w-full max-w-[360px] grid-cols-4 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
                 <img
                   src="/icons/bkash.webp"
                   alt="bKash"
@@ -187,6 +188,11 @@ export function Footer() {
                 <img
                   src="/icons/nagad.webp"
                   alt="Nagad"
+                  className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
+                />
+                <img
+                  src="/icons/sslcommerz.webp"
+                  alt="SSLCommerz"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <span

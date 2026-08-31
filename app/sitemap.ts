@@ -4,14 +4,20 @@ import { BLOG_POSTS } from "@/lib/blog-data";
 import { FEATURE_PAGES } from "@/lib/features-data";
 import { DOC_CATEGORIES } from "@/lib/documentation-data";
 
-const STATIC_ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+const STATIC_ROUTES: {
+  path: string;
+  priority: number;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+}[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/pricing", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/features", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/signup", priority: 0.8, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/brandkit", priority: 0.3, changeFrequency: "yearly" },
   { path: "/careers", priority: 0.4, changeFrequency: "monthly" },
   { path: "/changelog", priority: 0.5, changeFrequency: "weekly" },
-  { path: "/blog", priority: 0.7, changeFrequency: "daily" },
+  { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
   { path: "/support/faq", priority: 0.6, changeFrequency: "monthly" },
   { path: "/support/contact", priority: 0.5, changeFrequency: "monthly" },
   { path: "/support/community", priority: 0.4, changeFrequency: "monthly" },
@@ -23,6 +29,11 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: Metadata
   { path: "/cookie", priority: 0.2, changeFrequency: "yearly" },
 ];
 
+function parsePostDate(date: string): Date {
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -33,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.priority,
   }));
 
-  // Public AI-crawler brief — not an HTML route, but search/LLM systems
-  // that read sitemaps should still discover /llms.txt alongside the site.
   const llmsEntry: MetadataRoute.Sitemap[number] = {
     url: `${SITE_URL}/llms.txt`,
     lastModified: now,
@@ -44,17 +53,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: now,
+    lastModified: parsePostDate(post.date),
     changeFrequency: "monthly",
     priority: 0.6,
+    ...(post.image
+      ? { images: [`${SITE_URL}${post.image}`] }
+      : {}),
   }));
 
-  const featureEntries: MetadataRoute.Sitemap = Object.keys(FEATURE_PAGES).map((slug) => ({
-    url: `${SITE_URL}/features/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
+  const featureEntries: MetadataRoute.Sitemap = Object.keys(FEATURE_PAGES).map(
+    (slug) => ({
+      url: `${SITE_URL}/features/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }),
+  );
 
   const docEntries: MetadataRoute.Sitemap = DOC_CATEGORIES.flatMap((cat) =>
     cat.articles.map((article) => ({
@@ -65,5 +79,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [llmsEntry, ...staticEntries, ...blogEntries, ...featureEntries, ...docEntries];
+  return [
+    llmsEntry,
+    ...staticEntries,
+    ...featureEntries,
+    ...blogEntries,
+    ...docEntries,
+  ];
 }

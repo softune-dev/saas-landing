@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import BlogPage from "./blog-content";
 
 export const metadata = pageSeo({
-  title: "Blog",
+  title: "Ecommerce Guides for Bangladesh",
   description:
-    "Guides on conversion optimization, storefront design, courier automation, and running an online store — from the team building Softune.",
+    "Practical Softune guides for Bangladeshi store owners — Facebook Page to website, COD, bKash, couriers, and launching a store without code.",
   path: "/blog",
 });
 

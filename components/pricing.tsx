@@ -207,6 +207,8 @@ export function Pricing() {
                   </div>
 
                   <Button
+                    as="a"
+                    href="/signup"
                     variant={popular ? "primary" : "secondary"}
                     className="relative z-10 flex min-h-12 w-full items-center justify-center gap-2 py-3.5 text-[14px] font-bold"
                   >

@@ -63,7 +63,7 @@ const guidelines = [
   {
     icon: "/icons/help-desk.svg",
     title: "Ask Before Publishing",
-    desc: "For editorial, advertising, or partnership use, please reach out to hello@softune.xyz first.",
+    desc: "For editorial, advertising, or partnership use, please reach out to support@softunebd.com first.",
   },
 ];
 
@@ -321,7 +321,7 @@ export default function BrandKitPage() {
               <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium mb-8">
                 If you need additional formats, high-resolution files, or have a specific brand partnership in mind, reach out to us directly.
               </p>
-              <Button variant="primary" as="a" href="mailto:hello@softune.xyz" className="px-8 py-3.5 font-bold gap-2">
+              <Button variant="primary" as="a" href="mailto:support@softunebd.com" className="px-8 py-3.5 font-bold gap-2">
                 Contact Brand Team
                 <img src="/icons/arrow-right.svg" alt="" className="size-4 object-contain brightness-0 invert" />
               </Button>

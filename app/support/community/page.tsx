@@ -4,8 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import CommunityPage from "./community-content";
 
 export const metadata = pageSeo({
-  title: "Community",
-  description: "Connect with other Softune merchants and agencies — ask questions, share what's working.",
+  title: "Merchant Community",
+  description:
+    "Connect with other Softune merchants and agencies in Bangladesh — ask setup questions and share what is working.",
   path: "/support/community",
 });
 

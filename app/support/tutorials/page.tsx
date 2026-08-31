@@ -4,8 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import TutorialsPage from "./tutorials-content";
 
 export const metadata = pageSeo({
-  title: "Tutorials",
-  description: "Step-by-step video and written tutorials for getting the most out of Softune.",
+  title: "Tutorials | Launch a Softune Store",
+  description:
+    "Step-by-step Softune tutorials for new merchants — dashboard setup, catalog, Theme Editor, payments, and publishing.",
   path: "/support/tutorials",
 });
 

@@ -1,13 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { RecaptchaCheckbox } from "@/components/ui/recaptcha-checkbox";
-import { hasRecaptcha } from "@/lib/recaptcha";
+import { RecaptchaDisclosure } from "@/components/auth/recaptcha-disclosure";
+import {
+  RecaptchaV2Fallback,
+  type RecaptchaV2FallbackHandle,
+} from "@/components/auth/recaptcha-v2-fallback";
+import {
+  RecaptchaChallengeRequiredError,
+  submitPlatformContact,
+} from "@/lib/api";
+import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
 
 // Only real channels today. Add a new entry here the moment another one
 // exists (a support phone line, live chat, etc.) — a fake placeholder is
@@ -16,8 +24,8 @@ const cards = [
   {
     title: "Email Support",
     desc: "Our tech support team resolves tickets in 2 hours.",
-    detail: "hello@softune.xyz",
-    href: "mailto:hello@softune.xyz",
+    detail: "support@softunebd.com",
+    href: "mailto:support@softunebd.com",
     icon: "/icons/chat.svg",
   },
   {
@@ -31,7 +39,11 @@ const cards = [
 
 export default function ContactSupportPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [needsChallenge, setNeedsChallenge] = useState(false);
+  const [v2Token, setV2Token] = useState<string | null>(null);
+  const v2Ref = useRef<RecaptchaV2FallbackHandle>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -40,26 +52,40 @@ export default function ContactSupportPage() {
     message: ""
   });
 
-  // There's no backend endpoint for platform-level (not per-merchant-site)
-  // contact requests — this used to just flip formSubmitted to true with no
-  // message ever actually sent anywhere. A real mailto: at least gets the
-  // message to a real inbox via the visitor's own email client, instead of
-  // silently discarding it while showing a fake "Message Sent!" screen.
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!(formData.firstName && formData.lastName && formData.email && formData.message)) return;
-    if (hasRecaptcha && !recaptchaToken) return;
+    if (needsChallenge && !v2Token) return;
 
-    const subject = `Support request from ${formData.firstName} ${formData.lastName}`;
-    const bodyLines = [
-      formData.message,
-      "",
-      `Email: ${formData.email}`,
-      formData.phone ? `Phone: ${formData.phone}` : null,
-    ].filter(Boolean);
-    const mailto = `mailto:hello@softune.xyz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-    setFormSubmitted(true);
+    setError(null);
+    setBusy(true);
+    try {
+      const recaptchaToken = await getRecaptchaToken("platform_contact");
+      await submitPlatformContact({
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || undefined,
+        message: formData.message.trim(),
+        recaptcha_token: recaptchaToken,
+        recaptcha_v2_token: v2Token ?? "",
+      });
+      setFormSubmitted(true);
+      setNeedsChallenge(false);
+      setV2Token(null);
+    } catch (err) {
+      if (err instanceof RecaptchaChallengeRequiredError) {
+        setNeedsChallenge(true);
+        setError(hasV2Fallback ? null : err.message);
+      } else {
+        setError(
+          err instanceof Error ? err.message : "Couldn't send your message",
+        );
+        v2Ref.current?.reset();
+      }
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
@@ -174,13 +200,15 @@ export default function ContactSupportPage() {
                     <div className="size-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
                       <CheckCircle2 className="size-10" />
                     </div>
-                    <h3 className="text-xl font-bold text-[var(--color-ink)]">Almost there!</h3>
+                    <h3 className="text-xl font-bold text-[var(--color-ink)]">Message sent</h3>
                     <p className="text-[15px] text-[var(--color-muted)] max-w-md">
-                      Thanks, <span className="font-bold">{formData.firstName}</span> — your email client should have opened with your message pre-filled. Hit send there to reach us, and we&apos;ll reply at <span className="font-bold">{formData.email}</span>.
+                      Thanks, <span className="font-bold">{formData.firstName}</span> — we received your message and will reply at <span className="font-bold">{formData.email}</span>.
                     </p>
                     <Button variant="outline" className="mt-6" onClick={() => {
                       setFormSubmitted(false);
-                      setRecaptchaToken(null);
+                      setError(null);
+                      setNeedsChallenge(false);
+                      setV2Token(null);
                       setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
                     }}>
                       Send Another Message
@@ -198,6 +226,8 @@ export default function ContactSupportPage() {
                           placeholder="John"
                           required
                           value={formData.firstName}
+                          maxLength={80}
+                          autoComplete="given-name"
                           onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                           className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10 text-[var(--color-ink)]"
                         />
@@ -211,6 +241,8 @@ export default function ContactSupportPage() {
                           placeholder="Doe"
                           required
                           value={formData.lastName}
+                          maxLength={80}
+                          autoComplete="family-name"
                           onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                           className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10 text-[var(--color-ink)]"
                         />
@@ -226,6 +258,7 @@ export default function ContactSupportPage() {
                         placeholder="john@company.com"
                         required
                         value={formData.email}
+                        autoComplete="email"
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10 text-[var(--color-ink)]"
                       />
@@ -239,6 +272,8 @@ export default function ContactSupportPage() {
                         type="tel"
                         placeholder="+1 (555) 000-0000"
                         value={formData.phone}
+                        maxLength={32}
+                        autoComplete="tel"
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10 text-[var(--color-ink)]"
                       />
@@ -253,27 +288,38 @@ export default function ContactSupportPage() {
                         required
                         placeholder="How can we help you?"
                         value={formData.message}
+                        maxLength={2000}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="resize-none rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10 text-[var(--color-ink)]"
                       />
                     </div>
 
-                    <div className="mt-1 sm:mt-2">
-                      <RecaptchaCheckbox onVerify={setRecaptchaToken} />
-                    </div>
+                    {error ? (
+                      <p className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-600 dark:border-rose-900/40 dark:bg-rose-950/40 dark:text-rose-400">
+                        {error}
+                      </p>
+                    ) : null}
+
+                    {needsChallenge && hasV2Fallback ? (
+                      <RecaptchaV2Fallback ref={v2Ref} onVerify={setV2Token} />
+                    ) : null}
 
                     <Button
                       type="submit"
-                      disabled={hasRecaptcha && !recaptchaToken}
+                      disabled={busy || (needsChallenge && !v2Token)}
                       className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
                     >
-                      Send Message
-                      <img
-                        src="/icons/send.svg"
-                        alt=""
-                        className="size-5 object-contain brightness-0 invert"
-                      />
+                      {busy ? "Sending…" : "Send Message"}
+                      {!busy ? (
+                        <img
+                          src="/icons/send.svg"
+                          alt=""
+                          className="size-5 object-contain brightness-0 invert"
+                        />
+                      ) : null}
                     </Button>
+
+                    <RecaptchaDisclosure />
                   </form>
                 )}
               </motion.div>

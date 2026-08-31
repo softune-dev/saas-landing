@@ -8,7 +8,13 @@
  * team members, since fabricated structured data is worse than none: it's
  * a false claim search engines and LLMs treat as authoritative.
  */
-import { SITE_NAME, SITE_URL } from "./site";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  SUPPORT_EMAIL,
+  SUPPORT_PHONE,
+} from "./site";
 
 /** Kamrul Hasan built Softune solo — Organization.founder below and this
  * standalone Person schema (rendered on the About page) are the two
@@ -31,7 +37,7 @@ export function personSchema() {
     url: "https://kamrulhasan.site",
     jobTitle: "Founder & Developer",
     description:
-      "Built Softune end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, COD and manual wallet payments, courier connections, and Store Sale POS.",
+      "Built Softune end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, COD, bKash, Nagad, SSLCommerz, courier connections, and Store Sale POS.",
     worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     // Real profiles only, pulled from kamrulhasan.site/contact — sameAs is
     // how search engines/LLMs link these as the same verified person
@@ -49,16 +55,29 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo-dark.png`,
-    description:
-      "Multi-tenant ecommerce SaaS for Bangladesh merchants and agencies. Themes, products, orders, COD and bKash/Nagad, couriers, POS, analytics, and AI — one platform to build, publish, and grow storefronts.",
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/logo-dark.png`,
+    },
+    description: SITE_DESCRIPTION,
+    email: SUPPORT_EMAIL,
     founder: founderRef(),
-    // sameAs (social profile links) intentionally omitted — the footer's
-    // social icons are all placeholder "#" hrefs today. Add real profile
-    // URLs here the moment they exist; a fake sameAs link is a broken
-    // entity claim, not a helpful one.
+    areaServed: { "@type": "Country", name: "Bangladesh" },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: SUPPORT_EMAIL,
+        telephone: SUPPORT_PHONE,
+        availableLanguage: ["English", "Bengali"],
+        areaServed: "BD",
+      },
+    ],
+    // sameAs (org social profiles) omitted — footer icons are still
+    // placeholder "#" hrefs. Founder sameAs lives on personSchema.
   };
 }
 
@@ -68,8 +87,43 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    inLanguage: ["en", "bn"],
+    publisher: { "@id": `${SITE_URL}/#organization` },
     // No SearchAction/sitelinks-search-box — there's no real site search
     // to point it at yet.
+  };
+}
+
+/** SoftwareApplication — homepage only. Feature list is what the product
+ * actually ships, same claims as llms.txt. No invented rating or installs. */
+export function softwareApplicationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    url: SITE_URL,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Ecommerce",
+    operatingSystem: "Web",
+    description: SITE_DESCRIPTION,
+    offers: {
+      "@type": "Offer",
+      url: `${SITE_URL}/pricing`,
+      priceCurrency: "BDT",
+      availability: "https://schema.org/InStock",
+    },
+    featureList: [
+      "Theme Editor with live preview",
+      "COD, bKash, Nagad, and SSLCommerz payments",
+      "Steadfast, Pathao, RedX, and eCourier connections",
+      "Store Sale POS",
+      "Gemini AI chatbot and product descriptions",
+      "Fraud phone blocklist and checkout rules",
+    ],
+    countriesSupported: "BD",
+    inLanguage: ["en", "bn"],
+    author: founderRef(),
   };
 }
 
@@ -115,15 +169,20 @@ export function articleSchema({
   // <meta property="og:image">, which Next resolves against metadataBase
   // automatically, this JSON-LD is rendered as-is with no such resolution.
   const absoluteImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+  const pageUrl = `${SITE_URL}${path}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     description,
-    image: absoluteImage,
-    url: `${SITE_URL}${path}`,
-    ...(iso ? { datePublished: iso } : {}),
-    ...(lang ? { inLanguage: lang } : {}),
+    image: {
+      "@type": "ImageObject",
+      url: absoluteImage,
+    },
+    url: pageUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    ...(iso ? { datePublished: iso, dateModified: iso } : {}),
+    inLanguage: lang || "en",
     author: { "@type": "Person", name: author },
     publisher: {
       "@type": "Organization",
@@ -148,19 +207,25 @@ export function faqPageSchema(items: { q: string; a: string }[]) {
 export function pricingSchema(
   plans: { name: string; description: string; priceMonthly: number }[],
 ) {
+  const priceValidUntil = `${new Date().getFullYear()}-12-31`;
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: `${SITE_NAME} subscription plans`,
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
     description:
-      "Ecommerce storefront platform subscription — themes, product catalog, orders, and AI tools.",
+      "Ecommerce storefront platform subscription — themes, product catalog, orders, payments, couriers, and AI tools. Priced in Bangladeshi Taka.",
     brand: { "@type": "Brand", name: SITE_NAME },
+    url: `${SITE_URL}/pricing`,
     offers: plans.map((plan) => ({
       "@type": "Offer",
       name: plan.name,
       description: plan.description,
       price: plan.priceMonthly,
       priceCurrency: "BDT",
+      priceValidUntil,
+      availability: "https://schema.org/InStock",
       url: `${SITE_URL}/pricing`,
     })),
   };

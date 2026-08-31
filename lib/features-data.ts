@@ -259,11 +259,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Partners You Use",
     titleEnd: "",
     description:
-      "Softune’s Courier screen covers Steadfast, Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo. Connect your own merchant account so billing stays with you.",
+      "Connect Steadfast, Pathao, RedX, and eCourier from Softune Couriers with your own merchant accounts. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo.",
     heroImage: { light: "/feature/courier-l.webp", dark: "/feature/courier-d.webp" },
-    introTitle: "Nine courier partners on one Softune screen",
+    introTitle: "Bangladesh couriers on one Softune screen",
     introDesc:
-      "Softune does not use a shared Softune courier login. You connect your own credentials. Steadfast can verify and save today; the full partner list lives on the same Couriers page.",
+      "Softune does not use a shared Softune courier login. You connect your own credentials. Steadfast, Pathao, RedX, and eCourier can connect today; the rest of the roster lives on the same Couriers page.",
     alternating: [
       {
         pillText: "Partner Roster",
@@ -274,28 +274,27 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         description:
           "See every Softune courier option in one dashboard list instead of hunting separate apps for each logistics brand.",
         bullets: [
-          "Steadfast",
-          "Pathao Courier",
-          "RedX",
-          "Paperfly",
-          "eCourier",
-          "Carrybee",
+          "Steadfast — connect today",
+          "Pathao Courier — connect today",
+          "RedX — connect today",
+          "eCourier — connect today",
+          "Paperfly, Sundarban, Carrybee, SA Paribahan, PandaGo — on the same roster",
         ],
       },
       {
-        pillText: "Steadfast Live",
+        pillText: "Connect Today",
         pillIcon: "/icons/zap.svg",
-        titleStart: "Connect",
-        titleHighlight: "Steadfast",
+        titleStart: "Four Partners,",
+        titleHighlight: "Ready Now",
         titleEnd: "",
         description:
-          "Enter your Steadfast API key and secret. Softune checks them against Steadfast before saving the connection.",
+          "Connect Steadfast, Pathao, RedX, or eCourier with your own merchant credentials. Steadfast verifies keys against its API before save; the others store your account the same encrypted way.",
         bullets: [
-          "Uses your own Steadfast merchant account",
-          "Credentials verified on connect",
-          "Credentials stored encrypted",
-          "Reconnect anytime if keys change",
-          "Same Couriers screen as every other partner",
+          "Steadfast API key and secret, verified on connect",
+          "Pathao merchant API (client ID, secret, username, password)",
+          "RedX access token",
+          "eCourier username and password",
+          "Your own merchant account — never a shared Softune login",
         ],
       },
       {
@@ -305,7 +304,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Your Account",
         titleEnd: "",
         description:
-          "Courier credentials are encrypted at rest, scoped per store, and never shared Softune logins. Other partners on the roster use the same connections pattern as Softune enables each one.",
+          "Courier credentials are encrypted at rest, scoped per store, and never shared Softune logins. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same roster as those connects land.",
         bullets: [
           "Encrypted credential storage",
           "Per-store courier settings",
@@ -317,9 +316,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built for Bangladesh logistics",
     extraDesc:
-      "From Steadfast to Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo — Softune keeps courier choice on one Couriers screen.",
+      "Connect Steadfast, Pathao, RedX, and eCourier today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same Couriers screen.",
     extraCards: [
-      { title: "Full Roster", desc: "Nine courier brands listed in Softune Couriers, not a single-partner dead end.", icon: "/icons/delivery.svg" },
+      { title: "Connect Today", desc: "Steadfast, Pathao, RedX, and eCourier — your own merchant accounts, one Couriers screen.", icon: "/icons/delivery.svg" },
       { title: "Verified Connect", desc: "Steadfast keys are checked with the courier API before save.", icon: "/icons/zap.svg" },
       { title: "Encrypted", desc: "Courier credentials are encrypted at rest like payment credentials.", icon: "/icons/lock.svg" },
     ],
@@ -471,12 +470,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "Take bKash and Nagad payments from one Softune Payments screen, then add Cash on Delivery when you need it. Everything stays centralized and easy to manage.",
+      "Take Cash on Delivery, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz from one Softune Payments screen. Everything stays centralized and easy to manage.",
     // Note: source filenames are "paymet-*" (typo in the asset itself), not "payment-*".
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
-    introTitle: "bKash, Nagad, and COD in one place",
+    introTitle: "BD payments on one Softune screen",
     introDesc:
-      "Softune is set up for bKash and Nagad. When you request them, Softune can enable the payment setup for your store. COD sits beside them on the same screen.",
+      "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials — Softune does not use a shared payment login.",
     alternating: [
       {
         pillText: "bKash & Nagad",
@@ -485,13 +484,13 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Nagad",
         titleEnd: "",
         description:
-          "Customers pay your bKash or Nagad number, submit a transaction ID at checkout, and you verify it before you ship. Softune can set this up when you request it.",
+          "Connect official bKash and Nagad merchant accounts, or take manual wallet payments: the shopper pays your number, submits a transaction ID, and you verify before you ship.",
         bullets: [
-          "bKash and Nagad supported for Softune stores",
-          "Transaction ID saved with each order",
-          "Enable on request from Softune, then manage in Payments",
-          "No separate merchant account needed to start",
-          "Works alongside Cash on Delivery",
+          "Official bKash merchant checkout — connect App Key, App Secret, username, and password",
+          "Nagad merchant API — merchant ID plus RSA keys",
+          "Manual bKash and Nagad with a transaction ID on each order",
+          "No extra plugin — same Payments screen",
+          "Works alongside Cash on Delivery and SSLCommerz",
         ],
       },
       {
@@ -505,7 +504,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         bullets: [
           "Easy to enable next to wallet methods",
           "Optional COD fee",
-          "Same Payments screen as bKash and Nagad",
+          "Same Payments screen as bKash, Nagad, and SSLCommerz",
           "No card gateway needed to launch",
           "The default most Bangladeshi shoppers expect",
         ],
@@ -517,10 +516,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Easy Setup",
         titleEnd: "",
         description:
-          "Payment methods stay centralized in Softune. Enable COD and wallet methods, keep credentials secure, and avoid juggling separate payment plugins.",
+          "Payment methods stay centralized in Softune. Enable COD, wallet methods, and gateway connects, keep credentials secure, and avoid juggling separate payment plugins.",
         bullets: [
           "Centralized payment tools in one dashboard",
-          "COD plus manual bKash and Nagad today",
+          "COD, manual wallets, official bKash, Nagad, and SSLCommerz",
           "Encrypted credential storage",
           "Switch methods without rebuilding checkout",
           "One place to audit every payment method",
@@ -529,10 +528,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built for real checkouts",
     extraDesc:
-      "Softune focuses on the payment methods your shoppers already use, kept simple and centralized for everyday selling.",
+      "COD, bKash, Nagad, and SSLCommerz — the methods Bangladeshi shoppers already use, kept simple and centralized.",
     extraCards: [
-      { title: "bKash", desc: "Let shoppers pay with bKash and confirm each payment from your dashboard.", icon: "/icons/billing.svg" },
-      { title: "Nagad", desc: "Accept Nagad the same way, with transaction IDs tied to each order.", icon: "/icons/wallet.svg" },
+      { title: "bKash & Nagad", desc: "Official merchant checkout plus manual wallet payments with a transaction ID.", icon: "/icons/billing.svg" },
+      { title: "SSLCommerz", desc: "Connect your SSLCommerz store for cards, mobile banking, and netbanking.", icon: "/icons/wallet.svg" },
       { title: "COD", desc: "Offer Cash on Delivery when your customers prefer to pay on receipt.", icon: "/icons/zap.svg" },
     ],
   },
@@ -751,11 +750,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
 export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Live preview, sections, and AI Suggest" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
-  { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "bKash, Nagad, and COD in one place" },
+  { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
   { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },
   { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, profit, traffic, and conversion" },
-  { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, Paperfly, and more" },
+  { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, eCourier, and more" },
   { slug: "orders", title: "Orders", icon: "/icons/orders.svg", desc: "Search, snapshots, and print slips" },
   { slug: "customer-management", title: "Customers", icon: "/icons/user.svg", desc: "Phone-matched buyers from orders" },
   { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },

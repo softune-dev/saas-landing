@@ -4,8 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import ContactSupportPage from "./contact-content";
 
 export const metadata = pageSeo({
-  title: "Contact Support",
-  description: "Get in touch with the Softune support team — we usually reply within one business day.",
+  title: "Contact Support | Email & WhatsApp",
+  description:
+    "Reach Softune support by email at support@softunebd.com or WhatsApp +880 1831-624571. No phone line — we reply from Bangladesh business hours.",
   path: "/support/contact",
 });
 

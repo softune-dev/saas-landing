@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { notFound, useParams, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -35,7 +35,8 @@ export default function FeaturePage() {
     setMounted(true);
   }, []);
 
-  const feature = FEATURE_PAGES[slug] || FEATURE_PAGES["multiple-themes"];
+  const feature = FEATURE_PAGES[slug];
+  if (!feature) notFound();
   const isDark = !mounted || resolvedTheme === "dark";
   const heroImageSrc = feature.heroImage && (isDark ? feature.heroImage.dark : feature.heroImage.light);
   // heroPlaceholderColor is used when no real screenshot exists yet —

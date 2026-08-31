@@ -21,11 +21,17 @@ const AI_CRAWLERS = [
 
 /** The marketing site — unlike the dashboard, this one WANTS to be found. */
 export default function robots(): MetadataRoute.Robots {
+  const funnel = ["/verify-otp", "/basics", "/welcome"];
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
-      ...AI_CRAWLERS.map((userAgent) => ({ userAgent, allow: "/" })),
+      { userAgent: "*", allow: "/", disallow: funnel },
+      ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: funnel,
+      })),
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

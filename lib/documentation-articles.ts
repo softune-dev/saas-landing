@@ -102,7 +102,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "Themes — open the theme editor for your storefront",
           "Customers — buyers who have ordered from you",
           "Courier — connect delivery partners",
-          "Payments — COD and manual bKash/Nagad",
+          "Payments — COD, bKash, Nagad, and SSLCommerz",
           "Add-Ons — native marketplace extensions",
         ],
       },
@@ -158,8 +158,8 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "1. Add your first product — create a sellable item under Products",
           "2. Create a category — open Categories and add at least one group",
           "3. Add logo & business info — Site Settings / Account business details so the store looks like your brand",
-          "4. Connect a payment method — Payments (COD and/or manual bKash/Nagad)",
-          "5. Set up courier — Couriers screen (Steadfast verified connect when ready)",
+          "4. Connect a payment method — Payments (COD, manual wallets, bKash, Nagad, or SSLCommerz)",
+          "5. Set up courier — Couriers screen (Steadfast, Pathao, RedX, or eCourier)",
           "6. Upload product/store photos — media for products and brand assets",
           "7. Add FAQs — Site Settings FAQs shoppers can read",
           "8. Add legal pages — Privacy and Terms in Site Settings legal docs",
@@ -704,28 +704,28 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect Softune Payments — Cash on Delivery and manual bKash/Nagad — and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
+    "Connect Softune Payments — COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz — and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
     [
       {
         type: "p",
         content:
-          "Menu → Payments is where Softune connects the ways customers pay. Softune checkout today supports Cash on Delivery and manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID). Payments (with Courier) shows as Included by Default on the Add-Ons page — core infrastructure, not one of the 25 optional marketplace Add-Ons.",
+          "Menu → Payments is where Softune connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page — core infrastructure, not one of the 25 optional marketplace Add-Ons.",
       },
       { type: "h2", content: "Enable a payment method" },
       {
         type: "list",
         content: [
           "1. Open Menu → Payments",
-          "2. Choose Cash on Delivery and/or a Softune wallet method (bKash or Nagad)",
-          "3. Enter the merchant wallet number Softune asks for (wallet methods)",
-          "4. Enable the method for the store",
-          "5. Place a test checkout and confirm Softune records the order and any transaction ID correctly",
+          "2. Choose Cash on Delivery, Manual Payment, official bKash, Nagad, or SSLCommerz",
+          "3. Enter the credentials Softune asks for (wallet number, or merchant keys for gateway connects)",
+          "4. Save the method for the store",
+          "5. Place a test checkout for COD or manual wallets, and confirm Softune records the order and any transaction ID correctly",
         ],
       },
       {
         type: "callout",
         content:
-          "Softune does not offer live auto-checkout through SSLCommerz, Stripe, or PayPal today. Only enable methods Softune lists and that you can settle by hand.",
+          "Softune does not offer Stripe or PayPal. Connect only the methods listed on Payments: COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz.",
       },
       { type: "h2", content: "Included by Default vs Add-Ons catalog" },
       {
@@ -788,14 +788,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Menu → Couriers lists Softune’s Bangladesh courier partners on one screen. Steadfast supports a verified API-key connect today; other partners appear on the same roster as Softune enables each connection. Like Payments, Courier is Included by Default on the Add-Ons page — not one of the 25 optional Add-Ons.",
+          "Menu → Couriers lists Softune’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page — not one of the 25 optional Add-Ons.",
       },
       { type: "h2", content: "Connect a partner" },
       {
         type: "list",
         content: [
           "1. Open Menu → Couriers",
-          "2. Choose a Softune-supported Bangladesh partner (Steadfast is available for verified connect)",
+          "2. Choose a partner you can connect today — Steadfast, Pathao, RedX, or eCourier",
           "3. Enter the API credentials Softune requests",
           "4. Save and confirm Softune verifies and shows the partner as connected",
           "5. Keep order status in Softune in sync with how you fulfill outside the dashboard",

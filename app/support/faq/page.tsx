@@ -5,8 +5,9 @@ import { faqData } from "@/lib/faq-data";
 import FAQPage from "./faq-content";
 
 export const metadata = pageSeo({
-  title: "FAQ",
-  description: "Answers to common questions about Softune's plans, features, and how the platform works.",
+  title: "FAQ | Payments, Couriers & Plans",
+  description:
+    "Answers about Softune plans, COD, bKash, Nagad, SSLCommerz, courier connects, Store Sale POS, and launching a store in Bangladesh.",
   path: "/support/faq",
 });
 

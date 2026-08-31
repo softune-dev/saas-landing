@@ -9,7 +9,7 @@
 export const homeFaqs = [
   {
     q: "What is Softune?",
-    a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD and manual bKash/Nagad payments, connect couriers, run Store Sale (POS), and grow from one dashboard.",
+    a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD, bKash, Nagad, and SSLCommerz, connect couriers, run Store Sale (POS), and grow from one dashboard.",
   },
   {
     q: "Do I need coding skills to use Softune?",
@@ -21,7 +21,7 @@ export const homeFaqs = [
   },
   {
     q: "What payment methods does Softune support?",
-    a: "Softune supports Cash on Delivery (COD) plus manual bKash and Nagad: shoppers pay your wallet number and submit a transaction ID, then you verify before shipping. Live auto-checkout through SSLCommerz or other card gateways is not available yet.",
+    a: "Softune Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. Stripe and PayPal are not available.",
   },
   {
     q: "How long does it take to launch my store?",
@@ -37,7 +37,7 @@ export const homeFaqs = [
   },
   {
     q: "What courier services are integrated with Softune?",
-    a: "Softune’s Couriers screen lists major Bangladesh partners including Steadfast, Pathao, RedX, Paperfly, eCourier, Sundarban, Carrybee, SA Paribahan, and PandaGo. Steadfast supports a verified API-key connect today; Softune does not claim real-time tracking or auto-booking for every partner.",
+    a: "Softune Couriers lets you connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softune does not claim real-time public tracking or auto-booking for every partner.",
   },
   {
     q: "Can I upgrade or downgrade my plan anytime?",

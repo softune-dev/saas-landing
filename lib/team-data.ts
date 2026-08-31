@@ -19,7 +19,7 @@ export const team = [
     bio: "Been building software professionally since 2020: freelance web development on Freelancer.com and Upwork, then leading projects at Webbyte Agency, then AI-powered platforms at Wonder AI. The idea for Softune came in 2024, built in spare time around a full-time job and finishing university. Went full-time on it in 2026 and built the entire platform solo, the multi-tenant dashboard, storefront themes, AI tooling, and the payment and courier integrations underneath it.",
     avatar: "/developer.webp",
     portfolio: "https://kamrulhasan.site",
-    email: "hello@softune.xyz",
+    email: "support@softunebd.com",
     github: "https://github.com/Kallolx",
     twitter: "https://x.com/khxKallol",
     facebook: "https://www.facebook.com/developer.kamrulhasan/",

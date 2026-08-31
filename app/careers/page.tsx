@@ -5,7 +5,8 @@ import CareersPage from "./careers-content";
 
 export const metadata = pageSeo({
   title: "Careers",
-  description: "Open roles at Softune — help build the platform agencies and merchants use to launch and grow online stores.",
+  description:
+    "Open roles at Softune, the Bangladesh ecommerce platform for merchants and agencies. Built by Kamrul Hasan.",
   path: "/careers",
 });
 

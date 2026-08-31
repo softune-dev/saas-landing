@@ -11,13 +11,13 @@ const testimonials = [
     avatar: "https://i.pravatar.cc/150?img=1"
   },
   {
-    text: "Store Sale POS plus the order dashboard cut the WhatsApp chaos. COD, bKash transaction IDs, and courier setup live in one place — that alone saved our ops hours every week.",
+    text: "Store Sale POS plus the order dashboard cut the WhatsApp chaos. COD, bKash, Nagad, SSLCommerz, and courier setup live in one place — that alone saved our ops hours every week.",
     name: "Marcus Chen",
     role: "Operations Director",
     avatar: "https://i.pravatar.cc/150?img=11"
   },
   {
-    text: "Launching was fast: pick a theme, add products, enable COD and bKash, publish. Site Settings SEO and Meta pixel tools meant we were not hunting plugins on day one.",
+    text: "Launching was fast: pick a theme, add products, enable COD, bKash, and SSLCommerz, publish. Site Settings SEO and Meta pixel tools meant we were not hunting plugins on day one.",
     name: "Sarah Jenkins",
     role: "E-commerce Manager",
     avatar: "https://i.pravatar.cc/150?img=5"

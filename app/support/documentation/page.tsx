@@ -4,8 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import DocumentationPage from "./documentation-content";
 
 export const metadata = pageSeo({
-  title: "Documentation",
-  description: "Guides for setting up your Softune store — products, categories, orders, themes, payments, and couriers.",
+  title: "Documentation | Set Up Your Store",
+  description:
+    "Softune docs for products, categories, orders, Theme Editor, payments (COD, bKash, Nagad, SSLCommerz), couriers, domains, and fraud tools.",
   path: "/support/documentation",
 });
 

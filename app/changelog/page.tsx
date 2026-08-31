@@ -4,8 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import ChangelogPage from "./changelog-content";
 
 export const metadata = pageSeo({
-  title: "Changelog",
-  description: "What's new in Softune — new features, fixes, and platform updates as they ship.",
+  title: "Changelog | What's New",
+  description:
+    "What shipped in Softune — Theme Editor, payments, couriers, Store Sale, AI, and dashboard updates as they go live.",
   path: "/changelog",
 });
 

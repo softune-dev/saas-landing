@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Instrument_Serif, Manrope, DM_Sans, Outfit, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { StructuredData } from "@/components/structured-data";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { SITE_URL } from "@/lib/site";
+import { DEFAULT_TITLE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -58,9 +59,29 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   // Fallback only — every real route overrides this via lib/seo.ts's
   // pageSeo(). Kept as a sane default for any page that doesn't.
-  title: "Softune — Launch beautiful stores that sell",
-  description:
-    "Multi-tenant ecommerce SaaS for Bangladesh merchants and agencies. Themes, products, orders, COD and bKash/Nagad, couriers, POS, and AI — one platform to build, publish, and grow storefronts.",
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  category: "ecommerce software",
+  authors: [{ name: "Kamrul Hasan", url: "https://kamrulhasan.site" }],
+  creator: "Kamrul Hasan",
+  publisher: SITE_NAME,
+  referrer: "origin-when-cross-origin",
+  formatDetection: { email: false, address: false, telephone: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   // Bare /favicon.ico comes from app/favicon.ico (file convention, immune to
   // metadataBase). The rest of the real favicon set (from public/favicon/)
   // is wired explicitly here for the sizes/devices the file convention
@@ -74,13 +95,26 @@ export const metadata: Metadata = {
     apple: "/favicon/apple-touch-icon.png",
   },
   manifest: "/favicon/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
+  other: {
+    "geo.region": "BD",
+    "geo.placename": "Bangladesh",
+  },
 };
 
 // Browser chrome color (mobile Safari/Chrome address bar, PWA splash) —
 // separate from `metadata` since Next 14+ moved viewport-related tags out
 // of the Metadata type into their own export.
 export const viewport: Viewport = {
-  themeColor: "#ff5a36",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ff5a36" },
+    { media: "(prefers-color-scheme: dark)", color: "#181a1b" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -101,6 +135,24 @@ export default function RootLayout({
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
+
+        {/* Tawk.to live chat widget. afterInteractive so it never competes
+            with the initial page render/LCP — chat can load a beat later
+            without anyone noticing. */}
+        <Script id="tawk-to" strategy="afterInteractive">
+          {`
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+              var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = "https://embed.tawk.to/6a946dd1c3c46c3445876165/1k19spvhd";
+              s1.charset = "UTF-8";
+              s1.setAttribute("crossorigin", "*");
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

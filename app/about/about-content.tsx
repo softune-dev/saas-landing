@@ -353,7 +353,7 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="primary" as="a" href="#waitlist" className="px-8 py-3.5 font-bold gap-2">
+                <Button variant="primary" as="a" href="/signup" className="px-8 py-3.5 font-bold gap-2">
                   Get Started Now
                   <img src="/icons/arrow-right.svg" alt="" className="size-4 object-contain brightness-0 invert" />
                 </Button>

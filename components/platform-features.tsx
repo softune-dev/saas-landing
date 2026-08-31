@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 
 export type FeatureSection = {
   pillText: string;
@@ -15,7 +14,6 @@ export type FeatureSection = {
   showcase: string;
   /** Optional solid-color stand-in if a showcase asset is temporarily missing. */
   placeholderColor?: string;
-  buttons: { text: string; variant: "primary" | "outline" }[];
 };
 
 export const sections: FeatureSection[] = [
@@ -35,10 +33,6 @@ export const sections: FeatureSection[] = [
       "Draft changes stay private until you publish",
     ],
     showcase: "editor",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "Open Editor", variant: "outline" },
-    ],
   },
   {
     pillText: "AI Chatbot",
@@ -56,10 +50,6 @@ export const sections: FeatureSection[] = [
       "Stay inside Softune — no extra AI app to open",
     ],
     showcase: "chat",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "See AI Chat", variant: "outline" },
-    ],
   },
   {
     pillText: "Payments",
@@ -68,19 +58,15 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "bKash, Nagad, and COD live in one place. Shoppers pay your wallet or choose Cash on Delivery; you verify transaction IDs before shipping — all from a single Payments screen.",
+      "COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz live in one place. Connect merchant accounts or take wallet payments with a transaction ID — all from a single Payments screen.",
     bullets: [
-      "bKash and Nagad wallet payments with transaction ID on each order",
       "Cash on Delivery with optional fee when you need it",
-      "Merchant verifies wallet payments before shipping",
+      "Manual bKash and Nagad — shopper pays your number, you verify the transaction ID",
+      "Official bKash, Nagad, and SSLCommerz merchant connects from the same screen",
       "Centralized setup instead of scattered payment plugins",
       "Encrypted credentials stored with your store",
     ],
     showcase: "payment",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "See Payments", variant: "outline" },
-    ],
   },
   {
     pillText: "SEO & Domains",
@@ -98,10 +84,6 @@ export const sections: FeatureSection[] = [
       "Connect your own domain without a separate hosting stack",
     ],
     showcase: "seo",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "Explore SEO", variant: "outline" },
-    ],
   },
   {
     pillText: "AI Writing",
@@ -119,10 +101,6 @@ export const sections: FeatureSection[] = [
       "Works inside the Softune product editor you already use",
     ],
     showcase: "ai",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "Try AI Copy", variant: "outline" },
-    ],
   },
   {
     pillText: "POS",
@@ -140,10 +118,6 @@ export const sections: FeatureSection[] = [
       "Recent Sales list for walk-in (POS) orders",
     ],
     showcase: "pos",
-    buttons: [
-      { text: "Get Started", variant: "primary" },
-      { text: "See POS", variant: "outline" },
-    ],
   },
 ];
 
@@ -226,37 +200,6 @@ export function PlatformFeatures() {
                       </li>
                     ))}
                   </motion.ul>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="flex w-full flex-col gap-3 pt-2 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4 sm:pt-4"
-                  >
-                    <Button
-                      variant="primary"
-                      className="animate-shine flex min-h-12 w-full items-center justify-center gap-2 px-6 py-3.5 text-[15px] font-bold shadow-none sm:w-auto"
-                    >
-                      {section.buttons[0].text}
-                      <img
-                        src="/icons/arrow-right.svg"
-                        alt=""
-                        className="size-4 object-contain brightness-0 invert"
-                      />
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="flex min-h-12 w-full items-center justify-center gap-2 bg-transparent px-6 py-3.5 text-[15px] font-bold shadow-none sm:w-auto"
-                    >
-                      {section.buttons[1].text}
-                      <img
-                        src="/icons/arrow-right.svg"
-                        alt=""
-                        className="size-4 object-contain opacity-60 dark:invert"
-                      />
-                    </Button>
-                  </motion.div>
                 </div>
 
                 <motion.div

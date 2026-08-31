@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import AboutPage from "./about-content";
 
 export const metadata = pageSeo({
-  title: "About",
+  title: "About | Built by Kamrul Hasan",
   description:
-    "Softune is built by Kamrul Hasan — the multi-tenant ecommerce platform's founder and sole developer.",
+    "Softune is a Bangladesh ecommerce SaaS built end to end by Kamrul Hasan — dashboard, themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI.",
   path: "/about",
 });
 

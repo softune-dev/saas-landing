@@ -9,6 +9,7 @@ declare global {
   interface Window {
     grecaptcha?: {
       ready: (cb: () => void) => void;
+      execute?: (siteKey: string, opts: { action: string }) => Promise<string>;
       render: (
         container: HTMLElement,
         params: Record<string, unknown>,
@@ -19,26 +20,79 @@ declare global {
 }
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const V2_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
 
 export const hasRecaptcha = !!SITE_KEY;
+export const hasV2Fallback = !!V2_SITE_KEY;
 
 // Module-level, not per-call: the script tag must only ever be added once no
 // matter how many forms on the page render a widget.
 let scriptLoad: Promise<void> | null = null;
 
 function loadScript(): Promise<void> {
-  if (typeof window === "undefined" || !SITE_KEY) return Promise.resolve();
+  if (typeof window === "undefined" || (!SITE_KEY && !V2_SITE_KEY)) {
+    return Promise.resolve();
+  }
   if (window.grecaptcha) return Promise.resolve();
   if (scriptLoad) return scriptLoad;
   scriptLoad = new Promise((resolve) => {
     const script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js";
+    // ?render= is required for v3 execute(); v2 render() still works off
+    // the same script. Contact form's checkbox uses renderRecaptcha().
+    script.src = SITE_KEY
+      ? `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`
+      : "https://www.google.com/recaptcha/api.js";
     script.async = true;
     script.defer = true;
     script.onload = () => resolve();
     document.head.appendChild(script);
   });
   return scriptLoad;
+}
+
+/** v3 token for lead signup. Blank when unconfigured — backend skips. */
+export async function getRecaptchaToken(action: string): Promise<string> {
+  if (!SITE_KEY) return "";
+  try {
+    await loadScript();
+    return await new Promise<string>((resolve) => {
+      window.grecaptcha!.ready(() => {
+        const execute = window.grecaptcha!.execute;
+        if (!execute) {
+          resolve("");
+          return;
+        }
+        execute(SITE_KEY, { action })
+          .then(resolve)
+          .catch(() => resolve(""));
+      });
+    });
+  } catch {
+    return "";
+  }
+}
+
+export type V2WidgetHandle = { reset: () => void };
+
+/** v2 checkbox after the backend asks for a challenge. */
+export async function renderV2Checkbox(
+  container: HTMLElement,
+  onVerify: (token: string | null) => void,
+): Promise<V2WidgetHandle | null> {
+  if (!V2_SITE_KEY) return null;
+  await loadScript();
+  return new Promise((resolve) => {
+    window.grecaptcha!.ready(() => {
+      const widgetId = window.grecaptcha!.render(container, {
+        sitekey: V2_SITE_KEY,
+        callback: (token: string) => onVerify(token),
+        "expired-callback": () => onVerify(null),
+      });
+      resolve({
+        reset: () => window.grecaptcha?.reset(widgetId),
+      });
+    });
+  });
 }
 
 export type RecaptchaWidgetHandle = { reset: () => void };

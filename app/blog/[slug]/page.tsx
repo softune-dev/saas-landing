@@ -8,6 +8,10 @@ import ArticlePage from "./article-content";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export function generateStaticParams() {
+  return Object.keys(ARTICLES).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = ARTICLES[slug];
@@ -19,6 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: article.desc,
     path: `/blog/${slug}`,
     image: article.image,
+    imageAlt: article.title,
+    lang: article.lang === "bn" ? "bn" : "en",
     article: { publishedTime, author: article.author },
   });
 }

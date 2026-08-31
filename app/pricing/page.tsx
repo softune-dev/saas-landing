@@ -5,9 +5,9 @@ import { pageSeo } from "@/lib/seo";
 import PricingPage from "./pricing-content";
 
 export const metadata = pageSeo({
-  title: "Pricing",
+  title: "Pricing in BDT | Starter, Growth, Business",
   description:
-    "Simple, transparent pricing for Softune's ecommerce platform — pick a plan for AI credits, storage, and features that fit your store's stage.",
+    "Softune plans in Bangladeshi Taka. Starter ৳1,190, Growth ৳2,990, Business ৳6,990 per month — themes, payments, couriers, POS, and AI credits. Annual billing is cheaper.",
   path: "/pricing",
 });
 

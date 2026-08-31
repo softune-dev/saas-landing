@@ -10,7 +10,7 @@ import { ThemeToggle } from "./ui/theme-toggle";
 const links = [
   {
     label: "Features",
-    href: "/#features",
+    href: "/features",
     submenus: [
       { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
       { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
@@ -163,45 +163,19 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-5 md:flex">
-            <a
-              href="#cart"
-              className="relative flex items-center justify-center text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
-            >
-              <img
-                src="/icons/cart.svg"
-                alt="Cart"
-                className="size-6 object-contain dark:invert"
-              />
-              <span className="absolute -right-2.5 -top-2.5 flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
-                0
-              </span>
-            </a>
             <ThemeToggle />
             <Button
               as="a"
-              href="https://dashboard.softune.xyz/"
+              href="/signup"
               variant="primary"
               className="px-6 py-2.5 text-base font-semibold shadow-md"
             >
-              Login
+              Get Started
             </Button>
           </div>
 
           <div className="flex shrink-0 items-center gap-2 md:hidden">
             <ThemeToggle className="ml-0" />
-            <a
-              href="#cart"
-              className="relative flex size-10 items-center justify-center text-[var(--color-ink)]"
-            >
-              <img
-                src="/icons/cart.svg"
-                alt="Cart"
-                className="size-6 object-contain dark:invert"
-              />
-              <span className="absolute right-0 top-0 flex size-5 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
-                0
-              </span>
-            </a>
             <button
               type="button"
               className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)]"
@@ -311,16 +285,16 @@ export function Header() {
                 })}
               </div>
 
-              {/* Bottom Login/CTA Area */}
+              {/* Bottom CTA */}
               <div className="p-6 border-t border-line bg-canvas/20 shrink-0">
                 <Button
                   as="a"
-                  href="https://dashboard.softune.xyz/"
+                  href="/signup"
                   onClick={() => setOpen(false)}
                   variant="primary"
                   className="w-full justify-center py-3.5 text-base font-bold shadow-md"
                 >
-                  Login / Get Started
+                  Get Started
                 </Button>
               </div>
             </motion.div>

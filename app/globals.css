@@ -13,6 +13,7 @@
   --line: #e5e7eb;
   --brand: #ff5a36;       /* unchanged in dark mode too */
   --brand-soft: #fff0ec;
+  --search-bg: #f4f4f5;   /* auth-screen inputs, matches dashboard */
 }
 
 .dark {
@@ -25,6 +26,7 @@
   --line: #33383a;        /* dashboard's --border */
   --brand: #ff5a36;       /* same in both modes */
   --brand-soft: #2a1a15;  /* dark-safe tint of brand */
+  --search-bg: #242728;
 }
 
 @theme inline {
@@ -44,6 +46,13 @@
   --color-line: var(--line);
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
+  /* Aliases so auth screens can reuse dashboard login class names
+   * (bg-background, text-foreground, bg-primary, border-border). */
+  --color-background: var(--canvas);
+  --color-foreground: var(--ink);
+  --color-primary: var(--brand);
+  --color-border: var(--line);
+  --color-search-bg: var(--search-bg);
 }
 
 * {
@@ -61,6 +70,11 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: clip;
+}
+
+/* reCAPTCHA v3 badge hidden — signup/login forms show the text disclosure. */
+.grecaptcha-badge {
+  visibility: hidden;
 }
 
 /* Horizontal carousels (themes) keep native scroll without a visible bar */

@@ -207,7 +207,7 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div className="shrink-0">
-                      <Button variant="primary" as="a" href="mailto:hello@softune.xyz" className="px-6 py-3 font-bold gap-2 whitespace-nowrap">
+                      <Button variant="primary" as="a" href="mailto:support@softunebd.com" className="px-6 py-3 font-bold gap-2 whitespace-nowrap">
                         Apply Now
                         <img src="/icons/arrow-right.svg" alt="" className="size-4 object-contain brightness-0 invert" />
                       </Button>

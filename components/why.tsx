@@ -17,7 +17,7 @@ const items = [
   {
     icon: "/icons/wallet.svg",
     title: "Payments That Fit",
-    body: "bKash, Nagad, and Cash on Delivery live on one Payments screen, so checkout stays centralized and easy to run.",
+    body: "Cash on Delivery, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz live on one Payments screen, so checkout stays centralized and easy to run.",
   },
   {
     icon: "/icons/cart.svg",

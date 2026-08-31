@@ -92,9 +92,10 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg"
         >
-          Create your dream storefront with bKash, Nagad, and Cash on Delivery
-          checkout, local courier delivery, and an AI assistant woven into every
-          part of your dashboard, built for Bangladeshi merchants.
+          Create your dream storefront with COD, bKash, Nagad, and SSLCommerz
+          payments, Steadfast, Pathao, RedX, and eCourier delivery, and an AI
+          assistant woven into every part of your dashboard, built for
+          Bangladeshi merchants.
         </motion.p>
 
         <motion.div

@@ -61,7 +61,7 @@ const changelogData = [
       },
       {
         type: "Feature",
-        content: "Analytics from real orders, COD + manual bKash/Nagad, and courier connections.",
+        content: "Analytics from real orders, COD, bKash, Nagad, SSLCommerz, and courier connections.",
       },
     ],
   },

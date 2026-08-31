@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const features = [
   { icon: "/icons/color.svg", title: "AI Theme Editor" },
   { icon: "/icons/ai-pencil.svg", title: "AI Assistant" },
-  { icon: "/icons/wallet.svg", title: "bKash, Nagad & COD" },
+  { icon: "/icons/wallet.svg", title: "bKash, Nagad, SSLCommerz & COD" },
   { icon: "/icons/cart.svg", title: "POS" },
   { icon: "/icons/billing.svg", title: "Marketing & Tracking" },
   { icon: "/icons/analytics.svg", title: "Store Analytics" },

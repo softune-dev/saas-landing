@@ -5,7 +5,8 @@ import PrivacyPage from "./privacy-content";
 
 export const metadata = pageSeo({
   title: "Privacy Policy",
-  description: "How Softune collects, uses, and protects data across the platform.",
+  description:
+    "How Softune collects, uses, and protects merchant and customer data on the Bangladesh ecommerce platform.",
   path: "/privacy",
 });
 

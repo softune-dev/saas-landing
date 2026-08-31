@@ -1,10 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
+import {
+  RecaptchaChallengeRequiredError,
+  submitPlatformContact,
+} from "@/lib/api";
+import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
+import { RecaptchaDisclosure } from "./auth/recaptcha-disclosure";
+import {
+  RecaptchaV2Fallback,
+  type RecaptchaV2FallbackHandle,
+} from "./auth/recaptcha-v2-fallback";
 import { Button } from "./ui/button";
-import { RecaptchaCheckbox } from "./ui/recaptcha-checkbox";
-import { hasRecaptcha } from "@/lib/recaptcha";
 
 const cards = [
   {
@@ -30,7 +39,56 @@ const cards = [
 ];
 
 export function Contact() {
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [sentName, setSentName] = useState<string | null>(null);
+  const [needsChallenge, setNeedsChallenge] = useState(false);
+  const [v2Token, setV2Token] = useState<string | null>(null);
+  const v2Ref = useRef<RecaptchaV2FallbackHandle>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const first_name = String(fd.get("first_name") ?? "").trim();
+    const last_name = String(fd.get("last_name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    const message = String(fd.get("message") ?? "").trim();
+    if (!(first_name && last_name && email && message)) return;
+    if (needsChallenge && !v2Token) return;
+
+    setError(null);
+    setBusy(true);
+    try {
+      const recaptchaToken = await getRecaptchaToken("platform_contact");
+      await submitPlatformContact({
+        first_name,
+        last_name,
+        email,
+        phone: phone || undefined,
+        message,
+        recaptcha_token: recaptchaToken,
+        recaptcha_v2_token: v2Token ?? "",
+      });
+      form.reset();
+      setSentName(first_name);
+      setNeedsChallenge(false);
+      setV2Token(null);
+    } catch (err) {
+      if (err instanceof RecaptchaChallengeRequiredError) {
+        setNeedsChallenge(true);
+        setError(hasV2Fallback ? null : err.message);
+      } else {
+        setError(
+          err instanceof Error ? err.message : "Couldn't send your message",
+        );
+        v2Ref.current?.reset();
+      }
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <section
@@ -120,87 +178,136 @@ export function Contact() {
             Send us a message
           </h3>
 
-          <form
-            className="flex flex-col gap-5 sm:gap-6"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-              <div className="flex flex-col gap-2">
-                <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="John"
-                  required
-                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Doe"
-                  required
-                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                Email Address
-              </label>
-              <input
-                type="email"
-                placeholder="john@company.com"
-                required
-                className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                placeholder="+1 (555) 000-0000"
-                className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                Message
-              </label>
-              <textarea
-                rows={4}
-                required
-                placeholder="How can we help you?"
-                className="resize-none rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
-              />
-            </div>
-
-            <div className="mt-1 sm:mt-2">
-              <RecaptchaCheckbox onVerify={setRecaptchaToken} />
-            </div>
-
-            <Button
-              type="submit"
-              disabled={hasRecaptcha && !recaptchaToken}
-              className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
+          {sentName ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex flex-col items-center gap-4 py-12 text-center"
             >
-              Send Message
-              <img
-                src="/icons/send.svg"
-                alt=""
-                className="size-5 object-contain brightness-0 invert"
-              />
-            </Button>
-          </form>
+              <div className="mb-2 flex size-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+                <CheckCircle2 className="size-10" />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--color-ink)]">
+                Message sent
+              </h3>
+              <p className="max-w-md text-[15px] text-[var(--color-muted)]">
+                Thanks, <span className="font-bold">{sentName}</span> — we
+                received your message and will reply by email.
+              </p>
+              <Button
+                variant="outline"
+                className="mt-6"
+                onClick={() => setSentName(null)}
+              >
+                Send another message
+              </Button>
+            </motion.div>
+          ) : (
+            <form
+              className="flex flex-col gap-5 sm:gap-6"
+              onSubmit={handleSubmit}
+            >
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="John"
+                    required
+                    maxLength={80}
+                    autoComplete="given-name"
+                    className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Doe"
+                    required
+                    maxLength={80}
+                    autoComplete="family-name"
+                    className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="john@company.com"
+                  required
+                  autoComplete="email"
+                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                  maxLength={32}
+                  autoComplete="tel"
+                  className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] font-bold text-[var(--color-ink)]">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  maxLength={2000}
+                  placeholder="How can we help you?"
+                  className="resize-none rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
+                />
+              </div>
+
+              {error ? (
+                <p className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-600 dark:border-rose-900/40 dark:bg-rose-950/40 dark:text-rose-400">
+                  {error}
+                </p>
+              ) : null}
+
+              {needsChallenge && hasV2Fallback ? (
+                <RecaptchaV2Fallback ref={v2Ref} onVerify={setV2Token} />
+              ) : null}
+
+              <Button
+                type="submit"
+                disabled={busy || (needsChallenge && !v2Token)}
+                className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
+              >
+                {busy ? "Sending…" : "Send Message"}
+                {!busy ? (
+                  <img
+                    src="/icons/send.svg"
+                    alt=""
+                    className="size-5 object-contain brightness-0 invert"
+                  />
+                ) : null}
+              </Button>
+
+              <RecaptchaDisclosure />
+            </form>
+          )}
         </motion.div>
         
       </div>
