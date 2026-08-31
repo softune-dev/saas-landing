@@ -99,7 +99,7 @@ export default function CareersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Build the Future of
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -121,7 +121,7 @@ export default function CareersPage() {
         {/* Perks & Benefits */}
         <section className="py-24 max-w-7xl mx-auto px-5 md:px-8 border-t border-[var(--color-line)]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
               Why Work{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -164,7 +164,7 @@ export default function CareersPage() {
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_80%)] opacity-5" />
           <div className="max-w-5xl mx-auto px-5 md:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                 Open{" "}
                 <span className="relative inline-block px-3 py-0.5 mx-1">
                   <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />

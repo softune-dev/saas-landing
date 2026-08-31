@@ -126,7 +126,7 @@ export default function ChangelogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center gap-1.5"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Change
             <span className="relative inline-block px-3 py-1 ml-1">

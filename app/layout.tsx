@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Instrument_Serif, Manrope, DM_Sans, Outfit, Niconne, Noto_Sans_Bengali } from "next/font/google";
+import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
+import { Analytics, AnalyticsNoscript } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { StructuredData } from "@/components/structured-data";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { DEFAULT_TITLE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["800", "900"],
+  variable: "--font-heading",
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -131,7 +132,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${outfit.variable} ${niconne.variable} ${notoSansBengali.variable}`}
+      className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${plusJakarta.variable} ${niconne.variable} ${notoSansBengali.variable}`}
     >
       <head>
         <link rel="describedby" href="/llms.txt" />
@@ -158,6 +159,8 @@ export default function RootLayout({
             own page.tsx. */}
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
+        <Analytics />
+        <AnalyticsNoscript />
         <ThemeProvider>{children}</ThemeProvider>
 
         {/* Tawk.to — lazyOnload so it doesn't compete with LCP/TBT on mobile. */}

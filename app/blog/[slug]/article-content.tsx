@@ -208,7 +208,7 @@ function ArticleBody({ body }: { body: { type: string; content: string | string[
     <div className="space-y-6">
       {body.map((block, idx) => {
         if (block.type === "h2") return (
-          <h2 key={idx} className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] tracking-tight pt-4" style={{ fontFamily: "var(--font-outfit), var(--font-bn)" }}>
+          <h2 key={idx} className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] tracking-tight pt-4" style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}>
             {block.content as string}
           </h2>
         );
@@ -326,7 +326,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.08 }}
                 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4"
-                style={{ fontFamily: "var(--font-outfit), var(--font-bn)" }}
+                style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
               >
                 {article.title}
               </motion.h1>
@@ -443,7 +443,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
         {/* Related Articles */}
         <section className="py-20 border-t border-[var(--color-line)] max-w-6xl mx-auto px-5 md:px-8">
-          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-ink)] mb-10" style={{ fontFamily: "var(--font-outfit)" }}>
+          <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-ink)] mb-10" style={{ fontFamily: "var(--font-heading)" }}>
             Related Articles
           </h2>
           <div className="grid gap-6 md:grid-cols-3">

@@ -3,6 +3,9 @@ import { SITE_URL } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog-data";
 import { FEATURE_PAGES } from "@/lib/features-data";
 import { DOC_CATEGORIES } from "@/lib/documentation-data";
+import { COMMERCIAL_PAGES } from "@/lib/commercial-pages-data";
+import { INTEGRATIONS } from "@/lib/integrations-data";
+import { INDUSTRY_PAGES } from "@/lib/industry-data";
 
 const STATIC_ROUTES: {
   path: string;
@@ -79,10 +82,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
+  // SEO keyword landing pages (audit priority list) — commercial pages are
+  // flat top-level routes, integrations/industries are nested.
+  const commercialEntries: MetadataRoute.Sitemap = Object.keys(COMMERCIAL_PAGES).map(
+    (slug) => ({
+      url: `${SITE_URL}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }),
+  );
+  const integrationEntries: MetadataRoute.Sitemap = Object.keys(INTEGRATIONS).map(
+    (slug) => ({
+      url: `${SITE_URL}/integrations/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }),
+  );
+  const industryEntries: MetadataRoute.Sitemap = Object.keys(INDUSTRY_PAGES).map(
+    (slug) => ({
+      url: `${SITE_URL}/ecommerce/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }),
+  );
+
   return [
     llmsEntry,
     ...staticEntries,
     ...featureEntries,
+    ...commercialEntries,
+    ...integrationEntries,
+    ...industryEntries,
     ...blogEntries,
     ...docEntries,
   ];

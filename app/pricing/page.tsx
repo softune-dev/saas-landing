@@ -1,13 +1,12 @@
 import { StructuredData } from "@/components/structured-data";
-import { plans } from "@/lib/pricing-data";
-import { breadcrumbSchema, pricingSchema } from "@/lib/schema";
+import { breadcrumbSchema, pricingSchema, productSchema } from "@/lib/schema";
 import { pageSeo } from "@/lib/seo";
 import PricingPage from "./pricing-content";
 
 export const metadata = pageSeo({
-  title: "Pricing in BDT | Starter, Growth, Business",
+  title: "Softune Pricing in Taka",
   description:
-    "Softune plans in Bangladeshi Taka. Starter ৳1,190, Growth ৳2,990, Business ৳6,990 per month — themes, payments, couriers, POS, and AI credits. Annual billing is cheaper.",
+    "Starter, Growth, and Business plans priced in BDT. Pick a monthly or yearly Softune subscription — no per-order cut, no setup fee.",
   path: "/pricing",
 });
 
@@ -20,7 +19,8 @@ export default function Page() {
           { name: "Pricing", path: "/pricing" },
         ])}
       />
-      <StructuredData data={pricingSchema(plans)} />
+      <StructuredData data={productSchema()} />
+      <StructuredData data={pricingSchema()} />
       <PricingPage />
     </>
   );

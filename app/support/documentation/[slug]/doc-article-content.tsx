@@ -42,7 +42,7 @@ function DocBody({ body }: { body: DocBodyBlock[] }) {
             <h2
               key={idx}
               className="border-b border-[var(--color-line)] pt-6 pb-1 text-xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-2xl"
-              style={{ fontFamily: "var(--font-outfit)" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               {block.content}
             </h2>
@@ -185,7 +185,7 @@ export default function DocArticlePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08 }}
             className="relative z-10 mx-auto mb-4 max-w-3xl text-3xl leading-tight font-black tracking-tight text-[var(--color-ink)] md:text-5xl"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             {article.title}
           </motion.h1>

@@ -6,9 +6,9 @@ import { SITE_URL } from "@/lib/site";
 import FeaturesIndexPage from "./features-content";
 
 export const metadata = pageSeo({
-  title: "Features | Theme Editor, Payments, Couriers, POS",
+  title: "Dashboard Features for Bangladesh Stores",
   description:
-    "Softune dashboard features for Bangladesh stores: Theme Editor, COD, bKash, Nagad, SSLCommerz, Steadfast, Pathao, RedX, eCourier, Store Sale POS, analytics, and Gemini AI.",
+    "Tour the Softune dashboard: live Theme Editor, orders, Store Sale POS, and Gemini AI — written for merchants selling in Bangladesh.",
   path: "/features",
 });
 

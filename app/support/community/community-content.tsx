@@ -1,76 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
-import { MessageSquare, Users, Eye, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const discussions = [
-  {
-    title: "How to setup custom Courier API for delivery tracking?",
-    author: "Mahmudul H.",
-    role: "Merchant",
-    replies: 14,
-    views: 184,
-    tag: "Integrations",
-    time: "2 hours ago"
-  },
-  {
-    title: "Feature Request: Multi-language checkout translations",
-    author: "Sarah Connor",
-    role: "Developer",
-    replies: 28,
-    views: 412,
-    tag: "Feature Requests",
-    time: "4 hours ago"
-  },
-  {
-    title: "Custom CSS tweaks to style the sidebar cart drawer",
-    author: "Alex Rivera",
-    role: "Designer",
-    replies: 9,
-    views: 95,
-    tag: "Design & Layout",
-    time: "1 day ago"
-  },
-  {
-    title: "Softune POS sync speed issues on local tablets - solved!",
-    author: "Tariqul I.",
-    role: "Store Manager",
-    replies: 22,
-    views: 310,
-    tag: "POS System",
-    time: "3 days ago"
-  },
-  {
-    title: "Tips to optimize product catalog images for faster loading",
-    author: "Jessica M.",
-    role: "Merchant",
-    replies: 5,
-    views: 74,
-    tag: "General Help",
-    time: "5 days ago"
-  }
-];
-
 export default function CommunityPage() {
-  const [forumCategory, setForumCategory] = useState("All");
-
-  const categories = [
-    { label: "All", tag: "All", icon: "/icons/domain.svg" },
-    { label: "General Help", tag: "General Help", icon: "/icons/help-desk.svg" },
-    { label: "Design & Layout", tag: "Design & Layout", icon: "/icons/color.svg" },
-    { label: "Integrations", tag: "Integrations", icon: "/icons/arrow-link.svg" },
-    { label: "POS System", tag: "POS System", icon: "/icons/billing.svg" },
-    { label: "Feature Requests", tag: "Feature Requests", icon: "/icons/ai-pencil.svg" }
-  ];
-
-  const filteredDiscussions = discussions.filter(disc => 
-    forumCategory === "All" || disc.tag === forumCategory
-  );
-
   return (
     <>
       <Header />
@@ -102,7 +38,7 @@ export default function CommunityPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: 'var(--font-outfit)' }}
+            style={{ fontFamily: 'var(--font-heading)' }}
           >
             Community Forums &
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -110,155 +46,61 @@ export default function CommunityPage() {
               <em className="relative not-italic text-white">Feedback</em>
             </span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Join thousands of ecommerce merchants, developers, and designers. Share tips, request platform features, and discuss retail strategies.
+            The forum is still being built. Until it's live, reach us directly — a real person reads every message.
           </motion.p>
         </div>
 
         {/* Content Section */}
-        <section className="py-24 max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 items-start">
-            
-            {/* Left Column: Discussions Feed */}
-            <div className="lg:col-span-8 space-y-6">
-              
-              {/* Category selector */}
-              <div className="flex flex-wrap gap-2 mb-8 justify-start">
-                {categories.map((cat) => {
-                  const isActive = forumCategory === cat.tag;
-                  return (
-                    <button
-                      key={cat.tag}
-                      onClick={() => setForumCategory(cat.tag)}
-                      className={`px-4 py-2.5 rounded-full text-[13.5px] font-bold tracking-tight transition-all duration-300 flex items-center gap-2 border border-transparent ${
-                        isActive
-                          ? "bg-[var(--color-brand)] text-white"
-                          : "bg-[var(--color-line)] text-[var(--color-muted)] hover:bg-[var(--color-line)]/80 hover:text-[var(--color-ink)]"
-                      }`}
-                    >
-                      <img 
-                        src={cat.icon} 
-                        alt="" 
-                        className={`size-4 object-contain ${isActive ? "brightness-0 invert" : "dark:invert"}`} 
-                      />
-                      <span>{cat.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
+        <section className="py-24 max-w-3xl mx-auto px-5 md:px-8">
+          <div className="grid gap-6 sm:grid-cols-2">
 
-              {/* Discussion List */}
-              <div className="space-y-4">
-                {filteredDiscussions.map((disc, idx) => (
-                  <motion.article
-                    key={idx}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-6 transition-all duration-300 group text-left cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
-                  >
-                    {/* Background Dots Gradient on Right Side */}
-                    <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
-                    <div className="flex items-start gap-4">
-                      {/* Avatar Placeholder */}
-                      <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)]/10 text-[var(--color-brand)] font-black text-sm shrink-0">
-                        {disc.author.split(' ').map(n => n[0]).join('')}
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="bg-[var(--color-canvas)] border border-[var(--color-line)] text-[11px] font-extrabold text-[var(--color-muted)] uppercase px-2 py-0.5 rounded">
-                            {disc.tag}
-                          </span>
-                          <span className="text-[12px] text-[var(--color-muted)] font-bold">
-                            By {disc.author} ({disc.role})
-                          </span>
-                        </div>
-                        <h3 className="mt-2 text-[16px] md:text-[18px] font-extrabold tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-brand)] transition-colors leading-snug">
-                          {disc.title}
-                        </h3>
-                      </div>
-                    </div>
+            {/* Contact card */}
+            <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden sm:col-span-2">
+              <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-40" />
+              <h3 className="text-xl font-black text-[var(--color-ink)] mb-4">
+                Coming soon
+              </h3>
+              <p className="text-[14px] leading-relaxed text-[var(--color-muted)] mb-6">
+                We're building a real place for merchants to share tips, request features, and help each other out.
+                It's not live yet — no fabricated activity here in the meantime. If you have a question or a feature
+                request today, email us directly.
+              </p>
 
-                    <div className="flex items-center gap-6 border-t md:border-t-0 pt-3 md:pt-0 border-[var(--color-line)] shrink-0 self-end md:self-auto text-[var(--color-muted)]">
-                      <span className="flex items-center gap-1.5 text-[13px] font-bold">
-                        <img src="/icons/chat.svg" alt="" className="size-4 object-contain opacity-70 dark:invert" />
-                        {disc.replies}
-                      </span>
-                      <span className="flex items-center gap-1.5 text-[13px] font-bold">
-                        <Eye className="size-4" />
-                        {disc.views}
-                      </span>
-                      <span className="text-[12px] font-bold text-[#A3A3A3]">
-                        {disc.time}
-                      </span>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-
+              <Button variant="primary" as="a" href="mailto:support@softunebd.com" className="w-full justify-center py-3.5 font-bold gap-2 sm:w-auto">
+                <img src="/icons/chat.svg" alt="" className="size-4 object-contain brightness-0 invert" />
+                Email support@softunebd.com
+              </Button>
             </div>
 
-            {/* Right Column: Forum Statistics & Meta */}
-            <div className="lg:col-span-4 space-y-6">
-              
-              {/* Join Card */}
-              <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden">
-                <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-40" />
-                <h3 className="text-xl font-black text-[var(--color-ink)] mb-4">
-                  Join the Community
-                </h3>
-                <p className="text-[14px] leading-relaxed text-[var(--color-muted)] mb-6">
-                  Join discussions, post configuration code snippets, request custom features, and collaborate on e-commerce hacks.
-                </p>
+            {/* Forum Guidelines */}
+            <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden sm:col-span-2">
+              <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
 
-                <Button variant="primary" as="a" href="#waitlist" className="w-full justify-center py-3.5 font-bold gap-2">
-                  <img src="/icons/chat.svg" alt="" className="size-4 object-contain brightness-0 invert" />
-                  Start a Discussion
-                </Button>
-
-                <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[var(--color-line)]">
-                  <div>
-                    <p className="text-3xl font-black text-[var(--color-ink)]">12,450</p>
-                    <p className="text-[12px] font-bold text-[var(--color-muted)] uppercase tracking-wider mt-1">Total Members</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-[#137333]">84</p>
-                    <p className="text-[12px] font-bold text-[var(--color-muted)] uppercase tracking-wider mt-1">Active Now</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Forum Guidelines */}
-              <div className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[24px] p-8 text-left relative overflow-hidden">
-                <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
-                
-                <h3 className="text-[16px] font-extrabold text-[var(--color-ink)] mb-4 flex items-center gap-2 relative z-10">
-                  <img src="/icons/lock.svg" alt="" className="size-4.5 object-contain dark:invert" />
-                  Forum Guidelines
-                </h3>
-                <ul className="space-y-3 text-[13.5px] text-[var(--color-muted)] font-medium">
-                  <li className="flex gap-2">
-                    <span className="text-[var(--color-brand)] font-bold">1.</span>
-                    Be respectful and supportive of fellow merchants.
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-[var(--color-brand)] font-bold">2.</span>
-                    Post custom HTML/CSS code inside code blocks.
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-[var(--color-brand)] font-bold">3.</span>
-                    Do not share API keys or sensitive merchant data.
-                  </li>
-                </ul>
-              </div>
-
+              <h3 className="text-[16px] font-extrabold text-[var(--color-ink)] mb-4 flex items-center gap-2 relative z-10">
+                <img src="/icons/lock.svg" alt="" className="size-4.5 object-contain dark:invert" />
+                Planned forum guidelines
+              </h3>
+              <ul className="space-y-3 text-[13.5px] text-[var(--color-muted)] font-medium">
+                <li className="flex gap-2">
+                  <span className="text-[var(--color-brand)] font-bold">1.</span>
+                  Be respectful and supportive of fellow merchants.
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[var(--color-brand)] font-bold">2.</span>
+                  Post custom HTML/CSS code inside code blocks.
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[var(--color-brand)] font-bold">3.</span>
+                  Do not share API keys or sensitive merchant data.
+                </li>
+              </ul>
             </div>
 
           </div>

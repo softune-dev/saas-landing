@@ -8,6 +8,7 @@
  * team members, since fabricated structured data is worse than none: it's
  * a false claim search engines and LLMs treat as authoritative.
  */
+import { plans } from "./pricing-data";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -15,6 +16,70 @@ import {
   SUPPORT_EMAIL,
   SUPPORT_PHONE,
 } from "./site";
+
+/** 14-day money-back on the first subscription, matching /refund. */
+function merchantReturnPolicy() {
+  return {
+    "@type": "MerchantReturnPolicy" as const,
+    applicableCountry: "BD",
+    returnPolicyCountry: "BD",
+    returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 14,
+    returnMethod: "https://schema.org/ReturnByMail",
+    returnFees: "https://schema.org/FreeReturn",
+    refundType: "https://schema.org/FullRefund",
+    merchantReturnLink: `${SITE_URL}/refund`,
+  };
+}
+
+/** Softune is a digital subscription — no physical parcel. Zero-cost
+ * instant delivery in Bangladesh still satisfies Merchant listings. */
+function digitalShippingDetails() {
+  return {
+    "@type": "OfferShippingDetails" as const,
+    shippingRate: {
+      "@type": "MonetaryAmount",
+      value: "0",
+      currency: "BDT",
+    },
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: "BD",
+    },
+    deliveryTime: {
+      "@type": "ShippingDeliveryTime",
+      handlingTime: {
+        "@type": "QuantitativeValue",
+        minValue: 0,
+        maxValue: 0,
+        unitCode: "DAY",
+      },
+      transitTime: {
+        "@type": "QuantitativeValue",
+        minValue: 0,
+        maxValue: 0,
+        unitCode: "DAY",
+      },
+    },
+  };
+}
+
+function planOffers() {
+  const priceValidUntil = `${new Date().getFullYear()}-12-31`;
+  return plans.map((plan) => ({
+    "@type": "Offer" as const,
+    name: plan.name,
+    description: plan.description,
+    price: String(plan.priceMonthly),
+    priceCurrency: "BDT",
+    priceValidUntil,
+    availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition",
+    url: `${SITE_URL}/pricing`,
+    hasMerchantReturnPolicy: merchantReturnPolicy(),
+    shippingDetails: digitalShippingDetails(),
+  }));
+}
 
 /** Kamrul Hasan built Softune solo — Organization.founder below and this
  * standalone Person schema (rendered on the About page) are the two
@@ -95,8 +160,9 @@ export function websiteSchema() {
   };
 }
 
-/** SoftwareApplication — homepage only. Feature list is what the product
- * actually ships, same claims as llms.txt. No invented rating or installs. */
+/** SoftwareApplication — homepage. Pricing Offers live on productSchema()
+ * so Google Merchant listings can read a real Product node. Mixing Product
+ * onto this type is what made GSC report a listing with no image. */
 export function softwareApplicationSchema() {
   return {
     "@context": "https://schema.org",
@@ -107,12 +173,6 @@ export function softwareApplicationSchema() {
     applicationSubCategory: "Ecommerce",
     operatingSystem: "Web",
     description: SITE_DESCRIPTION,
-    offers: {
-      "@type": "Offer",
-      url: `${SITE_URL}/pricing`,
-      priceCurrency: "BDT",
-      availability: "https://schema.org/InStock",
-    },
     featureList: [
       "Theme Editor with live preview",
       "COD, bKash, Nagad, and SSLCommerz payments",
@@ -124,6 +184,59 @@ export function softwareApplicationSchema() {
     countriesSupported: "BD",
     inLanguage: ["en", "bn"],
     author: founderRef(),
+  };
+}
+
+/** Standalone Product for Merchant listings. GSC flagged 1 invalid item
+ * (2026-08-31): missing image, plus offers.availability / shippingDetails /
+ * hasMerchantReturnPolicy. Image is a URL string (not only ImageObject) —
+ * that's the field the report names. Return window matches /refund. */
+export function productSchema() {
+  const prices = plans.map((p) => p.priceMonthly);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${SITE_URL}/#product`,
+    name: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    image: [`${SITE_URL}/og-image.png`],
+    brand: { "@type": "Brand", name: SITE_NAME },
+    category: "BusinessApplication",
+    offers: {
+      "@type": "AggregateOffer",
+      url: `${SITE_URL}/pricing`,
+      priceCurrency: "BDT",
+      lowPrice: String(Math.min(...prices)),
+      highPrice: String(Math.max(...prices)),
+      offerCount: plans.length,
+      availability: "https://schema.org/InStock",
+      hasMerchantReturnPolicy: merchantReturnPolicy(),
+      shippingDetails: digitalShippingDetails(),
+      offers: planOffers(),
+    },
+  };
+}
+
+/** /blog index — tells crawlers the full post list without relying only
+ * on them paging through the HTML. Sitemap still does the discovery. */
+export function blogIndexSchema(
+  posts: { slug: string; title: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Softune Blog",
+    url: `${SITE_URL}/blog`,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: posts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: post.title,
+        url: `${SITE_URL}/blog/${post.slug}`,
+      })),
+    },
   };
 }
 
@@ -204,10 +317,7 @@ export function faqPageSchema(items: { q: string; a: string }[]) {
   };
 }
 
-export function pricingSchema(
-  plans: { name: string; description: string; priceMonthly: number }[],
-) {
-  const priceValidUntil = `${new Date().getFullYear()}-12-31`;
+export function pricingSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -218,15 +328,6 @@ export function pricingSchema(
       "Ecommerce storefront platform subscription — themes, product catalog, orders, payments, couriers, and AI tools. Priced in Bangladeshi Taka.",
     brand: { "@type": "Brand", name: SITE_NAME },
     url: `${SITE_URL}/pricing`,
-    offers: plans.map((plan) => ({
-      "@type": "Offer",
-      name: plan.name,
-      description: plan.description,
-      price: plan.priceMonthly,
-      priceCurrency: "BDT",
-      priceValidUntil,
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/pricing`,
-    })),
+    offers: planOffers(),
   };
 }

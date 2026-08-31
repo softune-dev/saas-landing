@@ -64,24 +64,15 @@ export function Hero() {
         </motion.div>
 
         <h1
-          style={{ fontFamily: "var(--font-outfit)" }}
-          className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[1.85rem] leading-[1.05] font-black tracking-tighter text-[var(--color-ink)] sm:gap-x-3 sm:text-[3.2rem] sm:leading-[1.05] md:text-[4rem] lg:gap-y-3 lg:text-[4.5rem]"
+          style={{ fontFamily: "var(--font-heading)" }}
+          className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[1.85rem] leading-[1.15] font-bold tracking-tight text-[var(--color-ink)] sm:gap-x-3 sm:text-[3rem] sm:leading-[1.12] md:text-[3.5rem] lg:gap-y-2 lg:text-[4rem]"
         >
-          <span>Everything you need to</span>
-          <span className="inline-flex items-center gap-x-2 sm:gap-x-3">
-            <span className="relative inline-block px-3 py-1 whitespace-nowrap sm:px-4 sm:py-1.5">
-              <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm sm:top-1" />
-              <em className="relative flex items-center gap-2 not-italic text-white -mt-2">
-                <img
-                  src="/icons/ai.svg"
-                  alt=""
-                  className="size-[0.75em] object-contain brightness-0 invert"
-                />
-                {""}Start Selling
-              </em>
-            </span>
-            <span>Online.</span>
+          <span>Build your</span>
+          <span className="relative inline-block px-3 py-1 whitespace-nowrap sm:px-4 sm:py-1.5">
+            <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm sm:top-1" />
+            <em className="relative not-italic text-white">E-commerce store</em>
           </span>
+          <span>in Bangladesh</span>
         </h1>
 
         <motion.p
@@ -90,10 +81,9 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg"
         >
-          Create your dream storefront with COD, bKash, Nagad, and SSLCommerz
-          payments, Steadfast, Pathao, RedX, and eCourier delivery, and an AI
-          assistant woven into every part of your dashboard, built for
-          Bangladeshi merchants.
+          No-code store builder with bKash, Nagad, COD, and local couriers.
+          Softune&apos;s AI helps you write products and run the shop from one
+          dashboard.
         </motion.p>
 
         <motion.div
@@ -162,7 +152,7 @@ export function Hero() {
                 />
                 <img
                   src={desktopSrc}
-                  alt="Softune merchant dashboard"
+                  alt="Softune ecommerce dashboard for Bangladesh merchants"
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"

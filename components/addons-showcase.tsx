@@ -92,7 +92,7 @@ export function AddonsShowcase() {
               >
                 <img
                   src={addon.logoSrc}
-                  alt=""
+                  alt={`${addon.name} Softune add-on`}
                   width={64}
                   height={64}
                   className="size-10 object-contain sm:size-12 md:size-14"

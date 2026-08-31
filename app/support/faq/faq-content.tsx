@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { faqData } from "@/lib/faq-data";
 
@@ -42,6 +42,7 @@ export default function FAQPage() {
         <button
           type="button"
           onClick={() => setOpenFaq(isOpen ? null : idx)}
+          aria-expanded={isOpen}
           className="flex w-full items-center justify-between gap-4 p-5 md:px-6 md:py-5 text-left"
         >
           <span className={`text-[16px] md:text-[18px] font-semibold tracking-tight transition-colors ${
@@ -63,21 +64,18 @@ export default function FAQPage() {
             </svg>
           </div>
         </button>
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <p className="px-5 md:px-6 pb-5 md:pb-6 pt-0 text-[15px] md:text-[16px] leading-relaxed text-[var(--color-ink-soft)] font-medium max-w-2xl">
-                {faq.a}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className={[
+            "grid transition-[grid-template-rows,opacity] duration-300 ease-in-out",
+            isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+          ].join(" ")}
+        >
+          <div className="overflow-hidden">
+            <p className="px-5 md:px-6 pb-5 md:pb-6 pt-0 text-[15px] md:text-[16px] leading-relaxed text-[var(--color-ink-soft)] font-medium max-w-2xl">
+              {faq.a}
+            </p>
+          </div>
+        </div>
       </motion.div>
     );
   };
@@ -113,7 +111,7 @@ export default function FAQPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: 'var(--font-outfit)' }}
+            style={{ fontFamily: 'var(--font-heading)' }}
           >
             Frequently Asked
             <span className="relative inline-block px-3 py-1 mx-1">

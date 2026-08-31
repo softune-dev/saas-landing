@@ -70,7 +70,7 @@ export default function FeaturePage() {
               />
               <img
                 src="/icons/zap.svg"
-                alt="Zap"
+                alt=""
                 className="size-3.5 object-contain dark:invert"
               />
             </div>
@@ -84,7 +84,7 @@ export default function FeaturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             {feature.titleStart}
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -116,7 +116,15 @@ export default function FeaturePage() {
               {/* Source assets are 1920x1080 — aspect-[16/9] + object-cover
                   locks that ratio at every breakpoint instead of letting a
                   narrow viewport squash or crop it unpredictably. */}
-              <img src={heroImageSrc} alt={feature.pillText} className="size-full object-cover" />
+              <img
+                src={heroImageSrc}
+                alt={`${feature.pillText} in the Softune dashboard`}
+                loading="lazy"
+                decoding="async"
+                width={1920}
+                height={1080}
+                className="size-full object-cover"
+              />
             </motion.div>
           )}
 
@@ -308,7 +316,11 @@ export default function FeaturePage() {
                           {section.image ? (
                             <img
                               src={isDark ? section.image.dark : section.image.light}
-                              alt={section.pillText}
+                              alt={`${section.pillText} in the Softune dashboard`}
+                              loading="lazy"
+                              decoding="async"
+                              width={1000}
+                              height={1000}
                               className="size-full object-cover"
                             />
                           ) : (

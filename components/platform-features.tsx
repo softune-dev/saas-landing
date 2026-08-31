@@ -237,9 +237,11 @@ export function PlatformFeatures() {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={isDark ? darkSrc : liteSrc}
-                        alt={section.pillText}
+                        alt={`${section.pillText} in the Softune dashboard`}
                         loading="lazy"
                         decoding="async"
+                        width={800}
+                        height={800}
                         className="absolute inset-0 size-full object-cover"
                       />
                     )}

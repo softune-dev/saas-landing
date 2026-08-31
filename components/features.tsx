@@ -5,22 +5,86 @@ import { motion } from "framer-motion";
 
 /** Ordered by attention / conversion priority. First 6 show on mobile before “View all”. */
 const features = [
-  { icon: "/icons/color.svg", title: "AI Theme Editor" },
-  { icon: "/icons/ai-pencil.svg", title: "AI Assistant" },
-  { icon: "/icons/wallet.svg", title: "bKash, Nagad, SSLCommerz & COD" },
-  { icon: "/icons/cart.svg", title: "POS" },
-  { icon: "/icons/billing.svg", title: "Marketing & Tracking" },
-  { icon: "/icons/analytics.svg", title: "Store Analytics" },
-  { icon: "/icons/orders.svg", title: "Order Management" },
-  { icon: "/icons/shop-bag.svg", title: "Product Catalog" },
-  { icon: "/icons/delivery.svg", title: "Courier Delivery" },
-  { icon: "/icons/user.svg", title: "Customer Management" },
-  { icon: "/icons/lock.svg", title: "Fraud Protection" },
-  { icon: "/icons/domain.svg", title: "SEO & Domains" },
-  { icon: "/icons/save.svg", title: "Add-Ons Marketplace" },
-  { icon: "/icons/book.svg", title: "Categories" },
-  { icon: "/icons/splash.svg", title: "Media Library" },
-  { icon: "/icons/play.svg", title: "Guided Onboarding" },
+  {
+    icon: "/icons/color.svg",
+    title: "AI Theme Editor",
+    desc: "Change colors, fonts, and sections with a live preview — no designer needed to launch a Bangladesh storefront.",
+  },
+  {
+    icon: "/icons/ai-pencil.svg",
+    title: "AI Assistant",
+    desc: "Ask about products, orders, and sales in Bangla or English, using your own Softune store data.",
+  },
+  {
+    icon: "/icons/wallet.svg",
+    title: "bKash, Nagad, SSLCommerz & COD",
+    desc: "Take cash on delivery plus bKash, Nagad, and SSLCommerz from one payments screen.",
+  },
+  {
+    icon: "/icons/cart.svg",
+    title: "POS",
+    desc: "Ring up walk-in sales with Store Sale POS, then see them next to your online orders.",
+  },
+  {
+    icon: "/icons/billing.svg",
+    title: "Marketing & Tracking",
+    desc: "Fire Meta, TikTok, GTM, and GA4 ecommerce events, including server-side Meta CAPI.",
+  },
+  {
+    icon: "/icons/analytics.svg",
+    title: "Store Analytics",
+    desc: "See real revenue, profit, and visitors from Softune orders — not guessed funnels.",
+  },
+  {
+    icon: "/icons/orders.svg",
+    title: "Order Management",
+    desc: "Process COD and prepaid orders, statuses, and courier handoff from one list.",
+  },
+  {
+    icon: "/icons/shop-bag.svg",
+    title: "Product Catalog",
+    desc: "Add photos, variants, stock, and taka prices, with AI drafts you still confirm.",
+  },
+  {
+    icon: "/icons/delivery.svg",
+    title: "Courier Delivery",
+    desc: "Connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts.",
+  },
+  {
+    icon: "/icons/user.svg",
+    title: "Customer Management",
+    desc: "Keep every shopper, order history, and phone number in one customer list.",
+  },
+  {
+    icon: "/icons/lock.svg",
+    title: "Fraud Protection",
+    desc: "Automatically flag suspicious orders before they ship, so you're not paying courier fees on scams.",
+  },
+  {
+    icon: "/icons/domain.svg",
+    title: "SEO & Domains",
+    desc: "Set titles, Open Graph, tracking pixels, and a custom domain from Site Settings.",
+  },
+  {
+    icon: "/icons/save.svg",
+    title: "Add-Ons Marketplace",
+    desc: "Turn on reviews, WhatsApp alerts, and discounts without extra plugins.",
+  },
+  {
+    icon: "/icons/book.svg",
+    title: "Categories",
+    desc: "Group products so shoppers can browse your storefront by collection.",
+  },
+  {
+    icon: "/icons/splash.svg",
+    title: "Media Library",
+    desc: "Upload and reuse product photos across the catalog without re-uploading.",
+  },
+  {
+    icon: "/icons/play.svg",
+    title: "Guided Onboarding",
+    desc: "A short setup walkthrough gets your first theme, products, and payments live.",
+  },
 ];
 
 export function Features() {
@@ -93,6 +157,9 @@ export function Features() {
                 <h3 className="mt-5 text-[17px] font-extrabold tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-brand)] transition-colors">
                   {f.title}
                 </h3>
+                <p className="mt-2 text-[13px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[14px]">
+                  {f.desc}
+                </p>
               </div>
             </motion.div>
           ))}

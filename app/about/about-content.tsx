@@ -46,11 +46,14 @@ const timeline = [
   }
 ];
 
+// Real, verifiable facts only — no invented uptime/latency/savings figures.
+// A new platform with no measured traffic yet has nothing honest to put
+// behind those, and a made-up number is worse for trust than no number.
 const stats = [
-  { label: "Active Merchants", value: "Worldwide", icon: "/icons/domain.svg" },
-  { label: "Average Page Load", value: "15ms", icon: "/icons/zap.svg" },
-  { label: "Uptime SLA", value: "99.99%", icon: "/icons/lock.svg" },
-  { label: "Plugin Costs Saved", value: "৳4,500/mo", icon: "/icons/wallet.svg" }
+  { label: "Payment Gateways", value: "bKash, Nagad, SSLCommerz", icon: "/icons/wallet.svg" },
+  { label: "Courier Partners", value: "Steadfast, Pathao, RedX, eCourier", icon: "/icons/domain.svg" },
+  { label: "Data Isolation", value: "Per-Tenant", icon: "/icons/lock.svg" },
+  { label: "Built By", value: "1 Founder, 2024–2026", icon: "/icons/zap.svg" }
 ];
 
 export default function AboutPage() {
@@ -85,7 +88,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: 'var(--font-outfit)' }}
+            style={{ fontFamily: 'var(--font-heading)' }}
           >
             Smarter e-Commerce,
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -108,7 +111,7 @@ export default function AboutPage() {
         <section className="pt-24 pb-12 max-w-7xl mx-auto px-5 md:px-8">
           {/* Full-width Centered Intro */}
           <div className="max-w-3xl text-center mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-6" style={{ fontFamily: 'var(--font-outfit)' }}>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--color-ink)] mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
               Why Softune{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -156,7 +159,7 @@ export default function AboutPage() {
         {/* Brand Values */}
         <section className="py-24 max-w-7xl mx-auto px-5 md:px-8 border-t border-[var(--color-line)]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-outfit)' }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
               Values That{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -202,7 +205,7 @@ export default function AboutPage() {
           
           <div className="max-w-4xl mx-auto px-5 md:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-outfit)' }}>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
                 Our{" "}
                 <span className="relative inline-block px-3 py-0.5 mx-1">
                   <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -247,7 +250,7 @@ export default function AboutPage() {
         {/* Team Grid (Video/Blog Card Styled) */}
         <section className="pt-24 pb-12 max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-outfit)' }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
               Meet Our{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -284,7 +287,7 @@ export default function AboutPage() {
                     {member.role}
                   </span>
 
-                  <h3 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-[var(--color-ink)] leading-snug" style={{ fontFamily: 'var(--font-outfit)' }}>
+                  <h3 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-[var(--color-ink)] leading-snug" style={{ fontFamily: 'var(--font-heading)' }}>
                     {member.name}
                   </h3>
 
@@ -345,7 +348,7 @@ export default function AboutPage() {
             <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)] opacity-80" />
             
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
                 Scale Your Brand With Us
               </h3>
               <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium mb-8">

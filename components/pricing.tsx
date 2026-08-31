@@ -292,7 +292,11 @@ export function Pricing() {
               <div className="absolute inset-0 pt-2 pr-2 pb-2">
                 <img
                   src={enterpriseImageSrc}
-                  alt=""
+                  alt="Softune Enterprise custom ecommerce storefront"
+                  loading="lazy"
+                  decoding="async"
+                  width={900}
+                  height={700}
                   className="h-full w-full rounded-2xl object-cover object-right"
                 />
               </div>

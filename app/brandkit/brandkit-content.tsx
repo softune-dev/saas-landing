@@ -68,7 +68,7 @@ const guidelines = [
 ];
 
 const typography = [
-  { name: "Outfit", weight: "Black 900", usage: "Hero headings, section titles", sample: "Aa" },
+  { name: "Plus Jakarta Sans", weight: "ExtraBold 800", usage: "Hero headings, section titles", sample: "Aa" },
   { name: "Inter", weight: "Semibold 600", usage: "Sub-headings, labels, navigation", sample: "Aa" },
   { name: "Inter", weight: "Medium 500", usage: "Body text, descriptions, captions", sample: "Aa" },
 ];
@@ -102,7 +102,7 @@ export default function BrandKitPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: "var(--font-outfit)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Softune
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -124,7 +124,7 @@ export default function BrandKitPage() {
         {/* Logo Downloads */}
         <section className="pt-24 pb-12 max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
               Logo{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -185,7 +185,7 @@ export default function BrandKitPage() {
         {/* Color Palette */}
         <section className="py-24 border-t border-[var(--color-line)] max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
               Color{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -227,7 +227,7 @@ export default function BrandKitPage() {
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_80%)] opacity-5" />
           <div className="max-w-7xl mx-auto px-5 md:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                 Type{" "}
                 <span className="relative inline-block px-3 py-0.5 mx-1">
                   <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -250,7 +250,7 @@ export default function BrandKitPage() {
                   <div className="relative z-10">
                     <p
                       className="text-6xl font-black text-[var(--color-brand)] leading-none mb-6"
-                      style={{ fontFamily: type.name === "Outfit" ? "var(--font-outfit)" : "inherit" }}
+                      style={{ fontFamily: type.name === "Plus Jakarta Sans" ? "var(--font-heading)" : "inherit" }}
                     >
                       {type.sample}
                     </p>
@@ -267,7 +267,7 @@ export default function BrandKitPage() {
         {/* Usage Guidelines */}
         <section className="py-24 max-w-7xl mx-auto px-5 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-outfit)" }}>
+            <h2 className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
               Usage{" "}
               <span className="relative inline-block px-3 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
@@ -315,7 +315,7 @@ export default function BrandKitPage() {
           >
             <div className="pointer-events-none absolute top-0 right-0 w-1/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_70%)] opacity-80" />
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] mb-4" style={{ fontFamily: "var(--font-outfit)" }}>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-ink)] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 Need Something Specific?
               </h3>
               <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium mb-8">

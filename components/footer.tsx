@@ -129,7 +129,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10 lg:col-span-3">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-8 lg:col-span-3">
           {cols.map((c) => (
             <div key={c.title} className="min-w-0">
               <p className="text-[15px] font-extrabold tracking-tight text-[var(--color-ink)] underline decoration-[var(--color-brand)] decoration-2 underline-offset-4 sm:text-[16px]">

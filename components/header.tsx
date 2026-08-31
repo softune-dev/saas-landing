@@ -61,8 +61,10 @@ export function Header() {
         <div className="hidden items-center gap-2 sm:flex">
           <img
             src="/sale.svg"
-            alt="Sale"
-            className="h-12 w-auto object-contain"
+            alt="Softune launch sale"
+            width={180}
+            height={44}
+            className="h-11 w-auto object-contain object-left"
           />
         </div>
 

@@ -1,12 +1,13 @@
 import { StructuredData } from "@/components/structured-data";
-import { breadcrumbSchema } from "@/lib/schema";
+import { BLOG_POSTS } from "@/lib/blog-data";
+import { blogIndexSchema, breadcrumbSchema } from "@/lib/schema";
 import { pageSeo } from "@/lib/seo";
 import BlogPage from "./blog-content";
 
 export const metadata = pageSeo({
-  title: "Ecommerce Guides for Bangladesh",
+  title: "Ecommerce Guides for Bangladesh Shop Owners",
   description:
-    "Practical Softune guides for Bangladeshi store owners — Facebook Page to website, COD, bKash, couriers, and launching a store without code.",
+    "Short, practical Softune articles: move off Facebook Page orders, set up COD, cut fake deliveries, and grow a shop from one product.",
   path: "/blog",
 });
 
@@ -19,6 +20,7 @@ export default function Page() {
           { name: "Blog", path: "/blog" },
         ])}
       />
+      <StructuredData data={blogIndexSchema(BLOG_POSTS)} />
       <BlogPage />
     </>
   );
