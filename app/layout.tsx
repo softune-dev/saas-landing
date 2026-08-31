@@ -150,8 +150,10 @@ export default function RootLayout({
           type="image/webp"
           media="(min-width: 768px)"
         />
+        <Analytics />
       </head>
       <body className="min-h-screen antialiased bg-[var(--color-canvas)] text-[var(--color-ink)] transition-colors duration-200">
+        <AnalyticsNoscript />
         {/* Sitewide entity schema — every page carries these two so an AI
             crawler or answer engine landing on ANY page (not just "/")
             still knows what Softune is. Page-specific schema (Article,
@@ -159,8 +161,6 @@ export default function RootLayout({
             own page.tsx. */}
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
-        <Analytics />
-        <AnalyticsNoscript />
         <ThemeProvider>{children}</ThemeProvider>
 
         {/* Tawk.to — lazyOnload so it doesn't compete with LCP/TBT on mobile. */}

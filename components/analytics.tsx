@@ -1,7 +1,9 @@
 import Script from "next/script";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim();
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim();
+/** Softune marketing GTM. Override with NEXT_PUBLIC_GTM_ID on staging. */
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-PP7J8GF2";
+/** Softune marketing GA4. Override with NEXT_PUBLIC_GA_ID on staging. */
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() || "G-3XKQHQE2TP";
 
 function isGtmId(id: string) {
   return /^GTM-[A-Z0-9]+$/i.test(id);
@@ -23,7 +25,7 @@ export function Analytics() {
   return (
     <>
       {gtm ? (
-        <Script id="gtm" strategy="afterInteractive">
+        <Script id="gtm" strategy="beforeInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
