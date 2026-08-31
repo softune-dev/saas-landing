@@ -11,6 +11,7 @@ const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   weight: ["400", "700", "800", "900"],
+  display: "swap",
 });
 
 const niconne = Niconne({
@@ -30,6 +31,7 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 const instrument = Instrument_Serif({
@@ -126,6 +128,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${outfit.variable} ${niconne.variable} ${notoSansBengali.variable}`}
     >
+      <head>
+        <link rel="describedby" href="/llms.txt" />
+      </head>
       <body className="min-h-screen antialiased bg-[var(--color-canvas)] text-[var(--color-ink)] transition-colors duration-200">
         {/* Sitewide entity schema — every page carries these two so an AI
             crawler or answer engine landing on ANY page (not just "/")
