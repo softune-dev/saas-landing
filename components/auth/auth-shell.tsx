@@ -37,7 +37,7 @@ export function AuthShell({
 
   return (
     <div className="flex min-h-dvh w-full items-center justify-center bg-background p-4 sm:p-6 lg:p-8">
-      <div className={`grid w-full ${maxWidth} overflow-hidden rounded-2xl bg-surface shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] sm:rounded-3xl lg:grid-cols-2`}>
+      <div className={`grid w-full min-w-0 ${maxWidth} overflow-hidden rounded-2xl bg-surface shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] sm:rounded-3xl lg:grid-cols-2`}>
         <div className="relative hidden min-h-[560px] pt-2.5 pb-2.5 pl-2.5 lg:block">
           <div className="relative size-full overflow-hidden rounded-xl sm:rounded-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -50,7 +50,7 @@ export function AuthShell({
           </div>
         </div>
 
-        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+        <div className="flex min-w-0 flex-col justify-center p-5 sm:p-8 lg:p-12">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <a href="/">
             <img
