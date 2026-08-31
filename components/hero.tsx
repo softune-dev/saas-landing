@@ -21,6 +21,7 @@ export function Hero() {
 
   const isDark = !mounted || resolvedTheme === "dark";
   const desktopSrc = isDark ? "/dashboard-d.webp" : "/dashboard-l.webp";
+  const mobileSrc = isDark ? "/dashboard-d-mobile.webp" : "/dashboard-l-mobile.webp";
 
   return (
     <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px] md:border-t-0">
@@ -132,7 +133,7 @@ export function Hero() {
           </div>
           <Button
             as="a"
-            href="/#themes"
+            href="/signup"
             variant="outline"
             className="flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[var(--color-brand)]/5 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
           >
@@ -155,21 +156,22 @@ export function Hero() {
           className="relative mx-auto w-full"
         >
           <div className="overflow-hidden rounded-xl border border-[var(--color-line)] shadow-[0_24px_80px_-28px_rgba(12,12,12,0.4)] sm:rounded-2xl">
-            <div className="relative w-full overflow-hidden bg-[var(--color-canvas)]">
-              {/* Spacer keeps layout height stable */}
-              <img
-                src="/dashboard-l.webp"
-                alt=""
-                aria-hidden
-                className="block h-auto w-full opacity-0"
-                width={1440}
-                height={956}
-              />
+            {/* aspect-ratio reserves the layout space instead of loading a
+                second hidden copy of the image just to size the box. */}
+            <div
+              className="relative w-full overflow-hidden bg-[var(--color-canvas)]"
+              style={{ aspectRatio: "1440 / 956" }}
+            >
               <AnimatePresence mode="sync" initial={false}>
                 <motion.img
                   key={desktopSrc}
                   src={desktopSrc}
+                  srcSet={`${mobileSrc} 800w, ${desktopSrc} 1440w`}
+                  sizes="(max-width: 767px) 100vw, 1440px"
                   alt="Softune merchant dashboard"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   className="absolute inset-0 h-full w-full object-cover object-left-top"
                   width={1440}
                   height={956}
