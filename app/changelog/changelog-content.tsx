@@ -4,70 +4,9 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import React from "react";
 import { motion } from "framer-motion";
+import { changelogData, type ChangeType } from "@/lib/changelog-data";
 
-const changelogData = [
-  {
-    serial: "1.1",
-    version: "v1.1.0",
-    date: "Aug 15, 2026",
-    title: "The Performance & SEO Update",
-    description:
-      "We've vastly improved storefront load times and added built-in SEO auditing tools to help you rank higher on search engines.",
-    changes: [
-      {
-        type: "Feature",
-        content: "Built-in automated SEO audits for all product pages.",
-      },
-      {
-        type: "Feature",
-        content: "New 'Lightning' theme template added to the catalog.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Image optimization now uses WebP by default, reducing file sizes by up to 30%.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed an issue where variant prices didn't immediately update in the cart drawer.",
-      },
-    ],
-  },
-  {
-    serial: "1.0",
-    version: "v1.0.0",
-    date: "Aug 01, 2026",
-    title: "Initial Release: Welcome to Softune",
-    description:
-      "The complete multi-tenant storefront platform is now officially live! Build, manage, and scale your stores with ease.",
-    changes: [
-      {
-        type: "Feature",
-        content:
-          "Multi-tenant dashboard for merchants and agencies managing client storefronts.",
-      },
-      {
-        type: "Feature",
-        content: "Live Theme Editor with desktop and mobile preview.",
-      },
-      {
-        type: "Feature",
-        content: "Store Sale POS for counter and in-person orders.",
-      },
-      {
-        type: "Feature",
-        content: "AI product descriptions and Theme Editor AI Suggest (merchant confirms before publish).",
-      },
-      {
-        type: "Feature",
-        content: "Analytics from real orders, COD, bKash, Nagad, SSLCommerz, and courier connections.",
-      },
-    ],
-  },
-];
-
-function Badge({ type }: { type: string }) {
+function Badge({ type }: { type: ChangeType }) {
   const colors: Record<string, string> = {
     Feature: "bg-[#E6F4EA] text-[#137333] border-[#137333]/20 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20",
     Improvement: "bg-[#F3E8FD] text-[#6B21A8] border-[#6B21A8]/20 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20",
@@ -141,8 +80,8 @@ export default function ChangelogPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-xl mx-auto leading-relaxed"
           >
-            Stay in the loop with the latest features, improvements, and bug
-            fixes to Softune.
+            What shipped in the Softune dashboard and on your live store —
+            features, fixes, and improvements merchants actually use.
           </motion.p>
         </div>
 

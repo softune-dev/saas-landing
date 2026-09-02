@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 import { FEATURE_PAGES, FEATURES_LIST } from "@/lib/features-data";
+import { HeroCtas } from "@/components/hero-ctas";
 
 const CheckIcon = () => (
   <svg
@@ -104,6 +105,15 @@ export default function FeaturePage() {
           >
             {feature.description}
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative z-10 mt-8 flex justify-center"
+          >
+            <HeroCtas />
+          </motion.div>
 
           {/* Real screenshot */}
           {heroImageSrc && (

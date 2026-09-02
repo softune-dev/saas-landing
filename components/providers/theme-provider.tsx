@@ -2,6 +2,7 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ReactNode } from "react";
+import { ToastProvider } from "@/components/ui/toast";
 
 /** Class-strategy theme provider — toggles `.dark` on <html>. */
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -12,7 +13,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       enableSystem={false}
       disableTransitionOnChange
     >
-      {children}
+      <ToastProvider>{children}</ToastProvider>
     </NextThemesProvider>
   );
 }

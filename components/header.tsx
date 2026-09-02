@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SoftuneLogo } from "@/components/brand/softune-logo";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
+import { DASHBOARD_URL, TRIAL_CTA } from "@/lib/site";
 
 const links = [
   {
@@ -32,10 +33,9 @@ const links = [
       { label: "Fraud Protection", href: "/features/fraud-protection", icon: "/icons/lock.svg" },
     ],
   },
-  { label: "Add-Ons", href: "/#addons" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blogs", href: "/blog" },
   {
     label: "Support",
     href: "/#support",
@@ -52,7 +52,7 @@ const links = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>("Features");
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   return (
     <>
@@ -63,42 +63,45 @@ export function Header() {
             loading="lazy"
             decoding="async"
             src="/sale.svg"
-            alt="Softune launch sale"
+            alt=""
             width={180}
             height={44}
             className="h-11 w-auto object-contain object-left"
           />
         </div>
 
-        {/* Mobile: compact copy + discount chip */}
+        {/* Mobile: compact copy + chip */}
         <div className="flex flex-1 items-center justify-between gap-2 sm:hidden">
           <p className="min-w-0 truncate text-[13px] font-semibold tracking-tight">
-            Launch Sale is on! 🎉
+            3-day free trial is on!
           </p>
           <a
-            href="#sale"
+            href="/signup"
             className="inline-flex shrink-0 items-center rounded-full border border-white/40 bg-gradient-to-r from-[#10b981] to-[#34d399] px-2.5 py-1 text-[11px] font-black tracking-tight text-[#1a1a1a]"
           >
-            20% OFF
+            FREE
           </a>
         </div>
 
         {/* Desktop: full message */}
         <div className="z-10 hidden flex-1 text-center text-lg font-medium sm:block">
-          Launch Sale is on! 🎉 Get ready to boost your sales with{" "}
-          <span className="cursor-pointer text-[#a3ffaa] underline underline-offset-2">
-            exclusive discounts!
-          </span>
+          3-day free trial is on! Open a real store with{" "}
+          <a
+            href="/signup"
+            className="text-[#a3ffaa] underline underline-offset-2"
+          >
+            no credit card.
+          </a>
         </div>
         <div className="z-10 hidden sm:flex">
           <a
-            href="#sale"
+            href="/signup"
             className="animate-shine -my-[38px] flex h-[120px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-10 leading-tight transition-transform hover:scale-[1.02]"
           >
             <span className="text-[14px] font-bold tracking-tight text-[#1a1a1a]">
               GET
             </span>
-            <span className="text-lg font-black text-[#1a1a1a]">20% OFF</span>
+            <span className="text-lg font-black text-[#1a1a1a]">FREE</span>
           </a>
         </div>
       </div>
@@ -168,15 +171,26 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-5 md:flex">
+          <div className="hidden items-center gap-4 md:flex">
             <ThemeToggle />
+            <a
+              href={DASHBOARD_URL}
+              className="p-0 text-base font-semibold text-[var(--color-ink)] hover:underline"
+            >
+              Login
+            </a>
             <Button
               as="a"
               href="/signup"
               variant="primary"
-              className="px-6 py-2.5 text-base font-semibold shadow-md"
+              className="gap-2 px-6 py-2.5 text-base font-semibold shadow-md"
             >
-              Get Started
+              {TRIAL_CTA}
+              <img
+                src="/icons/arrow-right.svg"
+                alt=""
+                className="size-4 object-contain brightness-0 invert"
+              />
             </Button>
           </div>
 
@@ -187,7 +201,12 @@ export function Header() {
               className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)]"
               aria-label="Menu"
               aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
+              onClick={() =>
+                setOpen((v) => {
+                  if (v) setMobileExpanded(null);
+                  return !v;
+                })
+              }
             >
               {open ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
@@ -204,7 +223,10 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                setMobileExpanded(null);
+              }}
               className="fixed inset-0 z-[9999] bg-black/60 md:hidden"
             />
             {/* Sidebar drawer */}
@@ -217,11 +239,21 @@ export function Header() {
             >
               {/* Header inside sidebar */}
               <div className="flex h-16 items-center justify-between px-6 border-b border-line shrink-0">
-                <a href="/" className="flex items-center" onClick={() => setOpen(false)}>
+                <a
+                  href="/"
+                  className="flex items-center"
+                  onClick={() => {
+                    setOpen(false);
+                    setMobileExpanded(null);
+                  }}
+                >
                   <SoftuneLogo className="h-10 w-auto" />
                 </a>
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    setMobileExpanded(null);
+                  }}
                   className="flex size-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-line/40"
                   aria-label="Close menu"
                 >
@@ -294,15 +326,27 @@ export function Header() {
               </div>
 
               {/* Bottom CTA */}
-              <div className="p-6 border-t border-line bg-canvas/20 shrink-0">
+              <div className="flex items-center gap-4 p-6 border-t border-line bg-canvas/20 shrink-0">
+                <a
+                  href={DASHBOARD_URL}
+                  onClick={() => setOpen(false)}
+                  className="p-0 text-base font-semibold text-[var(--color-ink)] hover:underline"
+                >
+                  Login
+                </a>
                 <Button
                   as="a"
                   href="/signup"
                   onClick={() => setOpen(false)}
                   variant="primary"
-                  className="w-full justify-center py-3.5 text-base font-bold shadow-md"
+                  className="min-w-0 flex-1 justify-center gap-2 py-3.5 text-base font-bold shadow-md"
                 >
-                  Get Started
+                  {TRIAL_CTA}
+                  <img
+                    src="/icons/arrow-right.svg"
+                    alt=""
+                    className="size-4 object-contain brightness-0 invert"
+                  />
                 </Button>
               </div>
             </motion.div>

@@ -41,6 +41,10 @@ export const INDUSTRY_PAGES: Record<
         q: "Can I sell clothes with multiple sizes and colors?",
         a: "Yes — Softune's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
       },
+      {
+        q: "Is there a free trial?",
+        a: "Yes — a 3-day free trial with full access. No credit card required.",
+      },
     ],
     ctaText: "Start Your Fashion Store",
     ctaHref: "/signup",
@@ -76,6 +80,10 @@ export const INDUSTRY_PAGES: Record<
         q: "Can customers pay Cash on Delivery for beauty products?",
         a: "Yes — COD is supported natively, alongside bKash, Nagad, and SSLCommerz, so you're not limited to one payment method.",
       },
+      {
+        q: "Is there a free trial?",
+        a: "Yes — a 3-day free trial with full access. No credit card required.",
+      },
     ],
     ctaText: "Start Your Beauty Store",
     ctaHref: "/signup",
@@ -110,6 +118,10 @@ export const INDUSTRY_PAGES: Record<
       {
         q: "Can I organize products by category for a grocery store?",
         a: "Yes — Softune supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
+      },
+      {
+        q: "Is there a free trial?",
+        a: "Yes — a 3-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Grocery Store",

@@ -52,10 +52,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Live",
     titleEnd: "",
     description:
-      "Softune’s Theme Editor lets you change colors, fonts, homepage sections, and pages with a live preview. Save a draft, then publish when it looks right.",
-    introTitle: "Edit with a real preview, not a blank form",
+      "Softune cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview — then publish when the shop looks like your brand.",
+    introTitle: "Your brand, not a default template",
     introDesc:
-      "The Theme Editor shows your storefront as you work. Desktop, tablet, and mobile previews sit beside your edits, so customers only see what you publish.",
+      "Softune is built so each store looks like the merchant, not like every other shop on the same theme. Desktop, tablet, and mobile previews sit beside your edits, so customers only see the identity you publish.",
     alternating: [
       {
         pillText: "Live Preview",
@@ -79,7 +79,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Your Way",
         titleEnd: "",
         description:
-          "Set logo, colors, fonts, and buttons. Add, remove, and reorder homepage sections, and edit the content shoppers actually see.",
+          "Your branding and identity stay yours: logo, colors, fonts, and buttons. Add, remove, and reorder homepage sections, and edit the content shoppers actually see — instead of shipping a generic look.",
         bullets: [
           "Logo, site name, tagline, colors, and font pairs",
           "Drag-and-drop homepage sections without code",
@@ -748,7 +748,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
 };
 
 export const FEATURES_LIST = [
-  { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Live preview, sections, and AI Suggest" },
+  { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity — live preview, not a generic look" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },

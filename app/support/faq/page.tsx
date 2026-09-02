@@ -7,7 +7,7 @@ import FAQPage from "./faq-content";
 export const metadata = pageSeo({
   title: "FAQ | Payments, Couriers & Plans",
   description:
-    "Answers about Softune plans, COD, bKash, Nagad, SSLCommerz, courier connects, Store Sale POS, and launching a store in Bangladesh.",
+    "Answers about Softune's 3-day free trial (no credit card), plans, COD, bKash, Nagad, SSLCommerz, courier connects, and launching a store in Bangladesh.",
   path: "/support/faq",
 });
 

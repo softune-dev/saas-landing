@@ -95,7 +95,7 @@ export function OtpBoxes({
 
   return (
     <div
-      className="mx-auto grid w-full min-w-0 max-w-[22rem] grid-cols-6 gap-1.5 sm:max-w-sm sm:gap-2"
+      className="grid w-full min-w-0 max-w-[22rem] grid-cols-6 gap-1.5 sm:max-w-sm sm:gap-2"
       role="group"
       aria-label="6-digit verification code"
     >

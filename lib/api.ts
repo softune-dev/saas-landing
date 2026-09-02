@@ -1,6 +1,8 @@
 /**
- * Shared fetch for the landing site. Lead funnel calls live in lib/leads.ts
- * and send a lead_token, never the dashboard's real access token.
+ * Shared fetch for the landing site. Trial signup calls live in
+ * lib/trial.ts — unauthenticated (a signup_token travels in the request
+ * body, not a header) until POST /trial/complete returns real dashboard
+ * tokens.
  */
 
 export const API_URL =
@@ -12,6 +14,58 @@ export class RecaptchaChallengeRequiredError extends Error {
     super(message);
     this.name = "RecaptchaChallengeRequiredError";
   }
+}
+
+/** Failed API call with status + FastAPI `detail` so callers can tell a
+ * 422 password-rule miss from a 409 email-taken, instead of flattening
+ * everything to `Error.message`. */
+export class ApiError extends Error {
+  status: number;
+  detail: unknown;
+  constructor(status: number, detail: unknown, message: string) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+    this.detail = detail;
+  }
+}
+
+function messageFromDetail(detail: unknown, status: number): string {
+  if (typeof detail === "string") return detail;
+  if (
+    detail &&
+    typeof detail === "object" &&
+    "message" in detail &&
+    typeof (detail as { message: unknown }).message === "string"
+  ) {
+    return (detail as { message: string }).message;
+  }
+  if (Array.isArray(detail)) {
+    const msgs = detail
+      .map((item) => {
+        if (!item || typeof item !== "object") return null;
+        const raw = (item as { msg?: unknown }).msg;
+        if (typeof raw !== "string") return null;
+        return raw.replace(/^Value error,\s*/i, "");
+      })
+      .filter((m): m is string => Boolean(m));
+    if (msgs.length) return msgs.join(" ");
+  }
+  return `Request failed (${status})`;
+}
+
+/** FastAPI 422 whose loc points at `password` — TrialStartIn strength
+ * rules or the min_length=8 field. Other 422s (email, phone) stay false. */
+export function isPassword422(err: unknown): boolean {
+  if (!(err instanceof ApiError) || err.status !== 422) return false;
+  if (Array.isArray(err.detail)) {
+    return err.detail.some((item) => {
+      if (!item || typeof item !== "object") return false;
+      const loc = (item as { loc?: unknown }).loc;
+      return Array.isArray(loc) && loc.includes("password");
+    });
+  }
+  return typeof err.detail === "string" && /password/i.test(err.detail);
 }
 
 export async function request<T>(
@@ -34,14 +88,19 @@ export async function request<T>(
     if (
       detail &&
       typeof detail === "object" &&
-      detail.code === "recaptcha_challenge_required"
+      !Array.isArray(detail) &&
+      (detail as { code?: unknown }).code === "recaptcha_challenge_required"
     ) {
       throw new RecaptchaChallengeRequiredError(
-        detail.message || "Additional verification required.",
+        (detail as { message?: string }).message ||
+          "Additional verification required.",
       );
     }
-    const message = typeof detail === "string" ? detail : detail?.message;
-    throw new Error(message || `Request failed (${res.status})`);
+    throw new ApiError(
+      res.status,
+      detail,
+      messageFromDetail(detail, res.status),
+    );
   }
   if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;

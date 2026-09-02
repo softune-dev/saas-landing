@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
+const DASHBOARD_URL = (
+  process.env.NEXT_PUBLIC_DASHBOARD_URL || "https://dashboard.softunebd.com"
+).replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/login",
+        destination: DASHBOARD_URL,
+        permanent: false,
+      },
+      { source: "/verify-otp", destination: "/signup", permanent: false },
+      { source: "/basics", destination: "/signup", permanent: false },
+      { source: "/welcome", destination: "/signup", permanent: false },
+    ];
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },

@@ -7,7 +7,7 @@ const items = [
   {
     icon: "/icons/color.svg",
     title: "Live Theme Editor",
-    body: "Design your storefront with a live preview. Change colors, fonts, sections, and pages, then publish only when it looks right.",
+    body: "Softune cares about your branding and identity, not a generic look. Change logo, colors, fonts, and sections with a live preview, then publish when the shop looks like your brand.",
   },
   {
     icon: "/icons/ai-pencil.svg",

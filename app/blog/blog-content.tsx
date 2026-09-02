@@ -3,9 +3,7 @@
 import React from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { motion } from "framer-motion";
-import { Calendar, Clock, User, ArrowRight, Newspaper } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Clock, Newspaper } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog-data";
 
 export default function BlogPage() {
@@ -23,12 +21,7 @@ export default function BlogPage() {
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
           {/* Hero Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
-          >
+          <div className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
               <Newspaper className="size-3.5 text-[var(--color-brand)]" />
@@ -36,12 +29,9 @@ export default function BlogPage() {
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
               Softune Journal
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
+          <h1
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
@@ -50,25 +40,17 @@ export default function BlogPage() {
               <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
               <em className="relative not-italic text-white">Insights</em>
             </span>
-          </motion.h1>
+          </h1>
           
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed">
             Practical guides, ecommerce strategies, product updates, and growth tactics for online store owners.
-          </motion.p>
+          </p>
         </div>
 
         {/* Featured Post */}
         <section className="py-12 max-w-7xl mx-auto px-5 md:px-8">
-          <motion.a
+          <a
             href={`/blog/${featuredPost.slug}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group text-left flex flex-col lg:flex-row mb-16 cursor-pointer"
           >
             <div className="pointer-events-none absolute bottom-0 right-0 w-1/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
@@ -115,7 +97,7 @@ export default function BlogPage() {
                 </span>
               </div>
             </div>
-          </motion.a>
+          </a>
 
           {/* Grid of Recent Posts */}
           <div>
@@ -125,14 +107,10 @@ export default function BlogPage() {
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recentPosts.map((post, i) => (
-                <motion.a
+                <a
                   href={`/blog/${post.slug}`}
                   key={post.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.25 }}
-            className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col text-left cursor-pointer"
+                  className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col text-left cursor-pointer"
                 >
                   <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
                   
@@ -175,7 +153,7 @@ export default function BlogPage() {
                       <span className="flex items-center gap-1"><Clock className="size-3.5" />{post.readTime}</span>
                     </div>
                   </div>
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>

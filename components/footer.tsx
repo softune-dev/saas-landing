@@ -3,7 +3,7 @@ import { SoftuneLogo } from "@/components/brand/softune-logo";
 /** Shared prompt for footer AI deep-links — points models at llms.txt so
  * answers match product truth instead of inventing gateways / unlimited stores. */
 const ASK_AI_PROMPT =
-  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softune is: a Bangladesh ecommerce SaaS with Theme Editor, Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
+  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softune is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
 
 const cols = [
   {

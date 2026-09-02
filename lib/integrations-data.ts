@@ -47,7 +47,7 @@ export const INTEGRATIONS: Record<
         a: "It's bKash's own Tokenized Checkout API — the same flow used by other real Bangladeshi ecommerce sites, not a manual/screenshot-based workaround.",
       },
     ],
-    ctaText: "Connect bKash — Get Started",
+    ctaText: "Connect bKash — Start Free",
     ctaHref: "/signup",
   },
   nagad: {
@@ -82,7 +82,7 @@ export const INTEGRATIONS: Record<
         a: "Yes — connecting Nagad is a dashboard settings flow: enter your merchant credentials, Softune verifies and stores them, checkout does the rest.",
       },
     ],
-    ctaText: "Connect Nagad — Get Started",
+    ctaText: "Connect Nagad — Start Free",
     ctaHref: "/signup",
   },
   steadfast: {
@@ -117,7 +117,7 @@ export const INTEGRATIONS: Record<
         a: "No — it connects to your existing Steadfast merchant account so bookings happen from inside Softune instead of a separate tab.",
       },
     ],
-    ctaText: "Connect Steadfast — Get Started",
+    ctaText: "Connect Steadfast — Start Free",
     ctaHref: "/signup",
   },
   pathao: {
@@ -152,7 +152,7 @@ export const INTEGRATIONS: Record<
         a: "Yes — Softune connects to your existing Pathao merchant account; it doesn't replace the need to have one.",
       },
     ],
-    ctaText: "Connect Pathao — Get Started",
+    ctaText: "Connect Pathao — Start Free",
     ctaHref: "/signup",
   },
   redx: {
@@ -187,7 +187,7 @@ export const INTEGRATIONS: Record<
         a: "Yes — Softune supports connecting multiple couriers, so you can choose per order or keep a backup courier connected.",
       },
     ],
-    ctaText: "Connect RedX — Get Started",
+    ctaText: "Connect RedX — Start Free",
     ctaHref: "/signup",
   },
 };

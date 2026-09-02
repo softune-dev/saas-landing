@@ -7,7 +7,7 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.softunebd.com"
 ).replace(/\/$/, "");
 
-/** Merchant dashboard — demo-access redirect target after the lead funnel.
+/** Merchant dashboard — trial-complete and demo-access redirect target.
  * Override via NEXT_PUBLIC_DASHBOARD_URL for local testing (e.g.
  * http://localhost:3000) — it MUST point at whichever dashboard talks to
  * the same backend as NEXT_PUBLIC_API_URL. Mixing a local API with the
@@ -24,12 +24,24 @@ export const SITE_NAME = "Softune";
 export const DEFAULT_TITLE = `${SITE_NAME} | Ecommerce Website Builder for Bangladesh`;
 
 export const SITE_DESCRIPTION =
-  "Multi-tenant ecommerce SaaS for Bangladesh merchants and agencies. Themes, products, orders, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI — one platform to build, publish, and grow storefronts.";
+  "Start a free 3-day Softune trial — no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
+
+/** Same sentence in FAQ JSON-LD, SoftwareApplication schema, About, and
+ *  the Theme Editor page — crawlers and answer engines cite one claim,
+ *  not five paraphrases. Honest: the editor exists so each shop looks
+ *  like the merchant, not a default template. */
+export const BRANDING_CLAIM =
+  "Softune cares about your branding and identity, not a generic storefront that looks like everyone else's.";
+
+/** Self-serve trial length — matches app/config.py's trial_days. */
+export const TRIAL_DAYS = 3;
+export const TRIAL_CTA = "Start Free";
+export const TRIAL_NOTE = "3-day free trial · No credit card required";
 
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT =
-  "Softune | ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
+  "Softune | free 3-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
 
 /** Open Graph locale: English content, Bangladesh market. */
 export const OG_LOCALE = "en_BD";

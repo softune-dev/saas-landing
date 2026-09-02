@@ -6,10 +6,20 @@
  * named data exports. Same pattern as lib/faq-data.ts for the /support/faq
  * page — this is a separate, shorter list specific to the homepage.
  */
+import { BRANDING_CLAIM } from "./site";
+
 export const homeFaqs = [
   {
     q: "What is Softune?",
     a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD, bKash, Nagad, and SSLCommerz, connect couriers, run Store Sale (POS), and grow from one dashboard.",
+  },
+  {
+    q: "Is there a free trial?",
+    a: "Yes. Softune includes a 3-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page.",
+  },
+  {
+    q: "Do I need a credit card to start Softune?",
+    a: "No. Sign up with an email and password. Softune does not ask for a card to start the 3-day free trial.",
   },
   {
     q: "Do I need coding skills to use Softune?",
@@ -33,7 +43,11 @@ export const homeFaqs = [
   },
   {
     q: "Can I customize my store's design?",
-    a: "Yes. Choose a professional theme and use Softune’s Theme Editor to change colors, fonts, sections, and branding with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.",
+    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softune’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.`,
+  },
+  {
+    q: "Will my Softune store look like every other shop?",
+    a: `No. ${BRANDING_CLAIM} Logo, colors, fonts, and homepage sections stay yours, so the storefront reads as your brand instead of a default template.`,
   },
   {
     q: "What courier services are integrated with Softune?",

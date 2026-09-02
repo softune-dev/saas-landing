@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { Analytics, AnalyticsNoscript } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { TawkWidget } from "@/components/tawk-widget";
 import { StructuredData } from "@/components/structured-data";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { DEFAULT_TITLE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -162,22 +162,7 @@ export default function RootLayout({
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
-
-        {/* Tawk.to — lazyOnload so it doesn't compete with LCP/TBT on mobile. */}
-        <Script id="tawk-to" strategy="lazyOnload">
-          {`
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function () {
-              var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-              s1.async = true;
-              s1.src = "https://embed.tawk.to/6a946dd1c3c46c3445876165/1k19spvhd";
-              s1.charset = "UTF-8";
-              s1.setAttribute("crossorigin", "*");
-              s0.parentNode.insertBefore(s1, s0);
-            })();
-          `}
-        </Script>
+        <TawkWidget />
       </body>
     </html>
   );

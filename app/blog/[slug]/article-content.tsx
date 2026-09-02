@@ -4,8 +4,6 @@ import React, { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { motion } from "framer-motion";
-
 import { ARTICLES, getRelatedPosts } from "@/lib/blog-data";
 
 
@@ -68,13 +66,7 @@ function ShareDrawer({ title, open, onClose }: { title: string; open: boolean; o
       <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden" onClick={onClose} />
 
       {/* Mobile Bottom Sheet */}
-      <motion.div
-        initial={{ y: "100%" }}
-        animate={{ y: 0 }}
-        exit={{ y: "100%" }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] rounded-t-[28px] px-6 pt-4 pb-10 md:hidden border-t border-[var(--color-line)]"
-      >
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] rounded-t-[28px] px-6 pt-4 pb-10 md:hidden border-t border-[var(--color-line)]">
         {/* Handle */}
         <div className="w-10 h-1 rounded-full bg-[var(--color-line)] mx-auto mb-6" />
         <p className="text-[17px] font-extrabold text-[var(--color-ink)] mb-5">Share This Article</p>
@@ -101,7 +93,7 @@ function ShareDrawer({ title, open, onClose }: { title: string; open: boolean; o
           </svg>
           {copied ? "Link Copied!" : "Copy Link"}
         </button>
-      </motion.div>
+      </div>
 
       {/* Desktop Popover (inline, not modal) */}
     </>
@@ -192,10 +184,9 @@ function ReadingProgress() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-[var(--color-line)]/40">
-      <motion.div
+      <div
         className="h-full bg-[var(--color-brand)] origin-left"
-        style={{ scaleX: progress / 100 }}
-        transition={{ ease: "linear", duration: 0.1 }}
+        style={{ transform: `scaleX(${progress / 100})` }}
       />
     </div>
   );
@@ -299,49 +290,31 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/80" />
 
           {/* Category breadcrumb top-left */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="absolute top-6 left-6 flex items-center gap-2"
-          >
+          <div className="absolute top-6 left-6 flex items-center gap-2">
             <a href="/blog" className="text-white/70 text-[13px] font-semibold hover:text-white transition-colors">Blog</a>
             <span className="text-white/40">/</span>
             <span className="text-white/90 text-[13px] font-semibold">{article.category}</span>
-          </motion.div>
+          </div>
 
           {/* Bottom Title area */}
           <div className="absolute bottom-0 left-0 right-0 px-5 pb-8 md:px-10 md:pb-12">
             <div className="max-w-4xl mx-auto">
-              <motion.span
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-brand)] text-white text-[12px] font-black px-3.5 py-1 uppercase tracking-wider mb-4"
-              >
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-brand)] text-white text-[12px] font-black px-3.5 py-1 uppercase tracking-wider mb-4">
                 {article.category}
-              </motion.span>
-              <motion.h1
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.08 }}
+              </span>
+              <h1
                 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4"
                 style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
               >
                 {article.title}
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.18 }}
-                className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/70 text-[13px] font-semibold"
-              >
+              </h1>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/70 text-[13px] font-semibold">
                 <span>{article.date}</span>
                 <span className="size-1 rounded-full bg-white/40" />
                 <span>{article.readTime}</span>
                 <span className="size-1 rounded-full bg-white/40" />
                 <span>{article.author}</span>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -448,13 +421,9 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {relatedPosts.map((post, idx) => (
-              <motion.a
+              <a
                 key={idx}
                 href={`/blog/${post.slug}`}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08 }}
                 className="relative overflow-hidden rounded-[20px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col cursor-pointer"
               >
                 <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
@@ -476,7 +445,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                     <span>{post.readTime} read</span>
                   </div>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
         </section>

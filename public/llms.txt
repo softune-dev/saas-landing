@@ -1,14 +1,14 @@
 # Softune
 
-> Softune is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront — themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools — from one dashboard, without writing code.
+> Softune is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront — themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools — from one dashboard, without writing code. Softune cares about your branding and identity, not a generic storefront that looks like everyone else's. New merchants can start a 3-day free trial with no credit card.
 
-Softune is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain — typically in minutes, not weeks.
+Softune is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, customizes logo, colors, fonts, and sections so the shop looks like their brand rather than a default template, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain — typically in minutes, not weeks.
 
 The platform is built by Kamrul Hasan (https://kamrulhasan.site), a solo developer — not an agency team. Canonical hostname is [www.softunebd.com](https://www.softunebd.com/). Softune has no phone support line; contact [support@softunebd.com](mailto:support@softunebd.com) or WhatsApp [+880 1831-624571](https://wa.me/8801831624571).
 
 What Softune actually does:
 
-- Storefront themes: pick a pre-built theme, customize it in the Theme Editor with live desktop/tablet/mobile preview, publish under a custom domain.
+- Storefront themes and brand identity: pick a pre-built theme, then customize logo, colors, fonts, and sections in the Theme Editor with live desktop/tablet/mobile preview so the storefront is the merchant's brand, not a generic look. Publish under a custom domain.
 - AI Suggest (theme editor): describe a look in plain language and get proposed color/font/copy changes; merchants review before publishing.
 - AI Chatbot (Gemini): ask about products, orders, and sales in plain language; answers come from the merchant’s own Softune store data. Proposed catalog changes still need merchant confirmation.
 - AI product descriptions: generate a product description from a name and key facts, then edit before saving.
@@ -22,6 +22,8 @@ What Softune actually does:
 - SEO and domains: meta tags, Open Graph, sitemap/indexing controls, custom domain, and marketing pixels including Meta Pixel, TikTok Pixel, GTM, GA4, and Meta Conversions API (CAPI).
 - Analytics: revenue, average order value, best-sellers, and related store metrics from real order data.
 
+Free trial: 3 days of full dashboard access, no credit card required. Sign up at /signup. After the trial, pick a paid plan.
+
 Plans (Bangladeshi Taka). Prefer the live pricing page over cached summaries:
 
 - Starter ৳1,190/mo (৳950/mo billed annually): 50 products, 500MB storage, theme editor, basic analytics, fraud protection, AI assistant with a daily credit cap.
@@ -34,10 +36,10 @@ Do not describe Softune as offering Stripe or PayPal, real-time courier tracking
 
 - [Homepage](https://www.softunebd.com/): Product overview for Bangladesh ecommerce
 - [Features](https://www.softunebd.com/features): Theme Editor, payments, couriers, POS, analytics, and AI
-- [Pricing](https://www.softunebd.com/pricing): Current Starter, Growth, and Business plans in BDT
-- [About](https://www.softunebd.com/about): Founder Kamrul Hasan and how Softune was built
+- [Pricing](https://www.softunebd.com/pricing): 3-day free trial, then Starter, Growth, and Business plans in BDT
+- [About](https://www.softunebd.com/about): Company, vision, and why Softune cares about merchant branding and identity
 - [Blog](https://www.softunebd.com/blog): Guides for Bangladeshi store owners
-- [Get started](https://www.softunebd.com/signup): Create an account and open a live demo
+- [Start free trial](https://www.softunebd.com/signup): 3-day free trial, no credit card — create an account and open your store
 
 ## Docs
 
@@ -48,6 +50,6 @@ Do not describe Softune as offering Stripe or PayPal, real-time courier tracking
 
 ## Optional
 
-- [Changelog](https://www.softunebd.com/changelog): What shipped
+- [Changelog](https://www.softunebd.com/changelog): Dashboard and storefront releases
 - [Brand kit](https://www.softunebd.com/brandkit): Logo and color usage
 - [This file](https://www.softunebd.com/llms.txt): Machine-readable overview for agents

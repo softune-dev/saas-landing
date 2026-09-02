@@ -7,6 +7,8 @@
  * client UI and the server schema builder import the same source instead
  * of duplicating the copy.
  */
+import { BRANDING_CLAIM } from "./site";
+
 export const faqData = [
   {
     category: "General",
@@ -41,12 +43,27 @@ export const faqData = [
   {
     category: "Themes",
     q: "Can I customize my store's design?",
-    a: "Yes. Choose a professional theme and use Softune’s Theme Editor to change colors, fonts, sections, and branding with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing."
+    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softune’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.`
+  },
+  {
+    category: "Themes",
+    q: "Will my Softune store look like every other shop?",
+    a: `No. ${BRANDING_CLAIM} Logo, colors, fonts, and homepage sections stay yours, so the storefront reads as your brand instead of a default template.`
   },
   {
     category: "Integrations",
     q: "What courier services are integrated with Softune?",
     a: "Softune Couriers lets you connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softune does not claim real-time public tracking or auto-booking for every partner."
+  },
+  {
+    category: "Billing",
+    q: "Is there a free trial?",
+    a: "Yes. Softune includes a 3-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page."
+  },
+  {
+    category: "Billing",
+    q: "Do I need a credit card to start Softune?",
+    a: "No. Sign up with an email and password. Softune does not ask for a card to start the 3-day free trial."
   },
   {
     category: "Billing",

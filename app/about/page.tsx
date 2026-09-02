@@ -1,12 +1,12 @@
 import { StructuredData } from "@/components/structured-data";
-import { breadcrumbSchema, personSchema } from "@/lib/schema";
+import { breadcrumbSchema } from "@/lib/schema";
 import { pageSeo } from "@/lib/seo";
 import AboutPage from "./about-content";
 
 export const metadata = pageSeo({
-  title: "About Softune, Built by Kamrul Hasan",
+  title: "About Softune",
   description:
-    "Kamrul Hasan built Softune solo for Bangladesh shop owners who need a real store — not a Facebook Page — without hiring a developer.",
+    "Softune is an ecommerce website builder for Bangladesh that cares about your branding and identity, not a generic storefront. COD, bKash, Nagad, SSLCommerz, and local couriers — without hiring a developer.",
   path: "/about",
 });
 
@@ -19,7 +19,6 @@ export default function Page() {
           { name: "About", path: "/about" },
         ])}
       />
-      <StructuredData data={personSchema()} />
       <AboutPage />
     </>
   );

@@ -171,7 +171,7 @@ export function Comparison() {
                 variant="primary"
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
               >
-                Start with Softune
+                Start Free
                 <img
             loading="lazy"
             decoding="async"

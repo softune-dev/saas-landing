@@ -10,11 +10,13 @@
  */
 import { plans } from "./pricing-data";
 import {
+  BRANDING_CLAIM,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
   SUPPORT_EMAIL,
   SUPPORT_PHONE,
+  TRIAL_DAYS,
 } from "./site";
 
 /** 14-day money-back on the first subscription, matching /refund. */
@@ -61,6 +63,23 @@ function digitalShippingDetails() {
         unitCode: "DAY",
       },
     },
+  };
+}
+
+function trialOffer() {
+  const priceValidUntil = `${new Date().getFullYear()}-12-31`;
+  return {
+    "@type": "Offer" as const,
+    name: `${TRIAL_DAYS}-day free trial`,
+    description: `Full Softune access for ${TRIAL_DAYS} days. No credit card required.`,
+    price: "0",
+    priceCurrency: "BDT",
+    priceValidUntil,
+    availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition",
+    url: `${SITE_URL}/signup`,
+    hasMerchantReturnPolicy: merchantReturnPolicy(),
+    shippingDetails: digitalShippingDetails(),
   };
 }
 
@@ -128,6 +147,7 @@ export function organizationSchema() {
       url: `${SITE_URL}/logo-dark.png`,
     },
     description: SITE_DESCRIPTION,
+    slogan: BRANDING_CLAIM,
     email: SUPPORT_EMAIL,
     founder: founderRef(),
     areaServed: { "@type": "Country", name: "Bangladesh" },
@@ -172,9 +192,11 @@ export function softwareApplicationSchema() {
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Ecommerce",
     operatingSystem: "Web",
-    description: SITE_DESCRIPTION,
+    description: `${SITE_DESCRIPTION} ${BRANDING_CLAIM}`,
     featureList: [
-      "Theme Editor with live preview",
+      `${TRIAL_DAYS}-day free trial, no credit card`,
+      BRANDING_CLAIM,
+      "Theme Editor with live preview of logo, colors, fonts, and sections",
       "COD, bKash, Nagad, and SSLCommerz payments",
       "Steadfast, Pathao, RedX, and eCourier connections",
       "Store Sale POS",
@@ -184,6 +206,7 @@ export function softwareApplicationSchema() {
     countriesSupported: "BD",
     inLanguage: ["en", "bn"],
     author: founderRef(),
+    offers: trialOffer(),
   };
 }
 
@@ -207,13 +230,13 @@ export function productSchema() {
       "@type": "AggregateOffer",
       url: `${SITE_URL}/pricing`,
       priceCurrency: "BDT",
-      lowPrice: String(Math.min(...prices)),
+      lowPrice: "0",
       highPrice: String(Math.max(...prices)),
-      offerCount: plans.length,
+      offerCount: plans.length + 1,
       availability: "https://schema.org/InStock",
       hasMerchantReturnPolicy: merchantReturnPolicy(),
       shippingDetails: digitalShippingDetails(),
-      offers: planOffers(),
+      offers: [trialOffer(), ...planOffers()],
     },
   };
 }
@@ -325,9 +348,9 @@ export function pricingSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "Ecommerce storefront platform subscription — themes, product catalog, orders, payments, couriers, and AI tools. Priced in Bangladeshi Taka.",
+      `Ecommerce storefront platform with a ${TRIAL_DAYS}-day free trial (no credit card). Themes, catalog, orders, payments, couriers, and AI — priced in Bangladeshi Taka.`,
     brand: { "@type": "Brand", name: SITE_NAME },
     url: `${SITE_URL}/pricing`,
-    offers: planOffers(),
+    offers: [trialOffer(), ...planOffers()],
   };
 }

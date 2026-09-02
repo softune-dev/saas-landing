@@ -96,7 +96,7 @@ export default function FeaturesIndexPage() {
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
             <Button as="a" href="/signup" className="rounded-full px-6 py-3 text-[15px] font-bold">
-              Get started
+              Start Free
             </Button>
             <Button
               as="a"

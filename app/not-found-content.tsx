@@ -114,7 +114,7 @@ export default function NotFoundContent() {
               variant="outline"
               className="rounded-full px-6 py-3 text-[15px] font-bold"
             >
-              Get started
+              Start Free
             </Button>
           </motion.div>
         </div>

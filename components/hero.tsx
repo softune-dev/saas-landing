@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
+import { TRIAL_NOTE } from "@/lib/site";
+import { HeroCtas } from "./hero-ctas";
 
 /**
  * Centered SaaS hero: copy in the middle band, dashboard mock
@@ -32,18 +32,9 @@ export function Hero() {
       <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-40 bg-gradient-to-t from-[var(--color-brand)]/15 to-transparent md:h-56" />
 
       {/* Centered copy */}
-      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-14 pb-8 text-center sm:px-5 sm:pt-16 md:flex-1 md:justify-center md:px-8 md:pt-16 md:pb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className="mb-5 flex w-max max-w-full items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-7 md:gap-3 md:p-1.5 md:pr-4"
-        >
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pt-14 pb-8 text-center sm:px-5 sm:pt-16 md:flex-1 md:justify-center md:px-8 md:pt-16 md:pb-6">
+        <div className="mb-5 flex w-max max-w-full items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:mb-7 md:gap-3 md:p-1.5 md:pr-4">
           <div className="relative flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/10 md:size-6">
-            <span
-              className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
-              style={{ animationDuration: "2s" }}
-            />
             <img
               src="/icons/zap.svg"
               alt=""
@@ -56,82 +47,48 @@ export function Hero() {
           <span className="h-3 w-px shrink-0 bg-[var(--color-line)] md:h-4" />
           <Link
             href="/changelog"
-            className="group flex shrink-0 items-center gap-1 whitespace-nowrap text-[12px] font-bold text-[var(--color-brand)] transition-opacity hover:opacity-80 hover:underline md:text-[14px]"
+            className="flex shrink-0 items-center gap-1 whitespace-nowrap text-[12px] font-bold text-[var(--color-brand)] hover:underline md:text-[14px]"
           >
             See what&apos;s new
-            <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5 md:size-4" />
+            <ArrowRight className="size-3.5 md:size-4" />
           </Link>
-        </motion.div>
+        </div>
 
         <h1
           style={{ fontFamily: "var(--font-heading)" }}
-          className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[1.85rem] leading-[1.15] font-bold tracking-tight text-[var(--color-ink)] sm:gap-x-3 sm:text-[3rem] sm:leading-[1.12] md:text-[3.5rem] lg:gap-y-2 lg:text-[4rem]"
+          className="w-full text-center text-[1.85rem] leading-[1.2] font-bold tracking-tight text-[var(--color-ink)] md:text-[3.25rem] md:leading-[1.15] lg:text-[3.5rem]"
         >
-          <span>Build your</span>
-          <span className="relative inline-block px-3 py-1 whitespace-nowrap sm:px-4 sm:py-1.5">
-            <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm sm:top-1" />
-            <em className="relative not-italic text-white">E-commerce store</em>
+          <span className="flex flex-col items-center md:hidden">
+            <span>Build your</span>
+            <span className="relative inline-block whitespace-nowrap px-2.5 py-0.5">
+              <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+              <em className="relative not-italic text-white">E-commerce store</em>
+            </span>
+            <span className="mt-1">in Bangladesh</span>
           </span>
-          <span>in Bangladesh</span>
+          <span className="hidden md:block">
+            <span className="flex flex-nowrap items-center justify-center gap-x-3">
+              <span className="shrink-0">Build your</span>
+              <span className="relative inline-block shrink-0 whitespace-nowrap px-4 py-1.5">
+                <span className="absolute inset-0 top-1 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                <em className="relative not-italic text-white">E-commerce store</em>
+              </span>
+            </span>
+            <span className="mt-2 block">in Bangladesh</span>
+          </span>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.12 }}
-          className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg"
-        >
+        <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg">
           No-code store builder with bKash, Nagad, COD, and local couriers.
-          Softune&apos;s AI helps you write products and run the shop from one
+          Softune cares about your branding and identity, not a generic
+          storefront. AI helps you write products and run the shop from one
           dashboard.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.18 }}
-          className="mt-7 flex w-full flex-row flex-wrap items-center justify-center gap-2.5 sm:w-auto sm:gap-3 md:mt-9 md:gap-4"
-        >
-          <div className="relative">
-            <span
-              className="pointer-events-none absolute -top-4 -left-4 size-5 bg-[var(--color-brand)] md:-top-6 md:-left-6 md:size-8"
-              style={{
-                maskImage: "url(/icons/splash.svg)",
-                WebkitMaskImage: "url(/icons/splash.svg)",
-                maskSize: "contain",
-                WebkitMaskSize: "contain",
-                maskRepeat: "no-repeat",
-                WebkitMaskRepeat: "no-repeat",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-              }}
-            />
-            <a
-              href="/signup"
-              className="relative z-10 flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--color-brand)] px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
-            >
-              Get Started
-              <img
-                src="/icons/arrow-right.svg"
-                alt=""
-                className="size-3.5 object-contain brightness-0 invert md:size-4"
-              />
-            </a>
-          </div>
-          <Button
-            as="a"
-            href="/signup"
-            variant="outline"
-            className="flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[var(--color-brand)]/5 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
-          >
-            <img
-              src="/icons/play.svg"
-              alt=""
-              className="size-3.5 object-contain md:size-4 dark:invert"
-            />
-            See Demo
-          </Button>
-        </motion.div>
+        <HeroCtas className="mt-7 md:mt-9" />
+        <p className="mt-7 text-[12px] font-medium text-[var(--color-muted)] sm:text-[13px] md:mt-9">
+          {TRIAL_NOTE}
+        </p>
       </div>
 
       {/* Dashboard — sized for the 1440×956 asset, with bottom gap */}

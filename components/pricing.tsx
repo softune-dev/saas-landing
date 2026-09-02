@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { plans } from "@/lib/pricing-data";
+import { TRIAL_CTA, TRIAL_NOTE } from "@/lib/site";
 
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -61,6 +62,9 @@ export function Pricing() {
               <em className="relative not-italic text-white">Brands</em>
             </span>
           </h2>
+          <p className="mt-4 max-w-xl text-[14px] font-medium text-[var(--color-muted)] md:text-[15px]">
+            {TRIAL_NOTE}
+          </p>
         </div>
 
         <div className="mb-10 flex justify-center md:mb-16">
@@ -214,7 +218,7 @@ export function Pricing() {
                     variant={popular ? "primary" : "secondary"}
                     className="relative z-10 flex min-h-12 w-full items-center justify-center gap-2 py-3.5 text-[14px] font-bold"
                   >
-                    Get Started
+                    {TRIAL_CTA}
                     <img
             loading="lazy"
             decoding="async"
@@ -278,6 +282,8 @@ export function Pricing() {
                 ))}
               </ul>
               <Button
+                as="a"
+                href="#contact"
                 variant="primary"
                 className="mt-7 flex min-h-12 w-full items-center justify-center gap-2 px-8 py-3.5 text-[15px] font-bold sm:w-auto"
               >

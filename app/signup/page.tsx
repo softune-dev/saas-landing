@@ -1,13 +1,13 @@
-import { SignupForm } from "@/components/auth/signup-form";
+import { TrialOnboarding } from "@/components/auth/trial-onboarding";
 import { pageSeo } from "@/lib/seo";
 
 export const metadata = pageSeo({
-  title: "Get Started | Create Your Store",
+  title: "Start Free Trial | No Credit Card",
   description:
-    "Create a Softune account, verify your email, and open a live demo of the Bangladesh ecommerce dashboard — COD, bKash, Nagad, SSLCommerz, and more.",
+    "Start a free 3-day Softune trial with no credit card. Create your account, pick a theme, and open a live Bangladesh ecommerce store with COD, bKash, and Nagad.",
   path: "/signup",
 });
 
 export default function SignupPage() {
-  return <SignupForm />;
+  return <TrialOnboarding />;
 }
