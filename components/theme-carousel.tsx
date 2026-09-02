@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { THEMES, type ThemeData } from "@/lib/themes-data";
 
@@ -96,43 +97,82 @@ function CarouselCard({
   );
 }
 
-/** Plain scroll-snap row — the 3D coverflow's perspective/rotateY reads as
- * cramped rather than impressive on a narrow phone screen (and swipe there
- * is a native scroll gesture anyway), so mobile gets an ordinary
- * horizontally-scrollable slider instead of the desktop effect. */
+/** Real touch-drag slider (embla-carousel) — the 3D coverflow's
+ * perspective/rotateY reads as cramped on a narrow phone screen, so mobile
+ * gets a proper native-feeling swipe slider instead of the desktop effect.
+ * No vertical hover-auto-scroll on the screenshot here either — that's a
+ * mouse-hover affordance with nothing equivalent on touch, so each card
+ * just shows a plain static crop of the image instead. */
 function MobileSlider() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+    dragFree: false,
+  });
+  const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
   return (
-    <div className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:hidden">
-      {THEMES.map((theme) => (
-        <div
-          key={theme.slug}
-          className="group flex w-[68vw] max-w-[260px] shrink-0 snap-center flex-col"
-        >
-          <div className="flex h-[420px] w-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_16px_40px_-20px_rgba(0,0,0,0.2)]">
-            <div className="flex shrink-0 items-center gap-1.5 border-b border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2">
-              <span className="size-2 shrink-0 rounded-full bg-[#ff5f57]" />
-              <span className="size-2 shrink-0 rounded-full bg-[#febc2e]" />
-              <span className="size-2 shrink-0 rounded-full bg-[#28c840]" />
-            </div>
+    <div className="w-full sm:hidden">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="-ml-3 flex">
+          {THEMES.map((theme) => (
             <div
-              className="theme-shot-frame relative min-h-0 w-full flex-1 overflow-hidden"
-              style={{ backgroundColor: theme.surface }}
+              key={theme.slug}
+              className="min-w-0 shrink-0 grow-0 basis-[68%] pl-3"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={theme.image}
-                alt={`Softune ecommerce theme — ${theme.vibe}`}
-                loading="lazy"
-                decoding="async"
-                className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"
-              />
+              <div className="flex h-[420px] w-full flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-[0_16px_40px_-20px_rgba(0,0,0,0.2)]">
+                <div className="flex shrink-0 items-center gap-1.5 border-b border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2">
+                  <span className="size-2 shrink-0 rounded-full bg-[#ff5f57]" />
+                  <span className="size-2 shrink-0 rounded-full bg-[#febc2e]" />
+                  <span className="size-2 shrink-0 rounded-full bg-[#28c840]" />
+                </div>
+                <div
+                  className="relative min-h-0 w-full flex-1 overflow-hidden"
+                  style={{ backgroundColor: theme.surface }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={theme.image}
+                    alt={`Softune ecommerce theme — ${theme.vibe}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 size-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <span className="mt-2 block text-center text-sm font-semibold text-[var(--color-ink)]">
+                {theme.vibe}
+              </span>
             </div>
-          </div>
-          <span className="mt-2 text-center text-sm font-semibold text-[var(--color-ink)]">
-            {theme.vibe}
-          </span>
+          ))}
         </div>
-      ))}
+      </div>
+
+      <div className="mt-3 flex items-center justify-center gap-1.5">
+        {THEMES.map((theme, i) => (
+          <button
+            key={theme.slug}
+            type="button"
+            aria-label={`Show ${theme.name}`}
+            onClick={() => emblaApi?.scrollTo(i)}
+            className={`h-1.5 rounded-full transition-all ${
+              i === selected
+                ? "w-4 bg-[var(--color-brand)]"
+                : "w-1.5 bg-[var(--color-line)]"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
