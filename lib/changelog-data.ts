@@ -22,6 +22,51 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "1.4",
+    version: "v1.4.0",
+    date: "Sep 2, 2026",
+    title: "Redesigned setup wizard",
+    description:
+      "Getting your store ready walks better on a phone, shows real upload progress, and stops asking once you're done.",
+    changes: [
+      {
+        type: "Improvement",
+        content:
+          "Setup wizard redesigned end to end: an animated panel per step, a step tracker you can jump around in, and simpler wording throughout — no more guessing what a field wants.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Setup is now fully usable on a phone, with the same steps and layout adapted to a smaller screen instead of a cramped desktop view.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Uploading images now shows a real progress bar per file, with clear file name and size — including when you're uploading several at once.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "The \"Getting Started\" step disappears from your sidebar for good once you finish it — it no longer reappears just because your trial store was already published.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Colors and fonts you picked earlier in signup now actually show up pre-filled when you reach that step in the dashboard, instead of resetting.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "The \"Go live\" step now shows your real store address instead of a placeholder like my-shop.softunebd.com.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed a crash when a logo or product image failed to upload during setup — you now get a clear error instead of a broken page.",
+      },
+    ],
+  },
+  {
     serial: "1.3",
     version: "v1.3.0",
     date: "Aug 31, 2026",
