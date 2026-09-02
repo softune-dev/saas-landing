@@ -39,7 +39,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   const toast = useCallback((input: ToastInput) => {
     const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     setItems((list) =>
-      [...list, { variant: "error", duration: 4200, ...input, id }].slice(-3),
+      [...list, { variant: "error", duration: 4200, ...input, id } satisfies ToastItem].slice(-3),
     );
   }, []);
 
