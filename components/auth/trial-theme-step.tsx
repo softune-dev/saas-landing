@@ -12,7 +12,7 @@ import { FontPicker } from "./font-picker";
 // Template.key values in the database; a merchant should never see those.
 export const TEMPLATES = [
   { key: "aurora", name: "Fashion", image: "/themes/fashion-store.webp" },
-  { key: "bazaar", name: "Outlet", image: "/themes/multi-category.webp" },
+  { key: "bazaar", name: "Multi", image: "/themes/multi-category.webp" },
 ] as const;
 
 export type TemplateKey = (typeof TEMPLATES)[number]["key"];
@@ -117,15 +117,6 @@ export function ThemeStep(props: ThemeStepProps) {
               </div>
             );
           })}
-          <div
-            aria-disabled="true"
-            className="col-span-2 flex w-full items-center justify-between rounded-lg border border-border px-3 py-2.5 text-left text-sm font-medium text-muted opacity-60"
-          >
-            Vault
-            <span className="text-[10px] font-semibold tracking-wide uppercase">
-              Coming soon
-            </span>
-          </div>
         </div>
       </div>
 
