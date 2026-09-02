@@ -67,7 +67,7 @@ export const COMMERCIAL_PAGES: Record<
     h1Start: "Ecommerce Website Builder for",
     h1Highlight: "Bangladesh",
     intro:
-      "Design and launch a real ecommerce website that looks like your brand, not a default template. Softune's visual theme editor, local payment methods, and courier delivery are built for Bangladeshi merchants.",
+      "Design and launch a real ecommerce website that looks like your brand, not a default theme. Softune's visual theme editor, local payment methods, and courier delivery are built for Bangladeshi merchants.",
     features: [
       { icon: "/icons/color.svg", title: "Your Brand, Not a Generic Look", desc: "Live preview while you edit logo, colors, fonts, and homepage sections so the shop reads as your identity." },
       { icon: "/icons/wallet.svg", title: "Local Payments Built In", desc: "COD, bKash, Nagad, and SSLCommerz, without a third-party plugin." },

@@ -6,13 +6,13 @@ import { useEffect, useState, type FormEvent } from "react";
 import { primaryBtnClass } from "./auth-shell";
 import { FontPicker } from "./font-picker";
 
-// Marketing names, not backend template keys — same names the public
-// landing page uses for these two themes (components/themes.tsx's own
-// "Fashion"/"Emporium" cards). "aurora"/"bazaar" are internal Template.key
-// values in the database; a merchant should never see those.
+// Marketing names, not backend template keys — same names/images the
+// public landing page uses for these two niches (lib/themes-data.ts's
+// "fashion" and "outlet" cards). "aurora"/"bazaar" are internal
+// Template.key values in the database; a merchant should never see those.
 export const TEMPLATES = [
-  { key: "aurora", name: "Fashion", image: "/theme-fashion.webp" },
-  { key: "bazaar", name: "Emporium", image: "/theme-bazaar.webp" },
+  { key: "aurora", name: "Fashion", image: "/themes/fashion-store.webp" },
+  { key: "bazaar", name: "Outlet", image: "/themes/multi-category.webp" },
 ] as const;
 
 export type TemplateKey = (typeof TEMPLATES)[number]["key"];

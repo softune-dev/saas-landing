@@ -502,14 +502,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Storefront & Themes ───────────────────────────────────────────────────
   "choosing-a-theme": article(
     "choosing-a-theme",
-    "Compare Softune’s real templates — Fashion, Emporium, and Vault — and pick the storefront design that fits your brand before editing.",
+    "Compare Softune’s real themes — Fashion, Emporium, and Vault — and pick the storefront design that fits your brand before editing.",
     [
       {
         type: "p",
         content:
-          "Softune ships three full live storefront designs: Fashion, Emporium, and Vault. Each implements Softune’s shared page and section contract, so switching templates changes visual design without rebuilding your product catalog from scratch.",
+          "Softune ships three full live storefront designs: Fashion, Emporium, and Vault. Each implements Softune’s shared page and section contract, so switching themes changes visual design without rebuilding your product catalog from scratch.",
       },
-      { type: "h2", content: "The three templates" },
+      { type: "h2", content: "The three themes" },
       { type: "h3", content: "Fashion" },
       {
         type: "p",
@@ -534,14 +534,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Themes",
           "2. Preview Fashion, Emporium, and Vault against your real products",
-          "3. Pick the template whose homepage rhythm matches how customers shop you",
+          "3. Pick the theme whose homepage rhythm matches how customers shop you",
           "4. Continue into the theme editor to set Brand, Colors, Header, Pages, and Sections",
         ],
       },
       {
         type: "callout",
         content:
-          "Template choice is a starting skin. Softune’s editor — not custom CSS — is how you brand it afterward.",
+          "Theme choice is a starting skin. Softune’s editor — not custom CSS — is how you brand it afterward.",
       },
     ],
     "2 min read",
@@ -577,7 +577,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Adjust the palette Softune exposes for the template. AI Suggest can propose color directions; always check contrast on buttons and text after applying.",
+          "Adjust the palette Softune exposes for the theme. AI Suggest can propose color directions; always check contrast on buttons and text after applying.",
       },
       { type: "h3", content: "Header" },
       {
@@ -589,7 +589,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Turn Softune storefront pages on or off. Home is always available; other pages follow what Softune exposes for the template.",
+          "Turn Softune storefront pages on or off. Home is always available; other pages follow what Softune exposes for the theme.",
       },
       { type: "h3", content: "Sections" },
       {

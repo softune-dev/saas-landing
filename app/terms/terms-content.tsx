@@ -21,7 +21,7 @@ const termsList = [
   },
   {
     title: "Billing, Fees & Payments",
-    content: "All subscriptions, custom layout templates, and usage-based features are billed in advance. You agree to pay all charges incurred under your account at the rates in effect when such charges are incurred. Failure to maintain active billing details may result in account suspension."
+    content: "All subscriptions, custom layout themes, and usage-based features are billed in advance. You agree to pay all charges incurred under your account at the rates in effect when such charges are incurred. Failure to maintain active billing details may result in account suspension."
   },
   {
     title: "Intellectual Property Rights",

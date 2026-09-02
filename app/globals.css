@@ -92,13 +92,21 @@ body {
 .theme-shot-frame {
   container-type: size;
 }
+/* Mobile theme slider — real scroll, just no visible scrollbar chrome. */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
 .theme-shot-img {
   transform: translateY(0);
   transition: transform 0.7s ease-out;
 }
 .group:hover .theme-shot-img {
   transform: translateY(min(0px, calc(100cqh - 100%)));
-  transition: transform 12s linear;
+  transition: transform 4s linear;
 }
 
 .bg-dot-grid {

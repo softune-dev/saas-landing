@@ -258,12 +258,12 @@ export function Pricing() {
                 Custom stores, built for your brand
               </h3>
               <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[var(--color-muted)]">
-                Beyond shared templates: bespoke storefronts, integrations, and
+                Beyond shared themes: bespoke storefronts, integrations, and
                 support tailored to how your team actually sells.
               </p>
               <ul className="mt-5 space-y-3">
                 {[
-                  "Fully bespoke design, not the shared template system",
+                  "Fully bespoke design, not the shared theme system",
                   "Custom integrations negotiated to what they actually use",
                   "Custom AI credit allowance",
                   "Dedicated support",

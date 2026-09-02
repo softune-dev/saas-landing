@@ -48,7 +48,7 @@ export const faqData = [
   {
     category: "Themes",
     q: "Will my Softune store look like every other shop?",
-    a: `No. ${BRANDING_CLAIM} Logo, colors, fonts, and homepage sections stay yours, so the storefront reads as your brand instead of a default template.`
+    a: `No. ${BRANDING_CLAIM} Logo, colors, fonts, and homepage sections stay yours, so the storefront reads as your brand instead of a default theme.`
   },
   {
     category: "Integrations",
