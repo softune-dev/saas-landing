@@ -18,20 +18,20 @@ export const DASHBOARD_URL = (
   process.env.NEXT_PUBLIC_DASHBOARD_URL || "https://dashboard.softunebd.com"
 ).replace(/\/$/, "");
 
-export const SITE_NAME = "Softune";
+export const SITE_NAME = "Softunebd";
 
 /** Homepage / layout default <title> — pipe only, never an em dash. */
 export const DEFAULT_TITLE = `${SITE_NAME} | Ecommerce Website Builder for Bangladesh`;
 
 export const SITE_DESCRIPTION =
-  "Start a free 3-day Softune trial — no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
+  "Start a free 3-day Softunebd trial — no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
 
 /** Same sentence in FAQ JSON-LD, SoftwareApplication schema, About, and
  *  the Theme Editor page — crawlers and answer engines cite one claim,
  *  not five paraphrases. Honest: the editor exists so each shop looks
  *  like the merchant, not a default template. */
 export const BRANDING_CLAIM =
-  "Softune cares about your branding and identity, not a generic storefront that looks like everyone else's.";
+  "Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's.";
 
 /** Self-serve trial length — matches app/config.py's trial_days. */
 export const TRIAL_DAYS = 3;
@@ -41,7 +41,7 @@ export const TRIAL_NOTE = "3-day free trial · No credit card required";
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT =
-  "Softune | free 3-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
+  "Softunebd | free 3-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
 
 /** Open Graph locale: English content, Bangladesh market. */
 export const OG_LOCALE = "en_BD";

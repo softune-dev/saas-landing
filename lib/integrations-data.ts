@@ -14,12 +14,12 @@ export const INTEGRATIONS: Record<
   bkash: {
     title: "bKash Payment Gateway Integration for Ecommerce",
     description:
-      "Accept bKash payments on your own online store. Connect your bKash merchant account in Softune's dashboard and take real bKash Tokenized Checkout payments — no plugin, no third-party app.",
+      "Accept bKash payments on your own online store. Connect your bKash merchant account in Softunebd's dashboard and take real bKash Tokenized Checkout payments — no plugin, no third-party app.",
     pill: "Payment Integration",
     h1Start: "bKash Integration for",
     h1Highlight: "Your Online Store",
     intro:
-      "Connect a real bKash merchant account and accept bKash Tokenized Checkout payments directly at checkout — built into Softune, not bolted on with a plugin.",
+      "Connect a real bKash merchant account and accept bKash Tokenized Checkout payments directly at checkout — built into Softunebd, not bolted on with a plugin.",
     features: [
       {
         icon: "/icons/wallet.svg",
@@ -40,7 +40,7 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Do I need a separate bKash plugin?",
-        a: "No — bKash Tokenized Checkout is built into every Softune store's checkout, wired up from your dashboard's Payments settings.",
+        a: "No — bKash Tokenized Checkout is built into every Softunebd store's checkout, wired up from your dashboard's Payments settings.",
       },
       {
         q: "Is this the real bKash API or a workaround?",
@@ -53,12 +53,12 @@ export const INTEGRATIONS: Record<
   nagad: {
     title: "Nagad Payment Gateway Integration for Ecommerce",
     description:
-      "Accept Nagad payments on your own online store with Softune. Connect your Nagad merchant account and take real Nagad checkout payments — built into the dashboard.",
+      "Accept Nagad payments on your own online store with Softunebd. Connect your Nagad merchant account and take real Nagad checkout payments — built into the dashboard.",
     pill: "Payment Integration",
     h1Start: "Nagad Integration for",
     h1Highlight: "Your Online Store",
     intro:
-      "Connect a real Nagad merchant account and accept Nagad payments directly at checkout — one of four payment methods Softune supports natively.",
+      "Connect a real Nagad merchant account and accept Nagad payments directly at checkout — one of four payment methods Softunebd supports natively.",
     features: [
       {
         icon: "/icons/wallet.svg",
@@ -79,7 +79,7 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Can I use Nagad without a developer?",
-        a: "Yes — connecting Nagad is a dashboard settings flow: enter your merchant credentials, Softune verifies and stores them, checkout does the rest.",
+        a: "Yes — connecting Nagad is a dashboard settings flow: enter your merchant credentials, Softunebd verifies and stores them, checkout does the rest.",
       },
     ],
     ctaText: "Connect Nagad — Start Free",
@@ -88,7 +88,7 @@ export const INTEGRATIONS: Record<
   steadfast: {
     title: "Steadfast Courier Integration for Ecommerce",
     description:
-      "Connect Steadfast Courier to your online store and send parcels straight from your Softune dashboard — real order-to-delivery automation, not manual entry.",
+      "Connect Steadfast Courier to your online store and send parcels straight from your Softunebd dashboard — real order-to-delivery automation, not manual entry.",
     pill: "Courier Integration",
     h1Start: "Steadfast Courier",
     h1Highlight: "Integration",
@@ -98,7 +98,7 @@ export const INTEGRATIONS: Record<
       {
         icon: "/icons/domain.svg",
         title: "Book Deliveries From Orders",
-        desc: "Send a confirmed order to Steadfast directly from the Softune dashboard, with customer and product details filled in automatically.",
+        desc: "Send a confirmed order to Steadfast directly from the Softunebd dashboard, with customer and product details filled in automatically.",
       },
       {
         icon: "/icons/analytics.svg",
@@ -114,7 +114,7 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Does this replace my Steadfast merchant account?",
-        a: "No — it connects to your existing Steadfast merchant account so bookings happen from inside Softune instead of a separate tab.",
+        a: "No — it connects to your existing Steadfast merchant account so bookings happen from inside Softunebd instead of a separate tab.",
       },
     ],
     ctaText: "Connect Steadfast — Start Free",
@@ -123,12 +123,12 @@ export const INTEGRATIONS: Record<
   pathao: {
     title: "Pathao Courier Integration for Ecommerce",
     description:
-      "Connect Pathao Courier to your online store and manage deliveries straight from your Softune dashboard.",
+      "Connect Pathao Courier to your online store and manage deliveries straight from your Softunebd dashboard.",
     pill: "Courier Integration",
     h1Start: "Pathao Courier",
     h1Highlight: "Integration",
     intro:
-      "Connect your Pathao merchant account and send order deliveries directly from Softune — one dashboard for orders, payments, and courier handoff.",
+      "Connect your Pathao merchant account and send order deliveries directly from Softunebd — one dashboard for orders, payments, and courier handoff.",
     features: [
       {
         icon: "/icons/domain.svg",
@@ -138,7 +138,7 @@ export const INTEGRATIONS: Record<
       {
         icon: "/icons/analytics.svg",
         title: "One Dashboard, Not Two",
-        desc: "Manage products, orders, payments, and Pathao deliveries from the same Softune dashboard.",
+        desc: "Manage products, orders, payments, and Pathao deliveries from the same Softunebd dashboard.",
       },
       {
         icon: "/icons/lock.svg",
@@ -149,7 +149,7 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Do I need a Pathao merchant account first?",
-        a: "Yes — Softune connects to your existing Pathao merchant account; it doesn't replace the need to have one.",
+        a: "Yes — Softunebd connects to your existing Pathao merchant account; it doesn't replace the need to have one.",
       },
     ],
     ctaText: "Connect Pathao — Start Free",
@@ -158,17 +158,17 @@ export const INTEGRATIONS: Record<
   redx: {
     title: "RedX Courier Integration for Ecommerce",
     description:
-      "Connect RedX Courier to your online store and manage deliveries directly from your Softune dashboard.",
+      "Connect RedX Courier to your online store and manage deliveries directly from your Softunebd dashboard.",
     pill: "Courier Integration",
     h1Start: "RedX Courier",
     h1Highlight: "Integration",
     intro:
-      "Connect your RedX merchant account and send order deliveries straight from Softune's dashboard, right alongside your payments and product catalog.",
+      "Connect your RedX merchant account and send order deliveries straight from Softunebd's dashboard, right alongside your payments and product catalog.",
     features: [
       {
         icon: "/icons/domain.svg",
         title: "Book Deliveries From Orders",
-        desc: "Send a confirmed order to RedX without leaving your Softune dashboard or re-typing order details.",
+        desc: "Send a confirmed order to RedX without leaving your Softunebd dashboard or re-typing order details.",
       },
       {
         icon: "/icons/analytics.svg",
@@ -184,7 +184,7 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Can I use RedX alongside Steadfast or Pathao?",
-        a: "Yes — Softune supports connecting multiple couriers, so you can choose per order or keep a backup courier connected.",
+        a: "Yes — Softunebd supports connecting multiple couriers, so you can choose per order or keep a backup courier connected.",
       },
     ],
     ctaText: "Connect RedX — Start Free",

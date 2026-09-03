@@ -3,7 +3,7 @@ import { SoftuneLogo } from "@/components/brand/softune-logo";
 /** Shared prompt for footer AI deep-links — points models at llms.txt so
  * answers match product truth instead of inventing gateways / unlimited stores. */
 const ASK_AI_PROMPT =
-  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softune is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
+  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softunebd is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
 
 const cols = [
   {
@@ -50,7 +50,7 @@ export function Footer() {
             <SoftuneLogo className="h-12 w-auto sm:h-14" />
           </div>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
-            Softune is the ecommerce platform built for small businesses and
+            Softunebd is the ecommerce platform built for small businesses and
             startups in Bangladesh. Themes, orders, COD, bKash, Nagad,
             SSLCommerz, couriers, POS, and AI — one dashboard. No coding
             required.
@@ -58,7 +58,7 @@ export function Footer() {
 
           <div className="mt-4">
             <p className="mb-4 text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Ask AI how Softune helps Businesses grow
+              Ask AI how Softunebd helps Businesses grow
             </p>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a
@@ -174,7 +174,7 @@ export function Footer() {
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-5 md:flex-row md:gap-4 md:px-8">
           <div className="order-3 flex-1 text-center text-[13px] font-medium text-[var(--color-muted)] sm:text-[14px] md:order-1 md:text-left">
-            © {new Date().getFullYear()} Softune. All rights reserved.{" "}
+            © {new Date().getFullYear()} Softunebd. All rights reserved.{" "}
             <br className="lg:hidden" />
             <span className="mx-2 hidden text-[#D4D4D4] lg:inline">|</span>
             Created with ❤️ by{" "}

@@ -79,7 +79,7 @@ function CarouselCard({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={theme.image}
-            alt={`Softune ecommerce theme — ${theme.vibe}`}
+            alt={`Softunebd ecommerce theme — ${theme.vibe}`}
             loading="lazy"
             decoding="async"
             className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"
@@ -143,7 +143,7 @@ function MobileSlider() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={theme.image}
-                    alt={`Softune ecommerce theme — ${theme.vibe}`}
+                    alt={`Softunebd ecommerce theme — ${theme.vibe}`}
                     loading="lazy"
                     decoding="async"
                     className="absolute inset-0 size-full object-cover object-top"

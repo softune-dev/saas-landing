@@ -42,7 +42,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
     title: "Getting Started",
     icon: "book",
     articles: [
-      { title: "Introduction to Softune", slug: "intro-to-softune" },
+      { title: "Introduction to Softunebd", slug: "intro-to-softune" },
       {
         title: "Account setup checklist",
         slug: "account-setup-checklist",
@@ -65,7 +65,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
     title: "Storefront & Themes",
     icon: "paintbrush",
     articles: [
-      { title: "Choosing a Softune theme", slug: "choosing-a-theme" },
+      { title: "Choosing a Softunebd theme", slug: "choosing-a-theme" },
       { title: "Using the theme editor", slug: "using-theme-editor" },
       {
         title: "Brand colors with AI Suggest",

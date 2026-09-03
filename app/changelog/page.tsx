@@ -6,7 +6,7 @@ import ChangelogPage from "./changelog-content";
 export const metadata = pageSeo({
   title: "Changelog | What's New",
   description:
-    "What shipped in the Softune dashboard and storefront: 3-day free trial, payments, couriers, Store Sale POS, Theme Editor, and AI.",
+    "What shipped in the Softunebd dashboard and storefront: 3-day free trial, payments, couriers, Store Sale POS, Theme Editor, and AI.",
   path: "/changelog",
 });
 

@@ -52,10 +52,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Live",
     titleEnd: "",
     description:
-      "Softune cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview — then publish when the shop looks like your brand.",
+      "Softunebd cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview — then publish when the shop looks like your brand.",
     introTitle: "Your brand, not a default template",
     introDesc:
-      "Softune is built so each store looks like the merchant, not like every other shop on the same theme. Desktop, tablet, and mobile previews sit beside your edits, so customers only see the identity you publish.",
+      "Softunebd is built so each store looks like the merchant, not like every other shop on the same theme. Desktop, tablet, and mobile previews sit beside your edits, so customers only see the identity you publish.",
     alternating: [
       {
         pillText: "Live Preview",
@@ -94,7 +94,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Then Apply",
         titleEnd: "",
         description:
-          "Describe a vibe and Softune’s AI Suggest proposes brand colors, fonts, and copy. You review the patch, apply what you like, then publish when ready.",
+          "Describe a vibe and Softunebd’s AI Suggest proposes brand colors, fonts, and copy. You review the patch, apply what you like, then publish when ready.",
         bullets: [
           "Plain-language prompts for colors, fonts, and text",
           "Review every suggestion before it changes your draft",
@@ -119,10 +119,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "You Decide",
     titleEnd: "",
     description:
-      "Softune’s AI is powered by Google Gemini. It writes product copy, suggests theme changes, and chats about your store data. You review every change before it saves.",
+      "Softunebd’s AI is powered by Google Gemini. It writes product copy, suggests theme changes, and chats about your store data. You review every change before it saves.",
     introTitle: "Gemini drafts. You approve.",
     introDesc:
-      "Product descriptions, Theme Editor suggestions, and dashboard AI chat all share the same rule: Softune never writes to your live store until you confirm.",
+      "Product descriptions, Theme Editor suggestions, and dashboard AI chat all share the same rule: Softunebd never writes to your live store until you confirm.",
     alternating: [
       {
         pillText: "Product Copy",
@@ -157,11 +157,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       {
         pillText: "AI Chat",
         pillIcon: "/icons/chat.svg",
-        titleStart: "Ask Softune,",
+        titleStart: "Ask Softunebd,",
         titleHighlight: "Get Answers",
         titleEnd: "",
         description:
-          "Chat in the dashboard about products, orders, and sales. Softune reads your real store data and can propose product or category changes you still confirm.",
+          "Chat in the dashboard about products, orders, and sales. Softunebd reads your real store data and can propose product or category changes you still confirm.",
         bullets: [
           "Powered by Google Gemini",
           "Answers from your own products and orders",
@@ -188,7 +188,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "COD Orders",
     titleEnd: "",
     description:
-      "Protect Cash on Delivery sales with a phone blocklist enforced at checkout, plus fraud rules you control from one Softune screen.",
+      "Protect Cash on Delivery sales with a phone blocklist enforced at checkout, plus fraud rules you control from one Softunebd screen.",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
     introTitle: "Built for COD abuse, not card scoring",
     introDesc:
@@ -201,7 +201,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Numbers",
         titleEnd: "",
         description:
-          "Add a phone to your store blocklist and Softune rejects it at checkout automatically, not just as a later warning.",
+          "Add a phone to your store blocklist and Softunebd rejects it at checkout automatically, not just as a later warning.",
         bullets: [
           "Enforced live at checkout today",
           "Optional notes for your team",
@@ -237,7 +237,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         bullets: [
           "Per-site blocklist and rules",
           "No separate fraud SaaS to buy",
-          "Same tenant isolation as Softune orders",
+          "Same tenant isolation as Softunebd orders",
           "Configured from your Fraud Protection screen",
           "Different shops can run different rules",
         ],
@@ -245,7 +245,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built for COD safety",
     extraDesc:
-      "Softune blocklists stop bad phones at checkout, and fraud rules stay under your control on one screen.",
+      "Softunebd blocklists stop bad phones at checkout, and fraud rules stay under your control on one screen.",
     extraCards: [
       { title: "Your Numbers", desc: "You choose what to block. Nothing is forced on by default.", icon: "/icons/zap.svg" },
       { title: "Team Notes", desc: "Blocklist entries can carry context for staff.", icon: "/icons/book.svg" },
@@ -259,11 +259,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Partners You Use",
     titleEnd: "",
     description:
-      "Connect Steadfast, Pathao, RedX, and eCourier from Softune Couriers with your own merchant accounts. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo.",
+      "Connect Steadfast, Pathao, RedX, and eCourier from Softunebd Couriers with your own merchant accounts. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo.",
     heroImage: { light: "/feature/courier-l.webp", dark: "/feature/courier-d.webp" },
-    introTitle: "Bangladesh couriers on one Softune screen",
+    introTitle: "Bangladesh couriers on one Softunebd screen",
     introDesc:
-      "Softune does not use a shared Softune courier login. You connect your own credentials. Steadfast, Pathao, RedX, and eCourier can connect today; the rest of the roster lives on the same Couriers page.",
+      "Softunebd does not use a shared Softunebd courier login. You connect your own credentials. Steadfast, Pathao, RedX, and eCourier can connect today; the rest of the roster lives on the same Couriers page.",
     alternating: [
       {
         pillText: "Partner Roster",
@@ -272,7 +272,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "One Place",
         titleEnd: "",
         description:
-          "See every Softune courier option in one dashboard list instead of hunting separate apps for each logistics brand.",
+          "See every Softunebd courier option in one dashboard list instead of hunting separate apps for each logistics brand.",
         bullets: [
           "Steadfast — connect today",
           "Pathao Courier — connect today",
@@ -294,7 +294,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Pathao merchant API (client ID, secret, username, password)",
           "RedX access token",
           "eCourier username and password",
-          "Your own merchant account — never a shared Softune login",
+          "Your own merchant account — never a shared Softunebd login",
         ],
       },
       {
@@ -304,13 +304,13 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Your Account",
         titleEnd: "",
         description:
-          "Courier credentials are encrypted at rest, scoped per store, and never shared Softune logins. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same roster as those connects land.",
+          "Courier credentials are encrypted at rest, scoped per store, and never shared Softunebd logins. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same roster as those connects land.",
         bullets: [
           "Encrypted credential storage",
           "Per-store courier settings",
-          "No shared Softune courier account",
+          "No shared Softunebd courier account",
           "One screen for the full partner list",
-          "Same encryption Softune uses for payments",
+          "Same encryption Softunebd uses for payments",
         ],
       },
     ],
@@ -330,11 +330,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Real Numbers",
     titleEnd: "",
     description:
-      "Track revenue, visitor traffic, conversion rate, and profit from your Softune storefront and orders. Export CSV, JSON, or PDF when you need a report.",
+      "Track revenue, visitor traffic, conversion rate, and profit from your Softunebd storefront and orders. Export CSV, JSON, or PDF when you need a report.",
     heroImage: { light: "/feature/analytics-l.webp", dark: "/feature/analytics-d.webp" },
     introTitle: "Sales, traffic, and profit in one place",
     introDesc:
-      "Pick a 1 to 26 week window. Softune shows revenue, orders, refunds, unique visitors, conversion rate, and profit when you have set Cost Prices on products.",
+      "Pick a 1 to 26 week window. Softunebd shows revenue, orders, refunds, unique visitors, conversion rate, and profit when you have set Cost Prices on products.",
     alternating: [
       {
         pillText: "Sales Metrics",
@@ -358,12 +358,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Conversion Rate",
         titleEnd: "",
         description:
-          "Softune tracks unique visitors on your storefront and shows Conversion Rate (orders ÷ unique visitors) next to your sales numbers, so you can see whether traffic is turning into orders.",
+          "Softunebd tracks unique visitors on your storefront and shows Conversion Rate (orders ÷ unique visitors) next to your sales numbers, so you can see whether traffic is turning into orders.",
         bullets: [
           "Unique visitor counts from your live storefront",
           "Conversion Rate = orders ÷ unique visitors",
           "Traffic and conversion in the same date window as revenue",
-          "Built into Softune analytics, no extra visitor tag for this view",
+          "Built into Softunebd analytics, no extra visitor tag for this view",
         ],
       },
       {
@@ -373,7 +373,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Real Profit",
         titleEnd: "",
         description:
-          "Set a Cost Price per product and Softune shows profit (revenue minus cost) alongside revenue. Profit is only as complete as the cost data you enter — products without Cost Price do not contribute to the profit figure yet.",
+          "Set a Cost Price per product and Softunebd shows profit (revenue minus cost) alongside revenue. Profit is only as complete as the cost data you enter — products without Cost Price do not contribute to the profit figure yet.",
         bullets: [
           "Set Cost Price per product in the product editor",
           "Profit = revenue minus cost from real orders",
@@ -384,9 +384,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built on what actually happened",
     extraDesc:
-      "Softune analytics follow your orders, storefront visitors, and the cost prices you set — not estimates or invented funnels.",
+      "Softunebd analytics follow your orders, storefront visitors, and the cost prices you set — not estimates or invented funnels.",
     extraCards: [
-      { title: "Order-Based", desc: "Revenue and orders come from real Softune checkouts.", icon: "/icons/analytics.svg" },
+      { title: "Order-Based", desc: "Revenue and orders come from real Softunebd checkouts.", icon: "/icons/analytics.svg" },
       { title: "Real Traffic", desc: "Visitor counts and conversion rate come from your storefront.", icon: "/icons/zap.svg" },
       { title: "Honest Profit", desc: "Profit only fills in after you set Cost Price on products.", icon: "/icons/wallet.svg" },
     ],
@@ -428,7 +428,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Doesn’t Drift",
         titleEnd: "",
         description:
-          "Softune locks product name, SKU, and unit price into the order at sale time, so later catalog changes cannot rewrite old totals.",
+          "Softunebd locks product name, SKU, and unit price into the order at sale time, so later catalog changes cannot rewrite old totals.",
         bullets: [
           "Name, SKU, and price locked at sale",
           "Deleting a product does not break past orders",
@@ -470,12 +470,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "Take Cash on Delivery, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz from one Softune Payments screen. Everything stays centralized and easy to manage.",
+      "Take Cash on Delivery, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz from one Softunebd Payments screen. Everything stays centralized and easy to manage.",
     // Note: source filenames are "paymet-*" (typo in the asset itself), not "payment-*".
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
-    introTitle: "BD payments on one Softune screen",
+    introTitle: "BD payments on one Softunebd screen",
     introDesc:
-      "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials — Softune does not use a shared payment login.",
+      "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials — Softunebd does not use a shared payment login.",
     alternating: [
       {
         pillText: "bKash & Nagad",
@@ -516,7 +516,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Easy Setup",
         titleEnd: "",
         description:
-          "Payment methods stay centralized in Softune. Enable COD, wallet methods, and gateway connects, keep credentials secure, and avoid juggling separate payment plugins.",
+          "Payment methods stay centralized in Softunebd. Enable COD, wallet methods, and gateway connects, keep credentials secure, and avoid juggling separate payment plugins.",
         bullets: [
           "Centralized payment tools in one dashboard",
           "COD, manual wallets, official bKash, Nagad, and SSLCommerz",
@@ -542,11 +542,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Buys Again",
     titleEnd: "",
     description:
-      "Softune builds customer records from real orders using phone numbers, so you can see order history, spend, and last purchase in one place.",
+      "Softunebd builds customer records from real orders using phone numbers, so you can see order history, spend, and last purchase in one place.",
     heroImage: { light: "/feature/customer-l.webp", dark: "/feature/customer-d.webp" },
     introTitle: "Customers from checkout, not spreadsheets",
     introDesc:
-      "The first time a phone checks out, Softune creates a customer. Later orders from that number link to the same record, even when the number is typed in different formats.",
+      "The first time a phone checks out, Softunebd creates a customer. Later orders from that number link to the same record, even when the number is typed in different formats.",
     alternating: [
       {
         pillText: "Auto Match",
@@ -555,7 +555,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Orders",
         titleEnd: "",
         description:
-          "No separate signup form is required. Softune matches phones automatically and keeps one customer record per shopper.",
+          "No separate signup form is required. Softunebd matches phones automatically and keeps one customer record per shopper.",
         bullets: [
           "Created from real checkout orders",
           "Phone matching across formats",
@@ -599,7 +599,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built from real checkouts",
     extraDesc:
-      "Softune tracks who bought and what they ordered. Loyalty and campaign tools live in Add-Ons when you need them.",
+      "Softunebd tracks who bought and what they ordered. Loyalty and campaign tools live in Add-Ons when you need them.",
     extraCards: [
       { title: "Phone First", desc: "Phone is the reliable ID for COD-heavy stores.", icon: "/icons/wallet.svg" },
       { title: "Clear History", desc: "See spend and orders for each matched shopper.", icon: "/icons/orders.svg" },
@@ -613,11 +613,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Actually Work",
     titleEnd: "",
     description:
-      "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softune store. Softune fires real ecommerce events — ViewContent, AddToCart, InitiateCheckout, Purchase — not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
+      "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softunebd store. Softunebd fires real ecommerce events — ViewContent, AddToCart, InitiateCheckout, Purchase — not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
     heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
     introTitle: "Real events on every platform, server-side where it counts",
     introDesc:
-      "Softune fires ecommerce events — not just PageView — across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softune's own server, deduplicated against the browser pixel automatically.",
+      "Softunebd fires ecommerce events — not just PageView — across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softunebd's own server, deduplicated against the browser pixel automatically.",
     alternating: [
       {
         pillText: "Meta & TikTok Pixels",
@@ -631,7 +631,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "ViewContent, AddToCart, InitiateCheckout, Purchase events",
           "Facebook/Meta Pixel — real ecommerce events (upgraded from PageView only)",
           "TikTok Pixel — new, same event set",
-          "Add your Pixel ID from the Softune integrations screen",
+          "Add your Pixel ID from the Softunebd integrations screen",
           "No custom code or tag setup required",
         ],
       },
@@ -642,7 +642,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Connected",
         titleEnd: "",
         description:
-          "Google Tag Manager uses a container-based approach: add your own GTM ID and Softune loads your container, so you control what fires from inside GTM. Google Analytics (GA4) is also supported and now fires the same real ecommerce events alongside other pixels.",
+          "Google Tag Manager uses a container-based approach: add your own GTM ID and Softunebd loads your container, so you control what fires from inside GTM. Google Analytics (GA4) is also supported and now fires the same real ecommerce events alongside other pixels.",
         bullets: [
           "Google Tag Manager — container-based, add your own GTM ID",
           "You manage tags inside GTM as normal",
@@ -658,9 +658,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Purchase Tracking",
         titleEnd: "",
         description:
-          "Meta Conversions API (CAPI) sends Purchase events directly from Softune's server to Meta — not just from the customer's browser. This means sales still get tracked even when the customer's browser ad blocker or iOS privacy settings strip the client-side pixel. Events are automatically deduplicated against the browser pixel so there's no double-counting.",
+          "Meta Conversions API (CAPI) sends Purchase events directly from Softunebd's server to Meta — not just from the customer's browser. This means sales still get tracked even when the customer's browser ad blocker or iOS privacy settings strip the client-side pixel. Events are automatically deduplicated against the browser pixel so there's no double-counting.",
         bullets: [
-          "Purchase sent server-side from Softune, not the customer's browser",
+          "Purchase sent server-side from Softunebd, not the customer's browser",
           "Survives ad blockers and iOS privacy restrictions that strip browser pixels",
           "Automatic deduplication against the browser-side Meta Pixel",
           "No double-counting — each sale reported once to Meta",
@@ -670,10 +670,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Tracking that survives the real web",
     extraDesc:
-      "Browser pixels alone miss sales blocked by ad blockers and iOS. Softune's server-side Meta CAPI layer closes that gap for Meta campaigns.",
+      "Browser pixels alone miss sales blocked by ad blockers and iOS. Softunebd's server-side Meta CAPI layer closes that gap for Meta campaigns.",
     extraCards: [
       { title: "Full Event Set", desc: "ViewContent, AddToCart, InitiateCheckout, Purchase — not just PageView.", icon: "/icons/analytics.svg" },
-      { title: "Server-Side CAPI", desc: "Purchase events from Softune's server survive ad blockers and iOS privacy settings.", icon: "/icons/lock.svg" },
+      { title: "Server-Side CAPI", desc: "Purchase events from Softunebd's server survive ad blockers and iOS privacy settings.", icon: "/icons/lock.svg" },
       { title: "No Double-Count", desc: "Browser pixel and CAPI are deduplicated automatically — one sale, one event.", icon: "/icons/zap.svg" },
     ],
   },
@@ -684,9 +684,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Same Catalog",
     titleEnd: "",
     description:
-      "Softune Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt — without a separate POS product.",
+      "Softunebd Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt — without a separate POS product.",
     heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
-    introTitle: "Counter sales that use your real Softune inventory",
+    introTitle: "Counter sales that use your real Softunebd inventory",
     introDesc:
       "Store Sale creates orders on the same catalog and stock your storefront uses, tagged as POS channel so you can tell walk-in sales from online checkouts.",
     alternating: [
@@ -702,7 +702,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Category chips to show All or one category",
           "Compact product rows with price and stock",
           "Pagination so long catalogs stay manageable",
-          "Uses your live Softune products, not a separate POS catalog",
+          "Uses your live Softunebd products, not a separate POS catalog",
         ],
       },
       {
@@ -717,7 +717,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Quantity steppers and line totals",
           "Optional customer name and phone",
           "Payment method saved on the order meta",
-          "Complete Sale creates a real Softune order",
+          "Complete Sale creates a real Softunebd order",
         ],
       },
       {
@@ -727,7 +727,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Recent Sales",
         titleEnd: "",
         description:
-          "After a sale, Softune shows a thermal-style receipt you can print, and a Recent Sales list of walk-in orders you can open in the same order detail modal used elsewhere in the dashboard.",
+          "After a sale, Softunebd shows a thermal-style receipt you can print, and a Recent Sales list of walk-in orders you can open in the same order detail modal used elsewhere in the dashboard.",
         bullets: [
           "Printable receipt with shop name, date, time, and totals",
           "Recent Sales filtered to Store Sale (POS) orders",
@@ -738,9 +738,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Same stock, clearer channel",
     extraDesc:
-      "Store Sale writes to Softune orders with channel set to POS, so analytics and order history can separate walk-in sales from storefront checkouts.",
+      "Store Sale writes to Softunebd orders with channel set to POS, so analytics and order history can separate walk-in sales from storefront checkouts.",
     extraCards: [
-      { title: "Live Catalog", desc: "Products and stock come from the same Softune catalog as your online store.", icon: "/icons/shop-bag.svg" },
+      { title: "Live Catalog", desc: "Products and stock come from the same Softunebd catalog as your online store.", icon: "/icons/shop-bag.svg" },
       { title: "Print Receipt", desc: "Browser print of a shop-style slip — no separate printer SDK required.", icon: "/icons/doc.svg" },
       { title: "Recent Sales", desc: "Open past walk-in orders without leaving Store Sale.", icon: "/icons/orders.svg" },
     ],

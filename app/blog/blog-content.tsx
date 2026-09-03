@@ -27,7 +27,7 @@ export default function BlogPage() {
               <Newspaper className="size-3.5 text-[var(--color-brand)]" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Softune Journal
+              Softunebd Journal
             </span>
           </div>
 

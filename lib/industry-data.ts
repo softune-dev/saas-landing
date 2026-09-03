@@ -13,7 +13,7 @@ export const INDUSTRY_PAGES: Record<
   fashion: {
     title: "Fashion Ecommerce Website in Bangladesh",
     description:
-      "Build a fashion ecommerce website in Bangladesh with Softune — size/color variants, AI product descriptions, COD, bKash, Nagad, and courier delivery, all in one dashboard.",
+      "Build a fashion ecommerce website in Bangladesh with Softunebd — size/color variants, AI product descriptions, COD, bKash, Nagad, and courier delivery, all in one dashboard.",
     pill: "For Fashion Sellers",
     h1Start: "Fashion Ecommerce Website for",
     h1Highlight: "Bangladesh",
@@ -33,13 +33,13 @@ export const INDUSTRY_PAGES: Record<
       {
         icon: "/icons/wallet.svg",
         title: "COD, bKash & Nagad",
-        desc: "Bangladeshi fashion buyers expect Cash on Delivery — Softune supports it alongside bKash and Nagad out of the box.",
+        desc: "Bangladeshi fashion buyers expect Cash on Delivery — Softunebd supports it alongside bKash and Nagad out of the box.",
       },
     ],
     faqs: [
       {
         q: "Can I sell clothes with multiple sizes and colors?",
-        a: "Yes — Softune's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
+        a: "Yes — Softunebd's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
       },
       {
         q: "Is there a free trial?",
@@ -52,7 +52,7 @@ export const INDUSTRY_PAGES: Record<
   cosmetics: {
     title: "Cosmetics & Beauty Ecommerce Website in Bangladesh",
     description:
-      "Build a cosmetics and beauty ecommerce website in Bangladesh with Softune — product variants, AI copy, COD, bKash, Nagad, and courier delivery.",
+      "Build a cosmetics and beauty ecommerce website in Bangladesh with Softunebd — product variants, AI copy, COD, bKash, Nagad, and courier delivery.",
     pill: "For Beauty Sellers",
     h1Start: "Beauty Ecommerce Website for",
     h1Highlight: "Bangladesh",
@@ -91,7 +91,7 @@ export const INDUSTRY_PAGES: Record<
   grocery: {
     title: "Grocery Ecommerce Website in Bangladesh",
     description:
-      "Build a grocery ecommerce website in Bangladesh with Softune — categories, COD, bKash, Nagad, and real courier delivery for daily essentials.",
+      "Build a grocery ecommerce website in Bangladesh with Softunebd — categories, COD, bKash, Nagad, and real courier delivery for daily essentials.",
     pill: "For Grocery Sellers",
     h1Start: "Grocery Ecommerce Website for",
     h1Highlight: "Bangladesh",
@@ -117,7 +117,7 @@ export const INDUSTRY_PAGES: Record<
     faqs: [
       {
         q: "Can I organize products by category for a grocery store?",
-        a: "Yes — Softune supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
+        a: "Yes — Softunebd supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
       },
       {
         q: "Is there a free trial?",

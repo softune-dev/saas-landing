@@ -7,7 +7,7 @@ const items = [
   {
     icon: "/icons/color.svg",
     title: "Live Theme Editor",
-    body: "Softune cares about your branding and identity, not a generic look. Change logo, colors, fonts, and sections with a live preview, then publish when the shop looks like your brand.",
+    body: "Softunebd cares about your branding and identity, not a generic look. Change logo, colors, fonts, and sections with a live preview, then publish when the shop looks like your brand.",
   },
   {
     icon: "/icons/ai-pencil.svg",
@@ -62,7 +62,7 @@ export function Why() {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Why Softune?
+              Why Softunebd?
             </span>
           </motion.div>
 
@@ -72,7 +72,7 @@ export function Why() {
             Choose{" "}
             <span className="relative ml-1 inline-block px-3 py-0.5 sm:whitespace-nowrap sm:px-4">
               <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Softune</em>
+              <em className="relative not-italic text-white">Softunebd</em>
             </span>
           </h2>
         </div>

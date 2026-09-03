@@ -71,7 +71,7 @@ function trialOffer() {
   return {
     "@type": "Offer" as const,
     name: `${TRIAL_DAYS}-day free trial`,
-    description: `Full Softune access for ${TRIAL_DAYS} days. No credit card required.`,
+    description: `Full Softunebd access for ${TRIAL_DAYS} days. No credit card required.`,
     price: "0",
     priceCurrency: "BDT",
     priceValidUntil,
@@ -121,7 +121,7 @@ export function personSchema() {
     url: "https://kamrulhasan.site",
     jobTitle: "Founder & Developer",
     description:
-      "Built Softune end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, COD, bKash, Nagad, SSLCommerz, courier connections, and Store Sale POS.",
+      "Built Softunebd end to end as a solo developer: the multi-tenant dashboard, storefront themes, AI tooling, COD, bKash, Nagad, SSLCommerz, courier connections, and Store Sale POS.",
     worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     // Real profiles only, pulled from kamrulhasan.site/contact — sameAs is
     // how search engines/LLMs link these as the same verified person
@@ -249,7 +249,7 @@ export function blogIndexSchema(
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Softune Blog",
+    name: "Softunebd Blog",
     url: `${SITE_URL}/blog`,
     mainEntity: {
       "@type": "ItemList",

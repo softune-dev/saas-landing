@@ -80,7 +80,7 @@ export default function ChangelogPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-xl mx-auto leading-relaxed"
           >
-            What shipped in the Softune dashboard and on your live store —
+            What shipped in the Softunebd dashboard and on your live store —
             features, fixes, and improvements merchants actually use.
           </motion.p>
         </div>

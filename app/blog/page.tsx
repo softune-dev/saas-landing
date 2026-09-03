@@ -7,7 +7,7 @@ import BlogPage from "./blog-content";
 export const metadata = pageSeo({
   title: "Ecommerce Guides for Bangladesh Shop Owners",
   description:
-    "Short, practical Softune articles: move off Facebook Page orders, set up COD, cut fake deliveries, and grow a shop from one product.",
+    "Short, practical Softunebd articles: move off Facebook Page orders, set up COD, cut fake deliveries, and grow a shop from one product.",
   path: "/blog",
 });
 

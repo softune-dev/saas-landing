@@ -156,7 +156,7 @@ export default function RootLayout({
         <AnalyticsNoscript />
         {/* Sitewide entity schema — every page carries these two so an AI
             crawler or answer engine landing on ANY page (not just "/")
-            still knows what Softune is. Page-specific schema (Article,
+            still knows what Softunebd is. Page-specific schema (Article,
             FAQPage, BreadcrumbList, pricing Offers) lives in each route's
             own page.tsx. */}
         <StructuredData data={organizationSchema()} />

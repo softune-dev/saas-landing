@@ -128,7 +128,7 @@ export default function FeaturePage() {
                   narrow viewport squash or crop it unpredictably. */}
               <img
                 src={heroImageSrc}
-                alt={`${feature.pillText} in the Softune dashboard`}
+                alt={`${feature.pillText} in the Softunebd dashboard`}
                 loading="lazy"
                 decoding="async"
                 width={1920}
@@ -326,7 +326,7 @@ export default function FeaturePage() {
                           {section.image ? (
                             <img
                               src={isDark ? section.image.dark : section.image.light}
-                              alt={`${section.pillText} in the Softune dashboard`}
+                              alt={`${section.pillText} in the Softunebd dashboard`}
                               loading="lazy"
                               decoding="async"
                               width={1000}

@@ -133,14 +133,14 @@ export function KeywordLanding({ data }: { data: KeywordLandingData }) {
               className="text-2xl md:text-3xl font-black tracking-tight text-[var(--color-ink)] text-center mb-8"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Softune vs {data.comparison.competitorName}
+              Softunebd vs {data.comparison.competitorName}
             </h2>
             <div className="overflow-x-auto rounded-[24px] border border-[var(--color-line)] bg-[var(--color-surface)]">
               <table className="w-full text-left text-[14px]">
                 <thead>
                   <tr className="border-b border-[var(--color-line)]">
                     <th className="p-4 font-bold text-[var(--color-ink)]">Feature</th>
-                    <th className="p-4 font-bold text-[var(--color-brand)]">Softune</th>
+                    <th className="p-4 font-bold text-[var(--color-brand)]">Softunebd</th>
                     <th className="p-4 font-bold text-[var(--color-muted)]">{data.comparison.competitorName}</th>
                   </tr>
                 </thead>

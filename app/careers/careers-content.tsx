@@ -25,7 +25,7 @@ const perks = [
   {
     icon: "/icons/lock.svg",
     title: "Equity & Ownership",
-    desc: "Competitive salary plus meaningful equity so you share in Softune's long-term success.",
+    desc: "Competitive salary plus meaningful equity so you share in Softunebd's long-term success.",
   },
   {
     icon: "/icons/user.svg",
@@ -51,7 +51,7 @@ const openRoles = [
     title: "Product Designer",
     type: "Full-time · Remote",
     team: "Design",
-    desc: "Design the merchant dashboard, onboarding flows, and storefront theme builder. You'll define how Softune looks and feels.",
+    desc: "Design the merchant dashboard, onboarding flows, and storefront theme builder. You'll define how Softunebd looks and feels.",
     tags: ["Figma", "UI Systems", "User Research"],
   },
   {

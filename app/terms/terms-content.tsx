@@ -9,15 +9,15 @@ import { FileText } from "lucide-react";
 const termsList = [
   {
     title: "Acceptance of Terms",
-    content: "By accessing, signing up for, or using the Softune platform, you agree to be bound by these Terms and Conditions and all applicable laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site and services."
+    content: "By accessing, signing up for, or using the Softunebd platform, you agree to be bound by these Terms and Conditions and all applicable laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site and services."
   },
   {
     title: "Account Registration & Security",
-    content: "You must provide accurate, complete, and current information when creating your Softune account. You are entirely responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account."
+    content: "You must provide accurate, complete, and current information when creating your Softunebd account. You are entirely responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account."
   },
   {
     title: "Permitted Use & Platform Restrictions",
-    content: "Softune grants you a limited, non-exclusive, non-transferable license to access the ecommerce and SaaS services. You agree not to copy, reverse-engineer, modify, distribute, or exploit any portion of the software, design systems, or API endpoints without our prior written consent."
+    content: "Softunebd grants you a limited, non-exclusive, non-transferable license to access the ecommerce and SaaS services. You agree not to copy, reverse-engineer, modify, distribute, or exploit any portion of the software, design systems, or API endpoints without our prior written consent."
   },
   {
     title: "Billing, Fees & Payments",
@@ -25,11 +25,11 @@ const termsList = [
   },
   {
     title: "Intellectual Property Rights",
-    content: "All software, trademarks, logos, user interfaces, branding, and dashboard layouts compiled within the Softune system are the exclusive property of Softune or its licensors and are protected by international intellectual property laws."
+    content: "All software, trademarks, logos, user interfaces, branding, and dashboard layouts compiled within the Softunebd system are the exclusive property of Softunebd or its licensors and are protected by international intellectual property laws."
   },
   {
     title: "Limitation of Liability",
-    content: "Softune is provided on an 'as-is' and 'as-available' basis. In no event shall Softune, its directors, or its partners be liable for any indirect, special, incidental, or consequential damages resulting from your use or inability to use the platform."
+    content: "Softunebd is provided on an 'as-is' and 'as-available' basis. In no event shall Softunebd, its directors, or its partners be liable for any indirect, special, incidental, or consequential damages resulting from your use or inability to use the platform."
   }
 ];
 
@@ -79,7 +79,7 @@ export default function TermsPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Please read these terms carefully before creating your Softune account or running storefront operations.
+            Please read these terms carefully before creating your Softunebd account or running storefront operations.
           </motion.p>
         </div>
 
@@ -98,7 +98,7 @@ export default function TermsPage() {
               <div className="border-b border-[var(--color-line)] pb-6">
                 <p className="text-[14px] font-bold text-[var(--color-brand)] uppercase tracking-wider mb-2">Effective Date: August 18, 2026</p>
                 <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium">
-                  These Terms of Service govern your access to and use of Softune platform software, API infrastructure, multi-tenant storefront themes, and AI automation engines.
+                  These Terms of Service govern your access to and use of Softunebd platform software, API infrastructure, multi-tenant storefront themes, and AI automation engines.
                 </p>
               </div>
 

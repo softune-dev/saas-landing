@@ -11,7 +11,7 @@ const timeline = [
   {
     year: "2024",
     title: "The Idea",
-    desc: "Softune started with one idea that did not change: one dashboard, a real storefront, and no code. Bangladesh shop owners should not need a developer or a stack of plugins to sell online.",
+    desc: "Softunebd started with one idea that did not change: one dashboard, a real storefront, and no code. Bangladesh shop owners should not need a developer or a stack of plugins to sell online.",
     icon: "/icons/play.svg"
   },
   {
@@ -75,7 +75,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Softune is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel.
+            Softunebd is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel.
           </motion.p>
         </div>
 
@@ -89,10 +89,10 @@ export default function AboutPage() {
                 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] md:text-3xl"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Why Softune
+                Why Softunebd
               </h2>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
-                Softune is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard — themes, inventory, checkout, payments, courier booking, and Store Sale POS — without hiring a developer or stacking plugins.
+                Softunebd is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard — themes, inventory, checkout, payments, courier booking, and Store Sale POS — without hiring a developer or stacking plugins.
               </p>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 Payments, couriers, and POS sit in the same admin as the storefront. Bangladesh checkout and fulfillment are built in from the start, not bolted on later, so a shop does not need a separate stack for each job.
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 Our vision
               </h3>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
-                Shop owners in Bangladesh should not have to choose between a Facebook Page and a custom site they cannot maintain. Softune cares about your branding and identity, not a generic storefront that looks like everyone else's. The vision is a store that is theirs: logo, colors, and type that belong to the shop, plus cash on delivery, mobile-wallet checkout, local courier labels, and a counter that shares the same catalog.
+                Shop owners in Bangladesh should not have to choose between a Facebook Page and a custom site they cannot maintain. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. The vision is a store that is theirs: logo, colors, and type that belong to the shop, plus cash on delivery, mobile-wallet checkout, local courier labels, and a counter that shares the same catalog.
               </p>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 Opening that store should take an afternoon, not a project plan. A three-day free trial with no credit card is the start of that — you can run a live shop before you pay.
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 We build for the independent merchant, not a corporate IT team. Features exist to cut admin hours: inventory that matches the storefront, checkout rules that block fraud numbers, and courier labels that do not need a second login.
               </p>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
-                Ecommerce software should not require a computer-science degree. Softune is meant to be used as-is: pick a theme, add products, connect bKash, Nagad, or SSLCommerz, and go live. There is no plugin marketplace to assemble.
+                Ecommerce software should not require a computer-science degree. Softunebd is meant to be used as-is: pick a theme, add products, connect bKash, Nagad, or SSLCommerz, and go live. There is no plugin marketplace to assemble.
               </p>
             </div>
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 What the platform covers
               </h3>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
-                Checkout in Bangladesh is cash on delivery plus mobile wallets and cards. Softune includes COD, bKash, Nagad, and SSLCommerz, and courier connections for Steadfast, Pathao, RedX, and eCourier. Store Sale POS uses the same catalog for walk-in sales.
+                Checkout in Bangladesh is cash on delivery plus mobile wallets and cards. Softunebd includes COD, bKash, Nagad, and SSLCommerz, and courier connections for Steadfast, Pathao, RedX, and eCourier. Store Sale POS uses the same catalog for walk-in sales.
               </p>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 Each merchant's data is isolated per tenant. Customer records, orders, and theme settings stay on that shop's side of the database. That isolation is how one platform can host many stores without mixing them.

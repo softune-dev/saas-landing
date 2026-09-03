@@ -7,7 +7,7 @@ import HomePage from "./home-content";
 export const metadata = pageSeo({
   title: null,
   description:
-    "Start a free 3-day Softune trial — no credit card. Launch a Bangladesh store that looks like your brand, with COD, bKash, Nagad, and Pathao or Steadfast.",
+    "Start a free 3-day Softunebd trial — no credit card. Launch a Bangladesh store that looks like your brand, with COD, bKash, Nagad, and Pathao or Steadfast.",
   path: "/",
 });
 

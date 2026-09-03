@@ -13,7 +13,7 @@ const cookieSections = [
   },
   {
     title: "How We Use Cookies",
-    content: "We use cookies to keep you safely authenticated inside the Softune dashboard, record layout customizer settings, analyze web server traffic metrics, and maintain real-time store setup progress trackers."
+    content: "We use cookies to keep you safely authenticated inside the Softunebd dashboard, record layout customizer settings, analyze web server traffic metrics, and maintain real-time store setup progress trackers."
   },
   {
     title: "Types of Cookies We Deploy",

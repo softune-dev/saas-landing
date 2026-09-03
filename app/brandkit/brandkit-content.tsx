@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 const assets = [
   {
     title: "Logo on Light",
-    desc: "Dark Softune wordmark for white and light backgrounds.",
+    desc: "Dark Softunebd wordmark for white and light backgrounds.",
     preview: "/logo-dark.png",
     bg: "bg-white",
     downloads: [
@@ -18,7 +18,7 @@ const assets = [
   },
   {
     title: "Logo on Dark",
-    desc: "White Softune wordmark for dark or brand-colored backgrounds.",
+    desc: "White Softunebd wordmark for dark or brand-colored backgrounds.",
     preview: "/logo-white.png",
     bg: "bg-[var(--color-ink)]",
     downloads: [
@@ -27,7 +27,7 @@ const assets = [
   },
   {
     title: "Favicon",
-    desc: "Browser tab icon for Softune sites and apps.",
+    desc: "Browser tab icon for Softunebd sites and apps.",
     preview: "/favicon.ico",
     bg: "bg-white",
     downloads: [
@@ -48,12 +48,12 @@ const guidelines = [
   {
     icon: "/icons/lock.svg",
     title: "Don't Alter the Logo",
-    desc: "Never stretch, rotate, recolor, or add effects to the Softune logo. Use only the provided files.",
+    desc: "Never stretch, rotate, recolor, or add effects to the Softunebd logo. Use only the provided files.",
   },
   {
     icon: "/icons/zap.svg",
     title: "Maintain Clear Space",
-    desc: "Always provide adequate white space around the logo equal to the height of the 'S' in Softune.",
+    desc: "Always provide adequate white space around the logo equal to the height of the 'S' in Softunebd.",
   },
   {
     icon: "/icons/user.svg",
@@ -104,7 +104,7 @@ export default function BrandKitPage() {
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Softune
+            Softunebd
             <span className="relative inline-block px-3 py-1 mx-1">
               <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
               <em className="relative not-italic text-white">Brand Kit</em>

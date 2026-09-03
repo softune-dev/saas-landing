@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const destinations = [
   {
     title: "Home",
-    desc: "See what Softune is and how a store launches.",
+    desc: "See what Softunebd is and how a store launches.",
     href: "/",
     icon: "/icons/shop-bag.svg",
   },
@@ -95,7 +95,7 @@ export default function NotFoundContent() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 mx-auto max-w-xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
           >
-            That URL isn&apos;t on Softune. It may have moved, or it never
+            That URL isn&apos;t on Softunebd. It may have moved, or it never
             existed. Pick a real page below — or go home and start a store.
           </motion.p>
 

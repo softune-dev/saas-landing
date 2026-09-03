@@ -23,7 +23,7 @@ const tutorialsData = [
     duration: "15:45",
     level: "Intermediate",
     thumbnail: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-    desc: "Learn how to use Softune's dashboard grid editor to customize typography, configure colors, and organize sections for optimal conversion."
+    desc: "Learn how to use Softunebd's dashboard grid editor to customize typography, configure colors, and organize sections for optimal conversion."
   },
   {
     title: "Setting Up Schema & SEO Metadata",
@@ -41,7 +41,7 @@ const tutorialsData = [
     duration: "12:30",
     level: "Intermediate",
     thumbnail: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-    desc: "How to open Softune Couriers, connect Steadfast, Pathao, RedX, or eCourier, review the partner roster, and keep order status in sync as you fulfill."
+    desc: "How to open Softunebd Couriers, connect Steadfast, Pathao, RedX, or eCourier, review the partner roster, and keep order status in sync as you fulfill."
   },
   {
     title: "Running A/B Sales & Cart Recovery",
@@ -99,7 +99,7 @@ export default function TutorialsPage() {
               <img src="/icons/play.svg" alt="Play" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Learn Softune Visually
+              Learn Softunebd Visually
             </span>
           </motion.div>
 

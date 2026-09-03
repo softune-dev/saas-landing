@@ -6,7 +6,7 @@ import DocumentationPage from "./documentation-content";
 export const metadata = pageSeo({
   title: "Documentation | Set Up Your Store",
   description:
-    "Softune docs for products, categories, orders, Theme Editor, payments (COD, bKash, Nagad, SSLCommerz), couriers, domains, and fraud tools.",
+    "Softunebd docs for products, categories, orders, Theme Editor, payments (COD, bKash, Nagad, SSLCommerz), couriers, domains, and fraud tools.",
   path: "/support/documentation",
 });
 

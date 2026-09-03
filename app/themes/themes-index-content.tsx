@@ -95,7 +95,7 @@ export default function ThemesIndexPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={t.image}
-                        alt={`${t.name} Softune ecommerce theme — ${t.vibe}`}
+                        alt={`${t.name} Softunebd ecommerce theme — ${t.vibe}`}
                         loading="lazy"
                         decoding="async"
                         className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"

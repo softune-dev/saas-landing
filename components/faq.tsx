@@ -109,7 +109,7 @@ export function Faq() {
             </span>
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
-            Everything you need to know about building with Softune.
+            Everything you need to know about building with Softunebd.
           </p>
         </div>
 

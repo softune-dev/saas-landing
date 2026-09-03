@@ -117,7 +117,7 @@ export const changelogData: ChangelogRelease[] = [
     date: "Aug 31, 2026",
     title: "Free 3-day trial",
     description:
-      "You can open a real Softune store in minutes — no credit card, no waiting on us to provision an account.",
+      "You can open a real Softunebd store in minutes — no credit card, no waiting on us to provision an account.",
     changes: [
       {
         type: "Feature",
@@ -277,7 +277,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Custom domain: Softune attaches the domain on save and shows whether it is actually connected — not only stored in settings.",
+          "Custom domain: Softunebd attaches the domain on save and shows whether it is actually connected — not only stored in settings.",
       },
       {
         type: "Improvement",
@@ -320,7 +320,7 @@ export const changelogData: ChangelogRelease[] = [
     serial: "1.0",
     version: "v1.0.0",
     date: "Aug 18, 2026",
-    title: "Softune is live",
+    title: "Softunebd is live",
     description:
       "The dashboard and storefront that Bangladesh merchants use every day — themes, catalog, orders, COD, and the first courier.",
     changes: [

@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import AboutPage from "./about-content";
 
 export const metadata = pageSeo({
-  title: "About Softune",
+  title: "About Softunebd",
   description:
-    "Softune is an ecommerce website builder for Bangladesh that cares about your branding and identity, not a generic storefront. COD, bKash, Nagad, SSLCommerz, and local couriers — without hiring a developer.",
+    "Softunebd is an ecommerce website builder for Bangladesh that cares about your branding and identity, not a generic storefront. COD, bKash, Nagad, SSLCommerz, and local couriers — without hiring a developer.",
   path: "/about",
 });
 

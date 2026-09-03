@@ -8,7 +8,7 @@ import FeaturesIndexPage from "./features-content";
 export const metadata = pageSeo({
   title: "Dashboard Features for Bangladesh Stores",
   description:
-    "Tour the Softune dashboard on a free 3-day trial — no credit card. Theme Editor, orders, Store Sale POS, and Gemini AI for Bangladesh merchants.",
+    "Tour the Softunebd dashboard on a free 3-day trial — no credit card. Theme Editor, orders, Store Sale POS, and Gemini AI for Bangladesh merchants.",
   path: "/features",
 });
 
@@ -16,7 +16,7 @@ function featuresListSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Softune features",
+    name: "Softunebd features",
     itemListElement: FEATURES_LIST.map((item, i) => ({
       "@type": "ListItem",
       position: i + 1,

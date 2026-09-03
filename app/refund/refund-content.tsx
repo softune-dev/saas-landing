@@ -9,7 +9,7 @@ import { RotateCcw } from "lucide-react";
 const refundSections = [
   {
     title: "14-Day Satisfaction Guarantee",
-    content: "We provide a 14-day money-back guarantee for all initial subscription plans. If Softune does not meet your business requirements, you can request a full refund within 14 days of account activation."
+    content: "We provide a 14-day money-back guarantee for all initial subscription plans. If Softunebd does not meet your business requirements, you can request a full refund within 14 days of account activation."
   },
   {
     title: "Subscription Renewals",
@@ -21,7 +21,7 @@ const refundSections = [
   },
   {
     title: "Refund Processing & Gateways",
-    content: "Approved Softune subscription refunds are credited back to your original payment method within 5 to 10 working days, subject to the payment provider’s processing times and any applicable fees."
+    content: "Approved Softunebd subscription refunds are credited back to your original payment method within 5 to 10 working days, subject to the payment provider’s processing times and any applicable fees."
   }
 ];
 

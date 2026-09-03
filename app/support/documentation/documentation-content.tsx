@@ -66,7 +66,7 @@ export default function DocumentationPage() {
               />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Softune Docs
+              Softunebd Docs
             </span>
           </motion.div>
 
@@ -91,7 +91,7 @@ export default function DocumentationPage() {
             className="relative z-10 mx-auto mb-8 max-w-2xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
           >
             Learn how to configure your store, customize themes, connect
-            payments and couriers, and use Softune&apos;s dashboard tools to
+            payments and couriers, and use Softunebd&apos;s dashboard tools to
             grow your ecommerce business.
           </motion.p>
 

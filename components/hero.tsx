@@ -42,7 +42,7 @@ export function Hero() {
             />
           </div>
           <span className="truncate text-[12px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-            Softune eCommerce is live
+            Softunebd eCommerce is live
           </span>
           <span className="h-3 w-px shrink-0 bg-[var(--color-line)] md:h-4" />
           <Link
@@ -80,7 +80,7 @@ export function Hero() {
 
         <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg">
           No-code store builder with bKash, Nagad, COD, and local couriers.
-          Softune cares about your branding and identity, not a generic
+          Softunebd cares about your branding and identity, not a generic
           storefront. AI helps you write products and run the shop from one
           dashboard.
         </p>
@@ -109,7 +109,7 @@ export function Hero() {
                 />
                 <img
                   src={desktopSrc}
-                  alt="Softune ecommerce dashboard for Bangladesh merchants"
+                  alt="Softunebd ecommerce dashboard for Bangladesh merchants"
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"

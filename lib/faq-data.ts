@@ -12,23 +12,23 @@ import { BRANDING_CLAIM } from "./site";
 export const faqData = [
   {
     category: "General",
-    q: "What is Softune?",
-    a: "Softune is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD, bKash, Nagad, and SSLCommerz, connect couriers, run Store Sale (POS), and grow from one dashboard."
+    q: "What is Softunebd?",
+    a: "Softunebd is an all-in-one ecommerce SaaS platform for small businesses and startups in Bangladesh. Create a professional online store, manage products and orders, accept COD, bKash, Nagad, and SSLCommerz, connect couriers, run Store Sale (POS), and grow from one dashboard."
   },
   {
     category: "General",
-    q: "Do I need coding skills to use Softune?",
-    a: "No. Softune is built for non-technical users. Launch a store, add products, manage orders, and customize your storefront in the Theme Editor — no coding required."
+    q: "Do I need coding skills to use Softunebd?",
+    a: "No. Softunebd is built for non-technical users. Launch a store, add products, manage orders, and customize your storefront in the Theme Editor — no coding required."
   },
   {
     category: "General",
     q: "Can I manage multiple stores from one dashboard?",
-    a: "Yes. Softune lets you switch between stores from one dashboard. The Business plan includes up to 3 storefronts on a single account. Softune does not offer unlimited stores on every plan."
+    a: "Yes. Softunebd lets you switch between stores from one dashboard. The Business plan includes up to 3 storefronts on a single account. Softunebd does not offer unlimited stores on every plan."
   },
   {
     category: "Integrations",
-    q: "What payment methods does Softune support?",
-    a: "Softune Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. Stripe and PayPal are not available."
+    q: "What payment methods does Softunebd support?",
+    a: "Softunebd Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. Stripe and PayPal are not available."
   },
   {
     category: "General",
@@ -38,32 +38,32 @@ export const faqData = [
   {
     category: "Security",
     q: "Is my customer data secure?",
-    a: "Yes. Softune isolates each merchant’s data by tenant, stores sensitive credentials encrypted, and includes rule-based Fraud Protection (phone blocklist plus checkout rules) to reduce COD abuse. Softune does not claim machine-learning fraud scoring."
+    a: "Yes. Softunebd isolates each merchant’s data by tenant, stores sensitive credentials encrypted, and includes rule-based Fraud Protection (phone blocklist plus checkout rules) to reduce COD abuse. Softunebd does not claim machine-learning fraud scoring."
   },
   {
     category: "Themes",
     q: "Can I customize my store's design?",
-    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softune’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.`
+    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softunebd’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.`
   },
   {
     category: "Themes",
-    q: "Will my Softune store look like every other shop?",
+    q: "Will my Softunebd store look like every other shop?",
     a: `No. ${BRANDING_CLAIM} Logo, colors, fonts, and homepage sections stay yours, so the storefront reads as your brand instead of a default theme.`
   },
   {
     category: "Integrations",
-    q: "What courier services are integrated with Softune?",
-    a: "Softune Couriers lets you connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softune does not claim real-time public tracking or auto-booking for every partner."
+    q: "What courier services are integrated with Softunebd?",
+    a: "Softunebd Couriers lets you connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softunebd does not claim real-time public tracking or auto-booking for every partner."
   },
   {
     category: "Billing",
     q: "Is there a free trial?",
-    a: "Yes. Softune includes a 3-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page."
+    a: "Yes. Softunebd includes a 3-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page."
   },
   {
     category: "Billing",
-    q: "Do I need a credit card to start Softune?",
-    a: "No. Sign up with an email and password. Softune does not ask for a card to start the 3-day free trial."
+    q: "Do I need a credit card to start Softunebd?",
+    a: "No. Sign up with an email and password. Softunebd does not ask for a card to start the 3-day free trial."
   },
   {
     category: "Billing",
@@ -72,7 +72,7 @@ export const faqData = [
   },
   {
     category: "General",
-    q: "How does Softune's AI help my business?",
-    a: "Softune’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live — Softune does not auto-rewrite your store SEO without review."
+    q: "How does Softunebd's AI help my business?",
+    a: "Softunebd’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live — Softunebd does not auto-rewrite your store SEO without review."
   }
 ];

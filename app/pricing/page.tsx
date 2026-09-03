@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import PricingPage from "./pricing-content";
 
 export const metadata = pageSeo({
-  title: "Softune Pricing in Taka",
+  title: "Softunebd Pricing in Taka",
   description:
-    "Start a free 3-day Softune trial with no credit card. Then pick Starter, Growth, or Business in BDT — no per-order cut, no setup fee.",
+    "Start a free 3-day Softunebd trial with no credit card. Then pick Starter, Growth, or Business in BDT — no per-order cut, no setup fee.",
   path: "/pricing",
 });
 

@@ -26,7 +26,7 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Live",
     titleEnd: "",
     description:
-      "Edit your storefront in Softune’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
+      "Edit your storefront in Softunebd’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
     bullets: [
       "Live preview of your real theme while you edit",
       "AI Suggest for brand colors, fonts, and storefront text",
@@ -39,17 +39,17 @@ export const sections: FeatureSection[] = [
   {
     pillText: "AI Chatbot",
     pillIcon: "/icons/chat.svg",
-    titleStart: "Ask Softune,",
+    titleStart: "Ask Softunebd,",
     titleHighlight: "Get Answers",
     titleEnd: "",
     description:
-      "Chat with Softune’s built-in AI, powered by Google Gemini. It reads your real products, orders, and sales, then helps you act without leaving the dashboard.",
+      "Chat with Softunebd’s built-in AI, powered by Google Gemini. It reads your real products, orders, and sales, then helps you act without leaving the dashboard.",
     bullets: [
       "Powered by Google Gemini for clear, fast answers",
       "Ask about products, orders, and sales in plain language",
-      "Answers come from your own Softune store data",
+      "Answers come from your own Softunebd store data",
       "Propose product or category changes you still confirm",
-      "Stay inside Softune — no extra AI app to open",
+      "Stay inside Softunebd — no extra AI app to open",
     ],
     showcase: "chat",
   },
@@ -77,7 +77,7 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Own Your Domain",
     titleEnd: "",
     description:
-      "Softune Site Settings covers search listings, social share previews, tracking pixels, and your custom domain — so discovery and measurement live next to the store you publish.",
+      "Softunebd Site Settings covers search listings, social share previews, tracking pixels, and your custom domain — so discovery and measurement live next to the store you publish.",
     bullets: [
       "Titles, meta descriptions, keywords, favicon, and AI help for SEO copy",
       "Open Graph title, description, and image for cleaner Facebook and chat previews",
@@ -100,7 +100,7 @@ export const sections: FeatureSection[] = [
       "Regenerate any description until the wording fits",
       "Edit the draft fully before you save",
       "Uses your product details as context for better copy",
-      "Works inside the Softune product editor you already use",
+      "Works inside the Softunebd product editor you already use",
     ],
     showcase: "ai",
   },
@@ -111,9 +111,9 @@ export const sections: FeatureSection[] = [
     titleHighlight: "Same Catalog",
     titleEnd: "",
     description:
-      "Softune POS is walk-in checkout on your live product catalog. Search, filter by category, complete the sale, print a receipt, and review recent POS orders.",
+      "Softunebd POS is walk-in checkout on your live product catalog. Search, filter by category, complete the sale, print a receipt, and review recent POS orders.",
     bullets: [
-      "Same Softune products and stock as your online store",
+      "Same Softunebd products and stock as your online store",
       "Category filters, compact product rows, and pagination",
       "Cash, card, or mobile banking labels on each sale",
       "Printable shop-style receipt with date, time, and totals",
@@ -239,7 +239,7 @@ export function PlatformFeatures() {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={isDark ? darkSrc : liteSrc}
-                        alt={`${section.pillText} in the Softune dashboard`}
+                        alt={`${section.pillText} in the Softunebd dashboard`}
                         loading="lazy"
                         decoding="async"
                         width={800}

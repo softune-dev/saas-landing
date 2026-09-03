@@ -86,7 +86,7 @@ export function Comparison() {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Softune vs Bangladeshi Builders
+              Softunebd vs Bangladeshi Builders
             </span>
           </motion.div>
 
@@ -99,13 +99,13 @@ export function Comparison() {
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
             Most Bangladeshi store builders charge extra somewhere: a setup
-            fee, a cut of every order, or a paywalled feature. Softune
+            fee, a cut of every order, or a paywalled feature. Softunebd
             doesn&apos;t.
           </p>
         </div>
 
         <div className="grid items-stretch gap-4 md:grid-cols-2 md:gap-5">
-          {/* Softune first on mobile; column 2 on desktop. */}
+          {/* Softunebd first on mobile; column 2 on desktop. */}
           <motion.article
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export function Comparison() {
             loading="lazy"
             decoding="async"
                   src="/logo-white.png"
-                  alt="Softune"
+                  alt="Softunebd"
                   className="h-10 w-auto object-contain sm:h-12"
                 />
                 <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
@@ -259,7 +259,7 @@ export function Comparison() {
                 variant="secondary"
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
               >
-                See Softune plans
+                See Softunebd plans
                 <img
             loading="lazy"
             decoding="async"
@@ -288,7 +288,7 @@ export function Comparison() {
             <span className="font-semibold text-[var(--color-ink)]">
               {globalComparison.name}
             </span>{" "}
-            {globalComparison.fact}. Softune&apos;s is 0%, on every plan.
+            {globalComparison.fact}. Softunebd&apos;s is 0%, on every plan.
           </p>
         </motion.div>
       </div>

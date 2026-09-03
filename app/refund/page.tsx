@@ -6,7 +6,7 @@ import RefundPage from "./refund-content";
 export const metadata = pageSeo({
   title: "Refund Policy",
   description:
-    "Softune refund and cancellation rules for Starter, Growth, and Business subscription plans billed in BDT.",
+    "Softunebd refund and cancellation rules for Starter, Growth, and Business subscription plans billed in BDT.",
   path: "/refund",
 });
 

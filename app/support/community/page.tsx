@@ -6,7 +6,7 @@ import CommunityPage from "./community-content";
 export const metadata = pageSeo({
   title: "Merchant Community",
   description:
-    "Connect with other Softune merchants and agencies in Bangladesh — ask setup questions and share what is working.",
+    "Connect with other Softunebd merchants and agencies in Bangladesh — ask setup questions and share what is working.",
   path: "/support/community",
 });
 

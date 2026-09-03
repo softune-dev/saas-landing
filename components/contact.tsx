@@ -131,7 +131,7 @@ export function Contact() {
           </h2>
 
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px]">
-            Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softune.
+            Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softunebd.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 md:gap-6">

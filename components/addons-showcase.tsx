@@ -61,7 +61,7 @@ export function AddonsShowcase() {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Softune Marketplace
+              Softunebd Marketplace
             </span>
           </motion.div>
 
@@ -96,7 +96,7 @@ export function AddonsShowcase() {
             loading="lazy"
             decoding="async"
                   src={addon.logoSrc}
-                  alt={`${addon.name} Softune add-on`}
+                  alt={`${addon.name} Softunebd add-on`}
                   width={64}
                   height={64}
                   className="size-10 object-contain sm:size-12 md:size-14"

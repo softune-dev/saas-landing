@@ -6,7 +6,7 @@ import TermsPage from "./terms-content";
 export const metadata = pageSeo({
   title: "Terms of Service",
   description:
-    "Terms for using Softune’s ecommerce platform, storefronts, and subscription plans in Bangladesh.",
+    "Terms for using Softunebd’s ecommerce platform, storefronts, and subscription plans in Bangladesh.",
   path: "/terms",
 });
 
