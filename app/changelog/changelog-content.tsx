@@ -24,20 +24,18 @@ function Badge({ type }: { type: ChangeType }) {
   );
 }
 
-export default function ChangelogPage() {
+export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
         <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          {/* Masked Grid Layer */}
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-
-          {/* Bottom Gradient Fade */}
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
-          {/* Hero Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +54,7 @@ export default function ChangelogPage() {
               />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Product Updates
+              {isBn ? "প্রোডাক্ট আপডেট" : "Product Updates"}
             </span>
           </motion.div>
 
@@ -65,29 +63,41 @@ export default function ChangelogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center gap-1.5"
-            style={{ fontFamily: "var(--font-heading)" }}
+            style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
-            Change
-            <span className="relative inline-block px-3 py-1 ml-1">
-              <span className="absolute inset-0 -rotate-1 top-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">log</em>
-            </span>
+            {isBn ? (
+              <>
+                চেঞ্জ<span className="relative inline-block px-3 py-1 ml-1">
+                  <span className="absolute inset-0 -rotate-1 top-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">লগ</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Change
+                <span className="relative inline-block px-3 py-1 ml-1">
+                  <span className="absolute inset-0 -rotate-1 top-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">log</em>
+                </span>
+              </>
+            )}
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-xl mx-auto leading-relaxed"
           >
-            What shipped in the Softunebd dashboard and on your live store —
-            features, fixes, and improvements merchants actually use.
+            {isBn
+              ? "Softunebd ড্যাশবোর্ড ও লাইভ স্টোরফ্রন্টে নতুন যে ফিচার, ফিক্স ও ইমপ্রুভমেন্টগুলো যুক্ত হয়েছে।"
+              : "What shipped in the Softunebd dashboard and on your live store — features, fixes, and improvements merchants actually use."}
           </motion.p>
         </div>
 
         {/* 2-Column Layout */}
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* Left Sidebar (Sticky Quick Nav) */}
+          {/* Left Sidebar */}
           <motion.aside
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -96,7 +106,7 @@ export default function ChangelogPage() {
           >
             <div className="sticky top-32 space-y-4">
               <h4 className="text-[12px] font-extrabold text-[var(--color-muted)] uppercase tracking-widest mb-6 border-b border-[var(--color-line)] pb-3">
-                Release History
+                {isBn ? "রিলিজ হিস্ট্রি" : "Release History"}
               </h4>
               <nav className="flex flex-col gap-4">
                 {changelogData.map((log) => (
@@ -120,7 +130,7 @@ export default function ChangelogPage() {
             </div>
           </motion.aside>
 
-          {/* Right Content (Timeline) */}
+          {/* Right Content */}
           <div className="flex-1 space-y-20">
             {changelogData.map((log) => (
               <div
@@ -134,7 +144,6 @@ export default function ChangelogPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  {/* Date & Version Header */}
                   <div className="flex items-center gap-3 mb-6">
                     <div className="flex size-7 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                       <img
@@ -153,7 +162,6 @@ export default function ChangelogPage() {
                   </div>
 
                   <div className="rounded-[24px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 md:p-10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.05)] transition-shadow hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)]">
-                    {/* Title with Serial */}
                     <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[var(--color-ink)] mb-4 flex items-center gap-3">
                       <span className="text-[var(--color-brand)]">
                         {log.serial}
@@ -164,15 +172,12 @@ export default function ChangelogPage() {
                       {log.description}
                     </p>
 
-                    {/* Changes Grid */}
                     <div className="grid grid-cols-[100px_1fr] md:grid-cols-[110px_1fr] gap-x-4 gap-y-5 md:gap-x-6 md:gap-y-6">
                       {log.changes.map((change, i) => (
                         <React.Fragment key={i}>
-                          {/* Fixed Badge Column */}
                           <div className="flex justify-end items-start pt-0.5">
                             <Badge type={change.type} />
                           </div>
-                          {/* Description Column */}
                           <span className="text-[14.5px] md:text-[15px] font-medium text-[var(--color-ink)] leading-relaxed pt-1">
                             {change.content}
                           </span>
@@ -186,7 +191,7 @@ export default function ChangelogPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

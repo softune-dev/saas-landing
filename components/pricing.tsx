@@ -5,19 +5,24 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
-import { plans } from "@/lib/pricing-data";
-import { TRIAL_CTA, TRIAL_NOTE } from "@/lib/site";
+import { getPlans } from "@/lib/pricing-data";
+import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 
-export function Pricing() {
+export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
   const [isAnnual, setIsAnnual] = useState(true);
-
-  // Real Enterprise-card artwork, theme-matched — same mount-guard pattern
-  // as the Hero to avoid a hydration mismatch on first paint.
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const isBn = locale === "bn";
+  const planList = getPlans(locale);
+  const signupHref = isBn ? "/bn/signup" : "/signup";
+  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
+  const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
+
   const isDark = !mounted || resolvedTheme === "dark";
   const enterpriseImageSrc = isDark ? "/price-enter-d.webp" : "/price-enter-l.webp";
 
@@ -41,29 +46,43 @@ export function Pricing() {
                 style={{ animationDuration: "2s" }}
               />
               <img
-            loading="lazy"
-            decoding="async"
+                loading="lazy"
+                decoding="async"
                 src="/icons/billing.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Flexible Pricing
+              {isBn ? "ফ্লেক্সিবল প্রাইসিং" : "Flexible Pricing"}
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
-            Simple plans for
-            <br />
-            growing{" "}
-            <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Brands</em>
-            </span>
+            {isBn ? (
+              <>
+                গ্রোয়িং ব্র্যান্ডের জন্য
+                <br />
+                সহজ{" "}
+                <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">প্রাইসিং প্ল্যান</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Simple plans for
+                <br />
+                growing{" "}
+                <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">Brands</em>
+                </span>
+              </>
+            )}
           </h2>
           <p className="mt-4 max-w-xl text-[14px] font-medium text-[var(--color-muted)] md:text-[15px]">
-            {TRIAL_NOTE}
+            {trialNote}
           </p>
         </div>
 
@@ -110,7 +129,7 @@ export function Pricing() {
         </div>
 
         <div className="grid items-start gap-5 overflow-x-clip px-1 sm:gap-6 sm:px-0 md:grid-cols-3 lg:gap-8">
-          {plans.map((plan, i) => {
+          {planList.map((plan, i) => {
             const popular = Boolean(plan.popular);
             return (
               <motion.div
@@ -127,11 +146,10 @@ export function Pricing() {
               >
                 {popular ? (
                   <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-b-xl bg-[var(--color-brand)] px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-sm sm:px-4">
-                    Most Popular
+                    {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
                   </div>
                 ) : null}
 
-                {/* Side plans: brand-orange header. Middle: dark ink header. */}
                 <div
                   className={`relative z-10 p-6 pb-6 text-white sm:p-8 sm:pb-8 ${
                     popular
@@ -168,8 +186,9 @@ export function Pricing() {
                             : "text-white"
                         }`}
                       >
-                        Billed ৳{(plan.priceAnnually * 12).toLocaleString()}{" "}
-                        yearly
+                        {isBn
+                          ? `বিল হবে ৳${(plan.priceAnnually * 12).toLocaleString()} প্রতি বছর`
+                          : `Billed ৳${(plan.priceAnnually * 12).toLocaleString()} yearly`}
                       </p>
                     ) : null}
                   </div>
@@ -214,14 +233,14 @@ export function Pricing() {
 
                   <Button
                     as="a"
-                    href="/signup"
+                    href={signupHref}
                     variant={popular ? "primary" : "secondary"}
                     className="relative z-10 flex min-h-12 w-full items-center justify-center gap-2 py-3.5 text-[14px] font-bold"
                   >
-                    {TRIAL_CTA}
+                    {ctaText}
                     <img
-            loading="lazy"
-            decoding="async"
+                      loading="lazy"
+                      decoding="async"
                       src="/icons/arrow-right.svg"
                       alt=""
                       className={`size-4 object-contain ${
@@ -255,19 +274,30 @@ export function Pricing() {
                 Enterprise
               </span>
               <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-                Custom stores, built for your brand
+                {isBn
+                  ? "আপনার ব্র্যান্ডের জন্য কাস্টম সমাধান"
+                  : "Custom stores, built for your brand"}
               </h3>
               <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[var(--color-muted)]">
-                Beyond shared themes: bespoke storefronts, integrations, and
-                support tailored to how your team actually sells.
+                {isBn
+                  ? "শেয়ার্ড থিমের বাইরে কাস্টম স্টোরফ্রন্ট, বিশেষ ইন্টিগ্রেশন এবং আপনার টিমের চাহিদা অনুযায়ী আলাদা ডেডিকেটেড সাপোর্ট।"
+                  : "Beyond shared themes: bespoke storefronts, integrations, and support tailored to how your team actually sells."}
               </p>
               <ul className="mt-5 space-y-3">
-                {[
-                  "Fully bespoke design, not the shared theme system",
-                  "Custom integrations negotiated to what they actually use",
-                  "Custom AI credit allowance",
-                  "Dedicated support",
-                ].map((line) => (
+                {(isBn
+                  ? [
+                      "সম্পূর্ণ কাস্টম ডিজাইন ও স্টোরফ্রন্ট ডেভেলপমেন্ট",
+                      "প্রয়োজন অনুযায়ী বিশেষ পেমেন্ট ও সিস্টেম ইন্টিগ্রেশন",
+                      "কাস্টম AI ক্রেডিট অ্যালটমেন্ট",
+                      "ডেডিকেটেড একাউন্ট ম্যানেজার ও সাপোর্ট",
+                    ]
+                  : [
+                      "Fully bespoke design, not the shared theme system",
+                      "Custom integrations negotiated to what they actually use",
+                      "Custom AI credit allowance",
+                      "Dedicated support",
+                    ]
+                ).map((line) => (
                   <li key={line} className="flex items-start gap-3">
                     <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
                       <Check
@@ -283,14 +313,14 @@ export function Pricing() {
               </ul>
               <Button
                 as="a"
-                href="#contact"
+                href={isBn ? "/bn/support/contact" : "/support/contact"}
                 variant="primary"
                 className="mt-7 flex min-h-12 w-full items-center justify-center gap-2 px-8 py-3.5 text-[15px] font-bold sm:w-auto"
               >
-                Contact Sales
+                {isBn ? "সেলস টিমের সাথে কথা বলুন" : "Contact Sales"}
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/arrow-right.svg"
                   alt=""
                   className="size-4 object-contain brightness-0 invert"
@@ -298,8 +328,6 @@ export function Pricing() {
               </Button>
             </div>
 
-            {/* Real Enterprise artwork, theme-matched. Outer padding gives
-             * the top/right/bottom gap; rounded-2xl clips the image itself. */}
             <div className="relative hidden md:block">
               <div className="absolute inset-0 pt-2 pr-2 pb-2">
                 <img

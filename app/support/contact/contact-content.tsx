@@ -17,10 +17,7 @@ import {
 } from "@/lib/api";
 import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
 
-// Only real channels today. Add a new entry here the moment another one
-// exists (a support phone line, live chat, etc.) — a fake placeholder is
-// worse than having just these.
-const cards = [
+const cardsEn = [
   {
     title: "Email Support",
     desc: "Our tech support team resolves tickets in 2 hours.",
@@ -37,7 +34,27 @@ const cards = [
   },
 ];
 
-export default function ContactSupportPage() {
+const cardsBn = [
+  {
+    title: "ইমেইল সাপোর্ট",
+    desc: "আমাদের টেক সাপোর্ট টিম দ্রুত উত্তর পাঠায়।",
+    detail: "support@softunebd.com",
+    href: "mailto:support@softunebd.com",
+    icon: "/icons/chat.svg",
+  },
+  {
+    title: "হোয়াটসঅ্যাপ",
+    desc: "যেকোনো প্রশ্নের জন্য সরাসরি মেসেজ দিন।",
+    detail: "+880 1630-582639",
+    href: "https://wa.me/8801630582639",
+    icon: "/icons/whatsapp.svg",
+  },
+];
+
+export default function ContactSupportPage({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+  const cards = isBn ? cardsBn : cardsEn;
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +66,7 @@ export default function ContactSupportPage() {
     lastName: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,10 +107,9 @@ export default function ContactSupportPage() {
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
-        
-        {/* Hero Section (Changelog Inspired) */}
+        {/* Hero Section */}
         <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
@@ -110,7 +126,7 @@ export default function ContactSupportPage() {
               <img src="/icons/chat.svg" alt="Chat" className="size-3.5 object-contain dark:invert" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              24/7 Assistance
+              {isBn ? "২৪/৭ অ্যাসিস্ট্যান্স" : "24/7 Assistance"}
             </span>
           </motion.div>
 
@@ -119,39 +135,52 @@ export default function ContactSupportPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: 'var(--font-heading)' }}
+            style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
-            Contact Customer
-            <span className="relative inline-block px-3 py-1 mx-1">
-              <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Support</em>
-            </span>
+            {isBn ? (
+              <>
+                কাস্টমার সাপোর্টে{" "}
+                <span className="relative inline-block px-3 py-1 mx-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">যোগাযোগ</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Contact Customer
+                <span className="relative inline-block px-3 py-1 mx-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">Support</em>
+                </span>
+              </>
+            )}
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Need custom help with your store configuration? Reach out to our technical support team, billing support, or schedule an onboarding call.
+            {isBn
+              ? "আপনার স্টোর কাস্টমাইজেশন, পেমেন্ট বা অন্যান্য বিষয়ে যেকোনো সাহায্য পেতে ইমেইল বা হোয়াটসঅ্যাপে মেসেজ দিন।"
+              : "Need custom help with your store configuration? Reach out to our technical support team, billing support, or schedule an onboarding call."}
           </motion.p>
         </div>
 
         {/* Form and Cards Grid */}
         <section className="py-24 max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid gap-12 lg:grid-cols-12 items-start">
-            
             {/* Left Column: Cards */}
             <div className="lg:col-span-6 space-y-6">
-              {cards.map((card, i) => (
+              {cards.map((card) => (
                 <a
                   key={card.title}
                   href={card.href}
                   className="group relative block overflow-hidden p-6 rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] transition-all hover:bg-[var(--color-surface)] hover:border-[var(--color-brand)] shadow-sm hover:shadow-md text-left"
                 >
                   <div className="absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_60%)] pointer-events-none opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
-                  
+
                   <div className="relative z-10 flex items-start gap-5">
                     <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110 shrink-0">
                       <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
@@ -178,7 +207,7 @@ export default function ContactSupportPage() {
               ))}
             </div>
 
-            {/* Right Column: Contact Form */}
+            {/* Right Column: Form */}
             <div className="lg:col-span-6">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -188,7 +217,7 @@ export default function ContactSupportPage() {
                 className="w-full min-w-0 max-w-full rounded-[1.75rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 shadow-xl shadow-[var(--color-brand)]/5 sm:rounded-[2.5rem] sm:p-8 sm:shadow-2xl md:p-12"
               >
                 <h3 className="mb-6 text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:mb-8 sm:text-2xl text-left">
-                  Send us a message
+                  {isBn ? "মেসেজ পাঠান" : "Send us a message"}
                 </h3>
 
                 {formSubmitted ? (
@@ -200,18 +229,28 @@ export default function ContactSupportPage() {
                     <div className="size-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
                       <CheckCircle2 className="size-10" />
                     </div>
-                    <h3 className="text-xl font-bold text-[var(--color-ink)]">Message sent</h3>
+                    <h3 className="text-xl font-bold text-[var(--color-ink)]">
+                      {isBn ? "মেসেজ পাঠানো হয়েছে" : "Message sent"}
+                    </h3>
                     <p className="text-[15px] text-[var(--color-muted)] max-w-md">
-                      Thanks, <span className="font-bold">{formData.firstName}</span> — we received your message and will reply at <span className="font-bold">{formData.email}</span>.
+                      {isBn ? (
+                        <>ধন্যবাদ, <span className="font-bold">{formData.firstName}</span> — আপনার মেসেজ আমরা পেয়েছি। খুব শীঘ্রই <span className="font-bold">{formData.email}</span> এ রিপ্লাই দেয়া হবে।</>
+                      ) : (
+                        <>Thanks, <span className="font-bold">{formData.firstName}</span> — we received your message and will reply at <span className="font-bold">{formData.email}</span>.</>
+                      )}
                     </p>
-                    <Button variant="outline" className="mt-6" onClick={() => {
-                      setFormSubmitted(false);
-                      setError(null);
-                      setNeedsChallenge(false);
-                      setV2Token(null);
-                      setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
-                    }}>
-                      Send Another Message
+                    <Button
+                      variant="outline"
+                      className="mt-6"
+                      onClick={() => {
+                        setFormSubmitted(false);
+                        setError(null);
+                        setNeedsChallenge(false);
+                        setV2Token(null);
+                        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+                      }}
+                    >
+                      {isBn ? "আরেকটি মেসেজ পাঠান" : "Send Another Message"}
                     </Button>
                   </motion.div>
                 ) : (
@@ -219,7 +258,7 @@ export default function ContactSupportPage() {
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                          First Name
+                          {isBn ? "প্রথম নাম" : "First Name"}
                         </label>
                         <input
                           type="text"
@@ -234,7 +273,7 @@ export default function ContactSupportPage() {
                       </div>
                       <div className="flex flex-col gap-2">
                         <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                          Last Name
+                          {isBn ? "শেষ নাম" : "Last Name"}
                         </label>
                         <input
                           type="text"
@@ -251,7 +290,7 @@ export default function ContactSupportPage() {
 
                     <div className="flex flex-col gap-2">
                       <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                        Email Address
+                        {isBn ? "ইমেইল এড্রেস" : "Email Address"}
                       </label>
                       <input
                         type="email"
@@ -266,11 +305,11 @@ export default function ContactSupportPage() {
 
                     <div className="flex flex-col gap-2">
                       <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                        Phone Number
+                        {isBn ? "ফোন নম্বর" : "Phone Number"}
                       </label>
                       <input
                         type="tel"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="01XXXXXXXXX"
                         value={formData.phone}
                         maxLength={32}
                         autoComplete="tel"
@@ -281,12 +320,12 @@ export default function ContactSupportPage() {
 
                     <div className="flex flex-col gap-2">
                       <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                        Message
+                        {isBn ? "মেসেজ" : "Message"}
                       </label>
                       <textarea
                         rows={4}
                         required
-                        placeholder="How can we help you?"
+                        placeholder={isBn ? "আপনার প্রশ্ন বা মেসেজ লিখুন..." : "How can we help you?"}
                         value={formData.message}
                         maxLength={2000}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -309,7 +348,7 @@ export default function ContactSupportPage() {
                       disabled={busy || (needsChallenge && !v2Token)}
                       className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
                     >
-                      {busy ? "Sending…" : "Send Message"}
+                      {busy ? (isBn ? "পাঠানো হচ্ছে…" : "Sending…") : (isBn ? "মেসেজ পাঠান" : "Send Message")}
                       {!busy ? (
                         <img
                           src="/icons/send.svg"
@@ -324,12 +363,10 @@ export default function ContactSupportPage() {
                 )}
               </motion.div>
             </div>
-
           </div>
         </section>
-
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

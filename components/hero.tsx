@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
-import { TRIAL_NOTE } from "@/lib/site";
+import { TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { HeroCtas } from "./hero-ctas";
 
 /**
  * Centered SaaS hero: copy in the middle band, dashboard mock
- * near the bottom with breathing room below.
+ * near the bottom with breathing room below. Supports English & Bangla.
  */
-export function Hero() {
+export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -19,9 +19,13 @@ export function Hero() {
     setMounted(true);
   }, []);
 
+  const isBn = locale === "bn";
   const isDark = !mounted || resolvedTheme === "dark";
   const desktopSrc = isDark ? "/dashboard-d.webp" : "/dashboard-l.webp";
   const mobileSrc = isDark ? "/dashboard-d-mobile.webp" : "/dashboard-l-mobile.webp";
+
+  const changelogHref = isBn ? "/bn/changelog" : "/changelog";
+  const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
 
   return (
     <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px] md:border-t-0">
@@ -42,61 +46,94 @@ export function Hero() {
             />
           </div>
           <span className="truncate text-[12px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-            Softunebd eCommerce is live
+            {isBn ? "Softunebd eCommerce এখন লাইভ" : "Softunebd eCommerce is live"}
           </span>
           <span className="h-3 w-px shrink-0 bg-[var(--color-line)] md:h-4" />
           <Link
-            href="/changelog"
+            href={changelogHref}
             className="flex shrink-0 items-center gap-1 whitespace-nowrap text-[12px] font-bold text-[var(--color-brand)] hover:underline md:text-[14px]"
           >
-            See what&apos;s new
+            {isBn ? "নতুন কী এলো দেখুন" : "See what's new"}
             <ArrowRight className="size-3.5 md:size-4" />
           </Link>
         </div>
 
         <h1
-          style={{ fontFamily: "var(--font-heading)" }}
+          style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
           className="w-full text-center text-[1.85rem] leading-[1.2] font-bold tracking-tight text-[var(--color-ink)] md:text-[3.25rem] md:leading-[1.15] lg:text-[3.5rem]"
         >
-          <span className="flex flex-col items-center md:hidden">
-            <span>Build your</span>
-            <span className="relative inline-block whitespace-nowrap px-2.5 py-0.5">
-              <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">E-commerce store</em>
-            </span>
-            <span className="mt-1">in Bangladesh</span>
-          </span>
-          <span className="hidden md:block">
-            <span className="flex flex-nowrap items-center justify-center gap-x-3">
-              <span className="shrink-0">Build your</span>
-              <span className="relative inline-block shrink-0 whitespace-nowrap px-4 py-1.5">
-                <span className="absolute inset-0 top-1 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-                <em className="relative not-italic text-white">E-commerce store</em>
+          {isBn ? (
+            <>
+              <span className="flex flex-col items-center md:hidden">
+                <span>E-commerce store</span>
+                <span className="mt-1.5 flex items-center justify-center gap-x-2">
+                  <span>তৈরি করুন</span>
+                  <span className="relative inline-block whitespace-nowrap px-2.5 py-0.5">
+                    <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                    <em className="relative not-italic text-white">মাত্র ২ মিনিটে</em>
+                  </span>
+                </span>
               </span>
-            </span>
-            <span className="mt-2 block">in Bangladesh</span>
-          </span>
+              <span className="hidden md:block">
+                <span>E-commerce store</span>
+                <span className="mt-2 flex items-center justify-center gap-x-3">
+                  <span>তৈরি করুন</span>
+                  <span className="relative inline-block shrink-0 whitespace-nowrap px-4 py-1.5">
+                    <span className="absolute inset-0 top-1 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                    <em className="relative not-italic text-white">মাত্র ২ মিনিটে</em>
+                  </span>
+                </span>
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="flex flex-col items-center md:hidden">
+                <span>Build your</span>
+                <span className="relative inline-block whitespace-nowrap px-2.5 py-0.5">
+                  <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">E-commerce store</em>
+                </span>
+                <span className="mt-1">in Bangladesh</span>
+              </span>
+              <span className="hidden md:block">
+                <span className="flex flex-nowrap items-center justify-center gap-x-3">
+                  <span className="shrink-0">Build your</span>
+                  <span className="relative inline-block shrink-0 whitespace-nowrap px-4 py-1.5">
+                    <span className="absolute inset-0 top-1 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                    <em className="relative not-italic text-white">E-commerce store</em>
+                  </span>
+                </span>
+                <span className="mt-2 block">in Bangladesh</span>
+              </span>
+            </>
+          )}
         </h1>
 
         <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg">
-          No-code store builder with bKash, Nagad, COD, and local couriers.
-          Softunebd cares about your branding and identity, not a generic
-          storefront. AI helps you write products and run the shop from one
-          dashboard.
+          {isBn ? (
+            <>
+              নো-কোড স্টোর বিল্ডার — bKash, Nagad, COD এবং লোকাল কুরিয়ার কানেক্ট সহ। Softunebd আপনার ব্র্যান্ডিং ও ইউনিক আইডেন্টিটির যত্ন নেয়। AI অ্যাসিস্ট্যান্ট দিয়ে প্রোডাক্ট রাইটিং ও শপ ম্যানেজ করুন একই ড্যাশবোর্ড থেকে।
+            </>
+          ) : (
+            <>
+              No-code store builder with bKash, Nagad, COD, and local couriers.
+              Softunebd cares about your branding and identity, not a generic
+              storefront. AI helps you write products and run the shop from one
+              dashboard.
+            </>
+          )}
         </p>
 
-        <HeroCtas className="mt-7 md:mt-9" />
+        <HeroCtas locale={locale} className="mt-7 md:mt-9" />
         <p className="mt-7 text-[12px] font-medium text-[var(--color-muted)] sm:text-[13px] md:mt-9">
-          {TRIAL_NOTE}
+          {trialNote}
         </p>
       </div>
 
-      {/* Dashboard — sized for the 1440×956 asset, with bottom gap */}
+      {/* Dashboard mock */}
       <div className="relative z-10 mx-auto w-full max-w-[1480px] shrink-0 px-3 pb-8 sm:px-5 sm:pb-10 md:px-6 md:pb-14 lg:px-8">
         <div className="relative mx-auto w-full">
           <div className="overflow-hidden rounded-xl border border-[var(--color-line)] shadow-[0_24px_80px_-28px_rgba(12,12,12,0.4)] sm:rounded-2xl">
-            {/* aspect-ratio reserves the layout space instead of loading a
-                second hidden copy of the image just to size the box. */}
             <div
               className="relative w-full overflow-hidden bg-[var(--color-canvas)]"
               style={{ aspectRatio: "1440 / 956" }}

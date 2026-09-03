@@ -6,16 +6,17 @@ import { Footer } from "@/components/footer";
 import { Calendar, Clock, Newspaper } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog-data";
 
-export default function BlogPage() {
+export default function BlogPage({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
   const featuredPost = BLOG_POSTS[0];
   const recentPosts = BLOG_POSTS.slice(1);
+  const blogPrefix = isBn ? "/bn/blog/" : "/blog/";
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
-        
-        {/* Hero Section (Changelog Inspired) */}
+        {/* Hero Section */}
         <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
@@ -33,29 +34,42 @@ export default function BlogPage() {
 
           <h1
             className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: 'var(--font-heading)' }}
+            style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
-            Blog &
-            <span className="relative inline-block px-3 py-1 mx-1">
-              <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Insights</em>
-            </span>
+            {isBn ? (
+              <>
+                ব্লগ ও{" "}
+                <span className="relative inline-block px-3 py-1 mx-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">গাইডলাইন</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Blog &
+                <span className="relative inline-block px-3 py-1 mx-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">Insights</em>
+                </span>
+              </>
+            )}
           </h1>
-          
+
           <p className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed">
-            Practical guides, ecommerce strategies, product updates, and growth tactics for online store owners.
+            {isBn
+              ? "বাংলাদেশের অনলাইন মার্চেন্টদের জন্য ব্যবহারিক গাইড, ই-কমার্স স্ট্র্যাটেজি ও গ্রোথ টিপস।"
+              : "Practical guides, ecommerce strategies, product updates, and growth tactics for online store owners."}
           </p>
         </div>
 
         {/* Featured Post */}
         <section className="py-12 max-w-7xl mx-auto px-5 md:px-8">
           <a
-            href={`/blog/${featuredPost.slug}`}
+            href={`${blogPrefix}${featuredPost.slug}`}
             className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group text-left flex flex-col lg:flex-row mb-16 cursor-pointer"
           >
             <div className="pointer-events-none absolute bottom-0 right-0 w-1/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
 
-            {/* Edge-to-edge Thumbnail — solid color when there's no real photo yet */}
             <div
               className="lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[400px] w-full overflow-hidden bg-slate-900 relative shrink-0 z-10"
               style={featuredPost.color ? { backgroundColor: featuredPost.color } : undefined}
@@ -69,11 +83,10 @@ export default function BlogPage() {
               ) : null}
             </div>
 
-            {/* Content */}
             <div className="lg:w-1/2 flex flex-col justify-between relative z-10 p-6 md:p-10">
               <div>
                 <span className="bg-[var(--color-canvas)] border border-[var(--color-line)] text-[12px] font-extrabold text-[var(--color-brand)] uppercase px-3 py-1 rounded-full">
-                  Featured: {featuredPost.category}
+                  {isBn ? "ফিচার্ড নিবন্ধ" : `Featured: ${featuredPost.category}`}
                 </span>
 
                 <h2 className="mt-6 text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--color-ink)] leading-snug group-hover:text-[var(--color-brand)] transition-colors">
@@ -92,7 +105,7 @@ export default function BlogPage() {
                 </div>
 
                 <span className="inline-flex items-center gap-2 text-[14px] font-bold text-[var(--color-brand)] hover:underline">
-                  Read Article
+                  {isBn ? "নিবন্ধটি পড়ুন" : "Read Article"}
                   <img src="/icons/arrow-right.svg" alt="" className="size-3.5 object-contain dark:invert" />
                 </span>
               </div>
@@ -102,19 +115,18 @@ export default function BlogPage() {
           {/* Grid of Recent Posts */}
           <div>
             <h3 className="text-2xl font-extrabold tracking-tight text-[var(--color-ink)] mb-8 text-left">
-              Recent Articles
+              {isBn ? "সাম্প্রতিক নিবন্ধসমূহ" : "Recent Articles"}
             </h3>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((post, i) => (
+              {recentPosts.map((post) => (
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`${blogPrefix}${post.slug}`}
                   key={post.title}
                   className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] transition-all duration-300 group flex flex-col text-left cursor-pointer"
                 >
                   <div className="pointer-events-none absolute bottom-0 right-0 w-2/3 h-1/2 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_bottom_right,black_0%,transparent_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
-                  
-                  {/* Edge-to-edge Thumbnail — solid color when there's no real photo yet */}
+
                   <div
                     className="relative aspect-video w-full overflow-hidden bg-slate-900 shrink-0 z-10"
                     style={post.color ? { backgroundColor: post.color } : undefined}
@@ -132,7 +144,6 @@ export default function BlogPage() {
                     ) : null}
                   </div>
 
-                  {/* Card Content */}
                   <div className="relative z-10 flex flex-col flex-1 p-6">
                     <div className="mb-6">
                       <span className="text-[12px] font-bold text-[var(--color-brand)]">
@@ -157,11 +168,9 @@ export default function BlogPage() {
               ))}
             </div>
           </div>
-
         </section>
-
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

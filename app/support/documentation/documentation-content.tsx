@@ -12,11 +12,10 @@ import {
   CreditCard,
   BarChart3,
   Package,
-  ArrowRight,
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
-import { DOC_CATEGORIES, type DocIconName } from "@/lib/documentation-data";
+import { getDocCategories, type DocIconName } from "@/lib/documentation-data";
 
 const DOC_ICONS: Record<DocIconName, LucideIcon> = {
   book: BookOpen,
@@ -27,10 +26,13 @@ const DOC_ICONS: Record<DocIconName, LucideIcon> = {
   addons: Package,
 };
 
-export default function DocumentationPage() {
+export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
   const [search, setSearch] = useState("");
+  const docPrefix = isBn ? "/bn/support/documentation/" : "/support/documentation/";
 
-  const filteredCategories = DOC_CATEGORIES.filter(
+  const categories = getDocCategories(locale);
+  const filteredCategories = categories.filter(
     (cat) =>
       cat.title.toLowerCase().includes(search.toLowerCase()) ||
       cat.articles.some((art) =>
@@ -40,9 +42,9 @@ export default function DocumentationPage() {
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
-        {/* Hero Section (Changelog Inspired) */}
+        {/* Hero Section */}
         <div className="relative overflow-hidden rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] bg-[var(--color-canvas)] pt-12 pb-14 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] px-5">
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
           <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
@@ -75,13 +77,24 @@ export default function DocumentationPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-4xl font-black tracking-tight text-[var(--color-ink)] md:text-6xl"
-            style={{ fontFamily: "var(--font-heading)" }}
           >
-            Developer & Merchant
-            <span className="relative mx-1 inline-block px-3 py-1">
-              <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">Documentation</em>
-            </span>
+            {isBn ? (
+              <>
+                মার্চেন্ট ও ডেভলপার{" "}
+                <span className="relative mx-1 inline-block px-3 py-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">ডকুমেন্টেশন</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Developer & Merchant
+                <span className="relative mx-1 inline-block px-3 py-1">
+                  <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">Documentation</em>
+                </span>
+              </>
+            )}
           </motion.h1>
 
           <motion.p
@@ -90,9 +103,9 @@ export default function DocumentationPage() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="relative z-10 mx-auto mb-8 max-w-2xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
           >
-            Learn how to configure your store, customize themes, connect
-            payments and couriers, and use Softunebd&apos;s dashboard tools to
-            grow your ecommerce business.
+            {isBn
+              ? "স্টোর কনফিগারেশন, থিম কাস্টমাইজেশন, পেমেন্ট ও কুরিয়ার কানেক্ট এবং ড্যাশবোর্ড ব্যবহারের নির্দেশিকা।"
+              : "Learn how to configure your store, customize themes, connect payments and couriers, and use Softunebd's dashboard tools to grow your ecommerce business."}
           </motion.p>
 
           {/* Search Bar */}
@@ -106,7 +119,7 @@ export default function DocumentationPage() {
               <Search className="ml-4 size-5 text-[var(--color-muted)]" />
               <input
                 type="text"
-                placeholder="Search articles, APIs, guides..."
+                placeholder={isBn ? "আর্টিকেল বা গাইড খুঁজুন..." : "Search articles, APIs, guides..."}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full border-0 bg-transparent px-3 py-2 text-[15px] font-medium text-[var(--color-ink)] outline-none placeholder-[var(--color-muted-soft)]"
@@ -147,7 +160,7 @@ export default function DocumentationPage() {
                         {cat.articles.map((art) => (
                           <li key={art.slug}>
                             <a
-                              href={`/support/documentation/${art.slug}`}
+                              href={`${docPrefix}${art.slug}`}
                               className="group/link flex cursor-pointer items-center justify-between"
                             >
                               <span className="flex items-center gap-2 text-[15px] font-medium text-[var(--color-muted)] transition-colors group-hover/link:text-[var(--color-ink)]">
@@ -166,10 +179,10 @@ export default function DocumentationPage() {
 
                       <div className="mt-8">
                         <a
-                          href={`/support/documentation/${cat.articles[0].slug}`}
+                          href={`${docPrefix}${cat.articles[0].slug}`}
                           className="inline-flex items-center gap-1 text-[13px] font-bold text-[var(--color-brand)] hover:underline"
                         >
-                          Browse All Articles{" "}
+                          {isBn ? "সব আর্টিকেল দেখুন" : "Browse All Articles"}{" "}
                           <img
                             src="/icons/arrow-right.svg"
                             alt=""
@@ -185,7 +198,7 @@ export default function DocumentationPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

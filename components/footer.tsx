@@ -1,11 +1,10 @@
 import { SoftuneLogo } from "@/components/brand/softune-logo";
+import { LanguageSwitcher } from "./language-switcher";
 
-/** Shared prompt for footer AI deep-links — points models at llms.txt so
- * answers match product truth instead of inventing gateways / unlimited stores. */
-const ASK_AI_PROMPT =
+const ASK_AI_PROMPT_EN =
   "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softunebd is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
 
-const cols = [
+const colsEn = [
   {
     title: "Product",
     links: [
@@ -41,86 +40,138 @@ const cols = [
   },
 ];
 
-export function Footer() {
+const colsBn = [
+  {
+    title: "প্রোডাক্ট",
+    links: [
+      { label: "ফিচারসমূহ", href: "/bn/features" },
+      { label: "প্রাইসিং", href: "/bn/pricing" },
+      { label: "অ্যাড-অনস", href: "/bn/#addons" },
+      { label: "ডকুমেন্টেশন", href: "/bn/support/documentation" },
+      { label: "ব্লগ ও রিসোর্স", href: "/bn/blog" },
+      { label: "কমিউনিটি ফোরাম", href: "/bn/support/community" },
+    ],
+  },
+  {
+    title: "সাপোর্ট",
+    links: [
+      { label: "কন্টাক্ট করুন", href: "/bn/support/contact" },
+      { label: "হেল্প সেন্টার (FAQ)", href: "/bn/support/faq" },
+      { label: "ইমেইল সাপোর্ট", href: "mailto:support@softunebd.com" },
+      { label: "ভিডিও টিউটোরিয়াল", href: "/bn/support/tutorials" },
+      { label: "Terms & Conditions", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+    ],
+  },
+  {
+    title: "কোম্পানি",
+    links: [
+      { label: "আমাদের কথা", href: "/bn/about" },
+      { label: "চেঞ্জলগ", href: "/bn/changelog" },
+      { label: "ক্যারিয়ার", href: "/careers" },
+      { label: "ব্র্যান্ড কিট", href: "/brandkit" },
+      { label: "Refund Policy", href: "/refund" },
+      { label: "Cookie Policy", href: "/cookie" },
+    ],
+  },
+];
+
+export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+  const cols = isBn ? colsBn : colsEn;
+  const homeHref = isBn ? "/bn" : "/";
+
   return (
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-canvas)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-5 lg:grid-cols-5 lg:gap-16">
         <div className="lg:col-span-2">
           <div className="flex items-center">
-            <SoftuneLogo className="h-12 w-auto sm:h-14" />
+            <a href={homeHref}>
+              <SoftuneLogo className="h-12 w-auto sm:h-14" />
+            </a>
           </div>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
-            Softunebd is the ecommerce platform built for small businesses and
-            startups in Bangladesh. Themes, orders, COD, bKash, Nagad,
-            SSLCommerz, couriers, POS, and AI — one dashboard. No coding
-            required.
+            {isBn ? (
+              <>
+                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, COD, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI — সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
+              </>
+            ) : (
+              <>
+                Softunebd is the ecommerce platform built for small businesses and
+                startups in Bangladesh. Themes, orders, COD, bKash, Nagad,
+                SSLCommerz, couriers, POS, and AI — one dashboard. No coding
+                required.
+              </>
+            )}
           </p>
 
           <div className="mt-4">
             <p className="mb-4 text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Ask AI how Softunebd helps Businesses grow
+              {isBn
+                ? "AI-কে প্রশ্ন করুন Softunebd সম্পর্কে"
+                : "Ask AI about Softunebd"}
             </p>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a
-                href={`https://chatgpt.com/?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
+                href={`https://chatgpt.com/?q=${encodeURIComponent(ASK_AI_PROMPT_EN)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/chatgpt.webp"
                   alt="ChatGPT"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
                 />
               </a>
               <a
-                href={`https://claude.ai/new?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
+                href={`https://claude.ai/new?q=${encodeURIComponent(ASK_AI_PROMPT_EN)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/claud.webp"
                   alt="Claude"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
                 />
               </a>
               <a
-                href={`https://gemini.google.com/app?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
+                href={`https://gemini.google.com/app?q=${encodeURIComponent(ASK_AI_PROMPT_EN)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/gemini.webp"
                   alt="Gemini"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
                 />
               </a>
               <a
-                href={`https://grok.com/?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
+                href={`https://grok.com/?q=${encodeURIComponent(ASK_AI_PROMPT_EN)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/grok.webp"
                   alt="Grok"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
                 />
               </a>
               <a
-                href={`https://www.perplexity.ai/search?q=${encodeURIComponent(ASK_AI_PROMPT)}`}
+                href={`https://www.perplexity.ai/search?q=${encodeURIComponent(ASK_AI_PROMPT_EN)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/perplexity.webp"
                   alt="Perplexity"
                   className="size-9 md:size-10 object-contain transition-transform hover:scale-110 cursor-pointer"
@@ -130,16 +181,7 @@ export function Footer() {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#" className="transition-transform hover:scale-105">
-              <img
-            loading="lazy"
-            decoding="async" src="/googleplay.webp" alt="Get it on Google Play" className="h-[80px] w-auto object-contain" />
-            </a>
-            <a href="#" className="transition-transform">
-              <img
-            loading="lazy"
-            decoding="async" src="/appstore.webp" alt="Download on the App Store" className="h-[40px] w-auto object-contain" />
-            </a>
+            <LanguageSwitcher locale={locale} />
           </div>
         </div>
 
@@ -195,22 +237,22 @@ export function Footer() {
               </span>
               <div className="grid w-full max-w-[360px] grid-cols-4 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/bkash.webp"
                   alt="bKash"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/nagad.webp"
                   alt="Nagad"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/sslcommerz.webp"
                   alt="SSLCommerz"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
@@ -230,8 +272,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/facebook.webp"
                   alt="Facebook"
                   className="size-6 object-contain"
@@ -242,8 +284,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/insta.webp"
                   alt="Instagram"
                   className="size-6 object-contain"
@@ -254,8 +296,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/linkedin.webp"
                   alt="LinkedIn"
                   className="size-6 object-contain"
@@ -266,8 +308,8 @@ export function Footer() {
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src="/icons/google.webp"
                   alt="Google"
                   className="size-6 object-contain"

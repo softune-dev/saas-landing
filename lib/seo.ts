@@ -16,10 +16,45 @@ function ogImageType(src: string): string {
   return "image/png";
 }
 
-/** Builds one page's full Metadata object — title (suffixed with the site
- * name, except the homepage which IS the site name), description, canonical,
- * robots (including Googlebot preview hints), and matching Open Graph /
- * Twitter cards. Every route should call this instead of hand-rolling tags. */
+/** Known static routes that actually have a /bn/ counterpart. */
+const VALID_BN_STATIC_ROUTES = new Set([
+  "/",
+  "/about",
+  "/blog",
+  "/changelog",
+  "/features",
+  "/pricing",
+  "/signup",
+  "/support/community",
+  "/support/contact",
+  "/support/documentation",
+  "/support/faq",
+  "/support/tutorials",
+]);
+
+/** Whether a given path (accepts either the English or /bn/ form) has a
+ * real Bangla twin. Used by pageSeo (to only emit an hreflang="bn" tag when
+ * one actually resolves), app/sitemap.ts (to skip submitting /bn/ URLs that
+ * would 404), and components/geo-banner.tsx (to not offer a Bangla link on
+ * a page that doesn't have one). Every one of these had the same bug once —
+ * keep this the single source of truth rather than re-deriving it. */
+export function hasBnVersion(path: string): boolean {
+  const isBnPath = path.startsWith("/bn");
+  const basePath = isBnPath ? path.slice(3) || "/" : path;
+  const cleanPath = basePath.split("?")[0].split("#")[0];
+
+  if (VALID_BN_STATIC_ROUTES.has(cleanPath)) return true;
+
+  return (
+    cleanPath.startsWith("/blog/") ||
+    cleanPath.startsWith("/features/") ||
+    cleanPath.startsWith("/support/documentation/")
+  );
+}
+
+/** Builds one page's full Metadata object — title, description, canonical,
+ * robots, reciprocal hreflang alternate links (en, bn, x-default), and
+ * matching Open Graph / Twitter cards. */
 export function pageSeo({
   title,
   description,
@@ -33,24 +68,30 @@ export function pageSeo({
   /** Pass null for the homepage — its title IS the site name, not a suffix. */
   title: string | null;
   description: string;
-  /** Route path, e.g. "/pricing" or "/blog/my-post". */
+  /** Route path, e.g. "/pricing" or "/bn/pricing". */
   path: string;
-  /** Absolute or root-relative image URL for social cards. Falls back to
-   * the real branded /og-image.png (1200x630) for any page that doesn't
-   * have its own (a blog post's cover image, etc.). */
   image?: string;
   imageAlt?: string;
   noindex?: boolean;
-  /** Set for a blog post — switches Open Graph type to "article" and adds
-   * the publish date/author, which is what Google/social crawlers use for
-   * freshness and byline signals. `publishedTime` needs to already be a
-   * valid ISO string (parse it before calling, same as schema.ts does). */
   article?: { publishedTime?: string; modifiedTime?: string; author?: string };
-  /** BCP-47 content language. Bangla posts should pass "bn". */
+  /** BCP-47 content language. Bangla pages pass "bn". */
   lang?: "en" | "bn";
 }): Metadata {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
-  const canonical = `${SITE_URL}${path === "/" ? "" : path}`;
+  const isBnPath = path.startsWith("/bn");
+  const basePath = isBnPath ? path.slice(3) || "/" : path;
+  const enPath = basePath === "/" ? "/" : basePath;
+  const bnPath = `/bn${basePath === "/" ? "" : basePath}`;
+
+  const enUrl = `${SITE_URL}${enPath}`;
+  const bnUrl = `${SITE_URL}${bnPath}`;
+  const hasBn = hasBnVersion(basePath);
+
+  const defaultTitleBn = `${SITE_NAME} | বাংলাদেশের অনলাইন স্টোর বিল্ডার`;
+  const baseTitle = lang === "bn" ? defaultTitleBn : DEFAULT_TITLE;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : baseTitle;
+
+  const currentPath = lang === "bn" ? bnPath : enPath;
+  const canonical = `${SITE_URL}${currentPath}`;
   const ogImage = image || OG_IMAGE;
   const alt = imageAlt || OG_IMAGE_ALT;
   const locale = lang === "bn" ? "bn_BD" : OG_LOCALE;
@@ -77,6 +118,14 @@ export function pageSeo({
         },
       };
 
+  const languages: Record<string, string> = {
+    en: enUrl,
+    "x-default": enUrl,
+  };
+  if (hasBn) {
+    languages.bn = bnUrl;
+  }
+
   return {
     title: { absolute: fullTitle },
     description,
@@ -86,7 +135,10 @@ export function pageSeo({
     publisher: SITE_NAME,
     referrer: "origin-when-cross-origin",
     formatDetection: { email: false, address: false, telephone: false },
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages,
+    },
     robots,
     openGraph: {
       title: fullTitle,

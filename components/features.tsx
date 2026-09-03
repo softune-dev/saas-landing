@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-/** Ordered by attention / conversion priority. First 6 show on mobile before “View all”. */
-const features = [
+export const featuresEn = [
   {
     icon: "/icons/color.svg",
     title: "AI Theme Editor",
@@ -87,8 +86,95 @@ const features = [
   },
 ];
 
-export function Features() {
+export const featuresBn = [
+  {
+    icon: "/icons/color.svg",
+    title: "AI থিম এডিটর",
+    desc: "লাইভ প্রিভিউ দেখে কালার, ফন্ট ও সেকশন চেঞ্জ করুন — কোডিং বা ডিজাইনারের সাহায্য ছাড়াই স্টোর তৈরি করুন।",
+  },
+  {
+    icon: "/icons/ai-pencil.svg",
+    title: "AI অ্যাসিস্ট্যান্ট",
+    desc: "বাংলা বা ইংরেজিতে প্রোডাক্ট, অর্ডার ও সেলস নিয়ে প্রশ্ন করুন — গুগল জেমিনি চালিত স্মার্ট উত্তর পান।",
+  },
+  {
+    icon: "/icons/wallet.svg",
+    title: "bKash, Nagad, SSLCommerz ও COD",
+    desc: "ক্যাশ অন ডেলিভারি এবং মার্চেন্ট বা ম্যানুয়াল bKash, Nagad ও SSLCommerz কানেক্ট করুন এক পেমেন্ট স্ক্রিন থেকে।",
+  },
+  {
+    icon: "/icons/cart.svg",
+    title: "স্টোর সেল (POS)",
+    desc: "শপে সরাসরি ইন-পার্সন কাস্টমার সেলস সম্পন্ন করুন এবং অনলাইন অর্ডারের সাথে সিঙ্ক করে ট্র্যাক রাখুন।",
+  },
+  {
+    icon: "/icons/billing.svg",
+    title: "মার্কেটিং & ট্র্যাকিং",
+    desc: "Meta, TikTok, GTM এবং GA4 ই-কমার্স ইভেন্ট ট্র্যাকিং সহ সার্ভার-সাইড Meta CAPI সেটআপ।",
+  },
+  {
+    icon: "/icons/analytics.svg",
+    title: "স্টোর অ্যানালিটিক্স",
+    desc: "আসল রেভিনিউ, প্রফিট এবং ড্যাশবোর্ড ডেটা দেখুন কোনো অনুমান বা জটিল সেটআপ ছাড়াই।",
+  },
+  {
+    icon: "/icons/orders.svg",
+    title: "অর্ডার ম্যানেজমেন্ট",
+    desc: "প্রিপেইড ও COD অর্ডারের স্ট্যাটাস ফিল্টার করুন এবং কুরিয়ারে সরাসরি হ্যান্ডঅফ করুন।",
+  },
+  {
+    icon: "/icons/shop-bag.svg",
+    title: "প্রোডাক্ট ক্যাটালগ",
+    desc: "ছবি, ভ্যারিয়েন্ট, স্টক ও টাকা প্রাইস অ্যাড করুন — AI ডেসক্রিপশন রি-জেনারেট অপশন সহ।",
+  },
+  {
+    icon: "/icons/delivery.svg",
+    title: "কুরিয়ার ডেলিভারি",
+    desc: "Steadfast, Pathao, RedX এবং eCourier মার্চেন্ট অ্যাকাউন্ট সরাসরি কানেক্ট করুন।",
+  },
+  {
+    icon: "/icons/user.svg",
+    title: "কাস্টমার ম্যানেজমেন্ট",
+    desc: "প্রতিটি শপার, অর্ডার হিস্ট্রি এবং ফোন নম্বর একটি পরিচ্ছন্ন লিস্টে সাজিয়ে রাখুন।",
+  },
+  {
+    icon: "/icons/lock.svg",
+    title: "ফ্রড প্রোটেকশন",
+    desc: "ভুয়া অর্ডার চিহ্নিত করুন যাতে কুরিয়ার চার্জের অহেতুক অপচয় না হয়।",
+  },
+  {
+    icon: "/icons/domain.svg",
+    title: "SEO & ডোমেইন",
+    desc: "টাইটেল, মেটা ডেসক্রিপশন, পিক্সেল ও নিজস্ব কাস্টম ডোমেইন সেটআপ করুন Site Settings থেকে।",
+  },
+  {
+    icon: "/icons/save.svg",
+    title: "অ্যাড-অনস মার্কেটপ্লেস",
+    desc: "রিভিউ, হোয়াটসঅ্যাপ অ্যালার্ট ও কুপন ডিসকাউন্ট অপশন চালু করুন অতিরিক্ত প্লাগইন ছাড়াই।",
+  },
+  {
+    icon: "/icons/book.svg",
+    title: "ক্যাটাগরি ম্যানেজমেন্ট",
+    desc: "সহজেই প্রোডাক্ট গ্রুপ করুন যাতে কাস্টমাররা ক্যাটাগরি অনুযায়ী শপ ব্রাউজ করতে পারে।",
+  },
+  {
+    icon: "/icons/splash.svg",
+    title: "মিডিয়া লাইব্রেরি",
+    desc: "প্রোডাক্ট ফটো আপলোড করুন এবং নতুন করে আপলোড না করেই বারবার ক্যাটালগে ব্যবহার করুন।",
+  },
+  {
+    icon: "/icons/play.svg",
+    title: "সহজ অনবোর্ডিং",
+    desc: "একটি কুইক সেটআপ গাইড যা আপনার থিম, প্রোডাক্ট ও পেমেন্ট লাইভ করতে সাহায্য করে।",
+  },
+];
+
+export const features = featuresEn;
+
+export function Features({ locale = "en" }: { locale?: "en" | "bn" }) {
   const [showAll, setShowAll] = useState(false);
+  const isBn = locale === "bn";
+  const activeFeatures = isBn ? featuresBn : featuresEn;
 
   return (
     <section
@@ -110,29 +196,41 @@ export function Features() {
                 style={{ animationDuration: "2s" }}
               />
               <img
-            loading="lazy"
-            decoding="async"
+                loading="lazy"
+                decoding="async"
                 src="/icons/zap.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Core Features
+              {isBn ? "মূল ফিচারসমূহ" : "Core Features"}
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
-            Manage Everything in{" "}
-            <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
-              <em className="relative not-italic text-white">One Place</em>
-            </span>
+            {isBn ? (
+              <>
+                বিজনেস পরিচালনা করুন{" "}
+                <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">এক জায়গা থেকে</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Manage Everything in{" "}
+                <span className="relative ml-0.5 inline-block px-3 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">One Place</em>
+                </span>
+              </>
+            )}
           </h2>
         </div>
 
         <div className="mt-10 grid gap-4 text-left sm:mt-16 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
-          {features.map((f, i) => (
+          {activeFeatures.map((f, i) => (
             <motion.div
               key={f.title}
               initial={{ opacity: 0, y: 12 }}
@@ -150,8 +248,8 @@ export function Features() {
                 <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
                   <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                     <img
-            loading="lazy"
-            decoding="async"
+                      loading="lazy"
+                      decoding="async"
                       src={f.icon}
                       alt=""
                       className="size-4 object-contain brightness-0 invert"
@@ -175,7 +273,7 @@ export function Features() {
               onClick={() => setShowAll(true)}
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
             >
-              View all 16 features
+              {isBn ? "সব ১৬টি ফিচার দেখুন" : "View all 16 features"}
             </button>
           </div>
         )}

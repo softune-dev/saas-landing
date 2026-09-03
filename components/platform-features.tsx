@@ -18,7 +18,7 @@ export type FeatureSection = {
   placeholderColor?: string;
 };
 
-export const sections: FeatureSection[] = [
+export const sectionsEn: FeatureSection[] = [
   {
     pillText: "Theme Editor",
     pillIcon: "/icons/color.svg",
@@ -123,30 +123,133 @@ export const sections: FeatureSection[] = [
   },
 ];
 
+export const sectionsBn: FeatureSection[] = [
+  {
+    pillText: "Theme Editor",
+    pillIcon: "/icons/color.svg",
+    titleStart: "স্টোর ডিজাইন করুন",
+    titleHighlight: "লাইভ",
+    titleEnd: "",
+    description:
+      "Softunebd-এর Theme Editor-এ আপনার স্টোরফ্রন্ট এডিট করুন: কালার, ফন্ট, সেকশন ও টেক্সট পরিবর্তন করুন, ডেস্কটপ ও মোবাইলে প্রিভিউ দেখুন, পছন্দ হলেই পাবলিশ করুন।",
+    bullets: [
+      "এডিট করার সময় রিয়েল-টাইম লাইভ প্রিভিউ",
+      "ব্র্যান্ড কালার, ফন্ট ও কপি সাজাতে AI Suggestion",
+      "ডেস্কটপ, ট্যাবলেট ও মোবাইল ভিউ প্রিভিউ",
+      "কোডিং ছাড়াই ড্র্যাগ-এন্ড-ড্রপ সেকশন বিল্ডার",
+      "পাবলিশ না করা পর্যন্ত ড্রাফট পরিবর্তন সেভ থাকে",
+    ],
+    showcase: "editor",
+  },
+  {
+    pillText: "AI চ্যাটবট",
+    pillIcon: "/icons/chat.svg",
+    titleStart: "স্মার্ট AI চ্যাটবট,",
+    titleHighlight: "ইনস্ট্যান্ট সাহায্য",
+    titleEnd: "",
+    description:
+      "Google Gemini powered AI-এর সাথে চ্যাট করুন। আপনার আসল প্রোডাক্ট, অর্ডার ও সেলস ডেটা বিশ্লেষণ করে ড্যাশবোর্ডের ভেতর থেকেই আপনাকে গাইড করবে।",
+    bullets: [
+      "দ্রুত ও নির্ভুল উত্তরের জন্য Google Gemini চালিত AI",
+      "সহজ ভাষায় প্রোডাক্ট, অর্ডার ও সেলস নিয়ে প্রশ্ন করার সুবিধা",
+      "আপনার নিজস্ব শপের আসল ডেটা থেকে উত্তর তৈরি হয়",
+      "প্রোডাক্ট ও ক্যাটাগরি পরিবর্তনের সাজেস্ট করে",
+      "অন্য কোনো থার্ড-পার্টি অ্যাপের প্রয়োজন নেই",
+    ],
+    showcase: "chat",
+  },
+  {
+    pillText: "পেমেন্ট গেটওয়ে",
+    pillIcon: "/icons/wallet.svg",
+    titleStart: "পেমেন্ট সুবিধা,",
+    titleHighlight: "সব এক জায়গায়",
+    titleEnd: "",
+    description:
+      "COD, ম্যানুয়াল bKash/Nagad, অফিসিয়াল bKash, Nagad এবং SSLCommerz একসাথে কানেক্ট করুন এক ড্যাশবোর্ড থেকে।",
+    bullets: [
+      "ক্যাশ অন ডেলিভারি (COD) সার্ভিস",
+      "ম্যানুয়াল bKash ও Nagad পেমেন্ট ট্রানজেকশন ID ভেরিফিকেশন সহ",
+      "অফিসিয়াল bKash, Nagad ও SSLCommerz মার্চেন্ট অ্যাকাউন্ট ইন্টিগ্রেশন",
+      "সহজ ও সেন্ট্রালাইজড পেমেন্ট সেটআপ",
+      "সম্পূর্ণ এনক্রিপ্টেড ও সুরক্ষিত ক্রেডেনশিয়াল",
+    ],
+    showcase: "payment",
+  },
+  {
+    pillText: "SEO & ডোমেইন",
+    pillIcon: "/icons/domain.svg",
+    titleStart: "গুগল র‍্যাঙ্কিং এ এগিয়ে থাকুন,",
+    titleHighlight: "নিজের কাস্টম ডোমেইন সহ",
+    titleEnd: "",
+    description:
+      "সার্চ লিস্টিং, সোশ্যাল শেয়ার প্রিভিউ, ট্র্যাকিং পিক্সেল এবং কাস্টম ডোমেইন সেটআপ করুন খুব সহজেই।",
+    bullets: [
+      "টাইটেল, মেটা ডেসক্রিপশন, কিওয়ার্ড ও AI SEO সাহায্য",
+      "ফেসবুক ও চ্যাট প্রিভিউয়ের জন্য Open Graph সাপোর্ট",
+      "সাইটম্যাপ, গুগল অ্যানালিটিক্স ও সার্চ কনসোল কানেক্ট",
+      "Meta Pixel, TikTok Pixel, Google Tag Manager ও Conversions API (CAPI)",
+      "আলাদা হোস্টিং ছাড়াই নিজস্ব কাস্টম ডোমেইন কানেক্ট করার সুবিধা",
+    ],
+    showcase: "seo",
+  },
+  {
+    pillText: "AI রাইটিং",
+    pillIcon: "/icons/ai-pencil.svg",
+    titleStart: "প্রোডাক্ট ডেসক্রিপশন,",
+    titleHighlight: "এক ক্লিকে",
+    titleEnd: "",
+    description:
+      "এক ক্লিকে আকর্ষণীয় প্রোডাক্ট কপি তৈরি করুন এবং যেকোনো সময় মনের মতো না হওয়া পর্যন্ত জেনারেট করুন।",
+    bullets: [
+      "এক ক্লিকে AI দিয়ে প্রোডাক্ট ডেসক্রিপশন তৈরি",
+      "পছন্দমতো ডেসক্রিপশন রি-জেনারেট করার অপশন",
+      "সেভ করার আগে ড্রাফট সম্পূর্ণ এডিট করার সুবিধা",
+      "সঠিক কপির জন্য প্রোডাক্ট ডিটেইলস কনটেক্সট ব্যবহার",
+      "Softunebd প্রোডাক্ট এডিটর থেকেই সরাসরি কাজ করে",
+    ],
+    showcase: "ai",
+  },
+  {
+    pillText: "স্টোর সেল POS",
+    pillIcon: "/icons/cart.svg",
+    titleStart: "শপে সরাসরি বিক্রি করুন,",
+    titleHighlight: "একই ক্যাটালগ দিয়ে",
+    titleEnd: "",
+    description:
+      "আপনার অনলাইন ক্যাটালগ থেকেই সরাসরি দোকানে ইন-পার্সন কাস্টমারদের বিক্রি করুন, রসিদ প্রিন্ট করুন এবং ক্যাশ/মোবাইল পেমেন্ট গ্রহণ করুন।",
+    bullets: [
+      "অনলাইন স্টোরের সাথে ইনস্ট্যান্ট সিঙ্কড স্টোর স্টক",
+      "ক্যাটাগরি ফিল্টার ও কুইক সার্চ বার",
+      "ক্যাশ, কার্ড বা মোবাইল ব্যাংকিং পেমেন্ট রেকর্ড",
+      "ডেট, টাইম ও টোটাল সহ পোর্টেবল রসিদ প্রিন্ট অপশন",
+      "সাম্প্রতিক সব কাস্টমার সেলসের বিস্তারিত হিস্ট্রি",
+    ],
+    showcase: "pos",
+  },
+];
+
+export const sections = sectionsEn;
+
 const CheckIcon = () => (
   <svg className="mt-0.5 size-6 shrink-0 text-[var(--color-brand)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   </svg>
 );
 
-export function PlatformFeatures() {
-  // Same mounted-gate pattern as Hero: avoids a hydration mismatch (server
-  // always renders the same theme) while still picking ONE image per
-  // section instead of shipping both light+dark variants and hiding one
-  // with CSS — that was fetching roughly double the bytes this section
-  // needed for every visitor.
+export function PlatformFeatures({ locale = "en" }: { locale?: "en" | "bn" }) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
   const isDark = !mounted || resolvedTheme === "dark";
+  const activeSections = locale === "bn" ? sectionsBn : sectionsEn;
 
   return (
     <section className="overflow-hidden border-y border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-14 md:gap-40">
-          {sections.map((section, index) => {
+          {activeSections.map((section, index) => {
             const isImageRight = index % 2 === 0;
             const liteSrc = `/showcase/${section.showcase}-l.webp`;
             const darkSrc = `/showcase/${section.showcase}-d.webp`;
@@ -173,8 +276,8 @@ export function PlatformFeatures() {
                           style={{ animationDuration: "2s" }}
                         />
                         <img
-            loading="lazy"
-            decoding="async"
+                          loading="lazy"
+                          decoding="async"
                           src={section.pillIcon}
                           alt=""
                           className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"

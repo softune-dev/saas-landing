@@ -32,11 +32,15 @@ export const SITE_DESCRIPTION =
  *  like the merchant, not a default template. */
 export const BRANDING_CLAIM =
   "Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's.";
+export const BRANDING_CLAIM_BN =
+  "Softunebd আপনার ব্র্যান্ডের স্বতন্ত্র পরিচয়কে প্রাধান্য দেয়, যাতে আপনার অনলাইন স্টোরটি অনন্য রূপ পায়।";
 
 /** Self-serve trial length — matches app/config.py's trial_days. */
 export const TRIAL_DAYS = 3;
 export const TRIAL_CTA = "Start Free";
+export const TRIAL_CTA_BN = "ফ্রি ট্রায়াল";
 export const TRIAL_NOTE = "3-day free trial · No credit card required";
+export const TRIAL_NOTE_BN = "৩ দিনের ফ্রি ট্রায়াল · কোনো ক্রেডিট কার্ড লাগবে না";
 
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";

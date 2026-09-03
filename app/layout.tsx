@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { Analytics, AnalyticsNoscript } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -125,12 +126,15 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const headerList = await headers();
+  const lang = headerList.get("x-locale") || "en";
+
   return (
     <html
-      lang="en"
+      lang={lang}
       suppressHydrationWarning
       className={`${manrope.variable} ${instrument.variable} ${dmSans.variable} ${plusJakarta.variable} ${niconne.variable} ${notoSansBengali.variable}`}
     >

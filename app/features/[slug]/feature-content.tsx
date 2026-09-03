@@ -5,13 +5,12 @@ import { notFound, useParams, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { Testimonial } from "@/components/testimonial";
 import { Faq } from "@/components/faq";
 import { Contact } from "@/components/contact";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
-import { FEATURE_PAGES, FEATURES_LIST } from "@/lib/features-data";
+import { getFeaturePage, FEATURES_LIST } from "@/lib/features-data";
 import { HeroCtas } from "@/components/hero-ctas";
 
 const CheckIcon = () => (
@@ -26,7 +25,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-export default function FeaturePage() {
+export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" }) {
   const { slug } = useParams() as { slug: string };
   const router = useRouter();
   const { resolvedTheme } = useTheme();
@@ -36,28 +35,38 @@ export default function FeaturePage() {
     setMounted(true);
   }, []);
 
-  const feature = FEATURE_PAGES[slug];
+  const isBn = locale === "bn";
+  const feature = getFeaturePage(slug, locale);
   if (!feature) notFound();
   const isDark = !mounted || resolvedTheme === "dark";
   const heroImageSrc = feature.heroImage && (isDark ? feature.heroImage.dark : feature.heroImage.light);
-  // heroPlaceholderColor is used when no real screenshot exists yet —
-  // renders a solid-color block at the same aspect-[16/9] size as heroImage.
-  // TODO: Remove once a real heroImage is supplied for the feature.
   const heroPlaceholderColor = feature.heroPlaceholderColor;
+  const featurePrefix = isBn ? "/bn/features/" : "/features/";
+
+  const activeFeaturesList = isBn
+    ? [
+        { slug: "multiple-themes", title: "থিম এডিটর", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন — লাইভ প্রিভিউ সহ" },
+        { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
+        { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
+        { slug: "store-sale", title: "স্টোর সেল", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },
+        { slug: "marketing-tracking", title: "মার্কেটিং & ট্র্যাকিং", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM এবং GA4 ইভেন্টস" },
+        { slug: "store-analytics", title: "স্টোর অ্যানালিটিক্স", icon: "/icons/analytics.svg", desc: "রেভিনিউ, প্রফিট, ট্রাফিক ও কনভার্শন রিপোর্ট" },
+        { slug: "courier", title: "কুরিয়ার ডেলিভারি", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, eCourier ও অন্যান্য" },
+        { slug: "orders", title: "অর্ডার ম্যানেজমেন্ট", icon: "/icons/orders.svg", desc: "সার্চ, ফিল্টার, অর্ডারের স্ন্যাপশট ও প্রিন্ট স্লিপ" },
+        { slug: "customer-management", title: "কাস্টমার ম্যানেজমেন্ট", icon: "/icons/user.svg", desc: "অর্ডার থেকে ফোন নম্বর ম্যাচিং শপার রসিদ" },
+        { slug: "fraud-protection", title: "ফ্রড প্রোটেকশন", icon: "/icons/lock.svg", desc: "ফোন নম্বর ব্লকক্লিপ ও COD সিকিউরিটি রুলস" },
+      ]
+    : FEATURES_LIST;
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
-        {/* Hero Section (Changelog Inspired) */}
+        {/* Hero Section */}
         <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          {/* Masked Grid Layer */}
           <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-
-          {/* Bottom Gradient Fade */}
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
 
-          {/* Hero Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,6 +84,13 @@ export default function FeaturePage() {
                 className="size-3.5 object-contain dark:invert"
               />
             </div>
+            <a
+              href={isBn ? "/bn/features" : "/features"}
+              className="text-[14px] font-semibold tracking-tight text-[var(--color-muted)] transition-colors hover:text-[var(--color-brand)]"
+            >
+              {isBn ? "ফিচারসমূহ" : "Features"}
+            </a>
+            <span className="font-bold text-[#D4D4D4]">/</span>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
               {feature.pillText}
             </span>
@@ -84,8 +100,8 @@ export default function FeaturePage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
-            style={{ fontFamily: "var(--font-heading)" }}
+            className="relative z-10 text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
+            style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
           >
             {feature.titleStart}
             <span className="relative inline-block px-3 py-1 mx-1">
@@ -112,10 +128,9 @@ export default function FeaturePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative z-10 mt-8 flex justify-center"
           >
-            <HeroCtas />
+            <HeroCtas locale={locale} />
           </motion.div>
 
-          {/* Real screenshot */}
           {heroImageSrc && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -123,9 +138,6 @@ export default function FeaturePage() {
               transition={{ duration: 0.5, delay: 0.24 }}
               className="relative z-10 mx-auto mt-10 w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-[24px] border border-[var(--color-line)] shadow-lg"
             >
-              {/* Source assets are 1920x1080 — aspect-[16/9] + object-cover
-                  locks that ratio at every breakpoint instead of letting a
-                  narrow viewport squash or crop it unpredictably. */}
               <img
                 src={heroImageSrc}
                 alt={`${feature.pillText} in the Softunebd dashboard`}
@@ -138,9 +150,6 @@ export default function FeaturePage() {
             </motion.div>
           )}
 
-          {/* Solid-color placeholder — shown when no real heroImage exists yet.
-              TODO: Remove this block and add heroImage to features-data.ts
-                    once the screenshot is captured. */}
           {!heroImageSrc && heroPlaceholderColor && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -156,17 +165,7 @@ export default function FeaturePage() {
           )}
         </div>
 
-        {/* Layout switch: stacked full-width cards when the feature has a single
-            shared hero visual (either a real heroImage or a heroPlaceholderColor),
-            alternating left/right media sections when each section has its own image. */}
         {(heroImageSrc || heroPlaceholderColor) ? (
-          /* Full-width stacked cards — used instead of the alternating
-             media layout when a feature has just one shared hero image
-             (see FeatureData.heroImage) rather than a distinct visual per
-             section. A 3-column grid squeezed each section's paragraph and
-             bullets into a narrow third of the page; stacking them full
-             width and only putting the short bullets in their own row
-             gives every section room to actually read well. */
           <section className="py-24 md:py-32 border-y border-[var(--color-line)]">
             <div className="mx-auto max-w-6xl px-5 md:px-8">
               <div className="flex flex-col gap-6">
@@ -182,7 +181,6 @@ export default function FeaturePage() {
                     <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_75%)] opacity-60" />
 
                     <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
-                      {/* Pill + Title + Description */}
                       <div className="md:w-[45%] md:shrink-0">
                         <div className="mb-3 inline-flex items-center gap-2 md:gap-3 rounded-full border border-[var(--color-line)] bg-[var(--color-canvas)] p-1 md:p-1.5 pr-3 md:pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                           <div className="relative flex size-5 md:size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
@@ -216,13 +214,8 @@ export default function FeaturePage() {
                         </p>
                       </div>
 
-                      {/* Vertical divider between the text block and the
-                          checklist — desktop only, mobile stacks instead */}
                       <div className="hidden md:block w-px self-stretch bg-[var(--color-line)]" />
 
-                      {/* Bullets — plain checklist, own column so each one
-                          gets real width instead of wrapping awkwardly
-                          inside a cramped column */}
                       <ul className="flex-1 space-y-3 md:pt-1">
                         {section.bullets.map((bullet, i) => (
                           <li key={i} className="flex items-start gap-2.5">
@@ -240,7 +233,6 @@ export default function FeaturePage() {
             </div>
           </section>
         ) : (
-          /* 3 Alternating Media Sections */
           <section className="py-24 md:py-32 border-y border-[var(--color-line)] overflow-hidden">
             <div className="mx-auto max-w-7xl px-5 md:px-8">
               <div className="flex flex-col gap-24 md:gap-40">
@@ -254,7 +246,6 @@ export default function FeaturePage() {
                         isVideoRight ? "lg:flex-row" : "lg:flex-row-reverse"
                       }`}
                     >
-                      {/* Text Content */}
                       <div className="flex-1 space-y-8 w-full">
                         <motion.div
                           initial={{ opacity: 0, y: 16 }}
@@ -312,7 +303,6 @@ export default function FeaturePage() {
                         </motion.ul>
                       </div>
 
-                      {/* Video Placeholder */}
                       <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -321,8 +311,6 @@ export default function FeaturePage() {
                         className="flex-1 w-full"
                       >
                         <div className="relative aspect-square w-full rounded-[24px] md:rounded-[32px] overflow-hidden bg-[var(--color-canvas)] border border-[var(--color-line)] shadow-lg">
-                          {/* Source assets are 1000x1000 — aspect-square +
-                              object-cover locks that ratio at every breakpoint. */}
                           {section.image ? (
                             <img
                               src={isDark ? section.image.dark : section.image.light}
@@ -350,7 +338,6 @@ export default function FeaturePage() {
           </section>
         )}
 
-        {/* Extra Info Grid (3 Cards) */}
         <section className="py-24 bg-[var(--color-canvas)] border-b border-[var(--color-line)]">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="flex flex-col items-center text-center mx-auto mb-16">
@@ -375,7 +362,6 @@ export default function FeaturePage() {
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
                   className="relative overflow-hidden rounded-[24px] border border-[var(--color-line)] hover:border-[var(--color-brand)] bg-[var(--color-surface)] p-8 md:p-10 transition-all duration-300 cursor-pointer group text-left"
                 >
-                  {/* Background Dots Gradient */}
                   <div className="pointer-events-none absolute top-0 right-0 w-2/3 h-2/3 bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)] opacity-80" />
 
                   <div className="relative z-10">
@@ -401,19 +387,21 @@ export default function FeaturePage() {
           </div>
         </section>
 
-        {/* Feature Navigation Cards (Jump to other features) */}
+        {/* Feature Navigation Cards */}
         <section className="py-24 bg-[var(--color-canvas)]">
           <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
             <h2 className="max-w-2xl mx-auto font-extrabold tracking-tight text-4xl sm:text-5xl leading-[1.1] text-[var(--color-ink)] mb-16">
-              Explore More
+              {isBn ? "অন্যান্য" : "Explore More"}{" "}
               <span className="relative inline-block whitespace-nowrap px-4 py-0.5 mx-1">
                 <span className="absolute inset-0 -rotate-2 top-1 rounded-xl bg-[var(--color-brand)] shadow-sm" />
-                <em className="relative not-italic text-white">Features</em>
+                <em className="relative not-italic text-white">
+                  {isBn ? "ফিচারসমূহ" : "Features"}
+                </em>
               </span>
             </h2>
 
             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-left">
-              {FEATURES_LIST.map((f, i) => {
+              {activeFeaturesList.map((f, i) => {
                 const isActive = f.slug === feature.slug;
 
                 return (
@@ -427,7 +415,7 @@ export default function FeaturePage() {
                       if (isActive) {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       } else {
-                        router.push(`/features/${f.slug}`);
+                        router.push(`${featurePrefix}${f.slug}`);
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
@@ -437,7 +425,6 @@ export default function FeaturePage() {
                         : "border-[var(--color-line)] hover:border-[var(--color-brand)]"
                     } bg-[var(--color-surface)] p-6 md:p-8 transition-all duration-300 cursor-pointer group`}
                   >
-                    {/* Top Right Intense Dots */}
                     <div className="pointer-events-none absolute top-0 right-0 w-full h-full bg-dot-grid-dense [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_70%)] opacity-80" />
 
                     <div className="relative z-10 flex flex-col items-start">
@@ -472,10 +459,10 @@ export default function FeaturePage() {
             </div>
           </div>
         </section>
-        <Faq />
-        <Contact />
+        <Faq locale={locale} />
+        <Contact locale={locale} />
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

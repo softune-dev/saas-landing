@@ -2,12 +2,22 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { TRIAL_CTA } from "@/lib/site";
+import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
 import { DemoAccessModal } from "./demo-access-modal";
 
-/** Shared Start Free + See Demo pair — homepage hero and every feature page. */
-export function HeroCtas({ className = "" }: { className?: string }) {
+/** Shared Start Free + See Demo pair — homepage hero and feature pages. */
+export function HeroCtas({
+  locale = "en",
+  className = "",
+}: {
+  locale?: "en" | "bn";
+  className?: string;
+}) {
   const [demoOpen, setDemoOpen] = useState(false);
+  const isBn = locale === "bn";
+  const signupHref = isBn ? "/bn/signup" : "/signup";
+  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
+  const demoText = isBn ? "লাইভ ডেমো দেখুন" : "See Demo";
 
   return (
     <div
@@ -33,10 +43,10 @@ export function HeroCtas({ className = "" }: { className?: string }) {
           }}
         />
         <a
-          href="/signup"
+          href={signupHref}
           className="relative z-10 flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--color-brand)] px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
         >
-          {TRIAL_CTA}
+          {ctaText}
           <img
             src="/icons/arrow-right.svg"
             alt=""
@@ -55,7 +65,7 @@ export function HeroCtas({ className = "" }: { className?: string }) {
           alt=""
           className="size-3.5 object-contain md:size-4 dark:invert"
         />
-        See Demo
+        {demoText}
       </Button>
       <DemoAccessModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </div>

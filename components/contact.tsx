@@ -15,7 +15,7 @@ import {
 } from "./auth/recaptcha-v2-fallback";
 import { Button } from "./ui/button";
 
-const cards = [
+const cardsEn = [
   {
     title: "Custom Development",
     desc: "Need bespoke features? We build custom themes and apps.",
@@ -38,7 +38,33 @@ const cards = [
   },
 ];
 
-export function Contact() {
+const cardsBn = [
+  {
+    title: "কাস্টম ডেভেলপমেন্ট",
+    desc: "বিশেষ কোনো ফিচারের দরকার? আমরা কাস্টম থিম ও অ্যাপস ডেভেলপ করি।",
+    icon: "/icons/color.svg",
+  },
+  {
+    title: "স্টোর সেটআপ সার্ভিস",
+    desc: "আমাদের এক্সপার্ট টিম আপনার শপ সম্পূর্ণ সেটআপ ও কনফিগার করে দেবে।",
+    icon: "/icons/zap.svg",
+  },
+  {
+    title: "সাপোর্ট রিকোয়েস্ট",
+    desc: "কোনো সমস্যায় পড়েছেন? আমাদের সাপোর্ট টিম সাহায্য করতে ২৪/৭ প্রস্তুত।",
+    icon: "/icons/help-desk.svg",
+  },
+  {
+    title: "ডকুমেন্টেশন",
+    desc: "আমাদের গাইড, API ডক্স এবং প্ল্যাটফর্ম টিউটোরিয়াল ব্রাউজ করুন।",
+    icon: "/icons/book.svg",
+  },
+];
+
+export function Contact({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+  const cards = isBn ? cardsBn : cardsEn;
+
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sentName, setSentName] = useState<string | null>(null);
@@ -81,7 +107,11 @@ export function Contact() {
         setError(hasV2Fallback ? null : err.message);
       } else {
         setError(
-          err instanceof Error ? err.message : "Couldn't send your message",
+          err instanceof Error
+            ? err.message
+            : isBn
+            ? "আপনার মেসেজটি পাঠানো সম্ভব হয়নি"
+            : "Couldn't send your message",
         );
         v2Ref.current?.reset();
       }
@@ -110,28 +140,42 @@ export function Contact() {
                 style={{ animationDuration: "2s" }}
               />
               <img
-            loading="lazy"
-            decoding="async"
+                loading="lazy"
+                decoding="async"
                 src="/icons/chat.svg"
                 alt=""
                 className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Contact Us
+              {isBn ? "যোগাযোগ করুন" : "Contact Us"}
             </span>
           </motion.div>
 
           <h2 className="text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15]">
-            Let&apos;s build something <br />
-            <span className="relative mt-2 inline-block px-2.5 py-0.5 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
-              <em className="relative not-italic text-white">extraordinary.</em>
-            </span>
+            {isBn ? (
+              <>
+                চলুন অসাধারণ কিছু <br />
+                <span className="relative mt-2 inline-block px-2.5 py-0.5 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">তৈরি করি।</em>
+                </span>
+              </>
+            ) : (
+              <>
+                Let&apos;s build something <br />
+                <span className="relative mt-2 inline-block px-2.5 py-0.5 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 -rotate-2 rounded-xl bg-[var(--color-brand)] shadow-sm" />
+                  <em className="relative not-italic text-white">extraordinary.</em>
+                </span>
+              </>
+            )}
           </h2>
 
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px]">
-            Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softunebd.
+            {isBn
+              ? "কাস্টম ডেভেলপমেন্ট, মাইগ্রেশন সাহায্য বা আপনার যেকোনো প্রশ্নের উত্তরে আমাদের টিম আপনাকে সাহায্য করতে প্রস্তুত।"
+              : "Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softunebd."}
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 md:gap-6">
@@ -150,8 +194,8 @@ export function Contact() {
                   <div className="mb-4 inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
                     <div className="flex size-10 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
                       <img
-            loading="lazy"
-            decoding="async"
+                        loading="lazy"
+                        decoding="async"
                         src={card.icon}
                         alt=""
                         className="size-4 object-contain brightness-0 invert"
@@ -179,7 +223,7 @@ export function Contact() {
           className="w-full min-w-0 max-w-full rounded-[1.75rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 shadow-xl shadow-[var(--color-brand)]/5 sm:rounded-[2.5rem] sm:p-8 sm:shadow-2xl md:p-12"
         >
           <h3 className="mb-6 text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:mb-8 sm:text-2xl">
-            Send us a message
+            {isBn ? "আমাদের মেসেজ পাঠান" : "Send us a message"}
           </h3>
 
           {sentName ? (
@@ -192,18 +236,25 @@ export function Contact() {
                 <CheckCircle2 className="size-10" />
               </div>
               <h3 className="text-xl font-bold text-[var(--color-ink)]">
-                Message sent
+                {isBn ? "মেসেজ পাঠানো হয়েছে" : "Message sent"}
               </h3>
               <p className="max-w-md text-[15px] text-[var(--color-muted)]">
-                Thanks, <span className="font-bold">{sentName}</span> — we
-                received your message and will reply by email.
+                {isBn ? (
+                  <>
+                    ধন্যবাদ, <span className="font-bold">{sentName}</span> — আপনার মেসেজটি আমরা পেয়েছি এবং ইমেইলে উত্তর দেব।
+                  </>
+                ) : (
+                  <>
+                    Thanks, <span className="font-bold">{sentName}</span> — we received your message and will reply by email.
+                  </>
+                )}
               </p>
               <Button
                 variant="outline"
                 className="mt-6"
                 onClick={() => setSentName(null)}
               >
-                Send another message
+                {isBn ? "আরেকটি মেসেজ পাঠান" : "Send another message"}
               </Button>
             </motion.div>
           ) : (
@@ -214,12 +265,12 @@ export function Contact() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                    First Name
+                    {isBn ? "নামের প্রথম অংশ" : "First Name"}
                   </label>
                   <input
                     type="text"
                     name="first_name"
-                    placeholder="John"
+                    placeholder={isBn ? "করিম" : "John"}
                     required
                     maxLength={80}
                     autoComplete="given-name"
@@ -228,12 +279,12 @@ export function Contact() {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                    Last Name
+                    {isBn ? "নামের শেষ অংশ" : "Last Name"}
                   </label>
                   <input
                     type="text"
                     name="last_name"
-                    placeholder="Doe"
+                    placeholder={isBn ? "হাসান" : "Doe"}
                     required
                     maxLength={80}
                     autoComplete="family-name"
@@ -244,12 +295,12 @@ export function Contact() {
 
               <div className="flex flex-col gap-2">
                 <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                  Email Address
+                  {isBn ? "ইমেইল অ্যাড্রেস" : "Email Address"}
                 </label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="john@company.com"
+                  placeholder={isBn ? "karim@company.com" : "john@company.com"}
                   required
                   autoComplete="email"
                   className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
@@ -258,12 +309,12 @@ export function Contact() {
 
               <div className="flex flex-col gap-2">
                 <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                  Phone Number
+                  {isBn ? "ফোন নম্বর" : "Phone Number"}
                 </label>
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder={isBn ? "+৮৮০ ১XXXXXXXXX" : "+1 (555) 000-0000"}
                   maxLength={32}
                   autoComplete="tel"
                   className="min-h-12 rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
@@ -272,14 +323,14 @@ export function Contact() {
 
               <div className="flex flex-col gap-2">
                 <label className="text-[14px] font-bold text-[var(--color-ink)]">
-                  Message
+                  {isBn ? "মেসেজ" : "Message"}
                 </label>
                 <textarea
                   name="message"
                   rows={4}
                   required
                   maxLength={2000}
-                  placeholder="How can we help you?"
+                  placeholder={isBn ? "আমরা আপনাকে কীভাবে সাহায্য করতে পারি?" : "How can we help you?"}
                   className="resize-none rounded-xl border border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3.5 text-[15px] font-medium outline-none transition-all focus:border-[var(--color-brand)] focus:bg-[var(--color-surface)] focus:ring-4 focus:ring-[var(--color-brand)]/10"
                 />
               </div>
@@ -299,11 +350,17 @@ export function Contact() {
                 disabled={busy || (needsChallenge && !v2Token)}
                 className="animate-shine mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-brand)] py-5 text-[15px] font-extrabold text-white shadow-lg shadow-[var(--color-brand)]/20 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-4 sm:py-6"
               >
-                {busy ? "Sending…" : "Send Message"}
+                {busy
+                  ? isBn
+                    ? "পাঠানো হচ্ছে…"
+                    : "Sending…"
+                  : isBn
+                  ? "মেসেজ পাঠান"
+                  : "Send Message"}
                 {!busy ? (
                   <img
-            loading="lazy"
-            decoding="async"
+                    loading="lazy"
+                    decoding="async"
                     src="/icons/send.svg"
                     alt=""
                     className="size-5 object-contain brightness-0 invert"
@@ -315,7 +372,6 @@ export function Contact() {
             </form>
           )}
         </motion.div>
-        
       </div>
     </section>
   );

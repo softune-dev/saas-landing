@@ -6,6 +6,7 @@ import { DOC_CATEGORIES } from "@/lib/documentation-data";
 import { COMMERCIAL_PAGES } from "@/lib/commercial-pages-data";
 import { INTEGRATIONS } from "@/lib/integrations-data";
 import { INDUSTRY_PAGES } from "@/lib/industry-data";
+import { hasBnVersion } from "@/lib/seo";
 
 const STATIC_ROUTES: {
   path: string;
@@ -40,12 +41,29 @@ function parsePostDate(date: string): Date {
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
-    url: `${SITE_URL}${r.path}`,
-    lastModified: now,
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
-  }));
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.flatMap((r) => {
+    const enUrl = `${SITE_URL}${r.path}`;
+    const entries: MetadataRoute.Sitemap = [
+      {
+        url: enUrl,
+        lastModified: now,
+        changeFrequency: r.changeFrequency,
+        priority: r.priority,
+      },
+    ];
+
+    if (hasBnVersion(r.path)) {
+      const bnPath = `/bn${r.path === "/" ? "" : r.path}`;
+      entries.push({
+        url: `${SITE_URL}${bnPath}`,
+        lastModified: now,
+        changeFrequency: r.changeFrequency,
+        priority: r.priority,
+      });
+    }
+
+    return entries;
+  });
 
   const llmsEntry: MetadataRoute.Sitemap[number] = {
     url: `${SITE_URL}/llms.txt`,
@@ -54,36 +72,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   };
 
-  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: parsePostDate(post.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
-    ...(post.image
-      ? { images: [`${SITE_URL}${post.image}`] }
-      : {}),
-  }));
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) => [
+    {
+      url: `${SITE_URL}/blog/${post.slug}`,
+      lastModified: parsePostDate(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      ...(post.image ? { images: [`${SITE_URL}${post.image}`] } : {}),
+    },
+    {
+      url: `${SITE_URL}/bn/blog/${post.slug}`,
+      lastModified: parsePostDate(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      ...(post.image ? { images: [`${SITE_URL}${post.image}`] } : {}),
+    },
+  ]);
 
-  const featureEntries: MetadataRoute.Sitemap = Object.keys(FEATURE_PAGES).map(
-    (slug) => ({
-      url: `${SITE_URL}/features/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    }),
+  const featureEntries: MetadataRoute.Sitemap = Object.keys(FEATURE_PAGES).flatMap(
+    (slug) => [
+      {
+        url: `${SITE_URL}/features/${slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      },
+      {
+        url: `${SITE_URL}/bn/features/${slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      },
+    ],
   );
 
   const docEntries: MetadataRoute.Sitemap = DOC_CATEGORIES.flatMap((cat) =>
-    cat.articles.map((article) => ({
-      url: `${SITE_URL}/support/documentation/${article.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
-    })),
+    cat.articles.flatMap((article) => [
+      {
+        url: `${SITE_URL}/support/documentation/${article.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.4,
+      },
+      {
+        url: `${SITE_URL}/bn/support/documentation/${article.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.4,
+      },
+    ]),
   );
 
-  // SEO keyword landing pages (audit priority list) — commercial pages are
-  // flat top-level routes, integrations/industries are nested.
   const commercialEntries: MetadataRoute.Sitemap = Object.keys(COMMERCIAL_PAGES).map(
     (slug) => ({
       url: `${SITE_URL}/${slug}`,

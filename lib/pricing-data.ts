@@ -1,11 +1,5 @@
 /**
- * Plain data, deliberately NOT in components/pricing.tsx (a "use client"
- * file) — a server component (app/pricing/page.tsx) needs to read this
- * array directly to build real Product/Offer JSON-LD, and Next's RSC
- * boundary only exposes a client module's DEFAULT export as an opaque
- * reference to server code, not its named data exports. Living here means
- * both the client UI and the server schema builder import the same source
- * instead of duplicating the numbers.
+ * Plain data for pricing plans — English and Bangla variants.
  */
 export const plans = [
   {
@@ -58,3 +52,59 @@ export const plans = [
     ],
   },
 ];
+
+export const plansBn = [
+  {
+    name: "Starter",
+    priceMonthly: 1190,
+    priceAnnually: 950,
+    description: "নতুন স্টোর ও স্মল বিজনেসের সহজ শুরুর জন্য উপযুক্ত।",
+    features: [
+      "৫০টি Product Limit",
+      "500MB Media স্টোরেজ",
+      "AI Assistant ইনক্লুডেড",
+      "মাসে 450টি AI ক্রেডিট (15/দিন)",
+      "Fraud protection",
+      "Theme editor",
+      "বেসিক analytics",
+      "0% Transaction Fee",
+    ],
+  },
+  {
+    name: "Growth",
+    priceMonthly: 2990,
+    priceAnnually: 2390,
+    popular: true,
+    description: "আপনার গ্রোয়িং ই-কমার্স ব্র্যান্ড স্কেল করার সব ফিচার।",
+    features: [
+      "৫০০টি Product Limit",
+      "2GB Media স্টোরেজ",
+      "AI Assistant ইনক্লুডেড",
+      "মাসে 2,400টি AI ক্রেডিট (80/দিন)",
+      "Payments ও Couriers কানেক্ট",
+      "Fraud protection",
+      "Advanced Analytics",
+      "Priority ইমেইল সাপোর্ট",
+      "0% Transaction Fee",
+    ],
+  },
+  {
+    name: "Business",
+    priceMonthly: 6990,
+    priceAnnually: 5590,
+    description: "মাল্টিপল ক্লায়েন্ট স্টোর বা বড় বিজনেসের জন্য তৈরি।",
+    features: [
+      "Growth-এর সব ফিচার, সাথে:",
+      "Unlimited Products",
+      "৩টি Storefront ইনক্লুডেড",
+      "5GB Media স্টোরেজ",
+      "মাসে 7,200টি AI ক্রেডিট (240/দিন)",
+      "সব Add-Ons ও টুলস ইনক্লুডেড",
+      "Dedicated Account Manager",
+    ],
+  },
+];
+
+export function getPlans(locale: "en" | "bn" = "en") {
+  return locale === "bn" ? plansBn : plans;
+}

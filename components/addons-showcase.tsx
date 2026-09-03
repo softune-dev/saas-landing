@@ -32,7 +32,9 @@ const ADDONS = [
   { id: "product-badges", name: "Product Badges", category: "Operations & Insights", logoSrc: "/addon/badges.webp" },
 ] as const;
 
-export function AddonsShowcase() {
+export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+
   return (
     <section
       id="addons"
@@ -53,24 +55,36 @@ export function AddonsShowcase() {
                 style={{ animationDuration: "2s" }}
               />
               <img
-            loading="lazy"
-            decoding="async"
+                loading="lazy"
+                decoding="async"
                 src="/icons/save.svg"
                 alt=""
                 className="relative z-10 size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Softunebd Marketplace
+              {isBn ? "অ্যাড-অনস মার্কেটপ্লেস" : "Softunebd Marketplace"}
             </span>
           </motion.div>
 
           <h2 className="text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
-            {ADDONS.length} ways to extend your{" "}
-            <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
-              <em className="relative not-italic text-white">store</em>
-            </span>
+            {isBn ? (
+              <>
+                ২৬+ ফিচার দিয়ে স্টোরকে করুন{" "}
+                <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">আরও পাওয়ারফুল</em>
+                </span>
+              </>
+            ) : (
+              <>
+                {ADDONS.length} ways to extend your{" "}
+                <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">store</em>
+                </span>
+              </>
+            )}
           </h2>
         </div>
       </div>
@@ -93,8 +107,8 @@ export function AddonsShowcase() {
                 ].join(" ")}
               >
                 <img
-            loading="lazy"
-            decoding="async"
+                  loading="lazy"
+                  decoding="async"
                   src={addon.logoSrc}
                   alt={`${addon.name} Softunebd add-on`}
                   width={64}

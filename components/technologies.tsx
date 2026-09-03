@@ -28,7 +28,9 @@ const stack = [
   { name: "RabbitMQ", color: "#FF6600", Icon: SiRabbitmq },
 ];
 
-export function Technologies() {
+export function Technologies({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
+
   return (
     <section className="bg-[var(--color-canvas)] py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8">
@@ -46,26 +48,40 @@ export function Technologies() {
                 style={{ animationDuration: "2s" }}
               />
               <img
-            loading="lazy"
-            decoding="async"
+                loading="lazy"
+                decoding="async"
                 src="/icons/zap.svg"
                 alt=""
                 className="size-3 object-contain md:size-3.5 dark:invert"
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              Powered By
+              {isBn ? "টেকনোলজি স্ট্যাক" : "Powered By"}
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.15] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.1] md:text-6xl">
-            Built with the Best
-            <br />
-            Modern{" "}
-            <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
-              <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
-              <em className="relative not-italic text-white">Technologies</em>
-            </span>
+            {isBn ? (
+              <>
+                তৈরি হয়েছে বিশ্বসেরা
+                <br />
+                <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">আধুনিক টেকনোলজি</em>
+                </span>{" "}
+                দিয়ে
+              </>
+            ) : (
+              <>
+                Built with the Best
+                <br />
+                Modern{" "}
+                <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
+                  <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
+                  <em className="relative not-italic text-white">Technologies</em>
+                </span>
+              </>
+            )}
           </h2>
         </div>
       </div>

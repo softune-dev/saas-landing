@@ -33,7 +33,7 @@ function ReadingProgress() {
   );
 }
 
-function DocBody({ body }: { body: DocBodyBlock[] }) {
+function DocBody({ body, isBn }: { body: DocBodyBlock[]; isBn?: boolean }) {
   return (
     <div className="space-y-5">
       {body.map((block, idx) => {
@@ -42,7 +42,7 @@ function DocBody({ body }: { body: DocBodyBlock[] }) {
             <h2
               key={idx}
               className="border-b border-[var(--color-line)] pt-6 pb-1 text-xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-2xl"
-              style={{ fontFamily: "var(--font-heading)" }}
+              style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
             >
               {block.content}
             </h2>
@@ -133,35 +133,35 @@ function DocBody({ body }: { body: DocBodyBlock[] }) {
   );
 }
 
-export default function DocArticlePage() {
+export default function DocArticlePage({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
   const params = useParams() as { slug: string };
-  const article = getDocArticle(params.slug);
+  const article = getDocArticle(params.slug, locale);
+  const docPrefix = isBn ? "/bn/support/documentation/" : "/support/documentation/";
 
   if (!article) {
     notFound();
   }
 
-  const relatedDocs = getRelatedDocArticles(article.slug);
+  const relatedDocs = getRelatedDocArticles(article.slug, 4, locale);
 
   return (
     <>
       <ReadingProgress />
-      <Header />
-      <main className="min-h-screen bg-[var(--color-canvas)]">
-        <div className="relative overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-5 pt-10 pb-12 text-center">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
+      <Header locale={locale} />
+      <main className="min-h-screen bg-[var(--color-canvas)] pb-24">
+        {/* Article Header */}
+        <div className="relative overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-surface)] py-14 text-center">
+          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black_70%)]" />
 
+          {/* Breadcrumb Pill */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            transition={{ duration: 0.45 }}
+            className="relative z-10 mx-auto mb-5 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-canvas)] p-1.5 pr-4 shadow-xs"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
-              <span
-                className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
-                style={{ animationDuration: "2s" }}
-              />
               <img
                 src={article.categoryIcon}
                 alt=""
@@ -169,10 +169,10 @@ export default function DocArticlePage() {
               />
             </div>
             <a
-              href="/support/documentation"
+              href={docPrefix}
               className="text-[14px] font-semibold tracking-tight text-[var(--color-muted)] transition-colors hover:text-[var(--color-brand)]"
             >
-              Documentation
+              {isBn ? "ডকুমেন্টেশন" : "Documentation"}
             </a>
             <span className="font-bold text-[#D4D4D4]">/</span>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
@@ -185,7 +185,7 @@ export default function DocArticlePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08 }}
             className="relative z-10 mx-auto mb-4 max-w-3xl text-3xl leading-tight font-black tracking-tight text-[var(--color-ink)] md:text-5xl"
-            style={{ fontFamily: "var(--font-heading)" }}
+            style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
           >
             {article.title}
           </motion.h1>
@@ -236,20 +236,21 @@ export default function DocArticlePage() {
                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
-              Updated {article.updated}
+              {isBn ? `আপডেট: ${article.updated}` : `Updated ${article.updated}`}
             </span>
           </motion.div>
         </div>
 
         <div className="mx-auto max-w-7xl px-5 py-14 md:px-8">
           <div className="flex items-start gap-10 lg:gap-14">
+            {/* Left Sidebar - Table of Contents */}
             <div className="hidden w-56 shrink-0 lg:block">
               <div className="sticky top-24">
                 <div className="overflow-hidden rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)]">
                   <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
-                      On This Page
+                      {isBn ? "সূচিপত্র" : "On This Page"}
                     </p>
                   </div>
                   <ul className="space-y-1 p-3">
@@ -273,31 +274,31 @@ export default function DocArticlePage() {
                   <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
-                      Details
+                      {isBn ? "তথ্য" : "Details"}
                     </p>
                   </div>
                   <div className="space-y-3 p-4">
-                    <div className="flex items-center justify-between">
-                      <p className="text-[12px] font-semibold text-[var(--color-muted)]">
-                        Section
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-[12px] font-semibold text-[var(--color-muted)] shrink-0">
+                        {isBn ? "সেকশন" : "Section"}
                       </p>
-                      <p className="text-[12px] font-bold text-[var(--color-ink)]">
+                      <p className="text-[12px] font-bold text-[var(--color-ink)] text-right truncate">
                         {article.category}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <p className="text-[12px] font-semibold text-[var(--color-muted)]">
-                        Read Time
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-[12px] font-semibold text-[var(--color-muted)] shrink-0">
+                        {isBn ? "পড়ার সময়" : "Read Time"}
                       </p>
-                      <p className="text-[12px] font-bold text-[var(--color-ink)]">
+                      <p className="text-[12px] font-bold text-[var(--color-ink)] text-right">
                         {article.readTime}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <p className="text-[12px] font-semibold text-[var(--color-muted)]">
-                        Updated
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-[12px] font-semibold text-[var(--color-muted)] shrink-0">
+                        {isBn ? "সর্বশেষ আপডেট" : "Updated"}
                       </p>
-                      <p className="text-[12px] font-bold text-[var(--color-ink)]">
+                      <p className="text-[12px] font-bold text-[var(--color-ink)] text-right">
                         {article.updated}
                       </p>
                     </div>
@@ -306,16 +307,19 @@ export default function DocArticlePage() {
               </div>
             </div>
 
+            {/* Main Content Body */}
             <div className="min-w-0 flex-1">
-              <DocBody body={article.body} />
+              <DocBody body={article.body} isBn={isBn} />
 
               <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-[var(--color-line)] pt-8 sm:flex-row sm:items-center">
                 <div>
                   <p className="text-[14px] font-bold text-[var(--color-ink)]">
-                    Was this article helpful?
+                    {isBn ? "গাইডটি কি আপনার কাজে এসেছে?" : "Was this article helpful?"}
                   </p>
                   <p className="mt-0.5 text-[13px] font-medium text-[var(--color-muted)]">
-                    Let us know so we can keep improving our docs.
+                    {isBn
+                      ? "আপনার মতামত আমাদের ডকুমেন্টেশন আরও সমৃদ্ধ করতে সাহায্য করে।"
+                      : "Let us know so we can keep improving our docs."}
                   </p>
                 </div>
                 <div className="flex shrink-0 gap-2">
@@ -323,32 +327,33 @@ export default function DocArticlePage() {
                     type="button"
                     className="flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
                   >
-                    Yes
+                    {isBn ? "হ্যাঁ" : "Yes"}
                   </button>
                   <button
                     type="button"
                     className="flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[13px] font-bold text-[var(--color-muted)] transition-all duration-200 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
                   >
-                    No
+                    {isBn ? "না" : "No"}
                   </button>
                 </div>
               </div>
             </div>
 
+            {/* Right Sidebar - Related Articles */}
             <div className="hidden w-52 shrink-0 xl:block">
               <div className="sticky top-24">
                 <div className="overflow-hidden rounded-[12px] border border-[var(--color-line)] bg-[var(--color-surface)]">
                   <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-canvas)] px-4 py-3">
                     <div className="size-2 rounded-full bg-[var(--color-brand)]" />
                     <p className="text-[13px] font-bold text-[var(--color-ink)]">
-                      Related Docs
+                      {isBn ? "সম্পর্কিত গাইড" : "Related Docs"}
                     </p>
                   </div>
                   <ul className="space-y-0 p-3">
                     {relatedDocs.map((doc) => (
                       <li key={doc.slug}>
                         <a
-                          href={`/support/documentation/${doc.slug}`}
+                          href={`${docPrefix}${doc.slug}`}
                           className="group flex cursor-pointer items-start gap-2.5 border-b border-[var(--color-line)] py-2.5 last:border-0"
                         >
                           <img
@@ -360,9 +365,6 @@ export default function DocArticlePage() {
                             <p className="text-[12.5px] leading-snug font-semibold text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-brand)]">
                               {doc.title}
                             </p>
-                            <p className="mt-0.5 text-[11px] text-[#A3A3A3]">
-                              {doc.category}
-                            </p>
                           </div>
                         </a>
                       </li>
@@ -370,30 +372,20 @@ export default function DocArticlePage() {
                   </ul>
                 </div>
 
-                <a
-                  href="/support/documentation"
-                  className="mt-4 flex items-center gap-2 text-[13px] font-bold text-[var(--color-muted)] transition-colors hover:text-[var(--color-brand)]"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                <div className="mt-4">
+                  <a
+                    href={docPrefix}
+                    className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[var(--color-muted)] transition-colors hover:text-[var(--color-brand)]"
                   >
-                    <path d="m15 18-6-6 6-6" />
-                  </svg>
-                  Back to Docs
-                </a>
+                    <span>&larr;</span> {isBn ? "ডকুমেন্টেশনে ফিরে যান" : "Back to Docs"}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

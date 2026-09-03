@@ -25,44 +25,29 @@ export const changelogData: ChangelogRelease[] = [
     serial: "1.5",
     version: "v1.5.0",
     date: "Sep 3, 2026",
-    title: "Theme skeleton cleanup, Bazaar header redesign, and carousel sliders",
+    title: "Storefront skeletons and theme enhancements",
     description:
-      "Aurora and Bazaar storefronts now feature clean empty-state skeletons for all sections, responsive header layouts, and touch-enabled carousel sliders for category products.",
+      "New stores display clean placeholder skeletons, updated Bazaar header controls, and touch-enabled category sliders.",
     changes: [
       {
         type: "Feature",
         content:
-          "Aurora and Bazaar theme skeletons: new stores display clean empty-state skeletons with aspect ratio indicators (16:9 desktop, 1:1 mobile) and '+' badges instead of fake stock images or placeholder copy.",
+          "Clean skeleton states for Fashion - Aurora and Bazaar - Multi category storefronts before uploading catalog images.",
       },
       {
         type: "Improvement",
         content:
-          "Bazaar header redesign: custom SVG user icon, wishlist heart button, desktop 'All Categories' dropdown with inline navigation links, and a dedicated mobile search bar row.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Hero category rail: Bazaar's category list stacks top-to-bottom with fixed item heights (max 9 items), dynamically filling empty slots with skeletons when fewer than 5 categories exist.",
+          "Redesigned header for Bazaar - Multi category with dedicated mobile search and category dropdown.",
       },
       {
         type: "Feature",
         content:
-          "Touch-enabled carousels: 'Shop by Category' and 'Popular categories' product showcase blocks now feature smooth Embla Carousel drag/swipe sliders on mobile and desktop.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Shop page category banner: displays a subtle top-left '+' indicator when no category banner image is uploaded, which automatically hides as soon as a banner image is added.",
+          "Smooth touch-and-drag category carousels on mobile and desktop.",
       },
       {
         type: "Bug Fix",
         content:
-          "Theme resolution fix: resolved an issue where default theme settings fell back to hardcoded sample copy and Unsplash images on newly published storefronts.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Font optimization fix: resolved Next.js Google Font fallback configuration for Big Shoulders in Bazaar layout builds.",
+          "Fixed theme settings fallback when publishing new storefronts.",
       },
     ],
   },
@@ -77,37 +62,22 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Setup wizard redesigned end to end: an animated panel per step, a step tracker you can jump around in, and simpler wording throughout — no more guessing what a field wants.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Setup is now fully usable on a phone, with the same steps and layout adapted to a smaller screen instead of a cramped desktop view.",
+          "End-to-end setup wizard redesign with step tracking and mobile optimization.",
       },
       {
         type: "Feature",
         content:
-          "Uploading images now shows a real progress bar per file, with clear file name and size — including when you're uploading several at once.",
+          "Real-time upload progress bars for product and logo images.",
       },
       {
         type: "Improvement",
         content:
-          "The \"Getting Started\" step disappears from your sidebar for good once you finish it — it no longer reappears just because your trial store was already published.",
+          "Getting Started checklist automatically retires once setup is complete.",
       },
       {
         type: "Bug Fix",
         content:
-          "Colors and fonts you picked earlier in signup now actually show up pre-filled when you reach that step in the dashboard, instead of resetting.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "The \"Go live\" step now shows your real store address instead of a placeholder like my-shop.softunebd.com.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed a crash when a logo or product image failed to upload during setup — you now get a clear error instead of a broken page.",
+          "Pre-filled color and font selections carried over from signup.",
       },
     ],
   },
@@ -122,7 +92,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Self-serve 3-day trial: create an account, verify email, name your shop, pick Aurora or Bazaar, and land in the dashboard with a live store.",
+          "Self-serve 3-day trial: create an account, verify email, name your shop, pick Fashion - Aurora or Bazaar - Multi category, and land in the dashboard with a live store.",
       },
       {
         type: "Feature",
@@ -332,7 +302,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Theme Editor with live desktop, tablet, and mobile preview. Draft, then publish. Aurora (Fashion) and Bazaar (Emporium) ship as the first two skins.",
+          "Theme Editor with live desktop, tablet, and mobile preview. Draft, then publish. Fashion - Aurora and Bazaar - Multi category ship as the first two skins.",
       },
       {
         type: "Feature",

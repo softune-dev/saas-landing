@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SoftuneLogo } from "@/components/brand/softune-logo";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
-import { DASHBOARD_URL, TRIAL_CTA } from "@/lib/site";
+import { LanguageSwitcher } from "./language-switcher";
+import { GeoBanner } from "./geo-banner";
+import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
 
-const links = [
+const linksEn = [
   {
     label: "Features",
     href: "/features",
@@ -49,16 +51,64 @@ const links = [
   },
 ];
 
-export function Header() {
+const linksBn = [
+  {
+    label: "ফিচারসমূহ",
+    href: "/bn/features",
+    submenus: [
+      { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
+      { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+      { label: "পেমেন্ট গেটওয়ে", href: "/bn/features/payments", icon: "/icons/wallet.svg" },
+      { label: "স্টোর সেল", href: "/bn/features/store-sale", icon: "/icons/shop-bag.svg" },
+      {
+        label: "মার্কেটিং & ট্র্যাকিং",
+        href: "/bn/features/marketing-tracking",
+        icon: "/icons/analytics.svg",
+      },
+      {
+        label: "স্টোর অ্যানালিটিক্স",
+        href: "/bn/features/store-analytics",
+        icon: "/icons/analytics.svg",
+      },
+      { label: "লোকাল কুরিয়ার", href: "/bn/features/courier", icon: "/icons/delivery.svg" },
+      { label: "অর্ডার ম্যানেজমেন্ট", href: "/bn/features/orders", icon: "/icons/orders.svg" },
+      { label: "কাস্টমার ম্যানেজমেন্ট", href: "/bn/features/customer-management", icon: "/icons/user.svg" },
+      { label: "ফ্রড প্রোটেকশন", href: "/bn/features/fraud-protection", icon: "/icons/lock.svg" },
+    ],
+  },
+  { label: "প্রাইসিং", href: "/bn/pricing" },
+  { label: "আমাদের কথা", href: "/bn/about" },
+  { label: "ব্লগ", href: "/bn/blog" },
+  {
+    label: "সাপোর্ট",
+    href: "/bn/#support",
+    submenus: [
+      { label: "ডকুমেন্টেশন", href: "/bn/support/documentation", icon: "/icons/book.svg" },
+      { label: "FAQ", href: "/bn/support/faq", icon: "/icons/help-desk.svg" },
+      { label: "কন্টাক্ট সাপোর্ট", href: "/bn/support/contact", icon: "/icons/chat.svg" },
+      { label: "ভিডিও টিউটোরিয়াল", href: "/bn/support/tutorials", icon: "/icons/play.svg" },
+      { label: "কমিউনিটি ফোরাম", href: "/bn/support/community", icon: "/icons/user.svg" },
+    ],
+  },
+];
+
+export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
+  const isBn = locale === "bn";
+  const links = isBn ? linksBn : linksEn;
+  const signupHref = isBn ? "/bn/signup" : "/signup";
+  const homeHref = isBn ? "/bn" : "/";
+  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
+
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="relative z-40 flex h-11 w-full items-center justify-between overflow-hidden bg-[#c147b6] px-3 text-white sm:h-[44px] sm:px-6 lg:px-8">
-        <div className="hidden items-center gap-2 sm:flex">
+      <GeoBanner />
+      {/* Top Announcement Bar - Only visible on sm screens and larger */}
+      <div className="relative z-40 hidden h-[44px] w-full items-center justify-between overflow-hidden bg-[#c147b6] px-6 lg:px-8 text-white sm:flex">
+        <div className="flex items-center gap-2">
           <img
             loading="lazy"
             decoding="async"
@@ -70,38 +120,35 @@ export function Header() {
           />
         </div>
 
-        {/* Mobile: compact copy + chip */}
-        <div className="flex flex-1 items-center justify-between gap-2 sm:hidden">
-          <p className="min-w-0 truncate text-[13px] font-semibold tracking-tight">
-            3-day free trial is on!
-          </p>
-          <a
-            href="/signup"
-            className="inline-flex shrink-0 items-center rounded-full border border-white/40 bg-gradient-to-r from-[#10b981] to-[#34d399] px-2.5 py-1 text-[11px] font-black tracking-tight text-[#1a1a1a]"
-          >
-            FREE
-          </a>
-        </div>
-
         {/* Desktop: full message */}
-        <div className="z-10 hidden flex-1 text-center text-lg font-medium sm:block">
-          3-day free trial is on! Open a real store with{" "}
-          <a
-            href="/signup"
-            className="text-[#a3ffaa] underline underline-offset-2"
-          >
-            no credit card.
-          </a>
+        <div className="z-10 flex-1 text-center text-base font-medium md:text-lg">
+          {isBn ? (
+            <>
+              ৩ দিনের ফ্রি ট্রায়াল চলছে!{" "}
+              <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
+                কোনো কার্ড ছাড়াই লাইভ স্টোর খুলুন।
+              </a>
+            </>
+          ) : (
+            <>
+              3-day free trial is on! Open a real store with{" "}
+              <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
+                no credit card.
+              </a>
+            </>
+          )}
         </div>
-        <div className="z-10 hidden sm:flex">
+        <div className="z-10 flex">
           <a
-            href="/signup"
-            className="animate-shine -my-[38px] flex h-[120px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-10 leading-tight transition-transform hover:scale-[1.02]"
+            href={signupHref}
+            className="animate-shine -my-[38px] flex h-[120px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-8 leading-tight transition-transform hover:scale-[1.02]"
           >
-            <span className="text-[14px] font-bold tracking-tight text-[#1a1a1a]">
-              GET
+            <span className="text-[13px] font-bold tracking-tight text-[#1a1a1a]">
+              {isBn ? "শুরু করুন" : "GET"}
             </span>
-            <span className="text-lg font-black text-[#1a1a1a]">FREE</span>
+            <span className="text-base font-black text-[#1a1a1a]">
+              {isBn ? "ফ্রি" : "FREE"}
+            </span>
           </a>
         </div>
       </div>
@@ -109,7 +156,7 @@ export function Header() {
       <header className="sticky top-0 z-50 flex flex-col border-b border-[var(--color-line)] bg-[var(--color-surface)]/90 backdrop-blur-md">
         {/* Main Navbar */}
         <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 md:h-20 md:px-8">
-          <a href="/" className="flex min-w-0 items-center">
+          <a href={homeHref} className="flex min-w-0 items-center">
             <SoftuneLogo className="h-9 w-auto md:h-11" />
           </a>
 
@@ -123,7 +170,7 @@ export function Header() {
               >
                 <a
                   href={l.href}
-                  className="font-[family-name:var(--font-dm-sans)] flex items-center gap-1 text-lg font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
+                  className="font-[family-name:var(--font-dm-sans),var(--font-bn)] flex items-center gap-1 text-lg font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
                 >
                   {l.label}
                   {l.submenus && <ChevronDown className="size-4" />}
@@ -152,8 +199,8 @@ export function Header() {
                             {sub.icon && (
                               <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
                                 <img
-            loading="lazy"
-            decoding="async"
+                                  loading="lazy"
+                                  decoding="async"
                                   src={sub.icon}
                                   alt=""
                                   className="size-5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
@@ -171,21 +218,16 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher locale={locale} />
             <ThemeToggle />
-            <a
-              href={DASHBOARD_URL}
-              className="p-0 text-base font-semibold text-[var(--color-ink)] hover:underline"
-            >
-              Login
-            </a>
             <Button
               as="a"
-              href="/signup"
+              href={signupHref}
               variant="primary"
-              className="gap-2 px-6 py-2.5 text-base font-semibold shadow-md"
+              className="gap-2 px-5 py-2.5 text-base font-semibold shadow-md"
             >
-              {TRIAL_CTA}
+              {ctaText}
               <img
                 src="/icons/arrow-right.svg"
                 alt=""
@@ -195,6 +237,7 @@ export function Header() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2 md:hidden">
+            <LanguageSwitcher locale={locale} />
             <ThemeToggle className="ml-0" />
             <button
               type="button"
@@ -218,7 +261,6 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
@@ -229,7 +271,6 @@ export function Header() {
               }}
               className="fixed inset-0 z-[9999] bg-black/60 md:hidden"
             />
-            {/* Sidebar drawer */}
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -237,10 +278,9 @@ export function Header() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed inset-y-0 left-0 z-[10000] w-full max-w-[340px] bg-surface shadow-2xl flex flex-col md:hidden border-r border-line"
             >
-              {/* Header inside sidebar */}
               <div className="flex h-16 items-center justify-between px-6 border-b border-line shrink-0">
                 <a
-                  href="/"
+                  href={homeHref}
                   className="flex items-center"
                   onClick={() => {
                     setOpen(false);
@@ -261,7 +301,6 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Navigation list */}
               <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6 custom-scrollbar">
                 {links.map((l) => {
                   const expanded = mobileExpanded === l.label;
@@ -296,8 +335,8 @@ export function Header() {
                                     {sub.icon && (
                                       <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
                                         <img
-            loading="lazy"
-            decoding="async"
+                                          loading="lazy"
+                                          decoding="async"
                                           src={sub.icon}
                                           alt=""
                                           className="size-5 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"
@@ -325,23 +364,15 @@ export function Header() {
                 })}
               </div>
 
-              {/* Bottom CTA */}
               <div className="flex items-center gap-4 p-6 border-t border-line bg-canvas/20 shrink-0">
-                <a
-                  href={DASHBOARD_URL}
-                  onClick={() => setOpen(false)}
-                  className="p-0 text-base font-semibold text-[var(--color-ink)] hover:underline"
-                >
-                  Login
-                </a>
                 <Button
                   as="a"
-                  href="/signup"
+                  href={signupHref}
                   onClick={() => setOpen(false)}
                   variant="primary"
                   className="min-w-0 flex-1 justify-center gap-2 py-3.5 text-base font-bold shadow-md"
                 >
-                  {TRIAL_CTA}
+                  {ctaText}
                   <img
                     src="/icons/arrow-right.svg"
                     alt=""
