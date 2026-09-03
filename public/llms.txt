@@ -4,7 +4,7 @@
 
 Softune is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, customizes logo, colors, fonts, and sections so the shop looks like their brand rather than a default theme, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain — typically in minutes, not weeks.
 
-The platform is built by Kamrul Hasan (https://kamrulhasan.site), a solo developer — not an agency team. Canonical hostname is [www.softunebd.com](https://www.softunebd.com/). Softune has no phone support line; contact [support@softunebd.com](mailto:support@softunebd.com) or WhatsApp [+880 1831-624571](https://wa.me/8801831624571).
+The platform is built by Kamrul Hasan (https://kamrulhasan.site), a solo developer — not an agency team. Canonical hostname is [www.softunebd.com](https://www.softunebd.com/). Softune has no phone support line; contact [support@softunebd.com](mailto:support@softunebd.com) or WhatsApp [+880 1630-582639](https://wa.me/8801630582639).
 
 What Softune actually does:
 

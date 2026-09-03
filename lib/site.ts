@@ -52,4 +52,4 @@ export const TWITTER_CREATOR = "@khxKallol";
 
 export const SUPPORT_EMAIL = "support@softunebd.com";
 /** E.164 — same WhatsApp number the contact page already publishes. */
-export const SUPPORT_PHONE = "+8801831624571";
+export const SUPPORT_PHONE = "+8801630582639";

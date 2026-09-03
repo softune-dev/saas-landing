@@ -31,8 +31,8 @@ const cards = [
   {
     title: "WhatsApp",
     desc: "Message us directly for quick questions.",
-    detail: "+880 1831-624571",
-    href: "https://wa.me/8801831624571",
+    detail: "+880 1630-582639",
+    href: "https://wa.me/8801630582639",
     icon: "/icons/whatsapp.svg",
   },
 ];
