@@ -7,15 +7,21 @@ import { primaryBtnClass } from "./auth-shell";
 import { FontPicker } from "./font-picker";
 
 // Marketing names, not backend template keys — same names/images the
-// public landing page uses for these two niches (lib/themes-data.ts's
-// "fashion" and "outlet" cards). "aurora"/"bazaar" are internal
+// public landing page uses for these niches (lib/themes-data.ts's
+// "outlet", "fashion", and "gadget" cards). "aurora"/"bazaar" are internal
 // Template.key values in the database; a merchant should never see those.
+// Electronics reuses the bazaar template (same multi-category layout works
+// for a gadget catalog) — there's no dedicated electronics template yet, so
+// two cards below share key "bazaar". `slug` is what disambiguates which
+// card is highlighted/clicked; `key` is only what actually gets submitted.
 export const TEMPLATES = [
-  { key: "aurora", name: "Fashion", image: "/themes/fashion-store.webp" },
-  { key: "bazaar", name: "Multi", image: "/themes/multi-category.webp" },
+  { slug: "multi", key: "bazaar", name: "Multi", image: "/themes/multi-category.webp" },
+  { slug: "fashion", key: "aurora", name: "Fashion", image: "/themes/fashion-store.webp" },
+  { slug: "electronics", key: "bazaar", name: "Electronics", image: "/themes/electronics-store.webp" },
 ] as const;
 
 export type TemplateKey = (typeof TEMPLATES)[number]["key"];
+export type TemplateSlug = (typeof TEMPLATES)[number]["slug"];
 
 // Evenly spread around the color wheel, plus one neutral dark — the old
 // list was mostly near-black variants (olive-black, near-black, navy,
@@ -78,6 +84,14 @@ type ThemeStepProps = {
 };
 
 export function ThemeStep(props: ThemeStepProps) {
+  // Which card is highlighted — not the same as props.templateKey, since
+  // "Multi" and "Electronics" both submit key="bazaar" but are two
+  // different cards. Defaults to whichever TEMPLATES entry first matches
+  // the wizard's initial templateKey (see trial-onboarding.tsx's default).
+  const [selectedSlug, setSelectedSlug] = useState<TemplateSlug>(
+    () => TEMPLATES.find((t) => t.key === props.templateKey)?.slug ?? TEMPLATES[0].slug,
+  );
+
   return (
     <form onSubmit={props.onSubmit} className="mt-4 flex flex-col gap-3.5">
       <div className="flex flex-col gap-1.5">
@@ -86,12 +100,15 @@ export function ThemeStep(props: ThemeStepProps) {
         </span>
         <div className="grid grid-cols-2 gap-1.5">
           {TEMPLATES.map((t) => {
-            const selected = props.templateKey === t.key;
+            const selected = selectedSlug === t.slug;
             return (
-              <div key={t.key} className="group relative">
+              <div key={t.slug} className="group relative">
                 <button
                   type="button"
-                  onClick={() => props.onTemplate(t.key)}
+                  onClick={() => {
+                    setSelectedSlug(t.slug);
+                    props.onTemplate(t.key);
+                  }}
                   className={`flex w-full items-center justify-between gap-1.5 rounded-lg border px-3 py-2.5 text-left text-sm font-medium transition-colors ${
                     selected
                       ? "border-primary bg-primary/5 text-foreground"
@@ -117,6 +134,15 @@ export function ThemeStep(props: ThemeStepProps) {
               </div>
             );
           })}
+          <div
+            className="flex w-full cursor-not-allowed items-center justify-between gap-1.5 rounded-lg border border-dashed border-border px-3 py-2.5 text-left text-sm font-medium text-muted-soft"
+            aria-disabled
+          >
+            <span className="truncate">10+ more</span>
+            <span className="shrink-0 rounded-full border border-border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted">
+              Soon
+            </span>
+          </div>
         </div>
       </div>
 

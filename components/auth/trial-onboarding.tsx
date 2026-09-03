@@ -90,7 +90,7 @@ const initial: WizardState = {
   step: "account",
   signupToken: "",
   email: "",
-  templateKey: "aurora",
+  templateKey: "bazaar",
   primaryColor: "#F97316",
   displayFont: "fraunces",
   bodyFont: "inter",

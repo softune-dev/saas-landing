@@ -1,7 +1,7 @@
 /**
  * Merchant-facing changelog — dashboard and live storefront only.
  * Landing-site, SEO, and internal/dev work is not recorded here.
- * Dates follow git history of user-visible product work (Aug 2026).
+ * Dates follow git history of user-visible product work (Aug/Sep 2026).
  */
 
 export type ChangeType = "Feature" | "Improvement" | "Bug Fix";
@@ -21,6 +21,51 @@ export type ChangelogRelease = {
 };
 
 export const changelogData: ChangelogRelease[] = [
+  {
+    serial: "1.5",
+    version: "v1.5.0",
+    date: "Sep 3, 2026",
+    title: "Theme skeleton cleanup, Bazaar header redesign, and carousel sliders",
+    description:
+      "Aurora and Bazaar storefronts now feature clean empty-state skeletons for all sections, responsive header layouts, and touch-enabled carousel sliders for category products.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Aurora and Bazaar theme skeletons: new stores display clean empty-state skeletons with aspect ratio indicators (16:9 desktop, 1:1 mobile) and '+' badges instead of fake stock images or placeholder copy.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Bazaar header redesign: custom SVG user icon, wishlist heart button, desktop 'All Categories' dropdown with inline navigation links, and a dedicated mobile search bar row.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Hero category rail: Bazaar's category list stacks top-to-bottom with fixed item heights (max 9 items), dynamically filling empty slots with skeletons when fewer than 5 categories exist.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Touch-enabled carousels: 'Shop by Category' and 'Popular categories' product showcase blocks now feature smooth Embla Carousel drag/swipe sliders on mobile and desktop.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Shop page category banner: displays a subtle top-left '+' indicator when no category banner image is uploaded, which automatically hides as soon as a banner image is added.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Theme resolution fix: resolved an issue where default theme settings fell back to hardcoded sample copy and Unsplash images on newly published storefronts.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Font optimization fix: resolved Next.js Google Font fallback configuration for Big Shoulders in Bazaar layout builds.",
+      },
+    ],
+  },
   {
     serial: "1.4",
     version: "v1.4.0",
