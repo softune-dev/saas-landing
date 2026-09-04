@@ -761,6 +761,74 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Recent Sales", desc: "Open past walk-in orders without leaving Store Sale.", icon: "/icons/orders.svg" },
     ],
   },
+  "events-campaigns": {
+    slug: "events-campaigns",
+    pillText: "Events & Campaigns",
+    titleStart: "Run a Sale,",
+    titleHighlight: "Not a Guess",
+    titleEnd: "",
+    description:
+      "Create a named sale campaign — Eid Sale, Weekend Flash Sale, anything you want to call it — set a percent-off discount, choose which products it applies to, and Softunebd handles the discounted price at checkout automatically.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "A real campaign, not a manual price edit",
+    introDesc:
+      "Events sits next to Products. Turn a campaign on or off without touching each product's price, and the storefront shows the original price struck through next to the sale price.",
+    alternating: [
+      {
+        pillText: "Named Campaigns",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Name Your",
+        titleHighlight: "Sale",
+        titleEnd: "",
+        description:
+          "Give a campaign a name, description, and banner image, then set the percent discount it applies at checkout.",
+        bullets: [
+          "Campaign name, description, and banner image",
+          "One percent-off discount per campaign",
+          "Turn a campaign on or off anytime",
+          "Shown on your storefront's Events section when active",
+        ],
+      },
+      {
+        pillText: "Product Scoped",
+        pillIcon: "/icons/shop-bag.svg",
+        titleStart: "Choose Which",
+        titleHighlight: "Products",
+        titleEnd: "",
+        description:
+          "Bind a campaign to specific products instead of discounting your whole catalog. A product can only be in one active campaign at a time, so pricing never conflicts.",
+        bullets: [
+          "Pick exactly which products join the sale",
+          "A product belongs to only one active campaign",
+          "No accidental double-discounting",
+          "Add or remove products while the campaign is live",
+        ],
+      },
+      {
+        pillText: "Live at Checkout",
+        pillIcon: "/icons/wallet.svg",
+        titleStart: "Real Discount,",
+        titleHighlight: "Real Checkout",
+        titleEnd: "",
+        description:
+          "The discounted price is calculated on Softunebd's server at checkout, not just shown on the product card — so what a shopper sees is what they actually pay.",
+        bullets: [
+          "Original price shown struck through beside the sale price",
+          "Discount is enforced server-side at checkout",
+          "No manual price rollback needed when the sale ends",
+          "Order history keeps the sale price it was bought at",
+        ],
+      },
+    ],
+    extraTitle: "Built for real campaigns",
+    extraDesc:
+      "Events are a first-class Softunebd feature — no separate discount-code app or manual price editing required.",
+    extraCards: [
+      { title: "One Toggle", desc: "Turn a sale on or off without touching product prices.", icon: "/icons/zap.svg" },
+      { title: "Server Priced", desc: "Discounts are calculated and enforced at checkout, not just displayed.", icon: "/icons/lock.svg" },
+      { title: "Per Store", desc: "Campaigns belong to one storefront, same as your products.", icon: "/icons/domain.svg" },
+    ],
+  },
 };
 
 export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
