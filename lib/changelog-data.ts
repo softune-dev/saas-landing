@@ -22,6 +22,41 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "1.6",
+    version: "v1.6.0",
+    date: "Sep 4, 2026",
+    title: "Sale campaigns and stronger fraud protection",
+    description:
+      "Run named sale campaigns on specific products, and stop fraud with site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Events: create a named sale campaign (e.g. Eid Sale), set a percent-off discount, bind it to specific products, and Softunebd applies the discount at checkout automatically.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Site-wide IP blocking: block a visitor's IP from your entire storefront, not just at checkout. A blocked visitor sees a clear notice with a way to contact you.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Device pending-lock and cooldown: stop a second checkout attempt while one is already in progress, and block repeat attempts after a cancelled or fraudulent order.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Suspicious Orders: high-value first orders and bursts of orders from the same customer are flagged for review instead of silently accepted or rejected.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Billing now issues a real invoice when your trial starts or your plan changes — view and download it from Account.",
+      },
+    ],
+  },
+  {
     serial: "1.5",
     version: "v1.5.0",
     date: "Sep 3, 2026",
