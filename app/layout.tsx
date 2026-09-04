@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { Analytics, AnalyticsNoscript } from "@/components/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TawkWidget } from "@/components/tawk-widget";
 import { StructuredData } from "@/components/structured-data";
@@ -167,6 +168,7 @@ export default async function RootLayout({
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
         <TawkWidget />
+        <VercelAnalytics />
       </body>
     </html>
   );
