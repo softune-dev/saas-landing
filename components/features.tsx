@@ -60,6 +60,11 @@ export const featuresEn = [
     desc: "Automatically flag suspicious orders before they ship, so you're not paying courier fees on scams.",
   },
   {
+    icon: "/icons/zap.svg",
+    title: "Events & Sale Campaigns",
+    desc: "Run a named percent-off sale on specific products, with the discount shown live at checkout.",
+  },
+  {
     icon: "/icons/domain.svg",
     title: "SEO & Domains",
     desc: "Set titles, Open Graph, tracking pixels, and a custom domain from Site Settings.",
