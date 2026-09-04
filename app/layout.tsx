@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { Analytics, AnalyticsNoscript } from "@/components/analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TawkWidget } from "@/components/tawk-widget";
 import { StructuredData } from "@/components/structured-data";
@@ -169,6 +170,7 @@ export default async function RootLayout({
         <ThemeProvider>{children}</ThemeProvider>
         <TawkWidget />
         <VercelAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );
