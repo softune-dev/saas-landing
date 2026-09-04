@@ -283,7 +283,7 @@ export function Features({ locale = "en" }: { locale?: "en" | "bn" }) {
               onClick={() => setShowAll(true)}
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
             >
-              {isBn ? "সব ১৬টি ফিচার দেখুন" : "View all 16 features"}
+              {isBn ? "সব ১৭টি ফিচার দেখুন" : "View all 17 features"}
             </button>
           </div>
         )}
