@@ -776,7 +776,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     alternating: [
       {
         pillText: "Named Campaigns",
-        pillIcon: "/icons/zap.svg",
+        pillIcon: "/icons/events.svg",
         titleStart: "Name Your",
         titleHighlight: "Sale",
         titleEnd: "",
@@ -824,7 +824,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     extraDesc:
       "Events are a first-class Softunebd feature — no separate discount-code app or manual price editing required.",
     extraCards: [
-      { title: "One Toggle", desc: "Turn a sale on or off without touching product prices.", icon: "/icons/zap.svg" },
+      { title: "One Toggle", desc: "Turn a sale on or off without touching product prices.", icon: "/icons/events.svg" },
       { title: "Server Priced", desc: "Discounts are calculated and enforced at checkout, not just displayed.", icon: "/icons/lock.svg" },
       { title: "Per Store", desc: "Campaigns belong to one storefront, same as your products.", icon: "/icons/domain.svg" },
     ],
@@ -1565,7 +1565,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     alternating: [
       {
         pillText: "নামসহ ক্যাম্পেইন",
-        pillIcon: "/icons/zap.svg",
+        pillIcon: "/icons/events.svg",
         titleStart: "আপনার সেলের",
         titleHighlight: "নাম দিন",
         titleEnd: "",
@@ -1613,7 +1613,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     extraDesc:
       "Events Softunebd-এর নিজস্ব ফিচার — আলাদা কোনো ডিসকাউন্ট-কোড অ্যাপ বা ম্যানুয়াল প্রাইস এডিটের প্রয়োজন নেই।",
     extraCards: [
-      { title: "এক টগল", desc: "প্রোডাক্টের দাম না ছুঁয়ে সেল চালু বা বন্ধ করুন।", icon: "/icons/zap.svg" },
+      { title: "এক টগল", desc: "প্রোডাক্টের দাম না ছুঁয়ে সেল চালু বা বন্ধ করুন।", icon: "/icons/events.svg" },
       { title: "সার্ভার প্রাইসিং", desc: "ডিসকাউন্ট শুধু দেখানো নয়, চেকআউটে সার্ভার থেকে প্রয়োগ হয়।", icon: "/icons/lock.svg" },
       { title: "প্রতি স্টোর আলাদা", desc: "প্রোডাক্টের মতো ক্যাম্পেইনও এক স্টোরের নিজস্ব।", icon: "/icons/domain.svg" },
     ],
@@ -1625,7 +1625,7 @@ export const FEATURES_LIST = [
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
-  { slug: "events-campaigns", title: "Events & Campaigns", icon: "/icons/zap.svg", desc: "Run percent-off sale campaigns on specific products" },
+  { slug: "events-campaigns", title: "Events & Campaigns", icon: "/icons/events.svg", desc: "Run percent-off sale campaigns on specific products" },
   { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },
   { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, profit, traffic, and conversion" },
   { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, eCourier, and more" },

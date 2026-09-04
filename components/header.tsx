@@ -19,6 +19,7 @@ const linksEn = [
       { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
       { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
       { label: "Store Sale", href: "/features/store-sale", icon: "/icons/shop-bag.svg" },
+      { label: "Events & Campaigns", href: "/features/events-campaigns", icon: "/icons/events.svg" },
       {
         label: "Marketing & Tracking",
         href: "/features/marketing-tracking",
@@ -60,6 +61,7 @@ const linksBn = [
       { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
       { label: "পেমেন্ট গেটওয়ে", href: "/bn/features/payments", icon: "/icons/wallet.svg" },
       { label: "স্টোর সেল", href: "/bn/features/store-sale", icon: "/icons/shop-bag.svg" },
+      { label: "ইভেন্ট ও ক্যাম্পেইন", href: "/bn/features/events-campaigns", icon: "/icons/events.svg" },
       {
         label: "মার্কেটিং & ট্র্যাকিং",
         href: "/bn/features/marketing-tracking",

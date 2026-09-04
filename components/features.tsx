@@ -60,7 +60,7 @@ export const featuresEn = [
     desc: "Automatically flag suspicious orders before they ship, so you're not paying courier fees on scams.",
   },
   {
-    icon: "/icons/zap.svg",
+    icon: "/icons/events.svg",
     title: "Events & Sale Campaigns",
     desc: "Run a named percent-off sale on specific products, with the discount shown live at checkout.",
   },
@@ -83,11 +83,6 @@ export const featuresEn = [
     icon: "/icons/splash.svg",
     title: "Media Library",
     desc: "Upload and reuse product photos across the catalog without re-uploading.",
-  },
-  {
-    icon: "/icons/play.svg",
-    title: "Guided Onboarding",
-    desc: "A short setup walkthrough gets your first theme, products, and payments live.",
   },
 ];
 
@@ -148,7 +143,7 @@ export const featuresBn = [
     desc: "ভুয়া অর্ডার চিহ্নিত করুন যাতে কুরিয়ার চার্জের অহেতুক অপচয় না হয়।",
   },
   {
-    icon: "/icons/zap.svg",
+    icon: "/icons/events.svg",
     title: "ইভেন্ট ও সেল ক্যাম্পেইন",
     desc: "নির্দিষ্ট প্রোডাক্টে নামসহ পার্সেন্ট ডিসকাউন্ট সেল চালু করুন, চেকআউটেও ছাড় সরাসরি প্রযোজ্য হবে।",
   },
@@ -171,11 +166,6 @@ export const featuresBn = [
     icon: "/icons/splash.svg",
     title: "মিডিয়া লাইব্রেরি",
     desc: "প্রোডাক্ট ফটো আপলোড করুন এবং নতুন করে আপলোড না করেই বারবার ক্যাটালগে ব্যবহার করুন।",
-  },
-  {
-    icon: "/icons/play.svg",
-    title: "সহজ অনবোর্ডিং",
-    desc: "একটি কুইক সেটআপ গাইড যা আপনার থিম, প্রোডাক্ট ও পেমেন্ট লাইভ করতে সাহায্য করে।",
   },
 ];
 
