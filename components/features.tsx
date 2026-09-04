@@ -7,7 +7,7 @@ export const featuresEn = [
   {
     icon: "/icons/color.svg",
     title: "AI Theme Editor",
-    desc: "Change colors, fonts, and sections with a live preview — no designer needed to launch a Bangladesh storefront.",
+    desc: "Change colors, fonts, and sections with a live preview, no designer needed to launch a Bangladesh storefront.",
   },
   {
     icon: "/icons/ai-pencil.svg",
@@ -32,7 +32,7 @@ export const featuresEn = [
   {
     icon: "/icons/analytics.svg",
     title: "Store Analytics",
-    desc: "See real revenue, profit, and visitors from Softunebd orders — not guessed funnels.",
+    desc: "See real revenue, profit, and visitors from Softunebd orders, not guessed funnels.",
   },
   {
     icon: "/icons/orders.svg",
@@ -57,7 +57,7 @@ export const featuresEn = [
   {
     icon: "/icons/lock.svg",
     title: "Fraud Protection",
-    desc: "Automatically flag suspicious orders before they ship, so you're not paying courier fees on scams.",
+    desc: "Phone blocklist, site-wide IP blocking, and device rules to stop fake COD orders.",
   },
   {
     icon: "/icons/events.svg",
@@ -90,12 +90,12 @@ export const featuresBn = [
   {
     icon: "/icons/color.svg",
     title: "AI থিম এডিটর",
-    desc: "লাইভ প্রিভিউ দেখে কালার, ফন্ট ও সেকশন চেঞ্জ করুন — কোডিং বা ডিজাইনারের সাহায্য ছাড়াই স্টোর তৈরি করুন।",
+    desc: "লাইভ প্রিভিউ দেখে কালার, ফন্ট ও সেকশন চেঞ্জ করুন, কোডিং বা ডিজাইনারের সাহায্য ছাড়াই স্টোর তৈরি করুন।",
   },
   {
     icon: "/icons/ai-pencil.svg",
     title: "AI অ্যাসিস্ট্যান্ট",
-    desc: "বাংলা বা ইংরেজিতে প্রোডাক্ট, অর্ডার ও সেলস নিয়ে প্রশ্ন করুন — গুগল জেমিনি চালিত স্মার্ট উত্তর পান।",
+    desc: "বাংলা বা ইংরেজিতে প্রোডাক্ট, অর্ডার ও সেলস নিয়ে প্রশ্ন করুন, গুগল জেমিনি চালিত স্মার্ট উত্তর পান।",
   },
   {
     icon: "/icons/wallet.svg",
@@ -125,7 +125,7 @@ export const featuresBn = [
   {
     icon: "/icons/shop-bag.svg",
     title: "প্রোডাক্ট ক্যাটালগ",
-    desc: "ছবি, ভ্যারিয়েন্ট, স্টক ও টাকা প্রাইস অ্যাড করুন — AI ডেসক্রিপশন রি-জেনারেট অপশন সহ।",
+    desc: "ছবি, ভ্যারিয়েন্ট, স্টক ও টাকা প্রাইস অ্যাড করুন, AI ডেসক্রিপশন রি-জেনারেট অপশন সহ।",
   },
   {
     icon: "/icons/delivery.svg",
@@ -140,7 +140,7 @@ export const featuresBn = [
   {
     icon: "/icons/lock.svg",
     title: "ফ্রড প্রোটেকশন",
-    desc: "ভুয়া অর্ডার চিহ্নিত করুন যাতে কুরিয়ার চার্জের অহেতুক অপচয় না হয়।",
+    desc: "ফোন ব্লকলিস্ট, সাইট-ওয়াইড IP ব্লকিং ও ডিভাইস রুলস দিয়ে ফেইক COD অর্ডার প্রতিরোধ করুন।",
   },
   {
     icon: "/icons/events.svg",

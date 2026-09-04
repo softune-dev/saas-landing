@@ -30,7 +30,7 @@ export const faqData: FaqItem[] = [
   {
     category: "General",
     q: "Do I need coding skills to use Softunebd?",
-    a: "No. Softunebd is built for non-technical users. Launch a store, add products, manage orders, and customize your storefront in the Theme Editor — no coding required.",
+    a: "No. Softunebd is built for non-technical users. Launch a store, add products, manage orders, and customize your storefront in the Theme Editor, no coding required.",
   },
   {
     category: "General",
@@ -45,17 +45,17 @@ export const faqData: FaqItem[] = [
   {
     category: "General",
     q: "How long does it take to launch my store?",
-    a: "Minutes. Pick a pre-built theme, add products, enable a payment method, and publish — your store can be live and accepting orders the same day.",
+    a: "Minutes. Pick a pre-built theme, add products, enable a payment method, and publish, your store can be live and accepting orders the same day.",
   },
   {
     category: "Security",
     q: "Is my customer data secure?",
-    a: "Yes. Softunebd isolates each merchant’s data by tenant, stores sensitive credentials encrypted, and includes rule-based Fraud Protection (phone blocklist plus checkout rules) to reduce COD abuse. Softunebd does not claim machine-learning fraud scoring.",
+    a: "Yes. Softunebd isolates each merchant’s data by tenant, stores sensitive credentials encrypted, and includes Fraud Protection, phone blocklist, site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue, to reduce COD abuse and fake orders.",
   },
   {
     category: "Themes",
     q: "Can I customize my store's design?",
-    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softunebd’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview — no code. AI Suggest can propose changes you still review before publishing.`,
+    a: `Yes. ${BRANDING_CLAIM} Choose a professional theme and use Softunebd’s Theme Editor to change logo, colors, fonts, and sections with live desktop and mobile preview, no code. AI Suggest can propose changes you still review before publishing.`,
   },
   {
     category: "Themes",
@@ -75,7 +75,7 @@ export const faqData: FaqItem[] = [
   {
     category: "General",
     q: "How does Softunebd's AI help my business?",
-    a: "Softunebd’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live — Softunebd does not auto-rewrite your store SEO without review.",
+    a: "Softunebd’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live, Softunebd does not auto-rewrite your store SEO without review.",
   },
 ];
 
@@ -98,7 +98,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "General",
     q: "Softunebd ব্যবহার করতে কি কোডিং জানার প্রয়োজন আছে?",
-    a: "একদমই না। Softunebd নন-টেকনিক্যাল ইউজারদের কথা মাথায় রেখেই তৈরি। Theme Editor ব্যবহার করে সহজেই লোগো, কালার, ফন্ট ও সেকশন কাস্টমাইজ করুন — ১ লাইন কোডও লেখা লাগবে না।",
+    a: "একদমই না। Softunebd নন-টেকনিক্যাল ইউজারদের কথা মাথায় রেখেই তৈরি। Theme Editor ব্যবহার করে সহজেই লোগো, কালার, ফন্ট ও সেকশন কাস্টমাইজ করুন, ১ লাইন কোডও লেখা লাগবে না।",
   },
   {
     category: "General",
@@ -113,7 +113,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "General",
     q: "স্টোর লাইভ করতে কত সময় লাগে?",
-    a: "মাত্র কয়েক মিনিট। রেডিমেড থিম সিলেক্ট করুন, প্রোডাক্ট অ্যাড করুন, পেমেন্ট অপশন অন করুন এবং পাবলিশ করুন — আজই আপনার স্টোর থেকে অর্ডার নেয়া শুরু করুন।",
+    a: "মাত্র কয়েক মিনিট। রেডিমেড থিম সিলেক্ট করুন, প্রোডাক্ট অ্যাড করুন, পেমেন্ট অপশন অন করুন এবং পাবলিশ করুন, আজই আপনার স্টোর থেকে অর্ডার নেয়া শুরু করুন।",
   },
   {
     category: "Security",

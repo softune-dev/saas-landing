@@ -49,12 +49,13 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
         { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
         { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
         { slug: "store-sale", title: "স্টোর সেল", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },
+        { slug: "events-campaigns", title: "ইভেন্ট ও ক্যাম্পেইন", icon: "/icons/events.svg", desc: "নির্দিষ্ট প্রোডাক্টে পার্সেন্ট ডিসকাউন্ট সেল ক্যাম্পেইন" },
         { slug: "marketing-tracking", title: "মার্কেটিং & ট্র্যাকিং", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM এবং GA4 ইভেন্টস" },
         { slug: "store-analytics", title: "স্টোর অ্যানালিটিক্স", icon: "/icons/analytics.svg", desc: "রেভিনিউ, প্রফিট, ট্রাফিক ও কনভার্শন রিপোর্ট" },
         { slug: "courier", title: "কুরিয়ার ডেলিভারি", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, eCourier ও অন্যান্য" },
         { slug: "orders", title: "অর্ডার ম্যানেজমেন্ট", icon: "/icons/orders.svg", desc: "সার্চ, ফিল্টার, অর্ডারের স্ন্যাপশট ও প্রিন্ট স্লিপ" },
         { slug: "customer-management", title: "কাস্টমার ম্যানেজমেন্ট", icon: "/icons/user.svg", desc: "অর্ডার থেকে ফোন নম্বর ম্যাচিং শপার রসিদ" },
-        { slug: "fraud-protection", title: "ফ্রড প্রোটেকশন", icon: "/icons/lock.svg", desc: "ফোন নম্বর ব্লকক্লিপ ও COD সিকিউরিটি রুলস" },
+        { slug: "fraud-protection", title: "ফ্রড প্রোটেকশন", icon: "/icons/lock.svg", desc: "IP ব্লকিং, ডিভাইস রুলস ও Suspicious Orders রিভিউ" },
       ]
     : FEATURES_LIST;
 

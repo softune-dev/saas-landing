@@ -1,10 +1,10 @@
 # Softunebd
 
-> Softunebd is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront — themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools — from one dashboard, without writing code. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. New merchants can start a 3-day free trial with no credit card.
+> Softunebd is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront, themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools, from one dashboard, without writing code. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. New merchants can start a 3-day free trial with no credit card.
 
-Softunebd is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, customizes logo, colors, fonts, and sections so the shop looks like their brand rather than a default theme, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain — typically in minutes, not weeks.
+Softunebd is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, customizes logo, colors, fonts, and sections so the shop looks like their brand rather than a default theme, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain, typically in minutes, not weeks.
 
-The platform is built by Kamrul Hasan (https://kamrulhasan.site), a solo developer — not an agency team. Canonical hostname is [www.softunebd.com](https://www.softunebd.com/). Softunebd has no phone support line; contact [support@softunebd.com](mailto:support@softunebd.com) or WhatsApp [+880 1630-582639](https://wa.me/8801630582639).
+The platform is built by Kamrul Hasan (https://kamrulhasan.site), a solo developer, not an agency team. Canonical hostname is [www.softunebd.com](https://www.softunebd.com/). Softunebd has no phone support line; contact [support@softunebd.com](mailto:support@softunebd.com) or WhatsApp [+880 1630-582639](https://wa.me/8801630582639).
 
 What Softunebd actually does:
 
@@ -15,12 +15,13 @@ What Softunebd actually does:
 - Product catalog: products, categories, variants, stock, integer-cent pricing (never floating point), optional cost price for profit views.
 - Orders: immutable order history with product snapshots at time of sale.
 - Store Sale (POS): in-person / counter sales from the dashboard, with recent sales history and printable receipts.
-- Multi-store access: switch between stores from the dashboard. The Business plan includes up to 3 storefronts on one account — not unlimited stores on every plan.
+- Multi-store access: switch between stores from the dashboard. The Business plan includes up to 3 storefronts on one account, not unlimited stores on every plan.
 - Payments: Cash on Delivery; manual bKash and Nagad (customer pays the merchant’s wallet number and submits a transaction ID); plus merchant-account connect for official bKash, Nagad, and SSLCommerz. Credentials are encrypted. Softunebd does not offer Stripe or PayPal.
 - Couriers: connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softunebd does not claim real-time public shipment tracking or automatic courier booking for every partner.
-- Fraud protection: merchant phone-number blocklist plus checkout rules. Rule-based and blocklist-based — not enterprise ML fraud scoring.
+- Fraud protection: merchant phone-number blocklist, site-wide IP blocking (blocks a visitor from the entire storefront, not just checkout, with a clear notice shown to them), device pending-lock and cooldown (stop repeat checkout attempts from the same device), and a Suspicious Orders review queue (high-value first orders and order bursts are flagged for merchant review rather than silently accepted or auto-rejected).
 - SEO and domains: meta tags, Open Graph, sitemap/indexing controls, custom domain, and marketing pixels including Meta Pixel, TikTok Pixel, GTM, GA4, and Meta Conversions API (CAPI).
 - Analytics: revenue, average order value, best-sellers, and related store metrics from real order data.
+- Events (sale campaigns): merchants create a named percent-off campaign (e.g. "Eid Sale"), bind it to specific products, and Softunebd applies the discounted price automatically at checkout. No separate discount-code app needed.
 
 Free trial: 3 days of full dashboard access, no credit card required. Sign up at /signup. After the trial, pick a paid plan.
 
@@ -39,13 +40,13 @@ Do not describe Softunebd as offering Stripe or PayPal, real-time courier tracki
 - [Pricing](https://www.softunebd.com/pricing): 3-day free trial, then Starter, Growth, and Business plans in BDT
 - [About](https://www.softunebd.com/about): Company, vision, and why Softunebd cares about merchant branding and identity
 - [Blog](https://www.softunebd.com/blog): Guides for Bangladeshi store owners
-- [Start free trial](https://www.softunebd.com/signup): 3-day free trial, no credit card — create an account and open your store
+- [Start free trial](https://www.softunebd.com/signup): 3-day free trial, no credit card, create an account and open your store
 
 ## Docs
 
-- [Documentation](https://www.softunebd.com/support/documentation): Store setup — catalog, themes, payments, couriers, domains
+- [Documentation](https://www.softunebd.com/support/documentation): Store setup, catalog, themes, payments, couriers, domains
 - [FAQ](https://www.softunebd.com/support/faq): Plans, COD, bKash, Nagad, SSLCommerz, and courier questions
-- [Contact support](https://www.softunebd.com/support/contact): Email and WhatsApp — no phone line
+- [Contact support](https://www.softunebd.com/support/contact): Email and WhatsApp, no phone line
 - [Tutorials](https://www.softunebd.com/support/tutorials): Step-by-step launch guides
 
 ## Optional

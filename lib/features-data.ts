@@ -6,7 +6,7 @@ export interface AlternatingItem {
   titleEnd: string;
   description: string;
   bullets: string[];
-  /** Theme-aware screenshot for this section — only set for features that
+  /** Theme-aware screenshot for this section, only set for features that
    * kept the alternating media layout (Theme Editor, AI Assistant). */
   image?: { light: string; dark: string };
 }
@@ -25,7 +25,7 @@ export interface FeatureData {
   titleEnd: string;
   description: string;
   /** Set only for a feature simple enough to need one screenshot instead of
-   * a separate image per alternating section (e.g. Payments) — shown once
+   * a separate image per alternating section (e.g. Payments), shown once
    * in the hero, right under the description. Its presence switches the
    * alternating section below from "text + own media per item" to a plain
    * 3-column text grid, since one shared image repeated 3x would be
@@ -52,7 +52,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Live",
     titleEnd: "",
     description:
-      "Softunebd cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview — then publish when the shop looks like your brand.",
+      "Softunebd cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview, then publish when the shop looks like your brand.",
     introTitle: "Your brand, not a default template",
     introDesc:
       "Softunebd is built so each store looks like the merchant, not like every other shop on the same theme. Desktop, tablet, and mobile previews sit beside your edits, so customers only see the identity you publish.",
@@ -79,7 +79,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Your Way",
         titleEnd: "",
         description:
-          "Your branding and identity stay yours: logo, colors, fonts, and buttons. Add, remove, and reorder homepage sections, and edit the content shoppers actually see — instead of shipping a generic look.",
+          "Your branding and identity stay yours: logo, colors, fonts, and buttons. Add, remove, and reorder homepage sections, and edit the content shoppers actually see, instead of shipping a generic look.",
         bullets: [
           "Logo, site name, tagline, colors, and font pairs",
           "Drag-and-drop homepage sections without code",
@@ -108,7 +108,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       "Fashion, Emporium, and Vault share the same editor, so you customize one clear design system instead of fighting a rigid template.",
     extraCards: [
       { title: "Fashion", desc: "Editorial layout for apparel, jewelry, and photo-led brands.", icon: "/icons/themes.svg" },
-      { title: "Emporium", desc: "Many aisles under one roof — dense catalogs and category browsing.", icon: "/icons/color.svg" },
+      { title: "Emporium", desc: "Many aisles under one roof, dense catalogs and category browsing.", icon: "/icons/color.svg" },
       { title: "Vault", desc: "Built for courses, templates, software, and other digital goods.", icon: "/icons/zap.svg" },
     ],
   },
@@ -167,7 +167,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Answers from your own products and orders",
           "Confirm cards before any write is saved",
         ],
-        // Only 2 dedicated AI screenshots exist — reusing the Theme Editor's
+        // Only 2 dedicated AI screenshots exist, reusing the Theme Editor's
         // AI Suggest shot (t3) for this third section, per instruction.
         image: { light: "/feature/theme/t3-l.webp", dark: "/feature/theme/t3-d.webp" },
       },
@@ -188,12 +188,28 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "COD Orders",
     titleEnd: "",
     description:
-      "Protect Cash on Delivery sales with a phone blocklist, site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue — all controlled from one Softunebd screen.",
+      "Protect Cash on Delivery sales with a phone blocklist, site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue, all controlled from one Softunebd screen.",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
     introTitle: "Built for COD abuse, not card scoring",
     introDesc:
-      "Fraud Protection sits next to Orders. Block bad phones and IPs, stop repeat checkout attempts from the same device, and review flagged orders before you ship — all tuned to match how your store gets burned.",
+      "Fraud Protection sits next to Orders. Block bad phones and IPs, stop repeat checkout attempts from the same device, and review flagged orders before you ship, all tuned to match how your store gets burned.",
     alternating: [
+      {
+        pillText: "Site & Device Blocking",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Block More Than",
+        titleHighlight: "Just a Phone",
+        titleEnd: "",
+        description:
+          "Block a visitor's IP address from your entire storefront, not only at checkout, and stop repeat checkout attempts from the same device automatically.",
+        bullets: [
+          "Site-wide IP blocking, a blocked visitor sees a clear notice, not a broken page",
+          "Device pending-lock stops a second checkout while one is already in progress",
+          "Device cooldown blocks repeat attempts after a cancelled or fraudulent order",
+          "Suspicious Orders queue flags high-value first orders and order bursts for review",
+          "Every flagged order is still saved, you decide, nothing is silently rejected",
+        ],
+      },
       {
         pillText: "Phone Blocklist",
         pillIcon: "/icons/lock.svg",
@@ -224,38 +240,6 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Each rule can be turned on or off",
           "You set the threshold amount",
           "Applies automatically at checkout",
-        ],
-      },
-      {
-        pillText: "Per Store",
-        pillIcon: "/icons/domain.svg",
-        titleStart: "Saved With Your",
-        titleHighlight: "Store",
-        titleEnd: "",
-        description:
-          "Fraud settings belong to each storefront, so different shops can run different blocklists and rules.",
-        bullets: [
-          "Per-site blocklist and rules",
-          "No separate fraud SaaS to buy",
-          "Same tenant isolation as Softunebd orders",
-          "Configured from your Fraud Protection screen",
-          "Different shops can run different rules",
-        ],
-      },
-      {
-        pillText: "Site & Device Blocking",
-        pillIcon: "/icons/lock.svg",
-        titleStart: "Block More Than",
-        titleHighlight: "Just a Phone",
-        titleEnd: "",
-        description:
-          "Block a visitor's IP address from your entire storefront, not only at checkout, and stop repeat checkout attempts from the same device automatically.",
-        bullets: [
-          "Site-wide IP blocking — a blocked visitor sees a clear notice, not a broken page",
-          "Device pending-lock stops a second checkout while one is already in progress",
-          "Device cooldown blocks repeat attempts after a cancelled or fraudulent order",
-          "Suspicious Orders queue flags high-value first orders and order bursts for review",
-          "Every flagged order is still saved — you decide, nothing is silently rejected",
         ],
       },
     ],
@@ -290,11 +274,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         description:
           "See every Softunebd courier option in one dashboard list instead of hunting separate apps for each logistics brand.",
         bullets: [
-          "Steadfast — connect today",
-          "Pathao Courier — connect today",
-          "RedX — connect today",
-          "eCourier — connect today",
-          "Paperfly, Sundarban, Carrybee, SA Paribahan, PandaGo — on the same roster",
+          "Steadfast, connect today",
+          "Pathao Courier, connect today",
+          "RedX, connect today",
+          "eCourier, connect today",
+          "Paperfly, Sundarban, Carrybee, SA Paribahan, PandaGo, on the same roster",
         ],
       },
       {
@@ -310,7 +294,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Pathao merchant API (client ID, secret, username, password)",
           "RedX access token",
           "eCourier username and password",
-          "Your own merchant account — never a shared Softunebd login",
+          "Your own merchant account, never a shared Softunebd login",
         ],
       },
       {
@@ -334,7 +318,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     extraDesc:
       "Connect Steadfast, Pathao, RedX, and eCourier today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same Couriers screen.",
     extraCards: [
-      { title: "Connect Today", desc: "Steadfast, Pathao, RedX, and eCourier — your own merchant accounts, one Couriers screen.", icon: "/icons/delivery.svg" },
+      { title: "Connect Today", desc: "Steadfast, Pathao, RedX, and eCourier, your own merchant accounts, one Couriers screen.", icon: "/icons/delivery.svg" },
       { title: "Verified Connect", desc: "Steadfast keys are checked with the courier API before save.", icon: "/icons/zap.svg" },
       { title: "Encrypted", desc: "Courier credentials are encrypted at rest like payment credentials.", icon: "/icons/lock.svg" },
     ],
@@ -389,7 +373,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Real Profit",
         titleEnd: "",
         description:
-          "Set a Cost Price per product and Softunebd shows profit (revenue minus cost) alongside revenue. Profit is only as complete as the cost data you enter — products without Cost Price do not contribute to the profit figure yet.",
+          "Set a Cost Price per product and Softunebd shows profit (revenue minus cost) alongside revenue. Profit is only as complete as the cost data you enter, products without Cost Price do not contribute to the profit figure yet.",
         bullets: [
           "Set Cost Price per product in the product editor",
           "Profit = revenue minus cost from real orders",
@@ -400,7 +384,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built on what actually happened",
     extraDesc:
-      "Softunebd analytics follow your orders, storefront visitors, and the cost prices you set — not estimates or invented funnels.",
+      "Softunebd analytics follow your orders, storefront visitors, and the cost prices you set, not estimates or invented funnels.",
     extraCards: [
       { title: "Order-Based", desc: "Revenue and orders come from real Softunebd checkouts.", icon: "/icons/analytics.svg" },
       { title: "Real Traffic", desc: "Visitor counts and conversion rate come from your storefront.", icon: "/icons/zap.svg" },
@@ -491,7 +475,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
     introTitle: "BD payments on one Softunebd screen",
     introDesc:
-      "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials — Softunebd does not use a shared payment login.",
+      "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials, Softunebd does not use a shared payment login.",
     alternating: [
       {
         pillText: "bKash & Nagad",
@@ -502,10 +486,10 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         description:
           "Connect official bKash and Nagad merchant accounts, or take manual wallet payments: the shopper pays your number, submits a transaction ID, and you verify before you ship.",
         bullets: [
-          "Official bKash merchant checkout — connect App Key, App Secret, username, and password",
-          "Nagad merchant API — merchant ID plus RSA keys",
+          "Official bKash merchant checkout, connect App Key, App Secret, username, and password",
+          "Nagad merchant API, merchant ID plus RSA keys",
           "Manual bKash and Nagad with a transaction ID on each order",
-          "No extra plugin — same Payments screen",
+          "No extra plugin, same Payments screen",
           "Works alongside Cash on Delivery and SSLCommerz",
         ],
       },
@@ -544,7 +528,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built for real checkouts",
     extraDesc:
-      "COD, bKash, Nagad, and SSLCommerz — the methods Bangladeshi shoppers already use, kept simple and centralized.",
+      "COD, bKash, Nagad, and SSLCommerz, the methods Bangladeshi shoppers already use, kept simple and centralized.",
     extraCards: [
       { title: "bKash & Nagad", desc: "Official merchant checkout plus manual wallet payments with a transaction ID.", icon: "/icons/billing.svg" },
       { title: "SSLCommerz", desc: "Connect your SSLCommerz store for cards, mobile banking, and netbanking.", icon: "/icons/wallet.svg" },
@@ -629,11 +613,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Actually Work",
     titleEnd: "",
     description:
-      "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softunebd store. Softunebd fires real ecommerce events — ViewContent, AddToCart, InitiateCheckout, Purchase — not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
+      "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your Softunebd store. Softunebd fires real ecommerce events, ViewContent, AddToCart, InitiateCheckout, Purchase, not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
     heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
     introTitle: "Real events on every platform, server-side where it counts",
     introDesc:
-      "Softunebd fires ecommerce events — not just PageView — across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softunebd's own server, deduplicated against the browser pixel automatically.",
+      "Softunebd fires ecommerce events, not just PageView, across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from Softunebd's own server, deduplicated against the browser pixel automatically.",
     alternating: [
       {
         pillText: "Meta & TikTok Pixels",
@@ -645,8 +629,8 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Facebook/Meta Pixel and TikTok Pixel both fire the full ecommerce event set: ViewContent when a shopper views a product, AddToCart, InitiateCheckout, and Purchase on order completion. Previously only a generic PageView was sent.",
         bullets: [
           "ViewContent, AddToCart, InitiateCheckout, Purchase events",
-          "Facebook/Meta Pixel — real ecommerce events (upgraded from PageView only)",
-          "TikTok Pixel — new, same event set",
+          "Facebook/Meta Pixel, real ecommerce events (upgraded from PageView only)",
+          "TikTok Pixel, new, same event set",
           "Add your Pixel ID from the Softunebd integrations screen",
           "No custom code or tag setup required",
         ],
@@ -660,9 +644,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         description:
           "Google Tag Manager uses a container-based approach: add your own GTM ID and Softunebd loads your container, so you control what fires from inside GTM. Google Analytics (GA4) is also supported and now fires the same real ecommerce events alongside other pixels.",
         bullets: [
-          "Google Tag Manager — container-based, add your own GTM ID",
+          "Google Tag Manager, container-based, add your own GTM ID",
           "You manage tags inside GTM as normal",
-          "GA4 — real ecommerce events (upgraded from PageView only)",
+          "GA4, real ecommerce events (upgraded from PageView only)",
           "GTM and GA4 can run alongside Meta and TikTok pixels",
           "One integrations screen for all tracking connections",
         ],
@@ -674,12 +658,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Purchase Tracking",
         titleEnd: "",
         description:
-          "Meta Conversions API (CAPI) sends Purchase events directly from Softunebd's server to Meta — not just from the customer's browser. This means sales still get tracked even when the customer's browser ad blocker or iOS privacy settings strip the client-side pixel. Events are automatically deduplicated against the browser pixel so there's no double-counting.",
+          "Meta Conversions API (CAPI) sends Purchase events directly from Softunebd's server to Meta, not just from the customer's browser. This means sales still get tracked even when the customer's browser ad blocker or iOS privacy settings strip the client-side pixel. Events are automatically deduplicated against the browser pixel so there's no double-counting.",
         bullets: [
           "Purchase sent server-side from Softunebd, not the customer's browser",
           "Survives ad blockers and iOS privacy restrictions that strip browser pixels",
           "Automatic deduplication against the browser-side Meta Pixel",
-          "No double-counting — each sale reported once to Meta",
+          "No double-counting, each sale reported once to Meta",
           "A real edge over setups that only fire client-side pixels",
         ],
       },
@@ -688,9 +672,9 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     extraDesc:
       "Browser pixels alone miss sales blocked by ad blockers and iOS. Softunebd's server-side Meta CAPI layer closes that gap for Meta campaigns.",
     extraCards: [
-      { title: "Full Event Set", desc: "ViewContent, AddToCart, InitiateCheckout, Purchase — not just PageView.", icon: "/icons/analytics.svg" },
+      { title: "Full Event Set", desc: "ViewContent, AddToCart, InitiateCheckout, Purchase, not just PageView.", icon: "/icons/analytics.svg" },
       { title: "Server-Side CAPI", desc: "Purchase events from Softunebd's server survive ad blockers and iOS privacy settings.", icon: "/icons/lock.svg" },
-      { title: "No Double-Count", desc: "Browser pixel and CAPI are deduplicated automatically — one sale, one event.", icon: "/icons/zap.svg" },
+      { title: "No Double-Count", desc: "Browser pixel and CAPI are deduplicated automatically, one sale, one event.", icon: "/icons/zap.svg" },
     ],
   },
   "store-sale": {
@@ -700,7 +684,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Same Catalog",
     titleEnd: "",
     description:
-      "Softunebd Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt — without a separate POS product.",
+      "Softunebd Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt, without a separate POS product.",
     heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
     introTitle: "Counter sales that use your real Softunebd inventory",
     introDesc:
@@ -748,7 +732,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Printable receipt with shop name, date, time, and totals",
           "Recent Sales filtered to Store Sale (POS) orders",
           "Open any recent sale to review status and items",
-          "Not a full cash-drawer register — no drawer session or refunds-at-counter flow",
+          "Not a full cash-drawer register, no drawer session or refunds-at-counter flow",
         ],
       },
     ],
@@ -757,7 +741,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       "Store Sale writes to Softunebd orders with channel set to POS, so analytics and order history can separate walk-in sales from storefront checkouts.",
     extraCards: [
       { title: "Live Catalog", desc: "Products and stock come from the same Softunebd catalog as your online store.", icon: "/icons/shop-bag.svg" },
-      { title: "Print Receipt", desc: "Browser print of a shop-style slip — no separate printer SDK required.", icon: "/icons/doc.svg" },
+      { title: "Print Receipt", desc: "Browser print of a shop-style slip, no separate printer SDK required.", icon: "/icons/doc.svg" },
       { title: "Recent Sales", desc: "Open past walk-in orders without leaving Store Sale.", icon: "/icons/orders.svg" },
     ],
   },
@@ -768,7 +752,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Not a Guess",
     titleEnd: "",
     description:
-      "Create a named sale campaign — Eid Sale, Weekend Flash Sale, anything you want to call it — set a percent-off discount, choose which products it applies to, and Softunebd handles the discounted price at checkout automatically.",
+      "Create a named sale campaign, like Eid Sale or Weekend Flash Sale, set a percent-off discount, choose which products it applies to, and Softunebd handles the discounted price at checkout automatically.",
     heroPlaceholderColor: "#111827",
     introTitle: "A real campaign, not a manual price edit",
     introDesc:
@@ -811,7 +795,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Real Checkout",
         titleEnd: "",
         description:
-          "The discounted price is calculated on Softunebd's server at checkout, not just shown on the product card — so what a shopper sees is what they actually pay.",
+          "The discounted price is calculated on Softunebd's server at checkout, not just shown on the product card, so what a shopper sees is what they actually pay.",
         bullets: [
           "Original price shown struck through beside the sale price",
           "Discount is enforced server-side at checkout",
@@ -822,7 +806,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built for real campaigns",
     extraDesc:
-      "Events are a first-class Softunebd feature — no separate discount-code app or manual price editing required.",
+      "Events are a first-class Softunebd feature, no separate discount-code app or manual price editing required.",
     extraCards: [
       { title: "One Toggle", desc: "Turn a sale on or off without touching product prices.", icon: "/icons/events.svg" },
       { title: "Server Priced", desc: "Discounts are calculated and enforced at checkout, not just displayed.", icon: "/icons/lock.svg" },
@@ -839,7 +823,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleHighlight: "লাইভ",
     titleEnd: "",
     description:
-      "Softunebd আপনার ব্র্যান্ড আইডেন্টিটিকে প্রাধান্য দেয়। Theme Editor দিয়ে লোগো, কালার, ফন্ট ও সেকশন কাস্টমাইজ করুন — লাইভ প্রিভিউ দেখে পছন্দমত পাবলিশ করুন।",
+      "Softunebd আপনার ব্র্যান্ড আইডেন্টিটিকে প্রাধান্য দেয়। Theme Editor দিয়ে লোগো, কালার, ফন্ট ও সেকশন কাস্টমাইজ করুন, লাইভ প্রিভিউ দেখে পছন্দমত পাবলিশ করুন।",
     introTitle: "আপনার নিজস্ব ব্র্যান্ড আইডেন্টিটি",
     introDesc:
       "প্রতিটি শপ যেন মার্চেন্টের নিজস্ব ব্র্যান্ডের স্টাইলে দেখা যায়। ডেস্কটপ, ট্যাবলেট ও মোবাইলে লাইভ প্রিভিউ দেখে সম্পাদন করুন।",
@@ -892,7 +876,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     ],
     extraTitle: "উপযুক্ত থিম দিয়ে শুরু করুন",
     extraDesc:
-      "Fashion, Emporium ও Vault থিমগুলো একই সহজ এডিটর ব্যবহার করে — তাই যেকোনো নিশে মানানসই স্টোর তৈরি করা সহজ।",
+      "Fashion, Emporium ও Vault থিমগুলো একই সহজ এডিটর ব্যবহার করে, তাই যেকোনো নিশে মানানসই স্টোর তৈরি করা সহজ।",
     extraCards: [
       { title: "Fashion", desc: "ফ্যাশন, জুয়েলারি ও ক্লথিং ব্র্যান্ডের জন্য এডিটোরিয়াল ডিজাইন।", icon: "/icons/themes.svg" },
       { title: "Emporium", desc: "অনেক প্রোডাক্ট ক্যাটাগরি ও বড় ক্যাটালগের জন্য পারফেক্ট।", icon: "/icons/color.svg" },
@@ -909,7 +893,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       "গুগল জেমিনি চালিত AI প্রোডাক্ট ডেসক্রিপশন ড্রাফট করে, থিম সাজেশন দেয় এবং ড্যাশবোর্ড ডেটা থেকে প্রশ্নের উত্তর দেয়। সব চেঞ্জ অ্যাপ্লাইয়ের আগে রিভিউ করার পূর্ণ স্বাধীনতা পাবেন।",
     introTitle: "জেমিনি ড্রাফট করবে, আপনি অ্যাপ্রুভ করবেন",
     introDesc:
-      "প্রোডাক্ট ডেসক্রিপশন থেকে শুরু করে চ্যাটবট — আপনার অনুমতি ছাড়া AI কখনোই লাইভ স্টোরে সরাসরি কিছু সেভ করবে না।",
+      "প্রোডাক্ট ডেসক্রিপশন থেকে শুরু করে চ্যাটবট, আপনার অনুমতি ছাড়া AI কখনোই লাইভ স্টোরে সরাসরি কিছু সেভ করবে না।",
     alternating: [
       {
         pillText: "প্রোডাক্ট কপি",
@@ -959,7 +943,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     ],
     extraTitle: "সম্পূর্ণ নিরাপদ আর্কিটেকচার",
     extraDesc:
-      "AI কেবল প্রস্তাব করবে — আপনার ম্যানুয়াল চেঞ্জের মতোই সব সিদ্ধান্ত আপনার হাতে থাকবে।",
+      "AI কেবল প্রস্তাব করবে, আপনার ম্যানুয়াল চেঞ্জের মতোই সব সিদ্ধান্ত আপনার হাতে থাকবে।",
     extraCards: [
       { title: "রিভিউ ফাস্ট", desc: "সাজেশনগুলো প্রথমে আপনাকে দেখানো হয়, অটো-রাইট হয় না।", icon: "/icons/lock.svg" },
       { title: "নিরাপদ অ্যাকশন", desc: "স্পেসিফিক প্রোডাক্ট বা ক্যাটাগরি চেঞ্জের সুযোগ।", icon: "/icons/ai-pencil.svg" },
@@ -973,12 +957,28 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleHighlight: "বন্ধ করুন",
     titleEnd: "",
     description:
-      "ক্যাশ অন ডেলিভারি (COD) ফেইক অর্ডার রোধ করতে ফোন ব্লকক্লিপ, সাইট-ওয়াইড IP ব্লকিং, ডিভাইস চেকআউট রুলস এবং Suspicious Orders রিভিউ কিউ ব্যবহার করুন — সব এক স্ক্রিন থেকেই নিয়ন্ত্রণ করা যায়।",
+      "ক্যাশ অন ডেলিভারি (COD) ফেইক অর্ডার রোধ করতে ফোন ব্লকক্লিপ, সাইট-ওয়াইড IP ব্লকিং, ডিভাইস চেকআউট রুলস এবং Suspicious Orders রিভিউ কিউ ব্যবহার করুন, সব এক স্ক্রিন থেকেই নিয়ন্ত্রণ করা যায়।",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
     introTitle: "COD জালিয়াতি প্রতিরোধের বিশেষ ব্যবস্থা",
     introDesc:
-      "খারাপ নম্বর ও IP ব্লক করুন, একই ডিভাইস থেকে বারবার চেকআউট চেষ্টা বন্ধ করুন, এবং শিপ করার আগে ফ্ল্যাগ করা অর্ডার রিভিউ করুন — সব আপনার ব্যবসার ধরন অনুযায়ী কাস্টমাইজেবল।",
+      "খারাপ নম্বর ও IP ব্লক করুন, একই ডিভাইস থেকে বারবার চেকআউট চেষ্টা বন্ধ করুন, এবং শিপ করার আগে ফ্ল্যাগ করা অর্ডার রিভিউ করুন, সব আপনার ব্যবসার ধরন অনুযায়ী কাস্টমাইজেবল।",
     alternating: [
+      {
+        pillText: "সাইট ও ডিভাইস ব্লকিং",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "শুধু ফোন নয়,",
+        titleHighlight: "আরও বেশি ব্লক করুন",
+        titleEnd: "",
+        description:
+          "শুধু চেকআউটে নয়, পুরো স্টোরফ্রন্ট থেকেই ভিজিটরের IP ব্লক করুন, এবং একই ডিভাইস থেকে বারবার চেকআউট চেষ্টা অটোমেটিক বন্ধ করুন।",
+        bullets: [
+          "সাইট-ওয়াইড IP ব্লকিং, ক্ষতিকর ভিজিটরের পুরো শপে প্রবেশ বন্ধ",
+          "Device Pending-Lock, একই ডিভাইস থেকে একাধিক অর্ডারের চেষ্টা প্রতিরোধ",
+          "Device Cooldown, ফেইক বা বাতিল অর্ডারের পর পুনরায় চেষ্টা ব্লক",
+          "Suspicious Orders, হাই-ভ্যালু ও অস্বাভাবিক অর্ডারে স্মার্ট ফ্লাগিং",
+          "ম্যানুয়াল রিভিউ, কোনো অর্ডার অটো-বাতিল নয়, সিদ্ধান্ত আপনার",
+        ],
+      },
       {
         pillText: "ফোন ব্লকক্লিপ",
         pillIcon: "/icons/lock.svg",
@@ -986,12 +986,12 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         titleHighlight: "ব্লক করুন",
         titleEnd: "",
         description:
-          "যেকোনো সন্দেহজনক ফোন নম্বর ব্লকক্লিপে যোগ করুন। চেকআউটে ওই নম্বর দিলে সিস্টেম স্বয়ংক্রিয়ভাবে অর্ডার আটকে দেবে।",
+          "যেকোনো সন্দেহজনক ফোন নম্বর ব্লকক্লিপে যোগ করুন। চেকআউটে ওই নম্বর দিলে সিস্টেম স্বয়ংক্রিয়ভাবে অর্ডার আটকে দেবে।",
         bullets: [
           "চেকআউটে রিয়েল-টাইমে কার্যকর",
           "টিমের জন্য বিশেষ নোট রাখার সুযোগ",
           "শুধুমাত্র আপনার স্টোরের জন্য নির্দিষ্ট",
-          "যেকোনো সময় নম্বর যোগ বা রিমুভ করার সুবিধা",
+          "যেকোনো সময় নম্বর যোগ বা রিমুভ করার সুবিধা",
           "অন্যান্য ফ্রড সিকিউরিটি রুলসের সাথে একত্রে কাজ করে",
         ],
       },
@@ -1002,45 +1002,13 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         titleHighlight: "করুন",
         titleEnd: "",
         description:
-          "বড় টাকার ফার্স্ট অর্ডার হোল্ড বা দ্রুত বারবার অর্ডার আটকানোর সিকিউরিটি রুলস সহজেই অন-অফ করুন।",
+          "বড় টাকার ফার্স্ট অর্ডার হোল্ড বা দ্রুত বারবার অর্ডার আটকানোর সিকিউরিটি রুলস সহজেই অন-অফ করুন।",
         bullets: [
           "হাই-ভ্যালু ফার্স্ট অর্ডার ফ্লাগিং",
           "শর্ট-টাইম বার্স্ট অর্ডার ডিটেকশন উইন্ডো",
           "যেকোনো রুল স্বাধীনভাবে অন/অফ করার সুবিধা",
           "আপনি নিজেই অ্যামাউন্ট থ্রেশহোল্ড সেট করবেন",
-          "চেকআউটে স্বয়ংক্রিয়ভাবে প্রযোজ্য হয়",
-        ],
-      },
-      {
-        pillText: "স্টোর ভিত্তিক",
-        pillIcon: "/icons/domain.svg",
-        titleStart: "নিরাপদ ও",
-        titleHighlight: "আইসোলেটেড",
-        titleEnd: "",
-        description:
-          "ফ্রড সেটিংস আপনার স্টোরের জন্য আলাদা থাকবে, যাতে অন্যান্য স্টোরের সাথে কোনো কনফ্লিক্ট না হয়।",
-        bullets: [
-          "প্রতিটি সাইটের জন্য স্বাধীন ব্লকক্লিপ ও রুলস",
-          "বাড়তি কোনো ফ্রড SaaS অ্যাপ কেনার দরকার নেই",
-          "অর্ডারের মতোই সম্পূর্ণ সেপারেট ডাটাবেজ নিরাপত্তা",
-          "ফ্রড প্রোটেকশন স্ক্রিন থেকেই সরাসরি নিয়ন্ত্রণযোগ্য",
-          "আলাদা আলাদা স্টোরে ভিন্ন ভিন্ন রুলস চালানোর সুযোগ",
-        ],
-      },
-      {
-        pillText: "সাইট ও ডিভাইস ব্লকিং",
-        pillIcon: "/icons/lock.svg",
-        titleStart: "শুধু ফোন নয়,",
-        titleHighlight: "আরও বেশি ব্লক করুন",
-        titleEnd: "",
-        description:
-          "শুধু চেকআউটে নয়, পুরো স্টোরফ্রন্ট থেকেই ভিজিটরের IP ব্লক করুন, এবং একই ডিভাইস থেকে বারবার চেকআউট চেষ্টা অটোমেটিক বন্ধ করুন।",
-        bullets: [
-          "সাইট-ওয়াইড IP ব্লকিং — ব্লক হওয়া ভিজিটর একটি পরিষ্কার নোটিশ দেখবে, ভাঙা পেজ নয়",
-          "একটি অর্ডার চলমান থাকা অবস্থায় একই ডিভাইস থেকে দ্বিতীয় চেকআউট আটকে দেয় Device pending-lock",
-          "বাতিল বা ফ্রড অর্ডারের পর একই ডিভাইস থেকে পুনরায় চেষ্টা বন্ধ করে Device cooldown",
-          "হাই-ভ্যালু প্রথম অর্ডার ও একসাথে অনেক অর্ডার এলে Suspicious Orders কিউতে ফ্ল্যাগ হয়",
-          "ফ্ল্যাগ হওয়া অর্ডারও সেভ থাকে — সিদ্ধান্ত আপনার, কিছুই নিজে থেকে বাতিল হয় না",
+          "চেকআউটে স্বয়ংক্রিয়ভাবে প্রযোজ্য হয়",
         ],
       },
     ],
@@ -1075,11 +1043,11 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         description:
           "আলাদা আলাদা ড্যাশবোর্ডে লগইন না করে Softunebd-এর এক স্ক্রিন থেকেই সব কুরিয়ারের তথ্য পাবেন।",
         bullets: [
-          "Steadfast — আজই সরাসরি কানেক্ট করুন",
-          "Pathao Courier — আজই সরাসরি কানেক্ট করুন",
-          "RedX — আজই সরাসরি কানেক্ট করুন",
-          "eCourier — আজই সরাসরি কানেক্ট করুন",
-          "Paperfly, Sundarban, Carrybee, SA Paribahan, PandaGo — একই প্যানেলে যুক্ত",
+          "Steadfast, আজই সরাসরি কানেক্ট করুন",
+          "Pathao Courier, আজই সরাসরি কানেক্ট করুন",
+          "RedX, আজই সরাসরি কানেক্ট করুন",
+          "eCourier, আজই সরাসরি কানেক্ট করুন",
+          "Paperfly, Sundarban, Carrybee, SA Paribahan, PandaGo, একই প্যানেলে যুক্ত",
         ],
       },
       {
@@ -1095,7 +1063,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "Pathao Merchant Client ID, Secret, Username ও Password ইন্টিগ্রেশন",
           "RedX Access Token সরাসরি লিঙ্ক করার সুযোগ",
           "eCourier Username ও Password দিয়ে কানেক্ট",
-          "সম্পূর্ণ নিজস্ব মার্চেন্ট অ্যাকাউন্ট — কোনো শেয়ার্ড লগইন নয়",
+          "সম্পূর্ণ নিজস্ব মার্চেন্ট অ্যাকাউন্ট, কোনো শেয়ার্ড লগইন নয়",
         ],
       },
       {
@@ -1277,7 +1245,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
     introTitle: "বাংলাদেশের সব পেমেন্ট সিস্টেম এক স্ক্রিনে",
     introDesc:
-      "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট বা অফিশিয়াল পেমেন্ট গেটওয়ে — আপনার মার্চেন্ট একাউন্ট দিয়ে এক ড্যাশবোর্ড থেকেই সেটআপ করুন।",
+      "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট বা অফিশিয়াল পেমেন্ট গেটওয়ে, আপনার মার্চেন্ট একাউন্ট দিয়ে এক ড্যাশবোর্ড থেকেই সেটআপ করুন।",
     alternating: [
       {
         pillText: "bKash & Nagad",
@@ -1330,7 +1298,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     ],
     extraTitle: "আসল বিক্রেতাদের জন্য তৈরি",
     extraDesc:
-      "COD, bKash, Nagad ও SSLCommerz — বাংলাদেশি ক্রেতাদের সব পছন্দের পেমেন্ট মাধ্যম।",
+      "COD, bKash, Nagad ও SSLCommerz, বাংলাদেশি ক্রেতাদের সব পছন্দের পেমেন্ট মাধ্যম।",
     extraCards: [
       { title: "bKash ও Nagad", desc: "মার্চেন্ট গেটওয়ে এবং ম্যানুয়াল Transaction ID পেমেন্ট।", icon: "/icons/billing.svg" },
       { title: "SSLCommerz", desc: "কার্ড, মোবাইল ব্যাংকিং ও নেটব্যাংকিংয়ের সম্পূর্ণ সুবিধা।", icon: "/icons/wallet.svg" },
@@ -1419,7 +1387,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
     introTitle: "সার্ভার-সাইড ট্র্যাকিং দিয়ে নিখুঁত ক্যাটালগ অ্যানালিটিক্স",
     introDesc:
-      "ViewContent, AddToCart, InitiateCheckout ও Purchase — সব ইভেন্ট রিয়েল-টাইমে পিক্সেলে সেন্ড করা হয়। Meta Conversions API (CAPI) সার্ভার থেকে ডেটা পাঠায়, তাই iOS বা অ্যাড-ব্লকার হলেও ট্র্যাকিং মিস হয় না।",
+      "ViewContent, AddToCart, InitiateCheckout ও Purchase, সব ইভেন্ট রিয়েল-টাইমে পিক্সেলে সেন্ড করা হয়। Meta Conversions API (CAPI) সার্ভার থেকে ডেটা পাঠায়, তাই iOS বা অ্যাড-ব্লকার হলেও ট্র্যাকিং মিস হয় না।",
     alternating: [
       {
         pillText: "Meta & TikTok পিক্সেলে",
@@ -1428,11 +1396,11 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         titleHighlight: "সঠিক ট্র্যাকিং",
         titleEnd: "",
         description:
-          "শুধু PageView নয় — ViewContent, AddToCart, InitiateCheckout এবং Purchase সম্পূর্ণ ইভেন্ট ফায়ার করে।",
+          "শুধু PageView নয়, ViewContent, AddToCart, InitiateCheckout এবং Purchase সম্পূর্ণ ইভেন্ট ফায়ার করে।",
         bullets: [
           "ViewContent, AddToCart, InitiateCheckout ও Purchase ইভেন্টস",
-          "Facebook/Meta Pixel — সম্পূর্ণ ই-কমার্স ইভেন্ট ট্র্যাকিং",
-          "TikTok Pixel — একই সম্পূর্ণ ইভেন্ট সেট সাপোর্ট",
+          "Facebook/Meta Pixel, সম্পূর্ণ ই-কমার্স ইভেন্ট ট্র্যাকিং",
+          "TikTok Pixel, একই সম্পূর্ণ ইভেন্ট সেট সাপোর্ট",
           "ড্যাশবোর্ডের ইন্টিগ্রেশন স্ক্রিন থেকে Pixel ID যুক্ত করার সুবিধা",
           "কোনো কাস্টম কোডিং বা জটিল ট্যাগ সেটআপ ছাড়া প্রস্তুত",
         ],
@@ -1446,9 +1414,9 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         description:
           "Google Tag Manager (GTM) Container ID বসিয়ে আপনার নিজস্ব ট্যাগ ও কাস্টম ইভেন্ট পরিচালনা করুন। Google Analytics 4 (GA4) সাপোর্টও অন্তর্ভুক্ত।",
         bullets: [
-          "Google Tag Manager — আপনার কন্টেইনার ID দিয়ে যুক্ত করুন",
+          "Google Tag Manager, আপনার কন্টেইনার ID দিয়ে যুক্ত করুন",
           "GTM-এর ভেতর স্বাভাবিকভাবে সব ট্যাগ পরিচালনা করুন",
-          "GA4 — আসল ই-কমার্স ইভেন্ট অটোমেটিক ফায়ার করে",
+          "GA4, আসল ই-কমার্স ইভেন্ট অটোমেটিক ফায়ার করে",
           "Meta ও TikTok পিক্সেলের পাশাপাশি GTM ও GA4 একসাথে চলে",
           "এক ইন্টিগ্রেশন স্ক্রিন থেকেই সব ট্র্যাকিং সংযোগ নিয়ন্ত্রণ",
         ],
@@ -1465,7 +1433,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "কাস্টমারের ব্রাউজারের বদলে সরাসরি সার্ভার থেকে Purchase ডেটা প্রেরণ",
           "অ্যাড-ব্লকার ও iOS প্রাইভেসি সেটিংস থাকলেও ট্র্যাকিং মিস হয় না",
           "ব্রাউজার পিক্সেলের সাথে অটোমেটিক ডিডুপ্লিকেশন (Duplicate হবে না)",
-          "কোনো ডাবল কাউন্টিং নেই — প্রতি বিক্রির হিসাব একবারই পাঠানো হয়",
+          "কোনো ডাবল কাউন্টিং নেই, প্রতি বিক্রির হিসাব একবারই পাঠানো হয়",
           "সাধারণ ব্রাউজার পিক্সেলের চেয়ে বহুগুণ শক্তিশালী ও নিখুঁত",
         ],
       },
@@ -1486,7 +1454,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleHighlight: "কাউন্টার সেল",
     titleEnd: "",
     description:
-      "অনলাইন ক্যাটালগ থেকেই দোকানের সরাসরি বিক্রি সম্পাদন করুন ও থার্মাল রসিদ প্রিন্ট করুন — আলাদা কোনো POS সফটওয়্যার ছাড়াই।",
+      "অনলাইন ক্যাটালগ থেকেই দোকানের সরাসরি বিক্রি সম্পাদন করুন ও থার্মাল রসিদ প্রিন্ট করুন, আলাদা কোনো POS সফটওয়্যার ছাড়াই।",
     heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
     introTitle: "অনলাইন স্টক ও শোরুমের ইনভেন্টরি এক জায়গায়",
     introDesc:
@@ -1557,11 +1525,11 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleHighlight: "পরিকল্পনা করে",
     titleEnd: "",
     description:
-      "নিজের নামে সেল ক্যাম্পেইন তৈরি করুন — ঈদ সেল, উইকএন্ড ফ্ল্যাশ সেল, যা খুশি নাম দিন — পার্সেন্ট ডিসকাউন্ট সেট করুন, কোন প্রোডাক্টে প্রযোজ্য হবে বেছে নিন, আর Softunebd চেকআউটে ডিসকাউন্ট প্রাইস অটোমেটিক হিসাব করবে।",
+      "নিজের নামে সেল ক্যাম্পেইন তৈরি করুন, ঈদ সেল, উইকএন্ড ফ্ল্যাশ সেল, যা খুশি নাম দিন, পার্সেন্ট ডিসকাউন্ট সেট করুন, কোন প্রোডাক্টে প্রযোজ্য হবে বেছে নিন, আর Softunebd চেকআউটে ডিসকাউন্ট প্রাইস অটোমেটিক হিসাব করবে।",
     heroPlaceholderColor: "#111827",
     introTitle: "ম্যানুয়াল প্রাইস এডিট নয়, আসল ক্যাম্পেইন",
     introDesc:
-      "Products পেজের পাশেই Events থাকে। প্রতিটি প্রোডাক্টের দাম আলাদাভাবে পরিবর্তন না করেই ক্যাম্পেইন চালু বা বন্ধ করুন — স্টোরফ্রন্টে আসল দাম কেটে দেখিয়ে পাশে সেল প্রাইস দেখানো হবে।",
+      "Products পেজের পাশেই Events থাকে। প্রতিটি প্রোডাক্টের দাম আলাদাভাবে পরিবর্তন না করেই ক্যাম্পেইন চালু বা বন্ধ করুন, স্টোরফ্রন্টে আসল দাম কেটে দেখিয়ে পাশে সেল প্রাইস দেখানো হবে।",
     alternating: [
       {
         pillText: "নামসহ ক্যাম্পেইন",
@@ -1600,7 +1568,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         titleHighlight: "আসল চেকআউট",
         titleEnd: "",
         description:
-          "ডিসকাউন্ট প্রাইস Softunebd-এর সার্ভারে চেকআউটের সময় হিসাব হয় — শুধু প্রোডাক্ট কার্ডে দেখানো হয় না — তাই কাস্টমার যা দেখে, ঠিক তাই পে করে।",
+          "ডিসকাউন্ট প্রাইস Softunebd-এর সার্ভারে চেকআউটের সময় হিসাব হয়, শুধু প্রোডাক্ট কার্ডে দেখানো হয় না, তাই কাস্টমার যা দেখে, ঠিক তাই পে করে।",
         bullets: [
           "আসল দাম কেটে পাশে সেল প্রাইস দেখানো হয়",
           "ডিসকাউন্ট সার্ভার-সাইডে চেকআউটে প্রয়োগ হয়",
@@ -1611,7 +1579,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     ],
     extraTitle: "আসল ক্যাম্পেইনের জন্য তৈরি",
     extraDesc:
-      "Events Softunebd-এর নিজস্ব ফিচার — আলাদা কোনো ডিসকাউন্ট-কোড অ্যাপ বা ম্যানুয়াল প্রাইস এডিটের প্রয়োজন নেই।",
+      "Events Softunebd-এর নিজস্ব ফিচার, আলাদা কোনো ডিসকাউন্ট-কোড অ্যাপ বা ম্যানুয়াল প্রাইস এডিটের প্রয়োজন নেই।",
     extraCards: [
       { title: "এক টগল", desc: "প্রোডাক্টের দাম না ছুঁয়ে সেল চালু বা বন্ধ করুন।", icon: "/icons/events.svg" },
       { title: "সার্ভার প্রাইসিং", desc: "ডিসকাউন্ট শুধু দেখানো নয়, চেকআউটে সার্ভার থেকে প্রয়োগ হয়।", icon: "/icons/lock.svg" },
@@ -1621,7 +1589,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
 };
 
 export const FEATURES_LIST = [
-  { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity — live preview, not a generic look" },
+  { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity, live preview, not a generic look" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },

@@ -1,5 +1,5 @@
 /**
- * Merchant-facing changelog — dashboard and live storefront only.
+ * Merchant-facing changelog, dashboard and live storefront only.
  * Landing-site, SEO, and internal/dev work is not recorded here.
  * Dates follow git history of user-visible product work (Aug/Sep 2026).
  */
@@ -52,7 +52,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Billing now issues a real invoice when your trial starts or your plan changes — view and download it from Account.",
+          "Billing now issues a real invoice when your trial starts or your plan changes, view and download it from Account.",
       },
     ],
   },
@@ -122,7 +122,7 @@ export const changelogData: ChangelogRelease[] = [
     date: "Aug 31, 2026",
     title: "Free 3-day trial",
     description:
-      "You can open a real Softunebd store in minutes — no credit card, no waiting on us to provision an account.",
+      "You can open a real Softunebd store in minutes, no credit card, no waiting on us to provision an account.",
     changes: [
       {
         type: "Feature",
@@ -137,7 +137,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Trial sites are usable immediately. Setup guidance is optional — you are not locked out of products, orders, or the theme editor until you finish onboarding.",
+          "Trial sites are usable immediately. Setup guidance is optional, you are not locked out of products, orders, or the theme editor until you finish onboarding.",
       },
       {
         type: "Feature",
@@ -157,7 +157,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Connect official bKash, Nagad, and SSLCommerz merchant accounts from Payments — alongside COD and manual bKash/Nagad.",
+          "Connect official bKash, Nagad, and SSLCommerz merchant accounts from Payments, alongside COD and manual bKash/Nagad.",
       },
       {
         type: "Feature",
@@ -177,7 +177,7 @@ export const changelogData: ChangelogRelease[] = [
     date: "Aug 30, 2026",
     title: "Couriers, POS, and profit",
     description:
-      "More Bangladesh couriers, faster counter sales, and analytics that show margin — not just visits.",
+      "More Bangladesh couriers, faster counter sales, and analytics that show margin, not just visits.",
     changes: [
       {
         type: "Feature",
@@ -217,7 +217,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Each product variant can have its own color and image — not one photo for every size.",
+          "Each product variant can have its own color and image, not one photo for every size.",
       },
       {
         type: "Feature",
@@ -282,7 +282,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Custom domain: Softunebd attaches the domain on save and shows whether it is actually connected — not only stored in settings.",
+          "Custom domain: Softunebd attaches the domain on save and shows whether it is actually connected, not only stored in settings.",
       },
       {
         type: "Improvement",
@@ -297,7 +297,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Account profile now has phone, timezone, and avatar — used across the dashboard, not only at signup.",
+          "Account profile now has phone, timezone, and avatar, used across the dashboard, not only at signup.",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const changelogData: ChangelogRelease[] = [
     date: "Aug 18, 2026",
     title: "Softunebd is live",
     description:
-      "The dashboard and storefront that Bangladesh merchants use every day — themes, catalog, orders, COD, and the first courier.",
+      "The dashboard and storefront that Bangladesh merchants use every day, themes, catalog, orders, COD, and the first courier.",
     changes: [
       {
         type: "Feature",
@@ -362,7 +362,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Gemini AI chatbot in the dashboard — answers from your products, orders, and sales. Catalog writes still need your confirm.",
+          "Gemini AI chatbot in the dashboard, answers from your products, orders, and sales. Catalog writes still need your confirm.",
       },
       {
         type: "Feature",
