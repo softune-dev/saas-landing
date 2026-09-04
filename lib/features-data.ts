@@ -1625,6 +1625,7 @@ export const FEATURES_LIST = [
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
+  { slug: "events-campaigns", title: "Events & Campaigns", icon: "/icons/zap.svg", desc: "Run percent-off sale campaigns on specific products" },
   { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },
   { slug: "store-analytics", title: "Store Analytics", icon: "/icons/analytics.svg", desc: "Revenue, profit, traffic, and conversion" },
   { slug: "courier", title: "Couriers", icon: "/icons/delivery.svg", desc: "Steadfast, Pathao, RedX, eCourier, and more" },
