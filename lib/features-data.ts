@@ -252,6 +252,74 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "One Dashboard", desc: "Configured beside Orders and Site Settings.", icon: "/icons/delivery.svg" },
     ],
   },
+  "customer-risk-score": {
+    slug: "customer-risk-score",
+    pillText: "Customer Risk Score",
+    titleStart: "Know Who You're",
+    titleHighlight: "Shipping To",
+    titleEnd: "",
+    description:
+      "Every customer gets a 0-100 risk score, calculated live from their real order history (delivery success rate, fraud flags, device and IP signals), so you know whether to trust a COD order before you pack it.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "A transparent score, not a black box",
+    introDesc:
+      "Risk Score sits inside each customer's profile. Every point added or subtracted comes from a rule you can see, with no hidden machine learning model deciding who to trust.",
+    alternating: [
+      {
+        pillText: "Rule-Based, Not ML",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "See Exactly",
+        titleHighlight: "Why",
+        titleEnd: "",
+        description:
+          "The score starts at 100 and every signal that lowers it is a named, visible rule (a low delivery success rate, a confirmed fraud order, a blocklisted IP) and never an opaque prediction.",
+        bullets: [
+          "Score range 0-100, clamped so it never goes negative",
+          "Low risk (70+), Medium (40-69), High (below 40)",
+          "Every penalty is a named signal, shown in the breakdown",
+          "Recalculated fresh every time you open the customer",
+        ],
+      },
+      {
+        pillText: "Real Order History",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Built From",
+        titleHighlight: "What Actually Happened",
+        titleEnd: "",
+        description:
+          "The score reads a customer's real delivery outcomes and fraud history (not a guess from their name or address) so a shopper with a clean track record scores differently from one who's cancelled repeatedly.",
+        bullets: [
+          "Delivery success rate across resolved orders",
+          "Confirmed fraud history on any past order",
+          "Blocklisted IP or an unfamiliar device on their latest order",
+          "More than one open order at once flags as a duplicate risk",
+        ],
+      },
+      {
+        pillText: "One Click Away",
+        pillIcon: "/icons/user.svg",
+        titleStart: "Right Inside",
+        titleHighlight: "the Customer Page",
+        titleEnd: "",
+        description:
+          "Open any customer and the risk score is right there, with a color-coded badge, a score ring, and the full signal breakdown, so no separate report or export is needed.",
+        bullets: [
+          "Color-coded Low / Medium / High badge",
+          "A 0-100 score ring at a glance",
+          "Full signal breakdown underneath",
+          "New customers start at a fair, unpenalized Medium score",
+        ],
+      },
+    ],
+    extraTitle: "Informed, not automated",
+    extraDesc:
+      "Risk Score never blocks a checkout by itself: it's what you check before deciding to ship, alongside the phone and IP rules in Fraud Protection.",
+    extraCards: [
+      { title: "Always Fresh", desc: "Computed live from current order history, never a stale stored number.", icon: "/icons/clock.svg" },
+      { title: "You Decide", desc: "A high-risk score is a flag for you to review, not an automatic block.", icon: "/icons/user.svg" },
+      { title: "Per Store", desc: "Each customer's score is based only on their history with your store.", icon: "/icons/domain.svg" },
+    ],
+  },
   "courier": {
     slug: "courier",
     pillText: "Couriers",
@@ -1021,6 +1089,74 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       { title: "এক ড্যাশবোর্ড", desc: "অর্ডার ও সাইট সেটিংসের পাশেই অবস্থিত।", icon: "/icons/delivery.svg" },
     ],
   },
+  "customer-risk-score": {
+    slug: "customer-risk-score",
+    pillText: "কাস্টমার রিস্ক স্কোর",
+    titleStart: "কাকে শিপ করছেন,",
+    titleHighlight: "সেটা আগেই জানুন",
+    titleEnd: "",
+    description:
+      "প্রতিটি কাস্টমারের জন্য ০-১০০ রিস্ক স্কোর লাইভ হিসাব হয় তাদের আসল অর্ডার হিস্ট্রি থেকে (ডেলিভারি সাকসেস রেট, ফ্রড ফ্ল্যাগ, ডিভাইস ও IP সিগন্যাল), তাই প্যাক করার আগেই বুঝবেন COD অর্ডারটি বিশ্বাসযোগ্য কিনা।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "ব্ল্যাক-বক্স নয়, স্বচ্ছ স্কোর",
+    introDesc:
+      "Risk Score প্রতিটি কাস্টমার প্রোফাইলের ভেতরেই থাকে। স্কোর বাড়া বা কমার প্রতিটি কারণ দেখা যায়, কোনো লুকানো মেশিন লার্নিং মডেল সিদ্ধান্ত নেয় না কাকে বিশ্বাস করবেন।",
+    alternating: [
+      {
+        pillText: "রুল-বেসড, ML নয়",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "ঠিক কেন,",
+        titleHighlight: "সেটাও দেখুন",
+        titleEnd: "",
+        description:
+          "স্কোর শুরু হয় ১০০ থেকে, আর যা কিছু স্কোর কমায় তা একটি নির্দিষ্ট, দৃশ্যমান নিয়ম (কম ডেলিভারি সাকসেস রেট, কনফার্মড ফ্রড অর্ডার, ব্লকলিস্টেড IP), কখনোই অস্পষ্ট প্রেডিকশন নয়।",
+        bullets: [
+          "স্কোর রেঞ্জ ০-১০০, কখনও নেগেটিভ হয় না",
+          "Low risk (৭০+), Medium (৪০-৬৯), High (৪০-এর নিচে)",
+          "প্রতিটি পেনাল্টি একটি নামসহ সিগন্যাল, ব্রেকডাউনে দেখা যায়",
+          "কাস্টমার ওপেন করার প্রতিবার নতুন করে হিসাব হয়",
+        ],
+      },
+      {
+        pillText: "আসল অর্ডার হিস্ট্রি",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "যা সত্যিই ঘটেছে,",
+        titleHighlight: "তা থেকেই তৈরি",
+        titleEnd: "",
+        description:
+          "স্কোর তৈরি হয় কাস্টমারের আসল ডেলিভারি ফলাফল ও ফ্রড হিস্ট্রি থেকে (নাম বা ঠিকানা দেখে অনুমান নয়), তাই ভালো ট্র্যাক রেকর্ডের কাস্টমার আর বারবার ক্যান্সেল করা কাস্টমারের স্কোর আলাদা হয়।",
+        bullets: [
+          "রিজলভড অর্ডারের ডেলিভারি সাকসেস রেট",
+          "আগের যেকোনো অর্ডারে কনফার্মড ফ্রড হিস্ট্রি",
+          "সর্বশেষ অর্ডারে ব্লকলিস্টেড IP বা অপরিচিত ডিভাইস",
+          "একসাথে একাধিক ওপেন অর্ডার থাকলে ডুপ্লিকেট রিস্ক ফ্ল্যাগ হয়",
+        ],
+      },
+      {
+        pillText: "এক ক্লিকেই",
+        pillIcon: "/icons/user.svg",
+        titleStart: "কাস্টমার পেজেই",
+        titleHighlight: "সরাসরি দেখুন",
+        titleEnd: "",
+        description:
+          "যেকোনো কাস্টমার ওপেন করলেই রিস্ক স্কোর সেখানে থাকে (কালার-কোডেড ব্যাজ, স্কোর রিং, আর সম্পূর্ণ সিগন্যাল ব্রেকডাউন), আলাদা কোনো রিপোর্ট বা এক্সপোর্টের দরকার নেই।",
+        bullets: [
+          "কালার-কোডেড Low / Medium / High ব্যাজ",
+          "একনজরে ০-১০০ স্কোর রিং",
+          "নিচে সম্পূর্ণ সিগন্যাল ব্রেকডাউন",
+          "নতুন কাস্টমার ন্যায্য, পেনাল্টিহীন Medium স্কোরে শুরু করে",
+        ],
+      },
+    ],
+    extraTitle: "তথ্যভিত্তিক, অটোমেটিক নয়",
+    extraDesc:
+      "Risk Score নিজে থেকে কখনও চেকআউট ব্লক করে না: এটা আপনি শিপ করার আগে যাচাই করার টুল, Fraud Protection-এর ফোন ও IP রুলসের পাশাপাশি।",
+    extraCards: [
+      { title: "সবসময় আপডেটেড", desc: "লাইভ অর্ডার হিস্ট্রি থেকে হিসাব হয়, পুরনো সংরক্ষিত সংখ্যা নয়।", icon: "/icons/clock.svg" },
+      { title: "সিদ্ধান্ত আপনার", desc: "হাই-রিস্ক স্কোর মানেই রিভিউ করার সংকেত, অটোমেটিক ব্লক নয়।", icon: "/icons/domain.svg" },
+      { title: "প্রতি স্টোর আলাদা", desc: "প্রতিটি কাস্টমারের স্কোর শুধু আপনার স্টোরের সাথে তার হিস্ট্রির ওপর ভিত্তি করে তৈরি।", icon: "/icons/domain.svg" },
+    ],
+  },
   "courier": {
     slug: "courier",
     pillText: "কুরিয়ার ডেলিভারি",
@@ -1600,6 +1736,7 @@ export const FEATURES_LIST = [
   { slug: "orders", title: "Orders", icon: "/icons/orders.svg", desc: "Search, snapshots, and print slips" },
   { slug: "customer-management", title: "Customers", icon: "/icons/user.svg", desc: "Phone-matched buyers from orders" },
   { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
+  { slug: "customer-risk-score", title: "Risk Score", icon: "/icons/analytics.svg", desc: "0-100 risk score built from real order and fraud history" },
 ];
 
 export function getFeaturePage(slug: string, locale: "en" | "bn" = "en"): FeatureData | undefined {

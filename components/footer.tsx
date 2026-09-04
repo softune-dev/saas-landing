@@ -93,12 +93,12 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             {isBn ? (
               <>
-                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, COD, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI — সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
+                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI — সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
               </>
             ) : (
               <>
                 Softunebd is the ecommerce platform built for small businesses and
-                startups in Bangladesh. Themes, orders, COD, bKash, Nagad,
+                startups in Bangladesh. Themes, orders, bKash, Nagad,
                 SSLCommerz, couriers, POS, and AI — one dashboard. No coding
                 required.
               </>
@@ -235,7 +235,7 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
               <span className="shrink-0 text-sm font-medium tracking-tight text-[var(--color-muted)] sm:text-base">
                 Secured Payment :
               </span>
-              <div className="grid w-full max-w-[360px] grid-cols-4 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
+              <div className="grid w-full max-w-[360px] grid-cols-3 items-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-5">
                 <img
                   loading="lazy"
                   decoding="async"
@@ -257,18 +257,14 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
                   alt="SSLCommerz"
                   className="mx-auto h-5 w-full max-w-[88px] object-contain sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none"
                 />
-                <span
-                  className="mx-auto flex h-5 w-full max-w-[88px] items-center justify-center rounded-md border border-[var(--color-line)] bg-[var(--color-surface)] text-[11px] font-extrabold tracking-wide text-[var(--color-ink)] sm:mx-0 sm:h-8 sm:w-auto sm:max-w-none sm:px-3 sm:text-[12px]"
-                  aria-label="Cash on Delivery"
-                >
-                  COD
-                </span>
               </div>
             </div>
 
             <div className="flex items-center gap-5">
               <a
-                href="#"
+                href="https://www.facebook.com/softunebd/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
@@ -280,19 +276,23 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
                 />
               </a>
               <a
-                href="#"
+                href="https://wa.me/8801630582639?text=Hello%20Softune%20Team!%20I%20have%20an%20inquiry."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
                   loading="lazy"
                   decoding="async"
-                  src="/icons/insta.webp"
-                  alt="Instagram"
+                  src="/icons/whatsapp.svg"
+                  alt="WhatsApp"
                   className="size-6 object-contain"
                 />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/kamrul-hasan-dev/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
@@ -304,14 +304,14 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
                 />
               </a>
               <a
-                href="#"
+                href="mailto:support@softunebd.com"
                 className="opacity-70 hover:opacity-100 transition-opacity hover:scale-110"
               >
                 <img
                   loading="lazy"
                   decoding="async"
                   src="/icons/google.webp"
-                  alt="Google"
+                  alt="Email"
                   className="size-6 object-contain"
                 />
               </a>

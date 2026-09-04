@@ -55,6 +55,11 @@ export const featuresEn = [
     desc: "Keep every shopper, order history, and phone number in one customer list.",
   },
   {
+    icon: "/icons/analytics.svg",
+    title: "Customer Risk Score",
+    desc: "See a 0-100 risk score for every customer, built from real delivery and fraud history, not a black-box model.",
+  },
+  {
     icon: "/icons/lock.svg",
     title: "Fraud Protection",
     desc: "Phone blocklist, site-wide IP blocking, and device rules to stop fake COD orders.",
@@ -68,11 +73,6 @@ export const featuresEn = [
     icon: "/icons/domain.svg",
     title: "SEO & Domains",
     desc: "Set titles, Open Graph, tracking pixels, and a custom domain from Site Settings.",
-  },
-  {
-    icon: "/icons/save.svg",
-    title: "Add-Ons Marketplace",
-    desc: "Turn on reviews, WhatsApp alerts, and discounts without extra plugins.",
   },
   {
     icon: "/icons/book.svg",
@@ -138,8 +138,13 @@ export const featuresBn = [
     desc: "প্রতিটি শপার, অর্ডার হিস্ট্রি এবং ফোন নম্বর একটি পরিচ্ছন্ন লিস্টে সাজিয়ে রাখুন।",
   },
   {
+    icon: "/icons/analytics.svg",
+    title: "কাস্টমার রিস্ক স্কোর",
+    desc: "প্রতিটি কাস্টমারের জন্য ০-১০০ রিস্ক স্কোর দেখুন, আসল ডেলিভারি ও ফ্রড হিস্ট্রি থেকে হিসাব করা, কোনো ব্ল্যাক-বক্স মডেল নয়।",
+  },
+  {
     icon: "/icons/lock.svg",
-    title: "ফ্রড প্রোটেকশন",
+    title: "ফ্রড প্রোটেکশন",
     desc: "ফোন ব্লকলিস্ট, সাইট-ওয়াইড IP ব্লকিং ও ডিভাইস রুলস দিয়ে ফেইক COD অর্ডার প্রতিরোধ করুন।",
   },
   {
@@ -151,11 +156,6 @@ export const featuresBn = [
     icon: "/icons/domain.svg",
     title: "SEO & ডোমেইন",
     desc: "টাইটেল, মেটা ডেসক্রিপশন, পিক্সেল ও নিজস্ব কাস্টম ডোমেইন সেটআপ করুন Site Settings থেকে।",
-  },
-  {
-    icon: "/icons/save.svg",
-    title: "অ্যাড-অনস মার্কেটপ্লেস",
-    desc: "রিভিউ, হোয়াটসঅ্যাপ অ্যালার্ট ও কুপন ডিসকাউন্ট অপশন চালু করুন অতিরিক্ত প্লাগইন ছাড়াই।",
   },
   {
     icon: "/icons/book.svg",
@@ -273,7 +273,7 @@ export function Features({ locale = "en" }: { locale?: "en" | "bn" }) {
               onClick={() => setShowAll(true)}
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
             >
-              {isBn ? "সব ১৭টি ফিচার দেখুন" : "View all 17 features"}
+              {isBn ? "সব ১৬টি ফিচার দেখুন" : "View all 16 features"}
             </button>
           </div>
         )}

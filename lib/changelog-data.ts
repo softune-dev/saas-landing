@@ -22,6 +22,26 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "1.7",
+    version: "v1.7.0",
+    date: "Sep 5, 2026",
+    title: "Customer risk scoring",
+    description:
+      "See a transparent 0-100 risk score for every customer, built from real delivery and fraud history, not a black-box model.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Customer Risk Score: every customer now gets a 0-100 score with a Low/Medium/High label, calculated from delivery success rate, confirmed fraud history, device and IP signals, and duplicate open orders.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Risk Score is computed fresh every time you open a customer's detail panel, so it always reflects their latest order history.",
+      },
+    ],
+  },
+  {
     serial: "1.6",
     version: "v1.6.0",
     date: "Sep 4, 2026",

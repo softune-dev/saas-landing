@@ -10,30 +10,61 @@ import { LanguageSwitcher } from "./language-switcher";
 import { GeoBanner } from "./geo-banner";
 import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
 
-const linksEn = [
+type SubmenuItem = {
+  label: string;
+  href: string;
+  icon?: string;
+};
+
+type SubmenuGroup = {
+  category: string;
+  items: SubmenuItem[];
+};
+
+type NavLink = {
+  label: string;
+  href: string;
+  categories?: SubmenuGroup[];
+  submenus?: SubmenuItem[];
+};
+
+const linksEn: NavLink[] = [
   {
     label: "Features",
     href: "/features",
-    submenus: [
-      { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
-      { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
-      { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
-      { label: "Store Sale", href: "/features/store-sale", icon: "/icons/shop-bag.svg" },
-      { label: "Events & Campaigns", href: "/features/events-campaigns", icon: "/icons/events.svg" },
+    categories: [
       {
-        label: "Marketing & Tracking",
-        href: "/features/marketing-tracking",
-        icon: "/icons/analytics.svg",
+        category: "Store & AI",
+        items: [
+          { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
+          { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+        ],
       },
       {
-        label: "Store Analytics",
-        href: "/features/store-analytics",
-        icon: "/icons/analytics.svg",
+        category: "Sales & Ops",
+        items: [
+          { label: "Orders", href: "/features/orders", icon: "/icons/orders.svg" },
+          { label: "Customers", href: "/features/customer-management", icon: "/icons/user.svg" },
+          { label: "Store Sale (POS)", href: "/features/store-sale", icon: "/icons/shop-bag.svg" },
+        ],
       },
-      { label: "Couriers", href: "/features/courier", icon: "/icons/delivery.svg" },
-      { label: "Orders", href: "/features/orders", icon: "/icons/orders.svg" },
-      { label: "Customers", href: "/features/customer-management", icon: "/icons/user.svg" },
-      { label: "Fraud Protection", href: "/features/fraud-protection", icon: "/icons/lock.svg" },
+      {
+        category: "Payments & Delivery",
+        items: [
+          { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
+          { label: "Couriers", href: "/features/courier", icon: "/icons/delivery.svg" },
+          { label: "Store Analytics", href: "/features/store-analytics", icon: "/icons/analytics.svg" },
+        ],
+      },
+      {
+        category: "Marketing & Security",
+        items: [
+          { label: "Marketing & Tracking", href: "/features/marketing-tracking", icon: "/icons/analytics.svg" },
+          { label: "Events & Campaigns", href: "/features/events-campaigns", icon: "/icons/events.svg" },
+          { label: "Fraud Protection", href: "/features/fraud-protection", icon: "/icons/lock.svg" },
+          { label: "Risk Score", href: "/features/customer-risk-score", icon: "/icons/analytics.svg" },
+        ],
+      },
     ],
   },
   { label: "Pricing", href: "/pricing" },
@@ -52,30 +83,43 @@ const linksEn = [
   },
 ];
 
-const linksBn = [
+const linksBn: NavLink[] = [
   {
     label: "ফিচারসমূহ",
     href: "/bn/features",
-    submenus: [
-      { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
-      { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
-      { label: "পেমেন্ট গেটওয়ে", href: "/bn/features/payments", icon: "/icons/wallet.svg" },
-      { label: "স্টোর সেল", href: "/bn/features/store-sale", icon: "/icons/shop-bag.svg" },
-      { label: "ইভেন্ট ও ক্যাম্পেইন", href: "/bn/features/events-campaigns", icon: "/icons/events.svg" },
+    categories: [
       {
-        label: "মার্কেটিং & ট্র্যাকিং",
-        href: "/bn/features/marketing-tracking",
-        icon: "/icons/analytics.svg",
+        category: "স্টোর ও AI",
+        items: [
+          { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
+          { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+        ],
       },
       {
-        label: "স্টোর অ্যানালিটিক্স",
-        href: "/bn/features/store-analytics",
-        icon: "/icons/analytics.svg",
+        category: "সেলস ও অপস",
+        items: [
+          { label: "অর্ডার ম্যানেজমেন্ট", href: "/bn/features/orders", icon: "/icons/orders.svg" },
+          { label: "কাস্টমার ম্যানেজমেন্ট", href: "/bn/features/customer-management", icon: "/icons/user.svg" },
+          { label: "স্টোর সেল (POS)", href: "/bn/features/store-sale", icon: "/icons/shop-bag.svg" },
+        ],
       },
-      { label: "লোকাল কুরিয়ার", href: "/bn/features/courier", icon: "/icons/delivery.svg" },
-      { label: "অর্ডার ম্যানেজমেন্ট", href: "/bn/features/orders", icon: "/icons/orders.svg" },
-      { label: "কাস্টমার ম্যানেজমেন্ট", href: "/bn/features/customer-management", icon: "/icons/user.svg" },
-      { label: "ফ্রড প্রোটেকশন", href: "/bn/features/fraud-protection", icon: "/icons/lock.svg" },
+      {
+        category: "পেমেন্ট ও ডেলিভারি",
+        items: [
+          { label: "পেমেন্ট গেটওয়ে", href: "/bn/features/payments", icon: "/icons/wallet.svg" },
+          { label: "লোকাল কুরিয়ার", href: "/bn/features/courier", icon: "/icons/delivery.svg" },
+          { label: "স্টোর অ্যানালিটিক্স", href: "/bn/features/store-analytics", icon: "/icons/analytics.svg" },
+        ],
+      },
+      {
+        category: "মার্কেটিং ও সিকিউরিটি",
+        items: [
+          { label: "মার্কেটিং & ট্র্যাকিং", href: "/bn/features/marketing-tracking", icon: "/icons/analytics.svg" },
+          { label: "ইভেন্ট ও ক্যাম্পেইন", href: "/bn/features/events-campaigns", icon: "/icons/events.svg" },
+          { label: "ফ্রড প্রোটেকশন", href: "/bn/features/fraud-protection", icon: "/icons/lock.svg" },
+          { label: "কাস্টমার রিস্ক স্কোর", href: "/bn/features/customer-risk-score", icon: "/icons/analytics.svg" },
+        ],
+      },
     ],
   },
   { label: "প্রাইসিং", href: "/bn/pricing" },
@@ -175,10 +219,10 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                   className="font-[family-name:var(--font-dm-sans),var(--font-bn)] flex items-center gap-1 text-lg font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)]"
                 >
                   {l.label}
-                  {l.submenus && <ChevronDown className="size-4" />}
+                  {(l.categories || l.submenus) && <ChevronDown className="size-4" />}
                 </a>
 
-                {l.submenus && (
+                {(l.categories || l.submenus) && (
                   <AnimatePresence>
                     {openDropdown === l.label && (
                       <motion.div
@@ -186,32 +230,62 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18 }}
-                        className={`absolute left-0 top-full z-50 mt-0 overflow-hidden rounded-b-2xl border border-[var(--color-line)] border-t-0 bg-[var(--color-surface)] p-2 shadow-[0_24px_48px_-16px_rgba(0,0,0,0.18)] ${
-                          l.submenus.length > 3
-                            ? "grid w-[480px] grid-cols-2 gap-0.5"
-                            : "flex w-56 flex-col gap-0.5"
+                        className={`absolute left-0 top-full z-50 mt-0 overflow-hidden rounded-b-2xl border border-[var(--color-line)] border-t-0 bg-[var(--color-surface)] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.18)] ${
+                          l.categories
+                            ? "w-[520px] p-4 grid grid-cols-2 gap-x-3.5 gap-y-3"
+                            : l.submenus && l.submenus.length > 3
+                            ? "grid w-[480px] grid-cols-2 gap-0.5 p-2"
+                            : "flex w-56 flex-col gap-0.5 p-2"
                         }`}
                       >
-                        {l.submenus.map((sub) => (
-                          <a
-                            key={sub.label}
-                            href={sub.href}
-                            className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-line)]/50"
-                          >
-                            {sub.icon && (
-                              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
-                                <img
-                                  loading="lazy"
-                                  decoding="async"
-                                  src={sub.icon}
-                                  alt=""
-                                  className="size-5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
-                                />
+                        {l.categories
+                          ? l.categories.map((cat) => (
+                              <div key={cat.category} className="space-y-0.5">
+                                <div className="px-1 pb-1 text-[11px] font-extrabold tracking-wider uppercase text-[var(--color-muted)] border-b border-[var(--color-line)]/40 mb-1">
+                                  {cat.category}
+                                </div>
+                                {cat.items.map((sub) => (
+                                  <a
+                                    key={sub.label}
+                                    href={sub.href}
+                                    className="group flex items-center gap-2.5 rounded-xl px-2 py-1.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:bg-[var(--color-line)]/50"
+                                  >
+                                    {sub.icon && (
+                                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
+                                        <img
+                                          loading="lazy"
+                                          decoding="async"
+                                          src={sub.icon}
+                                          alt=""
+                                          className="size-4.5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
+                                        />
+                                      </div>
+                                    )}
+                                    <span className="tracking-tight">{sub.label}</span>
+                                  </a>
+                                ))}
                               </div>
-                            )}
-                            <span className="tracking-tight">{sub.label}</span>
-                          </a>
-                        ))}
+                            ))
+                          : l.submenus?.map((sub) => (
+                              <a
+                                key={sub.label}
+                                href={sub.href}
+                                className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-line)]/50"
+                              >
+                                {sub.icon && (
+                                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-canvas)] transition-colors group-hover:bg-[var(--color-brand)]">
+                                    <img
+                                      loading="lazy"
+                                      decoding="async"
+                                      src={sub.icon}
+                                      alt=""
+                                      className="size-5 object-contain transition-all group-hover:brightness-0 group-hover:invert dark:invert"
+                                    />
+                                  </div>
+                                )}
+                                <span className="tracking-tight">{sub.label}</span>
+                              </a>
+                            ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -308,7 +382,7 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                   const expanded = mobileExpanded === l.label;
                   return (
                     <div key={l.label} className="space-y-3">
-                      {l.submenus ? (
+                      {l.categories || l.submenus ? (
                         <div>
                           <button
                             type="button"
@@ -325,29 +399,58 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden mt-3 pl-1 space-y-1.5"
+                                className="overflow-hidden mt-3 pl-1 space-y-3"
                               >
-                                {l.submenus.map((sub) => (
-                                  <a
-                                    key={sub.label}
-                                    href={sub.href}
-                                    onClick={() => setOpen(false)}
-                                    className="group flex items-center gap-3 rounded-xl px-2 py-2 text-[15px] font-semibold text-muted hover:text-ink transition-colors"
-                                  >
-                                    {sub.icon && (
-                                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
-                                        <img
-                                          loading="lazy"
-                                          decoding="async"
-                                          src={sub.icon}
-                                          alt=""
-                                          className="size-5 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"
-                                        />
+                                {l.categories
+                                  ? l.categories.map((cat) => (
+                                      <div key={cat.category} className="space-y-1">
+                                        <div className="px-2 pt-1 text-[11px] font-extrabold tracking-wider uppercase text-[var(--color-muted)]">
+                                          {cat.category}
+                                        </div>
+                                        {cat.items.map((sub) => (
+                                          <a
+                                            key={sub.label}
+                                            href={sub.href}
+                                            onClick={() => setOpen(false)}
+                                            className="group flex items-center gap-3 rounded-xl px-2 py-1.5 text-[15px] font-semibold text-muted hover:text-ink transition-colors"
+                                          >
+                                            {sub.icon && (
+                                              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
+                                                <img
+                                                  loading="lazy"
+                                                  decoding="async"
+                                                  src={sub.icon}
+                                                  alt=""
+                                                  className="size-4 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"
+                                                />
+                                              </div>
+                                            )}
+                                            <span className="tracking-tight">{sub.label}</span>
+                                          </a>
+                                        ))}
                                       </div>
-                                    )}
-                                    <span className="tracking-tight">{sub.label}</span>
-                                  </a>
-                                ))}
+                                    ))
+                                  : l.submenus?.map((sub) => (
+                                      <a
+                                        key={sub.label}
+                                        href={sub.href}
+                                        onClick={() => setOpen(false)}
+                                        className="group flex items-center gap-3 rounded-xl px-2 py-2 text-[15px] font-semibold text-muted hover:text-ink transition-colors"
+                                      >
+                                        {sub.icon && (
+                                          <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-canvas group-hover:bg-brand transition-colors">
+                                            <img
+                                              loading="lazy"
+                                              decoding="async"
+                                              src={sub.icon}
+                                              alt=""
+                                              className="size-5 object-contain dark:invert group-hover:brightness-0 group-hover:invert transition-all"
+                                            />
+                                          </div>
+                                        )}
+                                        <span className="tracking-tight">{sub.label}</span>
+                                      </a>
+                                    ))}
                               </motion.div>
                             )}
                           </AnimatePresence>

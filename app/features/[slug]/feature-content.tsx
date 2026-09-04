@@ -56,6 +56,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
         { slug: "orders", title: "অর্ডার ম্যানেজমেন্ট", icon: "/icons/orders.svg", desc: "সার্চ, ফিল্টার, অর্ডারের স্ন্যাপশট ও প্রিন্ট স্লিপ" },
         { slug: "customer-management", title: "কাস্টমার ম্যানেজমেন্ট", icon: "/icons/user.svg", desc: "অর্ডার থেকে ফোন নম্বর ম্যাচিং শপার রসিদ" },
         { slug: "fraud-protection", title: "ফ্রড প্রোটেকশন", icon: "/icons/lock.svg", desc: "IP ব্লকিং, ডিভাইস রুলস ও Suspicious Orders রিভিউ" },
+        { slug: "customer-risk-score", title: "কাস্টমার রিস্ক স্কোর", icon: "/icons/analytics.svg", desc: "আসল ডেলিভারি ও ফ্রড হিস্ট্রি থেকে ০-১০০ রিস্ক স্কোর" },
       ]
     : FEATURES_LIST;
 
