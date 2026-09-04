@@ -188,11 +188,11 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "COD Orders",
     titleEnd: "",
     description:
-      "Protect Cash on Delivery sales with a phone blocklist enforced at checkout, plus fraud rules you control from one Softunebd screen.",
+      "Protect Cash on Delivery sales with a phone blocklist, site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue — all controlled from one Softunebd screen.",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
     introTitle: "Built for COD abuse, not card scoring",
     introDesc:
-      "Fraud Protection sits next to Orders. Block bad phones, keep notes for your team, and tune rules that match how your store gets burned.",
+      "Fraud Protection sits next to Orders. Block bad phones and IPs, stop repeat checkout attempts from the same device, and review flagged orders before you ship — all tuned to match how your store gets burned.",
     alternating: [
       {
         pillText: "Phone Blocklist",
