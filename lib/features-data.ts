@@ -242,6 +242,22 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Different shops can run different rules",
         ],
       },
+      {
+        pillText: "Site & Device Blocking",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Block More Than",
+        titleHighlight: "Just a Phone",
+        titleEnd: "",
+        description:
+          "Block a visitor's IP address from your entire storefront, not only at checkout, and stop repeat checkout attempts from the same device automatically.",
+        bullets: [
+          "Site-wide IP blocking — a blocked visitor sees a clear notice, not a broken page",
+          "Device pending-lock stops a second checkout while one is already in progress",
+          "Device cooldown blocks repeat attempts after a cancelled or fraudulent order",
+          "Suspicious Orders queue flags high-value first orders and order bursts for review",
+          "Every flagged order is still saved — you decide, nothing is silently rejected",
+        ],
+      },
     ],
     extraTitle: "Built for COD safety",
     extraDesc:
