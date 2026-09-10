@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useReducer, useRef, useState, type FormEvent } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/components/ui/toast";
 import { RecaptchaChallengeRequiredError, isPassword422 } from "@/lib/api";
 import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
@@ -30,7 +31,13 @@ import {
   BasicsStep,
   VerifyStep,
 } from "./trial-steps";
-import { ThemeStep, type TemplateKey } from "./trial-theme-step";
+import {
+  BODY_FONTS,
+  COLOR_SWATCHES,
+  HEADING_FONTS,
+  ThemeStep,
+  type TemplateKey,
+} from "./trial-theme-step";
 
 export type Step = "account" | "verify" | "basics" | "theme" | "building";
 
@@ -51,19 +58,19 @@ const STEP_COPY: Record<Step, { title: string; subtitle: string }> = {
   },
   verify: {
     title: "Check your email",
-    subtitle: "Enter the 6-digit code we sent. It expires in 10 minutes.",
+    subtitle: "Enter the 6-digit code we sent.",
   },
   basics: {
     title: "Tell us about your shop",
-    subtitle: "Shop name is required. Phone is a Bangladeshi mobile number.",
+    subtitle: "Just the basics to get started.",
   },
   theme: {
     title: "Pick a look",
-    subtitle: "Theme, color, heading and body fonts. You can change this later.",
+    subtitle: "You can change this later.",
   },
   building: {
     title: "Building your store",
-    subtitle: "Hang tight — we're putting the last pieces in place.",
+    subtitle: "Hang tight.",
   },
 };
 
@@ -86,16 +93,25 @@ type WizardState = {
   busy: boolean;
 };
 
-const initial: WizardState = {
-  step: "account",
-  signupToken: "",
-  email: "",
-  templateKey: "bazaar",
-  primaryColor: "#F97316",
-  displayFont: "fraunces",
-  bodyFont: "inter",
-  busy: false,
-};
+function pickRandom<T>(list: readonly T[]): T {
+  return list[Math.floor(Math.random() * list.length)]!;
+}
+
+// Randomized per visitor, not a fixed "everyone starts with orange
+// Fraunces/Inter" default — the theme step should already look like it's
+// been picked for them, not identical for every new signup.
+function createInitialState(): WizardState {
+  return {
+    step: "account",
+    signupToken: "",
+    email: "",
+    templateKey: "bazaar",
+    primaryColor: pickRandom(COLOR_SWATCHES),
+    displayFont: pickRandom(HEADING_FONTS).value,
+    bodyFont: pickRandom(BODY_FONTS).value,
+    busy: false,
+  };
+}
 
 type Action =
   | { type: "patch"; patch: Partial<WizardState> }
@@ -110,6 +126,10 @@ function reducer(state: WizardState, action: Action): WizardState {
   }
 }
 
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => window.setTimeout(resolve, ms));
+}
+
 function handoffToDashboard(access: string, refresh: string) {
   storeDashboardSession(access, refresh);
   const hash = new URLSearchParams({
@@ -122,9 +142,23 @@ function handoffToDashboard(access: string, refresh: string) {
   window.location.assign(`${DASHBOARD_URL}/onboarding#${hash}`);
 }
 
+/** ?preview=1 on the signup URL — every step advances locally on fake
+ * delays instead of hitting the real backend, so the wizard (including the
+ * "building your store" screen) can be reviewed end to end without ever
+ * creating a trial account. Read once via lazy useState init so it's stable
+ * for the life of the component and never differs between server and
+ * client render (server always sees no window, so it always renders the
+ * real flow — this only ever flips true after hydration, before which the
+ * component renders null anyway while resume-checking). */
+function readPreviewFlag() {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("preview") === "1";
+}
+
 export function TrialOnboarding() {
   const { toast } = useToast();
-  const [state, dispatch] = useReducer(reducer, initial);
+  const [isPreview] = useState(readPreviewFlag);
+  const [state, dispatch] = useReducer(reducer, undefined, createInitialState);
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -143,12 +177,68 @@ export function TrialOnboarding() {
   const v2Ref = useRef<RecaptchaV2FallbackHandle>(null);
   const submittingRef = useRef(false);
   const [pending, setPending] = useState<Promise<TrialTokensOut> | null>(null);
+  // Preview mode never has real tokens to hand off — land back on step one
+  // instead of redirecting to a dashboard that was never actually built,
+  // so the whole wizard can just be replayed.
+  function previewComplete() {
+    toast({
+      title: "Preview complete",
+      description: "No account was created. This is what merchants see.",
+      variant: "info",
+      duration: 5000,
+    });
+    dispatch({ type: "patch", patch: { step: "account" } });
+    setPending(null);
+  }
   const { done: buildDone, pct: buildPct } = useTrialBuild(
     pending,
-    handoffToDashboard,
+    isPreview ? previewComplete : handoffToDashboard,
   );
 
+  // Preview-only step arrows: jump straight past a step's form instead of
+  // having to type anything into it. Forward from "theme" kicks off the
+  // same fake building simulation handleTheme would, so the arrows can
+  // walk all the way through the whole wizard including the payoff screen.
+  function skipForward() {
+    if (!isPreview) return;
+    if (state.step === "account") {
+      dispatch({ type: "patch", patch: { signupToken: "preview", step: "verify" } });
+    } else if (state.step === "verify") {
+      dispatch({ type: "patch", patch: { step: "basics" } });
+    } else if (state.step === "basics") {
+      dispatch({ type: "patch", patch: { step: "theme" } });
+    } else if (state.step === "theme") {
+      dispatch({ type: "patch", patch: { step: "building", busy: true } });
+      setPending(
+        sleep(600).then(() => ({
+          access_token: "preview",
+          refresh_token: "preview",
+          token_type: "bearer",
+          expires_in: 0,
+        })),
+      );
+    }
+  }
+
+  function skipBack() {
+    if (!isPreview) return;
+    if (state.step === "verify") {
+      dispatch({ type: "patch", patch: { step: "account" } });
+    } else if (state.step === "basics") {
+      dispatch({ type: "patch", patch: { step: "verify" } });
+    } else if (state.step === "theme") {
+      dispatch({ type: "patch", patch: { step: "basics" } });
+    } else if (state.step === "building") {
+      setPending(null);
+      dispatch({ type: "patch", patch: { step: "theme", busy: false } });
+    }
+  }
+
   useEffect(() => {
+    if (isPreview) {
+      setCheckingResume(false);
+      return;
+    }
     let cancelled = false;
     getTrialSignupStatus().then((status) => {
       if (cancelled) return;
@@ -172,6 +262,7 @@ export function TrialOnboarding() {
     return () => {
       cancelled = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- isPreview is stable for the component's lifetime (lazy useState init)
   }, []);
 
   const copy = STEP_COPY[state.step];
@@ -197,6 +288,14 @@ export function TrialOnboarding() {
       return;
     }
     dispatch({ type: "patch", patch: { busy: true } });
+    if (isPreview) {
+      await sleep(500);
+      dispatch({
+        type: "patch",
+        patch: { busy: false, signupToken: "preview", step: "verify" },
+      });
+      return;
+    }
     try {
       const recaptchaToken = await getRecaptchaToken("trial_start");
       const out = await startTrialSignup({
@@ -245,6 +344,11 @@ export function TrialOnboarding() {
     if (code.length !== OTP_LENGTH || submittingRef.current) return;
     submittingRef.current = true;
     dispatch({ type: "patch", patch: { busy: true } });
+    if (isPreview) {
+      await sleep(500);
+      dispatch({ type: "patch", patch: { busy: false, step: "basics" } });
+      return;
+    }
     try {
       await verifyTrialOtp(state.signupToken, code);
       dispatch({
@@ -271,6 +375,14 @@ export function TrialOnboarding() {
   async function handleResend() {
     setResending(true);
     setResent(false);
+    if (isPreview) {
+      await sleep(400);
+      setDigits(emptyOtpDigits());
+      submittingRef.current = false;
+      setResent(true);
+      setResending(false);
+      return;
+    }
     try {
       await resendTrialOtp(state.signupToken);
       setDigits(emptyOtpDigits());
@@ -290,6 +402,11 @@ export function TrialOnboarding() {
       return;
     }
     dispatch({ type: "patch", patch: { busy: true } });
+    if (isPreview) {
+      await sleep(500);
+      dispatch({ type: "patch", patch: { busy: false, step: "theme" } });
+      return;
+    }
     try {
       await updateTrialDetails({
         signup_token: state.signupToken,
@@ -310,6 +427,19 @@ export function TrialOnboarding() {
   async function handleTheme(e: FormEvent) {
     e.preventDefault();
     dispatch({ type: "patch", patch: { step: "building", busy: true } });
+    if (isPreview) {
+      // No real account, no real tokens — useTrialBuild still drives the
+      // full staggered checklist animation off this fake promise; the only
+      // thing that differs is which onHandoff it calls once done (see
+      // previewComplete above), so nothing here ever reaches the backend.
+      setPending(sleep(600).then(() => ({
+        access_token: "preview",
+        refresh_token: "preview",
+        token_type: "bearer",
+        expires_in: 0,
+      })));
+      return;
+    }
     // Fired immediately, not awaited first — useTrialBuild starts animating
     // the instant this promise exists, in parallel with the real request,
     // instead of sitting frozen until the response comes back.
@@ -344,6 +474,11 @@ export function TrialOnboarding() {
 
   return (
     <>
+    {isPreview ? (
+      <div className="fixed top-0 inset-x-0 z-50 bg-amber-500 px-4 py-1.5 text-center text-xs font-semibold text-white">
+        Preview mode: no account will be created
+      </div>
+    ) : null}
     <AuthShell
       title={copy.title}
       subtitle={copy.subtitle}
@@ -463,6 +598,28 @@ export function TrialOnboarding() {
         (state.step !== "account" && state.step !== "verify") || state.busy
       }
     />
+    {isPreview ? (
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
+        <button
+          type="button"
+          aria-label="Skip to previous step"
+          onClick={skipBack}
+          disabled={state.step === "account"}
+          className="inline-flex size-11 items-center justify-center rounded-full bg-slate-900 text-white shadow-lg transition-opacity hover:opacity-90 disabled:opacity-30"
+        >
+          <ChevronLeft className="size-5" strokeWidth={2.5} />
+        </button>
+        <button
+          type="button"
+          aria-label="Skip to next step"
+          onClick={skipForward}
+          disabled={state.step === "building"}
+          className="inline-flex size-11 items-center justify-center rounded-full bg-slate-900 text-white shadow-lg transition-opacity hover:opacity-90 disabled:opacity-30"
+        >
+          <ChevronRight className="size-5" strokeWidth={2.5} />
+        </button>
+      </div>
+    ) : null}
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Pipette } from "lucide-react";
+import { Check, Eye, Pipette, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState, type FormEvent } from "react";
 import { primaryBtnClass } from "./auth-shell";
@@ -27,7 +27,7 @@ export type TemplateSlug = (typeof TEMPLATES)[number]["slug"];
 // list was mostly near-black variants (olive-black, near-black, navy,
 // dark green, dark rust) that read as duplicates of each other at a
 // glance rather than real, distinguishable options.
-const COLOR_SWATCHES = [
+export const COLOR_SWATCHES = [
   "#EF4444",
   "#F97316",
   "#F59E0B",
@@ -91,37 +91,52 @@ export function ThemeStep(props: ThemeStepProps) {
   const [selectedSlug, setSelectedSlug] = useState<TemplateSlug>(
     () => TEMPLATES.find((t) => t.key === props.templateKey)?.slug ?? TEMPLATES[0].slug,
   );
+  const [previewSlug, setPreviewSlug] = useState<TemplateSlug | null>(null);
+  const previewTemplate = TEMPLATES.find((t) => t.slug === previewSlug) ?? null;
 
   return (
+    <>
     <form onSubmit={props.onSubmit} className="mt-4 flex flex-col gap-3.5">
       <div className="flex flex-col gap-1.5">
         <span className="text-[11px] font-medium text-muted">
-          Theme — hover to preview
+          Theme<span className="hidden sm:inline"> (hover to preview)</span>
         </span>
         <div className="grid grid-cols-2 gap-1.5">
           {TEMPLATES.map((t) => {
             const selected = selectedSlug === t.slug;
             return (
               <div key={t.slug} className="group relative">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedSlug(t.slug);
-                    props.onTemplate(t.key);
-                  }}
-                  className={`flex w-full items-center justify-between gap-1.5 rounded-lg border px-3 py-2.5 text-left text-sm font-medium transition-colors ${
+                <div
+                  className={`flex w-full items-center gap-1 rounded-lg border pl-3 pr-1.5 py-2.5 text-sm font-medium transition-colors ${
                     selected
                       ? "border-primary bg-primary/5 text-foreground"
                       : "border-border text-foreground hover:border-primary/50 hover:bg-search-bg"
                   }`}
                 >
-                  <span className="truncate">{t.name}</span>
                   {selected ? (
                     <Check className="size-4 shrink-0 text-primary" strokeWidth={2.5} />
                   ) : null}
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedSlug(t.slug);
+                      props.onTemplate(t.key);
+                    }}
+                    className="min-w-0 flex-1 truncate text-left"
+                  >
+                    {t.name}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPreviewSlug(t.slug)}
+                    aria-label={`Preview ${t.name}`}
+                    className="shrink-0 rounded-full p-1 text-muted-soft transition-colors hover:text-foreground sm:hidden"
+                  >
+                    <Eye className="size-4" strokeWidth={2} />
+                  </button>
+                </div>
                 <div
-                  className="pointer-events-none absolute bottom-full left-0 z-20 mb-2 w-28 origin-bottom-left scale-95 overflow-hidden rounded-lg border border-border opacity-0 shadow-xl transition-all duration-150 group-hover:scale-100 group-hover:opacity-100"
+                  className="pointer-events-none absolute bottom-full left-0 z-20 mb-2 hidden w-28 origin-bottom-left scale-95 overflow-hidden rounded-lg border border-border opacity-0 shadow-xl transition-all duration-150 group-hover:scale-100 group-hover:opacity-100 sm:block"
                   aria-hidden
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -178,6 +193,36 @@ export function ThemeStep(props: ThemeStepProps) {
         )}
       </button>
     </form>
+    {previewTemplate ? (
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 sm:hidden"
+        onClick={() => setPreviewSlug(null)}
+      >
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${previewTemplate.name} theme preview`}
+          className="relative w-full max-w-xs overflow-hidden rounded-xl border border-border bg-surface"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setPreviewSlug(null)}
+            aria-label="Close preview"
+            className="absolute top-2 right-2 z-10 inline-flex size-8 items-center justify-center rounded-full bg-black/50 text-white"
+          >
+            <X className="size-4" strokeWidth={2.5} />
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={previewTemplate.image}
+            alt={`${previewTemplate.name} theme`}
+            className="max-h-[80vh] w-full object-cover object-top"
+          />
+        </div>
+      </div>
+    ) : null}
+    </>
   );
 }
 

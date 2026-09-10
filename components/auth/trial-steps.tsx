@@ -1,6 +1,7 @@
 "use client";
 
 import { Building2, Check, ChevronDown, Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   useEffect,
   useRef,
@@ -364,8 +365,45 @@ type BasicsStepProps = {
   onSubmit: (e: FormEvent) => void;
 };
 
+/** Live preview of the subdomain the shop name will provision — not
+ * editable here, just derived (lowercase, spaces/punctuation collapsed to
+ * single hyphens, trimmed). The real slug is decided server-side at
+ * provision time; this is only a preview so the merchant isn't surprised
+ * by their URL. */
+function slugifyShopName(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Non-Latin shop names (Bangla, etc.) slugify away to nothing useful for a
+ * subdomain — flag that early instead of silently falling back to
+ * "mystore" with no explanation. */
+function hasNonEnglishChars(name: string): boolean {
+  return /[^\x00-\x7F]/.test(name);
+}
+
 export function BasicsStep(props: BasicsStepProps) {
   const phoneInvalid = props.phone.length > 0 && !BD_PHONE_RE.test(props.phone);
+  const slug = slugifyShopName(props.shopName);
+  const domainNeedsEnglish = hasNonEnglishChars(props.shopName);
+  const [showDomainHint, setShowDomainHint] = useState(false);
+  const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function flashDomainHint() {
+    setShowDomainHint(true);
+    if (hintTimer.current) clearTimeout(hintTimer.current);
+    hintTimer.current = setTimeout(() => setShowDomainHint(false), 2600);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (hintTimer.current) clearTimeout(hintTimer.current);
+    };
+  }, []);
+
   return (
     <form onSubmit={props.onSubmit} className="mt-6 flex flex-col gap-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -377,7 +415,7 @@ export function BasicsStep(props: BasicsStepProps) {
               type="text"
               required
               autoFocus
-              placeholder="Your shop"
+              placeholder="Enter your shop name"
               value={props.shopName}
               onChange={(e) => props.onShopName(e.target.value)}
               className={fieldClass}
@@ -385,8 +423,47 @@ export function BasicsStep(props: BasicsStepProps) {
           </div>
         </Field>
 
-        <Field id="basics-category" label="Shop category">
-          <CategoryDropdown value={props.category} onChange={props.onCategory} />
+        <Field id="basics-domain" label="Your shop URL">
+          <div className="relative">
+            <button
+              type="button"
+              onClick={flashDomainHint}
+              aria-describedby={showDomainHint ? "basics-domain-hint" : undefined}
+              className={[
+                "flex h-11 w-full items-center overflow-hidden rounded-lg border bg-search-bg pl-3 pr-1 text-sm text-muted-soft",
+                domainNeedsEnglish ? "border-rose-500" : "border-border",
+              ].join(" ")}
+            >
+              <span className="min-w-0 flex-1 truncate text-left text-foreground">
+                {slug || "mystore"}
+              </span>
+              <span className="ml-1.5 shrink-0 rounded-md bg-surface px-2 py-1.5">
+                .softunebd.com
+              </span>
+            </button>
+            <AnimatePresence>
+              {showDomainHint ? (
+                <motion.div
+                  id="basics-domain-hint"
+                  role="status"
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.18 }}
+                  className={[
+                    "absolute top-[calc(100%+6px)] left-0 z-10 w-full rounded-lg px-3 py-2 text-xs shadow-lg",
+                    domainNeedsEnglish
+                      ? "bg-rose-500 text-white"
+                      : "bg-foreground text-background",
+                  ].join(" ")}
+                >
+                  {domainNeedsEnglish
+                    ? "Shop URL must be in English. Try using English letters in your shop name"
+                    : "Change your shop name above to update this"}
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </div>
         </Field>
       </div>
 
@@ -401,7 +478,7 @@ export function BasicsStep(props: BasicsStepProps) {
             type="tel"
             inputMode="numeric"
             autoComplete="tel"
-            placeholder="01XXXXXXXXX"
+            placeholder="Enter your number"
             value={props.phone}
             onChange={(e) =>
               props.onPhone(e.target.value.replace(/\D/g, "").slice(0, 11))
@@ -416,17 +493,23 @@ export function BasicsStep(props: BasicsStepProps) {
         ) : null}
       </Field>
 
-      <Field id="basics-tagline" label="Tagline (optional)">
-        <input
-          id="basics-tagline"
-          type="text"
-          maxLength={160}
-          placeholder="What you sell, in a sentence"
-          value={props.tagline}
-          onChange={(e) => props.onTagline(e.target.value)}
-          className="h-11 w-full rounded-lg border border-border bg-search-bg px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-soft focus:border-primary focus:bg-surface"
-        />
-      </Field>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <Field id="basics-category" label="Shop category">
+          <CategoryDropdown value={props.category} onChange={props.onCategory} />
+        </Field>
+
+        <Field id="basics-tagline" label="Tagline (optional)">
+          <input
+            id="basics-tagline"
+            type="text"
+            maxLength={160}
+            placeholder="What you sell, in a sentence"
+            value={props.tagline}
+            onChange={(e) => props.onTagline(e.target.value)}
+            className="h-11 w-full rounded-lg border border-border bg-search-bg px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-soft focus:border-primary focus:bg-surface"
+          />
+        </Field>
+      </div>
 
       <button type="submit" disabled={props.busy} className={primaryBtnClass}>
         {props.busy ? (

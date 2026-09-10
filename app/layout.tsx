@@ -5,7 +5,6 @@ import { Analytics, AnalyticsNoscript } from "@/components/analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { TawkWidget } from "@/components/tawk-widget";
 import { StructuredData } from "@/components/structured-data";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { DEFAULT_TITLE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -168,7 +167,6 @@ export default async function RootLayout({
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
-        <TawkWidget />
         <VercelAnalytics />
         <SpeedInsights />
       </body>
