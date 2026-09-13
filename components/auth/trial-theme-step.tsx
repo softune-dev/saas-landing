@@ -8,16 +8,14 @@ import { FontPicker } from "./font-picker";
 
 // Marketing names, not backend template keys — same names/images the
 // public landing page uses for these niches (lib/themes-data.ts's
-// "outlet", "fashion", and "gadget" cards). "aurora"/"bazaar" are internal
-// Template.key values in the database; a merchant should never see those.
-// Electronics reuses the bazaar template (same multi-category layout works
-// for a gadget catalog) — there's no dedicated electronics template yet, so
-// two cards below share key "bazaar". `slug` is what disambiguates which
-// card is highlighted/clicked; `key` is only what actually gets submitted.
+// "outlet", "fashion", and "gadget" cards). "aurora"/"bazaar"/"fashion-classic"
+// are internal Template.key values in the database; a merchant should never
+// see those. `slug` is what disambiguates which card is highlighted/clicked;
+// `key` is only what actually gets submitted.
 export const TEMPLATES = [
-  { slug: "multi", key: "bazaar", name: "Multi", image: "/themes/multi-category.webp" },
   { slug: "fashion", key: "aurora", name: "Fashion", image: "/themes/fashion-store.webp" },
-  { slug: "electronics", key: "bazaar", name: "Electronics", image: "/themes/electronics-store.webp" },
+  { slug: "multi", key: "bazaar", name: "Multi", image: "/themes/multi-category.webp" },
+  { slug: "women", key: "fashion-classic", name: "Women", image: "/themes/women-fashion.webp" },
 ] as const;
 
 export type TemplateKey = (typeof TEMPLATES)[number]["key"];
@@ -85,9 +83,10 @@ type ThemeStepProps = {
 
 export function ThemeStep(props: ThemeStepProps) {
   // Which card is highlighted — not the same as props.templateKey, since
-  // "Multi" and "Electronics" both submit key="bazaar" but are two
-  // different cards. Defaults to whichever TEMPLATES entry first matches
-  // the wizard's initial templateKey (see trial-onboarding.tsx's default).
+  // two cards could in principle submit the same key (as "Multi" and
+  // "Electronics" once did for "bazaar"). Defaults to whichever TEMPLATES
+  // entry first matches the wizard's initial templateKey (see
+  // trial-onboarding.tsx's default).
   const [selectedSlug, setSelectedSlug] = useState<TemplateSlug>(
     () => TEMPLATES.find((t) => t.key === props.templateKey)?.slug ?? TEMPLATES[0].slug,
   );
