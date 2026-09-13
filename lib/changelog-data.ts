@@ -22,6 +22,103 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.0",
+    version: "v2.0.0",
+    date: "Sep 13, 2026",
+    title: "A new theme, event popups, and a full theme catalog",
+    description:
+      "Launch with a new sharp, bold storefront design, flag an event to pop up on your homepage, and browse every available theme right from your dashboard.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "New storefront theme, Women: a sharp-cornered, bold-primary redesign, available right from signup alongside Fashion and Multi Category.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Browse every available theme from the dashboard's Themes page — Fashion, Multi Category, Women, and more niche layouts (Kids Store, Urban, Gadget, Market, Kennel, Derma, Beauty, Paper).",
+      },
+      {
+        type: "Feature",
+        content:
+          "Event popup: flag one event to show as a homepage popup modal the moment a visitor lands, with an Image only mode for a pre-designed banner with no text overlay.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed the quantity stepper and Add to cart button blending into the page background on light-colored storefront themes.",
+      },
+    ],
+  },
+  {
+    serial: "1.9",
+    version: "v1.9.0",
+    date: "Sep 11, 2026",
+    title: "Install Softunebd as an app, and a new icon set",
+    description:
+      "Install your dashboard as a mobile app, pick from a much bigger icon set, and get a redesigned mobile dashboard.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Install the dashboard as a mobile app (PWA) — a home-screen icon, real brand colors, and an offline-ready shell.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Category and feature icons now come from a much larger set (Iconify's Solar Bold icons) across the dashboard and every storefront.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Redesigned mobile dashboard: bottom-sheet modals, cleaner list views, a setup banner, and English as the default language.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Homepage Categories section is opt-out instead of opt-in — a newly added category shows up automatically without extra setup.",
+      },
+      {
+        type: "Improvement",
+        content: "Media uploads now queue and upload one file at a time, instead of all at once.",
+      },
+      {
+        type: "Bug Fix",
+        content: "Fixed a product's price and image not updating when a shopper selected a different variant.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Category cards on Multi Category storefronts stay circular (not boxed) and are bigger on desktop.",
+      },
+    ],
+  },
+  {
+    serial: "1.8",
+    version: "v1.8.0",
+    date: "Sep 6, 2026",
+    title: "Abandoned checkout recovery and a redesigned payment flow",
+    description:
+      "See customers who started checkout but never finished, and a cleaner manual payment modal that only appears when it's actually needed.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Abandoned checkouts are now captured — a customer's phone number and cart are recorded the moment they reach checkout, so you can see and follow up on abandoners even if they never complete an order.",
+      },
+      {
+        type: "Feature",
+        content: "See every abandoned checkout directly on the Customers page.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Redesigned manual payment (bKash/Nagad) flow — the branded confirmation modal now only appears on final submit, not while a customer is still entering details.",
+      },
+    ],
+  },
+  {
     serial: "1.7",
     version: "v1.7.0",
     date: "Sep 5, 2026",
