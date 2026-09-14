@@ -16,6 +16,19 @@ export const BUILD_LABELS = [
   "Connecting your domain",
 ] as const;
 
+/** Bangla copy for the same checklist, same order/length as BUILD_LABELS —
+ * the index math in useTrialBuild (DOMAIN_INDEX, stagger loop) only ever
+ * cares about BUILD_LABELS.length, so this is purely a display-layer
+ * lookup picked by locale in BuildingStoreScreen. */
+export const BUILD_LABELS_BN = [
+  "আপনার একাউন্ট সেট আপ হচ্ছে",
+  "আপনার স্টোর তৈরি হচ্ছে",
+  "থিম প্রয়োগ হচ্ছে",
+  "পেজ যোগ করা হচ্ছে",
+  "স্টোর পাবলিশ হচ্ছে",
+  "ডোমেইন কানেক্ট হচ্ছে",
+] as const;
+
 /** Last label is the real Vercel attach poll. The rest are already done by
  * the time POST /trial/complete resolves — staggered locally so the list
  * doesn't tick all at once. */

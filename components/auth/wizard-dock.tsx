@@ -61,27 +61,38 @@ function DockButton({
 export function WizardDock({
   onBack,
   backDisabled,
+  locale = "en",
 }: {
   onBack: () => void;
   backDisabled: boolean;
+  locale?: "en" | "bn";
 }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const isDark = mounted && resolvedTheme === "dark";
+  const isBn = locale === "bn";
 
   return (
     <div className="fixed bottom-4 left-1/2 z-40 hidden -translate-x-1/2 flex-row gap-1.5 rounded-full border border-border bg-surface p-2 shadow-2xl sm:flex min-[1400px]:top-1/2 min-[1400px]:bottom-auto min-[1400px]:left-4 min-[1400px]:translate-x-0 min-[1400px]:-translate-y-1/2 min-[1400px]:flex-col">
-      <DockButton href="/" label="Home">
+      <DockButton href="/" label={isBn ? "হোম" : "Home"}>
         <Home className="size-5" strokeWidth={2} />
       </DockButton>
-      <DockButton label="Back" onClick={onBack} disabled={backDisabled}>
+      <DockButton label={isBn ? "পেছনে" : "Back"} onClick={onBack} disabled={backDisabled}>
         {/* No dedicated "back" arrow in public/icons — arrow-right.svg
             flipped is the same glyph the rest of the site already ships. */}
         <MaskIcon src="/icons/arrow-right.svg" className="size-5 -scale-x-100" />
       </DockButton>
       <DockButton
-        label={isDark ? "Light mode" : "Dark mode"}
+        label={
+          isDark
+            ? isBn
+              ? "লাইট মোড"
+              : "Light mode"
+            : isBn
+              ? "ডার্ক মোড"
+              : "Dark mode"
+        }
         onClick={() => setTheme(isDark ? "light" : "dark")}
       >
         {isDark ? (
@@ -90,7 +101,10 @@ export function WizardDock({
           <Moon className="size-5" strokeWidth={2} />
         )}
       </DockButton>
-      <DockButton href="mailto:support@softunebd.com" label="Contact support">
+      <DockButton
+        href="mailto:support@softunebd.com"
+        label={isBn ? "সাপোর্টে যোগাযোগ করুন" : "Contact support"}
+      >
         <MaskIcon src="/icons/chat.svg" className="size-5" />
       </DockButton>
     </div>

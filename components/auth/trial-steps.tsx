@@ -57,6 +57,7 @@ type AccountStepProps = {
   hasV2Fallback: boolean;
   v2Token: string | null;
   v2Ref: RefObject<RecaptchaV2FallbackHandle | null>;
+  locale?: "en" | "bn";
   onFullName: (v: string) => void;
   onEmail: (v: string) => void;
   onPassword: (v: string) => void;
@@ -68,19 +69,20 @@ type AccountStepProps = {
 };
 
 export function AccountStep(props: AccountStepProps) {
+  const isBn = props.locale === "bn";
   const mismatch =
     props.confirmPassword.length > 0 && props.confirmPassword !== props.password;
 
   return (
     <form onSubmit={props.onSubmit} className="mt-6 flex flex-col gap-4">
-      <Field id="signup-name" label="Full name">
+      <Field id="signup-name" label={isBn ? "পূর্ণ নাম" : "Full name"}>
         <div className="relative">
           <User className={iconClass} strokeWidth={2} />
           <input
             id="signup-name"
             type="text"
             autoComplete="name"
-            placeholder="Your name"
+            placeholder={isBn ? "আপনার নাম" : "Your name"}
             value={props.fullName}
             onChange={(e) => props.onFullName(e.target.value)}
             className={fieldClass}
@@ -88,7 +90,7 @@ export function AccountStep(props: AccountStepProps) {
         </div>
       </Field>
 
-      <Field id="signup-email" label="Email Address">
+      <Field id="signup-email" label={isBn ? "ইমেইল ঠিকানা" : "Email Address"}>
         <div className="relative">
           <Mail className={iconClass} strokeWidth={2} />
           <input
@@ -105,7 +107,7 @@ export function AccountStep(props: AccountStepProps) {
         </div>
       </Field>
 
-      <Field id="signup-password" label="Password">
+      <Field id="signup-password" label={isBn ? "পাসওয়ার্ড" : "Password"}>
         <div className="relative">
           <Lock className={iconClass} strokeWidth={2} />
           <input
@@ -123,7 +125,15 @@ export function AccountStep(props: AccountStepProps) {
             type="button"
             onClick={props.onTogglePassword}
             className="absolute top-1/2 right-3 -translate-y-1/2 p-1 text-muted transition-colors hover:text-foreground"
-            aria-label={props.showPassword ? "Hide password" : "Show password"}
+            aria-label={
+              props.showPassword
+                ? isBn
+                  ? "পাসওয়ার্ড লুকান"
+                  : "Hide password"
+                : isBn
+                  ? "পাসওয়ার্ড দেখান"
+                  : "Show password"
+            }
           >
             {props.showPassword ? (
               <EyeOff className="size-4" />
@@ -132,10 +142,13 @@ export function AccountStep(props: AccountStepProps) {
             )}
           </button>
         </div>
-        <PasswordStrength password={props.password} />
+        <PasswordStrength password={props.password} locale={props.locale} />
       </Field>
 
-      <Field id="signup-confirm-password" label="Confirm password">
+      <Field
+        id="signup-confirm-password"
+        label={isBn ? "পাসওয়ার্ড নিশ্চিত করুন" : "Confirm password"}
+      >
         <div className="relative">
           <Lock className={iconClass} strokeWidth={2} />
           <input
@@ -154,7 +167,13 @@ export function AccountStep(props: AccountStepProps) {
             onClick={props.onToggleConfirm}
             className="absolute top-1/2 right-3 -translate-y-1/2 p-1 text-muted transition-colors hover:text-foreground"
             aria-label={
-              props.showConfirmPassword ? "Hide password" : "Show password"
+              props.showConfirmPassword
+                ? isBn
+                  ? "পাসওয়ার্ড লুকান"
+                  : "Hide password"
+                : isBn
+                  ? "পাসওয়ার্ড দেখান"
+                  : "Show password"
             }
           >
             {props.showConfirmPassword ? (
@@ -165,7 +184,9 @@ export function AccountStep(props: AccountStepProps) {
           </button>
         </div>
         {mismatch ? (
-          <p className="text-xs text-rose-500">Passwords don&apos;t match.</p>
+          <p className="text-xs text-rose-500">
+            {isBn ? "পাসওয়ার্ড মিলছে না।" : "Passwords don’t match."}
+          </p>
         ) : null}
       </Field>
 
@@ -181,8 +202,10 @@ export function AccountStep(props: AccountStepProps) {
         {props.busy ? (
           <>
             <Spinner />
-            Creating account...
+            {isBn ? "একাউন্ট তৈরি হচ্ছে..." : "Creating account..."}
           </>
+        ) : isBn ? (
+          "চালিয়ে যান"
         ) : (
           "Continue"
         )}
@@ -198,21 +221,24 @@ type VerifyStepProps = {
   busy: boolean;
   resending: boolean;
   resent: boolean;
+  locale?: "en" | "bn";
   onDigits: (next: string[]) => void;
   onSubmit: (e: FormEvent) => void;
   onResend: () => void;
 };
 
 export function VerifyStep(props: VerifyStepProps) {
+  const isBn = props.locale === "bn";
   const otp = props.digits.join("");
   return (
     <form onSubmit={props.onSubmit} className="mt-6 flex flex-col gap-4">
       <p className="text-xs text-muted">
-        Sent to <span className="font-medium text-foreground">{props.email}</span>
+        {isBn ? "পাঠানো হয়েছে" : "Sent to"}{" "}
+        <span className="font-medium text-foreground">{props.email}</span>
       </p>
       <div className="flex flex-col gap-2.5">
         <span className="text-sm font-medium text-foreground">
-          Verification code
+          {isBn ? "ভেরিফিকেশন কোড" : "Verification code"}
         </span>
         <OtpBoxes
           value={props.digits}
@@ -222,7 +248,7 @@ export function VerifyStep(props: VerifyStepProps) {
       </div>
       {props.resent ? (
         <p className="text-xs font-medium text-primary">
-          A new code is on the way.
+          {isBn ? "একটি নতুন কোড পাঠানো হয়েছে।" : "A new code is on the way."}
         </p>
       ) : null}
       <button
@@ -233,21 +259,29 @@ export function VerifyStep(props: VerifyStepProps) {
         {props.busy ? (
           <>
             <Spinner />
-            Verifying...
+            {isBn ? "যাচাই হচ্ছে..." : "Verifying..."}
           </>
+        ) : isBn ? (
+          "যাচাই করুন"
         ) : (
           "Verify"
         )}
       </button>
       <p className="text-center text-sm text-muted">
-        Didn&apos;t get it?{" "}
+        {isBn ? "কোড পাননি?" : "Didn’t get it?"}{" "}
         <button
           type="button"
           onClick={props.onResend}
           disabled={props.resending || props.busy}
           className="font-medium text-primary hover:underline disabled:opacity-50"
         >
-          {props.resending ? "Sending..." : "Resend code"}
+          {props.resending
+            ? isBn
+              ? "পাঠানো হচ্ছে..."
+              : "Sending..."
+            : isBn
+              ? "কোড আবার পাঠান"
+              : "Resend code"}
         </button>
       </p>
     </form>
@@ -259,29 +293,32 @@ export function VerifyStep(props: VerifyStepProps) {
 // writes straight into Site.business.type, so picking here now means a
 // trial that converts to a paid plan never has to ask again.
 export const SHOP_CATEGORIES = [
-  { value: "fashion", label: "Fashion & Apparel" },
-  { value: "electronics", label: "Electronics & Gadgets" },
-  { value: "food", label: "Food & Grocery" },
-  { value: "beauty", label: "Beauty & Personal Care" },
-  { value: "home", label: "Home & Living" },
-  { value: "jewelry", label: "Jewelry & Accessories" },
-  { value: "sports", label: "Sports & Fitness" },
-  { value: "books", label: "Books & Stationery" },
-  { value: "toys", label: "Toys & Kids" },
-  { value: "automotive", label: "Automotive & Tools" },
-  { value: "health", label: "Health & Wellness" },
-  { value: "pets", label: "Pet Supplies" },
-  { value: "services", label: "Services" },
-  { value: "other", label: "Other" },
+  { value: "fashion", label: "Fashion & Apparel", labelBn: "ফ্যাশন ও পোশাক" },
+  { value: "electronics", label: "Electronics & Gadgets", labelBn: "ইলেকট্রনিক্স ও গ্যাজেট" },
+  { value: "food", label: "Food & Grocery", labelBn: "খাবার ও মুদি" },
+  { value: "beauty", label: "Beauty & Personal Care", labelBn: "বিউটি ও পার্সোনাল কেয়ার" },
+  { value: "home", label: "Home & Living", labelBn: "হোম ও লিভিং" },
+  { value: "jewelry", label: "Jewelry & Accessories", labelBn: "জুয়েলারি ও এক্সেসরিজ" },
+  { value: "sports", label: "Sports & Fitness", labelBn: "স্পোর্টস ও ফিটনেস" },
+  { value: "books", label: "Books & Stationery", labelBn: "বই ও স্টেশনারি" },
+  { value: "toys", label: "Toys & Kids", labelBn: "খেলনা ও শিশুদের পণ্য" },
+  { value: "automotive", label: "Automotive & Tools", labelBn: "অটোমোটিভ ও টুলস" },
+  { value: "health", label: "Health & Wellness", labelBn: "স্বাস্থ্য ও ওয়েলনেস" },
+  { value: "pets", label: "Pet Supplies", labelBn: "পোষা প্রাণীর পণ্য" },
+  { value: "services", label: "Services", labelBn: "সার্ভিস" },
+  { value: "other", label: "Other", labelBn: "অন্যান্য" },
 ];
 
 function CategoryDropdown({
   value,
   onChange,
+  locale = "en",
 }: {
   value: string;
   onChange: (v: string) => void;
+  locale?: "en" | "bn";
 }) {
+  const isBn = locale === "bn";
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const active = SHOP_CATEGORIES.find((c) => c.value === value);
@@ -313,7 +350,13 @@ function CategoryDropdown({
         className="flex h-11 w-full items-center justify-between rounded-lg border border-border bg-search-bg px-3 text-left text-sm text-foreground outline-none transition-colors focus:border-primary focus:bg-surface"
       >
         <span className={active ? "" : "text-muted-soft"}>
-          {active?.label ?? "Select category..."}
+          {active
+            ? isBn
+              ? active.labelBn
+              : active.label
+            : isBn
+              ? "ক্যাটাগরি নির্বাচন করুন..."
+              : "Select category..."}
         </span>
         <ChevronDown
           className={`size-4 shrink-0 text-muted-soft transition-transform ${open ? "rotate-180" : ""}`}
@@ -341,7 +384,7 @@ function CategoryDropdown({
                   isActive ? "bg-primary/10 text-primary" : "text-foreground hover:bg-search-bg",
                 ].join(" ")}
               >
-                {c.label}
+                {isBn ? c.labelBn : c.label}
                 {isActive ? <Check className="size-3.5 shrink-0" strokeWidth={2.5} /> : null}
               </button>
             );
@@ -358,6 +401,7 @@ type BasicsStepProps = {
   phone: string;
   tagline: string;
   busy: boolean;
+  locale?: "en" | "bn";
   onShopName: (v: string) => void;
   onCategory: (v: string) => void;
   onPhone: (v: string) => void;
@@ -386,6 +430,7 @@ function hasNonEnglishChars(name: string): boolean {
 }
 
 export function BasicsStep(props: BasicsStepProps) {
+  const isBn = props.locale === "bn";
   const phoneInvalid = props.phone.length > 0 && !BD_PHONE_RE.test(props.phone);
   const slug = slugifyShopName(props.shopName);
   const domainNeedsEnglish = hasNonEnglishChars(props.shopName);
@@ -407,7 +452,7 @@ export function BasicsStep(props: BasicsStepProps) {
   return (
     <form onSubmit={props.onSubmit} className="mt-6 flex flex-col gap-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <Field id="basics-shop" label="Shop name">
+        <Field id="basics-shop" label={isBn ? "শপের নাম" : "Shop name"}>
           <div className="relative">
             <Building2 className={iconClass} strokeWidth={2} />
             <input
@@ -415,7 +460,7 @@ export function BasicsStep(props: BasicsStepProps) {
               type="text"
               required
               autoFocus
-              placeholder="Enter your shop name"
+              placeholder={isBn ? "আপনার শপের নাম লিখুন" : "Enter your shop name"}
               value={props.shopName}
               onChange={(e) => props.onShopName(e.target.value)}
               className={fieldClass}
@@ -423,7 +468,7 @@ export function BasicsStep(props: BasicsStepProps) {
           </div>
         </Field>
 
-        <Field id="basics-domain" label="Your shop URL">
+        <Field id="basics-domain" label={isBn ? "আপনার শপের URL" : "Your shop URL"}>
           <div className="relative">
             <button
               type="button"
@@ -458,8 +503,12 @@ export function BasicsStep(props: BasicsStepProps) {
                   ].join(" ")}
                 >
                   {domainNeedsEnglish
-                    ? "Shop URL must be in English. Try using English letters in your shop name"
-                    : "Change your shop name above to update this"}
+                    ? isBn
+                      ? "শপ URL অবশ্যই ইংরেজিতে হতে হবে। শপের নামে ইংরেজি অক্ষর ব্যবহার করে দেখুন"
+                      : "Shop URL must be in English. Try using English letters in your shop name"
+                    : isBn
+                      ? "উপরে শপের নাম পরিবর্তন করলে এটি আপডেট হবে"
+                      : "Change your shop name above to update this"}
                 </motion.div>
               ) : null}
             </AnimatePresence>
@@ -467,7 +516,7 @@ export function BasicsStep(props: BasicsStepProps) {
         </Field>
       </div>
 
-      <Field id="basics-phone" label="Phone">
+      <Field id="basics-phone" label={isBn ? "ফোন" : "Phone"}>
         <div className="relative flex items-stretch">
           <span className="flex shrink-0 items-center gap-1.5 rounded-l-lg border border-r-0 border-border bg-search-bg px-3 text-sm text-foreground">
             <span aria-hidden="true">🇧🇩</span>
@@ -478,7 +527,7 @@ export function BasicsStep(props: BasicsStepProps) {
             type="tel"
             inputMode="numeric"
             autoComplete="tel"
-            placeholder="Enter your number"
+            placeholder={isBn ? "আপনার নম্বর লিখুন" : "Enter your number"}
             value={props.phone}
             onChange={(e) =>
               props.onPhone(e.target.value.replace(/\D/g, "").slice(0, 11))
@@ -488,22 +537,28 @@ export function BasicsStep(props: BasicsStepProps) {
         </div>
         {phoneInvalid ? (
           <p className="text-xs text-rose-500">
-            Enter a valid Bangladeshi mobile number (e.g. 01XXXXXXXXX).
+            {isBn
+              ? "একটি সঠিক বাংলাদেশি মোবাইল নম্বর দিন (যেমন: 01XXXXXXXXX)।"
+              : "Enter a valid Bangladeshi mobile number (e.g. 01XXXXXXXXX)."}
           </p>
         ) : null}
       </Field>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <Field id="basics-category" label="Shop category">
-          <CategoryDropdown value={props.category} onChange={props.onCategory} />
+        <Field id="basics-category" label={isBn ? "শপের ক্যাটাগরি" : "Shop category"}>
+          <CategoryDropdown
+            value={props.category}
+            onChange={props.onCategory}
+            locale={props.locale}
+          />
         </Field>
 
-        <Field id="basics-tagline" label="Tagline (optional)">
+        <Field id="basics-tagline" label={isBn ? "ট্যাগলাইন (ঐচ্ছিক)" : "Tagline (optional)"}>
           <input
             id="basics-tagline"
             type="text"
             maxLength={160}
-            placeholder="What you sell, in a sentence"
+            placeholder={isBn ? "আপনি কী বিক্রি করেন, এক লাইনে" : "What you sell, in a sentence"}
             value={props.tagline}
             onChange={(e) => props.onTagline(e.target.value)}
             className="h-11 w-full rounded-lg border border-border bg-search-bg px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-soft focus:border-primary focus:bg-surface"
@@ -515,8 +570,10 @@ export function BasicsStep(props: BasicsStepProps) {
         {props.busy ? (
           <>
             <Spinner />
-            Saving...
+            {isBn ? "সংরক্ষণ হচ্ছে..." : "Saving..."}
           </>
+        ) : isBn ? (
+          "চালিয়ে যান"
         ) : (
           "Continue"
         )}

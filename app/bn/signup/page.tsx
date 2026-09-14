@@ -10,6 +10,6 @@ export const metadata = pageSeo({
 });
 
 export default function BanglaSignupPage() {
-  return <TrialOnboarding />;
+  return <TrialOnboarding locale="bn" />;
 }
 

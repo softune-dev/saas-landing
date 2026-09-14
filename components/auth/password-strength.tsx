@@ -8,26 +8,30 @@
  */
 type PasswordStrengthProps = {
   password: string;
+  locale?: "en" | "bn";
 };
 
 const RULES = [
-  { label: "8+ characters", test: (v: string) => v.length >= 8 },
-  { label: "uppercase", test: (v: string) => /[A-Z]/.test(v) },
-  { label: "lowercase", test: (v: string) => /[a-z]/.test(v) },
-  { label: "a number", test: (v: string) => /[0-9]/.test(v) },
+  { label: "8+ characters", labelBn: "৮+ অক্ষর", test: (v: string) => v.length >= 8 },
+  { label: "uppercase", labelBn: "বড় হাতের অক্ষর", test: (v: string) => /[A-Z]/.test(v) },
+  { label: "lowercase", labelBn: "ছোট হাতের অক্ষর", test: (v: string) => /[a-z]/.test(v) },
+  { label: "a number", labelBn: "একটি সংখ্যা", test: (v: string) => /[0-9]/.test(v) },
 ];
 
 /** Same list the live meter shows — 422 toasts reuse this so the toast
  * tells them what to add instead of FastAPI's one-rule-at-a-time msg. */
-export function missingPasswordBits(password: string): string[] {
-  return RULES.filter((r) => !r.test(password)).map((r) => r.label);
+export function missingPasswordBits(password: string, locale: "en" | "bn" = "en"): string[] {
+  return RULES.filter((r) => !r.test(password)).map((r) =>
+    locale === "bn" ? r.labelBn : r.label,
+  );
 }
 
-export function PasswordStrength({ password }: PasswordStrengthProps) {
+export function PasswordStrength({ password, locale = "en" }: PasswordStrengthProps) {
   if (!password) return null;
+  const isBn = locale === "bn";
 
   const metCount = RULES.filter((r) => r.test(password)).length;
-  const missing = missingPasswordBits(password);
+  const missing = missingPasswordBits(password, locale);
   const barColor =
     metCount <= 1
       ? "bg-rose-500"
@@ -48,7 +52,13 @@ export function PasswordStrength({ password }: PasswordStrengthProps) {
         ))}
       </div>
       <p className="text-xs text-muted-soft">
-        {missing.length > 0 ? `Add: ${missing.join(", ")}` : "Strong password"}
+        {missing.length > 0
+          ? isBn
+            ? `যোগ করুন: ${missing.join(", ")}`
+            : `Add: ${missing.join(", ")}`
+          : isBn
+            ? "শক্তিশালী পাসওয়ার্ড"
+            : "Strong password"}
       </p>
     </div>
   );

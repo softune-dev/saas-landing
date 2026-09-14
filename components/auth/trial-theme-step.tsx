@@ -74,6 +74,7 @@ type ThemeStepProps = {
   displayFont: string;
   bodyFont: string;
   busy: boolean;
+  locale?: "en" | "bn";
   onTemplate: (key: TemplateKey) => void;
   onColor: (color: string) => void;
   onDisplayFont: (font: string) => void;
@@ -82,6 +83,7 @@ type ThemeStepProps = {
 };
 
 export function ThemeStep(props: ThemeStepProps) {
+  const isBn = props.locale === "bn";
   // Which card is highlighted — not the same as props.templateKey, since
   // two cards could in principle submit the same key (as "Multi" and
   // "Electronics" once did for "bazaar"). Defaults to whichever TEMPLATES
@@ -98,7 +100,10 @@ export function ThemeStep(props: ThemeStepProps) {
     <form onSubmit={props.onSubmit} className="mt-4 flex flex-col gap-3.5">
       <div className="flex flex-col gap-1.5">
         <span className="text-[11px] font-medium text-muted">
-          Theme<span className="hidden sm:inline"> (hover to preview)</span>
+          {isBn ? "থিম" : "Theme"}
+          <span className="hidden sm:inline">
+            {isBn ? " (দেখতে মাউস নিয়ে যান)" : " (hover to preview)"}
+          </span>
         </span>
         <div className="grid grid-cols-2 gap-1.5">
           {TEMPLATES.map((t) => {
@@ -128,7 +133,7 @@ export function ThemeStep(props: ThemeStepProps) {
                   <button
                     type="button"
                     onClick={() => setPreviewSlug(t.slug)}
-                    aria-label={`Preview ${t.name}`}
+                    aria-label={isBn ? `${t.name} প্রিভিউ` : `Preview ${t.name}`}
                     className={`shrink-0 rounded-full p-1 transition-colors sm:hidden ${
                       selected
                         ? "text-white/80 hover:text-white"
@@ -156,19 +161,21 @@ export function ThemeStep(props: ThemeStepProps) {
             className="flex w-full cursor-not-allowed items-center justify-between gap-1.5 rounded-lg border border-dashed border-border px-3 py-2.5 text-left text-sm font-medium text-muted-soft"
             aria-disabled
           >
-            <span className="truncate">10+ more</span>
+            <span className="truncate">{isBn ? "আরও ১০+" : "10+ more"}</span>
             <span className="shrink-0 rounded-full border border-border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted">
-              Soon
+              {isBn ? "শীঘ্রই" : "Soon"}
             </span>
           </div>
         </div>
       </div>
 
-      <ColorWell value={props.primaryColor} onChange={props.onColor} />
+      <ColorWell value={props.primaryColor} onChange={props.onColor} locale={props.locale} />
 
       <div className="grid grid-cols-2 gap-2">
         <label className="flex min-w-0 flex-col gap-1">
-          <span className="text-[11px] font-medium text-muted">Headings</span>
+          <span className="text-[11px] font-medium text-muted">
+            {isBn ? "হেডিং" : "Headings"}
+          </span>
           <FontPicker
             value={props.displayFont}
             options={HEADING_FONTS}
@@ -176,7 +183,9 @@ export function ThemeStep(props: ThemeStepProps) {
           />
         </label>
         <label className="flex min-w-0 flex-col gap-1">
-          <span className="text-[11px] font-medium text-muted">Body text</span>
+          <span className="text-[11px] font-medium text-muted">
+            {isBn ? "বডি টেক্সট" : "Body text"}
+          </span>
           <FontPicker
             value={props.bodyFont}
             options={BODY_FONTS}
@@ -189,8 +198,10 @@ export function ThemeStep(props: ThemeStepProps) {
         {props.busy ? (
           <>
             <span className="size-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-            Opening your store...
+            {isBn ? "আপনার স্টোর খোলা হচ্ছে..." : "Opening your store..."}
           </>
+        ) : isBn ? (
+          "৩ দিনের ট্রায়াল শুরু করুন"
         ) : (
           "Start 3-day trial"
         )}
@@ -204,14 +215,16 @@ export function ThemeStep(props: ThemeStepProps) {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${previewTemplate.name} theme preview`}
+          aria-label={
+            isBn ? `${previewTemplate.name} থিম প্রিভিউ` : `${previewTemplate.name} theme preview`
+          }
           className="relative w-full max-w-xs overflow-hidden rounded-xl border border-border bg-surface"
           onClick={(e) => e.stopPropagation()}
         >
           <button
             type="button"
             onClick={() => setPreviewSlug(null)}
-            aria-label="Close preview"
+            aria-label={isBn ? "প্রিভিউ বন্ধ করুন" : "Close preview"}
             className="absolute top-2 right-2 z-10 inline-flex size-8 items-center justify-center rounded-full bg-black/50 text-white"
           >
             <X className="size-4" strokeWidth={2.5} />
@@ -219,7 +232,7 @@ export function ThemeStep(props: ThemeStepProps) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={previewTemplate.image}
-            alt={`${previewTemplate.name} theme`}
+            alt={isBn ? `${previewTemplate.name} থিম` : `${previewTemplate.name} theme`}
             className="max-h-[80vh] w-full object-cover object-top"
           />
         </div>
@@ -232,14 +245,17 @@ export function ThemeStep(props: ThemeStepProps) {
 function ColorWell({
   value,
   onChange,
+  locale = "en",
 }: {
   value: string;
   onChange: (color: string) => void;
+  locale?: "en" | "bn";
 }) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const dark = mounted && resolvedTheme === "dark";
+  const isBn = locale === "bn";
   const isCustom = !COLOR_SWATCHES.some(
     (s) => s.toLowerCase() === value.toLowerCase(),
   );
@@ -255,7 +271,7 @@ function ColorWell({
         <span
           className={`text-[11px] font-medium ${dark ? "text-white/70" : "text-muted"}`}
         >
-          Primary color
+          {isBn ? "প্রাইমারি কালার" : "Primary color"}
         </span>
         <span
           className={[
@@ -306,7 +322,7 @@ function ColorWell({
           ].join(" ")}
           style={isCustom ? { backgroundColor: value } : undefined}
         >
-          <span className="sr-only">Custom color</span>
+          <span className="sr-only">{isBn ? "কাস্টম কালার" : "Custom color"}</span>
           {isCustom ? (
             <Check
               className={`pointer-events-none absolute inset-0 m-auto size-3 ${isLightHex(value) ? "text-slate-900" : "text-white"}`}

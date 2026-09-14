@@ -74,6 +74,29 @@ const STEP_COPY: Record<Step, { title: string; subtitle: string }> = {
   },
 };
 
+const STEP_COPY_BN: Record<Step, { title: string; subtitle: string }> = {
+  account: {
+    title: "ফ্রি ট্রায়াল শুরু করুন",
+    subtitle: "৩ দিন, কোনো ক্রেডিট কার্ড লাগবে না।",
+  },
+  verify: {
+    title: "আপনার ইমেইল চেক করুন",
+    subtitle: "আমাদের পাঠানো ৬-সংখ্যার কোডটি লিখুন।",
+  },
+  basics: {
+    title: "আপনার শপ সম্পর্কে বলুন",
+    subtitle: "শুরু করতে শুধু বেসিক তথ্য দিন।",
+  },
+  theme: {
+    title: "একটি লুক বেছে নিন",
+    subtitle: "এটি পরেও পরিবর্তন করতে পারবেন।",
+  },
+  building: {
+    title: "আপনার স্টোর তৈরি হচ্ছে",
+    subtitle: "একটু অপেক্ষা করুন।",
+  },
+};
+
 const STEP_LOTTIE: Record<Step, string> = {
   account: "/acc.lottie",
   verify: "/email.lottie",
@@ -155,7 +178,8 @@ function readPreviewFlag() {
   return new URLSearchParams(window.location.search).get("preview") === "1";
 }
 
-export function TrialOnboarding() {
+export function TrialOnboarding({ locale = "en" }: { locale?: "en" | "bn" }) {
+  const isBn = locale === "bn";
   const { toast } = useToast();
   const [isPreview] = useState(readPreviewFlag);
   const [state, dispatch] = useReducer(reducer, undefined, createInitialState);
@@ -182,8 +206,10 @@ export function TrialOnboarding() {
   // so the whole wizard can just be replayed.
   function previewComplete() {
     toast({
-      title: "Preview complete",
-      description: "No account was created. This is what merchants see.",
+      title: isBn ? "প্রিভিউ সম্পন্ন" : "Preview complete",
+      description: isBn
+        ? "কোনো একাউন্ট তৈরি হয়নি। মার্চেন্টরা এটাই দেখেন।"
+        : "No account was created. This is what merchants see.",
       variant: "info",
       duration: 5000,
     });
@@ -265,7 +291,7 @@ export function TrialOnboarding() {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isPreview is stable for the component's lifetime (lazy useState init)
   }, []);
 
-  const copy = STEP_COPY[state.step];
+  const copy = (isBn ? STEP_COPY_BN : STEP_COPY)[state.step];
 
   // Avoid flashing the Account form for the instant it takes to confirm
   // there's no (or an expired) signup_token to resume.
@@ -284,7 +310,7 @@ export function TrialOnboarding() {
   async function handleAccount(e: FormEvent) {
     e.preventDefault();
     if (password !== confirmPassword) {
-      failToast("Passwords don't match.");
+      failToast(isBn ? "পাসওয়ার্ড মিলছে না।" : "Passwords don’t match.");
       return;
     }
     dispatch({ type: "patch", patch: { busy: true } });
@@ -319,7 +345,9 @@ export function TrialOnboarding() {
         dispatch({ type: "fail" });
         if (!hasV2Fallback) {
           toast({
-            title: err.message || "Couldn't verify you're human",
+            title:
+              err.message ||
+              (isBn ? "আপনি মানুষ কিনা যাচাই করা যায়নি" : "Couldn't verify you're human"),
             variant: "error",
           });
         }
@@ -327,16 +355,26 @@ export function TrialOnboarding() {
       }
       v2Ref.current?.reset();
       if (isPassword422(err)) {
-        const missing = missingPasswordBits(password);
+        const missing = missingPasswordBits(password, locale);
         failToast(
-          "Password format isn't right",
+          isBn ? "পাসওয়ার্ডের ফরম্যাট ঠিক নেই" : "Password format isn't right",
           missing.length
-            ? `Add: ${missing.join(", ")}.`
-            : "Use at least 8 characters, with uppercase, lowercase, and a number.",
+            ? isBn
+              ? `যোগ করুন: ${missing.join(", ")}।`
+              : `Add: ${missing.join(", ")}.`
+            : isBn
+              ? "কমপক্ষে ৮ অক্ষর, বড় হাতের অক্ষর, ছোট হাতের অক্ষর এবং একটি সংখ্যা ব্যবহার করুন।"
+              : "Use at least 8 characters, with uppercase, lowercase, and a number.",
         );
         return;
       }
-      failToast(err instanceof Error ? err.message : "Couldn't create account");
+      failToast(
+        err instanceof Error
+          ? err.message
+          : isBn
+            ? "একাউন্ট তৈরি করা যায়নি"
+            : "Couldn't create account",
+      );
     }
   }
 
@@ -358,7 +396,13 @@ export function TrialOnboarding() {
     } catch (err) {
       setDigits(emptyOtpDigits());
       submittingRef.current = false;
-      failToast(err instanceof Error ? err.message : "Couldn't verify code");
+      failToast(
+        err instanceof Error
+          ? err.message
+          : isBn
+            ? "কোড যাচাই করা যায়নি"
+            : "Couldn't verify code",
+      );
     }
   }
 
@@ -389,7 +433,13 @@ export function TrialOnboarding() {
       submittingRef.current = false;
       setResent(true);
     } catch (err) {
-      failToast(err instanceof Error ? err.message : "Couldn't resend code");
+      failToast(
+        err instanceof Error
+          ? err.message
+          : isBn
+            ? "কোড আবার পাঠানো যায়নি"
+            : "Couldn't resend code",
+      );
     } finally {
       setResending(false);
     }
@@ -398,7 +448,11 @@ export function TrialOnboarding() {
   async function handleBasics(e: FormEvent) {
     e.preventDefault();
     if (phone && !BD_PHONE_RE.test(phone)) {
-      failToast("Enter a valid Bangladeshi mobile number (e.g. 01XXXXXXXXX).");
+      failToast(
+        isBn
+          ? "একটি সঠিক বাংলাদেশি মোবাইল নম্বর দিন (যেমন: 01XXXXXXXXX)।"
+          : "Enter a valid Bangladeshi mobile number (e.g. 01XXXXXXXXX).",
+      );
       return;
     }
     dispatch({ type: "patch", patch: { busy: true } });
@@ -420,7 +474,13 @@ export function TrialOnboarding() {
         patch: { busy: false, step: "theme" },
       });
     } catch (err) {
-      failToast(err instanceof Error ? err.message : "Couldn't save details");
+      failToast(
+        err instanceof Error
+          ? err.message
+          : isBn
+            ? "তথ্য সংরক্ষণ করা যায়নি"
+            : "Couldn't save details",
+      );
     }
   }
 
@@ -458,7 +518,13 @@ export function TrialOnboarding() {
     } catch (err) {
       setPending(null);
       dispatch({ type: "patch", patch: { step: "theme" } });
-      failToast(err instanceof Error ? err.message : "Couldn't finish signup");
+      failToast(
+        err instanceof Error
+          ? err.message
+          : isBn
+            ? "সাইনআপ সম্পন্ন করা যায়নি"
+            : "Couldn't finish signup",
+      );
     }
   }
 
@@ -476,7 +542,9 @@ export function TrialOnboarding() {
     <>
     {isPreview ? (
       <div className="fixed top-0 inset-x-0 z-50 bg-amber-500 px-4 py-1.5 text-center text-xs font-semibold text-white">
-        Preview mode: no account will be created
+        {isBn
+          ? "প্রিভিউ মোড: কোনো একাউন্ট তৈরি হবে না"
+          : "Preview mode: no account will be created"}
       </div>
     ) : null}
     <AuthShell
@@ -485,8 +553,12 @@ export function TrialOnboarding() {
       headerBadge={
         <span className="rounded-full bg-primary px-3.5 py-1.5 text-sm font-semibold text-white">
           {state.step === "building"
-            ? "Almost there"
-            : `Step ${stepIndex + 1} of ${STEPS.length}`}
+            ? isBn
+              ? "প্রায় শেষ"
+              : "Almost there"
+            : isBn
+              ? `ধাপ ${stepIndex + 1} / ${STEPS.length}`
+              : `Step ${stepIndex + 1} of ${STEPS.length}`}
         </span>
       }
       // A dedicated .lottie per step (public/*.lottie) — building's is
@@ -498,12 +570,12 @@ export function TrialOnboarding() {
       headerRight={
         state.step === "account" ? (
           <p className="text-xs text-muted sm:text-sm">
-            Have an account?{" "}
+            {isBn ? "একাউন্ট আছে?" : "Have an account?"}{" "}
             <a
               href={DASHBOARD_URL}
               className="font-medium text-primary hover:underline"
             >
-              Sign in
+              {isBn ? "সাইন ইন করুন" : "Sign in"}
             </a>
           </p>
         ) : undefined
@@ -511,6 +583,7 @@ export function TrialOnboarding() {
     >
       {state.step === "account" ? (
         <AccountStep
+          locale={locale}
           fullName={fullName}
           email={state.email}
           password={password}
@@ -535,6 +608,7 @@ export function TrialOnboarding() {
 
       {state.step === "verify" ? (
         <VerifyStep
+          locale={locale}
           email={state.email}
           digits={digits}
           busy={state.busy}
@@ -548,6 +622,7 @@ export function TrialOnboarding() {
 
       {state.step === "basics" ? (
         <BasicsStep
+          locale={locale}
           shopName={shopName}
           category={category}
           phone={phone}
@@ -562,11 +637,12 @@ export function TrialOnboarding() {
       ) : null}
 
       {state.step === "building" ? (
-        <BuildingStoreScreen done={buildDone} pct={buildPct} />
+        <BuildingStoreScreen done={buildDone} pct={buildPct} locale={locale} />
       ) : null}
 
       {state.step === "theme" ? (
         <ThemeStep
+          locale={locale}
           templateKey={state.templateKey}
           primaryColor={state.primaryColor}
           displayFont={state.displayFont}
@@ -590,6 +666,7 @@ export function TrialOnboarding() {
     </AuthShell>
     <WizardDock
       onBack={goBack}
+      locale={locale}
       // Once the email is verified (basics/theme/building), there's
       // nowhere useful to go back to — re-showing account or verify would
       // just re-enter an already-completed step. Only account (-> home)

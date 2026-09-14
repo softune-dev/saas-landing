@@ -9,5 +9,5 @@ export const metadata = pageSeo({
 });
 
 export default function SignupPage() {
-  return <TrialOnboarding />;
+  return <TrialOnboarding locale="en" />;
 }

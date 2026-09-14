@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { BUILD_LABELS } from "./use-trial-build";
+import { BUILD_LABELS, BUILD_LABELS_BN } from "./use-trial-build";
 
 /** Pure presentational checklist — `done`/`pct` are computed once by
  * useTrialBuild, so this and the left-panel animation can never drift out
@@ -9,11 +9,14 @@ import { BUILD_LABELS } from "./use-trial-build";
 export function BuildingStoreScreen({
   done,
   pct,
+  locale = "en",
 }: {
   done: boolean[];
   pct: number;
+  locale?: "en" | "bn";
 }) {
   const activeIndex = done.findIndex((d) => !d);
+  const labels = locale === "bn" ? BUILD_LABELS_BN : BUILD_LABELS;
 
   return (
     <div className="mt-8">
@@ -26,7 +29,7 @@ export function BuildingStoreScreen({
       <p className="mt-2 text-xs font-medium text-muted-soft">{pct}%</p>
 
       <ol className="mt-6 flex list-none flex-col" aria-live="polite">
-        {BUILD_LABELS.map((label, i) => {
+        {labels.map((label, i) => {
           const isDone = done[i];
           const isActive = !isDone && i === activeIndex;
           const isLast = i === BUILD_LABELS.length - 1;
