@@ -108,12 +108,12 @@ export function ThemeStep(props: ThemeStepProps) {
                 <div
                   className={`flex w-full items-center gap-1 rounded-lg border pl-3 pr-1.5 py-2.5 text-sm font-medium transition-colors ${
                     selected
-                      ? "border-primary bg-primary/5 text-foreground"
+                      ? "border-primary bg-primary text-white"
                       : "border-border text-foreground hover:border-primary/50 hover:bg-search-bg"
                   }`}
                 >
                   {selected ? (
-                    <Check className="size-4 shrink-0 text-primary" strokeWidth={2.5} />
+                    <Check className="size-4 shrink-0 text-white" strokeWidth={2.5} />
                   ) : null}
                   <button
                     type="button"
@@ -129,7 +129,11 @@ export function ThemeStep(props: ThemeStepProps) {
                     type="button"
                     onClick={() => setPreviewSlug(t.slug)}
                     aria-label={`Preview ${t.name}`}
-                    className="shrink-0 rounded-full p-1 text-muted-soft transition-colors hover:text-foreground sm:hidden"
+                    className={`shrink-0 rounded-full p-1 transition-colors sm:hidden ${
+                      selected
+                        ? "text-white/80 hover:text-white"
+                        : "text-muted-soft hover:text-foreground"
+                    }`}
                   >
                     <Eye className="size-4" strokeWidth={2} />
                   </button>
