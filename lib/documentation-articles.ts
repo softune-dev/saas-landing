@@ -62,12 +62,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Getting Started ───────────────────────────────────────────────────────
   "intro-to-softune": article(
     "intro-to-softune",
-    "A full orientation to Softunebd’s dashboard — sidebar structure, Setup vs Menu vs Settings, and how your store stays tenant-isolated.",
+    "A full orientation to Softunebd’s dashboard - sidebar structure, Setup vs Menu vs Settings, and how your store stays tenant-isolated.",
     [
       {
         type: "p",
         content:
-          "Softunebd is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Add-Ons — without bolting together unrelated apps.",
+          "Softunebd is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Add-Ons - without bolting together unrelated apps.",
       },
       { type: "h2", content: "What Softunebd is (and is not)" },
       {
@@ -96,34 +96,34 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Dashboard — live snapshot of sales and activity",
-          "Categories — organize products for browsing",
-          "Products — catalog, variants, pricing, stock, media",
-          "Orders — order lifecycle and fulfillment",
-          "Analytics — trends, best sellers, exports",
-          "Themes — open the theme editor for your storefront",
-          "Customers — buyers who have ordered from you",
-          "Courier — connect delivery partners",
-          "Payments — COD, bKash, Nagad, and SSLCommerz",
-          "Add-Ons — native marketplace extensions",
+          "Dashboard - live snapshot of sales and activity",
+          "Categories - organize products for browsing",
+          "Products - catalog, variants, pricing, stock, media",
+          "Orders - order lifecycle and fulfillment",
+          "Analytics - trends, best sellers, exports",
+          "Themes - open the theme editor for your storefront",
+          "Customers - buyers who have ordered from you",
+          "Courier - connect delivery partners",
+          "Payments - COD, bKash, Nagad, and SSLCommerz",
+          "Add-Ons - native marketplace extensions",
         ],
       },
       { type: "h3", content: "Settings" },
       {
         type: "list",
         content: [
-          "Site Settings — business info, domain, shipping locations, FAQs, legal pages, SEO",
-          "Fraud Protection — rules and phone blocklist",
-          "Billing — plan and usage",
-          "Account — profile and business identity details",
-          "Help Desk — support resources",
+          "Site Settings - business info, domain, shipping locations, FAQs, legal pages, SEO",
+          "Fraud Protection - rules and phone blocklist",
+          "Billing - plan and usage",
+          "Account - profile and business identity details",
+          "Help Desk - support resources",
         ],
       },
       { type: "h2", content: "Take a Tour (on demand)" },
       {
         type: "p",
         content:
-          "At the bottom of the sidebar, Take a Tour launches a guided walkthrough with a spotlight overlay and Skip / Back / Next controls. It covers the main dashboard and continues into the theme editor to explain its tools, then returns you to the dashboard. The tour never starts automatically — only when you click.",
+          "At the bottom of the sidebar, Take a Tour launches a guided walkthrough with a spotlight overlay and Skip / Back / Next controls. It covers the main dashboard and continues into the theme editor to explain its tools, then returns you to the dashboard. The tour never starts automatically - only when you click.",
       },
       { type: "h2", content: "Recommended first week" },
       {
@@ -141,7 +141,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "account-setup-checklist": article(
     "account-setup-checklist",
-    "Walk Softunebd’s real 9-step Getting Started checklist from first product to publish — including when the Setup section leaves the sidebar.",
+    "Walk Softunebd’s real 9-step Getting Started checklist from first product to publish - including when the Setup section leaves the sidebar.",
     [
       {
         type: "p",
@@ -157,15 +157,15 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Add your first product — create a sellable item under Products",
-          "2. Create a category — open Categories and add at least one group",
-          "3. Add logo & business info — Site Settings / Account business details so the store looks like your brand",
-          "4. Connect a payment method — Payments (COD, manual wallets, bKash, Nagad, or SSLCommerz)",
-          "5. Set up courier — Couriers screen (Steadfast, Pathao, RedX, or eCourier)",
-          "6. Upload product/store photos — media for products and brand assets",
-          "7. Add FAQs — Site Settings FAQs shoppers can read",
-          "8. Add legal pages — Privacy and Terms in Site Settings legal docs",
-          "9. Publish your site — push the storefront live from Themes / publish flow",
+          "1. Add your first product - create a sellable item under Products",
+          "2. Create a category - open Categories and add at least one group",
+          "3. Add logo & business info - Site Settings / Account business details so the store looks like your brand",
+          "4. Connect a payment method - Payments (COD, manual wallets, bKash, Nagad, or SSLCommerz)",
+          "5. Set up courier - Couriers screen (Steadfast, Pathao, RedX, or eCourier)",
+          "6. Upload product/store photos - media for products and brand assets",
+          "7. Add FAQs - Site Settings FAQs shoppers can read",
+          "8. Add legal pages - Privacy and Terms in Site Settings legal docs",
+          "9. Publish your site - push the storefront live from Themes / publish flow",
         ],
       },
       {
@@ -188,7 +188,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "You can still open Dashboard, Analytics, Fraud Protection, or Add-Ons while Setup is visible. The checklist does not lock the rest of Softunebd — it only tracks go-live readiness.",
+          "You can still open Dashboard, Analytics, Fraud Protection, or Add-Ons while Setup is visible. The checklist does not lock the rest of Softunebd - it only tracks go-live readiness.",
       },
     ],
     "2 min read",
@@ -196,7 +196,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "dashboard-tour": article(
     "dashboard-tour",
-    "Run Softunebd’s Take a Tour: spotlight overlay, Skip/Back/Next, dashboard coverage, theme-editor stop, and return — launch only on click.",
+    "Run Softunebd’s Take a Tour: spotlight overlay, Skip/Back/Next, dashboard coverage, theme-editor stop, and return - launch only on click.",
     [
       {
         type: "p",
@@ -209,7 +209,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Sign in to the Softunebd dashboard for your store",
           "2. Find Take a Tour at the bottom of the left sidebar",
-          "3. Click Take a Tour once — the spotlight overlay appears",
+          "3. Click Take a Tour once - the spotlight overlay appears",
           "4. Use Next to advance, Back to revisit, or Skip to exit early",
         ],
       },
@@ -218,7 +218,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "The tour walks the main Menu items — Dashboard through Add-Ons — so you know where Categories, Products, Orders, Analytics, Themes, Customers, Courier, and Payments live without memorizing a map.",
+          "The tour walks the main Menu items - Dashboard through Add-Ons - so you know where Categories, Products, Orders, Analytics, Themes, Customers, Courier, and Payments live without memorizing a map.",
       },
       { type: "h3", content: "Theme editor stop" },
       {
@@ -229,7 +229,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Softunebd remembers that you have seen the tour so it does not nag you. You can still click Take a Tour again whenever you want a refresher — including for a new teammate looking over your shoulder.",
+          "Softunebd remembers that you have seen the tour so it does not nag you. You can still click Take a Tour again whenever you want a refresher - including for a new teammate looking over your shoulder.",
       },
       { type: "h2", content: "When to run it again" },
       {
@@ -257,7 +257,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Decide the primary hostname customers will type (pick apex or www — stay consistent)",
+          "1. Decide the primary hostname customers will type (pick apex or www - stay consistent)",
           "2. Have login access to your DNS registrar (where the domain’s nameservers live)",
           "3. Keep Softunebd’s free hostname working while DNS propagates",
         ],
@@ -277,7 +277,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "DNS changes are not instant. Softunebd’s status check is the source of truth — wait until status shows connected before sharing the custom URL widely.",
+          "DNS changes are not instant. Softunebd’s status check is the source of truth - wait until status shows connected before sharing the custom URL widely.",
       },
       { type: "h2", content: "Verify on the live storefront" },
       {
@@ -301,7 +301,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Products is where your sellable catalog lives. Softunebd stores money as integer cents internally (never float), supports merchant-defined variant labels (not a hardcoded size/color-only model), and can draft descriptions with AI — but only after you confirm what will change.",
+          "Products is where your sellable catalog lives. Softunebd stores money as integer cents internally (never float), supports merchant-defined variant labels (not a hardcoded size/color-only model), and can draft descriptions with AI - but only after you confirm what will change.",
       },
       { type: "h2", content: "Add a product from scratch" },
       {
@@ -321,7 +321,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "When an item has options — size, color, weight, or anything you invent — add variants with the labels your customers actually use. Softunebd does not force a single fixed option vocabulary; you define the option names that fit the catalog.",
+          "When an item has options - size, color, weight, or anything you invent - add variants with the labels your customers actually use. Softunebd does not force a single fixed option vocabulary; you define the option names that fit the catalog.",
       },
       {
         type: "list",
@@ -338,7 +338,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open a product with enough facts for Softunebd AI to draft from (title, key traits)",
           "2. Start AI description assistance from the product editor",
-          "3. Review Softunebd’s confirm-before-write step — Softunebd shows exactly what will change",
+          "3. Review Softunebd’s confirm-before-write step - Softunebd shows exactly what will change",
           "4. Confirm only if the draft is accurate; otherwise edit or cancel",
           "5. Re-read the published copy on the live product page after save",
         ],
@@ -396,7 +396,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Use inactive while you build seasonal or wholesale groupings. Flip to active only when product assignments and imagery are ready — Softunebd’s status control is there so unfinished categories do not confuse shoppers.",
+          "Use inactive while you build seasonal or wholesale groupings. Flip to active only when product assignments and imagery are ready - Softunebd’s status control is there so unfinished categories do not confuse shoppers.",
       },
       {
         type: "callout",
@@ -409,7 +409,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "managing-orders": article(
     "managing-orders",
-    "Run Softunebd Orders end to end — statuses, detail view, customer info, and immutable snapshots when products later change.",
+    "Run Softunebd Orders end to end - statuses, detail view, customer info, and immutable snapshots when products later change.",
     [
       {
         type: "p",
@@ -422,7 +422,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Orders",
           "2. Select a new order from the list",
-          "3. Read the order detail view — items, quantities, totals, and customer contact",
+          "3. Read the order detail view - items, quantities, totals, and customer contact",
           "4. Confirm stock still covers what the customer bought",
           "5. Advance status as you pack and prepare handoff",
         ],
@@ -431,7 +431,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Move the order through Softunebd’s lifecycle statuses as work progresses. Keep status honest — customers and your own analytics depend on it. When Courier is connected, use Softunebd’s courier handoff rather than retyping addresses into a separate portal.",
+          "Move the order through Softunebd’s lifecycle statuses as work progresses. Keep status honest - customers and your own analytics depend on it. When Courier is connected, use Softunebd’s courier handoff rather than retyping addresses into a separate portal.",
       },
       { type: "h2", content: "Why snapshots matter" },
       {
@@ -442,7 +442,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Order history is immutable on purpose. Softunebd does not “fix” past totals by joining live product prices — that is what snapshots are for.",
+          "Order history is immutable on purpose. Softunebd does not “fix” past totals by joining live product prices - that is what snapshots are for.",
       },
       { type: "h2", content: "Finding older orders" },
       {
@@ -464,7 +464,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Customers lists everyone who has ordered from your Softunebd store. Use it for support, delivery questions, and repeat outreach — always scoped to your tenant.",
+          "Customers lists everyone who has ordered from your Softunebd store. Use it for support, delivery questions, and repeat outreach - always scoped to your tenant.",
       },
       { type: "h2", content: "Find a customer" },
       {
@@ -504,7 +504,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Storefront & Themes ───────────────────────────────────────────────────
   "choosing-a-theme": article(
     "choosing-a-theme",
-    "Compare Softunebd’s real themes — Fashion, Emporium, and Vault — and pick the storefront design that fits your brand before editing.",
+    "Compare Softunebd’s real themes - Fashion, Emporium, and Vault - and pick the storefront design that fits your brand before editing.",
     [
       {
         type: "p",
@@ -516,19 +516,19 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Fashion suits fashion and editorial brands — photography-forward layouts that keep the catalog feeling premium.",
+          "Fashion suits fashion and editorial brands - photography-forward layouts that keep the catalog feeling premium.",
       },
       { type: "h3", content: "Emporium" },
       {
         type: "p",
         content:
-          "Emporium fits shops that sell across many categories — dense catalogs, bold category browsing, and marketplace-style grids.",
+          "Emporium fits shops that sell across many categories - dense catalogs, bold category browsing, and marketplace-style grids.",
       },
       { type: "h3", content: "Vault" },
       {
         type: "p",
         content:
-          "Vault is for digital goods — courses, templates, software, and downloads — with a product focus that feels instant to buy.",
+          "Vault is for digital goods - courses, templates, software, and downloads - with a product focus that feels instant to buy.",
       },
       { type: "h2", content: "How to choose" },
       {
@@ -543,7 +543,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Theme choice is a starting skin. Softunebd’s editor — not custom CSS — is how you brand it afterward.",
+          "Theme choice is a starting skin. Softunebd’s editor - not custom CSS - is how you brand it afterward.",
       },
     ],
     "2 min read",
@@ -551,7 +551,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "using-theme-editor": article(
     "using-theme-editor",
-    "Use Softunebd’s theme editor tools rail — Brand, Colors, Header, Pages, Sections — with live preview and device toggles.",
+    "Use Softunebd’s theme editor tools rail - Brand, Colors, Header, Pages, Sections - with live preview and device toggles.",
     [
       {
         type: "p",
@@ -619,7 +619,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "brand-colors-ai-suggest": article(
     "brand-colors-ai-suggest",
-    "Run Softunebd AI Suggest from Brand and Colors in the theme editor — review proposals, check contrast, then Save or Publish.",
+    "Run Softunebd AI Suggest from Brand and Colors in the theme editor - review proposals, check contrast, then Save or Publish.",
     [
       {
         type: "p",
@@ -651,7 +651,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "AI Suggest is assistive. Softunebd does not replace your brand guidelines — always verify readability before Publish.",
+          "AI Suggest is assistive. Softunebd does not replace your brand guidelines - always verify readability before Publish.",
       },
     ],
     "2 min read",
@@ -659,7 +659,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "publishing-storefront": article(
     "publishing-storefront",
-    "Use Softunebd Save for drafts and Publish for live — including the real 1–2 minute propagation note on the storefront.",
+    "Use Softunebd Save for drafts and Publish for live - including the real 1–2 minute propagation note on the storefront.",
     [
       {
         type: "p",
@@ -691,7 +691,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "If something looks wrong after Publish, return to the editor, fix it, Save, and Publish again — Softunebd’s delay note applies each time.",
+          "If something looks wrong after Publish, return to the editor, fix it, Save, and Publish again - Softunebd’s delay note applies each time.",
       },
       { type: "h2", content: "Getting Started completion" },
       {
@@ -706,12 +706,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect Softunebd Payments — COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz — and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
+    "Connect Softunebd Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
     [
       {
         type: "p",
         content:
-          "Menu → Payments is where Softunebd connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page — core infrastructure, not one of the 25 optional marketplace Add-Ons.",
+          "Menu → Payments is where Softunebd connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page - core infrastructure, not one of the 25 optional marketplace Add-Ons.",
       },
       { type: "h2", content: "Enable a payment method" },
       {
@@ -733,7 +733,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "On Add-Ons, Softunebd shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools — not these core rails.",
+          "On Add-Ons, Softunebd shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools - not these core rails.",
       },
       { type: "h2", content: "Getting Started step" },
       {
@@ -785,19 +785,19 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "connecting-courier-partners": article(
     "connecting-courier-partners",
-    "Connect Softunebd Courier to Bangladesh delivery partners for order handoff — core (Included by Default), not a paid Add-On.",
+    "Connect Softunebd Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Add-On.",
     [
       {
         type: "p",
         content:
-          "Menu → Couriers lists Softunebd’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page — not one of the 25 optional Add-Ons.",
+          "Menu → Couriers lists Softunebd’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page - not one of the 25 optional Add-Ons.",
       },
       { type: "h2", content: "Connect a partner" },
       {
         type: "list",
         content: [
           "1. Open Menu → Couriers",
-          "2. Choose a partner you can connect today — Steadfast, Pathao, RedX, or eCourier",
+          "2. Choose a partner you can connect today - Steadfast, Pathao, RedX, or eCourier",
           "3. Enter the API credentials Softunebd requests",
           "4. Save and confirm Softunebd verifies and shows the partner as connected",
           "5. Keep order status in Softunebd in sync with how you fulfill outside the dashboard",
@@ -835,7 +835,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Site Settings → Shipping is where Softunebd stores shipping locations — the places your store serves. Keep this list aligned with Courier coverage and COD reality.",
+          "Site Settings → Shipping is where Softunebd stores shipping locations - the places your store serves. Keep this list aligned with Courier coverage and COD reality.",
       },
       { type: "h2", content: "Configure locations" },
       {
@@ -862,7 +862,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Analytics & Reporting ─────────────────────────────────────────────────
   "reading-store-analytics": article(
     "reading-store-analytics",
-    "Read Softunebd Analytics — sales trends, best sellers, category performance, and the date-range picker — then act on Orders.",
+    "Read Softunebd Analytics - sales trends, best sellers, category performance, and the date-range picker - then act on Orders.",
     [
       {
         type: "p",
@@ -901,7 +901,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "exporting-reports": article(
     "exporting-reports",
-    "Use Softunebd’s Analytics export menu for CSV (Excel), PDF, or JSON — full multi-section export or a scoped table export.",
+    "Use Softunebd’s Analytics export menu for CSV (Excel), PDF, or JSON - full multi-section export or a scoped table export.",
     [
       {
         type: "p",
@@ -932,7 +932,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Exports honor the date range and filters you selected. Softunebd will not silently expand the window — check the picker before downloading.",
+          "Exports honor the date range and filters you selected. Softunebd will not silently expand the window - check the picker before downloading.",
       },
     ],
     "2 min read",
@@ -945,7 +945,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Settings → Fraud Protection combines rule-based flagging with a manual blocklist. Softunebd evaluates configurable rules on the current order — for example holding first-time high-value checkouts or flagging burst orders from one phone.",
+          "Settings → Fraud Protection combines rule-based flagging with a manual blocklist. Softunebd evaluates configurable rules on the current order - for example holding first-time high-value checkouts or flagging burst orders from one phone.",
       },
       { type: "h2", content: "Enable and tune rules" },
       {
@@ -979,7 +979,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "managing-phone-blocklist": article(
     "managing-phone-blocklist",
-    "Maintain Softunebd’s manual Fraud Protection phone blocklist with notes — add after confirmed abuse, remove mistakes quickly.",
+    "Maintain Softunebd’s manual Fraud Protection phone blocklist with notes - add after confirmed abuse, remove mistakes quickly.",
     [
       {
         type: "p",
@@ -1019,12 +1019,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Add-Ons ───────────────────────────────────────────────────────────────
   "browsing-addons-marketplace": article(
     "browsing-addons-marketplace",
-    "Browse Softunebd’s Add-Ons page — 25 optional Add-Ons in four categories, plus Payments & Courier marked Included by Default.",
+    "Browse Softunebd’s Add-Ons page - 25 optional Add-Ons in four categories, plus Payments & Courier marked Included by Default.",
     [
       {
         type: "p",
         content:
-          "Menu → Add-Ons is Softunebd’s native marketplace. Softunebd lists 25 optional Add-Ons across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, Softunebd shows Payments and Courier as Included by Default because they are core — not part of the paid optional catalog.",
+          "Menu → Add-Ons is Softunebd’s native marketplace. Softunebd lists 25 optional Add-Ons across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, Softunebd shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
       },
       { type: "h2", content: "How to browse" },
       {
@@ -1041,10 +1041,10 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Customer Engagement — Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, Size Guide",
-          "Marketing & Sales — Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, Review Reminder",
-          "AI Automation — AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting",
-          "Operations & Insights — Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges",
+          "Customer Engagement - Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, Size Guide",
+          "Marketing & Sales - Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, Review Reminder",
+          "AI Automation - AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting",
+          "Operations & Insights - Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges",
         ],
       },
       {
@@ -1058,7 +1058,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "customer-engagement-addons": article(
     "customer-engagement-addons",
-    "Enable Softunebd Customer Engagement Add-Ons — Live Chat through Size Guide — when shoppers need conversation and confidence.",
+    "Enable Softunebd Customer Engagement Add-Ons - Live Chat through Size Guide - when shoppers need conversation and confidence.",
     [
       {
         type: "p",
@@ -1092,7 +1092,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "marketing-sales-addons": article(
     "marketing-sales-addons",
-    "Turn on Softunebd Marketing & Sales Add-Ons — Discount Codes, referrals, wholesale tiers, and related growth tools.",
+    "Turn on Softunebd Marketing & Sales Add-Ons - Discount Codes, referrals, wholesale tiers, and related growth tools.",
     [
       {
         type: "p",
@@ -1115,7 +1115,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Frequently Bought and Purchase Notification support conversion on product pages. Enable them when Softunebd’s catalog is large enough that cross-sells and social proof help — not before you have traffic to observe.",
+          "Frequently Bought and Purchase Notification support conversion on product pages. Enable them when Softunebd’s catalog is large enough that cross-sells and social proof help - not before you have traffic to observe.",
       },
     ],
     "2 min read",
@@ -1123,7 +1123,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "ai-operations-addons": article(
     "ai-operations-addons",
-    "Use Softunebd AI Automation and Operations & Insights Add-Ons — from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
+    "Use Softunebd AI Automation and Operations & Insights Add-Ons - from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
     [
       {
         type: "p",
@@ -1184,7 +1184,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে — যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাড-অনস সব এক জায়গা থেকেই পরিচালনা করা যায়।",
+          "Softunebd হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে - যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাড-অনস সব এক জায়গা থেকেই পরিচালনা করা যায়।",
       },
       { type: "h2", content: "Softunebd কী (এবং কী নয়)" },
       {
@@ -1201,7 +1201,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "বাম পাশের নেভিগেশন সাইডবারটি মূলত ৩টি মূল অংশে বিভক্ত — Getting Started (সেটআপ), Menu (দৈনন্দিন কাজ) এবং Settings (কনফিগারেশন)।",
+          "বাম পাশের নেভিগেশন সাইডবারটি মূলত ৩টি মূল অংশে বিভক্ত - Getting Started (সেটআপ), Menu (দৈনন্দিন কাজ) এবং Settings (কনফিগারেশন)।",
       },
       { type: "h3", content: "Getting Started (সেটআপ)" },
       {
@@ -1213,27 +1213,27 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Dashboard — বিক্রয়, অর্ডার ও পারফরম্যান্সের রিয়েল-টাইম ওভারভিউ",
-          "Categories — সহজে ব্রাউজিংয়ের জন্য প্রোডাক্ট ক্যাটাগরি সাজানো",
-          "Products — ক্যাটালগ, ভ্যারিয়েন্ট, দাম, স্টক ও মিডিয়া ফাইলস",
-          "Orders — অর্ডারের স্ট্যাটাস ট্র্যাকিং, প্রোসেসিং ও প্রিন্ট ইনভয়েস",
-          "Analytics — দৈনিক বিক্রয়, ভিজিটর ও নিট প্রফিট অ্যানালিটিক্স",
-          "Themes — থিম নির্বাচন ও লাইভ এডিটর দিয়ে স্টোর কাস্টমাইজেশন",
-          "Customers — ক্রয়কারী কাস্টমারদের ইতিহাস ও ফোন নম্বর তালিকা",
-          "Courier — Steadfast, Pathao, RedX ও eCourier কানেকশন",
-          "Payments — bKash, Nagad, COD ও SSLCommerz পেমেন্ট গেটওয়ে",
-          "Add-Ons — সেলস ও মার্কেটিং বৃদ্ধির ২৪+ প্রয়োজনীয় টুলস",
+          "Dashboard - বিক্রয়, অর্ডার ও পারফরম্যান্সের রিয়েল-টাইম ওভারভিউ",
+          "Categories - সহজে ব্রাউজিংয়ের জন্য প্রোডাক্ট ক্যাটাগরি সাজানো",
+          "Products - ক্যাটালগ, ভ্যারিয়েন্ট, দাম, স্টক ও মিডিয়া ফাইলস",
+          "Orders - অর্ডারের স্ট্যাটাস ট্র্যাকিং, প্রোসেসিং ও প্রিন্ট ইনভয়েস",
+          "Analytics - দৈনিক বিক্রয়, ভিজিটর ও নিট প্রফিট অ্যানালিটিক্স",
+          "Themes - থিম নির্বাচন ও লাইভ এডিটর দিয়ে স্টোর কাস্টমাইজেশন",
+          "Customers - ক্রয়কারী কাস্টমারদের ইতিহাস ও ফোন নম্বর তালিকা",
+          "Courier - Steadfast, Pathao, RedX ও eCourier কানেকশন",
+          "Payments - bKash, Nagad, COD ও SSLCommerz পেমেন্ট গেটওয়ে",
+          "Add-Ons - সেলস ও মার্কেটিং বৃদ্ধির ২৪+ প্রয়োজনীয় টুলস",
         ],
       },
       { type: "h3", content: "Settings (সেটিংস)" },
       {
         type: "list",
         content: [
-          "Site Settings — স্টোরের তথ্য, ডোমেইন, শিপিং চার্জ, FAQ ও লিগ্যাল পেজ",
-          "Fraud Protection — ফেইক অর্ডার রোধে সিকিউরিটি রুলস ও ফোন নম্বর ব্লকক্লিপ",
-          "Billing — আপনার অ্যাকাউন্ট প্ল্যান, মেম্বারশিপ ও ব্যবহার হিসাব",
-          "Account — আপনার প্রোফাইল ও ব্যবসা পরিচয় সংক্রান্ত তথ্য",
-          "Help Desk — সহায়তা ও সাপোর্ট গাইডলাইনসমূহ",
+          "Site Settings - স্টোরের তথ্য, ডোমেইন, শিপিং চার্জ, FAQ ও লিগ্যাল পেজ",
+          "Fraud Protection - ফেইক অর্ডার রোধে সিকিউরিটি রুলস ও ফোন নম্বর ব্লকক্লিপ",
+          "Billing - আপনার অ্যাকাউন্ট প্ল্যান, মেম্বারশিপ ও ব্যবহার হিসাব",
+          "Account - আপনার প্রোফাইল ও ব্যবসা পরিচয় সংক্রান্ত তথ্য",
+          "Help Desk - সহায়তা ও সাপোর্ট গাইডলাইনসমূহ",
         ],
       },
       { type: "h2", content: "Take a Tour (লাইভ ট্যুর)" },
@@ -1283,15 +1283,15 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "১. প্রথম প্রোডাক্ট যোগ করা — Products থেকে বিক্রিযোগ্য প্রোডাক্ট যুক্ত করুন",
-          "২. ক্যাটাগরি তৈরি — Categories সেকশনে অন্তত একটি ক্যাটাগরি বানান",
-          "৩. লোগো ও বিজনেস ইনফো যোগ — Site Settings থেকে ব্র্যান্ডের লোগো ও তথ্য সেট করুন",
-          "৪. পেমেন্ট মেথড কানেক্ট করা — Payments থেকে COD, bKash, Nagad বা SSLCommerz অন করুন",
-          "৫. কুরিয়ার কানেকশন — Couriers থেকে Steadfast, Pathao বা RedX মার্চেন্ট যুক্ত করুন",
-          "৬. প্রোডাক্ট মিডিয়া আপলোড — আকর্ষণীয় প্রোডাক্টের ছবি বা ভিডিও যুক্ত করুন",
-          "৭. FAQ পেজ সাজানো — Site Settings থেকে ক্রেতাদের সাধারণ প্রশ্নের উত্তর লিখুন",
-          "৮. লিগ্যাল পেজ সংযুক্ত করা — Privacy Policy ও Terms & Conditions যুক্ত করুন",
-          "৯. স্টোর লাইভ ও পাবলিশ — Themes সেকশন থেকে স্টোরফ্রন্ট পাবলিশ করুন",
+          "১. প্রথম প্রোডাক্ট যোগ করা - Products থেকে বিক্রিযোগ্য প্রোডাক্ট যুক্ত করুন",
+          "২. ক্যাটাগরি তৈরি - Categories সেকশনে অন্তত একটি ক্যাটাগরি বানান",
+          "৩. লোগো ও বিজনেস ইনফো যোগ - Site Settings থেকে ব্র্যান্ডের লোগো ও তথ্য সেট করুন",
+          "৪. পেমেন্ট মেথড কানেক্ট করা - Payments থেকে COD, bKash, Nagad বা SSLCommerz অন করুন",
+          "৫. কুরিয়ার কানেকশন - Couriers থেকে Steadfast, Pathao বা RedX মার্চেন্ট যুক্ত করুন",
+          "৬. প্রোডাক্ট মিডিয়া আপলোড - আকর্ষণীয় প্রোডাক্টের ছবি বা ভিডিও যুক্ত করুন",
+          "৭. FAQ পেজ সাজানো - Site Settings থেকে ক্রেতাদের সাধারণ প্রশ্নের উত্তর লিখুন",
+          "৮. লিগ্যাল পেজ সংযুক্ত করা - Privacy Policy ও Terms & Conditions যুক্ত করুন",
+          "৯. স্টোর লাইভ ও পাবলিশ - Themes সেকশন থেকে স্টোরফ্রন্ট পাবলিশ করুন",
         ],
       },
       {
@@ -1684,7 +1684,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd-এ রয়েছে ৩টি বিশ্বমানের রেডিমেড থিম — Fashion, Emporium এবং Vault। প্রতিটি থিমই অত্যন্ত দ্রুতগতির, রেসপন্সিভ এবং যেকোনো ডিভাইসে দেখার উপযোগী।",
+          "Softunebd-এ রয়েছে ৩টি বিশ্বমানের রেডিমেড থিম - Fashion, Emporium এবং Vault। প্রতিটি থিমই অত্যন্ত দ্রুতগতির, রেসপন্সিভ এবং যেকোনো ডিভাইসে দেখার উপযোগী।",
       },
       { type: "h2", content: "Softunebd-এর ৩টি রেডি থিম" },
       { type: "h3", content: "Fashion থিম" },
@@ -1909,10 +1909,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Cash on Delivery (COD) — কাস্টমার পণ্য হাতে পেয়ে টাকা দেবে",
-          "Manual Wallet (bKash/Nagad) — কাস্টমার আপনার মার্চেন্ট বা পার্সোনাল নম্বরে টাকা পাঠাবে এবং Transaction ID সাবমিট করবে",
-          "Official bKash / Nagad Direct Merchant Integration — অটোমেটিক পেমেন্ট ভেরিফিকেশন",
-          "SSLCommerz — মাস্টারকার্ড, ভিসা কার্ড, ইন্টারনেট ব্যাংকিং ও মোবাইল ওয়ালেট গেটওয়ে",
+          "Cash on Delivery (COD) - কাস্টমার পণ্য হাতে পেয়ে টাকা দেবে",
+          "Manual Wallet (bKash/Nagad) - কাস্টমার আপনার মার্চেন্ট বা পার্সোনাল নম্বরে টাকা পাঠাবে এবং Transaction ID সাবমিট করবে",
+          "Official bKash / Nagad Direct Merchant Integration - অটোমেটিক পেমেন্ট ভেরিফিকেশন",
+          "SSLCommerz - মাস্টারকার্ড, ভিসা কার্ড, ইন্টারনেট ব্যাংকিং ও মোবাইল ওয়ালেট গেটওয়ে",
         ],
       },
       { type: "h2", content: "পেমেন্ট মেথড চালুর নিয়ম" },
@@ -1998,10 +1998,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Steadfast Courier — এপিআই দিয়ে সরাসরি বুকিং",
-          "Pathao Courier — মার্চেন্ট ক্রেডেনশিয়াল কানেক্টেড",
-          "RedX Logistics — ইনভয়েস সঙ্ক্রান্ত অটো এন্ট্রি",
-          "eCourier — সহজ শিপিং হোপ পার্টনার",
+          "Steadfast Courier - এপিআই দিয়ে সরাসরি বুকিং",
+          "Pathao Courier - মার্চেন্ট ক্রেডেনশিয়াল কানেক্টেড",
+          "RedX Logistics - ইনভয়েস সঙ্ক্রান্ত অটো এন্ট্রি",
+          "eCourier - সহজ শিপিং হোপ পার্টনার",
           "এছাড়াও লিস্টে থাকা Paperfly, Sundarban, Carrybee ও PandaGo তথ্য দেখা যায়",
         ],
       },
@@ -2096,10 +2096,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Total Sales — নির্দিষ্ট সময়ে মোট টাকার বিক্রি",
-          "Total Orders — সফলভাবে সম্পন্ন ও পেন্ডিং অর্ডার সংখ্যা",
-          "Top Selling Products — সবচেয়ে বেশি পছন্দের প্রোডাক্টের তালিকা",
-          "Category Performance — কোন ক্যাটাগরি থেকে কেমন রেভিনিউ আসছে",
+          "Total Sales - নির্দিষ্ট সময়ে মোট টাকার বিক্রি",
+          "Total Orders - সফলভাবে সম্পন্ন ও পেন্ডিং অর্ডার সংখ্যা",
+          "Top Selling Products - সবচেয়ে বেশি পছন্দের প্রোডাক্টের তালিকা",
+          "Category Performance - কোন ক্যাটাগরি থেকে কেমন রেভিনিউ আসছে",
         ],
       },
       {
@@ -2262,10 +2262,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Customer Engagement — Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Quick View, Size Guide ইত্যাদি",
-          "Marketing & Sales — Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, Review Reminder",
-          "AI Automation — AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting",
-          "Operations & Insights — Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges",
+          "Customer Engagement - Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Quick View, Size Guide ইত্যাদি",
+          "Marketing & Sales - Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, Review Reminder",
+          "AI Automation - AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting",
+          "Operations & Insights - Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges",
         ],
       },
       { type: "h2", content: "অ্যাড-অন চালু করার উপায়" },
@@ -2306,10 +2306,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "WhatsApp Alerts — অর্ডার কনফার্মেশন ও ট্র্যাকিং মেসেজ সরাসরি কাস্টমারের ওয়াটসঅ্যাপে পাঠানো",
-          "Live Chat — কাস্টমারের প্রশ্নের তাৎক্ষণিক উত্তর দিতে ওয়াটসঅ্যাপ বা চ্যাট বাটন",
-          "Product Reviews — ক্রেতাদের রিভিউ ও রেটিং ছবিসহ প্রদর্শন করা",
-          "Size Guide — কাপড়ের সঠিক সাইজ বেছে নেওয়ার সুবিধার্থে প্রোডাক্ট পেজে সাইজ চার্ট",
+          "WhatsApp Alerts - অর্ডার কনফার্মেশন ও ট্র্যাকিং মেসেজ সরাসরি কাস্টমারের ওয়াটসঅ্যাপে পাঠানো",
+          "Live Chat - কাস্টমারের প্রশ্নের তাৎক্ষণিক উত্তর দিতে ওয়াটসঅ্যাপ বা চ্যাট বাটন",
+          "Product Reviews - ক্রেতাদের রিভিউ ও রেটিং ছবিসহ প্রদর্শন করা",
+          "Size Guide - কাপড়ের সঠিক সাইজ বেছে নেওয়ার সুবিধার্থে প্রোডাক্ট পেজে সাইজ চার্ট",
         ],
       },
       { type: "h2", content: "চালু করার সঠিক পর্যায়" },
@@ -2342,10 +2342,10 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "Discount Codes — কুপন কোড (যেমন: EID20) তৈরি করে কাস্টমারদের ছাড় দেওয়ার ব্যবস্থা",
-          "Purchase Notification — লাইভ কাস্টমাররা কে কি কিনছে তার পপ-আপ সোশ্যাল প্রুফ দেখানো",
-          "Frequently Bought — একসাথে কয়েকটি প্রোডাক্ট কিনলে বিশেষ ছাড়ের অফার বানানো",
-          "Review Reminder — ডেলিভারির পর স্বয়ংক্রিয়ভাবে রিভিউ চাওয়ার মেসেজ পাঠানো",
+          "Discount Codes - কুপন কোড (যেমন: EID20) তৈরি করে কাস্টমারদের ছাড় দেওয়ার ব্যবস্থা",
+          "Purchase Notification - লাইভ কাস্টমাররা কে কি কিনছে তার পপ-আপ সোশ্যাল প্রুফ দেখানো",
+          "Frequently Bought - একসাথে কয়েকটি প্রোডাক্ট কিনলে বিশেষ ছাড়ের অফার বানানো",
+          "Review Reminder - ডেলিভারির পর স্বয়ংক্রিয়ভাবে রিভিউ চাওয়ার মেসেজ পাঠানো",
         ],
       },
       { type: "h2", content: "ডিসকাউন্ট ও প্রোমোশন" },
@@ -2378,24 +2378,24 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "AI Chatbot — গুগলের জেমিনি AI কাস্টমারদের প্রশ্নের উত্তর স্বয়ংক্রিয়ভাবে দেবে",
-          "AI Auto-Reply — ইনবক্সের মেসেজের স্মার্ট ও দ্রুত উত্তর ড্রাফট করবে",
-          "AI Ad Copy — ফেসবুক ও গুগলের অ্যাড ক্যাম্পেইনের জন্য আকর্ষণীয় টেক্সট জেনারেট করবে",
+          "AI Chatbot - গুগলের জেমিনি AI কাস্টমারদের প্রশ্নের উত্তর স্বয়ংক্রিয়ভাবে দেবে",
+          "AI Auto-Reply - ইনবক্সের মেসেজের স্মার্ট ও দ্রুত উত্তর ড্রাফট করবে",
+          "AI Ad Copy - ফেসবুক ও গুগলের অ্যাড ক্যাম্পেইনের জন্য আকর্ষণীয় টেক্সট জেনারেট করবে",
         ],
       },
       { type: "h2", content: "অপারেশনস ও টিম ম্যানেজমেন্ট" },
       {
         type: "list",
         content: [
-          "Staff Roles — টিমের কর্মচারীদের জন্য ড্যাশবোর্ডে নির্দিষ্ট পারমিশন দিয়ে রোল সেট করা",
-          "Stock Alerts — স্টক কমলেই ইমেইল বা ড্যাশবোর্ড নোটিফিকেশন পাওয়া",
-          "Product Badges — প্রোডাক্টের ওপর New, Bestseller বা Hot সেলস ব্যাজ যুক্ত করা",
+          "Staff Roles - টিমের কর্মচারীদের জন্য ড্যাশবোর্ডে নির্দিষ্ট পারমিশন দিয়ে রোল সেট করা",
+          "Stock Alerts - স্টক কমলেই ইমেইল বা ড্যাশবোর্ড নোটিফিকেশন পাওয়া",
+          "Product Badges - প্রোডাক্টের ওপর New, Bestseller বা Hot সেলস ব্যাজ যুক্ত করা",
         ],
       },
       {
         type: "callout",
         content:
-          "AI টুলসগুলো সবসময় আপনার আদেশের অধীনে কাজ করে — কোনো সিদ্ধান্ত কনফার্ম করার আগে তা আপনার সামনে প্রদর্শিত হয়।",
+          "AI টুলসগুলো সবসময় আপনার আদেশের অধীনে কাজ করে - কোনো সিদ্ধান্ত কনফার্ম করার আগে তা আপনার সামনে প্রদর্শিত হয়।",
       },
     ],
   },

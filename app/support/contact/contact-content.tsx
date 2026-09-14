@@ -234,9 +234,9 @@ export default function ContactSupportPage({ locale = "en" }: { locale?: "en" | 
                     </h3>
                     <p className="text-[15px] text-[var(--color-muted)] max-w-md">
                       {isBn ? (
-                        <>ধন্যবাদ, <span className="font-bold">{formData.firstName}</span> — আপনার মেসেজ আমরা পেয়েছি। খুব শীঘ্রই <span className="font-bold">{formData.email}</span> এ রিপ্লাই দেয়া হবে।</>
+                        <>ধন্যবাদ, <span className="font-bold">{formData.firstName}</span> - আপনার মেসেজ আমরা পেয়েছি। খুব শীঘ্রই <span className="font-bold">{formData.email}</span> এ রিপ্লাই দেয়া হবে।</>
                       ) : (
-                        <>Thanks, <span className="font-bold">{formData.firstName}</span> — we received your message and will reply at <span className="font-bold">{formData.email}</span>.</>
+                        <>Thanks, <span className="font-bold">{formData.firstName}</span> - we received your message and will reply at <span className="font-bold">{formData.email}</span>.</>
                       )}
                     </p>
                     <Button

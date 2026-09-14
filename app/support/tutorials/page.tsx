@@ -6,7 +6,7 @@ import TutorialsPage from "./tutorials-content";
 export const metadata = pageSeo({
   title: "Tutorials | Launch a Softunebd Store",
   description:
-    "Step-by-step Softunebd tutorials for new merchants — dashboard setup, catalog, Theme Editor, payments, and publishing.",
+    "Step-by-step Softunebd tutorials for new merchants - dashboard setup, catalog, Theme Editor, payments, and publishing.",
   path: "/support/tutorials",
 });
 

@@ -91,7 +91,7 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
           >
             {isBn
               ? "Softunebd ড্যাশবোর্ড ও লাইভ স্টোরফ্রন্টে নতুন যে ফিচার, ফিক্স ও ইমপ্রুভমেন্টগুলো যুক্ত হয়েছে।"
-              : "What shipped in the Softunebd dashboard and on your live store — features, fixes, and improvements merchants actually use."}
+              : "What shipped in the Softunebd dashboard and on your live store - features, fixes, and improvements merchants actually use."}
           </motion.p>
         </div>
 

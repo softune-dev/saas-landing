@@ -8,7 +8,7 @@ import FeaturesIndexPage from "./features-content";
 export const metadata = pageSeo({
   title: "Dashboard Features for Bangladesh Stores",
   description:
-    "Tour the Softunebd dashboard on a free 3-day trial — no credit card. Theme Editor, orders, Store Sale POS, and Gemini AI for Bangladesh merchants.",
+    "Tour the Softunebd dashboard on a free 3-day trial - no credit card. Theme Editor, orders, Store Sale POS, and Gemini AI for Bangladesh merchants.",
   path: "/features",
 });
 

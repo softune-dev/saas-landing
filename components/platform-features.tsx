@@ -49,7 +49,7 @@ export const sectionsEn: FeatureSection[] = [
       "Ask about products, orders, and sales in plain language",
       "Answers come from your own Softunebd store data",
       "Propose product or category changes you still confirm",
-      "Stay inside Softunebd — no extra AI app to open",
+      "Stay inside Softunebd - no extra AI app to open",
     ],
     showcase: "chat",
   },
@@ -60,10 +60,10 @@ export const sectionsEn: FeatureSection[] = [
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz live in one place. Connect merchant accounts or take wallet payments with a transaction ID — all from a single Payments screen.",
+      "COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz live in one place. Connect merchant accounts or take wallet payments with a transaction ID - all from a single Payments screen.",
     bullets: [
       "Cash on Delivery with optional fee when you need it",
-      "Manual bKash and Nagad — shopper pays your number, you verify the transaction ID",
+      "Manual bKash and Nagad - shopper pays your number, you verify the transaction ID",
       "Official bKash, Nagad, and SSLCommerz merchant connects from the same screen",
       "Centralized setup instead of scattered payment plugins",
       "Encrypted credentials stored with your store",
@@ -77,7 +77,7 @@ export const sectionsEn: FeatureSection[] = [
     titleHighlight: "Own Your Domain",
     titleEnd: "",
     description:
-      "Softunebd Site Settings covers search listings, social share previews, tracking pixels, and your custom domain — so discovery and measurement live next to the store you publish.",
+      "Softunebd Site Settings covers search listings, social share previews, tracking pixels, and your custom domain - so discovery and measurement live next to the store you publish.",
     bullets: [
       "Titles, meta descriptions, keywords, favicon, and AI help for SEO copy",
       "Open Graph title, description, and image for cleaner Facebook and chat previews",

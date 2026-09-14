@@ -38,7 +38,7 @@ const destinations = [
   },
   {
     title: "Contact",
-    desc: "Email or WhatsApp — we reply from Bangladesh.",
+    desc: "Email or WhatsApp - we reply from Bangladesh.",
     href: "/support/contact",
     icon: "/icons/chat.svg",
   },
@@ -96,7 +96,7 @@ export default function NotFoundContent() {
             className="relative z-10 mx-auto max-w-xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
           >
             That URL isn&apos;t on Softunebd. It may have moved, or it never
-            existed. Pick a real page below — or go home and start a store.
+            existed. Pick a real page below - or go home and start a store.
           </motion.p>
 
           <motion.div

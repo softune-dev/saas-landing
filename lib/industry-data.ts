@@ -13,7 +13,7 @@ export const INDUSTRY_PAGES: Record<
   fashion: {
     title: "Fashion Ecommerce Website in Bangladesh",
     description:
-      "Build a fashion ecommerce website in Bangladesh with Softunebd — size/color variants, AI product descriptions, COD, bKash, Nagad, and courier delivery, all in one dashboard.",
+      "Build a fashion ecommerce website in Bangladesh with Softunebd - size/color variants, AI product descriptions, COD, bKash, Nagad, and courier delivery, all in one dashboard.",
     pill: "For Fashion Sellers",
     h1Start: "Fashion Ecommerce Website for",
     h1Highlight: "Bangladesh",
@@ -28,22 +28,22 @@ export const INDUSTRY_PAGES: Record<
       {
         icon: "/icons/ai-pencil.svg",
         title: "AI Product Descriptions",
-        desc: "Describe a piece in a few words and get sellable copy back — built into the product editor, no separate tool needed.",
+        desc: "Describe a piece in a few words and get sellable copy back - built into the product editor, no separate tool needed.",
       },
       {
         icon: "/icons/wallet.svg",
         title: "COD, bKash & Nagad",
-        desc: "Bangladeshi fashion buyers expect Cash on Delivery — Softunebd supports it alongside bKash and Nagad out of the box.",
+        desc: "Bangladeshi fashion buyers expect Cash on Delivery - Softunebd supports it alongside bKash and Nagad out of the box.",
       },
     ],
     faqs: [
       {
         q: "Can I sell clothes with multiple sizes and colors?",
-        a: "Yes — Softunebd's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
+        a: "Yes - Softunebd's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
       },
       {
         q: "Is there a free trial?",
-        a: "Yes — a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 3-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Fashion Store",
@@ -52,7 +52,7 @@ export const INDUSTRY_PAGES: Record<
   cosmetics: {
     title: "Cosmetics & Beauty Ecommerce Website in Bangladesh",
     description:
-      "Build a cosmetics and beauty ecommerce website in Bangladesh with Softunebd — product variants, AI copy, COD, bKash, Nagad, and courier delivery.",
+      "Build a cosmetics and beauty ecommerce website in Bangladesh with Softunebd - product variants, AI copy, COD, bKash, Nagad, and courier delivery.",
     pill: "For Beauty Sellers",
     h1Start: "Beauty Ecommerce Website for",
     h1Highlight: "Bangladesh",
@@ -72,17 +72,17 @@ export const INDUSTRY_PAGES: Record<
       {
         icon: "/icons/wallet.svg",
         title: "COD, bKash & Nagad",
-        desc: "Offer Cash on Delivery alongside bKash and Nagad — the payment methods Bangladeshi beauty shoppers actually use.",
+        desc: "Offer Cash on Delivery alongside bKash and Nagad - the payment methods Bangladeshi beauty shoppers actually use.",
       },
     ],
     faqs: [
       {
         q: "Can customers pay Cash on Delivery for beauty products?",
-        a: "Yes — COD is supported natively, alongside bKash, Nagad, and SSLCommerz, so you're not limited to one payment method.",
+        a: "Yes - COD is supported natively, alongside bKash, Nagad, and SSLCommerz, so you're not limited to one payment method.",
       },
       {
         q: "Is there a free trial?",
-        a: "Yes — a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 3-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Beauty Store",
@@ -91,12 +91,12 @@ export const INDUSTRY_PAGES: Record<
   grocery: {
     title: "Grocery Ecommerce Website in Bangladesh",
     description:
-      "Build a grocery ecommerce website in Bangladesh with Softunebd — categories, COD, bKash, Nagad, and real courier delivery for daily essentials.",
+      "Build a grocery ecommerce website in Bangladesh with Softunebd - categories, COD, bKash, Nagad, and real courier delivery for daily essentials.",
     pill: "For Grocery Sellers",
     h1Start: "Grocery Ecommerce Website for",
     h1Highlight: "Bangladesh",
     intro:
-      "Launch an online grocery store with organized categories, local payment methods, and real courier delivery — built for how Bangladeshi shoppers actually order essentials.",
+      "Launch an online grocery store with organized categories, local payment methods, and real courier delivery - built for how Bangladeshi shoppers actually order essentials.",
     features: [
       {
         icon: "/icons/domain.svg",
@@ -106,7 +106,7 @@ export const INDUSTRY_PAGES: Record<
       {
         icon: "/icons/wallet.svg",
         title: "COD, bKash & Nagad",
-        desc: "Cash on Delivery alongside bKash and Nagad — the payment mix grocery shoppers in Bangladesh already use.",
+        desc: "Cash on Delivery alongside bKash and Nagad - the payment mix grocery shoppers in Bangladesh already use.",
       },
       {
         icon: "/icons/analytics.svg",
@@ -117,11 +117,11 @@ export const INDUSTRY_PAGES: Record<
     faqs: [
       {
         q: "Can I organize products by category for a grocery store?",
-        a: "Yes — Softunebd supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
+        a: "Yes - Softunebd supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
       },
       {
         q: "Is there a free trial?",
-        a: "Yes — a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 3-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Grocery Store",

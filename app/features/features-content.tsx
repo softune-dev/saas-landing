@@ -15,7 +15,7 @@ export default function FeaturesIndexPage({ locale = "en" }: { locale?: "en" | "
 
   const activeFeaturesList = isBn
     ? [
-        { slug: "multiple-themes", title: "থিম এডিটর (Theme Editor)", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন — লাইভ প্রিভিউ সহ" },
+        { slug: "multiple-themes", title: "থিম এডিটর (Theme Editor)", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন - লাইভ প্রিভিউ সহ" },
         { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
         { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
         { slug: "store-sale", title: "স্টোর সেল (POS)", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },
@@ -93,8 +93,8 @@ export default function FeaturesIndexPage({ locale = "en" }: { locale?: "en" | "
             className="relative z-10 mx-auto max-w-2xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
           >
             {isBn
-              ? "Theme Editor, COD ও লোকাল পেমেন্ট, কুরিয়ার কানেক্ট, Store Sale POS, রিয়েল-টাইম Analytics এবং Gemini AI — যা যা আপনার বিজনেসে লাগে।"
-              : "Theme Editor, COD and local payments, courier connects, Store Sale POS, analytics, and Gemini AI — the surfaces a Bangladeshi merchant actually uses."}
+              ? "Theme Editor, COD ও লোকাল পেমেন্ট, কুরিয়ার কানেক্ট, Store Sale POS, রিয়েল-টাইম Analytics এবং Gemini AI - যা যা আপনার বিজনেসে লাগে।"
+              : "Theme Editor, COD and local payments, courier connects, Store Sale POS, analytics, and Gemini AI - the surfaces a Bangladeshi merchant actually uses."}
           </motion.p>
         </div>
 

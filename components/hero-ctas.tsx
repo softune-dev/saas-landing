@@ -47,10 +47,25 @@ export function HeroCtas({
           className="relative z-10 flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--color-brand)] px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
         >
           {ctaText}
-          <img
-            src="/icons/arrow-right.svg"
-            alt=""
-            className="size-3.5 object-contain brightness-0 invert md:size-4"
+          {/* CSS mask + explicit white background instead of an <img> with
+              a brightness/invert filter — some mobile browsers (notably
+              Android Chrome's forced-dark image handling) re-tint filtered
+              <img> icons even on a light-themed page, leaving this arrow
+              looking grey instead of matching the button's white text. A
+              masked solid shape isn't an image Chrome can re-tint. */}
+          <span
+            aria-hidden
+            className="size-3.5 shrink-0 bg-white md:size-4"
+            style={{
+              maskImage: "url(/icons/arrow-right.svg)",
+              WebkitMaskImage: "url(/icons/arrow-right.svg)",
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskPosition: "center",
+              WebkitMaskPosition: "center",
+            }}
           />
         </a>
       </div>

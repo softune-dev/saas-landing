@@ -37,7 +37,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Browse every available theme from the dashboard's Themes page — Fashion, Multi Category, Women, and more niche layouts (Kids Store, Urban, Gadget, Market, Kennel, Derma, Beauty, Paper).",
+          "Browse every available theme from the dashboard's Themes page - Fashion, Multi Category, Women, and more niche layouts (Kids Store, Urban, Gadget, Market, Kennel, Derma, Beauty, Paper).",
       },
       {
         type: "Feature",
@@ -62,7 +62,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Install the dashboard as a mobile app (PWA) — a home-screen icon, real brand colors, and an offline-ready shell.",
+          "Install the dashboard as a mobile app (PWA) - a home-screen icon, real brand colors, and an offline-ready shell.",
       },
       {
         type: "Feature",
@@ -77,7 +77,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Homepage Categories section is opt-out instead of opt-in — a newly added category shows up automatically without extra setup.",
+          "Homepage Categories section is opt-out instead of opt-in - a newly added category shows up automatically without extra setup.",
       },
       {
         type: "Improvement",
@@ -105,7 +105,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Abandoned checkouts are now captured — a customer's phone number and cart are recorded the moment they reach checkout, so you can see and follow up on abandoners even if they never complete an order.",
+          "Abandoned checkouts are now captured - a customer's phone number and cart are recorded the moment they reach checkout, so you can see and follow up on abandoners even if they never complete an order.",
       },
       {
         type: "Feature",
@@ -114,7 +114,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Redesigned manual payment (bKash/Nagad) flow — the branded confirmation modal now only appears on final submit, not while a customer is still entering details.",
+          "Redesigned manual payment (bKash/Nagad) flow - the branded confirmation modal now only appears on final submit, not while a customer is still entering details.",
       },
     ],
   },

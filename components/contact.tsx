@@ -241,11 +241,11 @@ export function Contact({ locale = "en" }: { locale?: "en" | "bn" }) {
               <p className="max-w-md text-[15px] text-[var(--color-muted)]">
                 {isBn ? (
                   <>
-                    ধন্যবাদ, <span className="font-bold">{sentName}</span> — আপনার মেসেজটি আমরা পেয়েছি এবং ইমেইলে উত্তর দেব।
+                    ধন্যবাদ, <span className="font-bold">{sentName}</span> - আপনার মেসেজটি আমরা পেয়েছি এবং ইমেইলে উত্তর দেব।
                   </>
                 ) : (
                   <>
-                    Thanks, <span className="font-bold">{sentName}</span> — we received your message and will reply by email.
+                    Thanks, <span className="font-bold">{sentName}</span> - we received your message and will reply by email.
                   </>
                 )}
               </p>

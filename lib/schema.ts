@@ -348,7 +348,7 @@ export function pricingSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      `Ecommerce storefront platform with a ${TRIAL_DAYS}-day free trial (no credit card). Themes, catalog, orders, payments, couriers, and AI — priced in Bangladeshi Taka.`,
+      `Ecommerce storefront platform with a ${TRIAL_DAYS}-day free trial (no credit card). Themes, catalog, orders, payments, couriers, and AI - priced in Bangladeshi Taka.`,
     brand: { "@type": "Brand", name: SITE_NAME },
     url: `${SITE_URL}/pricing`,
     offers: [trialOffer(), ...planOffers()],

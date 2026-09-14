@@ -45,7 +45,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
 
   const activeFeaturesList = isBn
     ? [
-        { slug: "multiple-themes", title: "থিম এডিটর", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন — লাইভ প্রিভিউ সহ" },
+        { slug: "multiple-themes", title: "থিম এডিটর", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন - লাইভ প্রিভিউ সহ" },
         { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
         { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
         { slug: "store-sale", title: "স্টোর সেল", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },

@@ -7,7 +7,7 @@ import HomePage from "../home-content";
 export const metadata = pageSeo({
   title: null,
   description:
-    "Softunebd-এ শুরু করুন ৩ দিনের ফ্রি ট্রায়াল — কোনো ক্রেডিট কার্ড লাগবে না। আপনার ব্র্যান্ডের মতো প্রফেশনাল অনলাইন স্টোর বানান, সাথে COD, bKash, Nagad, SSLCommerz এবং লোকাল কুরিয়ার সাপোর্ট।",
+    "Softunebd-এ শুরু করুন ৩ দিনের ফ্রি ট্রায়াল - কোনো ক্রেডিট কার্ড লাগবে না। আপনার ব্র্যান্ডের মতো প্রফেশনাল অনলাইন স্টোর বানান, সাথে COD, bKash, Nagad, SSLCommerz এবং লোকাল কুরিয়ার সাপোর্ট।",
   path: "/bn",
   lang: "bn",
 });

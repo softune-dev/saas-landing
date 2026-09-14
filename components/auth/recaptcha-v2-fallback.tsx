@@ -39,7 +39,7 @@ export const RecaptchaV2Fallback = forwardRef<
   return (
     <div className="flex flex-col items-center gap-2 rounded-lg border border-border bg-search-bg p-3">
       <p className="text-xs text-muted">
-        We couldn&apos;t automatically verify you&apos;re not a bot — please
+        We couldn&apos;t automatically verify you&apos;re not a bot - please
         confirm below.
       </p>
       <div ref={containerRef} />

@@ -68,7 +68,7 @@ export default function CommunityPage({ locale = "en" }: { locale?: "en" | "bn" 
           >
             {isBn
               ? "কমিউনিটি ফোরামের কাজ চলছে। যেকোনো প্রশ্ন বা ফিডব্যাকের জন্য সরাসরি আমাদের ইমেইল করুন।"
-              : "The forum is still being built. Until it's live, reach us directly — a real person reads every message."}
+              : "The forum is still being built. Until it's live, reach us directly - a real person reads every message."}
           </motion.p>
         </div>
 

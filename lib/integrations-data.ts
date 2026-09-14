@@ -14,12 +14,12 @@ export const INTEGRATIONS: Record<
   bkash: {
     title: "bKash Payment Gateway Integration for Ecommerce",
     description:
-      "Accept bKash payments on your own online store. Connect your bKash merchant account in Softunebd's dashboard and take real bKash Tokenized Checkout payments — no plugin, no third-party app.",
+      "Accept bKash payments on your own online store. Connect your bKash merchant account in Softunebd's dashboard and take real bKash Tokenized Checkout payments - no plugin, no third-party app.",
     pill: "Payment Integration",
     h1Start: "bKash Integration for",
     h1Highlight: "Your Online Store",
     intro:
-      "Connect a real bKash merchant account and accept bKash Tokenized Checkout payments directly at checkout — built into Softunebd, not bolted on with a plugin.",
+      "Connect a real bKash merchant account and accept bKash Tokenized Checkout payments directly at checkout - built into Softunebd, not bolted on with a plugin.",
     features: [
       {
         icon: "/icons/wallet.svg",
@@ -34,31 +34,31 @@ export const INTEGRATIONS: Record<
       {
         icon: "/icons/analytics.svg",
         title: "Combine With COD",
-        desc: "Offer bKash alongside Cash on Delivery, Nagad, and SSLCommerz — customers pick whichever they trust at checkout.",
+        desc: "Offer bKash alongside Cash on Delivery, Nagad, and SSLCommerz - customers pick whichever they trust at checkout.",
       },
     ],
     faqs: [
       {
         q: "Do I need a separate bKash plugin?",
-        a: "No — bKash Tokenized Checkout is built into every Softunebd store's checkout, wired up from your dashboard's Payments settings.",
+        a: "No - bKash Tokenized Checkout is built into every Softunebd store's checkout, wired up from your dashboard's Payments settings.",
       },
       {
         q: "Is this the real bKash API or a workaround?",
-        a: "It's bKash's own Tokenized Checkout API — the same flow used by other real Bangladeshi ecommerce sites, not a manual/screenshot-based workaround.",
+        a: "It's bKash's own Tokenized Checkout API - the same flow used by other real Bangladeshi ecommerce sites, not a manual/screenshot-based workaround.",
       },
     ],
-    ctaText: "Connect bKash — Start Free",
+    ctaText: "Connect bKash - Start Free",
     ctaHref: "/signup",
   },
   nagad: {
     title: "Nagad Payment Gateway Integration for Ecommerce",
     description:
-      "Accept Nagad payments on your own online store with Softunebd. Connect your Nagad merchant account and take real Nagad checkout payments — built into the dashboard.",
+      "Accept Nagad payments on your own online store with Softunebd. Connect your Nagad merchant account and take real Nagad checkout payments - built into the dashboard.",
     pill: "Payment Integration",
     h1Start: "Nagad Integration for",
     h1Highlight: "Your Online Store",
     intro:
-      "Connect a real Nagad merchant account and accept Nagad payments directly at checkout — one of four payment methods Softunebd supports natively.",
+      "Connect a real Nagad merchant account and accept Nagad payments directly at checkout - one of four payment methods Softunebd supports natively.",
     features: [
       {
         icon: "/icons/wallet.svg",
@@ -73,27 +73,27 @@ export const INTEGRATIONS: Record<
       {
         icon: "/icons/analytics.svg",
         title: "Combine With bKash & COD",
-        desc: "Run Nagad alongside bKash, SSLCommerz, and Cash on Delivery — no reason to pick just one payment method.",
+        desc: "Run Nagad alongside bKash, SSLCommerz, and Cash on Delivery - no reason to pick just one payment method.",
       },
     ],
     faqs: [
       {
         q: "Can I use Nagad without a developer?",
-        a: "Yes — connecting Nagad is a dashboard settings flow: enter your merchant credentials, Softunebd verifies and stores them, checkout does the rest.",
+        a: "Yes - connecting Nagad is a dashboard settings flow: enter your merchant credentials, Softunebd verifies and stores them, checkout does the rest.",
       },
     ],
-    ctaText: "Connect Nagad — Start Free",
+    ctaText: "Connect Nagad - Start Free",
     ctaHref: "/signup",
   },
   steadfast: {
     title: "Steadfast Courier Integration for Ecommerce",
     description:
-      "Connect Steadfast Courier to your online store and send parcels straight from your Softunebd dashboard — real order-to-delivery automation, not manual entry.",
+      "Connect Steadfast Courier to your online store and send parcels straight from your Softunebd dashboard - real order-to-delivery automation, not manual entry.",
     pill: "Courier Integration",
     h1Start: "Steadfast Courier",
     h1Highlight: "Integration",
     intro:
-      "Connect your own Steadfast merchant account and create real delivery bookings straight from your order list — no copy-pasting order details into a separate courier panel.",
+      "Connect your own Steadfast merchant account and create real delivery bookings straight from your order list - no copy-pasting order details into a separate courier panel.",
     features: [
       {
         icon: "/icons/domain.svg",
@@ -108,16 +108,16 @@ export const INTEGRATIONS: Record<
       {
         icon: "/icons/lock.svg",
         title: "Your Own Merchant Account",
-        desc: "This connects your real Steadfast merchant credentials — it's your account and your rates, not a shared reseller relationship.",
+        desc: "This connects your real Steadfast merchant credentials - it's your account and your rates, not a shared reseller relationship.",
       },
     ],
     faqs: [
       {
         q: "Does this replace my Steadfast merchant account?",
-        a: "No — it connects to your existing Steadfast merchant account so bookings happen from inside Softunebd instead of a separate tab.",
+        a: "No - it connects to your existing Steadfast merchant account so bookings happen from inside Softunebd instead of a separate tab.",
       },
     ],
-    ctaText: "Connect Steadfast — Start Free",
+    ctaText: "Connect Steadfast - Start Free",
     ctaHref: "/signup",
   },
   pathao: {
@@ -128,7 +128,7 @@ export const INTEGRATIONS: Record<
     h1Start: "Pathao Courier",
     h1Highlight: "Integration",
     intro:
-      "Connect your Pathao merchant account and send order deliveries directly from Softunebd — one dashboard for orders, payments, and courier handoff.",
+      "Connect your Pathao merchant account and send order deliveries directly from Softunebd - one dashboard for orders, payments, and courier handoff.",
     features: [
       {
         icon: "/icons/domain.svg",
@@ -149,10 +149,10 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Do I need a Pathao merchant account first?",
-        a: "Yes — Softunebd connects to your existing Pathao merchant account; it doesn't replace the need to have one.",
+        a: "Yes - Softunebd connects to your existing Pathao merchant account; it doesn't replace the need to have one.",
       },
     ],
-    ctaText: "Connect Pathao — Start Free",
+    ctaText: "Connect Pathao - Start Free",
     ctaHref: "/signup",
   },
   redx: {
@@ -184,10 +184,10 @@ export const INTEGRATIONS: Record<
     faqs: [
       {
         q: "Can I use RedX alongside Steadfast or Pathao?",
-        a: "Yes — Softunebd supports connecting multiple couriers, so you can choose per order or keep a backup courier connected.",
+        a: "Yes - Softunebd supports connecting multiple couriers, so you can choose per order or keep a backup courier connected.",
       },
     ],
-    ctaText: "Connect RedX — Start Free",
+    ctaText: "Connect RedX - Start Free",
     ctaHref: "/signup",
   },
 };

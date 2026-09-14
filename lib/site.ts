@@ -24,7 +24,7 @@ export const SITE_NAME = "Softunebd";
 export const DEFAULT_TITLE = `${SITE_NAME} | Ecommerce Website Builder for Bangladesh`;
 
 export const SITE_DESCRIPTION =
-  "Start a free 3-day Softunebd trial — no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
+  "Start a free 3-day Softunebd trial - no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
 
 /** Same sentence in FAQ JSON-LD, SoftwareApplication schema, About, and
  *  the Theme Editor page — crawlers and answer engines cite one claim,

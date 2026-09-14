@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    text: "We stopped rebuilding storefronts from scratch. Softunebd gave us real themes, a Theme Editor merchants understand, and one dashboard for products and orders — so the team ships brands, not glue code.",
+    text: "We stopped rebuilding storefronts from scratch. Softunebd gave us real themes, a Theme Editor merchants understand, and one dashboard for products and orders - so the team ships brands, not glue code.",
     name: "Ayesha Rahman",
     role: "Founder, Studio Partner",
     avatar: "https://i.pravatar.cc/150?img=1"
   },
   {
-    text: "Store Sale POS plus the order dashboard cut the WhatsApp chaos. COD, bKash, Nagad, SSLCommerz, and courier setup live in one place — that alone saved our ops hours every week.",
+    text: "Store Sale POS plus the order dashboard cut the WhatsApp chaos. COD, bKash, Nagad, SSLCommerz, and courier setup live in one place - that alone saved our ops hours every week.",
     name: "Marcus Chen",
     role: "Operations Director",
     avatar: "https://i.pravatar.cc/150?img=11"

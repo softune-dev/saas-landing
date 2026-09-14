@@ -116,7 +116,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
             {isBn
-              ? "Softunebd হলো বাংলাদেশের স্বাধীন ব্র্যান্ডগুলোর জন্য তৈরি অল-ইন-ওয়ান SaaS প্ল্যাটফর্ম — যেখানে কাস্টম থিম, ইনভেন্টরি, কুরিয়ার ও POS এক জায়গায়।"
+              ? "Softunebd হলো বাংলাদেশের স্বাধীন ব্র্যান্ডগুলোর জন্য তৈরি অল-ইন-ওয়ান SaaS প্ল্যাটফর্ম - যেখানে কাস্টম থিম, ইনভেন্টরি, কুরিয়ার ও POS এক জায়গায়।"
               : "Softunebd is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel."}
           </motion.p>
         </div>
@@ -134,7 +134,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 {isBn
                   ? "Softunebd হলো বাংলাদেশের অনলাইন শপগুলোর জন্য তৈরি একটি প্ল্যাটফর্ম। কোনো ডেভলপার না রেখে বা একাধিক প্লাগইন ছাড়াই নিজের থিম, ইনভেন্টরি, চেকআউট, পেমেন্ট, কুরিয়ার বুকিং এবং POS এক ড্যাশবোর্ডে পরিচালনা করুন।"
-                  : "Softunebd is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard — themes, inventory, checkout, payments, courier booking, and Store Sale POS — without hiring a developer or stacking plugins."}
+                  : "Softunebd is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard - themes, inventory, checkout, payments, courier booking, and Store Sale POS - without hiring a developer or stacking plugins."}
               </p>
             </div>
 
@@ -147,7 +147,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               </h3>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 {isBn
-                  ? "বাংলাদেশের ছোট ও মাঝারি উদ্যোক্তাদের শুধু একটি ফেসবুক পেজ বা জটিল কোনো ওয়েবসাইটের মধ্যে সীমাবদ্ধ থাকতে হবে না। আপনার স্টোর থাকবে আপনার মতো অনন্য — নিজস্ব লোগো, ব্র্যান্ড কালার, COD, bKash/Nagad এবং লোকাল কুরিয়ার সল্যুশন সহ।"
+                  ? "বাংলাদেশের ছোট ও মাঝারি উদ্যোক্তাদের শুধু একটি ফেসবুক পেজ বা জটিল কোনো ওয়েবসাইটের মধ্যে সীমাবদ্ধ থাকতে হবে না। আপনার স্টোর থাকবে আপনার মতো অনন্য - নিজস্ব লোগো, ব্র্যান্ড কালার, COD, bKash/Nagad এবং লোকাল কুরিয়ার সল্যুশন সহ।"
                   : "Shop owners in Bangladesh should not have to choose between a Facebook Page and a custom site they cannot maintain. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's."}
               </p>
             </div>

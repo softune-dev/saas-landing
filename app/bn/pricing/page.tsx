@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import PricingPage from "@/app/pricing/pricing-content";
 
 export const metadata = pageSeo({
-  title: "Softunebd প্রাইসিং প্ল্যান — টাকায় পেমেন্ট",
+  title: "Softunebd প্রাইসিং প্ল্যান - টাকায় পেমেন্ট",
   description:
-    "Softunebd-এ কোনো ক্রেডিট কার্ড ছাড়াই ৩ দিনের ফ্রি ট্রায়াল শুরু করুন। এরপর টাকাতেই বেছে নিন Starter, Growth বা Business প্ল্যান — কোনো হিডেন চার্জ বা পার-অর্ডার ফি নেই।",
+    "Softunebd-এ কোনো ক্রেডিট কার্ড ছাড়াই ৩ দিনের ফ্রি ট্রায়াল শুরু করুন। এরপর টাকাতেই বেছে নিন Starter, Growth বা Business প্ল্যান - কোনো হিডেন চার্জ বা পার-অর্ডার ফি নেই।",
   path: "/bn/pricing",
   lang: "bn",
 });

@@ -93,13 +93,13 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             {isBn ? (
               <>
-                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI — সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
+                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI - সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
               </>
             ) : (
               <>
                 Softunebd is the ecommerce platform built for small businesses and
                 startups in Bangladesh. Themes, orders, bKash, Nagad,
-                SSLCommerz, couriers, POS, and AI — one dashboard. No coding
+                SSLCommerz, couriers, POS, and AI - one dashboard. No coding
                 required.
               </>
             )}

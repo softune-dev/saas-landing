@@ -57,7 +57,7 @@ export default function ThemesIndexPage() {
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
             Pick a starting point, then make it yours. Every theme ships with
-            the full Theme Editor — colors, fonts, sections, and copy are
+            the full Theme Editor - colors, fonts, sections, and copy are
             never locked to what you see here.
           </motion.p>
         </div>
@@ -95,7 +95,7 @@ export default function ThemesIndexPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={t.image}
-                        alt={`${t.name} Softunebd ecommerce theme — ${t.vibe}`}
+                        alt={`${t.name} Softunebd ecommerce theme - ${t.vibe}`}
                         loading="lazy"
                         decoding="async"
                         className="theme-shot-img absolute inset-x-0 top-0 w-full max-w-none"
@@ -128,7 +128,7 @@ export default function ThemesIndexPage() {
                     More coming soon
                   </p>
                   <p className="max-w-[220px] text-[13px] text-[var(--color-muted)]">
-                    New niche themes are on the way — check back soon.
+                    New niche themes are on the way - check back soon.
                   </p>
                 </div>
                 <div className="mt-3 h-[26px]" />
@@ -146,7 +146,7 @@ export default function ThemesIndexPage() {
             </span>
           </h2>
           <p className="mt-4 text-[16px] text-[var(--color-muted)] font-medium max-w-xl mx-auto">
-            Start a 3-day trial and switch themes anytime — nothing about
+            Start a 3-day trial and switch themes anytime - nothing about
             your catalog resets when you change your mind.
           </p>
           <div className="mt-8 flex justify-center">

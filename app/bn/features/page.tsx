@@ -8,7 +8,7 @@ import FeaturesIndexPage from "@/app/features/features-content";
 export const metadata = pageSeo({
   title: "Softunebd ড্যাশবোর্ড ফিচারসমূহ",
   description:
-    "Softunebd-এর সব ফিচার ঘুরে দেখুন ৩ দিনের ফ্রি ট্রায়ালে — কোনো কার্ড লাগবে না। Theme Editor, অর্ডার ম্যানেজমেন্ট, Store Sale POS এবং Gemini AI ই-কমার্স বিজনেসের জন্য।",
+    "Softunebd-এর সব ফিচার ঘুরে দেখুন ৩ দিনের ফ্রি ট্রায়ালে - কোনো কার্ড লাগবে না। Theme Editor, অর্ডার ম্যানেজমেন্ট, Store Sale POS এবং Gemini AI ই-কমার্স বিজনেসের জন্য।",
   path: "/bn/features",
   lang: "bn",
 });

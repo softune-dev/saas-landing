@@ -163,7 +163,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 />
                 <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
                   {isBn
-                    ? "কোনো ট্রানজেকশন ফি নেই, সেটআপ ফি নেই — সাথে বিল্ট-ইন AI অ্যাসিস্ট্যান্ট ও রেডি থিমসমূহ।"
+                    ? "কোনো ট্রানজেকশন ফি নেই, সেটআপ ফি নেই - সাথে বিল্ট-ইন AI অ্যাসিস্ট্যান্ট ও রেডি থিমসমূহ।"
                     : "No transaction fee, no setup fee, and a real AI assistant with storefront themes built in."}
                 </p>
               </div>
