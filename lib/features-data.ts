@@ -881,6 +881,180 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Per Store", desc: "Campaigns belong to one storefront, same as your products.", icon: "/icons/domain.svg" },
     ],
   },
+  "ai-image-generation": {
+    slug: "ai-image-generation",
+    pillText: "AI Image Generation",
+    titleStart: "Product Photos,",
+    titleHighlight: "Not a Photoshoot",
+    titleEnd: "",
+    description:
+      "Generate on-brand product, marketing, and hero images with Google Gemini, right from a preset or your own prompt, with or without text baked in, then save straight to your store's gallery.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "A design studio, not a blank prompt box",
+    introDesc:
+      "Pick from dozens of ready-made presets across Product, Events, Marketing, Category, Hero, and Bento styles, or describe what you want yourself. Either way, Softunebd guides the AI toward a clean, professional result instead of a generic AI look.",
+    alternating: [
+      {
+        pillText: "Presets, Not Guesswork",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "Pick a Style,",
+        titleHighlight: "Get a Result",
+        titleEnd: "",
+        description:
+          "Dozens of curated presets across Product, Events, Marketing, Category, Hero, and Bento layouts, each one already tuned for composition and lighting, so you're choosing a look, not writing a prompt from scratch.",
+        bullets: [
+          "Presets across Product, Events, Marketing, Category, Hero, and Bento",
+          "Every preset is pre-tuned for composition and lighting",
+          "Category images are always generated clean, with no text",
+          "Free-form prompts pick up style hints from your own wording",
+        ],
+      },
+      {
+        pillText: "With or Without Text",
+        pillIcon: "/icons/ai-pencil.svg",
+        titleStart: "Your Words,",
+        titleHighlight: "Rendered Cleanly",
+        titleEnd: "",
+        description:
+          "Choose whether a generation includes a headline or button text at all. When it does, Softunebd pushes Gemini toward correct spelling and legible typography instead of the warped, half-broken text AI images are known for.",
+        bullets: [
+          "Per-generation toggle: with text or a clean, text-free image",
+          "Short headline and button copy render more reliably",
+          "Every word is re-checked against what you actually typed",
+          "Pick and edit the reference photo a generation starts from",
+        ],
+      },
+      {
+        pillText: "Straight to Your Gallery",
+        pillIcon: "/icons/save.svg",
+        titleStart: "Generate,",
+        titleHighlight: "Then Use It",
+        titleEnd: "",
+        description:
+          "A generated image saves straight into your store's media gallery, ready to drop into a product, a homepage section, or a marketing post, no separate download-and-reupload step.",
+        bullets: [
+          "One-click save to your store's own gallery",
+          "Use it anywhere you'd use an uploaded photo",
+          "Credit-based, so cost stays predictable per generation",
+          "Buy more credits anytime your plan's included amount runs out",
+        ],
+      },
+    ],
+    extraTitle: "Built for a store that can't book a photoshoot",
+    extraDesc:
+      "AI Image Generation is a first-class Softunebd feature, not a bolted-on chatbot, tuned specifically for product and marketing imagery.",
+    extraCards: [
+      { title: "Gemini-Powered", desc: "Google Gemini generates every image, guided by Softunebd's own preset prompts.", icon: "/icons/gemini.svg" },
+      { title: "Text That Reads", desc: "Extra instructions push toward clean typography instead of garbled AI text.", icon: "/icons/ai-pencil.svg" },
+      { title: "Per Store", desc: "Every generation and saved image belongs to your own store's gallery.", icon: "/icons/domain.svg" },
+    ],
+  },
+  "push-notifications": {
+    slug: "push-notifications",
+    pillText: "Push Notifications",
+    titleStart: "Know the Moment",
+    titleHighlight: "It Happens",
+    titleEnd: "",
+    description:
+      "Get a real, OS-level push notification the instant a new order comes in, even with the dashboard tab closed, so you're never staring at a screen waiting for a sale.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "A notification, not a refresh habit",
+    introDesc:
+      "Turn on push once from your browser and new-order alerts land on your desktop or phone the moment an order is placed, the same way any other app notifies you.",
+    alternating: [
+      {
+        pillText: "Real Browser Push",
+        pillIcon: "/icons/send.svg",
+        titleStart: "Actual OS",
+        titleHighlight: "Notifications",
+        titleEnd: "",
+        description:
+          "This is a real Web Push subscription, not an in-app banner: it fires from your operating system's own notification tray, even when the dashboard tab isn't open.",
+        bullets: [
+          "Fires even with the dashboard tab closed",
+          "Standard browser Web Push, no extra app to install",
+          "Tap the notification to jump straight to the order",
+          "Works alongside the in-app notification bell",
+        ],
+      },
+      {
+        pillText: "New Orders First",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Built Around",
+        titleHighlight: "What Matters Most",
+        titleEnd: "",
+        description:
+          "Push is focused on the one event that actually needs your immediate attention: a new order landing on your storefront.",
+        bullets: [
+          "Sent the moment a new order is placed",
+          "A failed send never blocks or delays the order itself",
+          "No noisy stream of unrelated alerts",
+          "Subscribe from any browser you use to manage the store",
+        ],
+      },
+    ],
+    extraTitle: "One less tab to babysit",
+    extraDesc:
+      "Push Notifications is a first-class Softunebd feature, so knowing about a new order never depends on remembering to check the dashboard.",
+    extraCards: [
+      { title: "Instant", desc: "Delivered the moment an order is placed, not on your next refresh.", icon: "/icons/clock.svg" },
+      { title: "OS-Level", desc: "A real system notification, not just an in-app badge.", icon: "/icons/send.svg" },
+      { title: "Per Store", desc: "Subscriptions are tied to the storefront you manage, not your whole account.", icon: "/icons/domain.svg" },
+    ],
+  },
+  "abandoned-checkouts": {
+    slug: "abandoned-checkouts",
+    pillText: "Abandoned Checkouts",
+    titleStart: "See Who",
+    titleHighlight: "Almost Bought",
+    titleEnd: "",
+    description:
+      "The moment a shopper enters their phone number at checkout, Softunebd captures it, so you have a real contact and cart to follow up with even if they never finish the order.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "A contact list, not a lost sale",
+    introDesc:
+      "Abandoned Checkouts sits next to Orders. Every entry has a phone number and the items that were in the cart, so following up is a phone call away, not a guess.",
+    alternating: [
+      {
+        pillText: "Captured Early",
+        pillIcon: "/icons/cart.svg",
+        titleStart: "Caught the Moment",
+        titleHighlight: "They Typed a Number",
+        titleEnd: "",
+        description:
+          "As soon as a valid phone number is entered at checkout, the cart is saved, well before the order would normally be considered placed.",
+        bullets: [
+          "Captured as soon as a valid phone number is entered",
+          "Saves the items and subtotal that were in the cart",
+          "No account or login needed from the shopper",
+          "Doesn't interrupt or slow down their checkout",
+        ],
+      },
+      {
+        pillText: "Know If They Came Back",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "Converted",
+        titleHighlight: "or Still Open",
+        titleEnd: "",
+        description:
+          "Each captured checkout tracks whether that shopper went on to actually complete an order, so your follow-up list only has the ones genuinely worth calling.",
+        bullets: [
+          "Marked once the shopper places a real order",
+          "See exactly which products they were about to buy",
+          "Phone number ready for a follow-up call or message",
+          "One list, sorted by most recent",
+        ],
+      },
+    ],
+    extraTitle: "Built for real follow-up, not automation you can't see",
+    extraDesc:
+      "Abandoned Checkouts gives you the contact and the cart; how you follow up (a call, a WhatsApp message) stays entirely in your hands.",
+    extraCards: [
+      { title: "Real Contact", desc: "A real phone number, not an anonymous session you can't reach.", icon: "/icons/cart.svg" },
+      { title: "No Guessing", desc: "See the exact items and subtotal that were in their cart.", icon: "/icons/orders.svg" },
+      { title: "Per Store", desc: "Each storefront keeps its own list, tied to its own orders.", icon: "/icons/domain.svg" },
+    ],
+  },
 };
 
 export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
@@ -1722,6 +1896,180 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       { title: "প্রতি স্টোর আলাদা", desc: "প্রোডাক্টের মতো ক্যাম্পেইনও এক স্টোরের নিজস্ব।", icon: "/icons/domain.svg" },
     ],
   },
+  "ai-image-generation": {
+    slug: "ai-image-generation",
+    pillText: "AI ইমেজ জেনারেশন",
+    titleStart: "প্রোডাক্ট ফটো,",
+    titleHighlight: "ফটোশুট ছাড়াই",
+    titleEnd: "",
+    description:
+      "গুগল জেমিনি দিয়ে ব্র্যান্ড-মানানসই প্রোডাক্ট, মার্কেটিং ও হিরো ইমেজ জেনারেট করুন, প্রিসেট থেকে বা নিজের প্রম্পট দিয়ে, টেক্সট সহ বা ছাড়া, তারপর সরাসরি স্টোরের গ্যালারিতে সেভ করুন।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "খালি প্রম্পট বক্স নয়, একটা ডিজাইন স্টুডিও",
+    introDesc:
+      "Product, Events, Marketing, Category, Hero ও Bento স্টাইলের অনেক রেডি প্রিসেট থেকে বেছে নিন, বা নিজেই লিখুন কী চান। যেভাবেই হোক, Softunebd AI-কে একটা পরিষ্কার, প্রফেশনাল রেজাল্টের দিকে গাইড করে, সাধারণ AI-লুক নয়।",
+    alternating: [
+      {
+        pillText: "প্রিসেট, আন্দাজ নয়",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "স্টাইল বেছে নিন,",
+        titleHighlight: "রেজাল্ট পান",
+        titleEnd: "",
+        description:
+          "Product, Events, Marketing, Category, Hero ও Bento লেআউটে অনেক কিউরেটেড প্রিসেট, প্রতিটি আগে থেকেই কম্পোজিশন ও লাইটিংয়ের জন্য টিউন করা, তাই আপনি একটা লুক বেছে নিচ্ছেন, শুরু থেকে প্রম্পট লিখছেন না।",
+        bullets: [
+          "Product, Events, Marketing, Category, Hero ও Bento জুড়ে প্রিসেট",
+          "প্রতিটি প্রিসেট কম্পোজিশন ও লাইটিংয়ের জন্য প্রি-টিউনড",
+          "Category ইমেজ সবসময় ক্লিন জেনারেট হয়, কোনো টেক্সট থাকে না",
+          "ফ্রি-ফর্ম প্রম্পটেও আপনার লেখা থেকে স্টাইল হিন্ট নেয়া হয়",
+        ],
+      },
+      {
+        pillText: "টেক্সট সহ বা ছাড়া",
+        pillIcon: "/icons/ai-pencil.svg",
+        titleStart: "আপনার লেখা,",
+        titleHighlight: "পরিষ্কারভাবে রেন্ডার",
+        titleEnd: "",
+        description:
+          "একটা জেনারেশনে হেডলাইন বা বাটন টেক্সট থাকবে কিনা বেছে নিন। থাকলে, Softunebd জেমিনিকে সঠিক স্পেলিং ও পড়া যায় এমন টাইপোগ্রাফির দিকে ঠেলে দেয়, AI ইমেজের চেনা বিকৃত টেক্সট নয়।",
+        bullets: [
+          "প্রতি জেনারেশনে টগল: টেক্সট সহ বা ক্লিন টেক্সট-ফ্রি ইমেজ",
+          "ছোট হেডলাইন ও বাটন কপি বেশি নিশ্চিতভাবে রেন্ডার হয়",
+          "আপনি যা টাইপ করেছেন তার সাথে প্রতিটি শব্দ আবার চেক করা হয়",
+          "একটা জেনারেশন কোন রেফারেন্স ছবি থেকে শুরু হবে বেছে নিন ও এডিট করুন",
+        ],
+      },
+      {
+        pillText: "সরাসরি গ্যালারিতে",
+        pillIcon: "/icons/save.svg",
+        titleStart: "জেনারেট করুন,",
+        titleHighlight: "তারপর ব্যবহার করুন",
+        titleEnd: "",
+        description:
+          "জেনারেট করা ইমেজ সরাসরি আপনার স্টোরের মিডিয়া গ্যালারিতে সেভ হয়, প্রোডাক্ট, হোমপেজ সেকশন বা মার্কেটিং পোস্টে বসানোর জন্য রেডি, আলাদা ডাউনলোড-রিআপলোডের ধাপ নেই।",
+        bullets: [
+          "এক ক্লিকে আপনার স্টোরের নিজের গ্যালারিতে সেভ",
+          "আপলোড করা ছবির মতোই যেকোনো জায়গায় ব্যবহার করুন",
+          "ক্রেডিট-ভিত্তিক, তাই প্রতি জেনারেশনের খরচ পূর্বনির্ধারিত",
+          "প্ল্যানের ইনক্লুডেড অ্যামাউন্ট শেষ হলে যেকোনো সময় ক্রেডিট কিনুন",
+        ],
+      },
+    ],
+    extraTitle: "ফটোশুট বুক করতে পারে না এমন স্টোরের জন্য তৈরি",
+    extraDesc:
+      "AI Image Generation Softunebd-এর নিজস্ব ফিচার, বাড়তি জোড়া দেওয়া চ্যাটবট নয়, বিশেষভাবে প্রোডাক্ট ও মার্কেটিং ইমেজের জন্য টিউন করা।",
+    extraCards: [
+      { title: "জেমিনি-চালিত", desc: "প্রতিটি ইমেজ গুগল জেমিনি জেনারেট করে, Softunebd-এর নিজের প্রিসেট প্রম্পট দিয়ে গাইডেড।", icon: "/icons/gemini.svg" },
+      { title: "পড়া যায় এমন টেক্সট", desc: "বাড়তি নির্দেশনা পরিষ্কার টাইপোগ্রাফির দিকে ঠেলে দেয়, ভাঙা AI টেক্সট নয়।", icon: "/icons/ai-pencil.svg" },
+      { title: "প্রতি স্টোর আলাদা", desc: "প্রতিটি জেনারেশন ও সেভ করা ইমেজ আপনার নিজের স্টোরের গ্যালারির।", icon: "/icons/domain.svg" },
+    ],
+  },
+  "push-notifications": {
+    slug: "push-notifications",
+    pillText: "পুশ নোটিফিকেশন",
+    titleStart: "যে মুহূর্তে ঘটে,",
+    titleHighlight: "জানুন তখনই",
+    titleEnd: "",
+    description:
+      "নতুন অর্ডার আসার সাথে সাথে একটা আসল, OS-লেভেল পুশ নোটিফিকেশন পান, ড্যাশবোর্ড ট্যাব বন্ধ থাকলেও, তাই সেলের জন্য স্ক্রিনে তাকিয়ে থাকতে হয় না।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "রিফ্রেশ করার অভ্যাস নয়, একটা নোটিফিকেশন",
+    introDesc:
+      "ব্রাউজার থেকে একবার পুশ চালু করুন, নতুন-অর্ডার অ্যালার্ট আপনার ডেস্কটপ বা ফোনে চলে আসবে অর্ডার হওয়ার সাথে সাথেই, ঠিক যেভাবে অন্য কোনো অ্যাপ আপনাকে জানায়।",
+    alternating: [
+      {
+        pillText: "আসল ব্রাউজার পুশ",
+        pillIcon: "/icons/send.svg",
+        titleStart: "আসল OS",
+        titleHighlight: "নোটিফিকেশন",
+        titleEnd: "",
+        description:
+          "এটা একটা আসল Web Push সাবস্ক্রিপশন, ইন-অ্যাপ ব্যানার নয়: এটা আপনার অপারেটিং সিস্টেমের নিজের নোটিফিকেশন ট্রে থেকে ফায়ার করে, ড্যাশবোর্ড ট্যাব খোলা না থাকলেও।",
+        bullets: [
+          "ড্যাশবোর্ড ট্যাব বন্ধ থাকলেও ফায়ার করে",
+          "স্ট্যান্ডার্ড ব্রাউজার Web Push, আলাদা অ্যাপ ইনস্টলের প্রয়োজন নেই",
+          "নোটিফিকেশনে ট্যাপ করে সরাসরি অর্ডারে চলে যান",
+          "ইন-অ্যাপ নোটিফিকেশন বেলের পাশাপাশি কাজ করে",
+        ],
+      },
+      {
+        pillText: "নতুন অর্ডার সবার আগে",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "যা সবচেয়ে জরুরি",
+        titleHighlight: "তার উপর ভিত্তি করে তৈরি",
+        titleEnd: "",
+        description:
+          "পুশ ফোকাস করে সেই একটা ইভেন্টে যেটার আসলেই আপনার তাৎক্ষণিক নজর প্রয়োজন: আপনার স্টোরফ্রন্টে একটা নতুন অর্ডার আসা।",
+        bullets: [
+          "নতুন অর্ডার হওয়ার সাথে সাথে পাঠানো হয়",
+          "পাঠাতে ব্যর্থ হলেও অর্ডার নিজেই কখনো ব্লক বা দেরি হয় না",
+          "অসংগত অ্যালার্টের কোনো বিরক্তিকর স্রোত নেই",
+          "স্টোর ম্যানেজ করার যেকোনো ব্রাউজার থেকে সাবস্ক্রাইব করুন",
+        ],
+      },
+    ],
+    extraTitle: "একটা ট্যাব কম দেখে রাখতে হবে",
+    extraDesc:
+      "Push Notifications Softunebd-এর নিজস্ব ফিচার, তাই নতুন অর্ডার জানার জন্য ড্যাশবোর্ড চেক করার কথা মনে রাখার উপর নির্ভর করতে হয় না।",
+    extraCards: [
+      { title: "তৎক্ষণাৎ", desc: "অর্ডার হওয়ার সাথে সাথেই পাঠানো হয়, পরের রিফ্রেশে নয়।", icon: "/icons/clock.svg" },
+      { title: "OS-লেভেল", desc: "একটা আসল সিস্টেম নোটিফিকেশন, শুধু ইন-অ্যাপ ব্যাজ নয়।", icon: "/icons/send.svg" },
+      { title: "প্রতি স্টোর আলাদা", desc: "সাবস্ক্রিপশন আপনার ম্যানেজ করা স্টোরফ্রন্টের সাথে বাঁধা, পুরো অ্যাকাউন্টের সাথে নয়।", icon: "/icons/domain.svg" },
+    ],
+  },
+  "abandoned-checkouts": {
+    slug: "abandoned-checkouts",
+    pillText: "অ্যাবানডন্ড চেকআউট",
+    titleStart: "কে প্রায়",
+    titleHighlight: "কিনে ফেলেছিল দেখুন",
+    titleEnd: "",
+    description:
+      "শপার চেকআউটে ফোন নম্বর টাইপ করার সাথে সাথেই Softunebd সেটা ধরে রাখে, তাই অর্ডার শেষ না করলেও ফলোআপ করার জন্য একটা আসল কন্টাক্ট ও কার্ট আপনার হাতে থাকে।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "হারানো সেল নয়, একটা কন্টাক্ট লিস্ট",
+    introDesc:
+      "Orders-এর পাশেই Abandoned Checkouts থাকে। প্রতিটি এন্ট্রিতে একটা ফোন নম্বর ও কার্টে থাকা আইটেম থাকে, তাই ফলোআপ করা মানে একটা ফোন কল দূরত্ব, আন্দাজ নয়।",
+    alternating: [
+      {
+        pillText: "শুরুতেই ধরা",
+        pillIcon: "/icons/cart.svg",
+        titleStart: "নম্বর টাইপ করার",
+        titleHighlight: "মুহূর্তেই ধরা",
+        titleEnd: "",
+        description:
+          "চেকআউটে একটা ভ্যালিড ফোন নম্বর দেওয়ার সাথে সাথেই কার্ট সেভ হয়ে যায়, সাধারণত অর্ডার প্লেসড ধরা হওয়ার অনেক আগেই।",
+        bullets: [
+          "ভ্যালিড ফোন নম্বর দেওয়ার সাথে সাথেই ক্যাপচার হয়",
+          "কার্টে থাকা আইটেম ও সাবটোটাল সেভ করে রাখে",
+          "শপারের কোনো অ্যাকাউন্ট বা লগইন লাগে না",
+          "তাদের চেকআউটে কোনো বাধা বা দেরি হয় না",
+        ],
+      },
+      {
+        pillText: "ফিরে এসেছিল কিনা জানুন",
+        pillIcon: "/icons/orders.svg",
+        titleStart: "কনভার্টেড",
+        titleHighlight: "নাকি এখনো ওপেন",
+        titleEnd: "",
+        description:
+          "প্রতিটি ক্যাপচার করা চেকআউট ট্র্যাক করে সেই শপার আসলে অর্ডার সম্পন্ন করেছিল কিনা, তাই আপনার ফলোআপ লিস্টে শুধু যাদের আসলেই কল করা উচিত তারাই থাকে।",
+        bullets: [
+          "শপার আসল অর্ডার করার সাথে সাথেই মার্ক হয়ে যায়",
+          "তারা কী কী প্রোডাক্ট কিনতে যাচ্ছিল ঠিক দেখুন",
+          "ফলোআপ কল বা মেসেজের জন্য ফোন নম্বর রেডি",
+          "একটা লিস্ট, সবচেয়ে সাম্প্রতিক অনুযায়ী সাজানো",
+        ],
+      },
+    ],
+    extraTitle: "দেখা যায় না এমন অটোমেশন নয়, আসল ফলোআপের জন্য তৈরি",
+    extraDesc:
+      "Abandoned Checkouts আপনাকে কন্টাক্ট ও কার্ট দিয়ে দেয়; কীভাবে ফলোআপ করবেন (একটা কল, একটা WhatsApp মেসেজ) সেটা পুরোপুরি আপনার হাতে থাকে।",
+    extraCards: [
+      { title: "আসল কন্টাক্ট", desc: "একটা আসল ফোন নম্বর, পৌঁছানো যায় না এমন কোনো অ্যানোনিমাস সেশন নয়।", icon: "/icons/cart.svg" },
+      { title: "আন্দাজ নয়", desc: "তাদের কার্টে থাকা ঠিক আইটেম ও সাবটোটাল দেখুন।", icon: "/icons/orders.svg" },
+      { title: "প্রতি স্টোর আলাদা", desc: "প্রতিটি স্টোরফ্রন্ট তার নিজের অর্ডারের সাথে বাঁধা নিজস্ব লিস্ট রাখে।", icon: "/icons/domain.svg" },
+    ],
+  },
 };
 
 export const FEATURES_LIST = [
@@ -1737,6 +2085,9 @@ export const FEATURES_LIST = [
   { slug: "customer-management", title: "Customers", icon: "/icons/user.svg", desc: "Phone-matched buyers from orders" },
   { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
   { slug: "customer-risk-score", title: "Risk Score", icon: "/icons/analytics.svg", desc: "0-100 risk score built from real order and fraud history" },
+  { slug: "ai-image-generation", title: "AI Image Generation", icon: "/icons/gemini.svg", desc: "Gemini-powered product, marketing, and hero images" },
+  { slug: "push-notifications", title: "Push Notifications", icon: "/icons/send.svg", desc: "Real OS-level alerts the moment an order comes in" },
+  { slug: "abandoned-checkouts", title: "Abandoned Checkouts", icon: "/icons/cart.svg", desc: "Phone and cart captured the moment checkout starts" },
 ];
 
 export function getFeaturePage(slug: string, locale: "en" | "bn" = "en"): FeatureData | undefined {

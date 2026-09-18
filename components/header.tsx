@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SoftuneLogo } from "@/components/brand/softune-logo";
+import { ScrollProgress } from "./scroll-progress";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
@@ -38,6 +39,7 @@ const linksEn: NavLink[] = [
         items: [
           { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+          { label: "AI Image Generation", href: "/features/ai-image-generation", icon: "/icons/gemini.svg" },
         ],
       },
       {
@@ -46,6 +48,8 @@ const linksEn: NavLink[] = [
           { label: "Orders", href: "/features/orders", icon: "/icons/orders.svg" },
           { label: "Customers", href: "/features/customer-management", icon: "/icons/user.svg" },
           { label: "Store Sale (POS)", href: "/features/store-sale", icon: "/icons/shop-bag.svg" },
+          { label: "Abandoned Checkouts", href: "/features/abandoned-checkouts", icon: "/icons/cart.svg" },
+          { label: "Push Notifications", href: "/features/push-notifications", icon: "/icons/send.svg" },
         ],
       },
       {
@@ -93,6 +97,7 @@ const linksBn: NavLink[] = [
         items: [
           { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+          { label: "AI ইমেজ জেনারেশন", href: "/bn/features/ai-image-generation", icon: "/icons/gemini.svg" },
         ],
       },
       {
@@ -101,6 +106,8 @@ const linksBn: NavLink[] = [
           { label: "অর্ডার ম্যানেজমেন্ট", href: "/bn/features/orders", icon: "/icons/orders.svg" },
           { label: "কাস্টমার ম্যানেজমেন্ট", href: "/bn/features/customer-management", icon: "/icons/user.svg" },
           { label: "স্টোর সেল (POS)", href: "/bn/features/store-sale", icon: "/icons/shop-bag.svg" },
+          { label: "অ্যাবানডন্ড চেকআউট", href: "/bn/features/abandoned-checkouts", icon: "/icons/cart.svg" },
+          { label: "পুশ নোটিফিকেশন", href: "/bn/features/push-notifications", icon: "/icons/send.svg" },
         ],
       },
       {
@@ -151,6 +158,7 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
 
   return (
     <>
+      <ScrollProgress />
       <GeoBanner />
       {/* Top Announcement Bar - Only visible on sm screens and larger */}
       <div className="relative z-40 hidden h-[44px] w-full items-center justify-between overflow-hidden bg-[#c147b6] px-6 lg:px-8 text-white sm:flex">

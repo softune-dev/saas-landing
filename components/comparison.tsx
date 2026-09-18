@@ -21,7 +21,7 @@ const rowsEn: Row[] = [
     others: "Some charge a one-time setup fee (e.g. ৳5,000)",
   },
   {
-    softune: "AI assistant across products, categories & theme direction",
+    softune: "AI assistant for products, categories, theme direction & image generation",
     others: "Rare, and usually just one narrow AI writing tool",
   },
   {
@@ -49,7 +49,7 @@ const rowsBn: Row[] = [
     others: "অনেকে ওয়ান-টাইম সেটআপ ফি কাটে (যেমন ৳৫,০০০)",
   },
   {
-    softune: "প্রোডাক্ট, ক্যাটাগরি ও থিম সাজাতে রিয়েল AI অ্যাসিস্ট্যান্ট",
+    softune: "প্রোডাক্ট, ক্যাটাগরি, থিম সাজানো ও ইমেজ জেনারেশনে রিয়েল AI অ্যাসিস্ট্যান্ট",
     others: "খুবই সীমিত বা কেবল একটি ডেসক্রিপশন রাইটিং টুল",
   },
   {

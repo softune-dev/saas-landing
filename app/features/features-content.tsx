@@ -27,6 +27,9 @@ export default function FeaturesIndexPage({ locale = "en" }: { locale?: "en" | "
         { slug: "customer-management", title: "কাস্টমার ম্যানেজমেন্ট", icon: "/icons/user.svg", desc: "অর্ডার থেকে ফোন নম্বর ম্যাচিং শপার রসিদ" },
         { slug: "fraud-protection", title: "ফ্রড প্রোটেকশন", icon: "/icons/lock.svg", desc: "IP ব্লকিং, ডিভাইস রুলস ও Suspicious Orders রিভিউ" },
         { slug: "customer-risk-score", title: "কাস্টমার রিস্ক স্কোর", icon: "/icons/analytics.svg", desc: "আসল ডেলিভারি ও ফ্রড হিস্ট্রি থেকে ০-১০০ রিস্ক স্কোর" },
+        { slug: "ai-image-generation", title: "AI ইমেজ জেনারেশন", icon: "/icons/gemini.svg", desc: "জেমিনি-চালিত প্রোডাক্ট, মার্কেটিং ও হিরো ইমেজ" },
+        { slug: "push-notifications", title: "পুশ নোটিফিকেশন", icon: "/icons/send.svg", desc: "অর্ডার আসার সাথে সাথে আসল OS-লেভেল অ্যালার্ট" },
+        { slug: "abandoned-checkouts", title: "অ্যাবানডন্ড চেকআউট", icon: "/icons/cart.svg", desc: "চেকআউট শুরুর মুহূর্তেই ফোন ও কার্ট ক্যাপচার" },
       ]
     : FEATURES_LIST;
 

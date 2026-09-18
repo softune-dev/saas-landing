@@ -22,6 +22,46 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.1",
+    version: "v2.1.0",
+    date: "Sep 17, 2026",
+    title: "AI Image Generation, extra chat credits, and renewal reminders",
+    description:
+      "Generate real product and marketing images with AI, keep going past your daily chat limit with purchasable credits, and get a heads-up before your plan payment is due.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "AI Image Generation: create real product photos and marketing graphics from your dashboard's AI sidebar - dozens of ready presets across Product, Events, Marketing, Category, Hero, and Bento styles, with or without text, or describe your own scene.",
+      },
+      {
+        type: "Feature",
+        content:
+          "AI Chatbot can now place real actions for you: update order status, manage events, look up customers, and update products - always with a confirm step before anything is written.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Purchasable chat credits: once your free daily AI Chatbot limit runs out, buy credits instead of waiting until tomorrow.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Purchasable AI image credits, with a saved gallery of everything you've generated, one click away.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Renewal reminder emails and a dashboard banner before your plan payment is due, so a subscription never lapses as a surprise.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed the dashboard's Forgot Password flow, which previously required manual support intervention.",
+      },
+    ],
+  },
+  {
     serial: "2.0",
     version: "v2.0.0",
     date: "Sep 13, 2026",
