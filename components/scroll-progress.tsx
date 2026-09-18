@@ -3,11 +3,11 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 /** Thin progress bar pinned to the very top edge of the viewport, filling
- * left-to-right as the page scrolls — plus a small pulsing dot riding the
- * fill's leading edge. The dot is a sibling, not a child, of the scaled
- * fill bar: nesting it inside would scale its width/height along with the
- * bar's scaleX transform and squash it into an ellipse. framer-motion is
- * already a dependency here, so this needs no new package. */
+ * left-to-right as the page scrolls — plus a soft, static glow riding the
+ * fill's leading edge (no dot shape, no pulse animation). The glow is a
+ * sibling, not a child, of the scaled fill bar: nesting it inside would
+ * scale its width along with the bar's scaleX transform and stretch it.
+ * framer-motion is already a dependency here, so this needs no new package. */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
@@ -24,10 +24,8 @@ export function ScrollProgress() {
         style={{ scaleX: progress }}
       />
       <motion.div
-        className="absolute top-1/2 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-brand)]"
+        className="absolute top-1/2 h-3 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-brand)] opacity-70 blur-[6px]"
         style={{ left: tipLeft }}
-        animate={{ scale: [1, 1.35, 1] }}
-        transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
       />
     </div>
   );
