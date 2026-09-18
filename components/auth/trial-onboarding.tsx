@@ -154,6 +154,11 @@ function sleep(ms: number) {
 }
 
 function handoffToDashboard(access: string, refresh: string) {
+  // Real trial account created — the one signal Meta Ads had no way to see
+  // before this (see analytics.tsx, which only ever fires PageView). Fired
+  // here, not in previewComplete, so ?preview=1 walkthroughs never inflate
+  // conversion counts.
+  window.fbq?.("track", "CompleteRegistration");
   storeDashboardSession(access, refresh);
   const hash = new URLSearchParams({
     softune_at: access,
