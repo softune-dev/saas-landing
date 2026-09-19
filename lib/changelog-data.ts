@@ -22,6 +22,70 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.2",
+    version: "v2.2.0",
+    date: "Sep 19, 2026",
+    title: "Real per-variant pricing and stock, auto-verified payments",
+    description:
+      "Price, stock, and photograph each variant combination on its own, get manual payments and AI credit purchases verified automatically, and see fixes across every storefront's variant picker and Quick View.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Each variant combination (e.g. Red / Medium) can now have its own price, compare-at price, stock count, and photo, instead of every size or color sharing one product-level price and one pooled stock number.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Manual bKash/bank payments are now verified automatically from a forwarded deposit SMS, instead of requiring you to confirm each one by hand.",
+      },
+      {
+        type: "Feature",
+        content:
+          "AI credit-pack purchases are verified automatically too, with an instant dashboard notification the moment it clears.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Real-time toast and instant refresh when a payment auto-verifies, and purchased chat credits now show combined with your daily free allowance in one number in the header.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "AI Image Generation: a With text / Without text toggle on every preset, Product and Marketing presets expanded to 10 each with real thumbnails, and a simplified AI sidebar.",
+      },
+      {
+        type: "Improvement",
+        content: "AI Chatbot can now find a product by SKU, not just by name.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed a site's subdomain not receiving content updates once a custom domain was attached to it - both now stay in sync.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed the product page and Quick View showing fake size options (XS/S/M/L/XL) on products that had no real sizes set.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Storefront product page and Quick View no longer pre-select a size or color for you - you see your product's real base price until you actually choose a variant.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Quick View's price, discount badge, and stock now reflect the variant you actually selected, instead of always showing the base product's price.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Redesigned cart confirmation toast (top-center pill) and Bazaar's Quick View and product cards, with image cycling on hover.",
+      },
+    ],
+  },
+  {
     serial: "2.1",
     version: "v2.1.0",
     date: "Sep 17, 2026",
