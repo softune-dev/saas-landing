@@ -22,6 +22,21 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.3",
+    version: "v2.3.0",
+    date: "Sep 22, 2026",
+    title: "Trial extended to 7 days",
+    description:
+      "The free trial is now 7 days instead of 3, so there's real room to set up your store, add a real catalog, and see it work before deciding on a plan.",
+    changes: [
+      {
+        type: "Improvement",
+        content:
+          "Free trial extended from 3 days to 7 days - full dashboard access, no credit card required, across every plan you can start from.",
+      },
+    ],
+  },
+  {
     serial: "2.2",
     version: "v2.2.0",
     date: "Sep 19, 2026",

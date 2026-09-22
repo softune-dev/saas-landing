@@ -7,7 +7,7 @@ import FAQPage from "@/app/support/faq/faq-content";
 export const metadata = pageSeo({
   title: "FAQ | পেমেন্ট, কুরিয়ার ও প্ল্যানসমূহ",
   description:
-    "Softunebd-এর ৩ দিনের ফ্রি ট্রায়াল, প্ল্যান, COD, bKash, Nagad, SSLCommerz এবং বাংলাদেশে অনলাইন স্টোর চালু করা সংক্রান্ত প্রশ্ন ও উত্তর।",
+    "Softunebd-এর ৭ দিনের ফ্রি ট্রায়াল, প্ল্যান, COD, bKash, Nagad, SSLCommerz এবং বাংলাদেশে অনলাইন স্টোর চালু করা সংক্রান্ত প্রশ্ন ও উত্তর।",
   path: "/bn/support/faq",
   lang: "bn",
 });

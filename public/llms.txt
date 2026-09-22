@@ -1,6 +1,6 @@
 # Softunebd
 
-> Softunebd is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront, themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools, from one dashboard, without writing code. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. New merchants can start a 3-day free trial with no credit card.
+> Softunebd is a multi-tenant ecommerce SaaS platform for merchants and agencies in Bangladesh. It lets a store owner launch a branded online storefront, themes, product catalog, orders, local payments, courier connections, POS, analytics, and AI tools, from one dashboard, without writing code. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. New merchants can start a 7-day free trial with no credit card.
 
 Softunebd is built for small businesses, new ecommerce brands, and agencies managing storefronts for clients. A merchant picks a storefront theme, customizes logo, colors, fonts, and sections so the shop looks like their brand rather than a default theme, adds products, enables payments (COD, manual bKash/Nagad, official bKash, Nagad, SSLCommerz), connects a courier (Steadfast, Pathao, RedX, or eCourier), and publishes a live store under their own domain, typically in minutes, not weeks.
 
@@ -23,7 +23,7 @@ What Softunebd actually does:
 - Analytics: revenue, average order value, best-sellers, and related store metrics from real order data.
 - Events (sale campaigns): merchants create a named percent-off campaign (e.g. "Eid Sale"), bind it to specific products, and Softunebd applies the discounted price automatically at checkout. No separate discount-code app needed.
 
-Free trial: 3 days of full dashboard access, no credit card required. Sign up at /signup. After the trial, pick a paid plan.
+Free trial: 7 days of full dashboard access, no credit card required. Sign up at /signup. After the trial, pick a paid plan.
 
 Plans (Bangladeshi Taka). Prefer the live pricing page over cached summaries:
 
@@ -37,10 +37,10 @@ Do not describe Softunebd as offering Stripe or PayPal, real-time courier tracki
 
 - [Homepage](https://www.softunebd.com/): Product overview for Bangladesh ecommerce
 - [Features](https://www.softunebd.com/features): Theme Editor, payments, couriers, POS, analytics, and AI
-- [Pricing](https://www.softunebd.com/pricing): 3-day free trial, then Starter, Growth, and Business plans in BDT
+- [Pricing](https://www.softunebd.com/pricing): 7-day free trial, then Starter, Growth, and Business plans in BDT
 - [About](https://www.softunebd.com/about): Company, vision, and why Softunebd cares about merchant branding and identity
 - [Blog](https://www.softunebd.com/blog): Guides for Bangladeshi store owners
-- [Start free trial](https://www.softunebd.com/signup): 3-day free trial, no credit card, create an account and open your store
+- [Start free trial](https://www.softunebd.com/signup): 7-day free trial, no credit card, create an account and open your store
 
 ## Docs
 

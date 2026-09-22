@@ -146,7 +146,7 @@ export default function ThemesIndexPage() {
             </span>
           </h2>
           <p className="mt-4 text-[16px] text-[var(--color-muted)] font-medium max-w-xl mx-auto">
-            Start a 3-day trial and switch themes anytime - nothing about
+            Start a 7-day trial and switch themes anytime - nothing about
             your catalog resets when you change your mind.
           </p>
           <div className="mt-8 flex justify-center">

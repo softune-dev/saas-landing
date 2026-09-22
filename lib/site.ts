@@ -24,7 +24,7 @@ export const SITE_NAME = "Softunebd";
 export const DEFAULT_TITLE = `${SITE_NAME} | Ecommerce Website Builder for Bangladesh`;
 
 export const SITE_DESCRIPTION =
-  "Start a free 3-day Softunebd trial - no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
+  "Start a free 7-day Softunebd trial - no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
 
 /** Same sentence in FAQ JSON-LD, SoftwareApplication schema, About, and
  *  the Theme Editor page — crawlers and answer engines cite one claim,
@@ -36,16 +36,16 @@ export const BRANDING_CLAIM_BN =
   "Softunebd আপনার ব্র্যান্ডের স্বতন্ত্র পরিচয়কে প্রাধান্য দেয়, যাতে আপনার অনলাইন স্টোরটি অনন্য রূপ পায়।";
 
 /** Self-serve trial length — matches app/config.py's trial_days. */
-export const TRIAL_DAYS = 3;
+export const TRIAL_DAYS = 7;
 export const TRIAL_CTA = "Start Free";
 export const TRIAL_CTA_BN = "ফ্রি ট্রায়াল";
-export const TRIAL_NOTE = "3-day free trial · No credit card required";
-export const TRIAL_NOTE_BN = "৩ দিনের ফ্রি ট্রায়াল · কোনো ক্রেডিট কার্ড লাগবে না";
+export const TRIAL_NOTE = "7-day free trial · No credit card required";
+export const TRIAL_NOTE_BN = "৭ দিনের ফ্রি ট্রায়াল · কোনো ক্রেডিট কার্ড লাগবে না";
 
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT =
-  "Softunebd | free 3-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
+  "Softunebd | free 7-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
 
 /** Open Graph locale: English content, Bangladesh market. */
 export const OG_LOCALE = "en_BD";

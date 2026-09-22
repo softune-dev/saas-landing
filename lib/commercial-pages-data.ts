@@ -15,7 +15,7 @@ export const COMMERCIAL_PAGES: Record<
   "ecommerce-platform-bangladesh": {
     title: "Ecommerce Platform for Bangladesh",
     description:
-      "Softunebd is an ecommerce platform built for Bangladesh - COD, bKash, Nagad, SSLCommerz, Steadfast, Pathao, RedX, eCourier, Store Sale POS, and a real theme editor. Start a free 3-day trial, no credit card.",
+      "Softunebd is an ecommerce platform built for Bangladesh - COD, bKash, Nagad, SSLCommerz, Steadfast, Pathao, RedX, eCourier, Store Sale POS, and a real theme editor. Start a free 7-day trial, no credit card.",
     pill: "Ecommerce Platform Bangladesh",
     h1Start: "The Ecommerce Platform Built for",
     h1Highlight: "Bangladesh",
@@ -32,7 +32,7 @@ export const COMMERCIAL_PAGES: Record<
     faqs: [
       { q: "Is Softunebd built specifically for Bangladesh?", a: "Yes - BDT pricing, bKash/Nagad/SSLCommerz payments, and Steadfast/Pathao/RedX/eCourier delivery are native, not add-ons." },
       { q: "Do I need to know how to code?", a: "No - stores are built with a visual theme editor, no code required to launch or run one." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Start Free",
     ctaHref: "/signup",
@@ -40,7 +40,7 @@ export const COMMERCIAL_PAGES: Record<
   "online-store-builder-bangladesh": {
     title: "Online Store Builder for Bangladesh",
     description:
-      "Build your online store in Bangladesh with Softunebd's drag-and-drop store builder - local payments, courier delivery, and AI tools. Free 3-day trial, no credit card.",
+      "Build your online store in Bangladesh with Softunebd's drag-and-drop store builder - local payments, courier delivery, and AI tools. Free 7-day trial, no credit card.",
     pill: "Online Store Builder",
     h1Start: "Build Your Online Store",
     h1Highlight: "Without Code",
@@ -54,7 +54,7 @@ export const COMMERCIAL_PAGES: Record<
     ],
     faqs: [
       { q: "How fast can I launch a store?", a: "You can sign up, pick a theme, add products, and publish the same day - no development work needed." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Start Free",
     ctaHref: "/signup",
@@ -62,7 +62,7 @@ export const COMMERCIAL_PAGES: Record<
   "ecommerce-website-builder-bangladesh": {
     title: "Ecommerce Website Builder for Bangladesh",
     description:
-      "Softunebd is an ecommerce website builder for Bangladesh that cares about your branding and identity, not a generic look - plus local payments, couriers, and AI. Start free for 3 days, no credit card.",
+      "Softunebd is an ecommerce website builder for Bangladesh that cares about your branding and identity, not a generic look - plus local payments, couriers, and AI. Start free for 7 days, no credit card.",
     pill: "Ecommerce Website Builder",
     h1Start: "Ecommerce Website Builder for",
     h1Highlight: "Bangladesh",
@@ -76,7 +76,7 @@ export const COMMERCIAL_PAGES: Record<
     faqs: [
       { q: "Does this work for a mobile-first audience?", a: "Yes - every theme is built mobile-first, since most Bangladeshi shoppers browse and buy on their phones." },
       { q: "Will my store look like every other Softunebd shop?", a: "No. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's. Logo, colors, fonts, and sections stay yours." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Start Free",
     ctaHref: "/signup",
@@ -84,7 +84,7 @@ export const COMMERCIAL_PAGES: Record<
   "shopify-alternative-bangladesh": {
     title: "Shopify Alternative for Bangladesh",
     description:
-      "Looking for a Shopify alternative in Bangladesh? Softunebd has native BDT pricing, built-in bKash, Nagad, and SSLCommerz, and local couriers. Start a free 3-day trial - no credit card.",
+      "Looking for a Shopify alternative in Bangladesh? Softunebd has native BDT pricing, built-in bKash, Nagad, and SSLCommerz, and local couriers. Start a free 7-day trial - no credit card.",
     pill: "Shopify Alternative",
     h1Start: "A Shopify Alternative Built for",
     h1Highlight: "Bangladesh",
@@ -108,7 +108,7 @@ export const COMMERCIAL_PAGES: Record<
     faqs: [
       { q: "Can I migrate my products from Shopify to Softunebd?", a: "Products, categories, and images can be set up directly in Softunebd's dashboard; there isn't an automated one-click Shopify importer today." },
       { q: "Is Softunebd cheaper than Shopify for a Bangladeshi merchant?", a: "Softunebd's plans are priced natively in BDT, so there's no currency conversion or international card fee on your subscription itself - compare the current plans on the pricing page for exact numbers." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Compare Plans",
     ctaHref: "/pricing",
@@ -139,7 +139,7 @@ export const COMMERCIAL_PAGES: Record<
     },
     faqs: [
       { q: "Do I need a developer to run a Softunebd store like I would with WooCommerce?", a: "No - Softunebd doesn't require managing a WordPress install, plugins, or hosting; WooCommerce generally does." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Compare Plans",
     ctaHref: "/pricing",
@@ -161,7 +161,7 @@ export const COMMERCIAL_PAGES: Record<
     ],
     faqs: [
       { q: "What should I look for in an ecommerce platform in Bangladesh?", a: "Native BDT pricing, built-in bKash/Nagad support, real courier integrations (not just COD), and Cash on Delivery as a first-class option." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "See Softunebd's Plans",
     ctaHref: "/pricing",
@@ -183,7 +183,7 @@ export const COMMERCIAL_PAGES: Record<
     ],
     faqs: [
       { q: "Do I have to stop selling on my Facebook Page?", a: "No - most F-commerce sellers keep the Page for marketing and link to their new Softunebd storefront for the actual purchase and checkout." },
-      { q: "Is there a free trial?", a: "Yes - a 3-day free trial with full access. No credit card required." },
+      { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],
     ctaText: "Start Free",
     ctaHref: "/signup",

@@ -20,12 +20,12 @@ export const faqData: FaqItem[] = [
   {
     category: "Billing",
     q: "Is there a free trial?",
-    a: "Yes. Softunebd includes a 3-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page.",
+    a: "Yes. Softunebd includes a 7-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page.",
   },
   {
     category: "Billing",
     q: "Do I need a credit card to start Softunebd?",
-    a: "No. Sign up with an email and password. Softunebd does not ask for a card to start the 3-day free trial.",
+    a: "No. Sign up with an email and password. Softunebd does not ask for a card to start the 7-day free trial.",
   },
   {
     category: "General",
@@ -88,7 +88,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "Billing",
     q: "এখানে কী কোনো ফ্রি ট্রায়াল আছে?",
-    a: "হ্যাঁ। Softunebd-এ রয়েছে ৩ দিনের ফ্রি ট্রায়াল উইথ ফুল ড্যাশবোর্ড অ্যাক্সেস। ট্রায়াল শুরু করতে কোনো ক্রেডিট কার্ড লাগে না। ট্রায়াল শেষে আপনি প্রয়োজনমতো Starter, Growth বা Business প্ল্যান বেছে নিতে পারবেন।",
+    a: "হ্যাঁ। Softunebd-এ রয়েছে ৭ দিনের ফ্রি ট্রায়াল উইথ ফুল ড্যাশবোর্ড অ্যাক্সেস। ট্রায়াল শুরু করতে কোনো ক্রেডিট কার্ড লাগে না। ট্রায়াল শেষে আপনি প্রয়োজনমতো Starter, Growth বা Business প্ল্যান বেছে নিতে পারবেন।",
   },
   {
     category: "Billing",

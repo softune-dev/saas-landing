@@ -54,7 +54,7 @@ const RESUME_TO_STEP: Record<ReturnType<typeof resumeTrialStep>, Step> = {
 const STEP_COPY: Record<Step, { title: string; subtitle: string }> = {
   account: {
     title: "Start your free trial",
-    subtitle: "3 days, no credit card.",
+    subtitle: "7 days, no credit card.",
   },
   verify: {
     title: "Check your email",
@@ -77,7 +77,7 @@ const STEP_COPY: Record<Step, { title: string; subtitle: string }> = {
 const STEP_COPY_BN: Record<Step, { title: string; subtitle: string }> = {
   account: {
     title: "ফ্রি ট্রায়াল শুরু করুন",
-    subtitle: "৩ দিন, কোনো ক্রেডিট কার্ড লাগবে না।",
+    subtitle: "৭ দিন, কোনো ক্রেডিট কার্ড লাগবে না।",
   },
   verify: {
     title: "আপনার ইমেইল চেক করুন",

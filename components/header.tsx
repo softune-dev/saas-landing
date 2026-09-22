@@ -178,14 +178,14 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
         <div className="z-10 flex-1 text-center text-base font-medium md:text-lg">
           {isBn ? (
             <>
-              ৩ দিনের ফ্রি ট্রায়াল চলছে!{" "}
+              ৭ দিনের ফ্রি ট্রায়াল চলছে!{" "}
               <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
                 কোনো কার্ড ছাড়াই লাইভ স্টোর খুলুন।
               </a>
             </>
           ) : (
             <>
-              3-day free trial is on! Open a real store with{" "}
+              7-day free trial is on! Open a real store with{" "}
               <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
                 no credit card.
               </a>

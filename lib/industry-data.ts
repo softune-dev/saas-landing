@@ -43,7 +43,7 @@ export const INDUSTRY_PAGES: Record<
       },
       {
         q: "Is there a free trial?",
-        a: "Yes - a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 7-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Fashion Store",
@@ -82,7 +82,7 @@ export const INDUSTRY_PAGES: Record<
       },
       {
         q: "Is there a free trial?",
-        a: "Yes - a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 7-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Beauty Store",
@@ -121,7 +121,7 @@ export const INDUSTRY_PAGES: Record<
       },
       {
         q: "Is there a free trial?",
-        a: "Yes - a 3-day free trial with full access. No credit card required.",
+        a: "Yes - a 7-day free trial with full access. No credit card required.",
       },
     ],
     ctaText: "Start Your Grocery Store",
