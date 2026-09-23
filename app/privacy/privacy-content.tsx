@@ -25,7 +25,7 @@ const privacySections = [
   },
   {
     title: "Your Rights & Access Options",
-    content: "Under GDPR, CCPA, and global data privacy acts, you retain full rights to request logs of your stored data, rectify catalog records, revoke tracking consent, or completely purge your store's database files."
+    content: "Under GDPR, CCPA, and global data privacy acts, you retain full rights to request logs of your stored data, rectify catalog records, revoke tracking consent, or completely purge your store's database files. How to request data deletion: To delete your data, including your store data or any data from your interactions with Softune on Facebook or Messenger, email support@softunebd.com with the subject \"Data Deletion Request\" and include your store name or Facebook name. We will delete your data within 30 days and confirm by email."
   }
 ];
 
