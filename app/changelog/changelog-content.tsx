@@ -90,8 +90,8 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-xl mx-auto leading-relaxed"
           >
             {isBn
-              ? "Softunebd ড্যাশবোর্ড ও লাইভ স্টোরফ্রন্টে নতুন যে ফিচার, ফিক্স ও ইমপ্রুভমেন্টগুলো যুক্ত হয়েছে।"
-              : "What shipped in the Softunebd dashboard and on your live store - features, fixes, and improvements merchants actually use."}
+              ? "SoftuneBD ড্যাশবোর্ড ও লাইভ স্টোরফ্রন্টে নতুন যে ফিচার, ফিক্স ও ইমপ্রুভমেন্টগুলো যুক্ত হয়েছে।"
+              : "What shipped in the SoftuneBD dashboard and on your live store - features, fixes, and improvements merchants actually use."}
           </motion.p>
         </div>
 

@@ -11,7 +11,7 @@ const timelineEn = [
   {
     year: "2024",
     title: "The Idea",
-    desc: "Softunebd started with one idea that did not change: one dashboard, a real storefront, and no code. Bangladesh shop owners should not need a developer or a stack of plugins to sell online.",
+    desc: "SoftuneBD started with one idea that did not change: one dashboard, a real storefront, and no code. Bangladesh shop owners should not need a developer or a stack of plugins to sell online.",
     icon: "/icons/play.svg",
   },
   {
@@ -32,7 +32,7 @@ const timelineBn = [
   {
     year: "2024",
     title: "মূল আইডিয়া",
-    desc: "Softunebd-এর সূচনা এক স্পস্ট ধারণা থেকে: এক ড্যাশবোর্ড, রিয়েল স্টোরফ্রন্ট এবং কোনো কোডিং নয়। বাংলাদেশের মার্চেন্টদের অনলাইন বিক্রির জন্য আলাদা ডেভলপার বা গাদা গাদা প্লাগইনের প্রয়োজন থাকবে না।",
+    desc: "SoftuneBD-এর সূচনা এক স্পস্ট ধারণা থেকে: এক ড্যাশবোর্ড, রিয়েল স্টোরফ্রন্ট এবং কোনো কোডিং নয়। বাংলাদেশের মার্চেন্টদের অনলাইন বিক্রির জন্য আলাদা ডেভলপার বা গাদা গাদা প্লাগইনের প্রয়োজন থাকবে না।",
     icon: "/icons/play.svg",
   },
   {
@@ -116,8 +116,8 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
           >
             {isBn
-              ? "Softunebd হলো বাংলাদেশের স্বাধীন ব্র্যান্ডগুলোর জন্য তৈরি অল-ইন-ওয়ান SaaS প্ল্যাটফর্ম - যেখানে কাস্টম থিম, ইনভেন্টরি, কুরিয়ার ও POS এক জায়গায়।"
-              : "Softunebd is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel."}
+              ? "SoftuneBD হলো বাংলাদেশের স্বাধীন ব্র্যান্ডগুলোর জন্য তৈরি অল-ইন-ওয়ান SaaS প্ল্যাটফর্ম - যেখানে কাস্টম থিম, ইনভেন্টরি, কুরিয়ার ও POS এক জায়গায়।"
+              : "SoftuneBD is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel."}
           </motion.p>
         </div>
 
@@ -129,12 +129,12 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
                 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] md:text-3xl"
                 style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
               >
-                {isBn ? "কেন Softunebd?" : "Why Softunebd"}
+                {isBn ? "কেন SoftuneBD?" : "Why SoftuneBD"}
               </h2>
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 {isBn
-                  ? "Softunebd হলো বাংলাদেশের অনলাইন শপগুলোর জন্য তৈরি একটি প্ল্যাটফর্ম। কোনো ডেভলপার না রেখে বা একাধিক প্লাগইন ছাড়াই নিজের থিম, ইনভেন্টরি, চেকআউট, পেমেন্ট, কুরিয়ার বুকিং এবং POS এক ড্যাশবোর্ডে পরিচালনা করুন।"
-                  : "Softunebd is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard - themes, inventory, checkout, payments, courier booking, and Store Sale POS - without hiring a developer or stacking plugins."}
+                  ? "SoftuneBD হলো বাংলাদেশের অনলাইন শপগুলোর জন্য তৈরি একটি প্ল্যাটফর্ম। কোনো ডেভলপার না রেখে বা একাধিক প্লাগইন ছাড়াই নিজের থিম, ইনভেন্টরি, চেকআউট, পেমেন্ট, কুরিয়ার বুকিং এবং POS এক ড্যাশবোর্ডে পরিচালনা করুন।"
+                  : "SoftuneBD is an ecommerce website builder and SaaS platform for Bangladesh. Independent shop owners get a real storefront and one dashboard - themes, inventory, checkout, payments, courier booking, and Store Sale POS - without hiring a developer or stacking plugins."}
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 {isBn
                   ? "বাংলাদেশের ছোট ও মাঝারি উদ্যোক্তাদের শুধু একটি ফেসবুক পেজ বা জটিল কোনো ওয়েবসাইটের মধ্যে সীমাবদ্ধ থাকতে হবে না। আপনার স্টোর থাকবে আপনার মতো অনন্য - নিজস্ব লোগো, ব্র্যান্ড কালার, COD, bKash/Nagad এবং লোকাল কুরিয়ার সল্যুশন সহ।"
-                  : "Shop owners in Bangladesh should not have to choose between a Facebook Page and a custom site they cannot maintain. Softunebd cares about your branding and identity, not a generic storefront that looks like everyone else's."}
+                  : "Shop owners in Bangladesh should not have to choose between a Facebook Page and a custom site they cannot maintain. SoftuneBD cares about your branding and identity, not a generic storefront that looks like everyone else's."}
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               <p className="mt-5 text-[16px] font-medium leading-relaxed text-[var(--color-muted)] md:text-lg">
                 {isBn
                   ? "বাংলাদেশের সেরা পেমেন্ট ও ডেলিভারি অপশনসমূহ: COD, bKash, Nagad, SSLCommerz এবং Steadfast, Pathao, RedX, eCourier বুকিং।"
-                  : "Checkout in Bangladesh is cash on delivery plus mobile wallets and cards. Softunebd includes COD, bKash, Nagad, and SSLCommerz, and courier connections for Steadfast, Pathao, RedX, and eCourier."}
+                  : "Checkout in Bangladesh is cash on delivery plus mobile wallets and cards. SoftuneBD includes COD, bKash, Nagad, and SSLCommerz, and courier connections for Steadfast, Pathao, RedX, and eCourier."}
               </p>
             </div>
           </div>
@@ -404,7 +404,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               </h3>
               <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium mb-8">
                 {isBn
-                  ? "POS লিন্ক, সিকিউর পেমেন্ট, স্মার্ট এনালিটিক্স এবং লোকাল কুরিয়ার ইন্টিগ্রেশন সমৃদ্ধ Softunebd ট্রায়াল ব্যবহার করুন।"
+                  ? "POS লিন্ক, সিকিউর পেমেন্ট, স্মার্ট এনালিটিক্স এবং লোকাল কুরিয়ার ইন্টিগ্রেশন সমৃদ্ধ SoftuneBD ট্রায়াল ব্যবহার করুন।"
                   : "Experience an integrated system with POS logs, secure payment pathways, smart analytics, and courier integrations configured for conversion."}
               </p>
 

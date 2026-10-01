@@ -175,7 +175,7 @@ export function Contact({ locale = "en" }: { locale?: "en" | "bn" }) {
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px]">
             {isBn
               ? "কাস্টম ডেভেলপমেন্ট, মাইগ্রেশন সাহায্য বা আপনার যেকোনো প্রশ্নের উত্তরে আমাদের টিম আপনাকে সাহায্য করতে প্রস্তুত।"
-              : "Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on Softunebd."}
+              : "Whether you need custom development, migration assistance, or just have a few questions, our team is ready to help you succeed on SoftuneBD."}
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 md:gap-6">

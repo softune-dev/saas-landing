@@ -63,7 +63,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              {isBn ? "অ্যাড-অনস মার্কেটপ্লেস" : "Softunebd Marketplace"}
+              {isBn ? "অ্যাড-অনস মার্কেটপ্লেস" : "SoftuneBD Marketplace"}
             </span>
           </motion.div>
 
@@ -110,7 +110,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                   loading="lazy"
                   decoding="async"
                   src={addon.logoSrc}
-                  alt={`${addon.name} Softunebd add-on`}
+                  alt={`${addon.name} SoftuneBD add-on`}
                   width={64}
                   height={64}
                   className="size-10 object-contain sm:size-12 md:size-14"

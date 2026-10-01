@@ -4,9 +4,9 @@ import { pageSeo } from "@/lib/seo";
 import TutorialsPage from "@/app/support/tutorials/tutorials-content";
 
 export const metadata = pageSeo({
-  title: "টিউটোরিয়াল | Softunebd স্টোর শুরু করুন",
+  title: "টিউটোরিয়াল | SoftuneBD স্টোর শুরু করুন",
   description:
-    "নতুন মার্চেন্টদের জন্য Softunebd ভিডিও গাইড: ড্যাশবোর্ড সেটআপ, ক্যাটাগরি, Theme Editor, পেমেন্ট ও অনলাইন স্টোর পাবলিশিং।",
+    "নতুন মার্চেন্টদের জন্য SoftuneBD ভিডিও গাইড: ড্যাশবোর্ড সেটআপ, ক্যাটাগরি, Theme Editor, পেমেন্ট ও অনলাইন স্টোর পাবলিশিং।",
   path: "/bn/support/tutorials",
   lang: "bn",
 });

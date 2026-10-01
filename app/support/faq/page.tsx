@@ -7,7 +7,7 @@ import FAQPage from "./faq-content";
 export const metadata = pageSeo({
   title: "FAQ | Payments, Couriers & Plans",
   description:
-    "Answers about Softunebd's 7-day free trial (no credit card), plans, COD, bKash, Nagad, SSLCommerz, courier connects, and launching a store in Bangladesh.",
+    "Answers about SoftuneBD's 7-day free trial (no credit card), plans, COD, bKash, Nagad, SSLCommerz, courier connects, and launching a store in Bangladesh.",
   path: "/support/faq",
 });
 

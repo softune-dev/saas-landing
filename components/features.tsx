@@ -12,7 +12,7 @@ export const featuresEn = [
   {
     icon: "/icons/ai-pencil.svg",
     title: "AI Assistant",
-    desc: "Ask about products, orders, and sales in Bangla or English, using your own Softunebd store data.",
+    desc: "Ask about products, orders, and sales in Bangla or English, using your own SoftuneBD store data.",
   },
   {
     icon: "/icons/wallet.svg",
@@ -32,7 +32,7 @@ export const featuresEn = [
   {
     icon: "/icons/analytics.svg",
     title: "Store Analytics",
-    desc: "See real revenue, profit, and visitors from Softunebd orders, not guessed funnels.",
+    desc: "See real revenue, profit, and visitors from SoftuneBD orders, not guessed funnels.",
   },
   {
     icon: "/icons/orders.svg",

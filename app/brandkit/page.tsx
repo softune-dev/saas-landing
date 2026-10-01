@@ -6,7 +6,7 @@ import BrandKitPage from "./brandkit-content";
 export const metadata = pageSeo({
   title: "Brand Kit",
   description:
-    "Softunebd logo, color, and usage guidelines for press and partners. Brand color is #ff5a36.",
+    "SoftuneBD logo, color, and usage guidelines for press and partners. Brand color is #ff5a36.",
   path: "/brandkit",
 });
 

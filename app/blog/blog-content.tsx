@@ -28,7 +28,7 @@ export default function BlogPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               <Newspaper className="size-3.5 text-[var(--color-brand)]" />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Softunebd Journal
+              SoftuneBD Journal
             </span>
           </div>
 

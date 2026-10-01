@@ -332,7 +332,7 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
               <div className="absolute inset-0 pt-2 pr-2 pb-2">
                 <img
                   src={enterpriseImageSrc}
-                  alt="Softunebd Enterprise custom ecommerce storefront"
+                  alt="SoftuneBD Enterprise custom ecommerce storefront"
                   loading="lazy"
                   decoding="async"
                   width={900}

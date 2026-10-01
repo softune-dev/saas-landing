@@ -34,7 +34,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
     title: "Getting Started",
     icon: "book",
     articles: [
-      { title: "Intro to Softunebd & Dashboard Overview", slug: "intro-to-softune" },
+      { title: "Intro to SoftuneBD & Dashboard Overview", slug: "intro-to-softune" },
       { title: "Account Setup Checklist", slug: "account-setup-checklist" },
       { title: "Dashboard Tour & Key Concepts", slug: "dashboard-tour" },
       { title: "Connecting a Custom Domain", slug: "custom-domain" },
@@ -97,7 +97,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
     title: "শুরু করুন",
     icon: "book",
     articles: [
-      { title: "Softunebd পরিচিতি ও ড্যাশবোর্ড ওভারভিউ", slug: "intro-to-softune" },
+      { title: "SoftuneBD পরিচিতি ও ড্যাশবোর্ড ওভারভিউ", slug: "intro-to-softune" },
       { title: "অ্যাকাউন্ট সেটআপ চেকলিস্ট", slug: "account-setup-checklist" },
       { title: "ড্যাশবোর্ড ট্যুর ও ফিচার নির্দেশিকা", slug: "dashboard-tour" },
       { title: "কাস্টম ডোমেইন কানেক্ট করার নিয়ম", slug: "custom-domain" },
@@ -117,7 +117,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
     title: "স্টোরফ্রন্ট ও থিম",
     icon: "paintbrush",
     articles: [
-      { title: "Softunebd থিম নির্বাচন", slug: "choosing-a-theme" },
+      { title: "SoftuneBD থিম নির্বাচন", slug: "choosing-a-theme" },
       { title: "Theme Editor ব্যবহার করার নিয়ম", slug: "using-theme-editor" },
       { title: "AI Suggest দিয়ে ব্র্যান্ড কালার ও ফন্ট", slug: "brand-colors-ai-suggest" },
       { title: "স্টোরফ্রন্ট লাইভ ও পাবলিশ করা", slug: "publishing-storefront" },

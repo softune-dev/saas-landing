@@ -174,7 +174,7 @@ export const changelogData: ChangelogRelease[] = [
     serial: "1.9",
     version: "v1.9.0",
     date: "Sep 11, 2026",
-    title: "Install Softunebd as an app, and a new icon set",
+    title: "Install SoftuneBD as an app, and a new icon set",
     description:
       "Install your dashboard as a mobile app, pick from a much bigger icon set, and get a redesigned mobile dashboard.",
     changes: [
@@ -268,7 +268,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Events: create a named sale campaign (e.g. Eid Sale), set a percent-off discount, bind it to specific products, and Softunebd applies the discount at checkout automatically.",
+          "Events: create a named sale campaign (e.g. Eid Sale), set a percent-off discount, bind it to specific products, and SoftuneBD applies the discount at checkout automatically.",
       },
       {
         type: "Feature",
@@ -358,7 +358,7 @@ export const changelogData: ChangelogRelease[] = [
     date: "Aug 31, 2026",
     title: "Free 3-day trial",
     description:
-      "You can open a real Softunebd store in minutes, no credit card, no waiting on us to provision an account.",
+      "You can open a real SoftuneBD store in minutes, no credit card, no waiting on us to provision an account.",
     changes: [
       {
         type: "Feature",
@@ -518,7 +518,7 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Feature",
         content:
-          "Custom domain: Softunebd attaches the domain on save and shows whether it is actually connected, not only stored in settings.",
+          "Custom domain: SoftuneBD attaches the domain on save and shows whether it is actually connected, not only stored in settings.",
       },
       {
         type: "Improvement",
@@ -561,7 +561,7 @@ export const changelogData: ChangelogRelease[] = [
     serial: "1.0",
     version: "v1.0.0",
     date: "Aug 18, 2026",
-    title: "Softunebd is live",
+    title: "SoftuneBD is live",
     description:
       "The dashboard and storefront that Bangladesh merchants use every day, themes, catalog, orders, COD, and the first courier.",
     changes: [

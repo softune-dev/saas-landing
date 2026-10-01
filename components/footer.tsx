@@ -2,7 +2,7 @@ import { SoftuneLogo } from "@/components/brand/softune-logo";
 import { LanguageSwitcher } from "./language-switcher";
 
 const ASK_AI_PROMPT_EN =
-  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what Softunebd is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
+  "Using https://www.softunebd.com/llms.txt and softunebd.com, explain what SoftuneBD is: a Bangladesh ecommerce SaaS that cares about each merchant's branding and identity, not a generic storefront. Theme Editor (logo, colors, fonts, sections), Gemini AI chatbot, COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz payments, courier connects for Steadfast, Pathao, RedX, and eCourier, Store Sale POS, analytics, Meta CAPI, and fraud blocklist/rules. Do not invent Stripe/PayPal or unlimited stores on every plan.";
 
 const colsEn = [
   {
@@ -93,11 +93,11 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[16px]">
             {isBn ? (
               <>
-                Softunebd হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI - সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
+                SoftuneBD হলো বাংলাদেশের স্মল বিজনেস ও স্টার্টআপদের জন্য তৈরি ই-কমার্স প্ল্যাটফর্ম। থিম, অর্ডার, bKash, Nagad, SSLCommerz, কুরিয়ার, POS এবং AI - সব এক ড্যাশবোর্ডে। কোনো কোডিং লাগবে না।
               </>
             ) : (
               <>
-                Softunebd is the ecommerce platform built for small businesses and
+                SoftuneBD is the ecommerce platform built for small businesses and
                 startups in Bangladesh. Themes, orders, bKash, Nagad,
                 SSLCommerz, couriers, POS, and AI - one dashboard. No coding
                 required.
@@ -108,8 +108,8 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
           <div className="mt-4">
             <p className="mb-4 text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
               {isBn
-                ? "AI-কে প্রশ্ন করুন Softunebd সম্পর্কে"
-                : "Ask AI about Softunebd"}
+                ? "AI-কে প্রশ্ন করুন SoftuneBD সম্পর্কে"
+                : "Ask AI about SoftuneBD"}
             </p>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a
@@ -216,7 +216,7 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
       <div className="border-t border-[var(--color-line)] bg-[var(--color-surface)] py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-5 md:flex-row md:gap-4 md:px-8">
           <div className="order-3 flex-1 text-center text-[13px] font-medium text-[var(--color-muted)] sm:text-[14px] md:order-1 md:text-left">
-            © {new Date().getFullYear()} Softunebd. All rights reserved.{" "}
+            © {new Date().getFullYear()} SoftuneBD. All rights reserved.{" "}
             <br className="lg:hidden" />
             <span className="mx-2 hidden text-[#D4D4D4] lg:inline">|</span>
             Created with ❤️ by{" "}

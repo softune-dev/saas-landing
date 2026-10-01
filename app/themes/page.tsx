@@ -8,7 +8,7 @@ import ThemesIndexPage from "./themes-index-content";
 export const metadata = pageSeo({
   title: "Storefront Themes for Bangladesh Ecommerce",
   description:
-    "Browse every Softunebd storefront theme - fashion, general/multi-category, and digital goods layouts. Every theme is fully editable in the Theme Editor.",
+    "Browse every SoftuneBD storefront theme - fashion, general/multi-category, and digital goods layouts. Every theme is fully editable in the Theme Editor.",
   path: "/themes",
 });
 
@@ -16,7 +16,7 @@ function themesListSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Softunebd storefront themes",
+    name: "SoftuneBD storefront themes",
     itemListElement: THEMES.map((t, i) => ({
       "@type": "ListItem",
       position: i + 1,

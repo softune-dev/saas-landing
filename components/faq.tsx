@@ -131,8 +131,8 @@ export function Faq({ locale = "en" }: { locale?: "en" | "bn" }) {
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
             {isBn
-              ? "Softunebd নিয়ে আপনার যা যা জানা প্রয়োজন।"
-              : "Everything you need to know about building with Softunebd."}
+              ? "SoftuneBD নিয়ে আপনার যা যা জানা প্রয়োজন।"
+              : "Everything you need to know about building with SoftuneBD."}
           </p>
         </div>
 

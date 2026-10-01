@@ -62,23 +62,23 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Getting Started ───────────────────────────────────────────────────────
   "intro-to-softune": article(
     "intro-to-softune",
-    "A full orientation to Softunebd’s dashboard - sidebar structure, Setup vs Menu vs Settings, and how your store stays tenant-isolated.",
+    "A full orientation to SoftuneBD’s dashboard - sidebar structure, Setup vs Menu vs Settings, and how your store stays tenant-isolated.",
     [
       {
         type: "p",
         content:
-          "Softunebd is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Add-Ons - without bolting together unrelated apps.",
+          "SoftuneBD is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Add-Ons - without bolting together unrelated apps.",
       },
-      { type: "h2", content: "What Softunebd is (and is not)" },
+      { type: "h2", content: "What SoftuneBD is (and is not)" },
       {
         type: "p",
         content:
-          "Softunebd is infrastructure for your own branded storefront. You own the customer relationship. Softunebd is not a marketplace that sits between you and buyers, and Softunebd does not include a point-of-sale terminal product.",
+          "SoftuneBD is infrastructure for your own branded storefront. You own the customer relationship. SoftuneBD is not a marketplace that sits between you and buyers, and SoftuneBD does not include a point-of-sale terminal product.",
       },
       {
         type: "callout",
         content:
-          "Tenant isolation is non-negotiable: your products, orders, customers, and settings stay scoped to your stores. Other Softunebd merchants cannot see them.",
+          "Tenant isolation is non-negotiable: your products, orders, customers, and settings stay scoped to your stores. Other SoftuneBD merchants cannot see them.",
       },
       { type: "h2", content: "How the sidebar is organized" },
       {
@@ -90,7 +90,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "While your store is incomplete, Softunebd shows a Getting Started section with a setup checklist and an “X/9 complete” badge. That section stays in the sidebar until every checklist step is done, then it goes away so daily work lives under Menu and Settings.",
+          "While your store is incomplete, SoftuneBD shows a Getting Started section with a setup checklist and an “X/9 complete” badge. That section stays in the sidebar until every checklist step is done, then it goes away so daily work lives under Menu and Settings.",
       },
       { type: "h3", content: "Menu" },
       {
@@ -141,18 +141,18 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "account-setup-checklist": article(
     "account-setup-checklist",
-    "Walk Softunebd’s real 9-step Getting Started checklist from first product to publish - including when the Setup section leaves the sidebar.",
+    "Walk SoftuneBD’s real 9-step Getting Started checklist from first product to publish - including when the Setup section leaves the sidebar.",
     [
       {
         type: "p",
         content:
-          "Softunebd’s Getting Started checklist is a concrete Setup flow in the sidebar, not a welcome email. Softunebd shows an X/9 complete badge and keeps Getting Started visible until every step is finished.",
+          "SoftuneBD’s Getting Started checklist is a concrete Setup flow in the sidebar, not a welcome email. SoftuneBD shows an X/9 complete badge and keeps Getting Started visible until every step is finished.",
       },
       { type: "h2", content: "The nine checklist steps" },
       {
         type: "p",
         content:
-          "Complete these in roughly this order. Softunebd marks each step done when the underlying work exists in the product.",
+          "Complete these in roughly this order. SoftuneBD marks each step done when the underlying work exists in the product.",
       },
       {
         type: "list",
@@ -178,7 +178,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         type: "list",
         content: [
           "1. Open Getting Started from the sidebar and expand the checklist",
-          "2. Click into the incomplete step Softunebd highlights",
+          "2. Click into the incomplete step SoftuneBD highlights",
           "3. Finish the work in that screen (Products, Site Settings, Payments, etc.)",
           "4. Return to Getting Started and confirm the badge count increased",
           "5. Repeat until the badge reads 9/9 and Setup disappears",
@@ -188,7 +188,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "You can still open Dashboard, Analytics, Fraud Protection, or Add-Ons while Setup is visible. The checklist does not lock the rest of Softunebd - it only tracks go-live readiness.",
+          "You can still open Dashboard, Analytics, Fraud Protection, or Add-Ons while Setup is visible. The checklist does not lock the rest of SoftuneBD - it only tracks go-live readiness.",
       },
     ],
     "2 min read",
@@ -196,18 +196,18 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "dashboard-tour": article(
     "dashboard-tour",
-    "Run Softunebd’s Take a Tour: spotlight overlay, Skip/Back/Next, dashboard coverage, theme-editor stop, and return - launch only on click.",
+    "Run SoftuneBD’s Take a Tour: spotlight overlay, Skip/Back/Next, dashboard coverage, theme-editor stop, and return - launch only on click.",
     [
       {
         type: "p",
         content:
-          "Take a Tour is Softunebd’s in-app guided walkthrough. It uses a spotlight overlay so you can see the real UI while Softunebd explains each stop. Controls are Skip, Back, and Next. Softunebd never auto-starts the tour.",
+          "Take a Tour is SoftuneBD’s in-app guided walkthrough. It uses a spotlight overlay so you can see the real UI while SoftuneBD explains each stop. Controls are Skip, Back, and Next. SoftuneBD never auto-starts the tour.",
       },
       { type: "h2", content: "How to launch the tour" },
       {
         type: "list",
         content: [
-          "1. Sign in to the Softunebd dashboard for your store",
+          "1. Sign in to the SoftuneBD dashboard for your store",
           "2. Find Take a Tour at the bottom of the left sidebar",
           "3. Click Take a Tour once - the spotlight overlay appears",
           "4. Use Next to advance, Back to revisit, or Skip to exit early",
@@ -224,20 +224,20 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "The tour continues into the theme editor to introduce its tools rail (Brand, Colors, Header, Pages, Sections) and the live preview. After those stops, Softunebd returns you to the dashboard context.",
+          "The tour continues into the theme editor to introduce its tools rail (Brand, Colors, Header, Pages, Sections) and the live preview. After those stops, SoftuneBD returns you to the dashboard context.",
       },
       {
         type: "callout",
         content:
-          "Softunebd remembers that you have seen the tour so it does not nag you. You can still click Take a Tour again whenever you want a refresher - including for a new teammate looking over your shoulder.",
+          "SoftuneBD remembers that you have seen the tour so it does not nag you. You can still click Take a Tour again whenever you want a refresher - including for a new teammate looking over your shoulder.",
       },
       { type: "h2", content: "When to run it again" },
       {
         type: "list",
         content: [
-          "After a long break from Softunebd",
+          "After a long break from SoftuneBD",
           "When onboarding staff who will use Themes or Orders",
-          "After Softunebd adds new sidebar areas you have not explored",
+          "After SoftuneBD adds new sidebar areas you have not explored",
         ],
       },
     ],
@@ -246,12 +246,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "custom-domain": article(
     "custom-domain",
-    "Connect a custom hostname in Softunebd Site Settings and watch live DNS status until the storefront is reachable on your brand URL.",
+    "Connect a custom hostname in SoftuneBD Site Settings and watch live DNS status until the storefront is reachable on your brand URL.",
     [
       {
         type: "p",
         content:
-          "Every Softunebd store can use a Softunebd-hosted hostname and, when you are ready, a custom domain you control. Custom domain configuration lives under Site Settings, with live DNS status checking so you know when the domain is actually connected.",
+          "Every SoftuneBD store can use a SoftuneBD-hosted hostname and, when you are ready, a custom domain you control. Custom domain configuration lives under Site Settings, with live DNS status checking so you know when the domain is actually connected.",
       },
       { type: "h2", content: "Before you start" },
       {
@@ -259,32 +259,32 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Decide the primary hostname customers will type (pick apex or www - stay consistent)",
           "2. Have login access to your DNS registrar (where the domain’s nameservers live)",
-          "3. Keep Softunebd’s free hostname working while DNS propagates",
+          "3. Keep SoftuneBD’s free hostname working while DNS propagates",
         ],
       },
-      { type: "h2", content: "Connect the domain in Softunebd" },
+      { type: "h2", content: "Connect the domain in SoftuneBD" },
       {
         type: "list",
         content: [
           "1. Open Settings → Site Settings in the sidebar",
           "2. Find the custom domain section for this store",
-          "3. Enter the hostname you want Softunebd to serve",
-          "4. Save and note the DNS records Softunebd instructs you to create",
+          "3. Enter the hostname you want SoftuneBD to serve",
+          "4. Save and note the DNS records SoftuneBD instructs you to create",
           "5. At your registrar, add those DNS records exactly as shown",
-          "6. Return to Site Settings and watch Softunebd’s live DNS status",
+          "6. Return to Site Settings and watch SoftuneBD’s live DNS status",
         ],
       },
       {
         type: "callout",
         content:
-          "DNS changes are not instant. Softunebd’s status check is the source of truth - wait until status shows connected before sharing the custom URL widely.",
+          "DNS changes are not instant. SoftuneBD’s status check is the source of truth - wait until status shows connected before sharing the custom URL widely.",
       },
       { type: "h2", content: "Verify on the live storefront" },
       {
         type: "list",
         content: [
           "1. Open the custom hostname in a private browser window",
-          "2. Confirm the Softunebd storefront loads (home and a product page)",
+          "2. Confirm the SoftuneBD storefront loads (home and a product page)",
           "3. Spot-check that HTTPS and branding look correct",
           "4. Update marketing links, WhatsApp bios, and packaging QR codes to the new host",
         ],
@@ -296,12 +296,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Store Management ──────────────────────────────────────────────────────
   "adding-editing-products": article(
     "adding-editing-products",
-    "Create Softunebd products with photos, merchant-defined variants, integer-cent pricing, stock, categories, and AI description writing with confirm-before-write.",
+    "Create SoftuneBD products with photos, merchant-defined variants, integer-cent pricing, stock, categories, and AI description writing with confirm-before-write.",
     [
       {
         type: "p",
         content:
-          "Products is where your sellable catalog lives. Softunebd stores money as integer cents internally (never float), supports merchant-defined variant labels (not a hardcoded size/color-only model), and can draft descriptions with AI - but only after you confirm what will change.",
+          "Products is where your sellable catalog lives. SoftuneBD stores money as integer cents internally (never float), supports merchant-defined variant labels (not a hardcoded size/color-only model), and can draft descriptions with AI - but only after you confirm what will change.",
       },
       { type: "h2", content: "Add a product from scratch" },
       {
@@ -311,8 +311,8 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "2. Start a new product",
           "3. Enter the title and description shoppers should see",
           "4. Attach photos from upload or the media library",
-          "5. Set price (Softunebd stores it as integer cents under the hood)",
-          "6. Set stock / availability fields Softunebd shows for this product",
+          "5. Set price (SoftuneBD stores it as integer cents under the hood)",
+          "6. Set stock / availability fields SoftuneBD shows for this product",
           "7. Assign one or more Categories",
           "8. Save the product and confirm it appears in the Products list",
         ],
@@ -321,14 +321,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "When an item has options - size, color, weight, or anything you invent - add variants with the labels your customers actually use. Softunebd does not force a single fixed option vocabulary; you define the option names that fit the catalog.",
+          "When an item has options - size, color, weight, or anything you invent - add variants with the labels your customers actually use. SoftuneBD does not force a single fixed option vocabulary; you define the option names that fit the catalog.",
       },
       {
         type: "list",
         content: [
           "1. Open the product you want to vary",
           "2. Add variant options using your real labels (for example Size: S/M/L or Roast: Light/Dark)",
-          "3. Set per-variant price or stock when Softunebd exposes those fields",
+          "3. Set per-variant price or stock when SoftuneBD exposes those fields",
           "4. Save and preview the storefront product page so options render correctly",
         ],
       },
@@ -336,9 +336,9 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Open a product with enough facts for Softunebd AI to draft from (title, key traits)",
+          "1. Open a product with enough facts for SoftuneBD AI to draft from (title, key traits)",
           "2. Start AI description assistance from the product editor",
-          "3. Review Softunebd’s confirm-before-write step - Softunebd shows exactly what will change",
+          "3. Review SoftuneBD’s confirm-before-write step - SoftuneBD shows exactly what will change",
           "4. Confirm only if the draft is accurate; otherwise edit or cancel",
           "5. Re-read the published copy on the live product page after save",
         ],
@@ -346,7 +346,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Never skip the confirm step. Softunebd’s AI assist is designed so merchants approve the exact text before it overwrites an existing description.",
+          "Never skip the confirm step. SoftuneBD’s AI assist is designed so merchants approve the exact text before it overwrites an existing description.",
       },
       { type: "h2", content: "Editing and cleanup" },
       {
@@ -363,12 +363,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "organizing-categories": article(
     "organizing-categories",
-    "Build Softunebd Categories with images and active/inactive status so storefront browsing stays clear as the catalog grows.",
+    "Build SoftuneBD Categories with images and active/inactive status so storefront browsing stays clear as the catalog grows.",
     [
       {
         type: "p",
         content:
-          "Categories group products for browsing. Each Softunebd category can carry its own image and an active/inactive status so you can stage structure without exposing unfinished groups on the storefront.",
+          "Categories group products for browsing. Each SoftuneBD category can carry its own image and an active/inactive status so you can stage structure without exposing unfinished groups on the storefront.",
       },
       { type: "h2", content: "Create a category" },
       {
@@ -377,7 +377,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "1. Open Menu → Categories",
           "2. Create a new category",
           "3. Name it the way customers already talk (Men, Sweets, Accessories)",
-          "4. Add a category image if Softunebd shows that field for your storefront",
+          "4. Add a category image if SoftuneBD shows that field for your storefront",
           "5. Set status to active when you want it visible, or inactive while you prepare",
           "6. Save and confirm it appears in the Categories list",
         ],
@@ -387,7 +387,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         type: "list",
         content: [
           "1. Open a product under Products",
-          "2. Assign the category (or categories) Softunebd allows on that product",
+          "2. Assign the category (or categories) SoftuneBD allows on that product",
           "3. Save the product",
           "4. Spot-check the storefront category or navigation that should list it",
         ],
@@ -396,7 +396,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Use inactive while you build seasonal or wholesale groupings. Flip to active only when product assignments and imagery are ready - Softunebd’s status control is there so unfinished categories do not confuse shoppers.",
+          "Use inactive while you build seasonal or wholesale groupings. Flip to active only when product assignments and imagery are ready - SoftuneBD’s status control is there so unfinished categories do not confuse shoppers.",
       },
       {
         type: "callout",
@@ -409,12 +409,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "managing-orders": article(
     "managing-orders",
-    "Run Softunebd Orders end to end - statuses, detail view, customer info, and immutable snapshots when products later change.",
+    "Run SoftuneBD Orders end to end - statuses, detail view, customer info, and immutable snapshots when products later change.",
     [
       {
         type: "p",
         content:
-          "Orders is Softunebd’s fulfillment inbox. Each order carries line items, customer info, payment method (including COD when enabled), and lifecycle status. Softunebd keeps order snapshots so a past order stays accurate even if you later edit or delete the live product.",
+          "Orders is SoftuneBD’s fulfillment inbox. Each order carries line items, customer info, payment method (including COD when enabled), and lifecycle status. SoftuneBD keeps order snapshots so a past order stays accurate even if you later edit or delete the live product.",
       },
       { type: "h2", content: "Review a new order" },
       {
@@ -431,24 +431,24 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Move the order through Softunebd’s lifecycle statuses as work progresses. Keep status honest - customers and your own analytics depend on it. When Courier is connected, use Softunebd’s courier handoff rather than retyping addresses into a separate portal.",
+          "Move the order through SoftuneBD’s lifecycle statuses as work progresses. Keep status honest - customers and your own analytics depend on it. When Courier is connected, use SoftuneBD’s courier handoff rather than retyping addresses into a separate portal.",
       },
       { type: "h2", content: "Why snapshots matter" },
       {
         type: "p",
         content:
-          "Softunebd stores snapshot fields on order items (name, price, and related purchase-time data). If you rename a product or delete it next month, the historical order still shows what the customer actually bought.",
+          "SoftuneBD stores snapshot fields on order items (name, price, and related purchase-time data). If you rename a product or delete it next month, the historical order still shows what the customer actually bought.",
       },
       {
         type: "callout",
         content:
-          "Order history is immutable on purpose. Softunebd does not “fix” past totals by joining live product prices - that is what snapshots are for.",
+          "Order history is immutable on purpose. SoftuneBD does not “fix” past totals by joining live product prices - that is what snapshots are for.",
       },
       { type: "h2", content: "Finding older orders" },
       {
         type: "list",
         content: [
-          "Use Softunebd’s search and filters on the Orders list",
+          "Use SoftuneBD’s search and filters on the Orders list",
           "Open the detail view for customer phone or delivery questions",
           "Cross-check Fraud Protection if a COD order looks risky before dispatch",
         ],
@@ -459,12 +459,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "working-with-customers": article(
     "working-with-customers",
-    "Use Softunebd Customers to look up buyers, review order history, and support repeat outreach without leaving the dashboard.",
+    "Use SoftuneBD Customers to look up buyers, review order history, and support repeat outreach without leaving the dashboard.",
     [
       {
         type: "p",
         content:
-          "Customers lists everyone who has ordered from your Softunebd store. Use it for support, delivery questions, and repeat outreach - always scoped to your tenant.",
+          "Customers lists everyone who has ordered from your SoftuneBD store. Use it for support, delivery questions, and repeat outreach - always scoped to your tenant.",
       },
       { type: "h2", content: "Find a customer" },
       {
@@ -473,7 +473,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "1. Open Menu → Customers",
           "2. Search or scan the list for the buyer",
           "3. Open their profile",
-          "4. Review contact details Softunebd captured at checkout",
+          "4. Review contact details SoftuneBD captured at checkout",
           "5. Open related orders when you need line-item or status context",
         ],
       },
@@ -495,7 +495,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "When Softunebd Add-Ons like Email Marketing, WhatsApp Alerts, or Review Reminder are enabled, customer lists become the audience for those tools. Keep Customers clean so outreach does not hit bad numbers.",
+          "When SoftuneBD Add-Ons like Email Marketing, WhatsApp Alerts, or Review Reminder are enabled, customer lists become the audience for those tools. Keep Customers clean so outreach does not hit bad numbers.",
       },
     ],
     "2 min read",
@@ -504,12 +504,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Storefront & Themes ───────────────────────────────────────────────────
   "choosing-a-theme": article(
     "choosing-a-theme",
-    "Compare Softunebd’s real themes - Fashion, Emporium, and Vault - and pick the storefront design that fits your brand before editing.",
+    "Compare SoftuneBD’s real themes - Fashion, Emporium, and Vault - and pick the storefront design that fits your brand before editing.",
     [
       {
         type: "p",
         content:
-          "Softunebd ships three full live storefront designs: Fashion, Emporium, and Vault. Each implements Softunebd’s shared page and section contract, so switching themes changes visual design without rebuilding your product catalog from scratch.",
+          "SoftuneBD ships three full live storefront designs: Fashion, Emporium, and Vault. Each implements SoftuneBD’s shared page and section contract, so switching themes changes visual design without rebuilding your product catalog from scratch.",
       },
       { type: "h2", content: "The three themes" },
       { type: "h3", content: "Fashion" },
@@ -543,7 +543,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Theme choice is a starting skin. Softunebd’s editor - not custom CSS - is how you brand it afterward.",
+          "Theme choice is a starting skin. SoftuneBD’s editor - not custom CSS - is how you brand it afterward.",
       },
     ],
     "2 min read",
@@ -551,12 +551,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "using-theme-editor": article(
     "using-theme-editor",
-    "Use Softunebd’s theme editor tools rail - Brand, Colors, Header, Pages, Sections - with live preview and device toggles.",
+    "Use SoftuneBD’s theme editor tools rail - Brand, Colors, Header, Pages, Sections - with live preview and device toggles.",
     [
       {
         type: "p",
         content:
-          "Softunebd’s theme editor is a structured visual tool. Merchants work through a tools rail (Brand, Colors, Header, Pages, Sections) beside a live preview of the real storefront. Softunebd does not expose free-form custom CSS as the primary editing path.",
+          "SoftuneBD’s theme editor is a structured visual tool. Merchants work through a tools rail (Brand, Colors, Header, Pages, Sections) beside a live preview of the real storefront. SoftuneBD does not expose free-form custom CSS as the primary editing path.",
       },
       { type: "h2", content: "Open the editor" },
       {
@@ -573,13 +573,13 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Set store name, logo, tagline, and font pairing. Softunebd’s AI Suggest can propose a full brand direction you can accept or refine.",
+          "Set store name, logo, tagline, and font pairing. SoftuneBD’s AI Suggest can propose a full brand direction you can accept or refine.",
       },
       { type: "h3", content: "Colors" },
       {
         type: "p",
         content:
-          "Adjust the palette Softunebd exposes for the theme. AI Suggest can propose color directions; always check contrast on buttons and text after applying.",
+          "Adjust the palette SoftuneBD exposes for the theme. AI Suggest can propose color directions; always check contrast on buttons and text after applying.",
       },
       { type: "h3", content: "Header" },
       {
@@ -591,18 +591,18 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Turn Softunebd storefront pages on or off. Home is always available; other pages follow what Softunebd exposes for the theme.",
+          "Turn SoftuneBD storefront pages on or off. Home is always available; other pages follow what SoftuneBD exposes for the theme.",
       },
       { type: "h3", content: "Sections" },
       {
         type: "p",
         content:
-          "Manage homepage blocks: drag to reorder, use the numbered rail to jump to a section, and Add Section when you need a new block type Softunebd supports.",
+          "Manage homepage blocks: drag to reorder, use the numbered rail to jump to a section, and Add Section when you need a new block type SoftuneBD supports.",
       },
       {
         type: "callout",
         content:
-          "On smaller screens Softunebd’s editor supports Edit | Preview stacking so you can focus on one surface at a time.",
+          "On smaller screens SoftuneBD’s editor supports Edit | Preview stacking so you can focus on one surface at a time.",
       },
       { type: "h2", content: "Save vs Publish" },
       {
@@ -610,7 +610,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "Save keeps a local draft of your editor work",
           "Publish pushes changes live",
-          "Softunebd notes that live updates can take 1–2 minutes to appear on the storefront after Publish",
+          "SoftuneBD notes that live updates can take 1–2 minutes to appear on the storefront after Publish",
         ],
       },
     ],
@@ -619,19 +619,19 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "brand-colors-ai-suggest": article(
     "brand-colors-ai-suggest",
-    "Run Softunebd AI Suggest from Brand and Colors in the theme editor - review proposals, check contrast, then Save or Publish.",
+    "Run SoftuneBD AI Suggest from Brand and Colors in the theme editor - review proposals, check contrast, then Save or Publish.",
     [
       {
         type: "p",
         content:
-          "AI Suggest accelerates brand decisions inside the theme editor. Softunebd can propose a full brand direction from Brand, and palette ideas from Colors. Softunebd still expects you to approve what shoppers will see.",
+          "AI Suggest accelerates brand decisions inside the theme editor. SoftuneBD can propose a full brand direction from Brand, and palette ideas from Colors. SoftuneBD still expects you to approve what shoppers will see.",
       },
       { type: "h2", content: "Suggest a brand direction" },
       {
         type: "list",
         content: [
           "1. Open Themes → theme editor → Brand",
-          "2. Confirm name, logo, and tagline fields Softunebd shows",
+          "2. Confirm name, logo, and tagline fields SoftuneBD shows",
           "3. Run AI Suggest for a full brand direction",
           "4. Preview how typography and voice feel on the live preview pane",
           "5. Keep, tweak, or discard before moving on",
@@ -651,7 +651,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "AI Suggest is assistive. Softunebd does not replace your brand guidelines - always verify readability before Publish.",
+          "AI Suggest is assistive. SoftuneBD does not replace your brand guidelines - always verify readability before Publish.",
       },
     ],
     "2 min read",
@@ -659,12 +659,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "publishing-storefront": article(
     "publishing-storefront",
-    "Use Softunebd Save for drafts and Publish for live - including the real 1–2 minute propagation note on the storefront.",
+    "Use SoftuneBD Save for drafts and Publish for live - including the real 1–2 minute propagation note on the storefront.",
     [
       {
         type: "p",
         content:
-          "Softunebd separates draft work from the live storefront. Save keeps editor changes as a local draft. Publish pushes them live. Softunebd surfaces a note that changes can take 1–2 minutes to appear on the live site.",
+          "SoftuneBD separates draft work from the live storefront. Save keeps editor changes as a local draft. Publish pushes them live. SoftuneBD surfaces a note that changes can take 1–2 minutes to appear on the live site.",
       },
       { type: "h2", content: "Pre-publish checklist" },
       {
@@ -681,23 +681,23 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Click Save to store the draft in Softunebd",
+          "1. Click Save to store the draft in SoftuneBD",
           "2. Click Publish when you intend customers to see the changes",
           "3. Wait 1–2 minutes before judging the live storefront",
-          "4. Open Softunebd hostname or custom domain in a private window",
+          "4. Open SoftuneBD hostname or custom domain in a private window",
           "5. Spot-check Home, a category, and a product page",
         ],
       },
       {
         type: "callout",
         content:
-          "If something looks wrong after Publish, return to the editor, fix it, Save, and Publish again - Softunebd’s delay note applies each time.",
+          "If something looks wrong after Publish, return to the editor, fix it, Save, and Publish again - SoftuneBD’s delay note applies each time.",
       },
       { type: "h2", content: "Getting Started completion" },
       {
         type: "p",
         content:
-          "Publish your site is the final step on Softunebd’s 9-step Getting Started checklist. Completing it (with the other eight) removes the Setup section from the sidebar.",
+          "Publish your site is the final step on SoftuneBD’s 9-step Getting Started checklist. Completing it (with the other eight) removes the Setup section from the sidebar.",
       },
     ],
     "2 min read",
@@ -706,12 +706,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect Softunebd Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
+    "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
     [
       {
         type: "p",
         content:
-          "Menu → Payments is where Softunebd connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page - core infrastructure, not one of the 25 optional marketplace Add-Ons.",
+          "Menu → Payments is where SoftuneBD connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page - core infrastructure, not one of the 25 optional marketplace Add-Ons.",
       },
       { type: "h2", content: "Enable a payment method" },
       {
@@ -719,27 +719,27 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Payments",
           "2. Choose Cash on Delivery, Manual Payment, official bKash, Nagad, or SSLCommerz",
-          "3. Enter the credentials Softunebd asks for (wallet number, or merchant keys for gateway connects)",
+          "3. Enter the credentials SoftuneBD asks for (wallet number, or merchant keys for gateway connects)",
           "4. Save the method for the store",
-          "5. Place a test checkout for COD or manual wallets, and confirm Softunebd records the order and any transaction ID correctly",
+          "5. Place a test checkout for COD or manual wallets, and confirm SoftuneBD records the order and any transaction ID correctly",
         ],
       },
       {
         type: "callout",
         content:
-          "Softunebd does not offer Stripe or PayPal. Connect only the methods listed on Payments: COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz.",
+          "SoftuneBD does not offer Stripe or PayPal. Connect only the methods listed on Payments: COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz.",
       },
       { type: "h2", content: "Included by Default vs Add-Ons catalog" },
       {
         type: "p",
         content:
-          "On Add-Ons, Softunebd shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools - not these core rails.",
+          "On Add-Ons, SoftuneBD shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools - not these core rails.",
       },
       { type: "h2", content: "Getting Started step" },
       {
         type: "p",
         content:
-          "Connect a payment method is one of Softunebd’s nine Getting Started checklist items. Completing it advances the X/9 badge.",
+          "Connect a payment method is one of SoftuneBD’s nine Getting Started checklist items. Completing it advances the X/9 badge.",
       },
     ],
     "2 min read",
@@ -747,19 +747,19 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "cash-on-delivery": article(
     "cash-on-delivery",
-    "Enable Softunebd Cash on Delivery, train fulfillment on COD reality, and pair it with Fraud Protection for risky orders.",
+    "Enable SoftuneBD Cash on Delivery, train fulfillment on COD reality, and pair it with Fraud Protection for risky orders.",
     [
       {
         type: "p",
         content:
-          "Cash on Delivery (COD) is a first-class Softunebd payment path for markets where buyers prefer to pay on delivery. Enable it from Payments alongside manual bKash/Nagad when you use wallet checkout.",
+          "Cash on Delivery (COD) is a first-class SoftuneBD payment path for markets where buyers prefer to pay on delivery. Enable it from Payments alongside manual bKash/Nagad when you use wallet checkout.",
       },
       { type: "h2", content: "Enable COD" },
       {
         type: "list",
         content: [
           "1. Open Menu → Payments",
-          "2. Find Cash on Delivery among Softunebd payment methods",
+          "2. Find Cash on Delivery among SoftuneBD payment methods",
           "3. Enable COD for the store",
           "4. Place a test order selecting COD and confirm it appears under Orders",
           "5. Train staff on how cash is collected with your courier partner",
@@ -777,7 +777,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "COD increases delivery risk. Softunebd’s Fraud Protection exists specifically for patterns Softunebd merchants see with COD-heavy catalogs.",
+          "COD increases delivery risk. SoftuneBD’s Fraud Protection exists specifically for patterns SoftuneBD merchants see with COD-heavy catalogs.",
       },
     ],
     "2 min read",
@@ -785,12 +785,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "connecting-courier-partners": article(
     "connecting-courier-partners",
-    "Connect Softunebd Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Add-On.",
+    "Connect SoftuneBD Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Add-On.",
     [
       {
         type: "p",
         content:
-          "Menu → Couriers lists Softunebd’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page - not one of the 25 optional Add-Ons.",
+          "Menu → Couriers lists SoftuneBD’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page - not one of the 25 optional Add-Ons.",
       },
       { type: "h2", content: "Connect a partner" },
       {
@@ -798,9 +798,9 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Couriers",
           "2. Choose a partner you can connect today - Steadfast, Pathao, RedX, or eCourier",
-          "3. Enter the API credentials Softunebd requests",
-          "4. Save and confirm Softunebd verifies and shows the partner as connected",
-          "5. Keep order status in Softunebd in sync with how you fulfill outside the dashboard",
+          "3. Enter the API credentials SoftuneBD requests",
+          "4. Save and confirm SoftuneBD verifies and shows the partner as connected",
+          "5. Keep order status in SoftuneBD in sync with how you fulfill outside the dashboard",
         ],
       },
       { type: "h2", content: "Day-to-day fulfillment" },
@@ -809,20 +809,20 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "Open the order in Orders",
           "Confirm address and phone",
-          "Book or hand off with your connected courier using their tools or Softunebd’s handoff when available for that partner",
-          "Update Softunebd order status honestly after the courier accepts the parcel",
+          "Book or hand off with your connected courier using their tools or SoftuneBD’s handoff when available for that partner",
+          "Update SoftuneBD order status honestly after the courier accepts the parcel",
         ],
       },
       {
         type: "callout",
         content:
-          "Softunebd’s courier story is domestic Bangladesh logistics. Softunebd does not claim real-time public tracking or auto-booking for every partner on the roster.",
+          "SoftuneBD’s courier story is domestic Bangladesh logistics. SoftuneBD does not claim real-time public tracking or auto-booking for every partner on the roster.",
       },
       { type: "h2", content: "Getting Started step" },
       {
         type: "p",
         content:
-          "Set up courier is one of the nine Getting Started checklist steps Softunebd tracks in the Setup sidebar section.",
+          "Set up courier is one of the nine Getting Started checklist steps SoftuneBD tracks in the Setup sidebar section.",
       },
     ],
     "2 min read",
@@ -830,12 +830,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "shipping-locations": article(
     "shipping-locations",
-    "Define Softunebd shipping locations in Site Settings so checkout and courier coverage match where you actually deliver.",
+    "Define SoftuneBD shipping locations in Site Settings so checkout and courier coverage match where you actually deliver.",
     [
       {
         type: "p",
         content:
-          "Site Settings → Shipping is where Softunebd stores shipping locations - the places your store serves. Keep this list aligned with Courier coverage and COD reality.",
+          "Site Settings → Shipping is where SoftuneBD stores shipping locations - the places your store serves. Keep this list aligned with Courier coverage and COD reality.",
       },
       { type: "h2", content: "Configure locations" },
       {
@@ -845,15 +845,15 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "2. Open the Shipping section",
           "3. Add locations you deliver to today",
           "4. Remove or disable areas you no longer cover",
-          "5. Save Softunebd settings",
-          "6. Place a test checkout for an in-coverage and out-of-coverage address if Softunebd enforces that boundary",
+          "5. Save SoftuneBD settings",
+          "6. Place a test checkout for an in-coverage and out-of-coverage address if SoftuneBD enforces that boundary",
         ],
       },
       { type: "h2", content: "Keep Locations and Courier in sync" },
       {
         type: "p",
         content:
-          "If Softunebd shows a city as shippable but your courier partner does not cover it, customers will order and you will fail delivery. Update shipping locations whenever you expand or shrink coverage.",
+          "If SoftuneBD shows a city as shippable but your courier partner does not cover it, customers will order and you will fail delivery. Update shipping locations whenever you expand or shrink coverage.",
       },
     ],
     "2 min read",
@@ -862,12 +862,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Analytics & Reporting ─────────────────────────────────────────────────
   "reading-store-analytics": article(
     "reading-store-analytics",
-    "Read Softunebd Analytics - sales trends, best sellers, category performance, and the date-range picker - then act on Orders.",
+    "Read SoftuneBD Analytics - sales trends, best sellers, category performance, and the date-range picker - then act on Orders.",
     [
       {
         type: "p",
         content:
-          "Menu → Analytics summarizes store performance: sales trends, best sellers, and category performance, filtered by Softunebd’s date-range picker.",
+          "Menu → Analytics summarizes store performance: sales trends, best sellers, and category performance, filtered by SoftuneBD’s date-range picker.",
       },
       { type: "h2", content: "Read a date range" },
       {
@@ -875,9 +875,9 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Analytics",
           "2. Set the date-range picker to the window you care about (today, last 7 days, custom)",
-          "3. Review sales trends Softunebd charts for that range",
-          "4. Check best sellers Softunebd lists",
-          "5. Check category performance Softunebd shows",
+          "3. Review sales trends SoftuneBD charts for that range",
+          "4. Check best sellers SoftuneBD lists",
+          "5. Check category performance SoftuneBD shows",
           "6. Open Orders if a spike or dip needs operational explanation",
         ],
       },
@@ -893,7 +893,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Analytics reflects Softunebd order data. Always reconcile surprising numbers against Orders and payment/courier reality before restocking or discounting.",
+          "Analytics reflects SoftuneBD order data. Always reconcile surprising numbers against Orders and payment/courier reality before restocking or discounting.",
       },
     ],
     "2 min read",
@@ -901,21 +901,21 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "exporting-reports": article(
     "exporting-reports",
-    "Use Softunebd’s Analytics export menu for CSV (Excel), PDF, or JSON - full multi-section export or a scoped table export.",
+    "Use SoftuneBD’s Analytics export menu for CSV (Excel), PDF, or JSON - full multi-section export or a scoped table export.",
     [
       {
         type: "p",
         content:
-          "Softunebd Analytics includes an export menu for CSV (Excel), PDF, and JSON. You can run a full multi-section export (summary, sales report, best sellers, category shares) or a scoped export from just one table.",
+          "SoftuneBD Analytics includes an export menu for CSV (Excel), PDF, and JSON. You can run a full multi-section export (summary, sales report, best sellers, category shares) or a scoped export from just one table.",
       },
       { type: "h2", content: "Full multi-section export" },
       {
         type: "list",
         content: [
           "1. Open Analytics and set the date range",
-          "2. Open Softunebd’s export menu",
+          "2. Open SoftuneBD’s export menu",
           "3. Choose CSV, PDF, or JSON",
-          "4. Select the full export Softunebd offers (summary + sales + best sellers + category shares)",
+          "4. Select the full export SoftuneBD offers (summary + sales + best sellers + category shares)",
           "5. Download and archive or share with accounting",
         ],
       },
@@ -923,16 +923,16 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Focus Softunebd Analytics on the table you need (for example best sellers)",
-          "2. Use the scoped export Softunebd exposes for that table",
-          "3. Choose format (CSV / PDF / JSON) Softunebd allows for that scope",
+          "1. Focus SoftuneBD Analytics on the table you need (for example best sellers)",
+          "2. Use the scoped export SoftuneBD exposes for that table",
+          "3. Choose format (CSV / PDF / JSON) SoftuneBD allows for that scope",
           "4. Download and verify row counts match what you saw on screen",
         ],
       },
       {
         type: "callout",
         content:
-          "Exports honor the date range and filters you selected. Softunebd will not silently expand the window - check the picker before downloading.",
+          "Exports honor the date range and filters you selected. SoftuneBD will not silently expand the window - check the picker before downloading.",
       },
     ],
     "2 min read",
@@ -940,23 +940,23 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "fraud-protection-rules": article(
     "fraud-protection-rules",
-    "Configure Softunebd Fraud Protection rule-based flagging, then review held orders before courier handoff.",
+    "Configure SoftuneBD Fraud Protection rule-based flagging, then review held orders before courier handoff.",
     [
       {
         type: "p",
         content:
-          "Settings → Fraud Protection combines rule-based flagging with a manual blocklist. Softunebd evaluates configurable rules on the current order - for example holding first-time high-value checkouts or flagging burst orders from one phone.",
+          "Settings → Fraud Protection combines rule-based flagging with a manual blocklist. SoftuneBD evaluates configurable rules on the current order - for example holding first-time high-value checkouts or flagging burst orders from one phone.",
       },
       { type: "h2", content: "Enable and tune rules" },
       {
         type: "list",
         content: [
           "1. Open Settings → Fraud Protection",
-          "2. Review Softunebd’s available rules",
+          "2. Review SoftuneBD’s available rules",
           "3. Enable only rules that match your COD risk tolerance",
-          "4. Set thresholds Softunebd exposes (order value, time window, etc.)",
+          "4. Set thresholds SoftuneBD exposes (order value, time window, etc.)",
           "5. Save",
-          "6. Place a test order that should trigger a rule and confirm Softunebd flags or holds it",
+          "6. Place a test order that should trigger a rule and confirm SoftuneBD flags or holds it",
         ],
       },
       { type: "h2", content: "Operational follow-up" },
@@ -964,14 +964,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         type: "list",
         content: [
           "Review flagged orders in Orders before booking a courier",
-          "Call or message the customer when Softunebd holds a high-value first order",
+          "Call or message the customer when SoftuneBD holds a high-value first order",
           "Escalate repeat abusers to the phone blocklist",
         ],
       },
       {
         type: "callout",
         content:
-          "Fraud rules protect margin on COD. Softunebd still expects human judgment before you refuse a legitimate buyer.",
+          "Fraud rules protect margin on COD. SoftuneBD still expects human judgment before you refuse a legitimate buyer.",
       },
     ],
     "2 min read",
@@ -979,22 +979,22 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "managing-phone-blocklist": article(
     "managing-phone-blocklist",
-    "Maintain Softunebd’s manual Fraud Protection phone blocklist with notes - add after confirmed abuse, remove mistakes quickly.",
+    "Maintain SoftuneBD’s manual Fraud Protection phone blocklist with notes - add after confirmed abuse, remove mistakes quickly.",
     [
       {
         type: "p",
         content:
-          "Softunebd’s Fraud Protection blocklist rejects checkouts from phone numbers you mark as abusive. Softunebd supports notes so staff know why a number was blocked.",
+          "SoftuneBD’s Fraud Protection blocklist rejects checkouts from phone numbers you mark as abusive. SoftuneBD supports notes so staff know why a number was blocked.",
       },
       { type: "h2", content: "Add a number" },
       {
         type: "list",
         content: [
           "1. Open Settings → Fraud Protection",
-          "2. Open the blocklist Softunebd shows",
+          "2. Open the blocklist SoftuneBD shows",
           "3. Add the phone number after confirmed abuse (not a single soft refusal)",
           "4. Write a short note for teammates",
-          "5. Save and confirm Softunebd lists the entry",
+          "5. Save and confirm SoftuneBD lists the entry",
         ],
       },
       { type: "h2", content: "Remove a mistake" },
@@ -1010,7 +1010,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Pair the blocklist with Softunebd’s rule-based flagging. Rules catch patterns; the blocklist stops known bad phones at the door.",
+          "Pair the blocklist with SoftuneBD’s rule-based flagging. Rules catch patterns; the blocklist stops known bad phones at the door.",
       },
     ],
     "2 min read",
@@ -1019,12 +1019,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Add-Ons ───────────────────────────────────────────────────────────────
   "browsing-addons-marketplace": article(
     "browsing-addons-marketplace",
-    "Browse Softunebd’s Add-Ons page - 25 optional Add-Ons in four categories, plus Payments & Courier marked Included by Default.",
+    "Browse SoftuneBD’s Add-Ons page - 25 optional Add-Ons in four categories, plus Payments & Courier marked Included by Default.",
     [
       {
         type: "p",
         content:
-          "Menu → Add-Ons is Softunebd’s native marketplace. Softunebd lists 25 optional Add-Ons across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, Softunebd shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
+          "Menu → Add-Ons is SoftuneBD’s native marketplace. SoftuneBD lists 25 optional Add-Ons across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, SoftuneBD shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
       },
       { type: "h2", content: "How to browse" },
       {
@@ -1032,7 +1032,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Menu → Add-Ons",
           "2. Note Payments and Courier under Included by Default",
-          "3. Filter or scroll the four optional categories Softunebd shows",
+          "3. Filter or scroll the four optional categories SoftuneBD shows",
           "4. Open an Add-On card to read its short description",
           "5. Enable only what solves a current bottleneck",
         ],
@@ -1050,7 +1050,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Do not enable everything on day one. Softunebd’s marketplace is designed so you grow into Add-Ons as support load, catalog size, or team size demands them.",
+          "Do not enable everything on day one. SoftuneBD’s marketplace is designed so you grow into Add-Ons as support load, catalog size, or team size demands them.",
       },
     ],
     "2 min read",
@@ -1058,12 +1058,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "customer-engagement-addons": article(
     "customer-engagement-addons",
-    "Enable Softunebd Customer Engagement Add-Ons - Live Chat through Size Guide - when shoppers need conversation and confidence.",
+    "Enable SoftuneBD Customer Engagement Add-Ons - Live Chat through Size Guide - when shoppers need conversation and confidence.",
     [
       {
         type: "p",
         content:
-          "Customer Engagement Add-Ons help shoppers talk to you and decide with confidence. Softunebd’s set: Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, and Size Guide.",
+          "Customer Engagement Add-Ons help shoppers talk to you and decide with confidence. SoftuneBD’s set: Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, and Size Guide.",
       },
       { type: "h2", content: "Enable an engagement Add-On" },
       {
@@ -1073,7 +1073,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "2. Filter to Customer Engagement",
           "3. Open the Add-On (for example Live Chat or WhatsApp Alerts)",
           "4. Enable it for the store",
-          "5. Complete any Softunebd configuration fields that Add-On requires",
+          "5. Complete any SoftuneBD configuration fields that Add-On requires",
           "6. Preview the storefront to confirm the widget or flow appears",
         ],
       },
@@ -1092,12 +1092,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "marketing-sales-addons": article(
     "marketing-sales-addons",
-    "Turn on Softunebd Marketing & Sales Add-Ons - Discount Codes, referrals, wholesale tiers, and related growth tools.",
+    "Turn on SoftuneBD Marketing & Sales Add-Ons - Discount Codes, referrals, wholesale tiers, and related growth tools.",
     [
       {
         type: "p",
         content:
-          "Marketing & Sales Add-Ons plug into Softunebd catalog and checkout flows: Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, and Review Reminder.",
+          "Marketing & Sales Add-Ons plug into SoftuneBD catalog and checkout flows: Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, and Review Reminder.",
       },
       { type: "h2", content: "Campaign-ready path" },
       {
@@ -1105,7 +1105,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "1. Open Add-Ons → Marketing & Sales",
           "2. Enable Discount Codes before your first promo",
-          "3. Configure Softunebd’s discount fields Softunebd shows for that Add-On",
+          "3. Configure SoftuneBD’s discount fields SoftuneBD shows for that Add-On",
           "4. Test a checkout with a valid and invalid code",
           "5. Add Review Reminder after you have reliable delivery completion",
           "6. Enable Wholesale Pricing only if you truly sell in bulk tiers",
@@ -1115,7 +1115,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Frequently Bought and Purchase Notification support conversion on product pages. Enable them when Softunebd’s catalog is large enough that cross-sells and social proof help - not before you have traffic to observe.",
+          "Frequently Bought and Purchase Notification support conversion on product pages. Enable them when SoftuneBD’s catalog is large enough that cross-sells and social proof help - not before you have traffic to observe.",
       },
     ],
     "2 min read",
@@ -1123,12 +1123,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "ai-operations-addons": article(
     "ai-operations-addons",
-    "Use Softunebd AI Automation and Operations & Insights Add-Ons - from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
+    "Use SoftuneBD AI Automation and Operations & Insights Add-Ons - from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
     [
       {
         type: "p",
         content:
-          "Softunebd splits back-office power into AI Automation (AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting) and Operations & Insights (Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges).",
+          "SoftuneBD splits back-office power into AI Automation (AI Chatbot, AI Auto-Reply, AI Ad Copy, AI Forecasting) and Operations & Insights (Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges).",
       },
       { type: "h2", content: "AI Automation" },
       {
@@ -1138,7 +1138,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "2. Enable AI Chatbot if storefront FAQs dominate support time",
           "3. Enable AI Auto-Reply if inbox volume is high",
           "4. Use AI Ad Copy when you need short campaign text drafts",
-          "5. Use AI Forecasting when you have enough Softunebd sales history to plan stock",
+          "5. Use AI Forecasting when you have enough SoftuneBD sales history to plan stock",
         ],
       },
       { type: "h2", content: "Operations & Insights" },
@@ -1156,7 +1156,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Payments and Courier remain Included by Default on this page. Softunebd’s 25 optional Add-Ons never replace those core Menu items.",
+          "Payments and Courier remain Included by Default on this page. SoftuneBD’s 25 optional Add-Ons never replace those core Menu items.",
       },
     ],
   ),
@@ -1165,14 +1165,14 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
   "intro-to-softune": {
     slug: "intro-to-softune",
-    title: "Softunebd পরিচিতি ও ড্যাশবোর্ড ওভারভিউ",
+    title: "SoftuneBD পরিচিতি ও ড্যাশবোর্ড ওভারভিউ",
     category: "শুরু করুন",
     categoryIcon: DOC_ICON_PATHS.book,
-    desc: "Softunebd ড্যাশবোর্ডের সাইডবার গঠন, সেটআপ চেকলিস্ট এবং প্রতিটি স্টোরের ডাটাবেজ সুরক্ষার বিস্তারিত নির্দেশিকা।",
+    desc: "SoftuneBD ড্যাশবোর্ডের সাইডবার গঠন, সেটআপ চেকলিস্ট এবং প্রতিটি স্টোরের ডাটাবেজ সুরক্ষার বিস্তারিত নির্দেশিকা।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
-      "Softunebd কী (এবং কী নয়)",
+      "SoftuneBD কী (এবং কী নয়)",
       "সাইডবার যেভাবে সাজানো",
       "Getting Started",
       "Menu (প্রধান মেনু)",
@@ -1184,13 +1184,13 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে - যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাড-অনস সব এক জায়গা থেকেই পরিচালনা করা যায়।",
+          "SoftuneBD হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে - যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাড-অনস সব এক জায়গা থেকেই পরিচালনা করা যায়।",
       },
-      { type: "h2", content: "Softunebd কী (এবং কী নয়)" },
+      { type: "h2", content: "SoftuneBD কী (এবং কী নয়)" },
       {
         type: "p",
         content:
-          "Softunebd আপনার নিজস্ব ব্র্যান্ডেড স্টোরফ্রন্টের মূল অবকাঠামো প্রদান করে। ক্রেতার সাথে সরাসরি যোগাযোগ ও সম্পর্ক সম্পূর্ণ আপনার নিয়ন্ত্রণে থাকবে। Softunebd কোনো থার্ড-পার্টি মার্কেটপ্লেস নয় যেখানে অন্য বিক্রেতাদের প্রোডাক্টের সাথে আপনার প্রোডাক্ট বিক্রি করতে হয়।",
+          "SoftuneBD আপনার নিজস্ব ব্র্যান্ডেড স্টোরফ্রন্টের মূল অবকাঠামো প্রদান করে। ক্রেতার সাথে সরাসরি যোগাযোগ ও সম্পর্ক সম্পূর্ণ আপনার নিয়ন্ত্রণে থাকবে। SoftuneBD কোনো থার্ড-পার্টি মার্কেটপ্লেস নয় যেখানে অন্য বিক্রেতাদের প্রোডাক্টের সাথে আপনার প্রোডাক্ট বিক্রি করতে হয়।",
       },
       {
         type: "callout",
@@ -1272,13 +1272,13 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd-এ নতুন অ্যাকাউন্ট খোলার পর সাইডবারে ৯টি গুরুত্বপূর্ণ পদক্ষেপ সম্বলিত Getting Started চেকলিস্ট দেখা যায়। এটি কোনো সাধারণ ইমেইল নয়, বরং একটি নির্দেশিত সেটআপ ফ্লো যা আপনার স্টোরকে সম্পূর্ণ লাইভ করার জন্য প্রস্তুত করে।",
+          "SoftuneBD-এ নতুন অ্যাকাউন্ট খোলার পর সাইডবারে ৯টি গুরুত্বপূর্ণ পদক্ষেপ সম্বলিত Getting Started চেকলিস্ট দেখা যায়। এটি কোনো সাধারণ ইমেইল নয়, বরং একটি নির্দেশিত সেটআপ ফ্লো যা আপনার স্টোরকে সম্পূর্ণ লাইভ করার জন্য প্রস্তুত করে।",
       },
       { type: "h2", content: "প্রথম ৯টি প্রয়োজনীয় পদক্ষেপ" },
       {
         type: "p",
         content:
-          "নিচের ধাপগুলো পর্যায়ক্রমে সম্পন্ন করুন। কোনো ধাপ সম্পূর্ণ হওয়ার সাথে সাথে Softunebd তা স্বয়ংক্রিয়ভাবে টিক চিহ্ন দিয়ে মার্ক করে নেবে।",
+          "নিচের ধাপগুলো পর্যায়ক্রমে সম্পন্ন করুন। কোনো ধাপ সম্পূর্ণ হওয়ার সাথে সাথে SoftuneBD তা স্বয়ংক্রিয়ভাবে টিক চিহ্ন দিয়ে মার্ক করে নেবে।",
       },
       {
         type: "list",
@@ -1336,13 +1336,13 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Take a Tour হলো Softunebd ড্যাশবোর্ডের বিল্ট-ইন ইন্টারেক্টিভ গাইড। এটি একটি লাইভ স্পটলাইট ওভারলে ব্যবহার করে প্রতিটি বাটন ও নেভিগেশনের কাজ আপনাকে ভিজ্যুয়ালি বুঝিয়ে দেয়। Skip, Back ও Next বাটনের সাহায্যে যেকোনো গতিতে ট্যুরটি দেখা যায়।",
+          "Take a Tour হলো SoftuneBD ড্যাশবোর্ডের বিল্ট-ইন ইন্টারেক্টিভ গাইড। এটি একটি লাইভ স্পটলাইট ওভারলে ব্যবহার করে প্রতিটি বাটন ও নেভিগেশনের কাজ আপনাকে ভিজ্যুয়ালি বুঝিয়ে দেয়। Skip, Back ও Next বাটনের সাহায্যে যেকোনো গতিতে ট্যুরটি দেখা যায়।",
       },
       { type: "h2", content: "ড্যাশবোর্ড ট্যুর কীভাবে চালু করবেন" },
       {
         type: "list",
         content: [
-          "১. আপনার Softunebd স্টোর ড্যাশবোর্ডে লগইন করুন",
+          "১. আপনার SoftuneBD স্টোর ড্যাশবোর্ডে লগইন করুন",
           "২. বাম পাশের সাইডবারের সবার নিচে Take a Tour বাটনে ক্লিক করুন",
           "৩. স্ক্রিন হালকা অন্ধকার হয়ে একটি নির্দিষ্ট ফিচার হাইলাইট করবে",
           "৪. Next চেপে সামনে যান, Back চেপে পেছনে যান বা Skip দিয়ে বের হয়ে আসুন",
@@ -1364,7 +1364,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "আপনি একবার ট্যুর শেষ করলে Softunebd আপনাকে বারবার নোটিফিকেশন দেবে না। তবে যেকোনো সময় সাইডবারের Take a Tour বাটন চেপে আবার রিভিশন দিতে পারবেন।",
+          "আপনি একবার ট্যুর শেষ করলে SoftuneBD আপনাকে বারবার নোটিফিকেশন দেবে না। তবে যেকোনো সময় সাইডবারের Take a Tour বাটন চেপে আবার রিভিশন দিতে পারবেন।",
       },
       { type: "h2", content: "কখন পুনরায় ট্যুর দেওয়া উচিত" },
       {
@@ -1372,7 +1372,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content: [
           "অনেক দিন পর ড্যাশবোর্ডে লগইন করলে",
           "নতুন কোনো স্টাফ বা টিম মেম্বারকে স্টোর সামলানোর জন্য ওরিয়েন্টেশন দেওয়ার সময়",
-          "Softunebd-এ নতুন ফিচার যুক্ত হলে",
+          "SoftuneBD-এ নতুন ফিচার যুক্ত হলে",
         ],
       },
     ],
@@ -1382,12 +1382,12 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
     title: "কাস্টম ডোমেইন কানেক্ট করার নিয়ম",
     category: "শুরু করুন",
     categoryIcon: DOC_ICON_PATHS.book,
-    desc: "আপনার নিজস্ব ডোমেইন (যেমন brand.com) Softunebd স্টোরে লিঙ্ক করার বিস্তারিত নির্দেশিকা।",
+    desc: "আপনার নিজস্ব ডোমেইন (যেমন brand.com) SoftuneBD স্টোরে লিঙ্ক করার বিস্তারিত নির্দেশিকা।",
     readTime: "পড়ার সময়: ৩ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
       "শুরু করার আগে প্রস্তুতি",
-      "Softunebd-এ ডোমেইন যোগ করার ধাপ",
+      "SoftuneBD-এ ডোমেইন যোগ করার ধাপ",
       "DNS রেকর্ডের সেটিংস",
       "লাইভ স্টোরফ্রন্টে যাচাইকরণ",
     ],
@@ -1395,7 +1395,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd-এ একাউন্ট খুললে প্রথমে একটি ফ্রি সাবডোমেইন পান। তবে আপনার ব্যবসাকে ব্র্যান্ড হিসেবে দাঁড় করাতে কাস্টম ডোমেইন (যেমন yourbrand.com) যোগ করা অত্যন্ত জরুরি। Site Settings থেকে সহজেই আপনি নিজস্ব ডোমেইন সেটআপ করতে পারবেন।",
+          "SoftuneBD-এ একাউন্ট খুললে প্রথমে একটি ফ্রি সাবডোমেইন পান। তবে আপনার ব্যবসাকে ব্র্যান্ড হিসেবে দাঁড় করাতে কাস্টম ডোমেইন (যেমন yourbrand.com) যোগ করা অত্যন্ত জরুরি। Site Settings থেকে সহজেই আপনি নিজস্ব ডোমেইন সেটআপ করতে পারবেন।",
       },
       { type: "h2", content: "শুরু করার আগে প্রস্তুতি" },
       {
@@ -1406,15 +1406,15 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
           "৩. DNS প্রপাগেশন সম্পন্ন হওয়া পর্যন্ত বর্তমান সাবডোমেইন সচল রাখুন",
         ],
       },
-      { type: "h2", content: "Softunebd-এ ডোমেইন যোগ করার ধাপ" },
+      { type: "h2", content: "SoftuneBD-এ ডোমেইন যোগ করার ধাপ" },
       {
         type: "list",
         content: [
           "১. ড্যাশবোর্ড থেকে Settings > Site Settings অপশনে যান",
           "২. Custom Domain সেকশনে গিয়ে আপনার কেনা ডোমেইন নামটি টাইপ করুন",
-          "৩. সেভ বাটনে ক্লিক করুন এবং Softunebd প্রদত্ত A Record ও CNAME তথ্যগুলো কপি করুন",
+          "৩. সেভ বাটনে ক্লিক করুন এবং SoftuneBD প্রদত্ত A Record ও CNAME তথ্যগুলো কপি করুন",
           "৪. আপনার ডোমেইন প্রোভাইডারের DNS Management এ গিয়ে উক্ত A Record (IP) ও CNAME যোগ করুন",
-          "৫. Softunebd-এ ফিরে এসে Live DNS Status চেক করুন",
+          "৫. SoftuneBD-এ ফিরে এসে Live DNS Status চেক করুন",
         ],
       },
       {
@@ -1598,7 +1598,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd প্রতিটি অর্ডারের সময় প্রোডাক্টের নাম, দাম ও ভ্যারিয়েন্টের একটি স্থায়ী 'স্ন্যাপশট' রেখে দেয়। ভবিষ্যতে আপনি প্রোডাক্টের দাম বা নাম পাল্টালেও পুরনো অর্ডারের মেমোতে গ্রাহকের কেনা আসল দামই প্রদর্শিত হবে।",
+          "SoftuneBD প্রতিটি অর্ডারের সময় প্রোডাক্টের নাম, দাম ও ভ্যারিয়েন্টের একটি স্থায়ী 'স্ন্যাপশট' রেখে দেয়। ভবিষ্যতে আপনি প্রোডাক্টের দাম বা নাম পাল্টালেও পুরনো অর্ডারের মেমোতে গ্রাহকের কেনা আসল দামই প্রদর্শিত হবে।",
       },
       {
         type: "callout",
@@ -1667,14 +1667,14 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
   },
   "choosing-a-theme": {
     slug: "choosing-a-theme",
-    title: "Softunebd থিম নির্বাচন",
+    title: "SoftuneBD থিম নির্বাচন",
     category: "স্টোরফ্রন্ট ও থিম",
     categoryIcon: DOC_ICON_PATHS.paintbrush,
     desc: "Fashion, Emporium ও Vault থিমের মধ্যে আপনার ব্যবসার জন্য সঠিক থিম বেছে নিন।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
-      "Softunebd-এর ৩টি রেডি থিম",
+      "SoftuneBD-এর ৩টি রেডি থিম",
       "Fashion থিম",
       "Emporium থিম",
       "Vault থিম",
@@ -1684,9 +1684,9 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd-এ রয়েছে ৩টি বিশ্বমানের রেডিমেড থিম - Fashion, Emporium এবং Vault। প্রতিটি থিমই অত্যন্ত দ্রুতগতির, রেসপন্সিভ এবং যেকোনো ডিভাইসে দেখার উপযোগী।",
+          "SoftuneBD-এ রয়েছে ৩টি বিশ্বমানের রেডিমেড থিম - Fashion, Emporium এবং Vault। প্রতিটি থিমই অত্যন্ত দ্রুতগতির, রেসপন্সিভ এবং যেকোনো ডিভাইসে দেখার উপযোগী।",
       },
-      { type: "h2", content: "Softunebd-এর ৩টি রেডি থিম" },
+      { type: "h2", content: "SoftuneBD-এর ৩টি রেডি থিম" },
       { type: "h3", content: "Fashion থিম" },
       {
         type: "p",
@@ -1739,7 +1739,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd Theme Editor হলো একটি নো-কোড ভিজ্যুয়াল এডিটর। বাম পাশে কাস্টমাইজেশন প্যানেল এবং ডান পাশে ডেসক্টর, ট্যাবলেট ও মোবাইলের রিয়েল-টাইম লাইভ প্রিভিউ দেখে সহজে কাজ করা যায়।",
+          "SoftuneBD Theme Editor হলো একটি নো-কোড ভিজ্যুয়াল এডিটর। বাম পাশে কাস্টমাইজেশন প্যানেল এবং ডান পাশে ডেসক্টর, ট্যাবলেট ও মোবাইলের রিয়েল-টাইম লাইভ প্রিভিউ দেখে সহজে কাজ করা যায়।",
       },
       { type: "h2", content: "Theme Editor ওপেন করার নিয়ম" },
       {
@@ -1928,7 +1928,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Softunebd-এ পেমেন্ট ও কুরিয়ার অপশন একদম মূল প্ল্যাটফর্মের সাথে ফ্রী অন্তর্ভুক্ত (Included by Default)। এটি কোনো পেইড বা আলাদা ২৪টি অ্যাড-অনসের অংশ নয়।",
+          "SoftuneBD-এ পেমেন্ট ও কুরিয়ার অপশন একদম মূল প্ল্যাটফর্মের সাথে ফ্রী অন্তর্ভুক্ত (Included by Default)। এটি কোনো পেইড বা আলাদা ২৪টি অ্যাড-অনসের অংশ নয়।",
       },
     ],
   },
@@ -1948,7 +1948,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "বাংলাদেশে অনলাইন কেনাকাটায় ক্যাশ অন ডেলিভারি (COD) সবচেয়ে জনপ্রিয় পেমেন্ট মাধ্যম। Softunebd-এ অতি সহজেই COD চালু রাখা যায়।",
+          "বাংলাদেশে অনলাইন কেনাকাটায় ক্যাশ অন ডেলিভারি (COD) সবচেয়ে জনপ্রিয় পেমেন্ট মাধ্যম। SoftuneBD-এ অতি সহজেই COD চালু রাখা যায়।",
       },
       { type: "h2", content: "COD চালু করার নিয়ম" },
       {
@@ -2126,7 +2126,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Softunebd Analytics থেকে আপনি ১-ক্লিকে সমস্ত হিসাব-নিকাশ CSV (Excel), PDF বা JSON ফাইল হিসেবে ডাউনলোড করতে পারবেন।",
+          "SoftuneBD Analytics থেকে আপনি ১-ক্লিকে সমস্ত হিসাব-নিকাশ CSV (Excel), PDF বা JSON ফাইল হিসেবে ডাউনলোড করতে পারবেন।",
       },
       { type: "h2", content: "ফুল মাল্টি-সেকশন এক্সপোর্ট" },
       {
@@ -2238,7 +2238,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
     title: "অ্যাড-অনস মার্কেটপ্লেস ব্রাউজিং",
     category: "অ্যাড-অনস মার্কেটপ্লেস",
     categoryIcon: DOC_ICON_PATHS.addons,
-    desc: "Softunebd-এর ২৬+ শক্তিশালী অ্যাড-অন ব্রাউজ ও এনাবল করার উপায়।",
+    desc: "SoftuneBD-এর ২৬+ শক্তিশালী অ্যাড-অন ব্রাউজ ও এনাবল করার উপায়।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [

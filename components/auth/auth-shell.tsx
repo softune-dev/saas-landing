@@ -71,7 +71,7 @@ export function AuthShell({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo-icon.png"
-                  alt="Softunebd"
+                  alt="SoftuneBD"
                   className="h-10 w-auto object-contain object-left sm:h-11"
                 />
               </a>

@@ -6,7 +6,7 @@ import CookiePage from "./cookie-content";
 export const metadata = pageSeo({
   title: "Cookie Policy",
   description:
-    "How Softunebd uses cookies on www.softunebd.com and the merchant dashboard, including analytics and session cookies.",
+    "How SoftuneBD uses cookies on www.softunebd.com and the merchant dashboard, including analytics and session cookies.",
   path: "/cookie",
 });
 

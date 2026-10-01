@@ -5,7 +5,7 @@ import { pageSeo } from "@/lib/seo";
 import BlogPage from "@/app/blog/blog-content";
 
 export const metadata = pageSeo({
-  title: "ই-কমার্স গাইড ও ব্লগ | Softunebd",
+  title: "ই-কমার্স গাইড ও ব্লগ | SoftuneBD",
   description:
     "বাংলাদেশের অনলাইন মার্চেন্টদের জন্য বাস্তবমুখী নিবন্ধ: ফেসবুক পেজ অর্ডার থেকে ওয়েবসাইটে স্থানান্তর, COD সেটআপ এবং ফেক ডেলিভারি কমানোর কৌশল।",
   path: "/bn/blog",

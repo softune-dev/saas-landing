@@ -26,7 +26,7 @@ export const sectionsEn: FeatureSection[] = [
     titleHighlight: "Live",
     titleEnd: "",
     description:
-      "Edit your storefront in Softunebd’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
+      "Edit your storefront in SoftuneBD’s Theme Editor: change colors, fonts, sections, and copy, preview desktop and mobile, then publish when it looks right.",
     bullets: [
       "Live preview of your real theme while you edit",
       "AI Suggest for brand colors, fonts, and storefront text",
@@ -39,17 +39,17 @@ export const sectionsEn: FeatureSection[] = [
   {
     pillText: "AI Chatbot",
     pillIcon: "/icons/chat.svg",
-    titleStart: "Ask Softunebd,",
+    titleStart: "Ask SoftuneBD,",
     titleHighlight: "Get Answers",
     titleEnd: "",
     description:
-      "Chat with Softunebd’s built-in AI, powered by Google Gemini. It reads your real products, orders, and sales, then helps you act without leaving the dashboard.",
+      "Chat with SoftuneBD’s built-in AI, powered by Google Gemini. It reads your real products, orders, and sales, then helps you act without leaving the dashboard.",
     bullets: [
       "Powered by Google Gemini for clear, fast answers",
       "Ask about products, orders, and sales in plain language",
-      "Answers come from your own Softunebd store data",
+      "Answers come from your own SoftuneBD store data",
       "Propose product or category changes you still confirm",
-      "Stay inside Softunebd - no extra AI app to open",
+      "Stay inside SoftuneBD - no extra AI app to open",
       "Update order status and create sale events directly",
       "Look up customer records and store data instantly",
     ],
@@ -79,7 +79,7 @@ export const sectionsEn: FeatureSection[] = [
     titleHighlight: "Own Your Domain",
     titleEnd: "",
     description:
-      "Softunebd Site Settings covers search listings, social share previews, tracking pixels, and your custom domain - so discovery and measurement live next to the store you publish.",
+      "SoftuneBD Site Settings covers search listings, social share previews, tracking pixels, and your custom domain - so discovery and measurement live next to the store you publish.",
     bullets: [
       "Titles, meta descriptions, keywords, favicon, and AI help for SEO copy",
       "Open Graph title, description, and image for cleaner Facebook and chat previews",
@@ -102,7 +102,7 @@ export const sectionsEn: FeatureSection[] = [
       "Regenerate any description until the wording fits",
       "Edit the draft fully before you save",
       "Uses your product details as context for better copy",
-      "Works inside the Softunebd product editor you already use",
+      "Works inside the SoftuneBD product editor you already use",
     ],
     showcase: "ai",
   },
@@ -115,7 +115,7 @@ export const sectionsEn: FeatureSection[] = [
     description:
       "Generate product photos and marketing graphics straight from the AI sidebar's Image mode using dozens of ready presets or your own text prompt.",
     bullets: [
-      "Dedicated AI Image mode inside your Softunebd sidebar",
+      "Dedicated AI Image mode inside your SoftuneBD sidebar",
       "Presets across Product, Events, Marketing, Category, Hero, and Bento styles",
       "Choose with or without text per generation, so headlines render cleanly",
       "Describe your own scene in plain text if no preset fits",
@@ -131,9 +131,9 @@ export const sectionsEn: FeatureSection[] = [
     titleHighlight: "Same Catalog",
     titleEnd: "",
     description:
-      "Softunebd POS is walk-in checkout on your live product catalog. Search, filter by category, complete the sale, print a receipt, and review recent POS orders.",
+      "SoftuneBD POS is walk-in checkout on your live product catalog. Search, filter by category, complete the sale, print a receipt, and review recent POS orders.",
     bullets: [
-      "Same Softunebd products and stock as your online store",
+      "Same SoftuneBD products and stock as your online store",
       "Category filters, compact product rows, and pagination",
       "Cash, card, or mobile banking labels on each sale",
       "Printable shop-style receipt with date, time, and totals",
@@ -151,7 +151,7 @@ export const sectionsBn: FeatureSection[] = [
     titleHighlight: "লাইভ",
     titleEnd: "",
     description:
-      "Softunebd-এর Theme Editor-এ আপনার স্টোরফ্রন্ট এডিট করুন: কালার, ফন্ট, সেকশন ও টেক্সট পরিবর্তন করুন, ডেস্কটপ ও মোবাইলে প্রিভিউ দেখুন, পছন্দ হলেই পাবলিশ করুন।",
+      "SoftuneBD-এর Theme Editor-এ আপনার স্টোরফ্রন্ট এডিট করুন: কালার, ফন্ট, সেকশন ও টেক্সট পরিবর্তন করুন, ডেস্কটপ ও মোবাইলে প্রিভিউ দেখুন, পছন্দ হলেই পাবলিশ করুন।",
     bullets: [
       "এডিট করার সময় রিয়েল-টাইম লাইভ প্রিভিউ",
       "ব্র্যান্ড কালার, ফন্ট ও কপি সাজাতে AI Suggestion",
@@ -227,7 +227,7 @@ export const sectionsBn: FeatureSection[] = [
       "পছন্দমতো ডেসক্রিপশন রি-জেনারেট করার অপশন",
       "সেভ করার আগে ড্রাফট সম্পূর্ণ এডিট করার সুবিধা",
       "সঠিক কপির জন্য প্রোডাক্ট ডিটেইলস কনটেক্সট ব্যবহার",
-      "Softunebd প্রোডাক্ট এডিটর থেকেই সরাসরি কাজ করে",
+      "SoftuneBD প্রোডাক্ট এডিটর থেকেই সরাসরি কাজ করে",
     ],
     showcase: "ai",
   },
@@ -240,7 +240,7 @@ export const sectionsBn: FeatureSection[] = [
     description:
       "AI সাইডবারের Image mode ব্যবহার করে অনেক রেডিমেইড প্রিসেট অথবা নিজের প্রম্পট দিয়ে সরাসরি প্রোডাক্ট ফটো ও মার্কেটিং গ্রাফিক্স তৈরি করুন।",
     bullets: [
-      "Softunebd সাইডবারে বিশেষায়িত AI Image mode সুবিধা",
+      "SoftuneBD সাইডবারে বিশেষায়িত AI Image mode সুবিধা",
       "Product, Events, Marketing, Category, Hero ও Bento স্টাইল জুড়ে প্রিসেট",
       "প্রতি জেনারেশনে টেক্সট সহ বা ছাড়া বেছে নিন, হেডলাইন পরিষ্কারভাবে রেন্ডার হয়",
       "কোনো প্রিসেট না মিললে নিজের সিন টেক্সটে বর্ণনা করুন",
@@ -382,7 +382,7 @@ export function PlatformFeatures({ locale = "en" }: { locale?: "en" | "bn" }) {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={isDark ? darkSrc : liteSrc}
-                        alt={`${section.pillText} in the Softunebd dashboard`}
+                        alt={`${section.pillText} in the SoftuneBD dashboard`}
                         loading="lazy"
                         decoding="async"
                         width={800}

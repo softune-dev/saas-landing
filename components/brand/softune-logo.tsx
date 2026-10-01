@@ -13,7 +13,7 @@ type SoftuneLogoProps = {
  */
 export function SoftuneLogo({
   className = "h-7 w-auto",
-  alt = "Softunebd",
+  alt = "SoftuneBD",
 }: SoftuneLogoProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);

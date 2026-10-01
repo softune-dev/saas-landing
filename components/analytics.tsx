@@ -2,7 +2,7 @@
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() || "G-3XKQHQE2TP";
 
 // Meta Pixel for the Phase 1 Meta Ads traffic campaign (see Events Manager
-// under the Softunebd business). Override with NEXT_PUBLIC_META_PIXEL_ID on
+// under the SoftuneBD business). Override with NEXT_PUBLIC_META_PIXEL_ID on
 // staging so test traffic doesn't pollute production ad data.
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "1093333280052054";
 

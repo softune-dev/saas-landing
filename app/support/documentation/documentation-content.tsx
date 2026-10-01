@@ -68,7 +68,7 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
               />
             </div>
             <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              Softunebd Docs
+              SoftuneBD Docs
             </span>
           </motion.div>
 
@@ -105,7 +105,7 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
           >
             {isBn
               ? "স্টোর কনফিগারেশন, থিম কাস্টমাইজেশন, পেমেন্ট ও কুরিয়ার কানেক্ট এবং ড্যাশবোর্ড ব্যবহারের নির্দেশিকা।"
-              : "Learn how to configure your store, customize themes, connect payments and couriers, and use Softunebd's dashboard tools to grow your ecommerce business."}
+              : "Learn how to configure your store, customize themes, connect payments and couriers, and use SoftuneBD's dashboard tools to grow your ecommerce business."}
           </motion.p>
 
           {/* Search Bar */}

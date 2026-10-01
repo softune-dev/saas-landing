@@ -46,7 +46,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
             />
           </div>
           <span className="truncate text-[12px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-            {isBn ? "Softunebd eCommerce এখন লাইভ" : "Softunebd eCommerce is live"}
+            {isBn ? "SoftuneBD eCommerce এখন লাইভ" : "SoftuneBD eCommerce is live"}
           </span>
           <span className="h-3 w-px shrink-0 bg-[var(--color-line)] md:h-4" />
           <Link
@@ -112,12 +112,12 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
         <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:mt-6 md:text-[17px] lg:text-lg">
           {isBn ? (
             <>
-              নো-কোড স্টোর বিল্ডার - bKash, Nagad, COD এবং লোকাল কুরিয়ার কানেক্ট সহ। Softunebd আপনার ব্র্যান্ডিং ও ইউনিক আইডেন্টিটির যত্ন নেয়। AI অ্যাসিস্ট্যান্ট দিয়ে প্রোডাক্ট রাইটিং ও শপ ম্যানেজ করুন একই ড্যাশবোর্ড থেকে।
+              নো-কোড স্টোর বিল্ডার - bKash, Nagad, COD এবং লোকাল কুরিয়ার কানেক্ট সহ। SoftuneBD আপনার ব্র্যান্ডিং ও ইউনিক আইডেন্টিটির যত্ন নেয়। AI অ্যাসিস্ট্যান্ট দিয়ে প্রোডাক্ট রাইটিং ও শপ ম্যানেজ করুন একই ড্যাশবোর্ড থেকে।
             </>
           ) : (
             <>
               No-code store builder with bKash, Nagad, COD, and local couriers.
-              Softunebd cares about your branding and identity, not a generic
+              SoftuneBD cares about your branding and identity, not a generic
               storefront. AI helps you write products and run the shop from one
               dashboard.
             </>
@@ -146,7 +146,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
                 />
                 <img
                   src={desktopSrc}
-                  alt="Softunebd ecommerce dashboard for Bangladesh merchants"
+                  alt="SoftuneBD ecommerce dashboard for Bangladesh merchants"
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"

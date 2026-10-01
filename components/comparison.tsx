@@ -101,7 +101,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              {isBn ? "Softunebd বনাম অন্যান্য লোকাল বিল্ডার" : "Softunebd vs Bangladeshi Builders"}
+              {isBn ? "SoftuneBD বনাম অন্যান্য লোকাল বিল্ডার" : "SoftuneBD vs Bangladeshi Builders"}
             </span>
           </motion.div>
 
@@ -126,13 +126,13 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
             {isBn
-              ? "বাংলাদেশের বেশিরভাগ স্টোর বিল্ডারে সেটআপ ফি, অর্ডারে অতিরিক্ত চার্জ বা হিডেন ফি থাকে। Softunebd-এ কোনো হিডেন ফি নেই।"
-              : "Most Bangladeshi store builders charge extra somewhere: a setup fee, a cut of every order, or a paywalled feature. Softunebd doesn't."}
+              ? "বাংলাদেশের বেশিরভাগ স্টোর বিল্ডারে সেটআপ ফি, অর্ডারে অতিরিক্ত চার্জ বা হিডেন ফি থাকে। SoftuneBD-এ কোনো হিডেন ফি নেই।"
+              : "Most Bangladeshi store builders charge extra somewhere: a setup fee, a cut of every order, or a paywalled feature. SoftuneBD doesn't."}
           </p>
         </div>
 
         <div className="grid items-stretch gap-4 md:grid-cols-2 md:gap-5">
-          {/* Softunebd first on mobile; column 2 on desktop. */}
+          {/* SoftuneBD first on mobile; column 2 on desktop. */}
           <motion.article
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                   loading="lazy"
                   decoding="async"
                   src="/logo-white.png"
-                  alt="Softunebd"
+                  alt="SoftuneBD"
                   className="h-10 w-auto object-contain sm:h-12"
                 />
                 <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
@@ -280,7 +280,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 variant="secondary"
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
               >
-                {isBn ? "Softunebd প্ল্যান দেখুন" : "See Softunebd plans"}
+                {isBn ? "SoftuneBD প্ল্যান দেখুন" : "See SoftuneBD plans"}
                 <img
                   loading="lazy"
                   decoding="async"
@@ -307,7 +307,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 <span className="font-semibold text-[var(--color-ink)]">
                   Shopify
                 </span>{" "}
-                প্রতি বিক্রিতে প্রায় ২.৮%–৩.০% অতিরিক্ত ফি নেয়। Softunebd-এ সব প্ল্যানে ট্রানজেকশন ফি 0%।
+                প্রতি বিক্রিতে প্রায় ২.৮%–৩.০% অতিরিক্ত ফি নেয়। SoftuneBD-এ সব প্ল্যানে ট্রানজেকশন ফি 0%।
               </>
             ) : (
               <>
@@ -315,7 +315,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 <span className="font-semibold text-[var(--color-ink)]">
                   {globalComparisonEn.name}
                 </span>{" "}
-                {globalComparisonEn.fact}. Softunebd&apos;s is 0%, on every plan.
+                {globalComparisonEn.fact}. SoftuneBD&apos;s is 0%, on every plan.
               </>
             )}
           </p>
