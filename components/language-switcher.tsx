@@ -56,6 +56,10 @@ export function LanguageSwitcher({
     } catch {
       // Ignore quota/private mode errors
     }
+    // middleware.ts can't read localStorage, so the same choice also goes in
+    // a cookie — that's what stops its Bangla-first redirect from bouncing
+    // someone who deliberately picked English straight back to /bn.
+    document.cookie = `softunebd_lang=${targetLocale}; path=/; max-age=31536000; samesite=lax`;
     router.push(targetPath);
   };
 

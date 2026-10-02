@@ -32,6 +32,16 @@ const VALID_BN_STATIC_ROUTES = new Set([
   "/support/tutorials",
 ]);
 
+/** Stricter than hasBnVersion: only the fixed top-level routes, never the
+ * [slug] families. middleware.ts uses this for its Bangla-first redirect,
+ * where a false positive is a visitor stranded on a 404 (a blog/feature/docs
+ * slug whose Bangla article doesn't exist calls notFound()), not just a
+ * missing hreflang tag like it is for pageSeo/sitemap. */
+export function hasBnStaticRoute(path: string): boolean {
+  const clean = path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
+  return VALID_BN_STATIC_ROUTES.has(clean);
+}
+
 /** Whether a given path (accepts either the English or /bn/ form) has a
  * real Bangla twin. Used by pageSeo (to only emit an hreflang="bn" tag when
  * one actually resolves), app/sitemap.ts (to skip submitting /bn/ URLs that

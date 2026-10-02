@@ -10,6 +10,23 @@ export function GeoBanner() {
   const pathname = usePathname() || "/";
   const [show, setShow] = useState(false);
 
+  // Visitors who picked English before middleware.ts started redirecting
+  // Bangladesh traffic to /bn only have that choice in localStorage, which
+  // middleware can't read — copy it into the cookie it does check, once, so
+  // they aren't pushed to Bangla against their earlier choice.
+  useEffect(() => {
+    try {
+      if (
+        localStorage.getItem("softunebd_lang") === "en" &&
+        !document.cookie.includes("softunebd_lang=")
+      ) {
+        document.cookie = "softunebd_lang=en; path=/; max-age=31536000; samesite=lax";
+      }
+    } catch {
+      // Ignore client API failures
+    }
+  }, []);
+
   useEffect(() => {
     // Only show on English pages (path does NOT start with /bn) that
     // actually HAVE a Bangla twin — most pages don't (legal pages, the
