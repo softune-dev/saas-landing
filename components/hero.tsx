@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
-import { TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
+import {
+  STORES_LAUNCHED_NOTE,
+  STORES_LAUNCHED_NOTE_BN,
+  TRIAL_NOTE,
+  TRIAL_NOTE_BN,
+} from "@/lib/site";
 import { HeroCtas } from "./hero-ctas";
 
 /**
@@ -26,6 +31,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
 
   const changelogHref = isBn ? "/bn/changelog" : "/changelog";
   const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
+  const storesNote = isBn ? STORES_LAUNCHED_NOTE_BN : STORES_LAUNCHED_NOTE;
 
   return (
     <section className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:min-h-[calc(100vh-6.5rem)] md:rounded-b-[4rem] md:border-[6px] md:border-t-0">
@@ -125,7 +131,11 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
         </p>
 
         <HeroCtas locale={locale} className="mt-7 md:mt-9" />
-        <p className="mt-7 text-[12px] font-medium text-[var(--color-muted)] sm:text-[13px] md:mt-9">
+        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3.5 py-1.5 text-[12px] font-semibold text-[var(--color-ink)] sm:text-[13px] md:mt-8">
+          <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden />
+          {storesNote}
+        </p>
+        <p className="mt-4 text-[12px] font-medium text-[var(--color-muted)] sm:text-[13px]">
           {trialNote}
         </p>
       </div>

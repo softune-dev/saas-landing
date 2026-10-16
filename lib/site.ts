@@ -42,6 +42,12 @@ export const TRIAL_CTA_BN = "ফ্রি ট্রায়াল";
 export const TRIAL_NOTE = "7-day free trial · No credit card required";
 export const TRIAL_NOTE_BN = "৭ দিনের ফ্রি ট্রায়াল · কোনো ক্রেডিট কার্ড লাগবে না";
 
+/** Number of stores created and published on the platform. Taken from the
+ * database (140 published sites on 17 Oct 2026), so update it from a real
+ * count, not a round-up. */
+export const STORES_LAUNCHED_NOTE = "140+ stores launched on SoftuneBD";
+export const STORES_LAUNCHED_NOTE_BN = "১৪০+ স্টোর SoftuneBD-তে চালু হয়েছে";
+
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT =

@@ -22,6 +22,86 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.5",
+    version: "v2.5.0",
+    date: "Oct 17, 2026",
+    title: "Set up your whole store with AI, and a cleaner AI panel",
+    description:
+      "Answer a few questions and AI builds your homepage, images, categories and first product for you. The AI panel is simpler, and your free AI images now work in chat too.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Set up my store with AI: fill a short form (shop name, what you sell, two categories, your first product and price) and AI writes every section of your homepage - hero, categories, featured products, why choose us, features, banner and footer - then adds your categories and product, publishes, and gives you a link to open your live store. Watch each step finish live.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Your 5 free AI images now work in the AI panel's Image tab, not only during onboarding. Standard-quality images show as Free, with a counter of how many are left. The setup above uses them too, at no extra cost.",
+      },
+      {
+        type: "Feature",
+        content:
+          "After your store goes live, a new prompt offers to set it up with AI in one click, or skip it and do it yourself.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Cleaner AI panel: larger Chat and Image tabs, a simpler start screen with quick actions, and the unused model picker and microphone buttons removed.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "The Image tab now shows presets as large image tiles at their real proportions (wide banners, 3:4 About photos, square product shots), with new previews for Why choose us and About us, and refreshed product previews.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "A simpler gray loading card while an image is being generated, with the progress shown in a small pill.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "AI suggested prompts now appear in Bangla when your dashboard is in Bangla.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed AI image generation failing with a credits error for new stores that still had free images left.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Fixed the AI chat replying with a store overview to unrelated questions, and corrected its answers about trial and billing.",
+      },
+    ],
+  },
+  {
+    serial: "2.4",
+    version: "v2.4.0",
+    date: "Oct 9, 2026",
+    title: "Live setup preview, How it works, and clearer custom domains",
+    description:
+      "See your store take shape while you set it up, watch a quick walkthrough from inside the dashboard, and see exactly where a custom domain stands.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Live preview during setup: your store appears next to the form as you add your logo, images, categories and products, including a phone-sized view you can scroll.",
+      },
+      {
+        type: "Feature",
+        content:
+          "How it works: a short popup in the dashboard, in English and Bangla, that links to the video walkthrough.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "A custom domain you request now shows as waiting for DNS until it actually connects, instead of looking live straight away. Requests that never connect are cleared after 14 days.",
+      },
+    ],
+  },
+  {
     serial: "2.3",
     version: "v2.3.0",
     date: "Sep 22, 2026",
