@@ -22,6 +22,36 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.7",
+    version: "v2.7.0",
+    date: "Oct 31, 2026",
+    title: "Manage your store from ChatGPT (beta)",
+    description:
+      "Connect your store to ChatGPT and ask it to check sales, change your homepage, add products, or create an image and put it on your site. You approve the connection and every change can be undone.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "ChatGPT connector (beta): add SoftuneBD in ChatGPT, approve it on a SoftuneBD page, and ChatGPT can read your store and make changes you ask for.",
+      },
+      {
+        type: "Feature",
+        content:
+          "Images from ChatGPT: it can save an image it made to your media library and set it as your desktop hero, mobile hero, a category image or a product photo.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Every change made through ChatGPT is recorded and can be undone. It cannot delete data, issue refunds, change order status, or see billing or customer phone numbers.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "AI Images now plans each image like an art director before drawing it, so requests like \"make it nicer\" return a real redesign instead of a near copy.",
+      },
+    ],
+  },
+  {
     serial: "2.6",
     version: "v2.6.0",
     date: "Oct 30, 2026",

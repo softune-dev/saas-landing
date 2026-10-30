@@ -40,6 +40,7 @@ const linksEn: NavLink[] = [
           { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
           { label: "AI Image Generation", href: "/features/ai-image-generation", icon: "/icons/gemini.svg" },
+          { label: "ChatGPT Connector", href: "/features/chatgpt-connector", icon: "/icons/gemini.svg" },
         ],
       },
       {
@@ -98,6 +99,7 @@ const linksBn: NavLink[] = [
           { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
           { label: "AI ইমেজ জেনারেশন", href: "/bn/features/ai-image-generation", icon: "/icons/gemini.svg" },
+          { label: "ChatGPT কানেক্টর", href: "/bn/features/chatgpt-connector", icon: "/icons/gemini.svg" },
         ],
       },
       {

@@ -11,6 +11,7 @@ What Softunebd actually does:
 - Storefront themes and brand identity: pick a pre-built theme, then customize logo, colors, fonts, and sections in the Theme Editor with live desktop/tablet/mobile preview so the storefront is the merchant's brand, not a generic look. Publish under a custom domain.
 - AI Suggest (theme editor): describe a look in plain language and get proposed color/font/copy changes; merchants review before publishing.
 - AI Chatbot (Gemini): ask about products, orders, and sales in plain language; answers come from the merchant’s own Softunebd store data. Proposed catalog changes still need merchant confirmation.
+- ChatGPT connector (beta): a merchant adds Softunebd as a custom connector in ChatGPT (MCP server https://api.softunebd.com/mcp, OAuth sign-in), approves it on a Softunebd page, and ChatGPT can read the store and make changes the merchant asks for: colors, fonts, homepage text, products, categories, sale events, and hero or category images. Every change can be undone; it cannot delete data, issue refunds, change order status, or see billing or customer phone numbers. Details: https://www.softunebd.com/features/chatgpt-connector
 - AI product descriptions: generate a product description from a name and key facts, then edit before saving.
 - Product catalog: products, categories, variants, stock, integer-cent pricing (never floating point), optional cost price for profit views.
 - Orders: immutable order history with product snapshots at time of sale.

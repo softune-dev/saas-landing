@@ -949,6 +949,77 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Per Store", desc: "Every generation and saved image belongs to your own store's gallery.", icon: "/icons/domain.svg" },
     ],
   },
+  "chatgpt-connector": {
+    slug: "chatgpt-connector",
+    pillText: "ChatGPT Connector (Beta)",
+    titleStart: "Run Your Store",
+    titleHighlight: "From ChatGPT",
+    titleEnd: "",
+    description:
+      "Connect your SoftuneBD store to ChatGPT and just ask: check today's sales, add a product, change your homepage headline, or have ChatGPT make a hero image and put it on your site. You approve every change, and every change can be undone.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "What is this, in plain words?",
+    introDesc:
+      "ChatGPT can talk to other apps through a standard called MCP (Model Context Protocol). SoftuneBD runs an MCP server for your store: you sign in once from ChatGPT, approve what it may do, and from then on ChatGPT can read your store and make the changes you ask for. The thinking happens on your own ChatGPT plan, so SoftuneBD uses no AI credits for it.",
+    alternating: [
+      {
+        pillText: "How it works",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Connect Once,",
+        titleHighlight: "Then Just Ask",
+        titleEnd: "",
+        description:
+          "In ChatGPT, add SoftuneBD as a connector with the server address https://api.softunebd.com/mcp and choose OAuth. ChatGPT sends you to a SoftuneBD approval page showing your store and what it may do. Press Allow, and you are connected.",
+        bullets: [
+          "ChatGPT: Settings, Connectors, add a custom connector (needs a ChatGPT plan that supports custom connectors)",
+          "Server address: https://api.softunebd.com/mcp, sign-in method: OAuth",
+          "Approve on the SoftuneBD page: you see the store and the permissions first",
+          "Disconnect any time from your SoftuneBD dashboard",
+        ],
+      },
+      {
+        pillText: "What it can do",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "Read Your Store,",
+        titleHighlight: "Change It on Request",
+        titleEnd: "",
+        description:
+          "Ask about sales, orders, products and your store's setup, or ask ChatGPT to make changes: colors and fonts, homepage text, products, categories and sale events. Every change it makes is listed and can be undone.",
+        bullets: [
+          "Read: store overview, products, orders, sales summary, categories, sale events, settings",
+          "Change: store design, homepage text, add or edit products, add categories, create sale events",
+          "Undo: ask ChatGPT to revert any change it made",
+          "Limits per store keep a runaway chat from hammering your shop",
+        ],
+      },
+      {
+        pillText: "Images",
+        pillIcon: "/icons/save.svg",
+        titleStart: "Make an Image,",
+        titleHighlight: "Put It on Your Site",
+        titleEnd: "",
+        description:
+          "Ask ChatGPT to create a hero banner, a category picture or a product photo. It can save the image to your media library and set it as your desktop or mobile hero, a category image or a product photo. Ask for a clean background with no text, since your store lays its own headline and button on top.",
+        bullets: [
+          "Saved to your store's own media library, under your plan's storage limit",
+          "Set as the desktop hero, the mobile hero, a category image or a product photo",
+          "ChatGPT asks you to confirm before it replaces anything",
+          "Image generation uses your ChatGPT plan, not SoftuneBD credits",
+        ],
+      },
+    ],
+    extraTitle: "Built so you stay in control",
+    extraDesc:
+      "A connected AI should never be able to do more than you would let a new assistant do on day one. These limits are built into the connector itself.",
+    extraCards: [
+      { title: "You Approve", desc: "ChatGPT asks before it changes or replaces anything, and you approved the connection yourself.", icon: "/icons/lock.svg" },
+      { title: "Always Undoable", desc: "Every change is recorded and can be reverted, by asking ChatGPT or from your dashboard.", icon: "/icons/save.svg" },
+      { title: "No Deleting, No Money", desc: "It cannot delete anything, issue refunds, change order status, or see billing, customer phone numbers or fraud data.", icon: "/icons/lock.svg" },
+      { title: "One Store Only", desc: "A connection is tied to your store. It cannot see any other merchant's data.", icon: "/icons/domain.svg" },
+      { title: "Disconnect Anytime", desc: "Remove the connection from the SoftuneBD dashboard and access stops immediately.", icon: "/icons/zap.svg" },
+      { title: "Beta", desc: "We are rolling this out carefully. Tell us what you would like ChatGPT to do for your store next.", icon: "/icons/gemini.svg" },
+    ],
+  },
   "push-notifications": {
     slug: "push-notifications",
     pillText: "Push Notifications",
@@ -1964,6 +2035,77 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       { title: "প্রতি স্টোর আলাদা", desc: "প্রতিটি জেনারেশন ও সেভ করা ইমেজ আপনার নিজের স্টোরের গ্যালারির।", icon: "/icons/domain.svg" },
     ],
   },
+  "chatgpt-connector": {
+    slug: "chatgpt-connector",
+    pillText: "ChatGPT কানেক্টর (বিটা)",
+    titleStart: "আপনার স্টোর চালান",
+    titleHighlight: "ChatGPT থেকেই",
+    titleEnd: "",
+    description:
+      "SoftuneBD স্টোর ChatGPT-র সাথে যুক্ত করে শুধু বলুন: আজকের সেলস দেখাও, প্রোডাক্ট যোগ করো, হোমপেজের হেডলাইন বদলাও, বা হিরো ইমেজ বানিয়ে সাইটে বসিয়ে দাও। প্রতিটি পরিবর্তনে আপনার অনুমতি লাগে, আর যেকোনো পরিবর্তন আগের অবস্থায় ফেরানো যায়।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "সহজ ভাষায়, এটা কী?",
+    introDesc:
+      "ChatGPT অন্য অ্যাপের সাথে কথা বলতে পারে MCP (Model Context Protocol) নামের একটি স্ট্যান্ডার্ডের মাধ্যমে। SoftuneBD আপনার স্টোরের জন্য একটি MCP সার্ভার চালায়: আপনি একবার ChatGPT থেকে সাইন-ইন করে কী কী করতে দেবেন তা অনুমোদন করেন, তারপর ChatGPT আপনার স্টোর দেখতে ও আপনার বলা পরিবর্তনগুলো করতে পারে। চিন্তার কাজটা হয় আপনার নিজের ChatGPT প্ল্যানে, তাই এতে SoftuneBD-র কোনো AI ক্রেডিট খরচ হয় না।",
+    alternating: [
+      {
+        pillText: "কীভাবে কাজ করে",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "একবার যুক্ত করুন,",
+        titleHighlight: "তারপর শুধু বলুন",
+        titleEnd: "",
+        description:
+          "ChatGPT-তে SoftuneBD-কে কানেক্টর হিসেবে যোগ করুন, সার্ভার অ্যাড্রেস https://api.softunebd.com/mcp দিন এবং OAuth বেছে নিন। ChatGPT আপনাকে SoftuneBD-র অনুমোদন পেজে পাঠাবে, যেখানে আপনার স্টোর ও কী কী করতে পারবে তা দেখানো থাকে। Allow চাপলেই সংযোগ হয়ে যায়।",
+        bullets: [
+          "ChatGPT: Settings, Connectors, কাস্টম কানেক্টর যোগ করুন (কাস্টম কানেক্টর সাপোর্ট করে এমন ChatGPT প্ল্যান লাগবে)",
+          "সার্ভার অ্যাড্রেস: https://api.softunebd.com/mcp, সাইন-ইন পদ্ধতি: OAuth",
+          "SoftuneBD পেজে অনুমোদন দিন: আগে স্টোর ও অনুমতিগুলো দেখতে পাবেন",
+          "SoftuneBD ড্যাশবোর্ড থেকে যেকোনো সময় সংযোগ বিচ্ছিন্ন করুন",
+        ],
+      },
+      {
+        pillText: "কী কী করতে পারে",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "স্টোর দেখুক,",
+        titleHighlight: "বললে বদলাক",
+        titleEnd: "",
+        description:
+          "সেলস, অর্ডার, প্রোডাক্ট ও স্টোর সেটআপ নিয়ে জিজ্ঞেস করুন, অথবা ChatGPT-কে পরিবর্তন করতে বলুন: কালার ও ফন্ট, হোমপেজ লেখা, প্রোডাক্ট, ক্যাটাগরি ও সেল ইভেন্ট। ও যা যা বদলায় সবই তালিকায় থাকে এবং ফেরানো যায়।",
+        bullets: [
+          "দেখা: স্টোর ওভারভিউ, প্রোডাক্ট, অর্ডার, সেলস সামারি, ক্যাটাগরি, সেল ইভেন্ট, সেটিংস",
+          "বদলানো: স্টোর ডিজাইন, হোমপেজ লেখা, প্রোডাক্ট যোগ বা এডিট, ক্যাটাগরি যোগ, সেল ইভেন্ট তৈরি",
+          "আগের অবস্থায় ফেরানো: ChatGPT-কে বললেই যেকোনো পরিবর্তন ফিরিয়ে দেবে",
+          "প্রতি স্টোরে অনুরোধের সীমা আছে, তাই লুপে আটকে গিয়ে আপনার শপের ওপর চাপ পড়ে না",
+        ],
+      },
+      {
+        pillText: "ছবি",
+        pillIcon: "/icons/save.svg",
+        titleStart: "ছবি বানান,",
+        titleHighlight: "সাইটে বসান",
+        titleEnd: "",
+        description:
+          "ChatGPT-কে দিয়ে হিরো ব্যানার, ক্যাটাগরির ছবি বা প্রোডাক্ট ফটো বানান। ছবিটি আপনার মিডিয়া লাইব্রেরিতে সেভ করে ডেস্কটপ বা মোবাইল হিরো, ক্যাটাগরি ইমেজ বা প্রোডাক্ট ফটো হিসেবে বসিয়ে দিতে পারে। লেখা ছাড়া পরিষ্কার ব্যাকগ্রাউন্ড চাইবেন, কারণ হেডলাইন ও বাটন আপনার স্টোর নিজেই ওপরে বসায়।",
+        bullets: [
+          "আপনার স্টোরের নিজস্ব মিডিয়া লাইব্রেরিতে সেভ হয়, প্ল্যানের স্টোরেজ লিমিটের মধ্যে",
+          "ডেস্কটপ হিরো, মোবাইল হিরো, ক্যাটাগরি ইমেজ বা প্রোডাক্ট ফটো হিসেবে বসানো যায়",
+          "কিছু বদলানোর আগে ChatGPT আপনার কনফার্মেশন চায়",
+          "ছবি বানাতে আপনার ChatGPT প্ল্যান ব্যবহার হয়, SoftuneBD ক্রেডিট নয়",
+        ],
+      },
+    ],
+    extraTitle: "নিয়ন্ত্রণ সবসময় আপনার হাতে",
+    extraDesc:
+      "সংযুক্ত AI কখনোই এমন কিছু করতে পারা উচিত নয়, যা আপনি প্রথম দিনের নতুন সহকারীকে করতে দিতেন না। এই সীমাগুলো কানেক্টরের ভেতরেই বসানো আছে।",
+    extraCards: [
+      { title: "অনুমতি আপনার", desc: "কিছু বদলানোর আগে ChatGPT আপনার কাছে জানতে চায়, আর সংযোগটাও আপনি নিজে অনুমোদন করেছেন।", icon: "/icons/lock.svg" },
+      { title: "সবসময় ফেরানো যায়", desc: "প্রতিটি পরিবর্তন রেকর্ড থাকে এবং ChatGPT-কে বলে বা ড্যাশবোর্ড থেকে ফেরানো যায়।", icon: "/icons/save.svg" },
+      { title: "মোছা নয়, টাকা নয়", desc: "কিছু মুছতে, রিফান্ড করতে, অর্ডারের অবস্থা বদলাতে পারে না; বিলিং, কাস্টমারের ফোন নম্বর বা ফ্রড ডেটাও দেখতে পারে না।", icon: "/icons/lock.svg" },
+      { title: "শুধু আপনার স্টোর", desc: "সংযোগ আপনার স্টোরের সাথে বাঁধা। অন্য কোনো মার্চেন্টের ডেটা দেখা সম্ভব নয়।", icon: "/icons/domain.svg" },
+      { title: "যেকোনো সময় বিচ্ছিন্ন", desc: "SoftuneBD ড্যাশবোর্ড থেকে সংযোগ সরালেই অ্যাক্সেস সঙ্গে সঙ্গে বন্ধ।", icon: "/icons/zap.svg" },
+      { title: "বিটা", desc: "আমরা সাবধানে চালু করছি। পরের বার ChatGPT আপনার স্টোরের জন্য কী করুক, জানান।", icon: "/icons/gemini.svg" },
+    ],
+  },
   "push-notifications": {
     slug: "push-notifications",
     pillText: "পুশ নোটিফিকেশন",
@@ -2086,6 +2228,7 @@ export const FEATURES_LIST = [
   { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
   { slug: "customer-risk-score", title: "Risk Score", icon: "/icons/analytics.svg", desc: "0-100 risk score built from real order and fraud history" },
   { slug: "ai-image-generation", title: "AI Image Generation", icon: "/icons/gemini.svg", desc: "Gemini-powered product, marketing, and hero images" },
+  { slug: "chatgpt-connector", title: "ChatGPT Connector (Beta)", icon: "/icons/gemini.svg", desc: "Manage your store, and add AI images to your site, by asking ChatGPT" },
   { slug: "push-notifications", title: "Push Notifications", icon: "/icons/send.svg", desc: "Real OS-level alerts the moment an order comes in" },
   { slug: "abandoned-checkouts", title: "Abandoned Checkouts", icon: "/icons/cart.svg", desc: "Phone and cart captured the moment checkout starts" },
 ];

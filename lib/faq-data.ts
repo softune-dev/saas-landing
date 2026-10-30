@@ -77,6 +77,21 @@ export const faqData: FaqItem[] = [
     q: "How does SoftuneBD's AI help my business?",
     a: "SoftuneBD’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live, SoftuneBD does not auto-rewrite your store SEO without review.",
   },
+  {
+    category: "Integrations",
+    q: "Can I manage my SoftuneBD store from ChatGPT?",
+    a: "Yes, in beta. Add SoftuneBD as a custom connector in ChatGPT (server address https://api.softunebd.com/mcp, sign-in method OAuth), approve it on the SoftuneBD page, and ChatGPT can read your sales, orders and products and make changes you ask for: store colors and fonts, homepage text, products, categories, sale events, and hero or category images. You can undo every change.",
+  },
+  {
+    category: "Security",
+    q: "Is it safe to connect ChatGPT to my store?",
+    a: "The connection is limited on purpose. You approve it yourself and can disconnect it any time from the dashboard. It is tied to your store only, asks you to confirm before replacing anything, and cannot delete data, issue refunds, change order status, or see billing, customer phone numbers or fraud data. Every change is recorded and can be undone.",
+  },
+  {
+    category: "Integrations",
+    q: "Does the ChatGPT connector use my SoftuneBD AI credits?",
+    a: "No. ChatGPT does the thinking and any image generation on your own ChatGPT plan. SoftuneBD only runs the actions on your store, such as saving an image to your media library, which counts toward your plan's storage like any upload.",
+  },
 ];
 
 export const faqDataBn: FaqItem[] = [
@@ -144,6 +159,21 @@ export const faqDataBn: FaqItem[] = [
     category: "General",
     q: "SoftuneBD-এর AI কীভাবে সাহায্য করে?",
     a: "Gemini AI বট আপনার স্টোরের প্রোডাক্ট, অর্ডার ও সেলস রিলেটেড প্রশ্নের দ্রুত উত্তর দেয় এবং AI Assistant এক ক্লিকে আকর্ষক প্রোডাক্ট ডেসক্রিপশন ড্রাফট করে দেয়।",
+  },
+  {
+    category: "Integrations",
+    q: "ChatGPT থেকে কি আমার SoftuneBD স্টোর চালানো যায়?",
+    a: "হ্যাঁ, বিটা হিসেবে। ChatGPT-তে SoftuneBD-কে কাস্টম কানেক্টর হিসেবে যোগ করুন (সার্ভার অ্যাড্রেস https://api.softunebd.com/mcp, সাইন-ইন পদ্ধতি OAuth), SoftuneBD-র পেজে অনুমোদন দিন, তারপর ChatGPT আপনার সেলস, অর্ডার ও প্রোডাক্ট দেখতে এবং আপনার বলা পরিবর্তন করতে পারবে: স্টোরের কালার ও ফন্ট, হোমপেজ লেখা, প্রোডাক্ট, ক্যাটাগরি, সেল ইভেন্ট এবং হিরো বা ক্যাটাগরি ইমেজ। প্রতিটি পরিবর্তন আগের অবস্থায় ফেরানো যায়।",
+  },
+  {
+    category: "Security",
+    q: "ChatGPT-কে আমার স্টোরের সাথে যুক্ত করা কি নিরাপদ?",
+    a: "সংযোগটি ইচ্ছে করেই সীমিত রাখা হয়েছে। অনুমোদন আপনি নিজে দেন এবং ড্যাশবোর্ড থেকে যেকোনো সময় বিচ্ছিন্ন করতে পারেন। এটি শুধু আপনার স্টোরের সাথে বাঁধা, কিছু বদলানোর আগে আপনার কনফার্মেশন চায়, আর ডেটা মুছতে, রিফান্ড করতে, অর্ডারের অবস্থা বদলাতে বা বিলিং, কাস্টমারের ফোন নম্বর ও ফ্রড ডেটা দেখতে পারে না। প্রতিটি পরিবর্তন রেকর্ড থাকে এবং ফেরানো যায়।",
+  },
+  {
+    category: "Integrations",
+    q: "ChatGPT কানেক্টরে কি আমার SoftuneBD AI ক্রেডিট খরচ হয়?",
+    a: "না। চিন্তা ও ছবি বানানোর কাজ হয় আপনার নিজের ChatGPT প্ল্যানে। SoftuneBD শুধু আপনার স্টোরে কাজগুলো চালায়, যেমন ছবি মিডিয়া লাইব্রেরিতে সেভ করা, যা অন্য যেকোনো আপলোডের মতো আপনার প্ল্যানের স্টোরেজে ধরা হয়।",
   },
 ];
 
