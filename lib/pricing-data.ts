@@ -4,8 +4,8 @@
 export const plans = [
   {
     name: "Starter",
-    priceMonthly: 1190,
-    priceAnnually: 950,
+    priceMonthly: 499,
+    priceAnnually: 399,
     description: "Perfect for new stores and small businesses getting started.",
     features: [
       "50 Products limit",
@@ -20,8 +20,8 @@ export const plans = [
   },
   {
     name: "Growth",
-    priceMonthly: 2990,
-    priceAnnually: 2390,
+    priceMonthly: 1499,
+    priceAnnually: 1199,
     popular: true,
     description: "Everything you need to scale your growing e-commerce brand.",
     features: [
@@ -38,15 +38,15 @@ export const plans = [
   },
   {
     name: "Business",
-    priceMonthly: 6990,
-    priceAnnually: 5590,
+    priceMonthly: 3999,
+    priceAnnually: 3199,
     description: "Built for teams managing multiple client storefronts.",
     features: [
       "Everything in Growth, plus:",
       "Unlimited Products",
-      "3 Storefronts included",
-      "5GB Media storage",
-      "7,200 AI credits/mo (240/day)",
+      "2 Storefronts included",
+      "3GB Media storage",
+      "3,600 AI credits/mo (120/day)",
       "All Add-Ons & tools included",
       "Account Manager",
     ],
@@ -56,8 +56,8 @@ export const plans = [
 export const plansBn = [
   {
     name: "Starter",
-    priceMonthly: 1190,
-    priceAnnually: 950,
+    priceMonthly: 499,
+    priceAnnually: 399,
     description: "নতুন স্টোর ও স্মল বিজনেসের সহজ শুরুর জন্য উপযুক্ত।",
     features: [
       "৫০টি Product Limit",
@@ -72,8 +72,8 @@ export const plansBn = [
   },
   {
     name: "Growth",
-    priceMonthly: 2990,
-    priceAnnually: 2390,
+    priceMonthly: 1499,
+    priceAnnually: 1199,
     popular: true,
     description: "আপনার গ্রোয়িং ই-কমার্স ব্র্যান্ড স্কেল করার সব ফিচার।",
     features: [
@@ -90,15 +90,15 @@ export const plansBn = [
   },
   {
     name: "Business",
-    priceMonthly: 6990,
-    priceAnnually: 5590,
+    priceMonthly: 3999,
+    priceAnnually: 3199,
     description: "মাল্টিপল ক্লায়েন্ট স্টোর বা বড় বিজনেসের জন্য তৈরি।",
     features: [
       "Growth-এর সব ফিচার, সাথে:",
       "Unlimited Products",
-      "৩টি Storefront ইনক্লুডেড",
-      "5GB Media স্টোরেজ",
-      "মাসে 7,200টি AI ক্রেডিট (240/দিন)",
+      "২টি Storefront ইনক্লুডেড",
+      "3GB Media স্টোরেজ",
+      "মাসে 3,600টি AI ক্রেডিট (120/দিন)",
       "সব Add-Ons ও টুলস ইনক্লুডেড",
       "Dedicated Account Manager",
     ],

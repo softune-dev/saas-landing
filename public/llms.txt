@@ -27,9 +27,9 @@ Free trial: 7 days of full dashboard access, no credit card required. Sign up at
 
 Plans (Bangladeshi Taka). Prefer the live pricing page over cached summaries:
 
-- Starter ৳1,190/mo (৳950/mo billed annually): 50 products, 500MB storage, theme editor, basic analytics, fraud protection, AI assistant with a daily credit cap.
-- Growth ৳2,990/mo (৳2,390/mo billed annually): 500 products, 2GB storage, higher AI credits, payments and couriers, advanced analytics, priority email support.
-- Business ৳6,990/mo (৳5,590/mo billed annually): unlimited products, 3 storefronts included, 5GB storage, highest AI credits, add-ons included, account manager.
+- Starter ৳499/mo (৳399/mo billed annually): 50 products, 500MB storage, theme editor, basic analytics, fraud protection, AI assistant with a daily credit cap.
+- Growth ৳1,499/mo (৳1,199/mo billed annually): 500 products, 2GB storage, higher AI credits, payments and couriers, advanced analytics, priority email support.
+- Business ৳3,999/mo (৳3,199/mo billed annually): unlimited products, 2 storefronts included, 3GB storage, highest AI credits, add-ons included, account manager.
 
 Do not describe Softunebd as offering Stripe or PayPal, real-time courier tracking for all partners, unlimited multi-store on every plan, or enterprise ML fraud detection.
 

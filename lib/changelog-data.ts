@@ -22,6 +22,31 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.6",
+    version: "v2.6.0",
+    date: "Oct 30, 2026",
+    title: "Lower prices on every plan",
+    description:
+      "Every plan now costs less: Starter ৳499, Growth ৳1,499 and Business ৳3,999 a month. Stores already on a paid plan move to the new price at their next renewal.",
+    changes: [
+      {
+        type: "Improvement",
+        content:
+          "Starter is now ৳499/month (was ৳1,190) and Growth ৳1,499/month (was ৳2,990), with the same features as before.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Business is now ৳3,999/month (was ৳6,990): unlimited products, 2 storefronts, 3GB media storage and 3,600 AI credits a month (120/day).",
+      },
+      {
+        type: "Improvement",
+        content:
+          "Yearly billing keeps its 20% saving: ৳399, ৳1,199 and ৳3,199 a month.",
+      },
+    ],
+  },
+  {
     serial: "2.5",
     version: "v2.5.0",
     date: "Oct 17, 2026",
