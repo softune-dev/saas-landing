@@ -9,7 +9,10 @@ import { getPlans } from "@/lib/pricing-data";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 
 export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
-  const [isAnnual, setIsAnnual] = useState(true);
+  // Monthly first: the headline number everywhere (blog posts, ads, llms.txt,
+  // search-engine offers) is the real monthly price. Defaulting to Yearly
+  // showed the lower per-month-billed-yearly figure as if it were the price.
+  const [isAnnual, setIsAnnual] = useState(false);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
