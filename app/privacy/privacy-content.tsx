@@ -24,6 +24,10 @@ const privacySections = [
     content: "We never lease, sell, or rent your database records to marketing firms. We only forward essential logistics payload data to delivery providers (courier partners you connect) and other processors you explicitly enable, so orders can be fulfilled."
   },
   {
+    title: "ChatGPT Connection (Beta)",
+    content: "If you choose to connect your store to ChatGPT, you approve the connection yourself on a SoftuneBD page, and it is tied to your store only. While connected, ChatGPT can read your store's products, categories, sale events, store settings, sales totals and orders (customer name only), and can make the changes you ask for: store design, homepage text, products, categories, sale events and images. It cannot see customer phone numbers, fraud data, payment or billing details, and it cannot delete data, issue refunds or change order status. What ChatGPT reads is processed by OpenAI under your own agreement with OpenAI, not by SoftuneBD. On our side we store a record of the connection (kept as secure hashes, never your ChatGPT password), a history of the changes made through it so you can undo them, a log of requests for troubleshooting and abuse prevention, and any images you save, which are stored in your store's media library like any other upload. You can disconnect at any time from your SoftuneBD dashboard; access stops immediately, and the connection records can be deleted on request to support@softunebd.com."
+  },
+  {
     title: "Your Rights & Access Options",
     content: "Under GDPR, CCPA, and global data privacy acts, you retain full rights to request logs of your stored data, rectify catalog records, revoke tracking consent, or completely purge your store's database files. How to request data deletion: To delete your data, including your store data or any data from your interactions with Softune on Facebook or Messenger, email support@softunebd.com with the subject \"Data Deletion Request\" and include your store name or Facebook name. We will delete your data within 30 days and confirm by email."
   }

@@ -24,6 +24,10 @@ const termsList = [
     content: "All subscriptions, custom layout themes, and usage-based features are billed in advance. You agree to pay all charges incurred under your account at the rates in effect when such charges are incurred. Failure to maintain active billing details may result in account suspension."
   },
   {
+    title: "ChatGPT Connection (Beta)",
+    content: "You may connect your store to ChatGPT using the connector we provide. It is a beta feature, offered as-is, and we may change, limit or withdraw it at any time. Only a store owner or admin may connect it. You are responsible for what you ask ChatGPT to do and for reviewing the confirmations it shows before it changes or replaces anything; AI output can be wrong, so check the result on your live store. Changes made through the connector are recorded and can be undone, but we cannot guarantee that every change can be restored. You must have the rights to any image or text you add to your store this way, and images count toward your plan's storage. Your use of ChatGPT is governed by OpenAI's own terms, not these. We may rate-limit, suspend or remove a connection that looks abusive or unsafe, and you can disconnect at any time from your dashboard."
+  },
+  {
     title: "Intellectual Property Rights",
     content: "All software, trademarks, logos, user interfaces, branding, and dashboard layouts compiled within the SoftuneBD system are the exclusive property of SoftuneBD or its licensors and are protected by international intellectual property laws."
   },
