@@ -32,12 +32,12 @@ export const changelogData: ChangelogRelease[] = [
       {
         type: "Improvement",
         content:
-          "Starter is now ৳499/month (was ৳1,190) and Growth ৳1,499/month (was ৳2,990), with the same features as before.",
+          "Starter is now ৳499/month and Growth ৳1,499/month, with all the same features.",
       },
       {
         type: "Improvement",
         content:
-          "Business is now ৳3,999/month (was ৳6,990): unlimited products, 2 storefronts, 3GB media storage and 3,600 AI credits a month (120/day).",
+          "Business is now ৳3,999/month: unlimited products, 2 storefronts, 3GB media storage and 3,600 AI credits a month (120/day).",
       },
       {
         type: "Improvement",
