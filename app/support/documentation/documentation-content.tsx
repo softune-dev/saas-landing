@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { DarkHero } from "@/components/dark-hero";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
@@ -45,16 +46,14 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative overflow-hidden rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] bg-[var(--color-canvas)] pt-12 pb-14 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] px-5">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <DarkHero>
 
           {/* Hero Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -64,10 +63,10 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
               <img
                 src="/icons/book.svg"
                 alt="Docs"
-                className="size-3.5 object-contain dark:invert"
+                className="size-3.5 object-contain"
               />
             </div>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               SoftuneBD Docs
             </span>
           </motion.div>
@@ -76,7 +75,7 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-4xl font-black tracking-tight text-[var(--color-ink)] md:text-6xl"
+            className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-4xl font-black tracking-tight text-white md:text-6xl"
           >
             {isBn ? (
               <>
@@ -101,7 +100,7 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 mx-auto mb-8 max-w-2xl text-[16px] leading-relaxed font-medium text-[var(--color-muted)] md:text-lg"
+            className="relative z-10 mx-auto mb-8 max-w-2xl text-[16px] leading-relaxed font-medium text-white/60 md:text-lg"
           >
             {isBn
               ? "স্টোর কনফিগারেশন, থিম কাস্টমাইজেশন, পেমেন্ট ও কুরিয়ার কানেক্ট এবং ড্যাশবোর্ড ব্যবহারের নির্দেশিকা।"
@@ -115,18 +114,18 @@ export default function DocumentationPage({ locale = "en" }: { locale?: "en" | "
             transition={{ duration: 0.5, delay: 0.22 }}
             className="relative z-10 mx-auto max-w-lg"
           >
-            <div className="relative flex items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 shadow-sm transition-all hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15">
-              <Search className="ml-4 size-5 text-[var(--color-muted)]" />
+            <div className="relative flex items-center rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1 shadow-sm transition-all hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15">
+              <Search className="ml-4 size-5 text-white/60" />
               <input
                 type="text"
                 placeholder={isBn ? "আর্টিকেল বা গাইড খুঁজুন..." : "Search articles, APIs, guides..."}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full border-0 bg-transparent px-3 py-2 text-[15px] font-medium text-[var(--color-ink)] outline-none placeholder-[var(--color-muted-soft)]"
+                className="w-full border-0 bg-transparent px-3 py-2 text-[15px] font-medium text-white outline-none placeholder-[var(--color-muted-soft)]"
               />
             </div>
           </motion.div>
-        </div>
+        </DarkHero>
 
         {/* Categories Grid */}
         <section className="bg-[var(--color-canvas)] py-24">

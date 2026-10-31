@@ -1020,6 +1020,75 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "Beta", desc: "We are rolling this out carefully. Tell us what you would like ChatGPT to do for your store next.", icon: "/icons/gemini.svg" },
     ],
   },
+  "claude-connector": {
+    slug: "claude-connector",
+    pillText: "Claude Connect (Coming soon)",
+    titleStart: "Run Your Store",
+    titleHighlight: "From Claude",
+    titleEnd: "",
+    description:
+      "Soon you will be able to connect your SoftuneBD store to Claude and just ask: check today's sales, add a product, change your homepage headline, or put a new image on your site. You approve every change, and every change can be undone.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "Same idea as the ChatGPT connector, for Claude",
+    introDesc:
+      "Claude can talk to other apps through MCP (Model Context Protocol), the same standard our ChatGPT connector uses. We are finishing support for Claude's custom connectors, so you will sign in once, approve what Claude may do, and then manage your store by asking. The thinking happens on your own Claude plan, so SoftuneBD uses no AI credits for it. It is not available yet; it is on our list right after the ChatGPT beta.",
+    alternating: [
+      {
+        pillText: "How it will work",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Connect Once,",
+        titleHighlight: "Then Just Ask",
+        titleEnd: "",
+        description:
+          "In Claude, you will add SoftuneBD as a custom connector with our server address and choose OAuth. Claude sends you to a SoftuneBD approval page showing your store and what it may do. Press Allow, and you are connected.",
+        bullets: [
+          "Claude: Settings, Connectors, add a custom connector",
+          "Approve on the SoftuneBD page: you see the store and the permissions first",
+          "Disconnect any time from your SoftuneBD dashboard",
+          "Already live today: the ChatGPT connector, with the same safety rules",
+        ],
+      },
+      {
+        pillText: "What it will do",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "Read Your Store,",
+        titleHighlight: "Change It on Request",
+        titleEnd: "",
+        description:
+          "The same set of tools as the ChatGPT connector: ask about sales, orders, products and your store's setup, or ask Claude to change colors, fonts, homepage text, products, categories and sale events, and to place images on your store. Every change is listed and can be undone.",
+        bullets: [
+          "Read: store overview, products, orders, sales summary, categories, sale events, settings",
+          "Change: store design, homepage text, products, categories, sale events, images",
+          "Undo: ask Claude to revert any change it made",
+          "Limits per store keep a runaway chat from hammering your shop",
+        ],
+      },
+      {
+        pillText: "Safety",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Limited on Purpose,",
+        titleHighlight: "Always Undoable",
+        titleEnd: "",
+        description:
+          "A connected AI should never be able to do more than you would let a new assistant do on day one. The Claude connector will have exactly the same limits as the ChatGPT one.",
+        bullets: [
+          "It asks before it changes or replaces anything",
+          "No deleting, no refunds, no order status changes",
+          "No billing, customer phone numbers or fraud data",
+          "Tied to your store only; remove it any time",
+        ],
+      },
+    ],
+    extraTitle: "Want it sooner?",
+    extraDesc:
+      "Tell us you want Claude support and we will move it up. In the meantime, the ChatGPT connector is live in beta.",
+    extraCards: [
+      { title: "You Approve", desc: "Claude asks before it changes or replaces anything.", icon: "/icons/lock.svg" },
+      { title: "Always Undoable", desc: "Every change is recorded and can be reverted.", icon: "/icons/save.svg" },
+      { title: "One Store Only", desc: "A connection is tied to your store and nothing else.", icon: "/icons/domain.svg" },
+      { title: "ChatGPT Today", desc: "The ChatGPT connector is available now, in beta.", icon: "/icons/chatgpt-mark-dark.png" },
+    ],
+  },
   "push-notifications": {
     slug: "push-notifications",
     pillText: "Push Notifications",
@@ -2106,6 +2175,75 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       { title: "বিটা", desc: "আমরা সাবধানে চালু করছি। পরের বার ChatGPT আপনার স্টোরের জন্য কী করুক, জানান।", icon: "/icons/gemini.svg" },
     ],
   },
+  "claude-connector": {
+    slug: "claude-connector",
+    pillText: "Claude কানেক্ট (শীঘ্রই আসছে)",
+    titleStart: "আপনার স্টোর চালান",
+    titleHighlight: "Claude থেকেই",
+    titleEnd: "",
+    description:
+      "শীঘ্রই আপনি SoftuneBD স্টোর Claude-এর সাথে যুক্ত করে শুধু বলতে পারবেন: আজকের সেলস দেখাও, প্রোডাক্ট যোগ করো, হোমপেজের হেডলাইন বদলাও, বা সাইটে নতুন ছবি বসাও। প্রতিটি পরিবর্তনে আপনার অনুমতি লাগে, আর যেকোনো পরিবর্তন আগের অবস্থায় ফেরানো যায়।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "ChatGPT কানেক্টরের মতোই, Claude-এর জন্য",
+    introDesc:
+      "Claude অন্য অ্যাপের সাথে কথা বলতে পারে MCP (Model Context Protocol) দিয়ে, যে স্ট্যান্ডার্ড আমাদের ChatGPT কানেক্টরও ব্যবহার করে। আমরা Claude-এর কাস্টম কানেক্টর সাপোর্ট শেষ করছি: আপনি একবার সাইন-ইন করে অনুমতি দেবেন, তারপর শুধু বলেই স্টোর চালাবেন। চিন্তার কাজ হবে আপনার নিজের Claude প্ল্যানে, তাই SoftuneBD-র কোনো AI ক্রেডিট খরচ হবে না। এটি এখনো চালু হয়নি; ChatGPT বিটার পরেই এটি আমাদের তালিকায় আছে।",
+    alternating: [
+      {
+        pillText: "কীভাবে কাজ করবে",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "একবার যুক্ত করুন,",
+        titleHighlight: "তারপর শুধু বলুন",
+        titleEnd: "",
+        description:
+          "Claude-এ SoftuneBD-কে কাস্টম কানেক্টর হিসেবে যোগ করবেন আমাদের সার্ভার অ্যাড্রেস দিয়ে এবং OAuth বেছে নিয়ে। Claude আপনাকে SoftuneBD-র অনুমোদন পেজে পাঠাবে, যেখানে আপনার স্টোর ও কী কী করতে পারবে তা দেখানো থাকে। Allow চাপলেই সংযোগ হয়ে যাবে।",
+        bullets: [
+          "Claude: Settings, Connectors, কাস্টম কানেক্টর যোগ করুন",
+          "SoftuneBD পেজে অনুমোদন দিন: আগে স্টোর ও অনুমতিগুলো দেখতে পাবেন",
+          "SoftuneBD ড্যাশবোর্ড থেকে যেকোনো সময় সংযোগ বিচ্ছিন্ন করুন",
+          "আজই চালু আছে: ChatGPT কানেক্টর, একই নিরাপত্তা নিয়মে",
+        ],
+      },
+      {
+        pillText: "কী কী করতে পারবে",
+        pillIcon: "/icons/gemini.svg",
+        titleStart: "স্টোর দেখুক,",
+        titleHighlight: "বললে বদলাক",
+        titleEnd: "",
+        description:
+          "ChatGPT কানেক্টরের মতোই একই টুল: সেলস, অর্ডার, প্রোডাক্ট ও স্টোর সেটআপ নিয়ে জিজ্ঞেস করুন, অথবা Claude-কে কালার, ফন্ট, হোমপেজ লেখা, প্রোডাক্ট, ক্যাটাগরি ও সেল ইভেন্ট বদলাতে এবং ছবি বসাতে বলুন। সব পরিবর্তন তালিকায় থাকে এবং ফেরানো যায়।",
+        bullets: [
+          "দেখা: স্টোর ওভারভিউ, প্রোডাক্ট, অর্ডার, সেলস সামারি, ক্যাটাগরি, সেল ইভেন্ট, সেটিংস",
+          "বদলানো: স্টোর ডিজাইন, হোমপেজ লেখা, প্রোডাক্ট, ক্যাটাগরি, সেল ইভেন্ট, ছবি",
+          "আগের অবস্থায় ফেরানো: Claude-কে বললেই যেকোনো পরিবর্তন ফিরিয়ে দেবে",
+          "প্রতি স্টোরে অনুরোধের সীমা আছে, তাই লুপে আটকে গিয়ে আপনার শপের ওপর চাপ পড়ে না",
+        ],
+      },
+      {
+        pillText: "নিরাপত্তা",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "ইচ্ছে করেই সীমিত,",
+        titleHighlight: "সবসময় ফেরানো যায়",
+        titleEnd: "",
+        description:
+          "সংযুক্ত AI কখনোই এমন কিছু করতে পারা উচিত নয়, যা আপনি প্রথম দিনের নতুন সহকারীকে করতে দিতেন না। Claude কানেক্টরেও ChatGPT কানেক্টরের মতো হুবহু একই সীমা থাকবে।",
+        bullets: [
+          "কিছু বদলানোর আগে আপনার কনফার্মেশন চায়",
+          "মোছা, রিফান্ড বা অর্ডারের অবস্থা বদলানো নেই",
+          "বিলিং, কাস্টমারের ফোন নম্বর বা ফ্রড ডেটা নেই",
+          "শুধু আপনার স্টোরের সাথে বাঁধা; যেকোনো সময় সরানো যায়",
+        ],
+      },
+    ],
+    extraTitle: "আরও তাড়াতাড়ি চান?",
+    extraDesc:
+      "Claude সাপোর্ট চাইলে আমাদের জানান, আমরা এটিকে এগিয়ে আনব। ততক্ষণ ChatGPT কানেক্টর বিটায় চালু আছে।",
+    extraCards: [
+      { title: "অনুমতি আপনার", desc: "কিছু বদলানোর আগে Claude আপনার কাছে জানতে চায়।", icon: "/icons/lock.svg" },
+      { title: "সবসময় ফেরানো যায়", desc: "প্রতিটি পরিবর্তন রেকর্ড থাকে এবং ফেরানো যায়।", icon: "/icons/save.svg" },
+      { title: "শুধু আপনার স্টোর", desc: "সংযোগ আপনার স্টোরের সাথে বাঁধা, আর কিছুর সাথে নয়।", icon: "/icons/domain.svg" },
+      { title: "আজই ChatGPT", desc: "ChatGPT কানেক্টর এখনই চালু আছে, বিটায়।", icon: "/icons/chatgpt-mark-dark.png" },
+    ],
+  },
   "push-notifications": {
     slug: "push-notifications",
     pillText: "পুশ নোটিফিকেশন",
@@ -2229,6 +2367,7 @@ export const FEATURES_LIST = [
   { slug: "customer-risk-score", title: "Risk Score", icon: "/icons/analytics.svg", desc: "0-100 risk score built from real order and fraud history" },
   { slug: "ai-image-generation", title: "AI Image Generation", icon: "/icons/gemini.svg", desc: "Gemini-powered product, marketing, and hero images" },
   { slug: "chatgpt-connector", title: "ChatGPT Connector (Beta)", icon: "/icons/chatgpt-mark-dark.png", desc: "Manage your store, and add AI images to your site, by asking ChatGPT" },
+  { slug: "claude-connector", title: "Claude Connect (Coming soon)", icon: "/icons/claude-mark-dark.png", desc: "Manage your store by asking Claude, same safe rules as the ChatGPT connector" },
   { slug: "push-notifications", title: "Push Notifications", icon: "/icons/send.svg", desc: "Real OS-level alerts the moment an order comes in" },
   { slug: "abandoned-checkouts", title: "Abandoned Checkouts", icon: "/icons/cart.svg", desc: "Phone and cart captured the moment checkout starts" },
 ];

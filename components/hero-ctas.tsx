@@ -9,9 +9,12 @@ import { DemoAccessModal } from "./demo-access-modal";
 export function HeroCtas({
   locale = "en",
   className = "",
+  dark = false,
 }: {
   locale?: "en" | "bn";
   className?: string;
+  /** For use on a dark panel: the secondary button gets white text and a light outline. */
+  dark?: boolean;
 }) {
   const [demoOpen, setDemoOpen] = useState(false);
   const isBn = locale === "bn";
@@ -73,12 +76,12 @@ export function HeroCtas({
         type="button"
         variant="outline"
         onClick={() => setDemoOpen(true)}
-        className="flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[var(--color-brand)]/5 sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]"
+        className={["flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]", dark ? "!border-white/15 !bg-transparent !text-white hover:!bg-white/10" : "hover:bg-[var(--color-brand)]/5"].join(" ")}
       >
         <img
           src="/icons/play.svg"
           alt=""
-          className="size-3.5 object-contain md:size-4 dark:invert"
+          className={["size-3.5 object-contain md:size-4", dark ? "invert" : "dark:invert"].join(" ")}
         />
         {demoText}
       </Button>

@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import { ThemeCarousel } from "./theme-carousel";
 
 export function Themes({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
-  const themesHref = isBn ? "/bn/themes" : "/themes";
 
   return (
     <section id="themes" className="mx-auto max-w-[1400px] px-4 py-14 sm:px-5 md:px-8 md:py-20">
@@ -60,24 +58,6 @@ export function Themes({ locale = "en" }: { locale?: "en" | "bn" }) {
             ? "আপনার ক্যাটাগরি বেছে নিন এবং Theme Editor দিয়ে পছন্দমতো ডিজাইন করুন।"
             : "Pick a niche, then make it yours in the Theme Editor."}
         </p>
-
-        <div className="mt-6">
-          <Button
-            as="a"
-            href={themesHref}
-            variant="primary"
-            className="group flex min-h-12 items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-bold transition-all sm:px-8 sm:py-4"
-          >
-            {isBn ? "সব থিম দেখুন" : "View all themes"}
-            <img
-              loading="lazy"
-              decoding="async"
-              src="/icons/arrow-right.svg"
-              alt=""
-              className="size-4 object-contain brightness-0 invert transition-transform group-hover:translate-x-1"
-            />
-          </Button>
-        </div>
       </div>
 
       <div className="mt-10 md:mt-14">

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { DarkHero } from "@/components/dark-hero";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
@@ -60,25 +61,23 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <DarkHero>
 
           {/* Hero Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
                 className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
                 style={{ animationDuration: "2s" }}
               />
-              <img src="/icons/user.svg" alt="Users" className="size-3.5 object-contain dark:invert" />
+              <img src="/icons/user.svg" alt="Users" className="size-3.5 object-contain" />
             </div>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               {isBn ? "আমাদের গল্প" : "Our Journey"}
             </span>
           </motion.div>
@@ -87,7 +86,7 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
+            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-white mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
             {isBn ? (
@@ -113,13 +112,13 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
+            className="relative z-10 text-[16px] md:text-lg text-white/60 font-medium max-w-2xl mx-auto leading-relaxed"
           >
             {isBn
               ? "SoftuneBD হলো বাংলাদেশের স্বাধীন ব্র্যান্ডগুলোর জন্য তৈরি অল-ইন-ওয়ান SaaS প্ল্যাটফর্ম - যেখানে কাস্টম থিম, ইনভেন্টরি, কুরিয়ার ও POS এক জায়গায়।"
               : "SoftuneBD is an all-in-one SaaS platform enabling independent brands to synchronize inventory, customize themes, route couriers, and run POS terminals out of a unified admin panel."}
           </motion.p>
-        </div>
+        </DarkHero>
 
         {/* Prose Section */}
         <section className="pt-24 pb-20 px-5 md:px-8">

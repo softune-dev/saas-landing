@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import { DemoAccessModal } from "./demo-access-modal";
 
 // Loaded after first paint: the rays are decoration, never worth delaying the headline.
-const LightRays = dynamic(() => import("@/components/ui/light-rays").then((m) => m.LightRays), { ssr: false });
+const Grainient = dynamic(() => import("@/components/ui/grainient"), { ssr: false });
 
 type Locale = "en" | "bn";
 type Text = { en: string; bn: string };
@@ -57,6 +57,34 @@ const CARDS: Record<Slot, { src: string; alt: string }> = {
   ro: { src: "/themes/skincare-shop.webp", alt: "Skincare storefront theme" },
 };
 
+/** The 26 add-on icons in public/addon. Six of them are picked at random on every
+ * page load for the floating tiles beside the headline. */
+const ADDON_ICONS = [
+  "ai-ad", "badges", "chat", "compare", "discount", "e-marketing", "enquiry", "export", "forecast",
+  "frequently", "live", "loyalty", "notification", "recent", "referral", "reminder", "reply", "reviews",
+  "size", "sms", "spam", "staff", "stock-alart", "view", "whatsapp", "wholesaler",
+];
+
+/** Where each floating tile sits (% of the panel), its size in px (small and softly
+ * blurred, so they read as background depth and never compete with the text), and how far and how fast it drifts. */
+const FLOATERS: { x: string; y: string; size: number; drift: number; tilt: number; speed: number }[] = [
+  { x: "11%", y: "16%", size: 52, drift: 8, tilt: 1.5, speed: 7 },
+  { x: "22%", y: "45%", size: 44, drift: 6, tilt: 2, speed: 8.5 },
+  { x: "15%", y: "66%", size: 56, drift: 9, tilt: 1.2, speed: 9 },
+  { x: "83%", y: "17%", size: 44, drift: 7, tilt: 1.8, speed: 8 },
+  { x: "71%", y: "46%", size: 56, drift: 9, tilt: 1.3, speed: 9.5 },
+  { x: "79%", y: "68%", size: 48, drift: 6, tilt: 2, speed: 7.5 },
+];
+
+function pickRandom<T>(list: T[], n: number): T[] {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+}
+
 const WORD_MS = 90;
 const SEND_PAUSE_MS = 450;
 const HOLD_MS = 3600;
@@ -80,6 +108,15 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
   const [userText, setUserText] = useState("");
   const [visible, setVisible] = useState(true);
   const [demoOpen, setDemoOpen] = useState(false);
+  const [icons, setIcons] = useState<string[]>([]);
+  // A reference image the visitor can attach for the AI (kept in the browser only).
+  const [refImage, setRefImage] = useState<{ url: string; name: string } | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  // Chosen after mount: picking at random during render would differ between server and client.
+  useEffect(() => {
+    setIcons(pickRandom(ADDON_ICONS, FLOATERS.length));
+  }, []);
 
   const scenario = SCENARIOS[index];
   const words = scenario.prompt[locale].split(" ");
@@ -126,6 +163,23 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
     setSent(false);
   }
 
+  function onPickImage(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file || !file.type.startsWith("image/")) return;
+    setRefImage((prev) => {
+      if (prev) URL.revokeObjectURL(prev.url);
+      return { url: URL.createObjectURL(file), name: file.name };
+    });
+  }
+
+  function clearImage() {
+    setRefImage((prev) => {
+      if (prev) URL.revokeObjectURL(prev.url);
+      return null;
+    });
+  }
+
   function startTyping() {
     setUserMode(true);
     window.requestAnimationFrame(() => inputRef.current?.focus());
@@ -142,14 +196,50 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
       <div className="relative isolate overflow-hidden rounded-[1.75rem] bg-[#09080b] text-white sm:rounded-[2.5rem]">
         {/* Atmosphere: warm bloom at the horizon, a faint grid, a rising arc. */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-          <LightRays className="absolute inset-x-0 top-0 h-[85%] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" color="#ff6a3d" intensity={0.9} />
-          <div className="absolute inset-0 [background:radial-gradient(70%_55%_at_50%_100%,rgba(255,90,54,0.42),transparent_70%),radial-gradient(40%_30%_at_50%_0%,rgba(255,150,110,0.10),transparent_70%)]" />
+          <Grainient
+            colors={["#09080b", "#09080b", "#0f0909", "#22100a", "#6b2a12", "#c2511f"]}
+            angle={180}
+            flow={0.6}
+            silk={0.2}
+            grainAmount={0.06}
+            saturation={0.9}
+            interactive={false}
+            clickSwirl={false}
+            className="absolute inset-0"
+          />
+        </div>
+
+        {/* Floating add-on icons down both sides of the first screen (desktop only), six random ones
+            per page load; each drifts a few pixels on its own slow loop. */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 hidden h-[calc(100svh-6.5rem)] lg:block sm:h-[calc(100svh-7.75rem)]">
+          {icons.map((name, i) => {
+            const f = FLOATERS[i];
+            return (
+              // eslint-disable-next-line @next/next/no-img-element
+              <motion.img
+                key={name}
+                src={`/addon/${name}.webp`}
+                alt=""
+                draggable={false}
+                className="absolute rounded-md object-cover"
+                style={{ left: f.x, top: f.y, width: f.size, height: f.size, filter: "blur(1.6px)" }}
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={reduced ? { opacity: 0.8, scale: 1 } : { opacity: 0.8, scale: 1, y: [0, -f.drift, 0], rotate: [-f.tilt, f.tilt, -f.tilt] }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.2 + i * 0.12 },
+                  scale: { duration: 0.8, delay: 0.2 + i * 0.12 },
+                  y: { duration: f.speed, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 },
+                  rotate: { duration: f.speed * 1.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 },
+                }}
+              />
+            );
+          })}
         </div>
 
         {/* The first screen: everything down to the trial note fills the viewport
             (minus the header and the panel's margin), so the product visuals start
             right below the fold. */}
-        <div className="mx-auto flex min-h-[calc(100svh-6.5rem)] w-full max-w-6xl flex-col items-center justify-center px-4 py-10 text-center sm:min-h-[calc(100svh-7.75rem)] sm:px-6 md:py-12">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 pt-10 pb-2 text-center sm:px-6 sm:pt-12 md:min-h-[calc(100svh-7.75rem)] md:py-12">
           <Link
             href={changelogHref}
             className="group flex w-max max-w-full items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] p-1 pr-3 text-[12px] font-medium text-white/85 backdrop-blur transition-colors hover:border-white/25 md:text-[13px]"
@@ -166,11 +256,12 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
           </Link>
 
           <h1
-            style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
+            style={{ fontFamily: isBn ? "'Li Mayukh', var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
             className={[
-              "mt-7 max-w-4xl font-bold tracking-[-0.035em] text-balance text-white",
+              "mt-5 max-w-4xl sm:mt-6 text-balance text-white",
               "text-[2.3rem] sm:text-[3.2rem] md:text-[4.1rem] lg:text-[4.6rem]",
-              isBn ? "leading-[1.15]" : "leading-[0.98]",
+              // Li Mayukh only has one (already strong) weight, so Bangla stays normal to avoid a fake bold.
+              isBn ? "font-normal leading-[1.15] tracking-normal" : "font-bold leading-[0.98] tracking-[-0.035em]",
             ].join(" ")}
           >
             {isBn ? (
@@ -184,12 +275,26 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             )}
           </h1>
 
-          <p className="mt-5 max-w-md text-[14.5px] leading-relaxed text-white/60 md:text-base">
-            {isBn ? "আইডিয়া বলুন। AI স্টোর বানাবে, বদলাবে, ছবি বানাবে। ChatGPT থেকেও চালান।" : "Tell the AI your idea. It builds your store, edits it, makes your images, and runs from ChatGPT too."}
+          <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-white/60 md:text-base">
+            {isBn ? "আপনার আইডিয়া লিখুন, বাকিটা AI সামলে নেবে। স্টোর বানানো, ছবি তৈরি, এমনকি ChatGPT থেকেই স্টোর চালানো।" : "Tell the AI your idea. It builds your store, edits it, makes your images, and runs from ChatGPT too."}
           </p>
 
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[12.5px] text-white/55">
+            <span>{isBn ? "কাজ করে" : "Works with"}</span>
+            <Link href={isBn ? "/bn/features/chatgpt-connector" : "/features/chatgpt-connector"} className="flex items-center gap-1.5 rounded-full border border-white/12 px-2.5 py-1 font-medium text-white/80 transition-colors hover:border-white/30 hover:text-white">
+              <MaskIcon src="/icons/chatgpt-mark.png" className="size-3.5" />
+              ChatGPT
+              <span className="rounded-full bg-[var(--color-brand)]/20 px-1.5 py-px text-[10.5px] font-semibold text-[#ff9b82]">{isBn ? "বিটা" : "Beta"}</span>
+            </Link>
+            <Link href={isBn ? "/bn/features/claude-connector" : "/features/claude-connector"} className="flex items-center gap-1.5 rounded-full border border-white/12 px-2.5 py-1 font-medium text-white/80 transition-colors hover:border-white/30 hover:text-white">
+              <MaskIcon src="/icons/claude-mark.png" className="size-3.5 text-[#e08a68]" />
+              Claude
+              <span className="rounded-full bg-white/10 px-1.5 py-px text-[10.5px] font-semibold text-white/60">{isBn ? "শীঘ্রই" : "Soon"}</span>
+            </Link>
+          </div>
+
           {/* The prompt: the page's one focal object. */}
-          <div className="mt-9 w-full max-w-2xl rounded-[1.6rem] border border-white/12 bg-white/[0.06] p-2 text-left backdrop-blur-xl transition-colors duration-300 focus-within:border-[var(--color-brand)]/60">
+          <div className="mt-6 w-full max-w-2xl rounded-[1.6rem] sm:mt-8 border border-white/12 bg-white/[0.06] p-2 text-left backdrop-blur-xl transition-colors duration-300 focus-within:border-[var(--color-brand)]/60">
             <div className="min-h-[44px] px-3 pt-3 md:min-h-[58px] md:px-4">
               {userMode ? (
                 <textarea
@@ -227,13 +332,47 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                 type="button"
                 onClick={startTyping}
                 aria-label={isBn ? "নিজের মতো লিখুন" : "Write your own"}
-                className="relative flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white"
+                className="relative order-1 flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white"
               >
                 <span className="absolute h-[1.5px] w-3.5 rounded-full bg-current" />
                 <span className="absolute h-3.5 w-[1.5px] rounded-full bg-current" />
               </button>
 
-              <div role="tablist" aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"} className="no-scrollbar hidden min-w-0 flex-1 gap-1.5 overflow-x-auto py-2 sm:flex">
+              {/* Reference image for the AI. Beside the + on phones; just before Build from sm up. */}
+              <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickImage} />
+              {refImage ? (
+                <button
+                  type="button"
+                  onClick={clearImage}
+                  aria-label={isBn ? "রেফারেন্স ছবি সরান" : "Remove reference image"}
+                  title={refImage.name}
+                  className="group relative order-2 size-9 shrink-0 overflow-hidden rounded-full border border-[var(--color-brand)] sm:order-4"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={refImage.url} alt="" className="size-full object-cover" />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/55 text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <svg viewBox="0 0 12 12" className="size-3" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+                      <path d="m3 3 6 6M9 3 3 9" />
+                    </svg>
+                  </span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  aria-label={isBn ? "রেফারেন্স ছবি যোগ করুন" : "Add a reference image"}
+                  title={isBn ? "রেফারেন্স ছবি যোগ করুন" : "Add a reference image"}
+                  className="order-2 flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white sm:order-4"
+                >
+                  <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <rect x="3.5" y="4.5" width="17" height="15" rx="3" />
+                    <circle cx="9" cy="10" r="1.6" />
+                    <path d="m4.5 17.5 4.6-4.4a1.5 1.5 0 0 1 2 0l2.4 2.3 1.6-1.5a1.5 1.5 0 0 1 2 0l2.4 2.4" />
+                  </svg>
+                </button>
+              )}
+
+              <div role="tablist" aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"} className="no-scrollbar order-3 hidden min-w-0 flex-1 gap-1.5 overflow-x-auto py-2 sm:flex">
                 {SCENARIOS.map((s, i) => {
                   const on = i === index && !userMode;
                   return (
@@ -254,13 +393,13 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                   );
                 })}
               </div>
-              <div className="flex-1 sm:hidden" aria-hidden />
+              <div className="order-3 flex-1 sm:hidden" aria-hidden />
 
               <button
                 type="button"
                 onClick={go}
                 aria-label={isBn ? "AI দিয়ে বানান" : "Build with AI"}
-                className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3 text-[13px] font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
+                className="order-5 flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3 text-[13px] font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
               >
                 <MaskIcon src="/icons/ai.svg" className="size-3.5" />
                 <span className="hidden sm:inline">{isBn ? "বানান" : "Build"}</span>
@@ -268,7 +407,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-6">
             <a href={signupHref} className="flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-[14px] font-semibold text-[#09080b] transition-opacity hover:opacity-90">
               {isBn ? TRIAL_CTA_BN : TRIAL_CTA}
               <MaskIcon src="/icons/arrow-right.svg" className="size-3.5" />
@@ -278,13 +417,11 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
               {isBn ? "লাইভ ডেমো দেখুন" : "See Demo"}
             </button>
           </div>
-          <p className="mt-8 text-[12px] text-white/45">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
+          <p className="mt-5 text-[12px] text-white/45 sm:mt-8">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
         </div>
 
         {/* The product, floating in perspective and cut off by the panel's edge. */}
-        <div className="relative mx-auto mt-2 h-[290px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:h-[350px] md:h-[440px]">
-          {/* The horizon: an arc of orange light rising behind the cards. */}
-          <div aria-hidden className="pointer-events-none absolute top-[3rem] left-1/2 -z-0 aspect-square w-[150%] -translate-x-1/2 rounded-full border-t-2 border-[rgba(255,170,130,0.75)] bg-[radial-gradient(60%_30%_at_50%_0%,rgba(255,90,54,0.30),#09080b_75%)] shadow-[0_-24px_110px_0_rgba(255,90,54,0.55)] md:top-[4rem]" />
+        <div className="relative mx-auto mt-1 h-[290px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:h-[380px] md:mt-2 md:h-[440px]">
           <Card slot="lo" active={active === "lo"} reduced={!!reduced} />
           <Card slot="ro" active={active === "ro"} reduced={!!reduced} />
           <Card slot="li" active={active === "li"} reduced={!!reduced} />
@@ -299,7 +436,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
 }
 
 const SLOT_STYLE: Record<Slot, string> = {
-  c: "left-1/2 top-[0.5rem] z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[1.5rem] md:w-[56%]",
+  c: "left-1/2 top-0 z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[1.5rem] md:w-[56%]",
   li: "left-[8%] top-[4.5rem] z-10 hidden w-[24%] md:block",
   ri: "right-[8%] top-[4.5rem] z-10 hidden w-[24%] md:block",
   lo: "left-[-1%] top-[7rem] z-[5] hidden w-[19%] md:block",

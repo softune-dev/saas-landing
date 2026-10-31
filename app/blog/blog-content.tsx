@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { DarkHero } from "@/components/dark-hero";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Calendar, Clock, Newspaper } from "lucide-react";
@@ -17,23 +18,21 @@ export default function BlogPage({ locale = "en" }: { locale?: "en" | "bn" }) {
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <DarkHero>
 
           {/* Hero Pill */}
-          <div className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15" style={{ animationDuration: "2s" }} />
               <Newspaper className="size-3.5 text-[var(--color-brand)]" />
             </div>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               SoftuneBD Journal
             </span>
           </div>
 
           <h1
-            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
+            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-white mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
             {isBn ? (
@@ -55,12 +54,12 @@ export default function BlogPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             )}
           </h1>
 
-          <p className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="relative z-10 text-[16px] md:text-lg text-white/60 font-medium max-w-2xl mx-auto leading-relaxed">
             {isBn
               ? "বাংলাদেশের অনলাইন মার্চেন্টদের জন্য ব্যবহারিক গাইড, ই-কমার্স স্ট্র্যাটেজি ও গ্রোথ টিপস।"
               : "Practical guides, ecommerce strategies, product updates, and growth tactics for online store owners."}
           </p>
-        </div>
+        </DarkHero>
 
         {/* Featured Post */}
         <section className="py-12 max-w-7xl mx-auto px-5 md:px-8">

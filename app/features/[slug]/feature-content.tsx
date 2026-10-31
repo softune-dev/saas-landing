@@ -12,6 +12,10 @@ import { ArrowRight, Check } from "lucide-react";
 
 import { getFeaturePage, FEATURES_LIST } from "@/lib/features-data";
 import { HeroCtas } from "@/components/hero-ctas";
+import dynamic from "next/dynamic";
+
+// Decoration only: loaded after the page text, never delays it.
+const Grainient = dynamic(() => import("@/components/ui/grainient"), { ssr: false });
 
 const CheckIcon = () => (
   <svg
@@ -40,6 +44,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
   if (!feature) notFound();
   const isDark = !mounted || resolvedTheme === "dark";
   const heroImageSrc = feature.heroImage && (isDark ? feature.heroImage.dark : feature.heroImage.light);
+  // Set on features with no screenshot yet: they use the text-only layout and show no image box.
   const heroPlaceholderColor = feature.heroPlaceholderColor;
   const featurePrefix = isBn ? "/bn/features/" : "/features/";
 
@@ -65,15 +70,27 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <div className="px-2 pt-2 sm:px-3 sm:pt-3">
+        <div className="relative isolate overflow-hidden rounded-[1.75rem] bg-[#09080b] px-5 pt-12 pb-14 text-center text-white sm:rounded-[2.5rem] md:pt-16 md:pb-16">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+            <Grainient
+              colors={["#09080b", "#09080b", "#0f0909", "#22100a", "#6b2a12", "#c2511f"]}
+              angle={180}
+              flow={0.6}
+              silk={0.2}
+              grainAmount={0.06}
+              saturation={0.9}
+              interactive={false}
+              clickSwirl={false}
+              className="absolute inset-0"
+            />
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] p-1.5 pr-4 backdrop-blur"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -83,17 +100,17 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
               <img
                 src="/icons/zap.svg"
                 alt=""
-                className="size-3.5 object-contain dark:invert"
+                className="size-3.5 object-contain"
               />
             </div>
             <a
               href={isBn ? "/bn/features" : "/features"}
-              className="text-[14px] font-semibold tracking-tight text-[var(--color-muted)] transition-colors hover:text-[var(--color-brand)]"
+              className="text-[14px] font-semibold tracking-tight text-white/60 transition-colors hover:text-white"
             >
               {isBn ? "ফিচারসমূহ" : "Features"}
             </a>
-            <span className="font-bold text-[#D4D4D4]">/</span>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="font-bold text-white/30">/</span>
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               {feature.pillText}
             </span>
           </motion.div>
@@ -102,7 +119,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 text-4xl md:text-6xl font-bold tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
+            className="relative z-10 text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
           >
             {feature.titleStart}
@@ -119,7 +136,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed"
+            className="relative z-10 text-[16px] md:text-lg text-white/60 font-medium max-w-2xl mx-auto leading-relaxed"
           >
             {feature.description}
           </motion.p>
@@ -130,7 +147,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative z-10 mt-8 flex justify-center"
           >
-            <HeroCtas locale={locale} />
+            <HeroCtas locale={locale} dark />
           </motion.div>
 
           {heroImageSrc && (
@@ -138,7 +155,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.24 }}
-              className="relative z-10 mx-auto mt-10 w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-[24px] border border-[var(--color-line)] shadow-lg"
+              className="relative z-10 mx-auto mt-10 w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-[24px] border border-white/10 shadow-lg"
             >
               <img
                 src={heroImageSrc}
@@ -151,20 +168,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
               />
             </motion.div>
           )}
-
-          {!heroImageSrc && heroPlaceholderColor && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-              className="relative z-10 mx-auto mt-10 w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-[24px] border border-[var(--color-line)] shadow-lg flex items-center justify-center"
-              style={{ backgroundColor: heroPlaceholderColor }}
-            >
-              <span className="text-white/40 font-medium text-sm tracking-wide select-none">
-                Screenshot coming soon
-              </span>
-            </motion.div>
-          )}
+        </div>
         </div>
 
         {(heroImageSrc || heroPlaceholderColor) ? (

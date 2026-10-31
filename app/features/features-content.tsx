@@ -29,6 +29,7 @@ export default function FeaturesIndexPage({ locale = "en" }: { locale?: "en" | "
         { slug: "customer-risk-score", title: "কাস্টমার রিস্ক স্কোর", icon: "/icons/analytics.svg", desc: "আসল ডেলিভারি ও ফ্রড হিস্ট্রি থেকে ০-১০০ রিস্ক স্কোর" },
         { slug: "ai-image-generation", title: "AI ইমেজ জেনারেশন", icon: "/icons/gemini.svg", desc: "জেমিনি-চালিত প্রোডাক্ট, মার্কেটিং ও হিরো ইমেজ" },
         { slug: "chatgpt-connector", title: "ChatGPT কানেক্টর (বিটা)", icon: "/icons/chatgpt-mark-dark.png", desc: "ChatGPT-কে বলেই স্টোর চালান ও সাইটে AI ছবি বসান" },
+        { slug: "claude-connector", title: "Claude কানেক্ট (শীঘ্রই)", icon: "/icons/claude-mark-dark.png", desc: "Claude-কে বলেই স্টোর চালান, ChatGPT-র মতো একই নিরাপদ নিয়মে" },
         { slug: "push-notifications", title: "পুশ নোটিফিকেশন", icon: "/icons/send.svg", desc: "অর্ডার আসার সাথে সাথে আসল OS-লেভেল অ্যালার্ট" },
         { slug: "abandoned-checkouts", title: "অ্যাবানডন্ড চেকআউট", icon: "/icons/cart.svg", desc: "চেকআউট শুরুর মুহূর্তেই ফোন ও কার্ট ক্যাপচার" },
       ]

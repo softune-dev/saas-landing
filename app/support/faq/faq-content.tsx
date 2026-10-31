@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { DarkHero } from "@/components/dark-hero";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
@@ -84,25 +85,23 @@ export default function FAQPage({ locale = "en" }: { locale?: "en" | "bn" }) {
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-16 pb-20 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <DarkHero>
 
           {/* Hero Pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-6 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
                 className="absolute inset-0 animate-ping rounded-full bg-[var(--color-brand)]/15"
                 style={{ animationDuration: "2s" }}
               />
-              <img src="/icons/help-desk.svg" alt="FAQ" className="size-3.5 object-contain dark:invert" />
+              <img src="/icons/help-desk.svg" alt="FAQ" className="size-3.5 object-contain" />
             </div>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               {isBn ? "হেল্প সেন্টার" : "Help Center"}
             </span>
           </motion.div>
@@ -111,7 +110,7 @@ export default function FAQPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
+            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-white mb-6 flex justify-center items-center flex-wrap gap-x-2 gap-y-3"
             style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
           >
             {isBn ? (
@@ -137,7 +136,7 @@ export default function FAQPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-2xl mx-auto leading-relaxed mb-8"
+            className="relative z-10 text-[16px] md:text-lg text-white/60 font-medium max-w-2xl mx-auto leading-relaxed mb-8"
           >
             {isBn
               ? "স্টোর সেটআপ, বিলিং, শিপিং এবং পেমেন্ট সংক্রান্ত আপনার প্রশ্নগুলোর দ্রুত উত্তর পান।"
@@ -151,18 +150,18 @@ export default function FAQPage({ locale = "en" }: { locale?: "en" | "bn" }) {
             transition={{ duration: 0.5, delay: 0.22 }}
             className="relative z-10 max-w-lg mx-auto"
           >
-            <div className="relative flex items-center bg-[var(--color-surface)] rounded-full border border-[var(--color-line)] shadow-sm hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15 transition-all p-1">
-              <Search className="size-5 ml-4 text-[var(--color-muted)]" />
+            <div className="relative flex items-center bg-white/[0.06] backdrop-blur rounded-full border border-white/12 shadow-sm hover:border-[var(--color-brand)] focus-within:border-[var(--color-brand)] focus-within:ring-2 focus-within:ring-[var(--color-brand)]/15 transition-all p-1">
+              <Search className="size-5 ml-4 text-white/60" />
               <input
                 type="text"
                 placeholder={isBn ? "প্রশ্ন খুঁজুন..." : "Search FAQs..."}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none px-3 py-2 text-[15px] font-medium text-[var(--color-ink)] placeholder-[var(--color-muted-soft)]"
+                className="w-full bg-transparent border-0 outline-none px-3 py-2 text-[15px] font-medium text-white placeholder-[var(--color-muted-soft)]"
               />
             </div>
           </motion.div>
-        </div>
+        </DarkHero>
 
         {/* Content Section */}
         <section className="py-14 max-w-6xl mx-auto px-5 md:px-8">

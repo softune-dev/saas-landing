@@ -107,24 +107,6 @@ export const sectionsEn: FeatureSection[] = [
     showcase: "ai",
   },
   {
-    pillText: "AI Image Generation",
-    pillIcon: "/icons/ai.svg",
-    titleStart: "Create Photos & Graphics,",
-    titleHighlight: "In Seconds",
-    titleEnd: "",
-    description:
-      "Generate product photos and marketing graphics straight from the AI sidebar's Image mode using dozens of ready presets or your own text prompt.",
-    bullets: [
-      "Dedicated AI Image mode inside your SoftuneBD sidebar",
-      "Presets across Product, Events, Marketing, Category, Hero, and Bento styles",
-      "Choose with or without text per generation, so headlines render cleanly",
-      "Describe your own scene in plain text if no preset fits",
-      "Runs on a simple, flexible credit system",
-    ],
-    showcase: "ai-image",
-    placeholderColor: "#1e1b4b",
-  },
-  {
     pillText: "POS",
     pillIcon: "/icons/cart.svg",
     titleStart: "Sell In Person,",
@@ -230,24 +212,6 @@ export const sectionsBn: FeatureSection[] = [
       "SoftuneBD প্রোডাক্ট এডিটর থেকেই সরাসরি কাজ করে",
     ],
     showcase: "ai",
-  },
-  {
-    pillText: "AI ইমেজ জেনারেশন",
-    pillIcon: "/icons/ai.svg",
-    titleStart: "ছবি ও গ্রাফিক্স তৈরি করুন,",
-    titleHighlight: "কয়েক সেকেন্ডে",
-    titleEnd: "",
-    description:
-      "AI সাইডবারের Image mode ব্যবহার করে অনেক রেডিমেইড প্রিসেট অথবা নিজের প্রম্পট দিয়ে সরাসরি প্রোডাক্ট ফটো ও মার্কেটিং গ্রাফিক্স তৈরি করুন।",
-    bullets: [
-      "SoftuneBD সাইডবারে বিশেষায়িত AI Image mode সুবিধা",
-      "Product, Events, Marketing, Category, Hero ও Bento স্টাইল জুড়ে প্রিসেট",
-      "প্রতি জেনারেশনে টেক্সট সহ বা ছাড়া বেছে নিন, হেডলাইন পরিষ্কারভাবে রেন্ডার হয়",
-      "কোনো প্রিসেট না মিললে নিজের সিন টেক্সটে বর্ণনা করুন",
-      "সহজ ও ফ্লেক্সিবল ক্রেডিট সিস্টেমের মাধ্যমে চালিত",
-    ],
-    showcase: "ai-image",
-    placeholderColor: "#1e1b4b",
   },
   {
     pillText: "স্টোর সেল POS",

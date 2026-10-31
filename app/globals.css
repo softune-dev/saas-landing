@@ -231,3 +231,15 @@ h3,
 @media (prefers-reduced-motion: reduce) {
   .ai-shimmer { animation: none; -webkit-mask-image: none; mask-image: none; }
 }
+
+/* Li Mayukh, a free Bangla font from Lipighor (lipighor.com). Used for the Bangla hero title.
+ * Web use needs their permission (admin@lipighor.com) and a footer backlink: both are in the
+ * licence readme. Bengali range only, so Latin letters fall back to the heading font. */
+@font-face {
+  font-family: "Li Mayukh";
+  src: url("/fonts/LiMayukh-Unicode.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0980-09FF, U+0964-0965, U+200C-200D, U+25CC;
+}

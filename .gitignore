@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Li Mayukh (Lipighor) web font: license requires permission from admin@lipighor.com first.
+# Remove this line, then commit the file, once permission is granted.
+/public/fonts/LiMayukh-Unicode.ttf

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 /** Visual copy of dashboard/components/addons/addon-data.ts ADDON_CATALOG. */
 const ADDONS = [
@@ -34,6 +35,8 @@ const ADDONS = [
 
 export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
+  // On phones only the first six show until "view all" is tapped (as with the feature cards).
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <section
@@ -103,6 +106,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 transition={{ duration: 0.35, delay: Math.min(i * 0.02, 0.4) }}
                 className={[
                   "flex min-h-[7.5rem] flex-col items-center justify-center gap-2.5 bg-[var(--color-surface)] px-3 py-6 text-center border-b border-r border-[var(--color-line)] sm:min-h-[8.5rem] sm:gap-3 sm:px-4 sm:py-8 md:min-h-[9.5rem]",
+                  !showAll && i >= 6 ? "hidden md:flex" : "",
                   hideOnDesktop ? "lg:hidden" : "",
                 ].join(" ")}
               >
@@ -122,6 +126,17 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
             );
           })}
         </div>
+
+        {!showAll && (
+          <div className="mt-6 flex justify-center md:hidden">
+            <button
+              onClick={() => setShowAll(true)}
+              className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+            >
+              {isBn ? `সব ${ADDONS.length}টি অ্যাড-অন দেখুন` : `View all ${ADDONS.length} add-ons`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

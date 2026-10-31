@@ -15,6 +15,8 @@ type SubmenuItem = {
   label: string;
   href: string;
   icon?: string;
+  /** Small status tag after the label, e.g. Beta or Soon. */
+  badge?: string;
 };
 
 type SubmenuGroup = {
@@ -40,7 +42,8 @@ const linksEn: NavLink[] = [
           { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
           { label: "Image Gen 2.0", href: "/features/ai-image-generation", icon: "/icons/gemini.svg" },
-          { label: "GPT Connect", href: "/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png" },
+          { label: "GPT Connect", href: "/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png", badge: "Beta" },
+          { label: "Claude Connect", href: "/features/claude-connector", icon: "/icons/claude-mark-dark.png", badge: "Soon" },
         ],
       },
       {
@@ -99,7 +102,8 @@ const linksBn: NavLink[] = [
           { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
           { label: "ইমেজ জেন ২.০", href: "/bn/features/ai-image-generation", icon: "/icons/gemini.svg" },
-          { label: "GPT কানেক্ট", href: "/bn/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png" },
+          { label: "GPT কানেক্ট", href: "/bn/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png", badge: "বিটা" },
+          { label: "Claude কানেক্ট", href: "/bn/features/claude-connector", icon: "/icons/claude-mark-dark.png", badge: "শীঘ্রই" },
         ],
       },
       {
@@ -225,6 +229,9 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                                       </div>
                                     )}
                                     <span className="tracking-tight">{sub.label}</span>
+                                {sub.badge ? (
+                                  <span className="rounded-full bg-[var(--color-brand)]/10 px-1.5 py-px text-[10.5px] font-bold text-[var(--color-brand)]">{sub.badge}</span>
+                                ) : null}
                                   </a>
                                 ))}
                               </div>
@@ -247,6 +254,9 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                                   </div>
                                 )}
                                 <span className="tracking-tight">{sub.label}</span>
+                                {sub.badge ? (
+                                  <span className="rounded-full bg-[var(--color-brand)]/10 px-1.5 py-px text-[10.5px] font-bold text-[var(--color-brand)]">{sub.badge}</span>
+                                ) : null}
                               </a>
                             ))}
                       </motion.div>
@@ -389,6 +399,9 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                                               </div>
                                             )}
                                             <span className="tracking-tight">{sub.label}</span>
+                                {sub.badge ? (
+                                  <span className="rounded-full bg-[var(--color-brand)]/10 px-1.5 py-px text-[10.5px] font-bold text-[var(--color-brand)]">{sub.badge}</span>
+                                ) : null}
                                           </a>
                                         ))}
                                       </div>
@@ -412,6 +425,9 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
                                           </div>
                                         )}
                                         <span className="tracking-tight">{sub.label}</span>
+                                {sub.badge ? (
+                                  <span className="rounded-full bg-[var(--color-brand)]/10 px-1.5 py-px text-[10.5px] font-bold text-[var(--color-brand)]">{sub.badge}</span>
+                                ) : null}
                                       </a>
                                     ))}
                               </motion.div>
