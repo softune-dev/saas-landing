@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
 import dynamic from "next/dynamic";
@@ -16,16 +16,15 @@ type Text = { en: string; bn: string };
 /** lo/li = left outer/inner, ri/ro = right inner/outer, c = the dashboard. */
 type Slot = "lo" | "li" | "c" | "ri" | "ro";
 
-/** The four things the prompt box "does". Each lifts one product screenshot
- * and pops a result chip, so the visual below answers the prompt above. */
-const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot; chip: Text }[] = [
+/** The four things the prompt box "does". Each lights up one product
+ * screenshot, so the visual below answers the prompt above. */
+const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot }[] = [
   {
     id: "store",
     icon: "/icons/shop-bag.svg",
     tab: { en: "Build store", bn: "স্টোর বানান" },
     prompt: { en: "Build a fashion store called Veila", bn: "Veila নামে একটি ফ্যাশন স্টোর বানাও" },
     slot: "li",
-    chip: { en: "Veila store is ready", bn: "Veila স্টোর রেডি" },
   },
   {
     id: "agent",
@@ -33,7 +32,6 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     tab: { en: "AI agent", bn: "AI এজেন্ট" },
     prompt: { en: "Get my store ready for Eid", bn: "ঈদের জন্য আমার স্টোর সাজাও" },
     slot: "c",
-    chip: { en: "Eid headline and colours updated", bn: "ঈদের হেডলাইন ও রং আপডেট হয়েছে" },
   },
   {
     id: "image",
@@ -41,7 +39,6 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     tab: { en: "Image Gen 2.0", bn: "ইমেজ জেন ২.০" },
     prompt: { en: "Create a hero banner and photos", bn: "হিরো ব্যানার ও প্রোডাক্ট ছবি বানাও" },
     slot: "ri",
-    chip: { en: "New banner generated", bn: "নতুন ব্যানার তৈরি হয়েছে" },
   },
   {
     id: "chatgpt",
@@ -49,7 +46,6 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     tab: { en: "GPT Connect", bn: "GPT কানেক্ট" },
     prompt: { en: "How did my store do this week?", bn: "এই সপ্তাহে স্টোর কেমন চলল?" },
     slot: "c",
-    chip: { en: "৳48,600 this week, up 18%", bn: "এই সপ্তাহে ৳৪৮,৬০০, ১৮% বেশি" },
   },
 ];
 
@@ -68,8 +64,7 @@ const HOLD_MS = 3600;
 /**
  * Dark AI hero: a glowing horizon, a huge headline, one glass prompt box that
  * writes real example requests by itself, and the product's own screenshots
- * floating in 3D below it. Each prompt lights up the screenshot it relates to
- * and pops a result chip. Autoplay stops while a visitor types, while the hero
+ * floating in 3D below it. Each prompt lights up the screenshot it relates to. Autoplay stops while a visitor types, while the hero
  * is off screen, and for reduced motion.
  */
 export function Hero({ locale = "en" }: { locale?: Locale }) {
@@ -149,7 +144,6 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <LightRays className="absolute inset-x-0 top-0 h-[85%] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" color="#ff6a3d" intensity={0.9} />
           <div className="absolute inset-0 [background:radial-gradient(70%_55%_at_50%_100%,rgba(255,90,54,0.42),transparent_70%),radial-gradient(40%_30%_at_50%_0%,rgba(255,150,110,0.10),transparent_70%)]" />
-          <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]" />
         </div>
 
         {/* The first screen: everything down to the trial note fills the viewport
@@ -284,36 +278,19 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
               {isBn ? "লাইভ ডেমো দেখুন" : "See Demo"}
             </button>
           </div>
-          <p className="mt-4 text-[12px] text-white/45">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
+          <p className="mt-8 text-[12px] text-white/45">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
         </div>
 
         {/* The product, floating in perspective and cut off by the panel's edge. */}
-        <div className="relative mx-auto mt-8 h-[330px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:mt-10 sm:h-[390px] md:mt-16 md:h-[480px]">
+        <div className="relative mx-auto mt-2 h-[290px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:h-[350px] md:h-[440px]">
           {/* The horizon: an arc of orange light rising behind the cards. */}
-          <div aria-hidden className="pointer-events-none absolute top-[5.5rem] left-1/2 -z-0 aspect-square w-[150%] -translate-x-1/2 rounded-full border-t-2 border-[rgba(255,170,130,0.75)] bg-[radial-gradient(60%_30%_at_50%_0%,rgba(255,90,54,0.30),#09080b_75%)] shadow-[0_-24px_110px_0_rgba(255,90,54,0.55)] md:top-[7rem]" />
+          <div aria-hidden className="pointer-events-none absolute top-[3rem] left-1/2 -z-0 aspect-square w-[150%] -translate-x-1/2 rounded-full border-t-2 border-[rgba(255,170,130,0.75)] bg-[radial-gradient(60%_30%_at_50%_0%,rgba(255,90,54,0.30),#09080b_75%)] shadow-[0_-24px_110px_0_rgba(255,90,54,0.55)] md:top-[4rem]" />
           <Card slot="lo" active={active === "lo"} reduced={!!reduced} />
           <Card slot="ro" active={active === "ro"} reduced={!!reduced} />
           <Card slot="li" active={active === "li"} reduced={!!reduced} />
           <Card slot="ri" active={active === "ri"} reduced={!!reduced} />
           <Card slot="c" active={active === "c"} reduced={!!reduced} />
 
-          <AnimatePresence mode="wait">
-            {sent ? (
-              <motion.div
-                key={scenario.id + locale}
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-0 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2.5 rounded-full border border-white/15 bg-[#17141a]/85 py-2 pr-4 pl-2.5 text-[13px] font-medium whitespace-nowrap text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.8)] backdrop-blur-xl md:top-6 md:text-sm"
-              >
-                <span className="flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]">
-                  <MaskIcon src={scenario.icon} className="size-3.5 text-white" />
-                </span>
-                {scenario.chip[locale]}
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
         </div>
       </div>
       <DemoAccessModal open={demoOpen} onClose={() => setDemoOpen(false)} />
@@ -322,11 +299,11 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
 }
 
 const SLOT_STYLE: Record<Slot, string> = {
-  c: "left-1/2 top-[3rem] z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[4.5rem] md:w-[56%]",
-  li: "left-[8%] top-[6.5rem] z-10 hidden w-[24%] md:block",
-  ri: "right-[8%] top-[6.5rem] z-10 hidden w-[24%] md:block",
-  lo: "left-[-1%] top-[9.5rem] z-[5] hidden w-[19%] md:block",
-  ro: "right-[-1%] top-[9.5rem] z-[5] hidden w-[19%] md:block",
+  c: "left-1/2 top-[0.5rem] z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[1.5rem] md:w-[56%]",
+  li: "left-[8%] top-[4.5rem] z-10 hidden w-[24%] md:block",
+  ri: "right-[8%] top-[4.5rem] z-10 hidden w-[24%] md:block",
+  lo: "left-[-1%] top-[7rem] z-[5] hidden w-[19%] md:block",
+  ro: "right-[-1%] top-[7rem] z-[5] hidden w-[19%] md:block",
 };
 const SLOT_TILT: Record<Slot, { rotateX: number; rotateY: number; rotateZ: number }> = {
   c: { rotateX: 16, rotateY: 0, rotateZ: 0 },
