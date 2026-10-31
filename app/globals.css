@@ -214,3 +214,20 @@ h3,
 .animate-build-spark {
   animation: build-spark 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* "Working" text in the hero's AI sidebar: a soft band of light passes over the
+ * words (a moving mask, so the text colour itself never changes). */
+@keyframes ai-shimmer {
+  from { -webkit-mask-position: 150% 0; mask-position: 150% 0; }
+  to { -webkit-mask-position: -50% 0; mask-position: -50% 0; }
+}
+.ai-shimmer {
+  -webkit-mask-image: linear-gradient(100deg, #000 35%, rgba(0, 0, 0, 0.35) 50%, #000 65%);
+  mask-image: linear-gradient(100deg, #000 35%, rgba(0, 0, 0, 0.35) 50%, #000 65%);
+  -webkit-mask-size: 250% 100%;
+  mask-size: 250% 100%;
+  animation: ai-shimmer 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-shimmer { animation: none; -webkit-mask-image: none; mask-image: none; }
+}

@@ -2228,7 +2228,7 @@ export const FEATURES_LIST = [
   { slug: "fraud-protection", title: "Fraud Protection", icon: "/icons/lock.svg", desc: "Phone blocklist and COD rules" },
   { slug: "customer-risk-score", title: "Risk Score", icon: "/icons/analytics.svg", desc: "0-100 risk score built from real order and fraud history" },
   { slug: "ai-image-generation", title: "AI Image Generation", icon: "/icons/gemini.svg", desc: "Gemini-powered product, marketing, and hero images" },
-  { slug: "chatgpt-connector", title: "ChatGPT Connector (Beta)", icon: "/icons/gemini.svg", desc: "Manage your store, and add AI images to your site, by asking ChatGPT" },
+  { slug: "chatgpt-connector", title: "ChatGPT Connector (Beta)", icon: "/icons/chatgpt-mark-dark.png", desc: "Manage your store, and add AI images to your site, by asking ChatGPT" },
   { slug: "push-notifications", title: "Push Notifications", icon: "/icons/send.svg", desc: "Real OS-level alerts the moment an order comes in" },
   { slug: "abandoned-checkouts", title: "Abandoned Checkouts", icon: "/icons/cart.svg", desc: "Phone and cart captured the moment checkout starts" },
 ];

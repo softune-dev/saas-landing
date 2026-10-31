@@ -8,14 +8,13 @@ import { MaskIcon } from "@/components/ui/mask-icon";
 import { HeroCtas } from "./hero-ctas";
 import { BuildStage } from "./hero-ai/build-stage";
 import { PromptText } from "./hero-ai/prompt-text";
-import { SelectionFrame } from "./hero-ai/selection-frame";
 import { SCENARIOS } from "./hero-ai/scenarios";
 
 // Timings, in ms. One scenario runs ~8-10 s: write, send, work the steps, hold.
 const WORD_MS = 95;
 const SEND_PAUSE_MS = 500;
-const STEP_MS = 1000;
-const LONG_STEP_MS = 2200; // the image generation step, which should feel like work
+const STEP_MS = 1700; // the AI cursor needs ~1 s to travel, then a beat of work
+const LONG_STEP_MS = 2600; // image steps, which should feel like generating
 const HOLD_MS = 3200;
 
 type Phase = "typing" | "working" | "hold";
@@ -41,6 +40,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
   const [userMode, setUserMode] = useState(false);
   const [userText, setUserText] = useState("");
   const [visible, setVisible] = useState(true);
+  const [hasRun, setHasRun] = useState(false);
 
   const scenario = SCENARIOS[index];
   const words = scenario.prompt[locale].split(" ");
@@ -74,12 +74,13 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
           ? window.setTimeout(() => setShown((n) => n + 1), WORD_MS)
           : window.setTimeout(() => {
               setDone(0);
+              setHasRun(true);
               setPhase("working");
             }, SEND_PAUSE_MS);
     } else if (phase === "working") {
       if (done < scenario.steps.length) {
-        const long = scenario.id === "image" && done === 1;
-        id = window.setTimeout(() => setDone((d) => d + 1), long ? LONG_STEP_MS : STEP_MS);
+        const generating = scenario.id === "image";
+        id = window.setTimeout(() => setDone((d) => d + 1), generating ? LONG_STEP_MS : STEP_MS);
       } else {
         setPhase("hold");
       }
@@ -89,6 +90,12 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
     return () => window.clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduced, running, phase, shown, done, index]);
+
+  // While the next prompt types, the window keeps showing the last finished
+  // result instead of an empty canvas. The first load shows a finished store.
+  const typingNow = phase === "typing";
+  const stageIndex = typingNow ? (hasRun ? (index - 1 + SCENARIOS.length) % SCENARIOS.length : index) : index;
+  const stageScenario = SCENARIOS[stageIndex];
 
   function goTo(next: number) {
     setIndex(next);
@@ -120,10 +127,6 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
       className="relative flex flex-col overflow-hidden rounded-b-[2rem] border-[4px] border-t-0 border-[var(--color-surface)] bg-[var(--color-canvas)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] sm:rounded-b-[3rem] md:rounded-b-[4rem] md:border-[6px] md:border-t-0"
     >
       <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_50%_22%,transparent_0%,black_62%)]" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-[14%] left-1/2 h-[380px] w-[860px] max-w-[140vw] -translate-x-1/2 rounded-full bg-[var(--color-brand)] opacity-[0.09] blur-[120px] dark:opacity-[0.13]"
-      />
 
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 pt-12 text-center sm:px-5 sm:pt-14 md:px-8 md:pt-16">
         <Link
@@ -131,7 +134,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
           className="mb-7 flex w-max max-w-full items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 pr-3 text-[12px] font-semibold text-[var(--color-ink)] shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-colors hover:border-[var(--color-brand)]/40 md:text-[13px]"
         >
           <motion.span
-            className="rounded-full bg-[var(--color-brand)] px-2 py-0.5 text-[11px] font-bold text-white shadow-[0_4px_12px_-4px_rgba(255,90,54,0.8)]"
+            className="rounded-full bg-[var(--color-brand)] px-2 py-0.5 text-[11px] font-bold text-white "
             animate={reduced ? undefined : { opacity: [1, 0.55, 1], scale: [1, 0.97, 1] }}
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -151,14 +154,9 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
           ].join(" ")}
         >
           <span className="flex flex-wrap items-center justify-center gap-x-[0.28em] gap-y-[0.18em]">
-            <span className="relative inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white shadow-[0_10px_26px_-8px_rgba(255,90,54,0.65)]">
-              AI
-            </span>
+            <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">AI</span>
             <span>{isBn ? "ই-কমার্স" : "Ecommerce"}</span>
-            <span className="relative inline-block px-[0.14em] py-[0.04em]">
-              <SelectionFrame label="your-brand.com" className="inset-0" tagClassName="hidden sm:block" />
-              {isBn ? "ওয়েবসাইট" : "Website"}
-            </span>
+            <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">{isBn ? "ওয়েবসাইট" : "Website"}</span>
             <span>{isBn ? "বিল্ডার" : "Builder"}</span>
           </span>
           <span className="mt-[0.18em] block">{isBn ? "বাংলাদেশের জন্য" : "for Bangladesh"}</span>
@@ -171,7 +169,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
         </p>
 
         {/* The prompt composer */}
-        <div className="group mt-8 w-full max-w-3xl rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-2 text-left shadow-[0_24px_60px_-26px_rgba(15,15,15,0.35)] transition-[border-color,box-shadow] duration-300 focus-within:border-[var(--color-brand)]/50 focus-within:shadow-[0_24px_70px_-22px_rgba(255,90,54,0.4)] md:mt-9">
+        <div className="group mt-8 w-full max-w-3xl rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-2 text-left transition-colors duration-300 focus-within:border-[var(--color-brand)]/50 md:mt-9">
           <div className="min-h-[64px] px-3 pt-2.5 md:min-h-[70px] md:px-3.5">
             {userMode ? (
               <textarea
@@ -199,7 +197,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
                 className="block w-full cursor-text text-left"
                 aria-label={isBn ? "নিজের মতো লিখুন" : "Type your own"}
               >
-                <PromptText id={`${scenario.id}-${locale}`} words={words} shown={shown} sent={sent} />
+                <PromptText id={`${scenario.id}-${locale}`} words={words} shown={shown} />
               </button>
             )}
           </div>
@@ -232,16 +230,11 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
                     className={[
                       "flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12.5px] font-semibold transition-[background-color,color,box-shadow,border-color] duration-300 ease-out",
                       active
-                        ? "border-[var(--color-brand)] bg-[var(--color-brand)] text-white shadow-[0_8px_20px_-6px_rgba(255,90,54,0.7)]"
+                        ? "border-[var(--color-brand)] bg-[var(--color-brand)] text-white"
                         : "border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-brand)]/40 hover:text-[var(--color-ink)]",
                     ].join(" ")}
                   >
-                    {s.icon.endsWith(".svg") ? (
-                      <MaskIcon src={s.icon} className="size-3.5" />
-                    ) : (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={s.icon} alt="" className="size-3.5 rounded-[3px]" />
-                    )}
+                    <MaskIcon src={s.icon} className="size-3.5" />
                     {s.tab[locale]}
                   </button>
                 );
@@ -252,7 +245,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
               type="button"
               onClick={go}
               aria-label={isBn ? "AI দিয়ে বানান" : "Build with AI"}
-              className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3 text-[13px] font-semibold text-white shadow-[0_8px_20px_-6px_rgba(255,90,54,0.7)] transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
+              className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3 text-[13px] font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
             >
               <MaskIcon src="/icons/ai.svg" className="size-3.5" />
               <span className="hidden sm:inline">{isBn ? "বানান" : "Build"}</span>
@@ -265,7 +258,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-3 pt-10 pb-10 sm:px-5 md:px-6 md:pt-14 md:pb-16">
-        <BuildStage scenario={scenario} sent={sent} done={done} locale={locale} />
+        <BuildStage scenario={stageScenario} sent={typingNow ? true : sent} done={typingNow ? stageScenario.steps.length : done} locale={locale} />
       </div>
     </section>
   );
