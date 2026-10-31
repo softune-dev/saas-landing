@@ -5,7 +5,11 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
+import dynamic from "next/dynamic";
 import { DemoAccessModal } from "./demo-access-modal";
+
+// Loaded after first paint: the rays are decoration, never worth delaying the headline.
+const LightRays = dynamic(() => import("@/components/ui/light-rays").then((m) => m.LightRays), { ssr: false });
 
 type Locale = "en" | "bn";
 type Text = { en: string; bn: string };
@@ -143,6 +147,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
       <div className="relative isolate overflow-hidden rounded-[1.75rem] bg-[#09080b] text-white sm:rounded-[2.5rem]">
         {/* Atmosphere: warm bloom at the horizon, a faint grid, a rising arc. */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <LightRays className="absolute inset-x-0 top-0 h-[85%] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" color="#ff6a3d" intensity={0.9} />
           <div className="absolute inset-0 [background:radial-gradient(70%_55%_at_50%_100%,rgba(255,90,54,0.42),transparent_70%),radial-gradient(40%_30%_at_50%_0%,rgba(255,150,110,0.10),transparent_70%)]" />
           <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]" />
         </div>
