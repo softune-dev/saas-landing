@@ -7,52 +7,10 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { team } from "@/lib/team-data";
-
-const timelineEn = [
-  {
-    year: "2024",
-    title: "The Idea",
-    desc: "SoftuneBD started with one idea that did not change: one dashboard, a real storefront, and no code. Bangladesh shop owners should not need a developer or a stack of plugins to sell online.",
-    icon: "/icons/play.svg",
-  },
-  {
-    year: "2025",
-    title: "Building the Foundation",
-    desc: "The fundamentals were locked in first: tenant-isolated data, a real theme editor, and the storefront contract everything else is built on top of.",
-    icon: "/icons/splash.svg",
-  },
-  {
-    year: "2026",
-    title: "Built & Live",
-    desc: "The dashboard, storefront themes, AI tooling, local payments (bKash, Nagad, SSLCommerz), courier connections, Store Sale POS, and analytics were built out and the platform went live.",
-    icon: "/icons/analytics.svg",
-  },
-];
-
-const timelineBn = [
-  {
-    year: "2024",
-    title: "মূল আইডিয়া",
-    desc: "SoftuneBD-এর সূচনা এক স্পস্ট ধারণা থেকে: এক ড্যাশবোর্ড, রিয়েল স্টোরফ্রন্ট এবং কোনো কোডিং নয়। বাংলাদেশের মার্চেন্টদের অনলাইন বিক্রির জন্য আলাদা ডেভলপার বা গাদা গাদা প্লাগইনের প্রয়োজন থাকবে না।",
-    icon: "/icons/play.svg",
-  },
-  {
-    year: "2025",
-    title: "ফাউন্ডেশন তৈরি",
-    desc: "আইসোলেটেড মার্চেন্ট ডেটা আর্কিটেকচার, লাইভ থিম এডিটর এবং শক্তিশালী স্টোরফ্রন্ট ইন্টিগ্রেশন সম্পন্ন করা হয়।",
-    icon: "/icons/splash.svg",
-  },
-  {
-    year: "2026",
-    title: "লাইভ লঞ্চ",
-    desc: "ড্যাশবোর্ড, স্টোরফ্রন্ট থিমসমূহ, Gemini AI টুলস, লোকাল পেমেন্ট (bKash, Nagad, SSLCommerz), কুরিয়ার কানেক্ট, POS এবং রিয়েল-টাইম Analytics সম্পন্ন করে প্ল্যাটফর্ম লাইভ হয়।",
-    icon: "/icons/analytics.svg",
-  },
-];
+import { EnuvorAbout, EnuvorTimeline, EnuvorValuesAndStudio } from "./enuvor-sections";
 
 export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
-  const timeline = isBn ? timelineBn : timelineEn;
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const contactHref = isBn ? "/bn/support/contact" : "/support/contact";
 
@@ -120,6 +78,9 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
           </motion.p>
         </DarkHero>
 
+        {/* The parent company: logo, story and numbers */}
+        <EnuvorAbout locale={locale} />
+
         {/* Prose Section */}
         <section className="pt-24 pb-20 px-5 md:px-8">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-x-16 gap-y-14 text-left md:grid-cols-2">
@@ -181,61 +142,11 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
           </div>
         </section>
 
-        {/* Milestone Timeline */}
-        <section className="py-24 border-y border-[var(--color-line)] bg-[var(--color-canvas)]/40 relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_80%)] opacity-5" />
+        {/* ENUVOR's company timeline */}
+        <EnuvorTimeline locale={locale} />
 
-          <div className="max-w-4xl mx-auto px-5 md:px-8">
-            <div className="text-center mb-16">
-              <h2
-                className="text-3xl font-extrabold tracking-tight text-[var(--color-ink)] md:text-5xl"
-                style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
-              >
-                {isBn ? "আমাদের " : "Our "}
-                <span className="relative inline-block px-3 py-0.5 mx-1">
-                  <span className="absolute inset-0 -rotate-1 rounded-lg bg-[var(--color-brand)]" />
-                  <em className="relative not-italic text-white">
-                    {isBn ? "টাইমলাইন" : "Timeline"}
-                  </em>
-                </span>
-              </h2>
-            </div>
-
-            <div className="max-w-2xl mx-auto">
-              <div className="relative border-l border-[var(--color-line)] ml-3 md:ml-4 pl-8 md:pl-10 space-y-12 py-4">
-                {timeline.map((step, idx) => (
-                  <motion.div
-                    key={step.year}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: idx * 0.1 }}
-                    className="relative text-left group"
-                  >
-                    <div className="absolute -left-[48px] md:-left-[60px] top-1 flex size-8 md:size-10 items-center justify-center rounded-full bg-[var(--color-brand)] text-white ring-8 ring-[var(--color-canvas)] transition-transform group-hover:scale-110 shadow-sm">
-                      <img
-                        src={step.icon}
-                        alt=""
-                        className="size-4 md:size-5 object-contain brightness-0 invert"
-                      />
-                    </div>
-                    <div>
-                      <span className="text-[12px] font-black text-[var(--color-brand)] bg-[var(--color-brand)]/10 px-3 py-1 rounded-full uppercase tracking-wider">
-                        {step.year}
-                      </span>
-                      <h3 className="mt-4 text-xl md:text-2xl font-bold text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)]">
-                        {step.title}
-                      </h3>
-                      <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-muted)] font-medium max-w-2xl">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* How ENUVOR works, and the studio */}
+        <EnuvorValuesAndStudio locale={locale} />
 
         {/* Team Grid */}
         <section className="pt-24 pb-12 max-w-7xl mx-auto px-5 md:px-8">
