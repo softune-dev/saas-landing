@@ -269,11 +269,11 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
           >
             {isBn ? (
               <>
-                <span className="text-[var(--color-brand)]">AI</span> ই-কমার্স ওয়েবসাইট বিল্ডার বাংলাদেশের জন্য
+                <span className="text-[var(--color-brand)]">AI</span> ই-কমার্স ওয়েবসাইট বিল্ডার <span className="aurora-text">বাংলাদেশের</span> জন্য
               </>
             ) : (
               <>
-                <span className="text-[var(--color-brand)]">AI</span> Ecommerce Website Builder for Bangladesh
+                <span className="text-[var(--color-brand)]">AI</span> Ecommerce Website Builder for <span className="aurora-text">Bangladesh</span>
               </>
             )}
           </h1>
