@@ -32,6 +32,19 @@ export type Scenario = {
   history: { user: Text; ai: Text };
 };
 
+/** Older turns shown above every scenario's own, so the chat sidebar is full
+ * from the first frame (they fade out at the top, like a scrolled chat). */
+export const EARLIER_CHAT: { user: Text; ai: Text }[] = [
+  {
+    user: { en: "Set up bKash and Nagad payments.", bn: "bKash ও Nagad পেমেন্ট চালু করো।" },
+    ai: { en: "Done. bKash, Nagad and cash on delivery are on.", bn: "হয়ে গেছে। bKash, Nagad ও ক্যাশ অন ডেলিভারি চালু।" },
+  },
+  {
+    user: { en: "Add Pathao and Steadfast couriers.", bn: "Pathao ও Steadfast কুরিয়ার যোগ করো।" },
+    ai: { en: "Both couriers are connected to your orders.", bn: "দুটি কুরিয়ারই আপনার অর্ডারের সাথে যুক্ত।" },
+  },
+];
+
 export const SCENARIOS: Scenario[] = [
   {
     id: "store",

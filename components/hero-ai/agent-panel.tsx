@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { MaskIcon } from "@/components/ui/mask-icon";
-import type { Scenario } from "./scenarios";
+import { EARLIER_CHAT, type Scenario } from "./scenarios";
 
 type Locale = "en" | "bn";
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -70,10 +70,14 @@ export function AgentPanel({ scenario, sent, done, locale }: { scenario: Scenari
 
       <div className="flex min-h-[280px] flex-1 flex-col justify-end gap-3.5 overflow-hidden px-4 py-4 [mask-image:linear-gradient(to_bottom,transparent,black_32px)]">
         <div className="flex flex-col gap-3 opacity-55">
-          <UserBubble>{scenario.history.user[locale]}</UserBubble>
-          <AiRow>
-            <p className="text-[var(--color-ink)]">{scenario.history.ai[locale]}</p>
-          </AiRow>
+          {[...EARLIER_CHAT, scenario.history].map((turn, i) => (
+            <div key={i} className="flex flex-col gap-3">
+              <UserBubble>{turn.user[locale]}</UserBubble>
+              <AiRow>
+                <p className="text-[var(--color-ink)]">{turn.ai[locale]}</p>
+              </AiRow>
+            </div>
+          ))}
         </div>
 
         {sent ? (

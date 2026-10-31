@@ -84,14 +84,12 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
 
   return (
     <div className="@container absolute inset-0 overflow-hidden" style={{ backgroundColor: p.bg, transition: "background-color 900ms ease" }}>
-      {building && !sent ? (
-        <p className="absolute inset-0 flex items-center justify-center text-[max(11px,1.3cqw)] font-medium text-[#a8968b]">
-          {isBn ? "আপনার স্টোর এখানে তৈরি হবে" : "Your store gets built here"}
-        </p>
-      ) : null}
+      {/* The store build starts from a plain starter template, never a blank
+          canvas; each Veila section fades in over its starter counterpart. */}
+      {building ? <StarterStore /> : null}
 
       {/* Navbar */}
-      <Part show={has.nav} delay={building ? 0.5 : 0} rect={RECTS.nav}>
+      <Part show={has.nav} delay={building ? 0.5 : 0} rect={RECTS.nav} cover={building ? p.bg : undefined}>
         <div className="flex h-full items-center justify-between border-b px-[3.5cqw]" style={{ borderColor: p.soft }}>
           <span className="text-[2.4cqw] leading-none font-bold" style={{ fontFamily: "var(--font-instrument), serif", color: p.ink }}>
             Veila
@@ -110,7 +108,7 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
       </Part>
 
       {/* Hero copy */}
-      <Part show={has.hero} delay={building ? 0.5 : 0} rect={RECTS.hero}>
+      <Part show={has.hero} delay={building ? 0.5 : 0} rect={RECTS.hero} cover={building ? p.bg : undefined}>
         <div className="flex h-full flex-col justify-center">
           <span className="mb-[1.1cqw] text-[1cqw] font-semibold tracking-[0.12em] uppercase transition-colors duration-700" style={{ color: p.accent }}>
             {eid ? "Eid Collection 2026" : "New season"}
@@ -143,7 +141,7 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
       </Part>
 
       {/* Hero art */}
-      <Part show={has.hero} delay={building ? 0.5 : 0} rect={RECTS.heroArt}>
+      <Part show={has.hero} delay={building ? 0.5 : 0} rect={RECTS.heroArt} cover={building ? p.bg : undefined}>
         <div className="relative h-full overflow-hidden rounded-[1.4cqw]">
           <AnimatePresence initial={false}>
             {heroNew ? (
@@ -162,7 +160,7 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
       </Part>
 
       {/* Categories */}
-      <Part show={has.categories} delay={building ? 0.5 : 0} rect={RECTS.categories}>
+      <Part show={has.categories} delay={building ? 0.5 : 0} rect={RECTS.categories} cover={building ? p.bg : undefined}>
         <div className="flex h-full items-center gap-[1cqw]">
           {CATEGORIES.map((c, i) => (
             <span key={c} className="rounded-full border px-[1.3cqw] py-[0.55cqw] text-[1cqw] font-medium transition-colors duration-700" style={{ borderColor: p.soft, color: p.ink, backgroundColor: i === 0 ? p.soft : "transparent" }}>
@@ -173,7 +171,7 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
       </Part>
 
       {/* Products */}
-      <Part show={has.products} delay={building ? 0.5 : 0} rect={RECTS.products}>
+      <Part show={has.products} delay={building ? 0.5 : 0} rect={RECTS.products} cover={building ? p.bg : undefined}>
         <div className="grid h-full grid-cols-4 gap-[1.6cqw]">
           {PRODUCTS.map((item, i) => (
             <div key={item.name} className="min-w-0">
@@ -198,12 +196,49 @@ export function StorePreview({ scenario, sent, done, locale }: { scenario: Scena
   );
 }
 
+/** The generic starter template every new store begins as: neutral greys and
+ * placeholder words, laid out in the same rectangles as the real store. */
+function StarterStore() {
+  const grey = "#d9d9d5";
+  const ink = "#8b8b86";
+  const box = (r: Rect): React.CSSProperties => ({ left: `${r.l}cqw`, top: `${r.t}cqw`, width: `${r.w}cqw`, height: `${r.h}cqw` });
+  return (
+    <div aria-hidden className="absolute inset-0 bg-[#f6f6f4]">
+      <div className="absolute flex items-center justify-between border-b px-[3.5cqw]" style={{ ...box(RECTS.nav), borderColor: "#e6e6e2", color: ink }}>
+        <span className="text-[2cqw] font-bold">Your Store</span>
+        <span className="flex gap-[2.2cqw] text-[1.1cqw]"><span>Home</span><span>Shop</span><span>About</span></span>
+        <span className="h-[2.4cqw] w-[8cqw] rounded-full" style={{ backgroundColor: grey }} />
+      </div>
+      <div className="absolute flex flex-col justify-center" style={{ ...box(RECTS.hero), color: ink }}>
+        <span className="text-[3.6cqw] leading-[1.05] font-bold">Welcome to our store</span>
+        <span className="mt-[1.3cqw] text-[1.2cqw]">Add a short description of your shop here.</span>
+        <span className="mt-[1.8cqw] w-fit rounded-md px-[2.1cqw] py-[0.95cqw] text-[1.1cqw] font-semibold text-white" style={{ backgroundColor: "#b3b3ae" }}>Button</span>
+      </div>
+      <div className="absolute rounded-[1.4cqw]" style={{ ...box(RECTS.heroArt), backgroundColor: grey }} />
+      <div className="absolute flex items-center gap-[1cqw]" style={{ ...box(RECTS.categories), color: ink }}>
+        {["All", "Category", "Category", "Category"].map((c, i) => (
+          <span key={i} className="rounded-full border px-[1.3cqw] py-[0.55cqw] text-[1cqw]" style={{ borderColor: "#e0e0dc" }}>{c}</span>
+        ))}
+      </div>
+      <div className="absolute grid grid-cols-4 gap-[1.6cqw]" style={{ ...box(RECTS.products), color: ink }}>
+        {[0, 1, 2, 3].map((i) => (
+          <div key={i}>
+            <div className="h-[11cqw] rounded-[1.1cqw]" style={{ backgroundColor: grey }} />
+            <p className="mt-[0.6cqw] text-[1.05cqw] font-semibold">Product name</p>
+            <p className="text-[1cqw]">৳0</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** A part of the store, pinned to its rectangle, fading in once built. */
-function Part({ show, delay, rect, children }: { show: boolean; delay: number; rect: Rect; children: React.ReactNode }) {
+function Part({ show, delay, rect, cover, children }: { show: boolean; delay: number; rect: Rect; cover?: string; children: React.ReactNode }) {
   return (
     <motion.div
       className="absolute"
-      style={{ left: `${rect.l}cqw`, top: `${rect.t}cqw`, width: `${rect.w}cqw`, height: `${rect.h}cqw` }}
+      style={{ left: `${rect.l}cqw`, top: `${rect.t}cqw`, width: `${rect.w}cqw`, height: `${rect.h}cqw`, backgroundColor: cover }}
       initial={false}
       animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
       transition={{ duration: 0.55, delay: show ? delay : 0, ease: EASE }}
