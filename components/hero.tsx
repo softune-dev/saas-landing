@@ -276,7 +276,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
           </h1>
 
           <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-white/60 md:text-base">
-            {isBn ? "আপনার আইডিয়া লিখুন, বাকিটা AI সামলে নেবে। স্টোর বানানো, ছবি তৈরি, এমনকি ChatGPT থেকেই স্টোর চালানো।" : "Tell the AI your idea. It builds your store, edits it, makes your images, and runs from ChatGPT too."}
+            {isBn ? "আপনার আইডিয়া লিখুন, বাকিটা AI সামলে নেবে। স্টোর বানানো, ছবি তৈরি, এমনকি ChatGPT থেকেই স্টোর চালানো যাবে।" : "Tell the AI your idea. It builds your store, edits it, makes your images, and runs from ChatGPT too."}
           </p>
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[12.5px] text-white/55">

@@ -22,6 +22,31 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.8",
+    version: "v2.8.0",
+    date: "Oct 31, 2026",
+    title: "A new home page built around the AI",
+    description:
+      "Our home page now opens with a prompt box: tell the AI your idea and it builds your store. You can also see how the AI agent, AI Images and the ChatGPT connector work before you sign up.",
+    changes: [
+      {
+        type: "Feature",
+        content:
+          "Describe your store in your own words on the home page, in Bangla or English, and start your free trial from there.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "One look at what SoftuneBD can do: build a store, the AI agent, Image Gen 2.0 and the ChatGPT connector, with Claude marked as coming soon.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "A darker, faster home page with product screenshots below the first screen, and the same look on the inner pages.",
+      },
+    ],
+  },
+  {
     serial: "2.7",
     version: "v2.7.0",
     date: "Oct 31, 2026",
