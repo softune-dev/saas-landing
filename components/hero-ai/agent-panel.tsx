@@ -16,7 +16,7 @@ function UserBubble({ children, dashed = false }: { children: React.ReactNode; d
     <p
       className={[
         "ml-auto w-fit max-w-[84%] rounded-2xl rounded-br-md px-3 py-2",
-        dashed ? "border border-dashed border-[var(--color-line)] text-[var(--color-muted)]" : "bg-[var(--color-brand)] font-medium text-white",
+        dashed ? "border border-dashed border-[var(--color-line)] text-[var(--color-muted)]" : "border border-[var(--color-brand)]/20 bg-[var(--color-brand-soft)] text-[var(--color-ink)]",
       ].join(" ")}
     >
       {children}
@@ -68,7 +68,7 @@ export function AgentPanel({ scenario, sent, done, locale }: { scenario: Scenari
         <span className="text-[12px] font-semibold text-[var(--color-ink)]">SoftuneBD AI</span>
       </div>
 
-      <div className="flex min-h-[280px] flex-1 flex-col justify-end gap-3.5 overflow-hidden px-4 py-4 [mask-image:linear-gradient(to_bottom,transparent,black_32px)]">
+      <div className="flex min-h-0 flex-1 flex-col justify-end gap-3.5 overflow-hidden px-4 py-4 [mask-image:linear-gradient(to_bottom,transparent,black_36px)]">
         <div className="flex flex-col gap-3 opacity-55">
           {[...EARLIER_CHAT, scenario.history].map((turn, i) => (
             <div key={i} className="flex flex-col gap-3">

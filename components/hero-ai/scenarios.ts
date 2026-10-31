@@ -62,7 +62,7 @@ export const SCENARIOS: Scenario[] = [
     ],
     result: { en: "Your store is ready. Take a look on the right.", bn: "আপনার স্টোর রেডি। ডান পাশে দেখুন।" },
     history: {
-      user: { en: "Hi! I sell sarees and kurtis in Dhaka.", bn: "হাই! আমি ঢাকায় শাড়ি ও কুর্তি বিক্রি করি।" },
+      user: { en: "Hi! I sell sarees and fashion in Dhaka.", bn: "হাই! আমি ঢাকায় শাড়ি ও ফ্যাশন বিক্রি করি।" },
       ai: { en: "Great. Tell me what you want and I will build it.", bn: "দারুণ। কী চান বলুন, আমি বানিয়ে দেব।" },
     },
   },

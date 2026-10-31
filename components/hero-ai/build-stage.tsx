@@ -28,11 +28,16 @@ export function BuildStage({ scenario, sent, done, locale }: { scenario: Scenari
         <span className="hidden text-[11.5px] font-semibold text-[var(--color-muted)] sm:block">{isBn ? "লাইভ প্রিভিউ" : "Live preview"}</span>
       </div>
 
+      {/* Fixed height, like a phone: the canvas sets the height and the chat
+          sidebar fills it. When the chat grows, older messages scroll up and out;
+          the window never gets taller. */}
       <div className="grid md:grid-cols-[300px_minmax(0,1fr)] lg:grid-cols-[320px_minmax(0,1fr)]">
-        <div className="order-2 border-t border-[var(--color-line)] md:order-1 md:border-t-0 md:border-r">
-          <AgentPanel scenario={scenario} sent={sent} done={done} locale={locale} />
+        <div className="relative order-2 h-[420px] border-t border-[var(--color-line)] md:order-1 md:h-auto md:border-t-0 md:border-r">
+          <div className="absolute inset-0">
+            <AgentPanel scenario={scenario} sent={sent} done={done} locale={locale} />
+          </div>
         </div>
-        <div className="@container relative order-1 aspect-[16/10] self-start overflow-hidden md:order-2">
+        <div className="@container relative order-1 aspect-[4/5] overflow-hidden md:order-2 md:aspect-[4/3]">
           <StorePreview scenario={scenario} sent={sent} done={done} locale={locale} />
         </div>
       </div>

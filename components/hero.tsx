@@ -216,7 +216,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
             <div
               role="tablist"
               aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"}
-              className="no-scrollbar flex min-w-0 flex-1 gap-1.5 overflow-x-auto py-2 [mask-image:linear-gradient(90deg,black_88%,transparent)] sm:[mask-image:none]"
+              className="no-scrollbar hidden min-w-0 flex-1 gap-1.5 overflow-x-auto py-2 sm:flex"
             >
               {SCENARIOS.map((s, i) => {
                 const active = i === index && !userMode;
@@ -240,6 +240,8 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
                 );
               })}
             </div>
+
+            <div className="flex-1 sm:hidden" aria-hidden />
 
             <button
               type="button"
