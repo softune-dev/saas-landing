@@ -270,17 +270,8 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             </div>
 
             <div className="flex items-center gap-2 pt-1">
-              <button
-                type="button"
-                onClick={startTyping}
-                aria-label={isBn ? "নিজের মতো লিখুন" : "Write your own"}
-                className="relative order-1 flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white"
-              >
-                <span className="absolute h-[1.5px] w-3.5 rounded-full bg-current" />
-                <span className="absolute h-3.5 w-[1.5px] rounded-full bg-current" />
-              </button>
-
-              {/* Reference image for the AI. Beside the + on phones; just before Build from sm up. */}
+              {/* Reference image for the AI: first in the row, before the mode tabs. Writing your own prompt
+                  is done by clicking the prompt text itself. */}
               <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickImage} />
               {refImage ? (
                 <button
@@ -288,7 +279,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                   onClick={clearImage}
                   aria-label={isBn ? "রেফারেন্স ছবি সরান" : "Remove reference image"}
                   title={refImage.name}
-                  className="group relative order-2 size-9 shrink-0 overflow-hidden rounded-full border border-[var(--color-brand)] sm:order-4"
+                  className="group relative order-1 size-9 shrink-0 overflow-hidden rounded-full border border-[var(--color-brand)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={refImage.url} alt="" className="size-full object-cover" />
@@ -304,7 +295,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                   onClick={() => fileRef.current?.click()}
                   aria-label={isBn ? "রেফারেন্স ছবি যোগ করুন" : "Add a reference image"}
                   title={isBn ? "রেফারেন্স ছবি যোগ করুন" : "Add a reference image"}
-                  className="order-2 flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white sm:order-4"
+                  className="order-1 flex size-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/35 hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     <rect x="3.5" y="4.5" width="17" height="15" rx="3" />
