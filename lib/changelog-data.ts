@@ -22,6 +22,36 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "2.9",
+    version: "v2.9.0",
+    date: "Oct 31, 2026",
+    title: "Editing from two devices can no longer overwrite your store",
+    description:
+      "If you edit your theme on your phone and later publish from a laptop (or the other way round), the second device used to publish its older copy over your newer work. That can no longer happen, and publishing never deletes your uploaded images.",
+    changes: [
+      {
+        type: "Bug Fix",
+        content:
+          "Publishing from one device no longer replaces changes you saved on another device. Only what you edited on the device you publish from is applied, on top of your store's latest version.",
+      },
+      {
+        type: "Bug Fix",
+        content:
+          "Saving or publishing your theme no longer permanently deletes images from your media library. Unused images are only removed by the cleanup in Media settings.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "If your store was changed from another device while you were editing, Softune now detects it, merges your edits onto the latest version and retries, instead of overwriting anything.",
+      },
+      {
+        type: "Improvement",
+        content:
+          "The Media cleanup now recognises every image used on your store, including feature images and testimonial screenshots, so images in use are never removed.",
+      },
+    ],
+  },
+  {
     serial: "2.8",
     version: "v2.8.0",
     date: "Oct 31, 2026",

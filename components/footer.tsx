@@ -228,17 +228,6 @@ export function Footer({ locale = "en" }: { locale?: "en" | "bn" }) {
             >
               Kamrul Hasan
             </a>
-            <span className="mx-2 hidden text-[#D4D4D4] lg:inline">|</span>
-            <br className="lg:hidden" />
-            ওয়েবফন্ট-{" "}
-            <a
-              href="https://lipighor.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-[var(--color-brand)] transition-all hover:underline"
-            >
-              lipighor.com
-            </a>
           </div>
 
           <div className="order-1 flex flex-col items-center gap-6 md:order-2 md:flex-row md:gap-8 lg:gap-12">

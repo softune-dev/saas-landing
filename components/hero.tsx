@@ -195,7 +195,9 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
     <section ref={sectionRef} className="px-2 pt-2 sm:px-3 sm:pt-3">
       <div className="relative isolate overflow-hidden rounded-[1.75rem] bg-[#09080b] text-white sm:rounded-[2.5rem]">
         {/* Atmosphere: warm bloom at the horizon, a faint grid, a rising arc. */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        {/* The static gradient is what shows before the canvas script loads, and intro={false}
+            makes the canvas start in its settled state, so the glow is never seen "rising in". */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10" style={{ background: "linear-gradient(180deg, #09080b 0%, #09080b 32%, #0f0909 50%, #22100a 68%, #6b2a12 86%, #c2511f 100%)" }}>
           <Grainient
             colors={["#09080b", "#09080b", "#0f0909", "#22100a", "#6b2a12", "#c2511f"]}
             angle={180}
@@ -205,6 +207,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             saturation={0.9}
             interactive={false}
             clickSwirl={false}
+            intro={false}
             className="absolute inset-0"
           />
         </div>

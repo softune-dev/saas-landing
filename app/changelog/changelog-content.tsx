@@ -1,5 +1,6 @@
 "use client";
 
+import { DarkHero } from "@/components/dark-hero";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import React from "react";
@@ -32,15 +33,13 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
       <Header locale={locale} />
       <main className="min-h-screen bg-[var(--color-canvas)]">
         {/* Hero Section */}
-        <div className="relative pt-12 pb-14 px-5 text-center overflow-hidden bg-[var(--color-canvas)] rounded-b-[4rem] border-b-[6px] border-[var(--color-surface)] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]">
-          <div className="pointer-events-none absolute inset-0 bg-dot-grid [mask-image:radial-gradient(ellipse_at_20%_40%,transparent_0%,black_60%)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[var(--color-brand)]/10 to-transparent" />
+        <DarkHero>
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="relative z-10 mx-auto mb-4 flex max-w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.06] backdrop-blur p-1.5 pr-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <div className="relative flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]/10">
               <span
@@ -50,10 +49,10 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
               <img
                 src="/icons/zap.svg"
                 alt="Zap"
-                className="size-3.5 object-contain dark:invert"
+                className="size-3.5 object-contain"
               />
             </div>
-            <span className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+            <span className="text-[14px] font-semibold tracking-tight text-white">
               {isBn ? "প্রোডাক্ট আপডেট" : "Product Updates"}
             </span>
           </motion.div>
@@ -62,7 +61,7 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-[var(--color-ink)] mb-6 flex justify-center items-center gap-1.5"
+            className="relative z-10 text-4xl md:text-6xl font-black tracking-tight text-white mb-6 flex justify-center items-center gap-1.5"
             style={{ fontFamily: "var(--font-heading), var(--font-bn)" }}
           >
             {isBn ? (
@@ -87,13 +86,13 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="relative z-10 text-[16px] md:text-lg text-[var(--color-muted)] font-medium max-w-xl mx-auto leading-relaxed"
+            className="relative z-10 text-[16px] md:text-lg text-white/60 font-medium max-w-xl mx-auto leading-relaxed"
           >
             {isBn
               ? "SoftuneBD ড্যাশবোর্ড ও লাইভ স্টোরফ্রন্টে নতুন যে ফিচার, ফিক্স ও ইমপ্রুভমেন্টগুলো যুক্ত হয়েছে।"
               : "What shipped in the SoftuneBD dashboard and on your live store - features, fixes, and improvements merchants actually use."}
           </motion.p>
-        </div>
+        </DarkHero>
 
         {/* 2-Column Layout */}
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 flex flex-col lg:flex-row gap-12 lg:gap-16">
