@@ -232,19 +232,19 @@ h3,
   .ai-shimmer { animation: none; -webkit-mask-image: none; mask-image: none; }
 }
 
-/* Aurora text for the hero's key word. Three things move at different speeds so it
- * never looks like a plain looping gradient: a wide colour ribbon sliding sideways, two
- * soft colour blobs drifting inside the letters, and a slow hue sway. The ribbon's first
- * and last colours match, so the loop has no seam. The padding/negative margin gives
- * Bangla matras (which sit above and below the line box) room, otherwise the clipped
- * background cuts them off. */
+/* Aurora text for the hero's key word, warm colours only (orange, amber, gold, cream).
+ * Three things move at different speeds so it never looks like a plain looping
+ * gradient: a wide colour ribbon sliding sideways, two soft light blobs drifting inside
+ * the letters, and a slow glow that breathes. The ribbon's first and last colours match,
+ * so the loop has no seam. The padding/negative margin gives Bangla matras (which sit
+ * above and below the line box) room, otherwise the clipped background cuts them off. */
 @keyframes aurora-ribbon {
   from { background-position: 0% 50%, 0% 0%, 100% 100%; }
   to { background-position: 300% 50%, 100% 60%, 0% 40%; }
 }
-@keyframes aurora-sway {
-  0%, 100% { filter: hue-rotate(-14deg) drop-shadow(0 0 18px rgba(255, 122, 69, 0.38)); }
-  50% { filter: hue-rotate(22deg) drop-shadow(0 0 26px rgba(168, 85, 247, 0.34)); }
+@keyframes aurora-glow {
+  0%, 100% { filter: drop-shadow(0 0 14px rgba(255, 122, 69, 0.3)); }
+  50% { filter: drop-shadow(0 0 26px rgba(255, 170, 70, 0.45)); }
 }
 .aurora-text {
   display: inline-block;
@@ -252,15 +252,15 @@ h3,
   margin: -0.14em -0.05em;
   color: #ff8a55; /* fallback where background-clip: text is unsupported */
   background-image:
-    linear-gradient(100deg, #ff8a55, #ffc46b, #ff5d8f, #b46bff, #5ee0d0, #ffc46b, #ff8a55),
-    radial-gradient(60% 90% at 30% 30%, rgba(255, 255, 255, 0.55), transparent 70%),
-    radial-gradient(55% 80% at 70% 70%, rgba(94, 224, 208, 0.55), transparent 70%);
+    linear-gradient(100deg, #ff7a3d, #ffb454, #fff0c9, #ff9a4d, #e8561f, #ffc46b, #ff7a3d),
+    radial-gradient(60% 90% at 30% 30%, rgba(255, 244, 214, 0.6), transparent 70%),
+    radial-gradient(55% 80% at 70% 70%, rgba(255, 190, 90, 0.5), transparent 70%);
   background-size: 300% 100%, 160% 160%, 170% 170%;
   background-repeat: repeat-x, no-repeat, no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: aurora-ribbon 9s linear infinite, aurora-sway 7s ease-in-out infinite;
+  animation: aurora-ribbon 9s linear infinite, aurora-glow 6s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .aurora-text { animation: none; background-position: 40% 50%, 0% 0%, 100% 100%; }

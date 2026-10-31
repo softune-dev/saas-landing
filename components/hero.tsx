@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
@@ -57,34 +57,6 @@ const CARDS: Record<Slot, { src: string; alt: string }> = {
   ro: { src: "/themes/skincare-shop.webp", alt: "Skincare storefront theme" },
 };
 
-/** The 26 add-on icons in public/addon. Six of them are picked at random on every
- * page load for the floating tiles beside the headline. */
-const ADDON_ICONS = [
-  "ai-ad", "badges", "chat", "compare", "discount", "e-marketing", "enquiry", "export", "forecast",
-  "frequently", "live", "loyalty", "notification", "recent", "referral", "reminder", "reply", "reviews",
-  "size", "sms", "spam", "staff", "stock-alart", "view", "whatsapp", "wholesaler",
-];
-
-/** Where each floating tile sits (% of the panel), its size in px (small and softly
- * blurred, so they read as background depth and never compete with the text), and how far and how fast it drifts. */
-const FLOATERS: { x: string; y: string; size: number; drift: number; tilt: number; speed: number }[] = [
-  { x: "11%", y: "16%", size: 52, drift: 8, tilt: 1.5, speed: 7 },
-  { x: "22%", y: "45%", size: 44, drift: 6, tilt: 2, speed: 8.5 },
-  { x: "15%", y: "66%", size: 56, drift: 9, tilt: 1.2, speed: 9 },
-  { x: "83%", y: "17%", size: 44, drift: 7, tilt: 1.8, speed: 8 },
-  { x: "71%", y: "46%", size: 56, drift: 9, tilt: 1.3, speed: 9.5 },
-  { x: "79%", y: "68%", size: 48, drift: 6, tilt: 2, speed: 7.5 },
-];
-
-function pickRandom<T>(list: T[], n: number): T[] {
-  const a = [...list];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a.slice(0, n);
-}
-
 const WORD_MS = 90;
 const SEND_PAUSE_MS = 450;
 const HOLD_MS = 3600;
@@ -108,15 +80,9 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
   const [userText, setUserText] = useState("");
   const [visible, setVisible] = useState(true);
   const [demoOpen, setDemoOpen] = useState(false);
-  const [icons, setIcons] = useState<string[]>([]);
   // A reference image the visitor can attach for the AI (kept in the browser only).
   const [refImage, setRefImage] = useState<{ url: string; name: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-
-  // Chosen after mount: picking at random during render would differ between server and client.
-  useEffect(() => {
-    setIcons(pickRandom(ADDON_ICONS, FLOATERS.length));
-  }, []);
 
   const scenario = SCENARIOS[index];
   const words = scenario.prompt[locale].split(" ");
@@ -210,33 +176,6 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             intro={false}
             className="absolute inset-0"
           />
-        </div>
-
-        {/* Floating add-on icons down both sides of the first screen (desktop only), six random ones
-            per page load; each drifts a few pixels on its own slow loop. */}
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 hidden h-[calc(100svh-6.5rem)] lg:block sm:h-[calc(100svh-7.75rem)]">
-          {icons.map((name, i) => {
-            const f = FLOATERS[i];
-            return (
-              // eslint-disable-next-line @next/next/no-img-element
-              <motion.img
-                key={name}
-                src={`/addon/${name}.webp`}
-                alt=""
-                draggable={false}
-                className="absolute rounded-md object-cover"
-                style={{ left: f.x, top: f.y, width: f.size, height: f.size, filter: "blur(1.6px)" }}
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={reduced ? { opacity: 0.8, scale: 1 } : { opacity: 0.8, scale: 1, y: [0, -f.drift, 0], rotate: [-f.tilt, f.tilt, -f.tilt] }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.2 + i * 0.12 },
-                  scale: { duration: 0.8, delay: 0.2 + i * 0.12 },
-                  y: { duration: f.speed, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 },
-                  rotate: { duration: f.speed * 1.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 },
-                }}
-              />
-            );
-          })}
         </div>
 
         {/* The first screen: everything down to the trial note fills the viewport
@@ -438,6 +377,21 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
   );
 }
 
+/** True below the md breakpoint. The server (and the first paint) assume a phone, so a
+ * phone never sees a card settle from a lifted state; desktop then animates in to its
+ * live state, which is the intended entrance there. */
+function useIsPhone() {
+  return useSyncExternalStore(
+    (notify) => {
+      const mq = window.matchMedia("(max-width: 767.98px)");
+      mq.addEventListener("change", notify);
+      return () => mq.removeEventListener("change", notify);
+    },
+    () => window.matchMedia("(max-width: 767.98px)").matches,
+    () => true,
+  );
+}
+
 const SLOT_STYLE: Record<Slot, string> = {
   c: "left-1/2 top-0 z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[1.5rem] md:w-[56%]",
   li: "left-[8%] top-[4.5rem] z-10 hidden w-[24%] md:block",
@@ -458,20 +412,23 @@ const SLOT_TILT: Record<Slot, { rotateX: number; rotateY: number; rotateZ: numbe
 function Card({ slot, active, reduced }: { slot: Slot; active: boolean; reduced: boolean }) {
   const { src, alt } = CARDS[slot];
   const tilt = SLOT_TILT[slot];
+  // Phones show only the centre card: keep it still (no lift, scale, dimming or drift).
+  const phone = useIsPhone();
+  const still = reduced || phone;
   return (
     <div className={["absolute", SLOT_STYLE[slot]].join(" ")} style={{ transformStyle: "preserve-3d" }}>
       <motion.div
         initial={false}
         animate={{
           ...tilt,
-          y: active ? -18 : 0,
-          scale: active ? 1.03 : 1,
-          filter: active ? "brightness(1)" : "brightness(0.7)",
+          y: active && !still ? -18 : 0,
+          scale: active && !still ? 1.03 : 1,
+          filter: active || still ? "brightness(1)" : "brightness(0.7)",
         }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
         <motion.div
-          animate={reduced ? undefined : { y: [0, -7, 0] }}
+          animate={still ? undefined : { y: [0, -7, 0] }}
           transition={{ duration: 6 + (slot === "c" ? 0 : slot === "li" || slot === "ri" ? 1.2 : 2.2), repeat: Infinity, ease: "easeInOut" }}
           className="overflow-hidden rounded-2xl border border-white/12 bg-[#101013] shadow-[0_50px_90px_-30px_rgba(0,0,0,0.9)]"
         >
