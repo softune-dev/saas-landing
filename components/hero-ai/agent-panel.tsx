@@ -9,6 +9,32 @@ type Locale = "en" | "bn";
 const EASE = [0.16, 1, 0.3, 1] as const;
 const THINK_MS = 900;
 
+/** Messages you send: a right-aligned bubble. Everything the AI says sits on the
+ * left next to its avatar, so the two sides can't be confused. */
+function UserBubble({ children, dashed = false }: { children: React.ReactNode; dashed?: boolean }) {
+  return (
+    <p
+      className={[
+        "ml-auto w-fit max-w-[84%] rounded-2xl rounded-br-md px-3 py-2",
+        dashed ? "border border-dashed border-[var(--color-line)] text-[var(--color-muted)]" : "bg-[var(--color-brand)] font-medium text-white",
+      ].join(" ")}
+    >
+      {children}
+    </p>
+  );
+}
+
+function AiRow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grid grid-cols-[22px_minmax(0,1fr)] gap-2.5">
+      <span className="mt-px flex size-[22px] items-center justify-center rounded-full bg-[var(--color-brand)]/12 text-[var(--color-brand)]">
+        <MaskIcon src="/icons/ai.svg" className="size-3" />
+      </span>
+      <div className="min-w-0">{children}</div>
+    </div>
+  );
+}
+
 /** The left side of the window, modelled on how coding agents (Cursor, Lovable)
  * show a run: small type, hairlines instead of boxes, no progress bar. An
  * earlier exchange sits at the top; your request is a plain grey block; the
@@ -43,35 +69,25 @@ export function AgentPanel({ scenario, sent, done, locale }: { scenario: Scenari
       </div>
 
       <div className="flex min-h-[280px] flex-1 flex-col justify-end gap-3.5 overflow-hidden px-4 py-4 [mask-image:linear-gradient(to_bottom,transparent,black_32px)]">
-        <div className="flex flex-col gap-2.5 opacity-55">
-          <p className="rounded-lg bg-[var(--color-search-bg)] px-3 py-2 text-[var(--color-ink)]">{scenario.history.user[locale]}</p>
-          <p className="text-[var(--color-ink)]">{scenario.history.ai[locale]}</p>
+        <div className="flex flex-col gap-3 opacity-55">
+          <UserBubble>{scenario.history.user[locale]}</UserBubble>
+          <AiRow>
+            <p className="text-[var(--color-ink)]">{scenario.history.ai[locale]}</p>
+          </AiRow>
         </div>
 
         {sent ? (
-          <motion.p
-            key={scenario.id + locale}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            className="rounded-lg bg-[var(--color-search-bg)] px-3 py-2 text-[var(--color-ink)]"
-          >
-            {scenario.prompt[locale]}
-          </motion.p>
+          <motion.div key={scenario.id + locale} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: EASE }}>
+            <UserBubble>{scenario.prompt[locale]}</UserBubble>
+          </motion.div>
         ) : (
-          <p className="rounded-lg border border-dashed border-[var(--color-line)] px-3 py-2 text-[var(--color-muted)]">{isBn ? "আপনার নির্দেশ এখানে আসবে" : "Your request shows up here"}</p>
+          <UserBubble dashed>{isBn ? "আপনার নির্দেশ এখানে আসবে" : "Your request shows up here"}</UserBubble>
         )}
 
         {sent ? (
-          <div key={scenario.id + locale + "reply"} className="flex flex-col gap-2">
+          <AiRow key={scenario.id + locale + "reply"}>
+          <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 text-[var(--color-muted)]">
-              <motion.span
-                className="flex size-3.5 items-center justify-center text-[var(--color-brand)]"
-                animate={thinking ? { rotate: 360 } : { rotate: 0 }}
-                transition={thinking ? { duration: 2.2, repeat: Infinity, ease: "linear" } : { duration: 0.3 }}
-              >
-                <MaskIcon src="/icons/ai.svg" className="size-3.5" />
-              </motion.span>
               <span className={thinking ? "ai-shimmer font-medium text-[var(--color-ink)]" : ""}>
                 {thinking ? (isBn ? "ভাবছি…" : "Thinking…") : isBn ? "২ সেকেন্ড ভেবেছি" : "Thought for 2s"}
               </span>
@@ -123,6 +139,7 @@ export function AgentPanel({ scenario, sent, done, locale }: { scenario: Scenari
               </p>
             ) : null}
           </div>
+          </AiRow>
         ) : null}
       </div>
 
