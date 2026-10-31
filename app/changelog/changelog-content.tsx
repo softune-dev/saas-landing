@@ -195,8 +195,6 @@ export default function ChangelogPage({ locale = "en" }: { locale?: "en" | "bn" 
                 className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 [scrollbar-color:var(--color-line)_transparent] [scrollbar-width:thin]"
               >
                 <nav className="relative flex flex-col gap-1">
-                  {/* the timeline rail the dots sit on */}
-                  <span aria-hidden className="absolute bottom-3 left-[19px] top-3 w-px bg-[var(--color-line)]" />
                   {changelogData.map((log) => {
                     const id = releaseId(log.serial);
                     const on = id === activeId;
