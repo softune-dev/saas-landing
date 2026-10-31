@@ -8,6 +8,39 @@ import { Button } from "./ui/button";
 import { getPlans } from "@/lib/pricing-data";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 
+// Each plan gets its own glossy gradient tile (name, price) on top of a frosted card, so the three
+// tiers differ at a glance. Mesh gradients are stacked radial blobs over a base colour, kept inside the
+// brand's orange family: Starter is a light sand-amber, Growth the vivid brand orange, Business a dark
+// ember. `ink` is the text colour that stays readable on each tile.
+const GRAIN =
+  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>\")";
+
+// The price numerals use the hero title's heading font. Li Mayukh (the Bangla hero face) only covers
+// Bangla characters, so with English digits it would leave the ৳ sign heavy and the digits thin;
+// the heading font draws both, on both languages.
+const PRICE_FONT = "var(--font-heading), sans-serif";
+
+const TILES = {
+  entry: {
+    bg: "radial-gradient(70% 90% at 12% 18%, #fff1dc 0%, transparent 60%), radial-gradient(60% 80% at 88% 85%, #ff9a52 0%, transparent 62%), radial-gradient(50% 60% at 70% 10%, #ffd08a 0%, transparent 60%), #f6b878",
+    ink: "text-[#2a1306]",
+    pill: "bg-white/45 text-[#2a1306]",
+    sub: "text-[#2a1306]/70",
+  },
+  featured: {
+    bg: "radial-gradient(65% 85% at 15% 15%, #ffb36b 0%, transparent 58%), radial-gradient(70% 90% at 90% 90%, #d92f12 0%, transparent 62%), radial-gradient(55% 70% at 75% 8%, #ff7a3d 0%, transparent 60%), #ff5a36",
+    ink: "text-white",
+    pill: "bg-white/25 text-white",
+    sub: "text-white/80",
+  },
+  top: {
+    bg: "radial-gradient(70% 90% at 85% 12%, #d9732e 0%, transparent 58%), radial-gradient(60% 80% at 10% 95%, #7a2d0e 0%, transparent 62%), radial-gradient(45% 60% at 40% 40%, #3b180b 0%, transparent 70%), #1d0e07",
+    ink: "text-white",
+    pill: "bg-white/15 text-white",
+    sub: "text-white/70",
+  },
+} as const;
+
 export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
   // Monthly first: the headline number everywhere (blog posts, ads, llms.txt,
   // search-engine offers) is the real monthly price. Defaulting to Yearly
@@ -21,6 +54,8 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
   }, []);
 
   const isBn = locale === "bn";
+  // English digits on both languages, by request.
+  const money = (n: number) => n.toLocaleString("en-US");
   const planList = getPlans(locale);
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
@@ -131,9 +166,11 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
           </div>
         </div>
 
-        <div className="grid items-start gap-5 overflow-x-clip px-1 sm:gap-6 sm:px-0 md:grid-cols-3 lg:gap-8">
+        <div className="grid items-stretch gap-5 md:grid-cols-3 lg:gap-6">
           {planList.map((plan, i) => {
             const popular = Boolean(plan.popular);
+            const price = isAnnual ? plan.priceAnnually : plan.priceMonthly;
+            const tile = TILES[popular ? "featured" : i === 0 ? "entry" : "top"];
             return (
               <motion.div
                 key={plan.name}
@@ -141,104 +178,63 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`relative flex flex-col rounded-[20px] transition-shadow duration-300 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] sm:rounded-[24px] ${
+                className={`flex h-full flex-col rounded-[30px] border bg-[var(--color-surface)] p-3 ${
                   popular
-                    ? "z-10 overflow-hidden bg-[var(--color-ink)] shadow-[0_28px_64px_-20px_rgba(0,0,0,0.45)] ring-2 ring-[var(--color-brand)] md:-mt-4 md:mb-4 dark:bg-[#0c0c0c] dark:ring-[var(--color-brand)]"
-                    : "overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)]"
+                    ? "border-[var(--color-brand)]/70 shadow-[0_30px_80px_-34px_var(--color-brand)]"
+                    : "border-[var(--color-line)]"
                 }`}
               >
-                {popular ? (
-                  <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-b-xl bg-[var(--color-brand)] px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-sm sm:px-4">
-                    {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
-                  </div>
-                ) : null}
-
+                {/* The plan tile: glossy gradient, plan name top-left, price bottom-left. */}
                 <div
-                  className={`relative z-10 p-6 pb-6 text-white sm:p-8 sm:pb-8 ${
-                    popular
-                      ? "bg-transparent pt-10"
-                      : "rounded-b-[20px] bg-[var(--color-brand)] sm:rounded-b-[24px]"
-                  }`}
+                  className={`relative flex h-[210px] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:h-[220px] sm:p-6 ${tile.ink}`}
+                  style={{ background: tile.bg }}
                 >
-                  <div className="mb-5 sm:mb-6">
-                    <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                    <p className="mt-2 min-h-[40px] text-[14px] text-white/80">
-                      {plan.description}
-                    </p>
-                  </div>
-
-                  <div className="mb-2 flex items-baseline gap-1">
-                    <span className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                      ৳
-                      {(isAnnual
-                        ? plan.priceAnnually
-                        : plan.priceMonthly
-                      ).toLocaleString()}
-                    </span>
-                    <span className="text-[14px] font-medium text-white/70">
-                      /mo
-                    </span>
-                  </div>
-
-                  <div className="min-h-[20px]">
-                    {isAnnual ? (
-                      <p
-                        className={`text-[13px] font-semibold ${
-                          popular
-                            ? "text-[var(--color-brand)]"
-                            : "text-white"
-                        }`}
-                      >
-                        {isBn
-                          ? `বিল হবে ৳${(plan.priceAnnually * 12).toLocaleString()} প্রতি বছর`
-                          : `Billed ৳${(plan.priceAnnually * 12).toLocaleString()} yearly`}
-                      </p>
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-[0.28] mix-blend-overlay"
+                    style={{ backgroundImage: GRAIN }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-[22px] [background:linear-gradient(145deg,rgb(255_255_255/0.28),transparent_38%)]"
+                  />
+                  <div className="relative flex items-center justify-between gap-2">
+                    <span className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-md ${tile.pill}`}>{plan.name}</span>
+                    {popular ? (
+                      <span className="rounded-full bg-white px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-[var(--color-brand)] uppercase">
+                        {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
+                      </span>
                     ) : null}
+                  </div>
+                  <div className="relative">
+                    <div className="flex items-baseline gap-1.5">
+                      {/* The hero title's heading font, English digits, tightly tracked, on both languages. */}
+                      <span
+                        className="text-[46px] leading-none font-bold tracking-[-0.045em] sm:text-[52px]"
+                        style={{ fontFamily: PRICE_FONT }}
+                      >
+                        ৳{money(price)}
+                      </span>
+                      <span className={`text-[14px] font-semibold ${tile.sub}`}>/mo</span>
+                    </div>
+                    <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
+                      {isAnnual
+                        ? isBn
+                          ? `বিল হবে ৳${money(plan.priceAnnually * 12)} প্রতি বছর`
+                          : `Billed ৳${money(plan.priceAnnually * 12)} yearly`
+                        : null}
+                    </p>
                   </div>
                 </div>
 
-                <div
-                  className={`relative z-10 flex flex-1 flex-col p-6 pt-6 sm:p-8 sm:pt-8 ${
-                    popular
-                      ? "mx-3 mb-3 rounded-[18px] bg-[var(--color-surface)] sm:mx-4 sm:mb-4 sm:rounded-[20px]"
-                      : ""
-                  }`}
-                >
-                  {!popular ? (
-                    <div className="pointer-events-none absolute right-0 bottom-0 h-full w-full rounded-[20px] bg-dot-grid-dense opacity-100 [mask-image:radial-gradient(ellipse_at_bottom_right,black_0%,transparent_60%)] sm:rounded-[24px]" />
-                  ) : null}
+                <div className="flex flex-1 flex-col px-3 pt-5 pb-3 sm:px-4">
+                  <p className="min-h-[44px] text-[14px] leading-relaxed text-[var(--color-muted)]">{plan.description}</p>
 
-                  <div className="relative z-10 mb-6 flex-1 space-y-3 sm:mb-8 sm:space-y-3.5">
-                    {plan.features.map((feature) => (
-                      <div key={feature} className="flex items-start gap-3">
-                        <div
-                          className={`flex size-5 shrink-0 items-center justify-center rounded-full ${
-                            popular
-                              ? "bg-[var(--color-brand)]/12"
-                              : "bg-[#f0fdf4] dark:bg-emerald-500/15"
-                          }`}
-                        >
-                          <Check
-                            className={`size-3.5 ${
-                              popular
-                                ? "text-[var(--color-brand)]"
-                                : "text-[#16a34a] dark:text-emerald-400"
-                            }`}
-                            strokeWidth={3}
-                          />
-                        </div>
-                        <span className="text-[14px] font-medium text-[var(--color-ink-soft)]">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button
-                    as="a"
+                  <a
                     href={signupHref}
-                    variant={popular ? "primary" : "secondary"}
-                    className="relative z-10 flex min-h-12 w-full items-center justify-center gap-2 py-3.5 text-[14px] font-bold"
+                    className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-4 py-3.5 text-[14px] font-bold transition-all duration-200 hover:opacity-90 ${
+                      popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
+                    }`}
                   >
                     {ctaText}
                     <img
@@ -246,13 +242,27 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
                       decoding="async"
                       src="/icons/arrow-right.svg"
                       alt=""
-                      className={`size-4 object-contain ${
-                        popular
-                          ? "brightness-0 invert"
-                          : "opacity-60 dark:invert"
-                      }`}
+                      className={`size-4 object-contain ${popular ? "brightness-0 invert" : "brightness-0 invert dark:invert-0"}`}
                     />
-                  </Button>
+                  </a>
+
+                  <ul className="mt-6 flex flex-1 flex-col gap-3.5 border-t border-[var(--color-line)] pt-6">
+                    {plan.features.map((feature) =>
+                      feature.endsWith(":") ? (
+                        // "Everything in Growth, plus:" introduces the list; it isn't a feature itself.
+                        <li key={feature} className="text-[12px] font-bold tracking-wider text-[var(--color-muted)] uppercase">
+                          {feature.replace(/:$/, "")}
+                        </li>
+                      ) : (
+                        <li key={feature} className="flex items-start gap-3">
+                          <span className="mt-px flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/14">
+                            <Check className="size-3.5 text-[var(--color-brand)]" strokeWidth={3} />
+                          </span>
+                          <span className="text-[14px] font-medium text-[var(--color-ink-soft)]">{feature}</span>
+                        </li>
+                      ),
+                    )}
+                  </ul>
                 </div>
               </motion.div>
             );
