@@ -75,11 +75,11 @@ export function GeoBanner() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="relative z-50 bg-[var(--color-surface)] border-b border-[var(--color-line)] py-2.5 px-4 text-xs font-semibold text-[var(--color-ink)] shadow-sm"
+          className="relative z-50 bg-[var(--color-brand)] px-4 py-1 text-[12px] font-semibold text-white"
         >
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <Globe className="size-4 shrink-0 text-[var(--color-brand)]" />
+            <div className="flex items-center gap-1.5 min-w-0">
+              <Globe className="size-3.5 shrink-0 text-white/90" />
               <span className="truncate">
                 বাংলাদেশ থেকে ভিসিট করছেন? সাইটটি বাংলায় দেখুন।
               </span>
@@ -87,17 +87,17 @@ export function GeoBanner() {
             <div className="flex items-center gap-2 shrink-0">
               <a
                 href={targetPath}
-                className="inline-flex items-center rounded-full bg-[var(--color-brand)] px-3 py-1 text-xs font-bold text-white transition-opacity hover:opacity-90"
+                className="inline-flex items-center rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-[var(--color-brand)] transition-opacity hover:opacity-90"
               >
                 বাংলায় দেখুন
               </a>
               <button
                 type="button"
                 onClick={handleDismiss}
-                className="rounded-full p-1 text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+                className="rounded-full p-0.5 text-white/80 hover:text-white"
                 aria-label="Dismiss banner"
               >
-                <X className="size-4" />
+                <X className="size-3.5" />
               </button>
             </div>
           </div>

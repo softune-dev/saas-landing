@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUp, Image as ImageIcon, MessageCircle, Sparkles, Store } from "lucide-react";
 import { TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { HeroCtas } from "./hero-ctas";
@@ -147,16 +147,20 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
 
         <h1
           style={{ fontFamily: isBn ? "var(--font-bn), var(--font-heading), sans-serif" : "var(--font-heading), sans-serif" }}
-          className="text-[2rem] leading-[1.12] font-bold tracking-tight text-balance text-[var(--color-ink)] sm:text-[2.6rem] md:text-[3.4rem] lg:text-[3.9rem]"
+          className={[
+            "text-[1.65rem] font-bold tracking-tight text-balance text-[var(--color-ink)] sm:text-[2.1rem] md:text-[2.6rem] lg:text-[3rem]",
+            // Bangla vowel signs and conjuncts need a little more than 1, or they clip.
+            isBn ? "leading-[1.2]" : "leading-none",
+          ].join(" ")}
         >
-          {isBn ? "আপনার ব্যবসার কথা বলুন," : "Describe your business."}
-          <span className="mt-2 flex flex-wrap items-center justify-center gap-x-3">
-            {isBn ? "স্টোর বানাবে" : "Your store is built by"}
-            <span className="relative inline-block px-3 py-0.5 md:px-4 md:py-1">
-              <span className="absolute inset-0 top-1 rounded-xl bg-[var(--color-brand)] shadow-[0_10px_30px_-8px_rgba(255,90,54,0.6)]" />
+          <span className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 md:gap-x-3">
+            <span className="relative inline-block px-2.5 py-1 md:px-3.5">
+              <span className="absolute inset-0 rounded-lg bg-[var(--color-brand)] shadow-[0_10px_26px_-8px_rgba(255,90,54,0.6)]" />
               <span className="relative text-white">AI</span>
             </span>
+            <span>{isBn ? "ই-কমার্স স্টোর বিল্ডার" : "Ecommerce Website Builder"}</span>
           </span>
+          <span className="mt-2 block md:mt-3">{isBn ? "বাংলাদেশের জন্য" : "for Bangladesh"}</span>
         </h1>
 
         <p className="mt-5 max-w-2xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[17px]">
@@ -165,10 +169,39 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
             : "SoftuneBD's AI sets up your online store, changes it when you ask, makes your product images, and even lets you run it from ChatGPT. bKash, Nagad, COD and couriers included."}
         </p>
 
+        <div
+          role="tablist"
+          aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"}
+          className="mt-8 grid w-full max-w-3xl grid-cols-2 gap-2 px-1 pt-1 pb-3 sm:flex sm:justify-center md:mt-10"
+        >
+          {SCENARIOS.map((s, i) => {
+            const Icon = TAB_ICONS[s.id];
+            const active = i === index && !userMode;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => pickTab(i)}
+                className={[
+                  "flex items-center justify-center gap-1.5 rounded-xl border px-3.5 py-2 text-[13px] font-semibold transition-[background-color,color,box-shadow,transform,border-color] duration-300 ease-out",
+                  active
+                    ? "-translate-y-0.5 border-[var(--color-brand)] bg-[var(--color-brand)] text-white shadow-[0_10px_24px_-6px_rgba(255,90,54,0.65)]"
+                    : "border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)] shadow-[0_4px_14px_-8px_rgba(255,90,54,0.35)] hover:border-[var(--color-brand)]/40 hover:text-[var(--color-ink)]",
+                ].join(" ")}
+              >
+                <Icon className="size-3.5" />
+                {s.tab[locale]}
+              </button>
+            );
+          })}
+        </div>
+
         {/* The prompt composer */}
         <form
           onSubmit={submit}
-          className="group mt-8 w-full max-w-3xl rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-2 text-left shadow-[0_24px_60px_-24px_rgba(15,15,15,0.35)] transition-[border-color,box-shadow] duration-300 focus-within:border-[var(--color-brand)]/50 focus-within:shadow-[0_24px_70px_-20px_rgba(255,90,54,0.35)] md:mt-10"
+          className="group mt-1 w-full max-w-3xl rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-2 text-left shadow-[0_24px_60px_-24px_rgba(15,15,15,0.35)] transition-[border-color,box-shadow] duration-300 focus-within:border-[var(--color-brand)]/50 focus-within:shadow-[0_24px_70px_-20px_rgba(255,90,54,0.35)]"
         >
           <div className="min-h-[76px] px-3 pt-2.5 pb-1 md:min-h-[84px] md:px-4 md:pt-3">
             {userMode ? (
@@ -206,36 +239,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
             )}
           </div>
 
-          <div className="flex items-center gap-2 px-1 pb-1">
-            <div role="tablist" aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"} className="no-scrollbar flex min-w-0 flex-1 gap-1 overflow-x-auto">
-              {SCENARIOS.map((s, i) => {
-                const Icon = TAB_ICONS[s.id];
-                const active = i === index && !userMode;
-                return (
-                  <button
-                    key={s.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={active}
-                    onClick={() => pickTab(i)}
-                    className={[
-                      "relative flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] font-semibold transition-colors md:text-[13px]",
-                      active ? "text-[var(--color-brand)]" : "text-[var(--color-muted)] hover:text-[var(--color-ink)]",
-                    ].join(" ")}
-                  >
-                    {active ? (
-                      <motion.span
-                        layoutId="hero-ai-tab"
-                        className="absolute inset-0 rounded-full bg-[var(--color-brand-soft)]"
-                        transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
-                      />
-                    ) : null}
-                    <Icon className="relative size-3.5" />
-                    <span className="relative">{s.tab[locale]}</span>
-                  </button>
-                );
-              })}
-            </div>
+          <div className="flex items-center justify-end gap-2 px-1 pb-1">
             <button
               type="submit"
               aria-label={isBn ? "AI দিয়ে বানান" : "Build with AI"}

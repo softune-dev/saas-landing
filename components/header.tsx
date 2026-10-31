@@ -162,53 +162,6 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
     <>
       <ScrollProgress />
       <GeoBanner />
-      {/* Top Announcement Bar - Only visible on sm screens and larger */}
-      <div className="relative z-40 hidden h-[44px] w-full items-center justify-between overflow-hidden bg-[#c147b6] px-6 lg:px-8 text-white sm:flex">
-        <div className="flex items-center gap-2">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/sale.svg"
-            alt=""
-            width={180}
-            height={44}
-            className="h-11 w-auto object-contain object-left"
-          />
-        </div>
-
-        {/* Desktop: full message */}
-        <div className="z-10 flex-1 text-center text-base font-medium md:text-lg">
-          {isBn ? (
-            <>
-              ৭ দিনের ফ্রি ট্রায়াল চলছে!{" "}
-              <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
-                কোনো কার্ড ছাড়াই লাইভ স্টোর খুলুন।
-              </a>
-            </>
-          ) : (
-            <>
-              7-day free trial is on! Open a real store with{" "}
-              <a href={signupHref} className="text-[#a3ffaa] underline underline-offset-2">
-                no credit card.
-              </a>
-            </>
-          )}
-        </div>
-        <div className="z-10 flex">
-          <a
-            href={signupHref}
-            className="animate-shine -my-[38px] flex h-[120px] flex-col items-center justify-center rounded-full border-[4px] border-white bg-gradient-to-r from-[#10b981] to-[#34d399] px-8 leading-tight transition-transform hover:scale-[1.02]"
-          >
-            <span className="text-[13px] font-bold tracking-tight text-[#1a1a1a]">
-              {isBn ? "শুরু করুন" : "GET"}
-            </span>
-            <span className="text-base font-black text-[#1a1a1a]">
-              {isBn ? "ফ্রি" : "FREE"}
-            </span>
-          </a>
-        </div>
-      </div>
-
       <header className="sticky top-0 z-50 flex flex-col border-b border-[var(--color-line)] bg-[var(--color-surface)]/90 backdrop-blur-md">
         {/* Main Navbar */}
         <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4 md:h-20 md:px-8">
