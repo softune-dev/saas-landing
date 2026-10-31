@@ -9,7 +9,8 @@ import { DemoAccessModal } from "./demo-access-modal";
 
 type Locale = "en" | "bn";
 type Text = { en: string; bn: string };
-type Slot = "center" | "left" | "right";
+/** lo/li = left outer/inner, ri/ro = right inner/outer, c = the dashboard. */
+type Slot = "lo" | "li" | "c" | "ri" | "ro";
 
 /** The four things the prompt box "does". Each lifts one product screenshot
  * and pops a result chip, so the visual below answers the prompt above. */
@@ -19,7 +20,7 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     icon: "/icons/shop-bag.svg",
     tab: { en: "Build store", bn: "স্টোর বানান" },
     prompt: { en: "Build a fashion store called Veila", bn: "Veila নামে একটি ফ্যাশন স্টোর বানাও" },
-    slot: "center",
+    slot: "li",
     chip: { en: "Veila store is ready", bn: "Veila স্টোর রেডি" },
   },
   {
@@ -27,7 +28,7 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     icon: "/icons/ai.svg",
     tab: { en: "AI agent", bn: "AI এজেন্ট" },
     prompt: { en: "Get my store ready for Eid", bn: "ঈদের জন্য আমার স্টোর সাজাও" },
-    slot: "left",
+    slot: "c",
     chip: { en: "Eid headline and colours updated", bn: "ঈদের হেডলাইন ও রং আপডেট হয়েছে" },
   },
   {
@@ -35,7 +36,7 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     icon: "/icons/color.svg",
     tab: { en: "Image Gen 2.0", bn: "ইমেজ জেন ২.০" },
     prompt: { en: "Create a hero banner and photos", bn: "হিরো ব্যানার ও প্রোডাক্ট ছবি বানাও" },
-    slot: "right",
+    slot: "ri",
     chip: { en: "New banner generated", bn: "নতুন ব্যানার তৈরি হয়েছে" },
   },
   {
@@ -43,15 +44,17 @@ const SCENARIOS: { id: string; icon: string; tab: Text; prompt: Text; slot: Slot
     icon: "/icons/chatgpt-mark.png",
     tab: { en: "GPT Connect", bn: "GPT কানেক্ট" },
     prompt: { en: "How did my store do this week?", bn: "এই সপ্তাহে স্টোর কেমন চলল?" },
-    slot: "center",
+    slot: "c",
     chip: { en: "৳48,600 this week, up 18%", bn: "এই সপ্তাহে ৳৪৮,৬০০, ১৮% বেশি" },
   },
 ];
 
 const CARDS: Record<Slot, { src: string; alt: string }> = {
-  center: { src: "/dashboard-d.webp", alt: "SoftuneBD dashboard" },
-  left: { src: "/showcase/chat-d.webp", alt: "SoftuneBD AI assistant" },
-  right: { src: "/showcase/editor-d.webp", alt: "SoftuneBD theme editor" },
+  c: { src: "/dashboard-d.webp", alt: "SoftuneBD dashboard" },
+  lo: { src: "/themes/women-fashion.webp", alt: "Women's fashion storefront theme" },
+  li: { src: "/themes/fashion-store.webp", alt: "Fashion storefront theme" },
+  ri: { src: "/themes/genz-fashion.webp", alt: "Gen Z fashion storefront theme" },
+  ro: { src: "/themes/skincare-shop.webp", alt: "Skincare storefront theme" },
 };
 
 const WORD_MS = 90;
@@ -277,12 +280,14 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
         </div>
 
         {/* The product, floating in perspective and cut off by the panel's edge. */}
-        <div className="relative mx-auto mt-12 h-[300px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:h-[380px] md:mt-16 md:h-[470px]">
+        <div className="relative mx-auto mt-8 h-[330px] w-full max-w-6xl overflow-visible px-4 [perspective:1800px] sm:mt-10 sm:h-[390px] md:mt-16 md:h-[480px]">
           {/* The horizon: an arc of orange light rising behind the cards. */}
           <div aria-hidden className="pointer-events-none absolute top-[5.5rem] left-1/2 -z-0 aspect-square w-[150%] -translate-x-1/2 rounded-full border-t-2 border-[rgba(255,170,130,0.75)] bg-[radial-gradient(60%_30%_at_50%_0%,rgba(255,90,54,0.30),#09080b_75%)] shadow-[0_-24px_110px_0_rgba(255,90,54,0.55)] md:top-[7rem]" />
-          <Card slot="left" active={active === "left"} reduced={!!reduced} />
-          <Card slot="right" active={active === "right"} reduced={!!reduced} />
-          <Card slot="center" active={active === "center"} reduced={!!reduced} />
+          <Card slot="lo" active={active === "lo"} reduced={!!reduced} />
+          <Card slot="ro" active={active === "ro"} reduced={!!reduced} />
+          <Card slot="li" active={active === "li"} reduced={!!reduced} />
+          <Card slot="ri" active={active === "ri"} reduced={!!reduced} />
+          <Card slot="c" active={active === "c"} reduced={!!reduced} />
 
           <AnimatePresence mode="wait">
             {sent ? (
@@ -292,7 +297,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-3 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2.5 rounded-full border border-white/15 bg-[#17141a]/85 py-2 pr-4 pl-2.5 text-[13px] font-medium whitespace-nowrap text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.8)] backdrop-blur-xl md:top-6 md:text-sm"
+                className="absolute top-0 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2.5 rounded-full border border-white/15 bg-[#17141a]/85 py-2 pr-4 pl-2.5 text-[13px] font-medium whitespace-nowrap text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.8)] backdrop-blur-xl md:top-6 md:text-sm"
               >
                 <span className="flex size-6 items-center justify-center rounded-full bg-[var(--color-brand)]">
                   <MaskIcon src={scenario.icon} className="size-3.5 text-white" />
@@ -309,14 +314,18 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
 }
 
 const SLOT_STYLE: Record<Slot, string> = {
-  center: "left-1/2 top-[3.5rem] z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[4.5rem] md:w-[60%]",
-  left: "left-[0%] top-[7rem] z-10 hidden w-[42%] md:block",
-  right: "right-[0%] top-[7rem] z-10 hidden w-[42%] md:block",
+  c: "left-1/2 top-[3rem] z-20 w-[92%] -translate-x-1/2 sm:w-[78%] md:top-[4.5rem] md:w-[56%]",
+  li: "left-[8%] top-[6.5rem] z-10 hidden w-[24%] md:block",
+  ri: "right-[8%] top-[6.5rem] z-10 hidden w-[24%] md:block",
+  lo: "left-[-1%] top-[9.5rem] z-[5] hidden w-[19%] md:block",
+  ro: "right-[-1%] top-[9.5rem] z-[5] hidden w-[19%] md:block",
 };
 const SLOT_TILT: Record<Slot, { rotateX: number; rotateY: number; rotateZ: number }> = {
-  center: { rotateX: 16, rotateY: 0, rotateZ: 0 },
-  left: { rotateX: 14, rotateY: 18, rotateZ: -2 },
-  right: { rotateX: 14, rotateY: -18, rotateZ: 2 },
+  c: { rotateX: 16, rotateY: 0, rotateZ: 0 },
+  li: { rotateX: 14, rotateY: 22, rotateZ: -2 },
+  ri: { rotateX: 14, rotateY: -22, rotateZ: 2 },
+  lo: { rotateX: 12, rotateY: 32, rotateZ: -4 },
+  ro: { rotateX: 12, rotateY: -32, rotateZ: 4 },
 };
 
 /** One product screenshot in a browser frame, tilted in 3D. The active one
@@ -338,7 +347,7 @@ function Card({ slot, active, reduced }: { slot: Slot; active: boolean; reduced:
       >
         <motion.div
           animate={reduced ? undefined : { y: [0, -7, 0] }}
-          transition={{ duration: 6 + (slot === "center" ? 0 : 1.5), repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6 + (slot === "c" ? 0 : slot === "li" || slot === "ri" ? 1.2 : 2.2), repeat: Infinity, ease: "easeInOut" }}
           className="overflow-hidden rounded-2xl border border-white/12 bg-[#101013] shadow-[0_50px_90px_-30px_rgba(0,0,0,0.9)]"
         >
           <div className="flex h-7 items-center gap-1.5 border-b border-white/8 bg-white/[0.04] px-3" aria-hidden>
@@ -347,7 +356,7 @@ function Card({ slot, active, reduced }: { slot: Slot; active: boolean; reduced:
             <span className="size-2 rounded-full bg-white/20" />
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={src} alt={alt} draggable={false} className="block aspect-[3/2] w-full object-cover object-top" loading={slot === "center" ? "eager" : "lazy"} />
+          <img src={src} alt={alt} draggable={false} className={["block w-full object-cover object-top", slot === "c" ? "aspect-[3/2]" : "aspect-[4/5]"].join(" ")} loading={slot === "c" ? "eager" : "lazy"} />
         </motion.div>
       </motion.div>
     </div>
