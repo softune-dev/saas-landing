@@ -334,9 +334,9 @@ function ChatGptPreview({ sent, done, scenario, locale }: { sent: boolean; done:
         </motion.div>
       ) : sent ? (
         <span className="inline-flex items-center gap-1 py-2" aria-label="Thinking">
-          <span className="size-1.5 animate-bounce rounded-full bg-[var(--color-muted)] [animation-delay:-0.3s]" />
-          <span className="size-1.5 animate-bounce rounded-full bg-[var(--color-muted)] [animation-delay:-0.15s]" />
-          <span className="size-1.5 animate-bounce rounded-full bg-[var(--color-muted)]" />
+          <span className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)] [animation-delay:-0.3s]" />
+          <span className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)] [animation-delay:-0.15s]" />
+          <span className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)]" />
         </span>
       ) : null}
     </div>
