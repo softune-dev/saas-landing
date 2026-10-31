@@ -153,13 +153,19 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
             isBn ? "leading-[1.12]" : "leading-[0.95]",
           ].join(" ")}
         >
-          <span className="flex flex-wrap items-center justify-center gap-x-[0.28em] gap-y-[0.18em]">
-            <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">AI</span>
-            <span>{isBn ? "ই-কমার্স" : "Ecommerce"}</span>
-            <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">{isBn ? "ওয়েবসাইট" : "Website"}</span>
-            <span>{isBn ? "বিল্ডার" : "Builder"}</span>
+          {/* Fixed lines on a phone ("AI Ecommerce" / "Website Builder" / "for Bangladesh"),
+              joined into one row from sm up. */}
+          <span className="flex flex-col items-center gap-y-[0.2em] sm:flex-row sm:justify-center sm:gap-x-[0.28em]">
+            <span className="inline-flex items-center gap-x-[0.28em]">
+              <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">AI</span>
+              <span>{isBn ? "ই-কমার্স" : "Ecommerce"}</span>
+            </span>
+            <span className="inline-flex items-center gap-x-[0.28em]">
+              <span className="inline-block rounded-[0.22em] bg-[var(--color-brand)] px-[0.22em] py-[0.08em] text-white">{isBn ? "ওয়েবসাইট" : "Website"}</span>
+              <span>{isBn ? "বিল্ডার" : "Builder"}</span>
+            </span>
           </span>
-          <span className="mt-[0.18em] block">{isBn ? "বাংলাদেশের জন্য" : "for Bangladesh"}</span>
+          <span className="mt-[0.2em] block">{isBn ? "বাংলাদেশের জন্য" : "for Bangladesh"}</span>
         </h1>
 
         <p className="mt-5 max-w-lg text-[14px] leading-relaxed font-medium text-[var(--color-muted)] md:text-[15px]">
@@ -170,7 +176,7 @@ export function Hero({ locale = "en" }: { locale?: "en" | "bn" }) {
 
         {/* The prompt composer */}
         <div className="group mt-8 w-full max-w-3xl rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-2 text-left transition-colors duration-300 focus-within:border-[var(--color-brand)]/50 md:mt-9">
-          <div className="min-h-[64px] px-3 pt-2.5 md:min-h-[70px] md:px-3.5">
+          <div className="min-h-[40px] px-3 pt-3 md:min-h-[70px] md:px-3.5 md:pt-2.5">
             {userMode ? (
               <textarea
                 ref={inputRef}

@@ -51,8 +51,8 @@ export const SCENARIOS: Scenario[] = [
     icon: "/icons/shop-bag.svg",
     tab: { en: "Build store", bn: "স্টোর বানান" },
     prompt: {
-      en: "Build a women's fashion store called Veila, warm and elegant",
-      bn: "Veila নামে একটি মেয়েদের ফ্যাশন স্টোর বানাও, উষ্ণ আর এলিগ্যান্ট",
+      en: "Build a fashion store called Veila",
+      bn: "Veila নামে একটি ফ্যাশন স্টোর বানাও",
     },
     steps: [
       { target: "nav", label: { en: "navbar and logo", bn: "নেভবার ও লোগো" }, doing: { en: "Designing", bn: "ডিজাইন হচ্ছে" }, done: { en: "Designed", bn: "ডিজাইন হলো" } },
@@ -71,8 +71,8 @@ export const SCENARIOS: Scenario[] = [
     icon: "/icons/ai.svg",
     tab: { en: "AI agent", bn: "AI এজেন্ট" },
     prompt: {
-      en: "Get my store ready for Eid with warmer colours",
-      bn: "উষ্ণ রঙে আমার স্টোর ঈদের জন্য সাজাও",
+      en: "Get my store ready for Eid",
+      bn: "ঈদের জন্য আমার স্টোর সাজাও",
     },
     steps: [
       { target: "hero", label: { en: "hero headline", bn: "হিরো হেডলাইন" }, doing: { en: "Rewriting", bn: "নতুন করে লেখা হচ্ছে" }, done: { en: "Rewrote", bn: "নতুন করে লেখা হলো" } },
@@ -90,8 +90,8 @@ export const SCENARIOS: Scenario[] = [
     icon: "/icons/color.svg",
     tab: { en: "Image Gen 2.0", bn: "ইমেজ জেন ২.০" },
     prompt: {
-      en: "Create a hero banner and fresh product photos",
-      bn: "একটি হিরো ব্যানার আর নতুন প্রোডাক্ট ছবি বানাও",
+      en: "Create a hero banner and photos",
+      bn: "হিরো ব্যানার ও প্রোডাক্ট ছবি বানাও",
     },
     steps: [
       { target: "heroArt", label: { en: "hero banner", bn: "হিরো ব্যানার" }, doing: { en: "Generating", bn: "তৈরি হচ্ছে" }, done: { en: "Generated", bn: "তৈরি হলো" } },
@@ -109,7 +109,7 @@ export const SCENARIOS: Scenario[] = [
     tab: { en: "GPT Connect", bn: "GPT কানেক্ট" },
     prompt: {
       en: "How did my store do this week?",
-      bn: "এই সপ্তাহে আমার স্টোর কেমন চলল?",
+      bn: "এই সপ্তাহে স্টোর কেমন চলল?",
     },
     steps: [
       { target: "orders", label: { en: "37 orders", bn: "৩৭টি অর্ডার" }, doing: { en: "Reading", bn: "পড়া হচ্ছে" }, done: { en: "Read", bn: "পড়া হলো" } },
