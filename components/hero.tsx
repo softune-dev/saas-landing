@@ -147,7 +147,10 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
           <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]" />
         </div>
 
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-12 text-center sm:px-6 sm:pt-16 md:pt-20">
+        {/* The first screen: everything down to the trial note fills the viewport
+            (minus the header and the panel's margin), so the product visuals start
+            right below the fold. */}
+        <div className="mx-auto flex min-h-[calc(100svh-6.5rem)] w-full max-w-6xl flex-col items-center justify-center px-4 py-10 text-center sm:min-h-[calc(100svh-7.75rem)] sm:px-6 md:py-12">
           <Link
             href={changelogHref}
             className="group flex w-max max-w-full items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] p-1 pr-3 text-[12px] font-medium text-white/85 backdrop-blur transition-colors hover:border-white/25 md:text-[13px]"
