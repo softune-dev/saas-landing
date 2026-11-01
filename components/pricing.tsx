@@ -8,12 +8,9 @@ import { Button } from "./ui/button";
 import { getPlans } from "@/lib/pricing-data";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 
-// Each plan gets its own glossy gradient tile (name, price) on top of a frosted card, so the three
-// tiers differ at a glance. Mesh gradients are stacked radial blobs over a base colour, kept inside the
-// brand's orange family: Starter is a light sand-amber, Growth the vivid brand orange, Business a dark
-// ember. `ink` is the text colour that stays readable on each tile.
-const GRAIN =
-  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>\")";
+// Purpose-made artwork gives each tier a distinct, premium surface while keeping the
+// established sand → orange → ember progression. The image compositions leave their
+// upper- and lower-left areas calm so the plan and price remain readable.
 
 // The price numerals use the hero title's heading font. Li Mayukh (the Bangla hero face) only covers
 // Bangla characters, so with English digits it would leave the ৳ sign heavy and the digits thin;
@@ -22,26 +19,26 @@ const PRICE_FONT = "var(--font-heading), sans-serif";
 
 const TILES = {
   entry: {
-    bg: "radial-gradient(70% 90% at 12% 18%, #fff1dc 0%, transparent 60%), radial-gradient(60% 80% at 88% 85%, #ff9a52 0%, transparent 62%), radial-gradient(50% 60% at 70% 10%, #ffd08a 0%, transparent 60%), #f6b878",
+    image: "/pricing/starter.webp",
     ink: "text-[#2a1306]",
     pill: "bg-white/45 text-[#2a1306]",
     sub: "text-[#2a1306]/70",
   },
   featured: {
-    bg: "radial-gradient(65% 85% at 15% 15%, #ffb36b 0%, transparent 58%), radial-gradient(70% 90% at 90% 90%, #d92f12 0%, transparent 62%), radial-gradient(55% 70% at 75% 8%, #ff7a3d 0%, transparent 60%), #ff5a36",
+    image: "/pricing/growth.webp",
     ink: "text-white",
     pill: "bg-white/25 text-white",
     sub: "text-white/80",
   },
   top: {
-    bg: "radial-gradient(70% 90% at 85% 12%, #d9732e 0%, transparent 58%), radial-gradient(60% 80% at 10% 95%, #7a2d0e 0%, transparent 62%), radial-gradient(45% 60% at 40% 40%, #3b180b 0%, transparent 70%), #1d0e07",
+    image: "/pricing/business.webp",
     ink: "text-white",
     pill: "bg-white/15 text-white",
     sub: "text-white/70",
   },
 } as const;
 
-export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
+export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "bn"; showIntro?: boolean }) {
   // Monthly first: the headline number everywhere (blog posts, ads, llms.txt,
   // search-engine offers) is the real monthly price. Defaulting to Yearly
   // showed the lower per-month-billed-yearly figure as if it were the price.
@@ -70,7 +67,7 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
       className="border-b border-[var(--color-line)] bg-[var(--color-canvas)] pt-10 pb-14 md:pb-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
-        <div className="mx-auto mb-8 flex flex-col items-center text-center">
+        {showIntro ? <div className="mx-auto mb-8 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +119,7 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
           <p className="mt-4 max-w-xl text-[14px] font-medium text-[var(--color-muted)] md:text-[15px]">
             {trialNote}
           </p>
-        </div>
+        </div> : null}
 
         <div className="mb-10 flex justify-center md:mb-16">
           <div className="relative flex w-full max-w-[320px] items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 sm:max-w-none sm:w-auto">
@@ -184,19 +181,18 @@ export function Pricing({ locale = "en" }: { locale?: "en" | "bn" }) {
                     : "border-[var(--color-line)]"
                 }`}
               >
-                {/* The plan tile: glossy gradient, plan name top-left, price bottom-left. */}
+                {/* The plan tile: custom tier artwork, plan name top-left, price bottom-left. */}
                 <div
                   className={`relative flex h-[210px] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:h-[220px] sm:p-6 ${tile.ink}`}
-                  style={{ background: tile.bg }}
+                  style={{
+                    backgroundImage: `url(${tile.image})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                  }}
                 >
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-[0.28] mix-blend-overlay"
-                    style={{ backgroundImage: GRAIN }}
-                  />
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-[22px] [background:linear-gradient(145deg,rgb(255_255_255/0.28),transparent_38%)]"
+                    className="pointer-events-none absolute inset-0 rounded-[22px] [background:linear-gradient(145deg,rgb(255_255_255/0.16),transparent_42%)]"
                   />
                   <div className="relative flex items-center justify-between gap-2">
                     <span className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-md ${tile.pill}`}>{plan.name}</span>
