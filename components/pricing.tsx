@@ -21,19 +21,19 @@ const TILES = {
   entry: {
     image: "/pricing/starter.webp",
     ink: "text-[#2a1306]",
-    pill: "bg-white/45 text-[#2a1306]",
+    pill: "border border-white/80 bg-white/78 text-[#2a1306] shadow-[0_8px_20px_rgb(42_19_6/0.14)]",
     sub: "text-[#2a1306]/70",
   },
   featured: {
     image: "/pricing/growth.webp",
     ink: "text-white",
-    pill: "bg-white/25 text-white",
+    pill: "border border-white/45 bg-white/18 text-white shadow-[0_8px_20px_rgb(55_12_4/0.26)]",
     sub: "text-white/80",
   },
   top: {
     image: "/pricing/business.webp",
     ink: "text-white",
-    pill: "bg-white/15 text-white",
+    pill: "border border-white/25 bg-black/30 text-white shadow-[0_8px_20px_rgb(0_0_0/0.42)]",
     sub: "text-white/70",
   },
 } as const;
@@ -183,26 +183,26 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
               >
                 {/* The plan tile: custom tier artwork, plan name top-left, price bottom-left. */}
                 <div
-                  className={`relative flex h-[210px] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:h-[220px] sm:p-6 ${tile.ink}`}
-                  style={{
-                    backgroundImage: `url(${tile.image})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
+                  className={`relative flex h-[224px] flex-col justify-between overflow-hidden rounded-[22px] p-5 pb-3 sm:h-[234px] sm:p-6 sm:pb-4 ${tile.ink}`}
                 >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-2 scale-105 bg-cover bg-center blur-[2px]"
+                    style={{ backgroundImage: `url(${tile.image})` }}
+                  />
                   <div
                     aria-hidden
                     className="pointer-events-none absolute inset-0 rounded-[22px] [background:linear-gradient(145deg,rgb(255_255_255/0.16),transparent_42%)]"
                   />
-                  <div className="relative flex items-center justify-between gap-2">
-                    <span className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-md ${tile.pill}`}>{plan.name}</span>
+                  <div className="relative z-10 flex items-center justify-between gap-2">
+                    <span className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-xl ${tile.pill}`}>{plan.name}</span>
                     {popular ? (
-                      <span className="rounded-full bg-white px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-[var(--color-brand)] uppercase">
+                      <span className="rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-[var(--color-brand)] shadow-[0_8px_20px_rgb(55_12_4/0.18)] uppercase">
                         {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
                       </span>
                     ) : null}
                   </div>
-                  <div className="relative">
+                  <div className="relative z-10 translate-y-1">
                     <div className="flex items-baseline gap-1.5">
                       {/* The hero title's heading font, English digits, tightly tracked, on both languages. */}
                       <span
