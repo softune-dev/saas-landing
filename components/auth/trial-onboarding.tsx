@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { useEffect, useReducer, useRef, useState, type FormEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/components/ui/toast";
@@ -159,6 +160,7 @@ function handoffToDashboard(access: string, refresh: string) {
   // here, not in previewComplete, so ?preview=1 walkthroughs never inflate
   // conversion counts.
   window.fbq?.("track", "CompleteRegistration");
+  track("trial_signup");
   storeDashboardSession(access, refresh);
   const hash = new URLSearchParams({
     softune_at: access,
