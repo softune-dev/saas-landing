@@ -1,6 +1,6 @@
 /**
  * Self-serve trial signup client — POST/PATCH /trial/*, plus the
- * decoupled public demo button (POST /public/demo-access). Replaces
+ * decoupled public demo button (POST /public/demo-access/*). Replaces
  * lib/leads.ts: there is no lead_token here, no staging DB row. A
  * `signup_token` is an opaque Redis-backed reference (see app/api/
  * trial.py) that only ever proves "this browser is partway through this
@@ -118,7 +118,7 @@ export async function verifyTrialOtp(
 export async function updateTrialDetails(data: {
   signup_token: string;
   shop_name: string;
-  phone?: string;
+  phone: string;
   tagline?: string;
   category?: string;
 }): Promise<TrialSignupTokenOut> {
@@ -170,18 +170,24 @@ export async function getProvisionStatus(
   });
 }
 
-/** A shared, read-only account to click around in — no signup, no
- * password. Still requires a real email first (recaptcha-gated, same
- * pattern as trial signup): see app/api/public.py's demo_access, which
- * records it in demo_access_requests for outreach and rate-limits both by
- * IP and by email so a burst of different emails from one browser (or one
- * email replayed from many IPs) gets cut off. */
-export async function requestDemoAccess(data: {
+/** Mails a 6-digit code. Nothing is recorded until the code comes back: see
+ * app/api/demo_access.py. */
+export async function requestDemoCode(data: {
   email: string;
   recaptcha_token: string;
   recaptcha_v2_token: string;
+}): Promise<void> {
+  await request<{ sent: boolean }>("/public/demo-access/start", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function verifyDemoCode(data: {
+  email: string;
+  otp: string;
 }): Promise<TrialTokensOut> {
-  return request<TrialTokensOut>("/public/demo-access", {
+  return request<TrialTokensOut>("/public/demo-access/verify", {
     method: "POST",
     body: JSON.stringify(data),
   });

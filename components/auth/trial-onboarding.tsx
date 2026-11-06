@@ -454,7 +454,7 @@ export function TrialOnboarding({ locale = "en" }: { locale?: "en" | "bn" }) {
 
   async function handleBasics(e: FormEvent) {
     e.preventDefault();
-    if (phone && !BD_PHONE_RE.test(phone)) {
+    if (!BD_PHONE_RE.test(phone)) {
       failToast(
         isBn
           ? "একটি সঠিক বাংলাদেশি মোবাইল নম্বর দিন (যেমন: 01XXXXXXXXX)।"
@@ -472,7 +472,7 @@ export function TrialOnboarding({ locale = "en" }: { locale?: "en" | "bn" }) {
       await updateTrialDetails({
         signup_token: state.signupToken,
         shop_name: shopName.trim(),
-        phone: phone.trim() || undefined,
+        phone: phone.trim(),
         tagline: tagline.trim() || undefined,
         category: category || undefined,
       });

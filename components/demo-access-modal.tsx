@@ -1,12 +1,12 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { KeyRound, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { RecaptchaChallengeRequiredError } from "@/lib/api";
 import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
 import { DASHBOARD_URL } from "@/lib/site";
-import { requestDemoAccess, storeDashboardSession } from "@/lib/trial";
+import { requestDemoCode, storeDashboardSession, verifyDemoCode } from "@/lib/trial";
 import { useToast } from "@/components/ui/toast";
 import { fieldClass } from "./auth/auth-shell";
 import { RecaptchaDisclosure } from "./auth/recaptcha-disclosure";
@@ -20,11 +20,14 @@ type DemoAccessModalProps = {
   onClose: () => void;
 };
 
-/** Email-gated demo: one field, recaptcha, then the same hash-handoff the
- * old one-click button used. Not the trial wizard — no password, no OTP. */
+/** Email-gated demo: email, then the code we mail to it, then the same
+ * hash-handoff the old one-click button used. The code is what keeps made-up
+ * addresses off the outreach list. Not the trial wizard: no password. */
 export function DemoAccessModal({ open, onClose }: DemoAccessModalProps) {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
+  const [codeSent, setCodeSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [needsChallenge, setNeedsChallenge] = useState(false);
   const [v2Token, setV2Token] = useState<string | null>(null);
@@ -33,25 +36,52 @@ export function DemoAccessModal({ open, onClose }: DemoAccessModalProps) {
   useEffect(() => {
     if (!open) return;
     setEmail("");
+    setCode("");
+    setCodeSent(false);
     setBusy(false);
     setNeedsChallenge(false);
     setV2Token(null);
   }, [open]);
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  async function sendCode() {
+    setBusy(true);
+    try {
+      const recaptchaToken = await getRecaptchaToken("demo_access");
+      await requestDemoCode({
+        email: email.trim(),
+        recaptcha_token: recaptchaToken,
+        recaptcha_v2_token: v2Token ?? "",
+      });
+      setCodeSent(true);
+    } catch (err) {
+      if (err instanceof RecaptchaChallengeRequiredError) {
+        setNeedsChallenge(true);
+        if (!hasV2Fallback) {
+          toast({
+            title: err.message || "Couldn't verify you're human",
+            variant: "error",
+          });
+        }
+      } else {
+        v2Ref.current?.reset();
+        toast({
+          title: err instanceof Error ? err.message : "Couldn't send the code",
+          variant: "error",
+        });
+      }
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function openDemo() {
     setBusy(true);
     // Opened synchronously, inside the click handler, before any await —
     // window.open() after an await loses the "real user gesture" browsers
     // require and gets silently popup-blocked.
     const newTab = window.open("", "_blank");
     try {
-      const recaptchaToken = await getRecaptchaToken("demo_access");
-      const out = await requestDemoAccess({
-        email: email.trim(),
-        recaptcha_token: recaptchaToken,
-        recaptcha_v2_token: v2Token ?? "",
-      });
+      const out = await verifyDemoCode({ email: email.trim(), otp: code });
       storeDashboardSession(out.access_token, out.refresh_token);
       const hash = new URLSearchParams({
         softune_at: out.access_token,
@@ -66,23 +96,17 @@ export function DemoAccessModal({ open, onClose }: DemoAccessModalProps) {
       onClose();
     } catch (err) {
       newTab?.close();
-      if (err instanceof RecaptchaChallengeRequiredError) {
-        setNeedsChallenge(true);
-        if (!hasV2Fallback) {
-          toast({
-            title: err.message || "Couldn't verify you're human",
-            variant: "error",
-          });
-        }
-      } else {
-        v2Ref.current?.reset();
-        toast({
-          title: err instanceof Error ? err.message : "Couldn't open demo",
-          variant: "error",
-        });
-      }
+      toast({
+        title: err instanceof Error ? err.message : "Couldn't open demo",
+        variant: "error",
+      });
       setBusy(false);
     }
+  }
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    void (codeSent ? openDemo() : sendCode());
   }
 
   return (
@@ -109,28 +133,56 @@ export function DemoAccessModal({ open, onClose }: DemoAccessModalProps) {
             className="relative z-10 w-full max-w-sm rounded-2xl border border-border bg-surface p-5 text-left shadow-xl dark:border-white/10"
           >
             <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
-              <label htmlFor="demo-email" className="flex flex-col gap-2">
-                <span className="text-sm font-medium text-foreground">Email</span>
-                <div className="relative">
-                  <Mail
-                    className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted"
-                    strokeWidth={2}
-                  />
-                  <input
-                    id="demo-email"
-                    type="email"
-                    required
-                    autoFocus
-                    autoComplete="email"
-                    placeholder="you@shop.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className={fieldClass}
-                  />
-                </div>
-              </label>
+              {codeSent ? (
+                <label htmlFor="demo-code" className="flex flex-col gap-2">
+                  <span className="text-sm font-medium text-foreground">
+                    Enter the 6-digit code sent to {email.trim()}
+                  </span>
+                  <div className="relative">
+                    <KeyRound
+                      className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted"
+                      strokeWidth={2}
+                    />
+                    <input
+                      id="demo-code"
+                      type="text"
+                      inputMode="numeric"
+                      required
+                      autoFocus
+                      autoComplete="one-time-code"
+                      maxLength={6}
+                      pattern="[0-9]{6}"
+                      placeholder="123456"
+                      value={code}
+                      onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+                      className={fieldClass}
+                    />
+                  </div>
+                </label>
+              ) : (
+                <label htmlFor="demo-email" className="flex flex-col gap-2">
+                  <span className="text-sm font-medium text-foreground">Email</span>
+                  <div className="relative">
+                    <Mail
+                      className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted"
+                      strokeWidth={2}
+                    />
+                    <input
+                      id="demo-email"
+                      type="email"
+                      required
+                      autoFocus
+                      autoComplete="email"
+                      placeholder="you@gmail.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className={fieldClass}
+                    />
+                  </div>
+                </label>
+              )}
 
-              {needsChallenge && hasV2Fallback ? (
+              {!codeSent && needsChallenge && hasV2Fallback ? (
                 <RecaptchaV2Fallback ref={v2Ref} onVerify={setV2Token} />
               ) : null}
 
@@ -138,23 +190,32 @@ export function DemoAccessModal({ open, onClose }: DemoAccessModalProps) {
                 <button
                   type="button"
                   disabled={busy}
-                  onClick={onClose}
+                  onClick={
+                    codeSent
+                      ? () => {
+                          setCodeSent(false);
+                          setCode("");
+                        }
+                      : onClose
+                  }
                   className="inline-flex h-11 flex-1 items-center justify-center rounded-full border border-border bg-surface text-sm font-semibold text-foreground transition-colors hover:bg-search-bg disabled:opacity-50"
                 >
-                  Cancel
+                  {codeSent ? "Back" : "Cancel"}
                 </button>
                 <button
                   type="submit"
-                  disabled={busy || (needsChallenge && !v2Token)}
+                  disabled={busy || (!codeSent && needsChallenge && !v2Token)}
                   className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-white transition-opacity hover:opacity-95 disabled:opacity-60"
                 >
                   {busy ? (
                     <>
                       <span className="size-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                      Opening...
+                      {codeSent ? "Opening..." : "Sending..."}
                     </>
-                  ) : (
+                  ) : codeSent ? (
                     "Open demo"
+                  ) : (
+                    "Send code"
                   )}
                 </button>
               </div>

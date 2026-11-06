@@ -1,7 +1,7 @@
 /**
- * Merchant-facing changelog, dashboard and live storefront only.
- * Landing-site, SEO, and internal/dev work is not recorded here.
- * Dates follow git history of user-visible product work (Aug/Sep 2026).
+ * Merchant-facing changelog: dashboard, AI and live storefront only.
+ * Landing-site, SEO and internal work is not recorded here. Dates follow git
+ * history. Keep entries short: one line a store owner would care about.
  */
 
 export type ChangeType = "Feature" | "Improvement" | "Bug Fix";
@@ -22,729 +22,299 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "3.4",
+    version: "v3.4.0",
+    date: "Nov 6, 2026",
+    title: "The AI agent can now run your whole store",
+    description: "Ask the AI to manage products, settings and delivery in plain words, and offer free delivery on bigger orders.",
+    changes: [
+      { type: "Feature", content: "AI agent manages SEO, contact details, delivery, About, FAQs, Privacy, Terms, domains, fraud rules and your account." },
+      { type: "Feature", content: "AI agent can fill every product field, including variants and stock for each size and color." },
+      { type: "Feature", content: "Free delivery over an amount: set it in Shipping or ask the AI. Shoppers see how much more to add." },
+      { type: "Improvement", content: "When your free AI messages run out, you now get a clear screen to buy credits instead of an error." },
+      { type: "Improvement", content: "Purchased credits now also work on the Write with AI buttons." },
+      { type: "Bug Fix", content: "The delivery charge shown in the cart now matches what checkout charges for multiple items." },
+    ],
+  },
+  {
+    serial: "3.3",
+    version: "v3.3.0",
+    date: "Oct 31, 2026",
+    title: "Editing from two devices is now safe",
+    description: "Publishing from one device no longer overwrites work saved on another.",
+    changes: [
+      { type: "Bug Fix", content: "Publishing only applies what you edited on that device, on top of your latest store." },
+      { type: "Bug Fix", content: "Saving your theme no longer deletes images from your media library." },
+    ],
+  },
+  {
+    serial: "3.2",
+    version: "v3.2.0",
+    date: "Oct 30, 2026",
+    title: "Manage your store from ChatGPT (beta)",
+    description: "Connect your store to ChatGPT to check sales, edit your store and add images.",
+    changes: [
+      { type: "Feature", content: "ChatGPT connector: approve it once, then ask ChatGPT to read and update your store." },
+      { type: "Feature", content: "Images made in ChatGPT can go straight to your hero, categories or products." },
+      { type: "Improvement", content: "AI Images now plans each design first, so vague requests return a real redesign." },
+    ],
+  },
+  {
+    serial: "3.1",
+    version: "v3.1.0",
+    date: "Oct 30, 2026",
+    title: "Meet the AI agent",
+    description: "The AI chat now does the work for you instead of explaining where to click.",
+    changes: [
+      { type: "Feature", content: "AI agent changes your colors, fonts and homepage text, and adds products, categories and sale events." },
+      { type: "Feature", content: "Every AI change has an Undo button." },
+      { type: "Feature", content: "Attach a photo in chat and the AI can see it and place it on your store." },
+      { type: "Improvement", content: "Replies stream in live, showing each step the AI takes." },
+    ],
+  },
+  {
+    serial: "3.0",
+    version: "v3.0.0",
+    date: "Oct 30, 2026",
+    title: "Lower prices on every plan",
+    description: "Starter ৳499, Growth ৳1,499 and Business ৳3,999 a month, with 20% off yearly.",
+    changes: [
+      { type: "Improvement", content: "Paid stores move to the new price at their next renewal." },
+    ],
+  },
+  {
     serial: "2.9",
     version: "v2.9.0",
-    date: "Oct 31, 2026",
-    title: "Editing from two devices can no longer overwrite your store",
-    description:
-      "If you edit your theme on your phone and later publish from a laptop (or the other way round), the second device used to publish its older copy over your newer work. That can no longer happen, and publishing never deletes your uploaded images.",
+    date: "Oct 17, 2026",
+    title: "Set up your whole store with AI",
+    description: "Answer a few questions and AI builds your homepage, images, categories and first product.",
     changes: [
-      {
-        type: "Bug Fix",
-        content:
-          "Publishing from one device no longer replaces changes you saved on another device. Only what you edited on the device you publish from is applied, on top of your store's latest version.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Saving or publishing your theme no longer permanently deletes images from your media library. Unused images are only removed by the cleanup in Media settings.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "If your store was changed from another device while you were editing, Softune now detects it, merges your edits onto the latest version and retries, instead of overwriting anything.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "The Media cleanup now recognises every image used on your store, including feature images and testimonial screenshots, so images in use are never removed.",
-      },
+      { type: "Feature", content: "AI store setup from a short form, offered right after your store goes live." },
+      { type: "Feature", content: "Your 5 free AI images now work in the AI panel's Image tab." },
+      { type: "Improvement", content: "A cleaner AI panel, bigger image presets, and suggested prompts in Bangla." },
+      { type: "Bug Fix", content: "Fixed new stores getting a credits error while they still had free images." },
     ],
   },
   {
     serial: "2.8",
     version: "v2.8.0",
-    date: "Oct 31, 2026",
-    title: "A new home page built around the AI",
-    description:
-      "Our home page now opens with a prompt box: tell the AI your idea and it builds your store. You can also see how the AI agent, AI Images and the ChatGPT connector work before you sign up.",
+    date: "Oct 9, 2026",
+    title: "How it works, and clearer custom domains",
+    description: "A quick walkthrough inside the dashboard, and honest domain status.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Describe your store in your own words on the home page, in Bangla or English, and start your free trial from there.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "One look at what SoftuneBD can do: build a store, the AI agent, Image Gen 2.0 and the ChatGPT connector, with Claude marked as coming soon.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "A darker, faster home page with product screenshots below the first screen, and the same look on the inner pages.",
-      },
+      { type: "Feature", content: "How it works popup with a video walkthrough, in English and Bangla." },
+      { type: "Improvement", content: "A new custom domain now shows as waiting for DNS until it really connects." },
+      { type: "Improvement", content: "Hero images on phones keep their shape when no mobile image is set." },
     ],
   },
   {
     serial: "2.7",
     version: "v2.7.0",
-    date: "Oct 31, 2026",
-    title: "Manage your store from ChatGPT (beta)",
-    description:
-      "Connect your store to ChatGPT and ask it to check sales, change your homepage, add products, or create an image and put it on your site. You approve the connection and every change can be undone.",
+    date: "Oct 6, 2026",
+    title: "See your store while you build it",
+    description: "Setup now shows a live phone preview and helps you create your first images.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "ChatGPT connector (beta): add SoftuneBD in ChatGPT, approve it on a SoftuneBD page, and ChatGPT can read your store and make changes you ask for.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Images from ChatGPT: it can save an image it made to your media library and set it as your desktop hero, mobile hero, a category image or a product photo.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Every change made through ChatGPT is recorded and can be undone. It cannot delete data, issue refunds, change order status, or see billing or customer phone numbers.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "AI Images now plans each image like an art director before drawing it, so requests like \"make it nicer\" return a real redesign instead of a near copy.",
-      },
+      { type: "Feature", content: "Live preview during setup, updating as you add your logo, images and products." },
+      { type: "Feature", content: "New Site images step, with free AI images to get started." },
     ],
   },
   {
     serial: "2.6",
     version: "v2.6.0",
-    date: "Oct 30, 2026",
-    title: "Lower prices on every plan",
-    description:
-      "Every plan now costs less: Starter ৳499, Growth ৳1,499 and Business ৳3,999 a month. Stores already on a paid plan move to the new price at their next renewal.",
+    date: "Sep 22, 2026",
+    title: "Trial extended to 7 days",
+    description: "More time to set up your store before choosing a plan. No credit card needed.",
     changes: [
-      {
-        type: "Improvement",
-        content:
-          "Starter is now ৳499/month and Growth ৳1,499/month, with all the same features.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Business is now ৳3,999/month: unlimited products, 2 storefronts, 3GB media storage and 3,600 AI credits a month (120/day).",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Yearly billing keeps its 20% saving: ৳399, ৳1,199 and ৳3,199 a month.",
-      },
+      { type: "Improvement", content: "Free trial is now 7 days instead of 3." },
     ],
   },
   {
     serial: "2.5",
     version: "v2.5.0",
-    date: "Oct 17, 2026",
-    title: "Set up your whole store with AI, and a cleaner AI panel",
-    description:
-      "Answer a few questions and AI builds your homepage, images, categories and first product for you. The AI panel is simpler, and your free AI images now work in chat too.",
+    date: "Sep 19, 2026",
+    title: "Price and stock for every variant",
+    description: "Each size and color combination can have its own details, and payments verify themselves.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Set up my store with AI: fill a short form (shop name, what you sell, two categories, your first product and price) and AI writes every section of your homepage - hero, categories, featured products, why choose us, features, banner and footer - then adds your categories and product, publishes, and gives you a link to open your live store. Watch each step finish live.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Your 5 free AI images now work in the AI panel's Image tab, not only during onboarding. Standard-quality images show as Free, with a counter of how many are left. The setup above uses them too, at no extra cost.",
-      },
-      {
-        type: "Feature",
-        content:
-          "After your store goes live, a new prompt offers to set it up with AI in one click, or skip it and do it yourself.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Cleaner AI panel: larger Chat and Image tabs, a simpler start screen with quick actions, and the unused model picker and microphone buttons removed.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "The Image tab now shows presets as large image tiles at their real proportions (wide banners, 3:4 About photos, square product shots), with new previews for Why choose us and About us, and refreshed product previews.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "A simpler gray loading card while an image is being generated, with the progress shown in a small pill.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "AI suggested prompts now appear in Bangla when your dashboard is in Bangla.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed AI image generation failing with a credits error for new stores that still had free images left.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed the AI chat replying with a store overview to unrelated questions, and corrected its answers about trial and billing.",
-      },
+      { type: "Feature", content: "Each variant combination can have its own price, stock and photo." },
+      { type: "Feature", content: "bKash and bank payments, including AI credit packs, are verified automatically." },
+      { type: "Improvement", content: "Free and purchased chat credits now show as one number." },
+      { type: "Improvement", content: "AI Images gained a With text / Without text choice and more presets." },
+      { type: "Bug Fix", content: "Product pages no longer show fake sizes or pre-select a variant." },
+      { type: "Bug Fix", content: "A store's subdomain now stays updated after adding a custom domain." },
     ],
   },
   {
     serial: "2.4",
     version: "v2.4.0",
-    date: "Oct 9, 2026",
-    title: "Live setup preview, How it works, and clearer custom domains",
-    description:
-      "See your store take shape while you set it up, watch a quick walkthrough from inside the dashboard, and see exactly where a custom domain stands.",
+    date: "Sep 17, 2026",
+    title: "AI images and extra credits",
+    description: "Create product and marketing images with AI, and buy credits when you need more.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Live preview during setup: your store appears next to the form as you add your logo, images, categories and products, including a phone-sized view you can scroll.",
-      },
-      {
-        type: "Feature",
-        content:
-          "How it works: a short popup in the dashboard, in English and Bangla, that links to the video walkthrough.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "A custom domain you request now shows as waiting for DNS until it actually connects, instead of looking live straight away. Requests that never connect are cleared after 14 days.",
-      },
+      { type: "Feature", content: "AI Image Generation with ready presets and a saved gallery." },
+      { type: "Feature", content: "Buy chat and image credits when your free allowance runs out." },
+      { type: "Feature", content: "AI chat can update orders, events and products after you confirm." },
+      { type: "Improvement", content: "Renewal reminders by email and in the dashboard." },
+      { type: "Bug Fix", content: "Forgot Password now works without contacting support." },
     ],
   },
   {
     serial: "2.3",
     version: "v2.3.0",
-    date: "Sep 22, 2026",
-    title: "Trial extended to 7 days",
-    description:
-      "The free trial is now 7 days instead of 3, so there's real room to set up your store, add a real catalog, and see it work before deciding on a plan.",
+    date: "Sep 13, 2026",
+    title: "Switch themes, event popups and hero video",
+    description: "Change your store's design in one click and catch visitors' attention.",
     changes: [
-      {
-        type: "Improvement",
-        content:
-          "Free trial extended from 3 days to 7 days - full dashboard access, no credit card required, across every plan you can start from.",
-      },
+      { type: "Feature", content: "Switch your store's theme anytime, keeping all your products and content." },
+      { type: "Feature", content: "New Women theme, and a catalog of themes in the dashboard." },
+      { type: "Feature", content: "Event popups on your homepage, with an image-only option." },
+      { type: "Feature", content: "Use a video in your homepage hero." },
+      { type: "Improvement", content: "Media gallery gained select all, grid and list views, and pages." },
     ],
   },
   {
     serial: "2.2",
     version: "v2.2.0",
-    date: "Sep 19, 2026",
-    title: "Real per-variant pricing and stock, auto-verified payments",
-    description:
-      "Price, stock, and photograph each variant combination on its own, get manual payments and AI credit purchases verified automatically, and see fixes across every storefront's variant picker and Quick View.",
+    date: "Sep 11, 2026",
+    title: "Install the dashboard as an app",
+    description: "Add SoftuneBD to your phone's home screen, with a better mobile dashboard.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Each variant combination (e.g. Red / Medium) can now have its own price, compare-at price, stock count, and photo, instead of every size or color sharing one product-level price and one pooled stock number.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Manual bKash/bank payments are now verified automatically from a forwarded deposit SMS, instead of requiring you to confirm each one by hand.",
-      },
-      {
-        type: "Feature",
-        content:
-          "AI credit-pack purchases are verified automatically too, with an instant dashboard notification the moment it clears.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Real-time toast and instant refresh when a payment auto-verifies, and purchased chat credits now show combined with your daily free allowance in one number in the header.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "AI Image Generation: a With text / Without text toggle on every preset, Product and Marketing presets expanded to 10 each with real thumbnails, and a simplified AI sidebar.",
-      },
-      {
-        type: "Improvement",
-        content: "AI Chatbot can now find a product by SKU, not just by name.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed a site's subdomain not receiving content updates once a custom domain was attached to it - both now stay in sync.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed the product page and Quick View showing fake size options (XS/S/M/L/XL) on products that had no real sizes set.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Storefront product page and Quick View no longer pre-select a size or color for you - you see your product's real base price until you actually choose a variant.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Quick View's price, discount badge, and stock now reflect the variant you actually selected, instead of always showing the base product's price.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Redesigned cart confirmation toast (top-center pill) and Bazaar's Quick View and product cards, with image cycling on hover.",
-      },
+      { type: "Feature", content: "Install the dashboard as a mobile app." },
+      { type: "Feature", content: "A much larger icon set for categories and features." },
+      { type: "Improvement", content: "Redesigned mobile dashboard, and media uploads now queue one at a time." },
+      { type: "Bug Fix", content: "Product price and image now update when a shopper picks a variant." },
     ],
   },
   {
     serial: "2.1",
     version: "v2.1.0",
-    date: "Sep 17, 2026",
-    title: "AI Image Generation, extra chat credits, and renewal reminders",
-    description:
-      "Generate real product and marketing images with AI, keep going past your daily chat limit with purchasable credits, and get a heads-up before your plan payment is due.",
+    date: "Sep 6, 2026",
+    title: "Abandoned checkouts",
+    description: "See who started checkout but never finished, so you can follow up.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "AI Image Generation: create real product photos and marketing graphics from your dashboard's AI sidebar - dozens of ready presets across Product, Events, Marketing, Category, Hero, and Bento styles, with or without text, or describe your own scene.",
-      },
-      {
-        type: "Feature",
-        content:
-          "AI Chatbot can now place real actions for you: update order status, manage events, look up customers, and update products - always with a confirm step before anything is written.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Purchasable chat credits: once your free daily AI Chatbot limit runs out, buy credits instead of waiting until tomorrow.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Purchasable AI image credits, with a saved gallery of everything you've generated, one click away.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Renewal reminder emails and a dashboard banner before your plan payment is due, so a subscription never lapses as a surprise.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed the dashboard's Forgot Password flow, which previously required manual support intervention.",
-      },
+      { type: "Feature", content: "Abandoned checkouts with phone number and cart, on the Customers page." },
+      { type: "Improvement", content: "A cleaner manual bKash and Nagad payment step." },
     ],
   },
   {
     serial: "2.0",
     version: "v2.0.0",
-    date: "Sep 13, 2026",
-    title: "A new theme, event popups, and a full theme catalog",
-    description:
-      "Launch with a new sharp, bold storefront design, flag an event to pop up on your homepage, and browse every available theme right from your dashboard.",
+    date: "Sep 5, 2026",
+    title: "The dashboard speaks Bangla",
+    description: "Switch your whole dashboard between Bangla and English.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "New storefront theme, Women: a sharp-cornered, bold-primary redesign, available right from signup alongside Fashion and Multi Category.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Browse every available theme from the dashboard's Themes page - Fashion, Multi Category, Women, and more niche layouts (Kids Store, Urban, Gadget, Market, Kennel, Derma, Beauty, Paper).",
-      },
-      {
-        type: "Feature",
-        content:
-          "Event popup: flag one event to show as a homepage popup modal the moment a visitor lands, with an Image only mode for a pre-designed banner with no text overlay.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed the quantity stepper and Add to cart button blending into the page background on light-colored storefront themes.",
-      },
+      { type: "Feature", content: "Bangla and English language toggle across the dashboard." },
     ],
   },
   {
     serial: "1.9",
     version: "v1.9.0",
-    date: "Sep 11, 2026",
-    title: "Install SoftuneBD as an app, and a new icon set",
-    description:
-      "Install your dashboard as a mobile app, pick from a much bigger icon set, and get a redesigned mobile dashboard.",
+    date: "Sep 4, 2026",
+    title: "Stronger fraud protection and Steadfast booking",
+    description: "Stop fake orders earlier and send parcels without leaving the dashboard.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Install the dashboard as a mobile app (PWA) - a home-screen icon, real brand colors, and an offline-ready shell.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Category and feature icons now come from a much larger set (Iconify's Solar Bold icons) across the dashboard and every storefront.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Redesigned mobile dashboard: bottom-sheet modals, cleaner list views, a setup banner, and English as the default language.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Homepage Categories section is opt-out instead of opt-in - a newly added category shows up automatically without extra setup.",
-      },
-      {
-        type: "Improvement",
-        content: "Media uploads now queue and upload one file at a time, instead of all at once.",
-      },
-      {
-        type: "Bug Fix",
-        content: "Fixed a product's price and image not updating when a shopper selected a different variant.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Category cards on Multi Category storefronts stay circular (not boxed) and are bigger on desktop.",
-      },
+      { type: "Feature", content: "Block an IP from your whole store, and stop repeat orders from one device." },
+      { type: "Feature", content: "Suspicious orders are flagged for your review." },
+      { type: "Feature", content: "Customer risk score from 0 to 100, based on real order history." },
+      { type: "Feature", content: "Book Steadfast parcels one by one, in bulk or automatically, with live delivery status." },
     ],
   },
   {
     serial: "1.8",
     version: "v1.8.0",
-    date: "Sep 6, 2026",
-    title: "Abandoned checkout recovery and a redesigned payment flow",
-    description:
-      "See customers who started checkout but never finished, and a cleaner manual payment modal that only appears when it's actually needed.",
+    date: "Sep 3, 2026",
+    title: "Sale events and invoices",
+    description: "Run named sales on your products and get real invoices.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Abandoned checkouts are now captured - a customer's phone number and cart are recorded the moment they reach checkout, so you can see and follow up on abandoners even if they never complete an order.",
-      },
-      {
-        type: "Feature",
-        content: "See every abandoned checkout directly on the Customers page.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Redesigned manual payment (bKash/Nagad) flow - the branded confirmation modal now only appears on final submit, not while a customer is still entering details.",
-      },
+      { type: "Feature", content: "Events: create a sale like Eid Sale with a percent discount on chosen products." },
+      { type: "Feature", content: "Invoices for your plan, ready to view and download." },
+      { type: "Improvement", content: "New stores show clean placeholders until you add your own images." },
     ],
   },
   {
     serial: "1.7",
     version: "v1.7.0",
-    date: "Sep 5, 2026",
-    title: "Customer risk scoring",
-    description:
-      "See a transparent 0-100 risk score for every customer, built from real delivery and fraud history, not a black-box model.",
+    date: "Sep 2, 2026",
+    title: "Free trial and a new setup wizard",
+    description: "Open a real store in minutes, with no credit card.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Customer Risk Score: every customer now gets a 0-100 score with a Low/Medium/High label, calculated from delivery success rate, confirmed fraud history, device and IP signals, and duplicate open orders.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Risk Score is computed fresh every time you open a customer's detail panel, so it always reflects their latest order history.",
-      },
+      { type: "Feature", content: "Self-serve free trial with a countdown in your dashboard." },
+      { type: "Improvement", content: "Redesigned setup wizard with real upload progress." },
     ],
   },
   {
     serial: "1.6",
     version: "v1.6.0",
-    date: "Sep 4, 2026",
-    title: "Sale campaigns and stronger fraud protection",
-    description:
-      "Run named sale campaigns on specific products, and stop fraud with site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue.",
+    date: "Aug 31, 2026",
+    title: "Payment gateways, Help Desk and login codes",
+    description: "Take official online payments and reach us from your dashboard.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Events: create a named sale campaign (e.g. Eid Sale), set a percent-off discount, bind it to specific products, and SoftuneBD applies the discount at checkout automatically.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Site-wide IP blocking: block a visitor's IP from your entire storefront, not just at checkout. A blocked visitor sees a clear notice with a way to contact you.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Device pending-lock and cooldown: stop a second checkout attempt while one is already in progress, and block repeat attempts after a cancelled or fraudulent order.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Suspicious Orders: high-value first orders and bursts of orders from the same customer are flagged for review instead of silently accepted or rejected.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Billing now issues a real invoice when your trial starts or your plan changes, view and download it from Account.",
-      },
+      { type: "Feature", content: "Connect your bKash, Nagad and SSLCommerz merchant accounts." },
+      { type: "Feature", content: "Help Desk: open a ticket and get a reply by email." },
+      { type: "Feature", content: "Sign in with an email code." },
     ],
   },
   {
     serial: "1.5",
     version: "v1.5.0",
-    date: "Sep 3, 2026",
-    title: "Storefront skeletons and theme enhancements",
-    description:
-      "New stores display clean placeholder skeletons, updated Bazaar header controls, and touch-enabled category sliders.",
+    date: "Aug 30, 2026",
+    title: "More couriers, POS and profit",
+    description: "More delivery options, faster counter sales and real margin numbers.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Clean skeleton states for Fashion - Aurora and Bazaar - Multi category storefronts before uploading catalog images.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Redesigned header for Bazaar - Multi category with dedicated mobile search and category dropdown.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Smooth touch-and-drag category carousels on mobile and desktop.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Fixed theme settings fallback when publishing new storefronts.",
-      },
+      { type: "Feature", content: "Pathao, RedX and eCourier join Steadfast." },
+      { type: "Feature", content: "Store Sale (POS) for walk-in orders, with receipts and SKU search." },
+      { type: "Feature", content: "Profit and loss from real orders, plus real visitor numbers." },
+      { type: "Feature", content: "Meta Conversions API, and purchase tracking for your ad pixels." },
     ],
   },
   {
     serial: "1.4",
     version: "v1.4.0",
-    date: "Sep 2, 2026",
-    title: "Redesigned setup wizard",
-    description:
-      "Getting your store ready walks better on a phone, shows real upload progress, and stops asking once you're done.",
+    date: "Aug 27, 2026",
+    title: "Better variants and AI descriptions",
+    description: "Show real colors and photos per variant, and let AI draft your product text.",
     changes: [
-      {
-        type: "Improvement",
-        content:
-          "End-to-end setup wizard redesign with step tracking and mobile optimization.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Real-time upload progress bars for product and logo images.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Getting Started checklist automatically retires once setup is complete.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Pre-filled color and font selections carried over from signup.",
-      },
+      { type: "Feature", content: "Each variant can have its own color and image." },
+      { type: "Feature", content: "AI drafts product descriptions for you to edit." },
+      { type: "Feature", content: "Switch between multiple accounts in the dashboard." },
+      { type: "Improvement", content: "Bot protection on checkout and contact forms." },
     ],
   },
   {
     serial: "1.3",
     version: "v1.3.0",
-    date: "Aug 31, 2026",
-    title: "Free 3-day trial",
-    description:
-      "You can open a real SoftuneBD store in minutes, no credit card, no waiting on us to provision an account.",
+    date: "Aug 24, 2026",
+    title: "Customers and testimonials",
+    description: "See who bought from you, and show reviews your way.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Self-serve 3-day trial: create an account, verify email, name your shop, pick Fashion - Aurora or Bazaar - Multi category, and land in the dashboard with a live store.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Trial countdown in the dashboard header so you can see how many days are left.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Trial sites are usable immediately. Setup guidance is optional, you are not locked out of products, orders, or the theme editor until you finish onboarding.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Live demo still available from the marketing site: enter an email, open a read-only dashboard, then start your own trial when you are ready.",
-      },
+      { type: "Feature", content: "Customers list, built automatically from your orders." },
+      { type: "Feature", content: "Testimonials as cards or screenshots." },
+      { type: "Improvement", content: "Starter now includes daily AI messages." },
+      { type: "Bug Fix", content: "SEO settings now apply to your live store." },
     ],
   },
   {
     serial: "1.2",
     version: "v1.2.0",
-    date: "Aug 31, 2026",
-    title: "Payments, tickets, and login codes",
-    description:
-      "Checkout can use official payment accounts, and you can reach us from inside the dashboard.",
+    date: "Aug 20, 2026",
+    title: "Dark mode and a guided tour",
+    description: "A dashboard that works on any screen, with help getting started.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Connect official bKash, Nagad, and SSLCommerz merchant accounts from Payments, alongside COD and manual bKash/Nagad.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Help Desk in Account: open a ticket from the dashboard and get a real email reply on the same thread.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Email login codes (OTP) when you sign in, so you can get back into the dashboard without only relying on a password.",
-      },
+      { type: "Feature", content: "Dark mode and a guided tour of the dashboard." },
+      { type: "Improvement", content: "The dashboard now works properly on phones." },
+      { type: "Improvement", content: "Media storage limits per plan, and a fuller account profile." },
     ],
   },
   {
     serial: "1.1",
     version: "v1.1.0",
-    date: "Aug 30, 2026",
-    title: "Couriers, POS, and profit",
-    description:
-      "More Bangladesh couriers, faster counter sales, and analytics that show margin, not just visits.",
-    changes: [
-      {
-        type: "Feature",
-        content:
-          "Pathao, RedX, and eCourier join Steadfast. Connect your own merchant accounts from Courier.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Store Sale (POS) records walk-in orders on their own channel, separate from online checkout.",
-      },
-      {
-        type: "Feature",
-        content:
-          "SKU search at the counter so you can scan or type a barcode and pull the product without hunting the catalog.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Profit and loss from real order data, including cost price when you have set it on products.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Storefront visitor analytics, plus Meta Conversions API (CAPI) so ads can see purchases even when the browser pixel is blocked.",
-      },
-    ],
-  },
-  {
-    serial: "1.0.4",
-    version: "v1.0.4",
-    date: "Aug 27, 2026",
-    title: "Variants, AI copy, and plan limits",
-    description:
-      "Products can look different per size or color, and AI can draft descriptions you still edit before save.",
-    changes: [
-      {
-        type: "Feature",
-        content:
-          "Each product variant can have its own color and image, not one photo for every size.",
-      },
-      {
-        type: "Feature",
-        content:
-          "AI product descriptions: give a name and facts, get draft copy, then edit and save. Nothing publishes without you.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Product caps per plan are enforced (Starter 50, Growth 500, Business unlimited), so the catalog matches what you pay for.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "The shared demo account cannot change live data. Click around safely; your trial store is the one you write to.",
-      },
-    ],
-  },
-  {
-    serial: "1.0.3",
-    version: "v1.0.3",
-    date: "Aug 24, 2026",
-    title: "Customers, AI credits, and publish",
-    description:
-      "Shoppers from checkout become real customer records. Starter includes a daily AI allowance.",
-    changes: [
-      {
-        type: "Feature",
-        content:
-          "Customers list: each order phone creates or matches a customer record so you can see who bought, not only the order row.",
-      },
-      {
-        type: "Bug Fix",
-        content:
-          "Customers list no longer shows everyone as “Unnamed” when a name was on the order.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Starter includes 15 AI credits per day (was none). Growth and Business keep their higher daily caps.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Publishing waits a short cooldown so you cannot spam publish. Storefront screenshots use your subdomain and wait until the new version is actually up.",
-      },
-    ],
-  },
-  {
-    serial: "1.0.2",
-    version: "v1.0.2",
-    date: "Aug 21, 2026",
-    title: "About pages, domains, and media",
-    description:
-      "Storefront About is its own page. Custom domains report a real connection status. Media storage follows the plan.",
-    changes: [
-      {
-        type: "Feature",
-        content:
-          "Dedicated About Us content on the storefront, separate from the homepage tagline and hero images.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Custom domain: SoftuneBD attaches the domain on save and shows whether it is actually connected, not only stored in settings.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Removing or changing a custom domain disconnects the old one, so it does not stay pointing at a dead site.",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Media library respects plan storage (Starter 500MB, Growth 2GB, Business 5GB).",
-      },
-      {
-        type: "Improvement",
-        content:
-          "Account profile now has phone, timezone, and avatar, used across the dashboard, not only at signup.",
-      },
-    ],
-  },
-  {
-    serial: "1.0.1",
-    version: "v1.0.1",
     date: "Aug 19, 2026",
-    title: "Analytics depth and AI credits",
-    description:
-      "The dashboard chart can see six months of orders. AI usage is a real daily credit balance per plan.",
+    title: "About pages, custom domains and AI credits",
+    description: "Tell your story, connect your own domain, and see your AI allowance.",
     changes: [
-      {
-        type: "Improvement",
-        content:
-          "Orders list can load enough history for the six-month analytics chart instead of cutting off early.",
-      },
-      {
-        type: "Feature",
-        content:
-          "AI credits reset daily and match the plan: Starter 15/day, Growth 80/day, Business 240/day. The header shows what you have left.",
-      },
+      { type: "Feature", content: "A dedicated About Us page for your store." },
+      { type: "Feature", content: "Connect a custom domain and see its real status." },
+      { type: "Feature", content: "Daily AI credits per plan, shown in the header." },
+      { type: "Improvement", content: "The analytics chart now covers six months of orders." },
     ],
   },
   {
@@ -752,54 +322,13 @@ export const changelogData: ChangelogRelease[] = [
     version: "v1.0.0",
     date: "Aug 18, 2026",
     title: "SoftuneBD is live",
-    description:
-      "The dashboard and storefront that Bangladesh merchants use every day, themes, catalog, orders, COD, and the first courier.",
+    description: "Everything a Bangladesh merchant needs to sell online, in one dashboard.",
     changes: [
-      {
-        type: "Feature",
-        content:
-          "Multi-tenant dashboard: products, categories, orders, customers, and one storefront per workspace (Business includes up to three).",
-      },
-      {
-        type: "Feature",
-        content:
-          "Theme Editor with live desktop, tablet, and mobile preview. Draft, then publish. Fashion - Aurora and Bazaar - Multi category ship as the first two skins.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Store Sale POS for counter orders, with receipts and recent sales.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Checkout: Cash on Delivery plus manual bKash and Nagad (wallet number + transaction ID).",
-      },
-      {
-        type: "Feature",
-        content:
-          "Steadfast courier connection from your own merchant account.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Fraud Protection: phone blocklist and checkout rules (hold first high-value, flag bursts). Rule-based, not machine-learning scoring.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Gemini AI chatbot in the dashboard, answers from your products, orders, and sales. Catalog writes still need your confirm.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Analytics from real orders: revenue, average order value, and best-sellers.",
-      },
-      {
-        type: "Feature",
-        content:
-          "Marketing pixels: Meta Pixel, TikTok Pixel, GTM, and GA4 from Site Settings.",
-      },
+      { type: "Feature", content: "Products, categories, orders and your own storefront." },
+      { type: "Feature", content: "Theme Editor with live desktop, tablet and mobile preview." },
+      { type: "Feature", content: "Cash on Delivery plus manual bKash and Nagad." },
+      { type: "Feature", content: "Steadfast courier, fraud rules and a phone blocklist." },
+      { type: "Feature", content: "AI assistant, sales analytics and marketing pixels." },
     ],
   },
 ];

@@ -525,6 +525,7 @@ export function BasicsStep(props: BasicsStepProps) {
           <input
             id="basics-phone"
             type="tel"
+            required
             inputMode="numeric"
             autoComplete="tel"
             placeholder={isBn ? "আপনার নম্বর লিখুন" : "Enter your number"}
