@@ -7,6 +7,7 @@ import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
 import dynamic from "next/dynamic";
 import { DemoAccessModal } from "./demo-access-modal";
+import { HERO_IDEA_KEY } from "@/lib/trial";
 
 // Loaded after first paint: the rays are decoration, never worth delaying the headline.
 const Grainient = dynamic(() => import("@/components/ui/grainient"), { ssr: false });
@@ -121,14 +122,6 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
     return () => window.clearTimeout(id);
   }, [reduced, running, sent, shown, words.length]);
 
-  function pick(i: number) {
-    setUserMode(false);
-    setUserText("");
-    setIndex(i);
-    setShown(0);
-    setSent(false);
-  }
-
   function onPickImage(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -151,7 +144,16 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
     window.requestAnimationFrame(() => inputRef.current?.focus());
   }
 
+  // What they typed becomes the store builder's first message. Handed over
+  // in sessionStorage rather than the URL: a business description can be
+  // personal, and URLs land in logs and analytics. Nothing typed means the
+  // builder simply asks.
   const go = () => {
+    const idea = userMode ? userText.trim() : "";
+    try {
+      if (idea) sessionStorage.setItem(HERO_IDEA_KEY, idea);
+      else sessionStorage.removeItem(HERO_IDEA_KEY);
+    } catch {}
     window.location.href = signupHref;
   };
 
@@ -305,37 +307,12 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
                 </button>
               )}
 
-              <div role="tablist" aria-label={isBn ? "AI কী করতে পারে" : "What the AI can do"} className="no-scrollbar order-3 hidden min-w-0 flex-1 gap-1.5 overflow-x-auto py-2 sm:flex">
-                {SCENARIOS.map((s, i) => {
-                  const on = i === index && !userMode;
-                  return (
-                    <button
-                      key={s.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={on}
-                      onClick={() => pick(i)}
-                      className={[
-                        "flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12.5px] font-medium transition-colors duration-300",
-                        on ? "border-[var(--color-brand)] bg-[var(--color-brand)] text-white" : "border-white/12 text-white/65 hover:border-white/30 hover:text-white",
-                      ].join(" ")}
-                    >
-                      <MaskIcon src={s.icon} className="size-3.5" />
-                      {s.tab[locale]}
-                    </button>
-                  );
-                })}
-              </div>
-              <div className="order-3 flex-1 sm:hidden" aria-hidden />
-
               <button
                 type="button"
                 onClick={go}
-                aria-label={isBn ? "AI দিয়ে বানান" : "Build with AI"}
-                className="order-5 flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3 text-[13px] font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
+                className="order-5 ml-auto h-11 shrink-0 rounded-full bg-[var(--color-brand)] px-5 text-[14.5px] font-semibold text-white transition-[transform,filter] hover:brightness-110 active:scale-[0.97] sm:px-6"
               >
-                <MaskIcon src="/icons/ai.svg" className="size-3.5" />
-                <span className="hidden sm:inline">{isBn ? "বানান" : "Build"}</span>
+                {isBn ? "স্টোর বানান" : "Generate store"}
               </button>
             </div>
           </div>

@@ -43,6 +43,12 @@ const EXIT_PAUSE_MS = 500;
  * URL twice after the same successful complete. */
 let didHandoff = false;
 
+/** ?preview=1 replays the whole flow without a real handoff; without this
+ * the second replay's build would silently stop at the guard above. */
+export function resetHandoffGuard() {
+  didHandoff = false;
+}
+
 function sleep(ms: number) {
   return new Promise<void>((resolve) => {
     window.setTimeout(resolve, ms);
@@ -100,6 +106,9 @@ export function useTrialBuild(
     if (!pending || didHandoff) return;
     const request = pending;
     let cancelled = false;
+    // A retry after a failed build starts the checklist over, not from
+    // wherever the failed attempt left it.
+    setDone(BUILD_LABELS.map(() => false));
 
     function mark(index: number) {
       setDone((prev) => {

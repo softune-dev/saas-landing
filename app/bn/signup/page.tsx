@@ -1,4 +1,4 @@
-import { TrialOnboarding } from "@/components/auth/trial-onboarding";
+import { AgentOnboarding } from "@/components/auth/agent/agent-onboarding";
 import { pageSeo } from "@/lib/seo";
 
 export const metadata = pageSeo({
@@ -10,6 +10,6 @@ export const metadata = pageSeo({
 });
 
 export default function BanglaSignupPage() {
-  return <TrialOnboarding locale="bn" />;
+  return <AgentOnboarding locale="bn" />;
 }
 

@@ -15,6 +15,10 @@ const AUTH_REFRESH_KEY = "softune.auth.refreshToken";
 const AUTH_PERSIST_KEY = "softune.auth.persist";
 const SIGNUP_TOKEN_KEY = "softune.trial.signupToken";
 
+/** The hero prompt's hand-off to the store builder (sessionStorage). Lives
+ * here, not in the builder, so the home page doesn't import the builder. */
+export const HERO_IDEA_KEY = "softune.hero.idea";
+
 export type TrialSignupTokenOut = {
   signup_token: string;
   email_verified: boolean;
