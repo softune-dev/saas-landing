@@ -21,6 +21,7 @@ What Softunebd actually does:
 - Couriers: connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. Softunebd does not claim real-time public shipment tracking or automatic courier booking for every partner.
 - Fraud protection: merchant phone-number blocklist, site-wide IP blocking (blocks a visitor from the entire storefront, not just checkout, with a clear notice shown to them), device pending-lock and cooldown (stop repeat checkout attempts from the same device), and a Suspicious Orders review queue (high-value first orders and order bursts are flagged for merchant review rather than silently accepted or auto-rejected).
 - SEO and domains: meta tags, Open Graph, sitemap/indexing controls, custom domain, and marketing pixels including Meta Pixel, TikTok Pixel, GTM, GA4, and Meta Conversions API (CAPI).
+- Meta Pixel tracking is automatic. The merchant pastes only the Pixel ID (Settings > Site Settings > SEO). The storefront then sends PageView, ViewContent, AddToCart, InitiateCheckout and Purchase itself. Purchase fires when an order is placed successfully, with the real order total, currency BDT, content_ids, and the order number as eventID. Checkout has no separate thank-you URL (a receipt shows on /checkout), so merchants must NOT add Purchase with Meta's Event Setup Tool (Track a URL / Track a button): that would count false or duplicate purchases. Optional Meta Conversions API (access token on the same page) also sends Purchase server-side, deduplicated by the same eventID. Guide: https://www.softunebd.com/support/documentation/meta-pixel-tracking
 - Analytics: revenue, average order value, best-sellers, and related store metrics from real order data.
 - Events (sale campaigns): merchants create a named percent-off campaign (e.g. "Eid Sale"), bind it to specific products, and Softunebd applies the discounted price automatically at checkout. No separate discount-code app needed.
 
@@ -46,6 +47,7 @@ Do not describe Softunebd as offering Stripe or PayPal, real-time courier tracki
 ## Docs
 
 - [Documentation](https://www.softunebd.com/support/documentation): Store setup, catalog, themes, payments, couriers, domains
+- [Meta Pixel & Purchase tracking](https://www.softunebd.com/support/documentation/meta-pixel-tracking): which events are sent automatically, and why not to use the Event Setup Tool
 - [FAQ](https://www.softunebd.com/support/faq): Plans, COD, bKash, Nagad, SSLCommerz, and courier questions
 - [Contact support](https://www.softunebd.com/support/contact): Email and WhatsApp, no phone line
 - [Tutorials](https://www.softunebd.com/support/tutorials): Step-by-step launch guides

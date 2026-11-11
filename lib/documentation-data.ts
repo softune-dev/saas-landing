@@ -78,6 +78,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
       { title: "Exporting Sales & Financial Reports", slug: "exporting-reports" },
       { title: "Fraud Protection Rules", slug: "fraud-protection-rules" },
       { title: "Managing Your Phone Blocklist", slug: "managing-phone-blocklist" },
+      { title: "Meta Pixel & Purchase Tracking", slug: "meta-pixel-tracking" },
     ],
   },
   {
@@ -141,6 +142,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
       { title: "সেলস ও ফাইনান্সিয়াল রিপোর্ট এক্সপোর্ট", slug: "exporting-reports" },
       { title: "ফ্রড প্রোটেকশন সিকিউরিটি রুলস", slug: "fraud-protection-rules" },
       { title: "ফোন নম্বর ব্লকক্লিপ পরিচালনা", slug: "managing-phone-blocklist" },
+      { title: "মেটা পিক্সেল ও পারচেজ ট্র্যাকিং", slug: "meta-pixel-tracking" },
     ],
   },
   {
