@@ -19,52 +19,42 @@ import { SOFTUNE_PAY_APK_URL } from "@/lib/apps-data";
 
 const COPY = {
   en: {
-    pill: "Our apps",
-    title: "Manual bKash payments that",
+    title: "Wallet payments that",
     highlight: "confirm themselves",
-    desc: "Softune Pay runs on the phone that holds your wallet SIM. When a shopper pays your bKash, Nagad or Rocket number, it reads the payment SMS, matches the transaction ID to the order and marks it paid. No gateway, no fee.",
+    desc: "Reads your bKash, Nagad and Rocket payment SMS and marks the matching order paid. No gateway, no fee.",
     steps: [
       { t: "Pair in seconds", d: "Scan the QR code in Payments, Softune Pay." },
       { t: "Shopper pays your number", d: "Personal or agent, as they already do." },
       { t: "Order turns Paid", d: "Matched by transaction ID. A wrong amount is flagged, never confirmed." },
     ],
-    platform: "Android · Free",
     download: "Download for Android",
-    downloadSub: "APK, free for every SoftuneBD store",
+    downloadSub: "Free APK",
     scan: "Scan to download",
-    scanSub: "Open your phone camera",
+    scanSub: "Open your camera",
     notifTitle: "Payment confirmed",
     notifSub: "ORD-1248 marked paid",
     chip: "SMS matched",
     now: "now",
   },
   bn: {
-    pill: "আমাদের অ্যাপ",
-    title: "ম্যানুয়াল bKash পেমেন্ট এখন",
+    title: "ওয়ালেট পেমেন্ট এখন",
     highlight: "নিজেই কনফার্ম হয়",
-    desc: "যে ফোনে আপনার ওয়ালেট সিম আছে, সেখানে Softune Pay চলে। কাস্টমার আপনার bKash, Nagad বা Rocket নম্বরে টাকা পাঠালে অ্যাপ পেমেন্টের SMS পড়ে, Transaction ID দিয়ে অর্ডার মিলিয়ে Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই।",
+    desc: "bKash, Nagad ও Rocket-এর পেমেন্ট SMS পড়ে মিলে যাওয়া অর্ডার Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই।",
     steps: [
       { t: "কয়েক সেকেন্ডে কানেক্ট", d: "Payments, Softune Pay থেকে QR কোড স্ক্যান করুন।" },
       { t: "কাস্টমার আপনার নম্বরে পেমেন্ট করে", d: "পার্সোনাল বা এজেন্ট, যেভাবে আগে করত।" },
       { t: "অর্ডার Paid হয়ে যায়", d: "Transaction ID দিয়ে মেলে। টাকার পরিমাণ না মিললে জানায়, কনফার্ম করে না।" },
     ],
-    platform: "Android · ফ্রি",
     download: "Android-এর জন্য ডাউনলোড",
-    downloadSub: "APK, সব SoftuneBD স্টোরের জন্য ফ্রি",
+    downloadSub: "ফ্রি APK",
     scan: "স্ক্যান করে ডাউনলোড",
-    scanSub: "ফোনের ক্যামেরা খুলুন",
+    scanSub: "ক্যামেরা খুলুন",
     notifTitle: "পেমেন্ট কনফার্মড",
     notifSub: "ORD-1248 Paid হয়েছে",
     chip: "SMS মিলেছে",
     now: "এখন",
   },
 } as const;
-
-const WALLETS = [
-  { name: "bKash", src: "/apps/bkash.webp" },
-  { name: "Nagad", src: "/apps/nagad.webp" },
-  { name: "Rocket", src: "/apps/rocket.webp" },
-];
 
 /** A phone frame around a real screenshot. The status bar is drawn here
  * (screenshots are cropped below theirs) so every phone shows the same clean
@@ -117,16 +107,10 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
             {/* Copy and download */}
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex size-14 items-center justify-center rounded-2xl bg-white shadow-lg">
-                  <img src="/apps/softune-pay-icon.webp" alt="" className="size-11 object-contain" />
+                <div className="flex size-12 items-center justify-center rounded-2xl bg-white shadow-lg">
+                  <img src="/apps/softune-pay-icon.webp" alt="" className="size-9 object-contain" />
                 </div>
-                <div>
-                  <div className="text-[17px] font-bold tracking-tight">Softune Pay</div>
-                  <div className="text-[13px] text-white/55">{c.platform}</div>
-                </div>
-                <span className="ml-auto rounded-full bg-white/10 px-3 py-1 text-[12px] font-semibold text-white/80 ring-1 ring-white/10 sm:ml-3">
-                  {c.pill}
-                </span>
+                <span className="text-[18px] font-bold tracking-tight">Softune Pay</span>
               </div>
 
               <h2 className="text-3xl leading-[1.15] font-extrabold tracking-tight sm:text-4xl xl:text-5xl xl:leading-[1.1]">
@@ -152,34 +136,28 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 ))}
               </ol>
 
-              <div className="mt-8 flex items-center gap-2">
-                {WALLETS.map((w) => (
-                  <img key={w.name} src={w.src} alt={w.name} title={w.name} className="size-9 rounded-xl ring-1 ring-white/10" />
-                ))}
-              </div>
-
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-stretch">
                 <a
                   href={SOFTUNE_PAY_APK_URL}
-                  className="group flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 text-[#0c0a0d] shadow-lg transition hover:bg-white/90"
+                  className="group flex shrink-0 items-center gap-3 rounded-2xl bg-white px-5 py-3.5 text-[#0c0a0d] shadow-lg transition hover:bg-white/90"
                 >
                   <span className="flex size-10 items-center justify-center rounded-xl bg-[var(--color-brand)] text-white">
                     <Download className="size-5" strokeWidth={2.4} />
                   </span>
                   <span>
-                    <span className="block text-[15px] font-bold">{c.download}</span>
-                    <span className="block text-[12px] text-black/55">{c.downloadSub}</span>
+                    <span className="block whitespace-nowrap text-[15px] font-bold">{c.download}</span>
+                    <span className="block whitespace-nowrap text-[12px] text-black/55">{c.downloadSub}</span>
                   </span>
                 </a>
                 {/* Scan-to-download, as Linear and Shopify offer: the visitor is
                     usually on a laptop and the app goes on their phone. */}
-                <div className="hidden items-center gap-3 rounded-2xl bg-white/[0.06] p-2.5 pr-5 ring-1 ring-white/10 sm:flex">
+                <div className="hidden shrink-0 items-center gap-3 rounded-2xl bg-white/[0.06] p-2.5 pr-5 ring-1 ring-white/10 sm:flex">
                   <div className="rounded-lg bg-white p-1.5">
                     <QRCodeSVG value={SOFTUNE_PAY_APK_URL} size={64} level="M" />
                   </div>
                   <div>
-                    <div className="text-[14px] font-semibold">{c.scan}</div>
-                    <div className="text-[12px] text-white/50">{c.scanSub}</div>
+                    <div className="whitespace-nowrap text-[14px] font-semibold">{c.scan}</div>
+                    <div className="whitespace-nowrap text-[12px] text-white/50">{c.scanSub}</div>
                   </div>
                 </div>
               </div>
