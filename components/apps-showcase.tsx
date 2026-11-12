@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { BatteryFull, Check, Download, Signal, Wifi } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { SOFTUNE_PAY_APK_URL } from "@/lib/apps-data";
@@ -160,45 +159,27 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
 
             {/* Phones */}
             <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[580px]">
-              <motion.div
-                initial={{ opacity: 0, x: 30, rotate: 0 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -8 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.2, 0.9, 0.25, 1] }}
-                className="absolute top-12 left-0 hidden w-[210px] opacity-80 sm:block"
+              <div
+                className="absolute top-12 left-0 hidden w-[210px] -rotate-8 opacity-80 sm:block"
               >
                 <Phone src="/apps/softune-pay-payments.webp" alt="Softune Pay payments list" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -30, rotate: 0 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 8 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.2, 0.9, 0.25, 1] }}
-                className="absolute top-12 right-0 hidden w-[210px] opacity-80 sm:block"
+              </div>
+              <div
+                className="absolute top-12 right-0 hidden w-[210px] rotate-8 opacity-80 sm:block"
               >
                 <Phone src="/apps/softune-pay-settings.webp" alt="Softune Pay settings" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.2, 0.9, 0.25, 1] }}
+              </div>
+              <div
                 className="absolute top-0 left-1/2 z-10 w-[236px] -translate-x-1/2 sm:w-[262px]"
               >
                 <Phone src="/apps/softune-pay-home.webp" alt="Softune Pay home screen" />
-              </motion.div>
+              </div>
 
               {/* The moment the app exists for: a payment confirmed on its own. */}
-              <motion.div
-                initial={{ opacity: 0, y: 16, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+              <div
                 className="absolute bottom-16 left-1/2 z-20 w-[min(300px,92%)] -translate-x-1/2 sm:bottom-20"
               >
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                <div
                   className="flex items-center gap-3 rounded-2xl bg-white/90 p-3 text-[#0c0a0d] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6)] ring-1 ring-black/5 backdrop-blur-xl"
                 >
                   <img src="/apps/bkash.webp" alt="" className="size-10 rounded-xl" />
@@ -210,19 +191,15 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                     <div className="text-[14px] font-extrabold">+৳2,450</div>
                     <div className="text-[11px] text-black/45">{c.now}</div>
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.8 }}
+              <div
                 className="absolute top-24 right-2 z-20 hidden items-center gap-1.5 rounded-full bg-[#16a34a] px-3 py-1.5 text-[12px] font-semibold text-white shadow-lg md:flex"
               >
                 <Check className="size-3.5" strokeWidth={3} />
                 {c.chip}
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
