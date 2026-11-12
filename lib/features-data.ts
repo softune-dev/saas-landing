@@ -619,6 +619,74 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       { title: "COD", desc: "Offer Cash on Delivery when your customers prefer to pay on receipt.", icon: "/icons/zap.svg" },
     ],
   },
+  "softune-pay": {
+    slug: "softune-pay",
+    pillText: "Softune Pay",
+    titleStart: "Wallet Payments That",
+    titleHighlight: "Confirm Themselves",
+    titleEnd: "",
+    description:
+      "Softune Pay is a free Android app that reads your bKash, Nagad and Rocket payment SMS and marks the matching order paid. No gateway, no fee, no checking your phone order by order.",
+    heroImage: { light: "/feature/softune-pay-l.webp", dark: "/feature/softune-pay-d.webp" },
+    introTitle: "Manual wallet payments, without the manual part",
+    introDesc:
+      "Shoppers pay your own bKash, Nagad or Rocket number and type the transaction ID at checkout. Softune Pay, running on the phone with your wallet SIM, sees the payment SMS and confirms the order for you.",
+    alternating: [
+      {
+        pillText: "Auto-Confirm",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Orders Turn",
+        titleHighlight: "Paid On Their Own",
+        titleEnd: "",
+        description:
+          "When money arrives, the app sends the transaction ID and amount to SoftuneBD. The order with that ID and the same amount is marked Paid, and you get the usual new-order alert.",
+        bullets: [
+          "Matched by transaction ID, one ID can confirm only one order",
+          "Works when the payment arrives before the order, too",
+          "A different amount is flagged for you, never auto-confirmed",
+          "Works with personal and agent numbers, no merchant account",
+        ],
+      },
+      {
+        pillText: "Setup",
+        pillIcon: "/icons/save.svg",
+        titleStart: "Ready In",
+        titleHighlight: "Two Minutes",
+        titleEnd: "",
+        description:
+          "Install the app on the phone that holds your wallet SIM, scan the QR code shown in Payments, and choose which wallets to watch.",
+        bullets: [
+          "Download the APK and install it on any Android 8+ phone",
+          "Scan the QR code in Payments, Softune Pay to connect",
+          "Pick the SIM and wallets (bKash, Nagad, Rocket)",
+          "See connected phones, and remove one any time",
+        ],
+      },
+      {
+        pillText: "Privacy",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "Reads Only",
+        titleHighlight: "Wallet Messages",
+        titleEnd: "",
+        description:
+          "The app only looks at money-in messages from the official bKash, Nagad and Rocket senders. Your other messages are never read or sent anywhere.",
+        bullets: [
+          "Official senders only: bKash, NAGAD and 16216 (Rocket)",
+          "Cash out, OTP and offer messages are ignored",
+          "Money goes straight to your own number, not through us",
+          "Android only, iPhones do not let apps read SMS",
+        ],
+      },
+    ],
+    extraTitle: "Built for busy sellers",
+    extraDesc:
+      "Stop opening bKash to check every order. Keep the phone on, and let confirmed orders show up on their own.",
+    extraCards: [
+      { title: "Free", desc: "No fee on top of your plan, and no gateway to apply for.", icon: "/icons/wallet.svg" },
+      { title: "Live Status", desc: "Confirmed, Waiting, Check it and Amount differs, for every payment.", icon: "/icons/orders.svg" },
+      { title: "English or Bangla", desc: "The app speaks both, switch any time in Settings.", icon: "/icons/chat.svg" },
+    ],
+  },
   "customer-management": {
     slug: "customer-management",
     pillText: "Customers",
@@ -1787,6 +1855,74 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
       { title: "COD", desc: "পণ্য হাতে পেয়ে পেমেন্ট করার কাস্টমার ফ্রেন্ডলি অপশন।", icon: "/icons/zap.svg" },
     ],
   },
+  "softune-pay": {
+    slug: "softune-pay",
+    pillText: "Softune Pay",
+    titleStart: "ওয়ালেট পেমেন্ট",
+    titleHighlight: "নিজেই কনফার্ম",
+    titleEnd: "",
+    description:
+      "Softune Pay একটি ফ্রি অ্যান্ড্রয়েড অ্যাপ, যা bKash, Nagad ও Rocket-এর পেমেন্ট SMS পড়ে মিলে যাওয়া অর্ডার Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই, প্রতিটি অর্ডারের জন্য ফোন চেক করতে হয় না।",
+    heroImage: { light: "/feature/softune-pay-l.webp", dark: "/feature/softune-pay-d.webp" },
+    introTitle: "ম্যানুয়াল ওয়ালেট পেমেন্ট, ম্যানুয়াল কাজ ছাড়াই",
+    introDesc:
+      "কাস্টমার আপনার নিজের bKash, Nagad বা Rocket নম্বরে টাকা পাঠিয়ে চেকআউটে Transaction ID দেয়। ওয়ালেট সিমওয়ালা ফোনে Softune Pay পেমেন্টের SMS দেখে অর্ডার কনফার্ম করে দেয়।",
+    alternating: [
+      {
+        pillText: "অটো কনফার্ম",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "অর্ডার নিজে থেকেই",
+        titleHighlight: "Paid হয়",
+        titleEnd: "",
+        description:
+          "টাকা এলে অ্যাপ Transaction ID ও টাকার পরিমাণ SoftuneBD-তে পাঠায়। সেই ID ও একই টাকার অর্ডার Paid হয়ে যায়, আর আপনি স্বাভাবিক নতুন-অর্ডার অ্যালার্ট পান।",
+        bullets: [
+          "Transaction ID দিয়ে মেলে, একটি ID শুধু একটি অর্ডারই কনফার্ম করে",
+          "পেমেন্ট আগে এসে অর্ডার পরে হলেও মিলে যায়",
+          "টাকার পরিমাণ আলাদা হলে আপনাকে জানায়, কখনো অটো কনফার্ম করে না",
+          "পার্সোনাল ও এজেন্ট নম্বরে কাজ করে, মার্চেন্ট একাউন্ট লাগে না",
+        ],
+      },
+      {
+        pillText: "সেটআপ",
+        pillIcon: "/icons/save.svg",
+        titleStart: "রেডি মাত্র",
+        titleHighlight: "দুই মিনিটে",
+        titleEnd: "",
+        description:
+          "ওয়ালেট সিমওয়ালা ফোনে অ্যাপ ইনস্টল করুন, Payments-এ দেখানো QR কোড স্ক্যান করুন, আর কোন ওয়ালেট দেখবে তা বেছে নিন।",
+        bullets: [
+          "APK ডাউনলোড করে Android 8+ যেকোনো ফোনে ইনস্টল করুন",
+          "Payments, Softune Pay-এর QR কোড স্ক্যান করে কানেক্ট করুন",
+          "সিম ও ওয়ালেট (bKash, Nagad, Rocket) বেছে নিন",
+          "কানেক্টেড ফোন দেখুন, যেকোনো সময় রিমুভ করুন",
+        ],
+      },
+      {
+        pillText: "প্রাইভেসি",
+        pillIcon: "/icons/lock.svg",
+        titleStart: "শুধু",
+        titleHighlight: "ওয়ালেটের মেসেজ",
+        titleEnd: "",
+        description:
+          "অ্যাপ শুধু bKash, Nagad ও Rocket-এর অফিশিয়াল সেন্ডার থেকে টাকা আসার মেসেজ দেখে। আপনার অন্য মেসেজ কখনো পড়া বা কোথাও পাঠানো হয় না।",
+        bullets: [
+          "শুধু অফিশিয়াল সেন্ডার: bKash, NAGAD ও 16216 (Rocket)",
+          "ক্যাশ আউট, OTP ও অফারের মেসেজ এড়িয়ে যায়",
+          "টাকা সরাসরি আপনার নম্বরে আসে, আমাদের মাধ্যমে নয়",
+          "শুধু Android, আইফোন অ্যাপকে SMS পড়তে দেয় না",
+        ],
+      },
+    ],
+    extraTitle: "ব্যস্ত বিক্রেতাদের জন্য",
+    extraDesc:
+      "প্রতিটি অর্ডারের জন্য bKash খুলে চেক করা বন্ধ করুন। ফোন চালু রাখুন, কনফার্মড অর্ডার নিজেই দেখা যাবে।",
+    extraCards: [
+      { title: "ফ্রি", desc: "প্ল্যানের উপরে কোনো ফি নেই, গেটওয়ের জন্য আবেদনও নেই।", icon: "/icons/wallet.svg" },
+      { title: "লাইভ স্ট্যাটাস", desc: "প্রতিটি পেমেন্টে Confirmed, Waiting, Check it ও Amount differs।", icon: "/icons/orders.svg" },
+      { title: "বাংলা ও ইংরেজি", desc: "অ্যাপ দুই ভাষাতেই চলে, Settings থেকে বদলান।", icon: "/icons/chat.svg" },
+    ],
+  },
   "customer-management": {
     slug: "customer-management",
     pillText: "কাস্টমার ম্যানেজমেন্ট",
@@ -2388,6 +2524,7 @@ export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity, live preview, not a generic look" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, SSLCommerz, and the Softune Pay app" },
+  { slug: "softune-pay", title: "Softune Pay", icon: "/icons/send.svg", desc: "Free Android app that auto-confirms bKash, Nagad and Rocket payments" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
   { slug: "events-campaigns", title: "Events & Campaigns", icon: "/icons/events.svg", desc: "Run percent-off sale campaigns on specific products" },
   { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },

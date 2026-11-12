@@ -60,6 +60,7 @@ const linksEn: NavLink[] = [
         category: "Payments & Delivery",
         items: [
           { label: "Payments", href: "/features/payments", icon: "/icons/wallet.svg" },
+          { label: "Softune Pay", href: "/features/softune-pay", icon: "/icons/send.svg", badge: "New" },
           { label: "Couriers", href: "/features/courier", icon: "/icons/delivery.svg" },
           { label: "Store Analytics", href: "/features/store-analytics", icon: "/icons/analytics.svg" },
         ],
@@ -120,6 +121,7 @@ const linksBn: NavLink[] = [
         category: "পেমেন্ট ও ডেলিভারি",
         items: [
           { label: "পেমেন্ট গেটওয়ে", href: "/bn/features/payments", icon: "/icons/wallet.svg" },
+          { label: "Softune Pay", href: "/bn/features/softune-pay", icon: "/icons/send.svg", badge: "নতুন" },
           { label: "লোকাল কুরিয়ার", href: "/bn/features/courier", icon: "/icons/delivery.svg" },
           { label: "স্টোর অ্যানালিটিক্স", href: "/bn/features/store-analytics", icon: "/icons/analytics.svg" },
         ],
