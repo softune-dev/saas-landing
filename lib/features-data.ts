@@ -623,8 +623,8 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     slug: "softune-pay",
     pillText: "Softune Pay",
     titleStart: "Wallet Payments That",
-    titleHighlight: "Confirm Themselves",
-    titleEnd: "",
+    titleHighlight: "Confirm",
+    titleEnd: "Themselves",
     description:
       "Softune Pay is a free Android app that reads your bKash, Nagad and Rocket payment SMS and marks the matching order paid. No gateway, no fee, no checking your phone order by order.",
     heroImage: { light: "/feature/softune-pay-l.webp", dark: "/feature/softune-pay-d.webp" },
@@ -1858,8 +1858,8 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
   "softune-pay": {
     slug: "softune-pay",
     pillText: "Softune Pay",
-    titleStart: "ওয়ালেট পেমেন্ট",
-    titleHighlight: "নিজেই কনফার্ম",
+    titleStart: "ওয়ালেট পেমেন্ট নিজেই",
+    titleHighlight: "কনফার্ম",
     titleEnd: "",
     description:
       "Softune Pay একটি ফ্রি অ্যান্ড্রয়েড অ্যাপ, যা bKash, Nagad ও Rocket-এর পেমেন্ট SMS পড়ে মিলে যাওয়া অর্ডার Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই, প্রতিটি অর্ডারের জন্য ফোন চেক করতে হয় না।",

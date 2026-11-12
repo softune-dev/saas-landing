@@ -19,7 +19,8 @@ import { SOFTUNE_PAY_APK_URL } from "@/lib/apps-data";
 const COPY = {
   en: {
     title: "Wallet payments that",
-    highlight: "confirm themselves",
+    highlight: "confirm",
+    tail: "themselves",
     desc: "Reads your bKash, Nagad and Rocket payment SMS and marks the matching order paid. No gateway, no fee.",
     steps: [
       { t: "Pair in seconds", d: "Scan the QR code in Payments, Softune Pay." },
@@ -36,8 +37,9 @@ const COPY = {
     now: "now",
   },
   bn: {
-    title: "ওয়ালেট পেমেন্ট এখন",
-    highlight: "নিজেই কনফার্ম হয়",
+    title: "ওয়ালেট পেমেন্ট এখন নিজেই",
+    highlight: "কনফার্ম",
+    tail: "হয়",
     desc: "bKash, Nagad ও Rocket-এর পেমেন্ট SMS পড়ে মিলে যাওয়া অর্ডার Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই।",
     steps: [
       { t: "কয়েক সেকেন্ডে কানেক্ট", d: "Payments, Softune Pay থেকে QR কোড স্ক্যান করুন।" },
@@ -112,7 +114,8 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 <span className="relative mt-1 inline-block px-2.5 py-0.5 sm:whitespace-nowrap sm:px-4">
                   <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] sm:top-2" />
                   <em className="relative not-italic text-white">{c.highlight}</em>
-                </span>
+                </span>{" "}
+                {c.tail}
               </h2>
               <p className="mt-6 max-w-xl text-[16px] leading-relaxed font-medium text-white/65 md:text-[17px]">{c.desc}</p>
 
