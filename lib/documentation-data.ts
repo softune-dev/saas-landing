@@ -68,6 +68,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
       { title: "Cash on Delivery (COD) Guide", slug: "cash-on-delivery" },
       { title: "Connecting Courier Partners", slug: "connecting-courier-partners" },
       { title: "Shipping Locations & Delivery Fees", slug: "shipping-locations" },
+      { title: "Softune Pay: Auto-Confirm bKash, Nagad & Rocket", slug: "softune-pay" },
     ],
   },
   {
@@ -132,6 +133,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
       { title: "ক্যাশ অন ডেলিভারি (COD) নির্দেশিকা", slug: "cash-on-delivery" },
       { title: "কুরিয়ার পার্টনার্স ইন্টিগ্রেশন", slug: "connecting-courier-partners" },
       { title: "ডেলিভারি লোকেশন ও শিপিং চার্জ", slug: "shipping-locations" },
+      { title: "Softune Pay: bKash, Nagad ও Rocket অটো কনফার্ম", slug: "softune-pay" },
     ],
   },
   {

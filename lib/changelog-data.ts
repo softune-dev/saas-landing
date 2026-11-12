@@ -22,6 +22,19 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "3.5",
+    version: "v3.5.0",
+    date: "Nov 12, 2026",
+    title: "Softune Pay: manual bKash, Nagad and Rocket payments confirm themselves",
+    description: "A free Android app reads your wallet's payment SMS and marks the matching order paid.",
+    changes: [
+      { type: "Feature", content: "Softune Pay app: pair the phone with your wallet SIM by scanning a QR code in Payments." },
+      { type: "Feature", content: "When a shopper pays your bKash, Nagad or Rocket number, the order turns Paid on its own, matched by transaction ID." },
+      { type: "Feature", content: "See connected phones and every payment the app received in Payments, Softune Pay." },
+      { type: "Improvement", content: "A payment with the wrong amount is flagged for you to check, never confirmed automatically." },
+    ],
+  },
+  {
     serial: "3.4",
     version: "v3.4.0",
     date: "Nov 6, 2026",

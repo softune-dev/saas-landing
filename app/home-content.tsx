@@ -6,6 +6,7 @@ import { Themes } from "@/components/themes";
 import { Technologies } from "@/components/technologies";
 import { PlatformFeatures } from "@/components/platform-features";
 import { AddonsShowcase } from "@/components/addons-showcase";
+import { AppsShowcase } from "@/components/apps-showcase";
 import { Pricing } from "@/components/pricing";
 import { Comparison } from "@/components/comparison";
 import { Faq } from "@/components/faq";
@@ -23,6 +24,7 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
         <PlatformFeatures locale={locale} />
         <Features locale={locale} />
         <AddonsShowcase locale={locale} />
+        <AppsShowcase locale={locale} />
         <Technologies locale={locale} />
         <Pricing locale={locale} />
         <Comparison locale={locale} />

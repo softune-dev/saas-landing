@@ -538,13 +538,29 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleHighlight: "Made Simple",
     titleEnd: "",
     description:
-      "Take Cash on Delivery, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz from one SoftuneBD Payments screen. Everything stays centralized and easy to manage.",
+      "Take Cash on Delivery, manual bKash/Nagad/Rocket, official bKash, Nagad, and SSLCommerz from one SoftuneBD Payments screen. With the free Softune Pay app, manual wallet payments confirm themselves.",
     // Note: source filenames are "paymet-*" (typo in the asset itself), not "payment-*".
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
     introTitle: "BD payments on one SoftuneBD screen",
     introDesc:
       "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials, SoftuneBD does not use a shared payment login.",
     alternating: [
+      {
+        pillText: "Softune Pay",
+        pillIcon: "/icons/send.svg",
+        titleStart: "Manual bKash, Nagad, Rocket,",
+        titleHighlight: "Auto-Confirmed",
+        titleEnd: "",
+        description:
+          "Install the free Softune Pay Android app on the phone that holds your wallet SIM. When a shopper pays your personal or agent number, the payment SMS is matched to the order by its transaction ID and the order is marked paid on its own.",
+        bullets: [
+          "Free, no merchant account or gateway fee",
+          "Works with bKash, Nagad and Rocket personal or agent numbers",
+          "Pair the phone by scanning a QR code in Payments",
+          "Only reads SMS from the official wallet senders, never your other messages",
+          "A wrong amount is flagged for you, never auto-confirmed",
+        ],
+      },
       {
         pillText: "bKash & Nagad",
         pillIcon: "/icons/billing.svg",
@@ -1691,12 +1707,28 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleHighlight: "এক জায়গায়",
     titleEnd: "",
     description:
-      "Cash on Delivery, ম্যানুয়াল bKash/Nagad এবং অফিশিয়াল bKash, Nagad ও SSLCommerz পেমেন্ট গেটওয়ে সেন্ট্রালি কানেক্ট করুন।",
+      "Cash on Delivery, ম্যানুয়াল bKash/Nagad/Rocket এবং অফিশিয়াল bKash, Nagad ও SSLCommerz পেমেন্ট গেটওয়ে সেন্ট্রালি কানেক্ট করুন। ফ্রি Softune Pay অ্যাপ দিয়ে ম্যানুয়াল পেমেন্ট নিজে থেকেই কনফার্ম হয়।",
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
     introTitle: "বাংলাদেশের সব পেমেন্ট সিস্টেম এক স্ক্রিনে",
     introDesc:
       "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট বা অফিশিয়াল পেমেন্ট গেটওয়ে, আপনার মার্চেন্ট একাউন্ট দিয়ে এক ড্যাশবোর্ড থেকেই সেটআপ করুন।",
     alternating: [
+      {
+        pillText: "Softune Pay",
+        pillIcon: "/icons/send.svg",
+        titleStart: "ম্যানুয়াল bKash, Nagad, Rocket,",
+        titleHighlight: "অটো কনফার্ম",
+        titleEnd: "",
+        description:
+          "যে ফোনে আপনার ওয়ালেট সিম আছে, তাতে ফ্রি Softune Pay অ্যান্ড্রয়েড অ্যাপ ইনস্টল করুন। কাস্টমার আপনার পার্সোনাল বা এজেন্ট নম্বরে পেমেন্ট করলে, পেমেন্টের SMS Transaction ID দিয়ে অর্ডারের সাথে মিলে যায় এবং অর্ডার নিজে থেকেই Paid হয়ে যায়।",
+        bullets: [
+          "সম্পূর্ণ ফ্রি, কোনো মার্চেন্ট একাউন্ট বা গেটওয়ে ফি নেই",
+          "bKash, Nagad ও Rocket পার্সোনাল বা এজেন্ট নম্বরে কাজ করে",
+          "Payments থেকে QR কোড স্ক্যান করে ফোন কানেক্ট করুন",
+          "শুধু অফিশিয়াল ওয়ালেটের SMS পড়ে, আপনার অন্য কোনো মেসেজ নয়",
+          "টাকার পরিমাণ না মিললে আপনাকে জানায়, কখনো অটো কনফার্ম করে না",
+        ],
+      },
       {
         pillText: "bKash & Nagad",
         pillIcon: "/icons/billing.svg",
@@ -2355,7 +2387,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
 export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity, live preview, not a generic look" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
-  { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, and SSLCommerz" },
+  { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, SSLCommerz, and the Softune Pay app" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },
   { slug: "events-campaigns", title: "Events & Campaigns", icon: "/icons/events.svg", desc: "Run percent-off sale campaigns on specific products" },
   { slug: "marketing-tracking", title: "Marketing & Tracking", icon: "/icons/analytics.svg", desc: "Meta CAPI, TikTok, GTM, and GA4 events" },

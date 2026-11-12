@@ -40,7 +40,7 @@ export const faqData: FaqItem[] = [
   {
     category: "Integrations",
     q: "What payment methods does SoftuneBD support?",
-    a: "SoftuneBD Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. Stripe and PayPal are not available.",
+    a: "SoftuneBD Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. The free Softune Pay Android app can confirm manual bKash, Nagad and Rocket payments for you by reading the wallet SMS on your phone. Stripe and PayPal are not available.",
   },
   {
     category: "General",
@@ -123,7 +123,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "Integrations",
     q: "SoftuneBD-এ কী কী পেমেন্ট মেথড সাপোর্ট করে?",
-    a: "Cash on Delivery (COD), ম্যানুয়াল bKash ও Nagad এবং অফিশিয়াল bKash, Nagad ও SSLCommerz মার্চেন্ট অ্যাকাউন্ট এক স্ক্রিন থেকেই কানেক্ট করা যায়।",
+    a: "Cash on Delivery (COD), ম্যানুয়াল bKash ও Nagad এবং অফিশিয়াল bKash, Nagad ও SSLCommerz মার্চেন্ট অ্যাকাউন্ট এক স্ক্রিন থেকেই কানেক্ট করা যায়। ফ্রি Softune Pay অ্যান্ড্রয়েড অ্যাপ ফোনের ওয়ালেট SMS পড়ে ম্যানুয়াল bKash, Nagad ও Rocket পেমেন্ট নিজে থেকেই কনফার্ম করে।",
   },
   {
     category: "General",

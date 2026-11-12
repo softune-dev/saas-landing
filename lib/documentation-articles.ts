@@ -745,6 +745,53 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "2 min read",
   ),
 
+  "softune-pay": article(
+    "softune-pay",
+    "Softune Pay is a free Android app that reads your wallet's payment SMS and marks the matching manual bKash, Nagad or Rocket order paid, by transaction ID. No gateway, no fee.",
+    [
+      { type: "p", content: "With manual wallet payments, a shopper sends money to your bKash, Nagad or Rocket number and types the transaction ID at checkout. Normally you then check your SMS and confirm each order yourself. Softune Pay does that check for you." },
+      { type: "h2", content: "How it works" },
+      {
+        type: "list",
+        content: [
+            "The app runs on the Android phone that holds your wallet SIM",
+            "When money arrives, your wallet sends its usual SMS. The app reads only SMS from the official senders (bKash, NAGAD, 16216 for Rocket), never your other messages",
+            "It sends the transaction ID, amount and wallet to SoftuneBD",
+            "If an order has that transaction ID and the same amount, the order is marked Paid on its own",
+            "If the payment arrives first and the order comes later, it is matched when the order is placed",
+        ],
+      },
+      { type: "h2", content: "Set it up" },
+      {
+        type: "list",
+        content: [
+            "1. In your dashboard, go to Payments and open Softune Pay",
+            "2. Download the app on the phone with your wallet SIM and install it",
+            "3. Open the app, allow SMS access, and tap Scan QR code",
+            "4. Scan the QR code shown on the Softune Pay page (it works for 10 minutes)",
+            "5. Choose the SIM and which wallets to check (bKash, Nagad, Rocket)",
+            "6. Turn on manual bKash, Nagad or Rocket payments in Payments, if they aren't on already",
+        ],
+      },
+      { type: "callout", content: "Keep the app running. Some phones (Xiaomi, Samsung, Oppo, Vivo, Realme) close background apps to save battery. In the app, open Settings > Keep the app running and follow the steps for your phone. The dashboard shows a phone as online if it has checked in within the last 20 minutes." },
+      { type: "h2", content: "What each status means" },
+      {
+        type: "list",
+        content: [
+            "Confirmed: the SMS matched an order, and the order is now Paid",
+            "Waiting: the shopper placed the order, but no SMS with that transaction ID has arrived yet",
+            "Check it: money arrived, but no order has that transaction ID. Look it up and match it yourself",
+            "Amount differs: an order has that transaction ID but a different amount. It is never confirmed automatically, so you decide",
+        ],
+      },
+      { type: "h2", content: "Privacy and safety" },
+      { type: "p", content: "The app ignores every SMS that isn't from a wallet's official sender, and ignores wallet SMS that aren't money coming in (cash out, OTPs, offers). A transaction ID can only confirm one order. You can see connected phones and remove one at any time from the Softune Pay page; a removed phone stops working straight away." },
+      { type: "h2", content: "What it doesn't do" },
+      { type: "p", content: "Softune Pay is not a payment gateway. Shoppers still pay your number from their own wallet app, and money goes straight to you. It needs an Android phone with the wallet SIM; there is no iPhone app, because iPhones don't let apps read SMS." },
+    ],
+    "3 min read",
+    "Nov 12, 2026",
+  ),
   "cash-on-delivery": article(
     "cash-on-delivery",
     "Enable SoftuneBD Cash on Delivery, train fulfillment on COD reality, and pair it with Fraud Protection for risky orders.",
@@ -1980,6 +2027,63 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content:
           "SoftuneBD-এ পেমেন্ট ও কুরিয়ার অপশন একদম মূল প্ল্যাটফর্মের সাথে ফ্রী অন্তর্ভুক্ত (Included by Default)। এটি কোনো পেইড বা আলাদা ২৪টি অ্যাড-অনসের অংশ নয়।",
       },
+    ],
+  },
+  "softune-pay": {
+    slug: "softune-pay",
+    title: "Softune Pay: bKash, Nagad ও Rocket অটো কনফার্ম",
+    category: "পেমেন্ট ও কুরিয়ার",
+    categoryIcon: DOC_ICON_PATHS.payments,
+    desc: "Softune Pay একটি ফ্রি অ্যান্ড্রয়েড অ্যাপ। ওয়ালেটের পেমেন্ট SMS পড়ে Transaction ID দিয়ে ম্যানুয়াল bKash, Nagad বা Rocket অর্ডার নিজে থেকেই Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই।",
+    readTime: "পড়ার সময়: ৩ মিনিট",
+    updated: "নভেম্বর ১২, ২০২৬",
+    toc: [
+      "কীভাবে কাজ করে",
+      "সেটআপ করুন",
+      "প্রতিটি স্ট্যাটাসের মানে",
+      "প্রাইভেসি ও নিরাপত্তা",
+      "যা করে না",
+    ],
+    body: [
+      { type: "p", content: "ম্যানুয়াল ওয়ালেট পেমেন্টে কাস্টমার আপনার bKash, Nagad বা Rocket নম্বরে টাকা পাঠিয়ে চেকআউটে Transaction ID দেয়। সাধারণত এরপর আপনাকে SMS দেখে প্রতিটি অর্ডার নিজে কনফার্ম করতে হয়। Softune Pay এই কাজটা আপনার হয়ে করে।" },
+      { type: "h2", content: "কীভাবে কাজ করে" },
+      {
+        type: "list",
+        content: [
+            "যে অ্যান্ড্রয়েড ফোনে আপনার ওয়ালেট সিম আছে, অ্যাপটি সেখানে চলে",
+            "টাকা এলে ওয়ালেট তার স্বাভাবিক SMS পাঠায়। অ্যাপ শুধু অফিশিয়াল সেন্ডারের (bKash, NAGAD, Rocket-এর জন্য 16216) SMS পড়ে, আপনার অন্য কোনো মেসেজ নয়",
+            "Transaction ID, টাকার পরিমাণ ও ওয়ালেটের নাম SoftuneBD-তে পাঠায়",
+            "কোনো অর্ডারে সেই Transaction ID ও একই টাকা থাকলে অর্ডার নিজে থেকেই Paid হয়ে যায়",
+            "পেমেন্ট আগে এসে অর্ডার পরে হলে, অর্ডার দেওয়ার সময়েই মিলে যায়",
+        ],
+      },
+      { type: "h2", content: "সেটআপ করুন" },
+      {
+        type: "list",
+        content: [
+            "১. ড্যাশবোর্ডে Payments-এ গিয়ে Softune Pay খুলুন",
+            "২. ওয়ালেট সিমওয়ালা ফোনে অ্যাপটি ডাউনলোড করে ইনস্টল করুন",
+            "৩. অ্যাপ খুলে SMS পারমিশন দিন, তারপর Scan QR code চাপুন",
+            "৪. Softune Pay পেজে দেখানো QR কোড স্ক্যান করুন (১০ মিনিট কাজ করে)",
+            "৫. সিম এবং কোন ওয়ালেট চেক করবে (bKash, Nagad, Rocket) বেছে নিন",
+            "৬. Payments-এ ম্যানুয়াল bKash, Nagad বা Rocket চালু না থাকলে চালু করুন",
+        ],
+      },
+      { type: "callout", content: "অ্যাপটি চালু রাখুন। কিছু ফোন (Xiaomi, Samsung, Oppo, Vivo, Realme) ব্যাটারি বাঁচাতে ব্যাকগ্রাউন্ড অ্যাপ বন্ধ করে দেয়। অ্যাপে Settings > Keep the app running খুলে আপনার ফোনের ধাপগুলো মেনে চলুন। গত ২০ মিনিটে চেক-ইন করলে ড্যাশবোর্ডে ফোনটি অনলাইন দেখায়।" },
+      { type: "h2", content: "প্রতিটি স্ট্যাটাসের মানে" },
+      {
+        type: "list",
+        content: [
+            "Confirmed: SMS অর্ডারের সাথে মিলেছে, অর্ডার এখন Paid",
+            "Waiting: কাস্টমার অর্ডার দিয়েছে, কিন্তু সেই Transaction ID-র SMS এখনো আসেনি",
+            "যাচাই করুন (Check it): টাকা এসেছে, কিন্তু কোনো অর্ডারে সেই Transaction ID নেই। নিজে খুঁজে মিলিয়ে নিন",
+            "Amount differs: অর্ডারে সেই Transaction ID আছে কিন্তু টাকার পরিমাণ আলাদা। এটা কখনো অটো কনফার্ম হয় না, সিদ্ধান্ত আপনার",
+        ],
+      },
+      { type: "h2", content: "প্রাইভেসি ও নিরাপত্তা" },
+      { type: "p", content: "ওয়ালেটের অফিশিয়াল সেন্ডার ছাড়া অন্য কোনো SMS অ্যাপ দেখে না, আর টাকা আসা ছাড়া ওয়ালেটের অন্য SMS (ক্যাশ আউট, OTP, অফার) এড়িয়ে যায়। একটি Transaction ID দিয়ে শুধু একটি অর্ডারই কনফার্ম হয়। Softune Pay পেজ থেকে যেকোনো সময় কানেক্টেড ফোন দেখতে ও রিমুভ করতে পারেন; রিমুভ করলে ফোনটি সাথে সাথেই কাজ বন্ধ করে।" },
+      { type: "h2", content: "যা করে না" },
+      { type: "p", content: "Softune Pay কোনো পেমেন্ট গেটওয়ে নয়। কাস্টমার নিজের ওয়ালেট অ্যাপ থেকেই আপনার নম্বরে টাকা পাঠায়, টাকা সরাসরি আপনার কাছে আসে। ওয়ালেট সিমসহ একটি অ্যান্ড্রয়েড ফোন লাগে; আইফোন অ্যাপ নেই, কারণ আইফোন অ্যাপকে SMS পড়তে দেয় না।" },
     ],
   },
   "cash-on-delivery": {
