@@ -131,7 +131,7 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 ))}
               </ol>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-stretch">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a
                   href={SOFTUNE_PAY_APK_URL}
                   className="group flex shrink-0 items-center gap-3 rounded-2xl bg-white px-4 py-2 text-[#0c0a0d] shadow-lg transition hover:bg-white/90"
@@ -146,9 +146,9 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 </a>
                 {/* Scan-to-download, as Linear and Shopify offer: the visitor is
                     usually on a laptop and the app goes on their phone. */}
-                <div className="hidden shrink-0 items-center gap-3 rounded-2xl bg-white/[0.06] p-2 pr-5 ring-1 ring-white/10 sm:flex">
-                  <div className="rounded-lg bg-white p-1.5">
-                    <QRCodeSVG value={SOFTUNE_PAY_APK_URL} size={64} level="M" />
+                <div className="hidden shrink-0 items-center gap-3 rounded-2xl bg-white/[0.06] p-1.5 pr-5 ring-1 ring-white/10 sm:flex">
+                  <div className="rounded-lg bg-white p-1">
+                    <QRCodeSVG value={SOFTUNE_PAY_APK_URL} size={52} level="M" />
                   </div>
                   <div>
                     <div className="whitespace-nowrap text-[14px] font-semibold">{c.scan}</div>
