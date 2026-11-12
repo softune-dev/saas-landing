@@ -6,6 +6,7 @@ import { useToast } from "@/components/ui/toast";
 import { RecaptchaChallengeRequiredError, isPassword422 } from "@/lib/api";
 import { getRecaptchaToken, hasV2Fallback } from "@/lib/recaptcha";
 import { DASHBOARD_URL } from "@/lib/site";
+import { readAttribution, trackMeta, trackMetaOnce, userIdFromAccessToken, type MetaUserData } from "@/lib/meta";
 import {
   HERO_IDEA_KEY,
   clearStoredSignupToken,
@@ -112,10 +113,15 @@ const FAKE_TOKENS: TrialTokensOut = {
   expires_in: 0,
 };
 
-function handoffToDashboard(access: string, refresh: string) {
+function handoffToDashboard(access: string, refresh: string, user: MetaUserData) {
   // The conversion signal for Meta Ads and Vercel. Fired here, never in
-  // preview mode, so walkthroughs don't inflate counts.
-  window.fbq?.("track", "CompleteRegistration");
+  // preview mode, so walkthroughs don't inflate counts. Browser pixel and
+  // CAPI share one event_id (lib/meta.ts), so Meta counts one signup; the
+  // server copy adds hashed email/phone/name and the user id for matching.
+  trackMeta("CompleteRegistration", { content_name: "Free trial", status: "trial" }, {
+    ...user,
+    externalId: userIdFromAccessToken(access),
+  });
   track("trial_signup");
   try {
     localStorage.removeItem(DRAFT_KEY);
@@ -178,7 +184,24 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
     setDraft(freshDraft());
   }, [locale, toast]);
 
-  const { done: buildDone, pct: buildPct } = useTrialBuild(pending, isPreview ? previewComplete : handoffToDashboard);
+  // Latest contact details for CompleteRegistration, read through a ref so
+  // the handoff callback stays stable (useTrialBuild re-runs when it changes).
+  const metaUserRef = useRef<MetaUserData>({});
+  {
+    const [firstName, ...rest] = fullName.trim().split(/\s+/);
+    metaUserRef.current = {
+      email: email.trim() || undefined,
+      phone: draft.phone || undefined,
+      firstName: firstName || undefined,
+      lastName: rest.join(" ") || undefined,
+    };
+  }
+  const handoff = useCallback(
+    (access: string, refresh: string) => handoffToDashboard(access, refresh, metaUserRef.current),
+    [],
+  );
+
+  const { done: buildDone, pct: buildPct } = useTrialBuild(pending, isPreview ? previewComplete : handoff);
 
   useEffect(() => {
     const heroIdea = takeHeroIdea();
@@ -283,6 +306,7 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
         signup_token: signupToken,
         template_key: draft.templateKey,
         theme: { primary_color: draft.color, font: draft.displayFont, body_font: draft.bodyFont },
+        attribution: readAttribution(),
       }),
     );
     setPending(request);
@@ -428,8 +452,14 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
         account={{
           fullName, email, password, showPassword, busy, needsChallenge, v2Token, v2Ref,
           hasV2Fallback,
-          onFullName: setFullName,
-          onEmail: setEmail,
+          onFullName: (v: string) => {
+            setFullName(v);
+            if (!isPreview) trackMetaOnce("Lead", "signup-form", { content_name: "Signup form" });
+          },
+          onEmail: (v: string) => {
+            setEmail(v);
+            if (!isPreview) trackMetaOnce("Lead", "signup-form", { content_name: "Signup form" });
+          },
           onPassword: setPassword,
           onTogglePassword: () => setShowPassword((v) => !v),
           onV2Verify: setV2Token,

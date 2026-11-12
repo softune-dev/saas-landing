@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
 import { Analytics, AnalyticsNoscript } from "@/components/analytics";
+import { MetaEvents } from "@/components/meta-events";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -113,6 +114,10 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "BD",
     "geo.placename": "Bangladesh",
+    // Meta Business domain verification for softunebd.com (domain ID
+    // 2358973741311099). Server-rendered into <head>, which Meta's checker
+    // needs; it doesn't run JavaScript.
+    "facebook-domain-verification": "izfjfn4posbup53tdnrgnj7w7to1to",
   },
 };
 
@@ -167,6 +172,7 @@ export default async function RootLayout({
         <StructuredData data={organizationSchema()} />
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
+        <MetaEvents />
         <VercelAnalytics />
         <SpeedInsights />
       </body>

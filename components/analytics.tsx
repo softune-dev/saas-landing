@@ -6,6 +6,12 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() || "G-3XKQHQE2TP";
 // staging so test traffic doesn't pollute production ad data.
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "1093333280052054";
 
+// Production only. Vercel sets VERCEL_ENV on the server; locally it's
+// unset. The inline script also checks the hostname, so a preview deploy
+// that somehow renders this still sends nothing.
+const IS_PROD_DEPLOY = process.env.VERCEL_ENV === "production";
+const PROD_HOST = "www.softunebd.com";
+
 function isGaId(id: string) {
   return /^G-[A-Z0-9]+$/i.test(id);
 }
@@ -25,7 +31,7 @@ function isMetaPixelId(id: string) {
  */
 export function Analytics() {
   const ga = isGaId(GA_ID) ? GA_ID : null;
-  const pixel = isMetaPixelId(META_PIXEL_ID) ? META_PIXEL_ID : null;
+  const pixel = IS_PROD_DEPLOY && isMetaPixelId(META_PIXEL_ID) ? META_PIXEL_ID : null;
 
   return (
     <>
@@ -42,7 +48,11 @@ export function Analytics() {
       {pixel ? (
         <script
           dangerouslySetInnerHTML={{
-            __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');`,
+            // Only on www.softunebd.com. Before the pixel loads, an ad
+            // click's fbclid becomes the _fbc cookie (Meta's format,
+            // shared across *.softunebd.com for 90 days) so the server
+            // can send it with every CAPI event, signup included.
+            __html: `if(location.hostname==='${PROD_HOST}'){try{var c=new URLSearchParams(location.search).get('fbclid');if(c&&!/(?:^|; )_fbc=/.test(document.cookie)){document.cookie='_fbc=fb.1.'+Date.now()+'.'+c+'; domain=.softunebd.com; path=/; max-age=7776000; SameSite=Lax; Secure'}}catch(e){}!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixel}');fbq('track','PageView');}`,
           }}
         />
       ) : null}
@@ -51,7 +61,7 @@ export function Analytics() {
 }
 
 export function AnalyticsNoscript() {
-  const pixel = isMetaPixelId(META_PIXEL_ID) ? META_PIXEL_ID : null;
+  const pixel = IS_PROD_DEPLOY && isMetaPixelId(META_PIXEL_ID) ? META_PIXEL_ID : null;
   if (!pixel) return null;
 
   return (

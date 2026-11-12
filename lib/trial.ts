@@ -136,6 +136,9 @@ export async function completeTrialSignup(data: {
   signup_token: string;
   template_key: string;
   theme?: { primary_color?: string; font?: string; body_font?: string };
+  /** utm_* / fbclid from the ad that brought this visitor (lib/meta.ts),
+   * saved on the new account so signups can be tied back to the ad. */
+  attribution?: Record<string, string>;
 }): Promise<TrialTokensOut> {
   const out = await request<TrialTokensOut>("/trial/complete", {
     method: "POST",
