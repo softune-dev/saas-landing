@@ -247,7 +247,9 @@ export function PlatformFeatures({ locale = "en" }: { locale?: "en" | "bn" }) {
     setMounted(true);
   }, []);
   const isDark = !mounted || resolvedTheme === "dark";
-  const activeSections = locale === "bn" ? sectionsBn : sectionsEn;
+  const activeSections = (locale === "bn" ? sectionsBn : sectionsEn).filter(
+    (section) => section.showcase !== "editor",
+  );
 
   return (
     <section className="overflow-hidden border-y border-[var(--color-line)] bg-[var(--color-canvas)] py-14 md:py-32">

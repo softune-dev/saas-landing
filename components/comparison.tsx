@@ -13,64 +13,80 @@ type Row = {
 
 const rowsEn: Row[] = [
   {
-    softune: "0% transaction fee, every plan",
-    others: "Some take a cut of every order you sell",
+    "softune": "An AI agent that carries out real store tasks",
+    "others": "Check whether AI carries out tasks or drafts text",
+    "parity": true
   },
   {
-    softune: "No setup fee, ever",
-    others: "Some charge a one-time setup fee (e.g. ৳5,000)",
+    "softune": "Change colors, fonts, and homepage text by conversation",
+    "others": "Check how colors, fonts, and homepage text are changed",
+    "parity": true
   },
   {
-    softune: "AI assistant for products, categories, theme direction & image generation",
-    others: "Rare, and usually just one narrow AI writing tool",
+    "softune": "Create products, categories, and sale events through the agent",
+    "others": "Check AI support for products, categories, and sale events",
+    "parity": true
   },
   {
-    softune: "Multiple real storefront themes + a live AI theme editor",
-    others: "Usually one fixed theme per merchant",
+    "softune": "Generate product images and place them on your storefront",
+    "others": "Check product image generation, storefront placement, and credit limits",
+    "parity": true
   },
   {
-    softune: "26 built-in add-ons, categorized by use case",
-    others: "Limited or no add-on ecosystem",
+    "softune": "Get Bangla or English answers from your store data",
+    "others": "Check store data access and Bangla or English support",
+    "parity": true
   },
   {
-    softune: "COD, bKash, Nagad, SSLCommerz & BD courier connects",
-    others: "Standard here too, since most BD builders offer it",
-    parity: true,
+    "softune": "Undo supported changes and confirm sensitive actions before execution",
+    "others": "Check change history, Undo support, and sensitive action confirmations",
+    "parity": true
   },
+  {
+    "softune": "COD, local payments, courier connects, POS, and fraud protection",
+    "others": "Compare payments, couriers, POS, and fraud protection by plan",
+    "parity": true
+  }
 ];
 
 const rowsBn: Row[] = [
   {
-    softune: "সব প্ল্যানে 0% ট্রানজেকশন ফি",
-    others: "অনেকে প্রতিটি বিক্রিতে পার্সেন্টেজ কেটে নেয়",
+    "softune": "স্টোরের বাস্তব কাজ করতে পারে এমন AI এজেন্ট",
+    "others": "AI কাজ করে নাকি শুধু লেখা তৈরি করে দেখুন",
+    "parity": true
   },
   {
-    softune: "কোনো ধরনের হিডেন বা সেটআপ ফি নেই",
-    others: "অনেকে ওয়ান-টাইম সেটআপ ফি কাটে (যেমন ৳৫,০০০)",
+    "softune": "কথা বলেই কালার, ফন্ট ও হোমপেজের লেখা বদলান",
+    "others": "কালার, ফন্ট ও হোমপেজের লেখা কীভাবে বদলায় দেখুন",
+    "parity": true
   },
   {
-    softune: "প্রোডাক্ট, ক্যাটাগরি, থিম সাজানো ও ইমেজ জেনারেশনে রিয়েল AI অ্যাসিস্ট্যান্ট",
-    others: "খুবই সীমিত বা কেবল একটি ডেসক্রিপশন রাইটিং টুল",
+    "softune": "এজেন্ট দিয়ে প্রোডাক্ট, ক্যাটাগরি ও সেল ইভেন্ট তৈরি করুন",
+    "others": "প্রোডাক্ট, ক্যাটাগরি ও সেল ইভেন্টে AI সাপোর্ট দেখুন",
+    "parity": true
   },
   {
-    softune: "একাধিক রিয়েল স্টোরফ্রন্ট থিম + লাইভ AI থিম এডিটর",
-    others: "সাধারণত মার্চেন্টের জন্য একটিই ফিক্সড থিম",
+    "softune": "প্রোডাক্টের ছবি তৈরি করে স্টোরের সমর্থিত জায়গায় বসান",
+    "others": "প্রোডাক্ট ইমেজ জেনারেশন, প্লেসমেন্ট ও ক্রেডিট লিমিট দেখুন",
+    "parity": true
   },
   {
-    softune: "২৬টি বিল্ট-ইন অ্যাড-অনস ও ফিচার",
-    others: "সীমিত বা কোনো অ্যাড-অনস ইকোসিস্টেম নেই",
+    "softune": "নিজের স্টোরের ডেটা থেকে বাংলা বা ইংরেজিতে উত্তর পান",
+    "others": "স্টোরের ডেটা অ্যাক্সেস এবং বাংলা বা ইংরেজি সাপোর্ট দেখুন",
+    "parity": true
   },
   {
-    softune: "COD, bKash, Nagad, SSLCommerz ও BD কুরিয়ার কানেক্ট",
-    others: "এখানে সমতা, কারণ অধিকাংশ বিল্ডারে এই সুবিধা আছে",
-    parity: true,
+    "softune": "সমর্থিত পরিবর্তনে Undo; সংবেদনশীল কাজে কনফার্মেশন",
+    "others": "চেঞ্জ হিস্ট্রি, Undo ও সংবেদনশীল কাজে কনফার্মেশন দেখুন",
+    "parity": true
   },
+  {
+    "softune": "COD, লোকাল পেমেন্ট, কুরিয়ার কানেক্ট, POS ও ফ্রড প্রোটেকশন",
+    "others": "পেমেন্ট, কুরিয়ার, POS ও ফ্রড প্রোটেকশন প্ল্যান অনুযায়ী দেখুন",
+    "parity": true
+  }
 ];
 
-const globalComparisonEn = {
-  name: "Shopify",
-  fact: "charges roughly 2.8%–3.0% per sale on top of its subscription",
-};
 
 export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
@@ -101,33 +117,33 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              {isBn ? "SoftuneBD বনাম অন্যান্য লোকাল বিল্ডার" : "SoftuneBD vs Bangladeshi Builders"}
+              {isBn ? "স্টোর চালান AI-এর সাথে" : "Your store. Your AI agent."}
             </span>
           </motion.div>
 
           <h2 className="max-w-3xl text-3xl leading-[1.2] font-extrabold tracking-tight text-[var(--color-ink)] sm:text-5xl sm:leading-[1.15] md:text-5xl">
             {isBn ? (
               <>
-                কোনো হিডেন{" "}
+                স্টোর চলুক{" "}
                 <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
                   <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)]" />
-                  <em className="relative not-italic text-white">খরচ নেই</em>
+                  <em className="relative not-italic text-white">আপনার কথায়</em>
                 </span>
               </>
             ) : (
               <>
-                No hidden{" "}
+                Your store,{" "}
                 <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
                   <span className="absolute inset-0 -rotate-2 rounded-lg bg-[var(--color-brand)]" />
-                  <em className="relative not-italic text-white">costs</em>
+                  <em className="relative not-italic text-white">powered by action</em>
                 </span>
               </>
             )}
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed font-medium text-[var(--color-muted)] sm:mt-6 sm:text-[17px] md:text-[18px]">
             {isBn
-              ? "বাংলাদেশের বেশিরভাগ স্টোর বিল্ডারে সেটআপ ফি, অর্ডারে অতিরিক্ত চার্জ বা হিডেন ফি থাকে। SoftuneBD-এ কোনো হিডেন ফি নেই।"
-              : "Most Bangladeshi store builders charge extra somewhere: a setup fee, a cut of every order, or a paywalled feature. SoftuneBD doesn't."}
+              ? "বাংলাদেশি ই-কমার্স বিল্ডার বাছাইয়ে শুধু ফিচার লিস্ট নয়, প্রতিদিনের কতটা কাজ AI-কে দিতে পারবেন দেখুন। SoftuneBD-এর এজেন্ট আপনার স্টোরের ডেটা বুঝে কাজ করে।"
+              : "When choosing a Bangladeshi ecommerce builder, look beyond the feature list. SoftuneBD’s agent understands your store data and carries out everyday tasks."}
           </p>
         </div>
 
@@ -163,8 +179,8 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 />
                 <p className="mt-4 max-w-[280px] text-[14px] leading-snug font-medium text-white/65">
                   {isBn
-                    ? "কোনো ট্রানজেকশন ফি নেই, সেটআপ ফি নেই - সাথে বিল্ট-ইন AI অ্যাসিস্ট্যান্ট ও রেডি থিমসমূহ।"
-                    : "No transaction fee, no setup fee, and a real AI assistant with storefront themes built in."}
+                    ? "বাংলা বা ইংরেজিতে বলেই ডিজাইন বদলান, প্রোডাক্ট যোগ করুন ও সেল তৈরি করুন।"
+                    : "Ask in Bangla or English to change your design, add products, and create sales."}
                 </p>
               </div>
             </div>
@@ -234,13 +250,13 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
               />
               <div className="relative z-10">
                 <p className="mb-3 text-[11px] font-bold tracking-[0.14em] text-[var(--color-muted)] uppercase">
-                  {isBn ? "সাধারণ লোকাল বিল্ডারসমূহ" : "Typical BD builders"}
+                  {isBn ? "বাংলাদেশি ই-কমার্স বিল্ডারসমূহ" : "Bangladeshi ecommerce builders"}
                 </p>
                 <h3 className="text-xl font-extrabold tracking-tight text-[var(--color-ink)] sm:text-2xl">
-                  {isBn ? "অন্যান্য স্থানে যা পাবেন" : "What you'll find elsewhere"}
+                  {isBn ? "বেছে নেওয়ার আগে যা দেখবেন" : "What to compare before choosing"}
                 </h3>
                 <p className="mt-3 max-w-[280px] text-[14px] leading-snug font-medium text-[var(--color-muted)]">
-                  {isBn ? "সাধারণত খরচ বেশি এবং সুবিধা কম।" : "Usually costs more and does less."}
+                  {isBn ? "প্রতিটি বিল্ডারের বর্তমান সুবিধা ও প্ল্যান মিলিয়ে দেখুন।" : "Check each builder’s current capabilities and plans."}
                 </p>
               </div>
             </div>
@@ -301,26 +317,13 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
           className="mx-auto mt-6 flex max-w-3xl flex-col items-center gap-1.5 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-6 py-5 text-center sm:mt-8"
         >
           <p className="text-[14px] leading-relaxed font-medium text-[var(--color-muted)] sm:text-[15px]">
-            {isBn ? (
-              <>
-                গ্লোবাল প্ল্যাটফর্মের সাথে তুলনা করছেন?{" "}
-                <span className="font-semibold text-[var(--color-ink)]">
-                  Shopify
-                </span>{" "}
-                প্রতি বিক্রিতে প্রায় ২.৮%–৩.০% অতিরিক্ত ফি নেয়। SoftuneBD-এ সব প্ল্যানে ট্রানজেকশন ফি 0%।
-              </>
-            ) : (
-              <>
-                Comparing to a global platform instead?{" "}
-                <span className="font-semibold text-[var(--color-ink)]">
-                  {globalComparisonEn.name}
-                </span>{" "}
-                {globalComparisonEn.fact}. SoftuneBD&apos;s is 0%, on every plan.
-              </>
-            )}
+            {isBn
+              ? "ফিচার ও ক্রেডিট প্ল্যান অনুযায়ী প্রযোজ্য। সমর্থিত পরিবর্তনে Undo আছে; সংবেদনশীল কাজে কনফার্মেশন লাগে।"
+              : "Features and credits depend on your plan. Supported changes have Undo; sensitive actions require confirmation."}
           </p>
         </motion.div>
       </div>
     </section>
   );
 }
+

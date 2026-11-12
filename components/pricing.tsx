@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Gift } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { getPlans } from "@/lib/pricing-data";
@@ -18,6 +18,12 @@ import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 const PRICE_FONT = "var(--font-heading), sans-serif";
 
 const TILES = {
+  free: {
+    image: "/pricing/free.webp",
+    ink: "text-[#2a1306]",
+    pill: "border border-white/80 bg-white/78 text-[#2a1306] shadow-[0_8px_20px_rgb(42_19_6/0.14)]",
+    sub: "text-[#2a1306]/70",
+  },
   entry: {
     image: "/pricing/starter.webp",
     ink: "text-[#2a1306]",
@@ -38,7 +44,7 @@ const TILES = {
   },
 } as const;
 
-export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "bn"; showIntro?: boolean }) {
+export function Pricing({ locale = "en", showIntro = true, homepage = false }: { locale?: "en" | "bn"; showIntro?: boolean; homepage?: boolean }) {
   // Monthly first: the headline number everywhere (blog posts, ads, llms.txt,
   // search-engine offers) is the real monthly price. Defaulting to Yearly
   // showed the lower per-month-billed-yearly figure as if it were the price.
@@ -53,7 +59,20 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
   const isBn = locale === "bn";
   // English digits on both languages, by request.
   const money = (n: number) => n.toLocaleString("en-US");
-  const planList = getPlans(locale);
+  const paidPlans = getPlans(locale);
+  const freePlan = {
+    name: "Free",
+    priceMonthly: 0,
+    priceAnnually: 0,
+    popular: false,
+    description: isBn
+      ? "৭ দিনের জন্য ফ্রি। নিজের স্টোর তৈরি করুন ও প্রিমিয়াম ফিচারগুলো দেখুন।"
+      : "Free for 7 days. Build your store and explore premium features.",
+    features: isBn
+      ? ["৭ দিনের ফ্রি অ্যাক্সেস", "কোনো ক্রেডিট কার্ড লাগবে না", "থিম এডিটর ও লাইভ প্রিভিউ", "AI অ্যাসিস্ট্যান্ট (দিনে 15 ক্রেডিট)", "৫০টি প্রোডাক্ট যোগ করুন", "500MB মিডিয়া স্টোরেজ", "ফ্রড প্রোটেকশন", "বেসিক অ্যানালিটিক্স"]
+      : ["7 days of free access", "No credit card required", "Theme editor & live preview", "AI Assistant (15 credits/day)", "Add up to 50 products", "500MB media storage", "Fraud protection", "Basic analytics"],
+  };
+  const planList = homepage ? [freePlan, ...paidPlans.filter((plan) => plan.name !== "Business")] : paidPlans;
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
   const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
@@ -165,9 +184,10 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
 
         <div className="grid items-stretch gap-5 md:grid-cols-3 lg:gap-6">
           {planList.map((plan, i) => {
+            const isFree = plan.name === "Free";
             const popular = Boolean(plan.popular);
             const price = isAnnual ? plan.priceAnnually : plan.priceMonthly;
-            const tile = TILES[popular ? "featured" : i === 0 ? "entry" : "top"];
+            const tile = TILES[isFree ? "free" : plan.name === "Growth" ? "featured" : plan.name === "Starter" ? "entry" : "top"];
             return (
               <motion.div
                 key={plan.name}
@@ -195,8 +215,15 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
                     className="pointer-events-none absolute inset-0 rounded-[22px] [background:linear-gradient(145deg,rgb(255_255_255/0.16),transparent_42%)]"
                   />
                   <div className="relative z-10 flex items-center justify-between gap-2">
-                    <span className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-xl ${tile.pill}`}>{plan.name}</span>
-                    {popular ? (
+                    <span className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-xl ${tile.pill}`}>
+                      {isFree ? <Gift aria-hidden="true" className="size-4 text-[var(--color-brand)]" strokeWidth={2.5} /> : null}
+                      {plan.name}
+                    </span>
+                    {isFree ? (
+                      <span className="rounded-full border border-[var(--color-brand)] bg-[var(--color-brand)] px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-white shadow-sm uppercase">
+                        {isBn ? "৭ দিন ফ্রি" : "7 days free"}
+                      </span>
+                    ) : popular ? (
                       <span className="rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-[var(--color-brand)] shadow-[0_8px_20px_rgb(55_12_4/0.18)] uppercase">
                         {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
                       </span>
@@ -209,12 +236,12 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
                         className="text-[46px] leading-none font-bold tracking-[-0.045em] sm:text-[52px]"
                         style={{ fontFamily: PRICE_FONT }}
                       >
-                        ৳{money(price)}
+                        {isFree ? "Free" : `৳${money(price)}`}
                       </span>
-                      <span className={`text-[14px] font-semibold ${tile.sub}`}>/mo</span>
+                      <span className={`text-[14px] font-semibold ${tile.sub}`}>{isFree ? (isBn ? "/ ৭ দিন" : "/ 7 days") : "/mo"}</span>
                     </div>
                     <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
-                      {isAnnual
+                      {isFree ? (isBn ? "এরপর একটি পেইড প্ল্যান বেছে নিন" : "Choose a paid plan after your trial") : isAnnual
                         ? isBn
                           ? `বিল হবে ৳${money(plan.priceAnnually * 12)} প্রতি বছর`
                           : `Billed ৳${money(plan.priceAnnually * 12)} yearly`
@@ -232,7 +259,7 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}
                   >
-                    {ctaText}
+                    {isFree ? (isBn ? "৭ দিন ফ্রি শুরু করুন" : "Start 7 days free") : ctaText}
                     <img
                       loading="lazy"
                       decoding="async"
@@ -264,6 +291,21 @@ export function Pricing({ locale = "en", showIntro = true }: { locale?: "en" | "
             );
           })}
         </div>
+
+        {homepage ? (
+          <div className="mt-8 flex justify-center">
+            <Button as="a" href={isBn ? "/bn/pricing" : "/pricing"} variant="outline" className="inline-flex min-h-12 items-center gap-2 rounded-full px-7 py-3 text-[15px] font-bold">
+              {isBn ? "সব প্রাইসিং প্ল্যান দেখুন" : "See all pricing"}
+              <img
+                loading="lazy"
+                decoding="async"
+                src="/icons/arrow-right.svg"
+                alt=""
+                className="size-4 object-contain dark:invert"
+              />
+            </Button>
+          </div>
+        ) : null}
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

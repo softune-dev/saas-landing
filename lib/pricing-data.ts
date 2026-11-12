@@ -4,6 +4,7 @@
 export const plans = [
   {
     name: "Starter",
+    popular: true,
     priceMonthly: 499,
     priceAnnually: 399,
     description: "Perfect for new stores and small businesses getting started.",
@@ -22,7 +23,6 @@ export const plans = [
     name: "Growth",
     priceMonthly: 1499,
     priceAnnually: 1199,
-    popular: true,
     description: "Everything you need to scale your growing e-commerce brand.",
     features: [
       "500 Products limit",
@@ -56,6 +56,7 @@ export const plans = [
 export const plansBn = [
   {
     name: "Starter",
+    popular: true,
     priceMonthly: 499,
     priceAnnually: 399,
     description: "নতুন স্টোর ও স্মল বিজনেসের সহজ শুরুর জন্য উপযুক্ত।",
@@ -74,7 +75,6 @@ export const plansBn = [
     name: "Growth",
     priceMonthly: 1499,
     priceAnnually: 1199,
-    popular: true,
     description: "আপনার গ্রোয়িং ই-কমার্স ব্র্যান্ড স্কেল করার সব ফিচার।",
     features: [
       "৫০০টি Product Limit",
