@@ -10,7 +10,7 @@ const colsEn = [
     links: [
       { label: "Features", href: "/features" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Add-Ons", href: "#addons" },
+      { label: "Advanced Features", href: "#addons" },
       { label: "Documentation", href: "/support/documentation" },
       { label: "Blog & Resources", href: "/blog" },
       { label: "Community Forum", href: "/support/community" },
@@ -46,7 +46,7 @@ const colsBn = [
     links: [
       { label: "ফিচারসমূহ", href: "/bn/features" },
       { label: "প্রাইসিং", href: "/bn/pricing" },
-      { label: "অ্যাড-অনস", href: "/bn/#addons" },
+      { label: "অ্যাডভান্সড ফিচার", href: "/bn/#addons" },
       { label: "ডকুমেন্টেশন", href: "/bn/support/documentation" },
       { label: "ব্লগ ও রিসোর্স", href: "/bn/blog" },
       { label: "কমিউনিটি ফোরাম", href: "/bn/support/community" },

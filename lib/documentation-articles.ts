@@ -67,7 +67,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "SoftuneBD is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Add-Ons - without bolting together unrelated apps.",
+          "SoftuneBD is a multi-tenant ecommerce SaaS for independent merchants and small brands. You get an isolated store, a live storefront, and one dashboard for catalog, orders, themes, payments, couriers, analytics, fraud tools, and Advanced Features - without bolting together unrelated apps.",
       },
       { type: "h2", content: "What SoftuneBD is (and is not)" },
       {
@@ -105,7 +105,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "Customers - buyers who have ordered from you",
           "Courier - connect delivery partners",
           "Payments - COD, bKash, Nagad, and SSLCommerz",
-          "Add-Ons - native marketplace extensions",
+          "Advanced Features - native marketplace extensions",
         ],
       },
       { type: "h3", content: "Settings" },
@@ -188,7 +188,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "You can still open Dashboard, Analytics, Fraud Protection, or Add-Ons while Setup is visible. The checklist does not lock the rest of SoftuneBD - it only tracks go-live readiness.",
+          "You can still open Dashboard, Analytics, Fraud Protection, or Advanced Features while Setup is visible. The checklist does not lock the rest of SoftuneBD - it only tracks go-live readiness.",
       },
     ],
     "2 min read",
@@ -218,7 +218,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "The tour walks the main Menu items - Dashboard through Add-Ons - so you know where Categories, Products, Orders, Analytics, Themes, Customers, Courier, and Payments live without memorizing a map.",
+          "The tour walks the main Menu items - Dashboard through Advanced Features - so you know where Categories, Products, Orders, Analytics, Themes, Customers, Courier, and Payments live without memorizing a map.",
       },
       { type: "h3", content: "Theme editor stop" },
       {
@@ -495,7 +495,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "When SoftuneBD Add-Ons like Email Marketing, WhatsApp Alerts, or Review Reminder are enabled, customer lists become the audience for those tools. Keep Customers clean so outreach does not hit bad numbers.",
+          "When SoftuneBD Advanced Features like Email Marketing, WhatsApp Alerts, or Review Reminder are enabled, customer lists become the audience for those tools. Keep Customers clean so outreach does not hit bad numbers.",
       },
     ],
     "2 min read",
@@ -706,12 +706,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Add-Ons).",
+    "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Advanced Features).",
     [
       {
         type: "p",
         content:
-          "Menu → Payments is where SoftuneBD connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Add-Ons page - core infrastructure, not one of the 25 optional marketplace Add-Ons.",
+          "Menu → Payments is where SoftuneBD connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Advanced Features page - core infrastructure, not one of the 25 optional marketplace Advanced Features.",
       },
       { type: "h2", content: "Enable a payment method" },
       {
@@ -729,11 +729,11 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content:
           "SoftuneBD does not offer Stripe or PayPal. Connect only the methods listed on Payments: COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz.",
       },
-      { type: "h2", content: "Included by Default vs Add-Ons catalog" },
+      { type: "h2", content: "Included by Default vs Advanced Features catalog" },
       {
         type: "p",
         content:
-          "On Add-Ons, SoftuneBD shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools - not these core rails.",
+          "On Advanced Features, SoftuneBD shows Payments and Courier as Included by Default. The 25-item catalog covers optional engagement, marketing, AI, and operations tools - not these core rails.",
       },
       { type: "h2", content: "Getting Started step" },
       {
@@ -832,12 +832,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "connecting-courier-partners": article(
     "connecting-courier-partners",
-    "Connect SoftuneBD Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Add-On.",
+    "Connect SoftuneBD Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Advanced Features.",
     [
       {
         type: "p",
         content:
-          "Menu → Couriers lists SoftuneBD’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Add-Ons page - not one of the 25 optional Add-Ons.",
+          "Menu → Couriers lists SoftuneBD’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Advanced Features page - not one of the 25 optional Advanced Features.",
       },
       { type: "h2", content: "Connect a partner" },
       {
@@ -1113,28 +1113,28 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "2 min read",
   ),
 
-  // ── Add-Ons ───────────────────────────────────────────────────────────────
+  // ── Advanced Features ───────────────────────────────────────────────────────────────
   "browsing-addons-marketplace": article(
     "browsing-addons-marketplace",
-    "Browse SoftuneBD’s Add-Ons page - 25 optional Add-Ons in four categories, plus Payments & Courier marked Included by Default.",
+    "Browse SoftuneBD’s Advanced Features page - 25 optional Advanced Features in four categories, plus Payments & Courier marked Included by Default.",
     [
       {
         type: "p",
         content:
-          "Menu → Add-Ons is SoftuneBD’s native marketplace. SoftuneBD lists 25 optional Add-Ons across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, SoftuneBD shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
+          "Menu → Advanced Features is SoftuneBD’s native marketplace. SoftuneBD lists 25 optional Advanced Features across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, SoftuneBD shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
       },
       { type: "h2", content: "How to browse" },
       {
         type: "list",
         content: [
-          "1. Open Menu → Add-Ons",
+          "1. Open Menu → Advanced Features",
           "2. Note Payments and Courier under Included by Default",
           "3. Filter or scroll the four optional categories SoftuneBD shows",
-          "4. Open an Add-On card to read its short description",
+          "4. Open an Advanced Features card to read its short description",
           "5. Enable only what solves a current bottleneck",
         ],
       },
-      { type: "h2", content: "The four optional categories (25 Add-Ons)" },
+      { type: "h2", content: "The four optional categories (25 Advanced Features)" },
       {
         type: "list",
         content: [
@@ -1147,7 +1147,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Do not enable everything on day one. SoftuneBD’s marketplace is designed so you grow into Add-Ons as support load, catalog size, or team size demands them.",
+          "Do not enable everything on day one. SoftuneBD’s marketplace is designed so you grow into Advanced Features as support load, catalog size, or team size demands them.",
       },
     ],
     "2 min read",
@@ -1155,22 +1155,22 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "customer-engagement-addons": article(
     "customer-engagement-addons",
-    "Enable SoftuneBD Customer Engagement Add-Ons - Live Chat through Size Guide - when shoppers need conversation and confidence.",
+    "Enable SoftuneBD Customer Engagement Advanced Features - Live Chat through Size Guide - when shoppers need conversation and confidence.",
     [
       {
         type: "p",
         content:
-          "Customer Engagement Add-Ons help shoppers talk to you and decide with confidence. SoftuneBD’s set: Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, and Size Guide.",
+          "Customer Engagement Advanced Features help shoppers talk to you and decide with confidence. SoftuneBD’s set: Live Chat, WhatsApp Alerts, SMS Updates, Product Reviews, Loyalty Points, Recently Viewed, Quick View, Product Enquiry, Product Compare, and Size Guide.",
       },
-      { type: "h2", content: "Enable an engagement Add-On" },
+      { type: "h2", content: "Enable an engagement Advanced Features" },
       {
         type: "list",
         content: [
-          "1. Open Menu → Add-Ons",
+          "1. Open Menu → Advanced Features",
           "2. Filter to Customer Engagement",
-          "3. Open the Add-On (for example Live Chat or WhatsApp Alerts)",
+          "3. Open the Advanced Features (for example Live Chat or WhatsApp Alerts)",
           "4. Enable it for the store",
-          "5. Complete any SoftuneBD configuration fields that Add-On requires",
+          "5. Complete any SoftuneBD configuration fields that Advanced Features requires",
           "6. Preview the storefront to confirm the widget or flow appears",
         ],
       },
@@ -1189,20 +1189,20 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "marketing-sales-addons": article(
     "marketing-sales-addons",
-    "Turn on SoftuneBD Marketing & Sales Add-Ons - Discount Codes, referrals, wholesale tiers, and related growth tools.",
+    "Turn on SoftuneBD Marketing & Sales Advanced Features - Discount Codes, referrals, wholesale tiers, and related growth tools.",
     [
       {
         type: "p",
         content:
-          "Marketing & Sales Add-Ons plug into SoftuneBD catalog and checkout flows: Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, and Review Reminder.",
+          "Marketing & Sales Advanced Features plug into SoftuneBD catalog and checkout flows: Discount Codes, Email Marketing, Referral Program, Purchase Notification, Wholesale Pricing, Frequently Bought, and Review Reminder.",
       },
       { type: "h2", content: "Campaign-ready path" },
       {
         type: "list",
         content: [
-          "1. Open Add-Ons → Marketing & Sales",
+          "1. Open Advanced Features → Marketing & Sales",
           "2. Enable Discount Codes before your first promo",
-          "3. Configure SoftuneBD’s discount fields SoftuneBD shows for that Add-On",
+          "3. Configure SoftuneBD’s discount fields SoftuneBD shows for that Advanced Features",
           "4. Test a checkout with a valid and invalid code",
           "5. Add Review Reminder after you have reliable delivery completion",
           "6. Enable Wholesale Pricing only if you truly sell in bulk tiers",
@@ -1220,7 +1220,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 
   "ai-operations-addons": article(
     "ai-operations-addons",
-    "Use SoftuneBD AI Automation and Operations & Insights Add-Ons - from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
+    "Use SoftuneBD AI Automation and Operations & Insights Advanced Features - from AI Chatbot to Staff Roles, Stock Alerts, and Product Badges.",
     [
       {
         type: "p",
@@ -1231,7 +1231,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Open Add-Ons → AI Automation",
+          "1. Open Advanced Features → AI Automation",
           "2. Enable AI Chatbot if storefront FAQs dominate support time",
           "3. Enable AI Auto-Reply if inbox volume is high",
           "4. Use AI Ad Copy when you need short campaign text drafts",
@@ -1242,7 +1242,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "list",
         content: [
-          "1. Open Add-Ons → Operations & Insights",
+          "1. Open Advanced Features → Operations & Insights",
           "2. Enable Staff Roles before inviting teammates who should not see Billing",
           "3. Enable Stock Alerts when stockouts hurt COD trust",
           "4. Enable Spam Prevention if storefront forms attract bots",
@@ -1253,7 +1253,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Payments and Courier remain Included by Default on this page. SoftuneBD’s 25 optional Add-Ons never replace those core Menu items.",
+          "Payments and Courier remain Included by Default on this page. SoftuneBD’s 25 optional Advanced Features never replace those core Menu items.",
       },
     ],
   ),
@@ -1281,7 +1281,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "SoftuneBD হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে - যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাড-অনস সব এক জায়গা থেকেই পরিচালনা করা যায়।",
+          "SoftuneBD হলো স্বাধীন মার্চেন্ট ও উদ্যোক্তাদের জন্য একটি পাওয়ারফুল অল-ইন-ওয়ান ই-কমার্স প্ল্যাটফর্ম। এখানে আপনার নিজস্ব কাস্টম স্টোর, লাইভ স্টোরফ্রন্ট এবং একটি সুবিন্যস্ত কেন্দ্রীয় ড্যাশবোর্ড থাকে - যেখানে ক্যাটালগ, অর্ডার, থিম, পেমেন্ট, কুরিয়ার, অ্যানালিটিক্স, ফ্রড প্রোটেকশন ও অ্যাডভান্সড ফিচার সব এক জায়গা থেকেই পরিচালনা করা যায়।",
       },
       { type: "h2", content: "SoftuneBD কী (এবং কী নয়)" },
       {
@@ -1319,7 +1319,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
           "Customers - ক্রয়কারী কাস্টমারদের ইতিহাস ও ফোন নম্বর তালিকা",
           "Courier - Steadfast, Pathao, RedX ও eCourier কানেকশন",
           "Payments - bKash, Nagad, COD ও SSLCommerz পেমেন্ট গেটওয়ে",
-          "Add-Ons - সেলস ও মার্কেটিং বৃদ্ধির ২৪+ প্রয়োজনীয় টুলস",
+          "Advanced Features - সেলস ও মার্কেটিং বৃদ্ধির ২৪+ প্রয়োজনীয় টুলস",
         ],
       },
       { type: "h3", content: "Settings (সেটিংস)" },
@@ -1410,7 +1410,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "চেকলিস্ট চলাকালীনও আপনি Dashboard, Analytics, Fraud Protection বা Add-Ons সেকশনগুলোতে অবলীলায় ভিজিট করতে পারবেন। চেকলিস্ট কেবল আপনার প্রস্তুতি ট্র্যাকিং করে, কোনো পেজ লক করে রাখে না।",
+          "চেকলিস্ট চলাকালীনও আপনি Dashboard, Analytics, Fraud Protection বা Advanced Features সেকশনগুলোতে অবলীলায় ভিজিট করতে পারবেন। চেকলিস্ট কেবল আপনার প্রস্তুতি ট্র্যাকিং করে, কোনো পেজ লক করে রাখে না।",
       },
     ],
   },
@@ -1450,7 +1450,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "ট্যুরটি Dashboard থেকে শুরু করে Categories, Products, Orders, Analytics, Themes, Customers, Courier, Payments এবং Add-Ons কোথায় অবস্থান করছে তা একটি একটি করে দেখায়।",
+          "ট্যুরটি Dashboard থেকে শুরু করে Categories, Products, Orders, Analytics, Themes, Customers, Courier, Payments এবং Advanced Features কোথায় অবস্থান করছে তা একটি একটি করে দেখায়।",
       },
       { type: "h3", content: "Theme Editor এর ট্যুর" },
       {
@@ -1758,7 +1758,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "WhatsApp Alerts, SMS Updates বা Review Reminder এর মতো অ্যাড-অনগুলো চালু থাকলে এই কাস্টমার তালিকার মাধ্যমেই তাদের কাছে প্রোমোশন ও রিভিউ রিকোয়েস্ট পাঠানো সম্ভব হয়।",
+          "WhatsApp Alerts, SMS Updates বা Review Reminder এর মতো অ্যাডভান্সড ফিচারগুলো চালু থাকলে এই কাস্টমার তালিকার মাধ্যমেই তাদের কাছে প্রোমোশন ও রিভিউ রিকোয়েস্ট পাঠানো সম্ভব হয়।",
       },
     ],
   },
@@ -2025,7 +2025,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "SoftuneBD-এ পেমেন্ট ও কুরিয়ার অপশন একদম মূল প্ল্যাটফর্মের সাথে ফ্রী অন্তর্ভুক্ত (Included by Default)। এটি কোনো পেইড বা আলাদা ২৪টি অ্যাড-অনসের অংশ নয়।",
+          "SoftuneBD-এ পেমেন্ট ও কুরিয়ার অপশন একদম মূল প্ল্যাটফর্মের সাথে ফ্রী অন্তর্ভুক্ত (Included by Default)। এটি কোনো পেইড বা আলাদা ২৪টি অ্যাডভান্সড ফিচারের অংশ নয়।",
       },
     ],
   },
@@ -2450,22 +2450,22 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
   },
   "browsing-addons-marketplace": {
     slug: "browsing-addons-marketplace",
-    title: "অ্যাড-অনস মার্কেটপ্লেস ব্রাউজিং",
-    category: "অ্যাড-অনস মার্কেটপ্লেস",
+    title: "অ্যাডভান্সড ফিচার ব্রাউজিং",
+    category: "অ্যাডভান্সড ফিচার",
     categoryIcon: DOC_ICON_PATHS.addons,
-    desc: "SoftuneBD-এর ২৬+ শক্তিশালী অ্যাড-অন ব্রাউজ ও এনাবল করার উপায়।",
+    desc: "SoftuneBD-এর ২৬+ শক্তিশালী অ্যাডভান্সড ফিচার ব্রাউজ ও এনাবল করার উপায়।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
       "মার্কেটপ্লেস ওভারভিউ",
-      "৪টি প্রধান ক্যাটাগরি (২৪টি অ্যাড-অন)",
-      "অ্যাড-অন চালু করার উপায়",
+      "৪টি প্রধান ক্যাটাগরি (২৪টি অ্যাডভান্সড ফিচার)",
+      "অ্যাডভান্সড ফিচার চালু করার উপায়",
     ],
     body: [
       {
         type: "p",
         content:
-          "Menu > Add-Ons সেকশনটি হলো আপনার স্টোরের কার্যক্ষমতা দ্বিগুণ করার জন্য একটি সমৃদ্ধ মার্কেটপ্লেস। এখানে বিভিন্ন কাজের জন্য ২৪টিরও বেশি কাজের প্লাগইন রয়েছে।",
+          "Menu > Advanced Features সেকশনটি হলো আপনার স্টোরের কার্যক্ষমতা দ্বিগুণ করার জন্য একটি সমৃদ্ধ মার্কেটপ্লেস। এখানে বিভিন্ন কাজের জন্য ২৪টিরও বেশি কাজের প্লাগইন রয়েছে।",
       },
       { type: "h2", content: "মার্কেটপ্লেস ওভারভিউ" },
       {
@@ -2473,7 +2473,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content:
           "উল্লেখ্য যে, পেমেন্ট গেটওয়ে এবং কুরিয়ার পার্টনার্স সম্পূর্ণ ফ্রিতে প্ল্যাটফর্মে অন্তর্ভুক্ত (Included by Default)। বাকি ২৪টি টুলস নিচে উল্লেখিত ৪টি ক্যাটাগরিতে বিভক্ত:",
       },
-      { type: "h2", content: "৪টি প্রধান ক্যাটাগরি (২৪টি অ্যাড-অন)" },
+      { type: "h2", content: "৪টি প্রধান ক্যাটাগরি (২৪টি অ্যাডভান্সড ফিচার)" },
       {
         type: "list",
         content: [
@@ -2483,11 +2483,11 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
           "Operations & Insights - Staff Roles, Stock Alerts, Spam Prevention, Catalog Export, Product Badges",
         ],
       },
-      { type: "h2", content: "অ্যাড-অন চালু করার উপায়" },
+      { type: "h2", content: "অ্যাডভান্সড ফিচার চালু করার উপায়" },
       {
         type: "list",
         content: [
-          "১. Menu > Add-Ons এ যান",
+          "১. Menu > Advanced Features এ যান",
           "২. আপনার কাঙ্ক্ষিত প্লাগইনটিতে ক্লিক করুন",
           "৩. Enable সুইচ অন করুন এবং প্রয়োজনীয় সেটিংস সেভ করুন",
         ],
@@ -2495,16 +2495,16 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "প্রথম দিনেই সব অ্যাড-অন চালু করার প্রয়োজন নেই। ব্যবসার প্রসারের সাথে সাথে প্রয়োজন অনুযায়ী একে একে চালু করুন।",
+          "প্রথম দিনেই সব অ্যাডভান্সড ফিচার চালু করার প্রয়োজন নেই। ব্যবসার প্রসারের সাথে সাথে প্রয়োজন অনুযায়ী একে একে চালু করুন।",
       },
     ],
   },
   "customer-engagement-addons": {
     slug: "customer-engagement-addons",
-    title: "কাস্টমার এনগেজমেন্ট অ্যাড-অনস",
-    category: "অ্যাড-অনস মার্কেটপ্লেস",
+    title: "কাস্টমার এনগেজমেন্ট অ্যাডভান্সড ফিচার",
+    category: "অ্যাডভান্সড ফিচার",
     categoryIcon: DOC_ICON_PATHS.addons,
-    desc: "WhatsApp Chat, Live SMS ও কাস্টমার রিভিউ সম্পর্কিত অ্যাড-অনস।",
+    desc: "WhatsApp Chat, Live SMS ও কাস্টমার রিভিউ সম্পর্কিত অ্যাডভান্সড ফিচার।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
@@ -2515,7 +2515,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "কাস্টমারদের সাথে সুসম্পর্ক গড়ে তুলতে এবং প্রোডাক্টের ওপর ভরসা বাড়াতে Customer Engagement অ্যাড-অনস ব্যবহার করুন।",
+          "কাস্টমারদের সাথে সুসম্পর্ক গড়ে তুলতে এবং প্রোডাক্টের ওপর ভরসা বাড়াতে Customer Engagement অ্যাডভান্সড ফিচার ব্যবহার করুন।",
       },
       { type: "h2", content: "এনগেজমেন্ট প্লাগইনসমূহ" },
       {
@@ -2537,8 +2537,8 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
   },
   "marketing-sales-addons": {
     slug: "marketing-sales-addons",
-    title: "মার্কেটিং ও সেলস বুস্টিং অ্যাড-অনস",
-    category: "অ্যাড-অনস মার্কেটপ্লেস",
+    title: "মার্কেটিং ও সেলস বুস্টিং অ্যাডভান্সড ফিচার",
+    category: "অ্যাডভান্সড ফিচার",
     categoryIcon: DOC_ICON_PATHS.addons,
     desc: "Countdown Timer, Sales Popups ও Promo Banners দিয়ে বিক্রি বাড়ানোর কৌশল।",
     readTime: "পড়ার সময়: ২ মিনিট",
@@ -2551,7 +2551,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "আপনার স্টোরের সেলস ও কনভার্সন রেট দ্রুত বৃদ্ধি করতে Marketing & Sales অ্যাড-অনস ব্যবহার করুন।",
+          "আপনার স্টোরের সেলস ও কনভার্সন রেট দ্রুত বৃদ্ধি করতে Marketing & Sales অ্যাডভান্সড ফিচার ব্যবহার করুন।",
       },
       { type: "h2", content: "সেলস বুস্টিং টুলস" },
       {
@@ -2567,16 +2567,16 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Add-Ons > Discount Codes সেকশন থেকে নির্দিষ্ট টাকার ওপর বা পার্সেন্টেজ ডিসকাউন্ট কুপন সহজেই চালু করতে পারবেন।",
+          "Advanced Features > Discount Codes সেকশন থেকে নির্দিষ্ট টাকার ওপর বা পার্সেন্টেজ ডিসকাউন্ট কুপন সহজেই চালু করতে পারবেন।",
       },
     ],
   },
   "ai-operations-addons": {
     slug: "ai-operations-addons",
-    title: "AI অটোমেশন ও অপারেশনস অ্যাড-অনস",
-    category: "অ্যাড-অনস মার্কেটপ্লেস",
+    title: "AI অটোমেশন ও অপারেশনস অ্যাডভান্সড ফিচার",
+    category: "অ্যাডভান্সড ফিচার",
     categoryIcon: DOC_ICON_PATHS.addons,
-    desc: "AI প্রোডাক্ট কপি, থিম সাজেশন ও অটোমেশন সম্পর্কিত অ্যাড-অনস।",
+    desc: "AI প্রোডাক্ট কপি, থিম সাজেশন ও অটোমেশন সম্পর্কিত অ্যাডভান্সড ফিচার।",
     readTime: "পড়ার সময়: ২ মিনিট",
     updated: "আগস্ট ২০, ২০২৬",
     toc: [
@@ -2587,7 +2587,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "ব্যবসার দৈনন্দিন ব্যাক-অফিস অপারেশন সহজ করতে AI Automation এবং Operations & Insights অ্যাড-অনস অত্যন্ত কার্যকরী।",
+          "ব্যবসার দৈনন্দিন ব্যাক-অফিস অপারেশন সহজ করতে AI Automation এবং Operations & Insights অ্যাডভান্সড ফিচার অত্যন্ত কার্যকরী।",
       },
       { type: "h2", content: "AI অটোমেশন প্লাগইনস" },
       {

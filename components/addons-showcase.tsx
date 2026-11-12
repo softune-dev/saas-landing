@@ -66,7 +66,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
               />
             </div>
             <span className="text-[13px] font-semibold tracking-tight text-[var(--color-ink)] md:text-[14px]">
-              {isBn ? "অ্যাড-অনস মার্কেটপ্লেস" : "SoftuneBD Marketplace"}
+              {isBn ? "অ্যাডভান্সড ফিচার" : "Advanced Features"}
             </span>
           </motion.div>
 
@@ -81,7 +81,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
               </>
             ) : (
               <>
-                {ADDONS.length} ways to extend your{" "}
+                {ADDONS.length} advanced features for your{" "}
                 <span className="relative ml-0.5 inline-block px-2.5 py-0.5 sm:ml-1 sm:whitespace-nowrap sm:px-4">
                   <span className="absolute inset-0 top-1.5 -rotate-1 rounded-xl bg-[var(--color-brand)] shadow-sm sm:top-2" />
                   <em className="relative not-italic text-white">store</em>
@@ -114,7 +114,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                   loading="lazy"
                   decoding="async"
                   src={addon.logoSrc}
-                  alt={`${addon.name} SoftuneBD add-on`}
+                  alt={`${addon.name} SoftuneBD advanced feature`}
                   width={64}
                   height={64}
                   className="size-10 object-contain sm:size-12 md:size-14"
@@ -133,7 +133,7 @@ export function AddonsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
               onClick={() => setShowAll(true)}
               className="rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
-              {isBn ? `সব ${ADDONS.length}টি অ্যাড-অন দেখুন` : `View all ${ADDONS.length} add-ons`}
+              {isBn ? `সব ${ADDONS.length}টি অ্যাডভান্সড ফিচার দেখুন` : `View all ${ADDONS.length} advanced features`}
             </button>
           </div>
         )}

@@ -751,7 +751,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     ],
     extraTitle: "Built from real checkouts",
     extraDesc:
-      "SoftuneBD tracks who bought and what they ordered. Loyalty and campaign tools live in Add-Ons when you need them.",
+      "SoftuneBD tracks who bought and what they ordered. Loyalty and campaign tools live in Advanced Features when you need them.",
     extraCards: [
       { title: "Phone First", desc: "Phone is the reliable ID for COD-heavy stores.", icon: "/icons/wallet.svg" },
       { title: "Clear History", desc: "See spend and orders for each matched shopper.", icon: "/icons/orders.svg" },

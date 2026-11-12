@@ -30,7 +30,7 @@ export const COMMERCIAL_PAGES: Record<
       { icon: "/icons/analytics.svg", title: "Real Profit Analytics", desc: "Actual margin per order, not just visitor counts." },
     ],
     faqs: [
-      { q: "Is SoftuneBD built specifically for Bangladesh?", a: "Yes - BDT pricing, bKash/Nagad/SSLCommerz payments, and Steadfast/Pathao/RedX/eCourier delivery are native, not add-ons." },
+      { q: "Is SoftuneBD built specifically for Bangladesh?", a: "Yes - BDT pricing, bKash/Nagad/SSLCommerz payments, and Steadfast/Pathao/RedX/eCourier delivery are native, not advanced features." },
       { q: "Do I need to know how to code?", a: "No - stores are built with a visual theme editor, no code required to launch or run one." },
       { q: "Is there a free trial?", a: "Yes - a 7-day free trial with full access. No credit card required." },
     ],

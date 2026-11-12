@@ -83,13 +83,13 @@ export const DOC_CATEGORIES: DocCategory[] = [
     ],
   },
   {
-    title: "Add-Ons Marketplace",
+    title: "Advanced Features",
     icon: "addons",
     articles: [
-      { title: "Browsing the Add-Ons Marketplace", slug: "browsing-addons-marketplace" },
-      { title: "Customer Engagement add-ons", slug: "customer-engagement-addons" },
-      { title: "Marketing & Sales Boosting add-ons", slug: "marketing-sales-addons" },
-      { title: "AI Automation & Operations add-ons", slug: "ai-operations-addons" },
+      { title: "Browsing the Advanced Features", slug: "browsing-addons-marketplace" },
+      { title: "Customer Engagement advanced features", slug: "customer-engagement-addons" },
+      { title: "Marketing & Sales Boosting advanced features", slug: "marketing-sales-addons" },
+      { title: "AI Automation & Operations advanced features", slug: "ai-operations-addons" },
     ],
   },
 ];
@@ -148,13 +148,13 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
     ],
   },
   {
-    title: "অ্যাড-অনস মার্কেটপ্লেস",
+    title: "অ্যাডভান্সড ফিচার",
     icon: "addons",
     articles: [
-      { title: "অ্যাড-অনস মার্কেটপ্লেস ব্রাউজিং", slug: "browsing-addons-marketplace" },
-      { title: "কাস্টমার এনগেজমেন্ট অ্যাড-অনস", slug: "customer-engagement-addons" },
-      { title: "মার্কেটিং ও সেলস বুস্টিং অ্যাড-অনস", slug: "marketing-sales-addons" },
-      { title: "AI অটোমেশন ও অপারেশনস অ্যাড-অনস", slug: "ai-operations-addons" },
+      { title: "অ্যাডভান্সড ফিচার ব্রাউজিং", slug: "browsing-addons-marketplace" },
+      { title: "কাস্টমার এনগেজমেন্ট অ্যাডভান্সড ফিচার", slug: "customer-engagement-addons" },
+      { title: "মার্কেটিং ও সেলস বুস্টিং অ্যাডভান্সড ফিচার", slug: "marketing-sales-addons" },
+      { title: "AI অটোমেশন ও অপারেশনস অ্যাডভান্সড ফিচার", slug: "ai-operations-addons" },
     ],
   },
 ];
