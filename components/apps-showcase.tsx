@@ -106,12 +106,7 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
           <div className="relative grid items-center gap-12 px-5 py-10 sm:px-8 md:px-12 md:py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:py-20">
             {/* Copy and download */}
             <div>
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-white shadow-lg">
-                  <img src="/apps/softune-pay-icon.webp" alt="" className="size-9 object-contain" />
-                </div>
-                <span className="text-[18px] font-bold tracking-tight">Softune Pay</span>
-              </div>
+              <img src="/apps/softune-pay-wordmark.webp" alt="Softune Pay" width={981} height={194} className="mb-6 h-10 w-auto sm:h-11" />
 
               <h2 className="text-3xl leading-[1.15] font-extrabold tracking-tight sm:text-4xl xl:text-5xl xl:leading-[1.1]">
                 {c.title}{" "}
@@ -139,9 +134,9 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-stretch">
                 <a
                   href={SOFTUNE_PAY_APK_URL}
-                  className="group flex shrink-0 items-center gap-3 rounded-2xl bg-white px-5 py-3.5 text-[#0c0a0d] shadow-lg transition hover:bg-white/90"
+                  className="group flex shrink-0 items-center gap-3 rounded-2xl bg-white px-4 py-2 text-[#0c0a0d] shadow-lg transition hover:bg-white/90"
                 >
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-[var(--color-brand)] text-white">
+                  <span className="flex size-9 items-center justify-center rounded-xl bg-[var(--color-brand)] text-white">
                     <Download className="size-5" strokeWidth={2.4} />
                   </span>
                   <span>
@@ -151,7 +146,7 @@ export function AppsShowcase({ locale = "en" }: { locale?: "en" | "bn" }) {
                 </a>
                 {/* Scan-to-download, as Linear and Shopify offer: the visitor is
                     usually on a laptop and the app goes on their phone. */}
-                <div className="hidden shrink-0 items-center gap-3 rounded-2xl bg-white/[0.06] p-2.5 pr-5 ring-1 ring-white/10 sm:flex">
+                <div className="hidden shrink-0 items-center gap-3 rounded-2xl bg-white/[0.06] p-2 pr-5 ring-1 ring-white/10 sm:flex">
                   <div className="rounded-lg bg-white p-1.5">
                     <QRCodeSVG value={SOFTUNE_PAY_APK_URL} size={64} level="M" />
                   </div>
