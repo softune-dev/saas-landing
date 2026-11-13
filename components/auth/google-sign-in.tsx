@@ -101,7 +101,7 @@ export function GoogleSignIn({
         type: "standard",
         theme: "outline",
         size: "large",
-        shape: "pill",
+        shape: "rectangular",
         text,
         logo_alignment: "center",
         width,
@@ -119,7 +119,7 @@ export function GoogleSignIn({
         {orLabel}
         <span className="h-px flex-1 bg-white/10" />
       </div>
-      <div ref={ref} className="flex min-h-11 w-full justify-center" />
+      <div ref={ref} style={{ colorScheme: "light" }} className="flex min-h-10 w-full justify-center overflow-hidden rounded-lg" />
     </div>
   );
 }
