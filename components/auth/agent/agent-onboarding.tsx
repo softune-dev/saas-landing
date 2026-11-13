@@ -14,6 +14,7 @@ import {
   getTrialSignupStatus,
   resendTrialOtp,
   startTrialSignup,
+  startTrialWithGoogle,
   storeDashboardSession,
   updateTrialDetails,
   verifyTrialOtp,
@@ -160,6 +161,7 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
 
   const [signupToken, setSignupToken] = useState("");
   const [verified, setVerified] = useState(false);
+  const [viaGoogle, setViaGoogle] = useState(false);
   const [digits, setDigits] = useState<string[]>(emptyOtpDigits);
   const submittingRef = useRef(false);
   const [resending, setResending] = useState(false);
@@ -356,6 +358,28 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
     }
   }
 
+  async function handleGoogle(credential: string) {
+    if (isPreview) return;
+    setError(null);
+    setBusy(true);
+    try {
+      const out = await startTrialWithGoogle(credential);
+      // Google's name/email, for the chat and for CompleteRegistration.
+      const status = await getTrialSignupStatus();
+      if (status?.email) setEmail(status.email);
+      if (status?.full_name) setFullName(status.full_name);
+      setSignupToken(out.signup_token);
+      setViaGoogle(true);
+      setVerified(true);
+      trackMetaOnce("Lead", "signup-form", { content_name: "Signup form" });
+      if (LOCAL_STEPS.every((s) => draft.done.includes(s))) startBuild();
+    } catch (err) {
+      setError(errText(err, L("Google sign-up didn't work. Try again or use email.", "Google দিয়ে সাইন আপ হয়নি। আবার চেষ্টা করুন বা ইমেইল ব্যবহার করুন।")));
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function submitCode(code: string) {
     if (code.length !== OTP_LENGTH || submittingRef.current) return;
     submittingRef.current = true;
@@ -397,6 +421,7 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
   function changeEmail() {
     clearStoredSignupToken();
     setSignupToken("");
+    setViaGoogle(false);
     setDigits(emptyOtpDigits());
     submittingRef.current = false;
     setResent(false);
@@ -464,6 +489,8 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
           onTogglePassword: () => setShowPassword((v) => !v),
           onV2Verify: setV2Token,
           onSubmit: handleAccount,
+          onGoogle: isPreview ? undefined : handleGoogle,
+          viaGoogle,
         }}
         verify={{
           digits, busy, resending, resent,

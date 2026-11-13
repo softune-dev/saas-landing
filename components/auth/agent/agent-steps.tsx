@@ -1,5 +1,7 @@
 "use client";
 
+import { GoogleSignIn } from "../google-sign-in";
+
 import { ArrowUp, Baby, Brain, Check, Eye, EyeOff, Headphones, Leaf, Loader, Lock, Mail, Palette, Shirt, Sparkles, User, WandSparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useRef, type FormEvent, type ReactNode, type RefObject } from "react";
@@ -336,6 +338,9 @@ export function AccountCard(props: {
   onTogglePassword: () => void;
   onV2Verify: (token: string | null) => void;
   onSubmit: (e: FormEvent) => void;
+  /** Continue with Google instead of email + password (skips the code). */
+  onGoogle?: (credential: string) => void;
+  viaGoogle?: boolean;
 }) {
   const { locale } = props;
   const L = (en: string, bn: string) => t(locale, en, bn);
@@ -411,6 +416,9 @@ export function AccountCard(props: {
           {props.busy ? L("Creating account...", "একাউন্ট তৈরি হচ্ছে...") : L("Create account", "একাউন্ট তৈরি করুন")}
         </ActionButton>
       </div>
+      {props.onGoogle ? (
+        <GoogleSignIn onCredential={props.onGoogle} text="continue_with" orLabel={L("or", "অথবা")} />
+      ) : null}
     </form>
   );
 }

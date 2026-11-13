@@ -171,6 +171,12 @@ export function Transcript(p: Props) {
           ) : undefined,
         };
       case "verify":
+        if (p.account.viaGoogle) {
+          return {
+            tools: [{ label: L("Checking with Google", "Google দিয়ে যাচাই করছি"), detail: p.account.email }],
+            text: L(`Google confirmed **${p.account.email}**.`, `Google **${p.account.email}** নিশ্চিত করেছে।`),
+          };
+        }
         return {
           tools: [{ label: L("Sending a sign-in code", "সাইন-ইন কোড পাঠাচ্ছি"), detail: p.account.email }],
           text: L(`I sent a 6-digit code to **${p.account.email}**. Enter it to confirm it's you.`, `**${p.account.email}**-এ ৬-সংখ্যার কোড পাঠিয়েছি। নিশ্চিত করতে কোডটি দিন।`),
@@ -208,7 +214,9 @@ export function Transcript(p: Props) {
       case "account":
         return p.account.email;
       case "verify":
-        return L("Code confirmed", "কোড নিশ্চিত হয়েছে");
+        return p.account.viaGoogle
+          ? L("Confirmed with Google", "Google দিয়ে নিশ্চিত")
+          : L("Code confirmed", "কোড নিশ্চিত হয়েছে");
       default:
         return null;
     }

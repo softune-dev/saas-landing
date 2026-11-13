@@ -85,6 +85,17 @@ export async function getTrialSignupStatus(): Promise<TrialStatusOut | null> {
   }
 }
 
+/** "Continue with Google" on the account step: Google has verified the
+ * email, so the signup comes back already verified (no OTP step). */
+export async function startTrialWithGoogle(credential: string): Promise<TrialSignupTokenOut> {
+  const out = await request<TrialSignupTokenOut>("/trial/google", {
+    method: "POST",
+    body: JSON.stringify({ credential }),
+  });
+  setStoredSignupToken(out.signup_token);
+  return out;
+}
+
 export async function startTrialSignup(data: {
   email: string;
   password: string;
