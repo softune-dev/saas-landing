@@ -42,11 +42,18 @@ function loadGsi(): Promise<void> {
   return scriptPromise;
 }
 
+// Only a real answer is remembered: a failed or "off" reply (backend
+// restarting, offline) is retried the next time the button mounts, instead
+// of hiding the button until the page is reloaded.
 let clientIdPromise: Promise<string | null> | null = null;
 function googleClientId(): Promise<string | null> {
   clientIdPromise ??= fetch(`${API_URL}/auth/providers`)
     .then((r) => (r.ok ? r.json() : null))
-    .then((d) => (d?.google_client_id as string) || null)
+    .then((d) => {
+      const id = (d?.google_client_id as string) || null;
+      if (!id) clientIdPromise = null;
+      return id;
+    })
     .catch(() => {
       clientIdPromise = null;
       return null;
