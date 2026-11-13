@@ -96,7 +96,10 @@ export function GoogleSignIn({
         auto_select: false,
         cancel_on_tap_outside: true,
       });
-      const width = Math.min(Math.max(ref.current.offsetWidth || 320, 200), 400);
+      // Google's button is a fixed pixel width (200-400), so size it to the
+      // box it sits in; a guess wider than a phone cuts the button off.
+      const box = ref.current.parentElement?.clientWidth || ref.current.clientWidth || window.innerWidth - 64;
+      const width = Math.min(Math.max(Math.floor(box), 200), 400);
       window.google.accounts.id.renderButton(ref.current, {
         type: "standard",
         theme: "filled_black",
@@ -113,8 +116,8 @@ export function GoogleSignIn({
   }, [text]);
 
   return (
-    <div className={enabled ? "flex flex-col gap-3" : "hidden"}>
-      <div className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-wider text-white/40">
+    <div className={enabled ? "flex w-full flex-col items-center gap-3" : "h-0 w-full overflow-hidden opacity-0"}>
+      <div className="flex w-full items-center gap-3 text-[11px] font-medium uppercase tracking-wider text-white/40">
         <span className="h-px flex-1 bg-white/10" />
         {orLabel}
         <span className="h-px flex-1 bg-white/10" />

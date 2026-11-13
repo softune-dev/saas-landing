@@ -409,7 +409,7 @@ export function AccountCard(props: {
         <RecaptchaV2Fallback ref={props.v2Ref} onVerify={props.onV2Verify} />
       ) : null}
 
-      <div className="flex justify-end">
+      <div className="flex justify-center">
         <ActionButton type="submit" busy={props.busy} disabled={props.busy || (props.needsChallenge && !props.v2Token)}>
           {props.busy ? L("Creating account...", "একাউন্ট তৈরি হচ্ছে...") : L("Create account", "একাউন্ট তৈরি করুন")}
         </ActionButton>

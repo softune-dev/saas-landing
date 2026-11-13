@@ -164,7 +164,7 @@ export function Transcript(p: Props) {
           widget: live ? (
             <>
               <AccountCard locale={locale} {...p.account} />
-              <p className="text-sm text-white/45">
+              <p className="text-center text-sm text-white/45">
                 {L("Already have an account?", "একাউন্ট আছে?")}{" "}
                 <a href={DASHBOARD_URL} className="font-medium text-white underline-offset-4 hover:underline">{L("Sign in", "সাইন ইন")}</a>
               </p>

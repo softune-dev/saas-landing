@@ -9,26 +9,22 @@ import { Fragment, useEffect, useMemo, useState, type ReactNode } from "react";
 export const BRAND_GRADIENT = "#ff5a36";
 
 /**
- * The agent itself: a living orb, not an avatar. It spins slowly at rest and
- * speeds up and breathes while it thinks or works, so the state of the
- * agent is readable at a glance without any text.
+ * The agent's avatar: SoftuneBD's own logo mark. It pulses gently while the
+ * agent is working, so its state is readable at a glance.
  */
 export function AgentOrb({ size = 28, busy = false }: { size?: number; busy?: boolean }) {
   const reduced = useReducedMotion();
   return (
-    <span className="relative inline-flex shrink-0" style={{ width: size, height: size }} aria-hidden>
-      <motion.span
-        className="absolute inset-0 rounded-full"
-        style={{ background: "conic-gradient(from 0deg, #ff5a36, #ffb454, #ff3d7f, #ff7a3d, #ff5a36)" }}
-        animate={reduced ? undefined : { rotate: 360 }}
-        transition={{ duration: busy ? 1.6 : 6, repeat: Infinity, ease: "linear" }}
-      />
-      <span
-        className="absolute inset-[18%] rounded-full"
-        style={{ background: "radial-gradient(circle at 35% 30%, #3a2018 0%, #120a0a 70%)" }}
-      />
-      <span className="absolute top-[26%] left-[30%] size-[18%] rounded-full bg-white/70 blur-[1px]" />
-    </span>
+    <motion.span
+      className="inline-flex shrink-0"
+      style={{ width: size, height: size }}
+      aria-hidden
+      animate={busy && !reduced ? { opacity: [1, 0.55, 1] } : { opacity: 1 }}
+      transition={busy ? { duration: 1.4, repeat: Infinity, ease: "easeInOut" } : undefined}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/logo-icon.png" alt="" width={size} height={size} className="size-full object-contain" />
+    </motion.span>
   );
 }
 
