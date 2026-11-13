@@ -3,6 +3,7 @@
 import { Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState, type Dispatch, type FormEvent, type RefObject, type SetStateAction } from "react";
+import { RecaptchaDisclosure } from "../recaptcha-disclosure";
 import { DASHBOARD_URL } from "@/lib/site";
 import type { RecaptchaV2FallbackHandle } from "../recaptcha-v2-fallback";
 import { SHOP_CATEGORIES } from "../trial-steps";
@@ -167,6 +168,7 @@ export function Transcript(p: Props) {
                 {L("Already have an account?", "একাউন্ট আছে?")}{" "}
                 <a href={DASHBOARD_URL} className="font-medium text-white underline-offset-4 hover:underline">{L("Sign in", "সাইন ইন")}</a>
               </p>
+              <RecaptchaDisclosure />
             </>
           ) : undefined,
         };

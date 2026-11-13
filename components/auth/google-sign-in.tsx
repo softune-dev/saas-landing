@@ -99,9 +99,9 @@ export function GoogleSignIn({
       const width = Math.min(Math.max(ref.current.offsetWidth || 320, 200), 400);
       window.google.accounts.id.renderButton(ref.current, {
         type: "standard",
-        theme: "outline",
+        theme: "filled_black",
         size: "large",
-        shape: "rectangular",
+        shape: "pill",
         text,
         logo_alignment: "center",
         width,
@@ -119,7 +119,7 @@ export function GoogleSignIn({
         {orLabel}
         <span className="h-px flex-1 bg-white/10" />
       </div>
-      <div ref={ref} style={{ colorScheme: "light" }} className="flex min-h-10 w-full justify-center overflow-hidden rounded-lg" />
+      <div ref={ref} style={{ colorScheme: "light" }} className="flex min-h-10 w-full justify-center overflow-hidden rounded-full" />
     </div>
   );
 }

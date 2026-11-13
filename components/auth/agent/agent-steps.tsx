@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, type FormEvent, type ReactNode, type RefObject } from "react";
 import { OTP_LENGTH, OtpBoxes } from "../otp-boxes";
 import { PasswordStrength } from "../password-strength";
-import { RecaptchaDisclosure } from "../recaptcha-disclosure";
 import {
   RecaptchaV2Fallback,
   type RecaptchaV2FallbackHandle,
@@ -410,8 +409,7 @@ export function AccountCard(props: {
         <RecaptchaV2Fallback ref={props.v2Ref} onVerify={props.onV2Verify} />
       ) : null}
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <RecaptchaDisclosure />
+      <div className="flex justify-end">
         <ActionButton type="submit" busy={props.busy} disabled={props.busy || (props.needsChallenge && !props.v2Token)}>
           {props.busy ? L("Creating account...", "একাউন্ট তৈরি হচ্ছে...") : L("Create account", "একাউন্ট তৈরি করুন")}
         </ActionButton>

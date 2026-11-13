@@ -284,7 +284,7 @@ export const inputClass =
   // Same slim bordered dark field as the agent input box.
   "h-12 w-full rounded-[14px] border border-white/[0.13] bg-[#0b0b0d] px-4 text-base text-white outline-none transition-colors placeholder:text-white/35 focus:border-white/30 sm:text-[15px]";
 export const buttonClass =
-  "group/btn flex h-12 items-center justify-center gap-3 rounded-full bg-white pr-1.5 pl-6 text-[15px] font-semibold text-[#0b0b0b] transition-[opacity,transform,box-shadow] hover:shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] active:scale-[0.98] disabled:opacity-40 disabled:shadow-none";
+  "group/btn flex h-12 shrink-0 items-center justify-center gap-3 rounded-full bg-white pr-1.5 pl-6 text-[15px] font-semibold text-[#0b0b0b] transition-[opacity,transform,box-shadow] hover:shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)] active:scale-[0.98] disabled:opacity-40 disabled:shadow-none";
 
 /** The one action button: white pill, label, then a dark round arrow that
  * nudges forward on hover. While busy the arrow becomes a spinner. */
@@ -296,7 +296,7 @@ export function ActionButton({
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & { busy?: boolean }) {
   return (
     <button {...props} className={`${buttonClass} ${className}`}>
-      <span className="flex-1 text-left sm:flex-none">{children}</span>
+      <span className="flex-1 whitespace-nowrap text-left sm:flex-none">{children}</span>
       <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#0b0b0b] text-white">
         {busy ? (
           <span className="size-3.5 animate-spin rounded-full border-2 border-white/25 border-t-white" />

@@ -37,7 +37,6 @@ import {
   type Locale,
   type StepId,
 } from "./agent-copy";
-import { AgentPlan, StorePreview } from "./agent-preview";
 import { AgentShell } from "./agent-shell";
 import { Transcript, type Draft } from "./agent-transcript";
 
@@ -436,12 +435,6 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
     finished: !!pending && buildDone.every(Boolean),
     pct: buildPct,
   };
-  const panel = (
-    <>
-      <StorePreview locale={locale} draft={draft} isDone={isDone} build={buildState} />
-      <AgentPlan locale={locale} current={current} isDone={isDone} build={buildState} />
-    </>
-  );
 
   return (
     <AgentShell
@@ -449,8 +442,8 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
       isPreview={isPreview}
       progress={progress}
       showSignIn={!signupToken}
-      showPanel={current !== "idea"}
-      panel={panel}
+      showPanel={false}
+      panel={null}
       thumb={templateFor(draft.templateKey).image}
       autoScrollKey={current}
     >
@@ -507,13 +500,6 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
         }}
         build={{ started: !!pending, done: buildDone, error: buildError, onStart: startBuild }}
       />
-      {/* Phones: the build is the moment worth seeing, so the store shows
-          right in the chat instead of behind the Preview button. */}
-      {pending ? (
-        <div className="pb-10 lg:hidden">
-          <StorePreview locale={locale} draft={draft} isDone={isDone} build={buildState} />
-        </div>
-      ) : null}
     </AgentShell>
   );
 }
