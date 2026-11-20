@@ -188,29 +188,6 @@ export async function getProvisionStatus(
   });
 }
 
-/** Mails a 6-digit code. Nothing is recorded until the code comes back: see
- * app/api/demo_access.py. */
-export async function requestDemoCode(data: {
-  email: string;
-  recaptcha_token: string;
-  recaptcha_v2_token: string;
-}): Promise<void> {
-  await request<{ sent: boolean }>("/public/demo-access/start", {
-    method: "POST",
-    body: JSON.stringify(data),
-  });
-}
-
-export async function verifyDemoCode(data: {
-  email: string;
-  otp: string;
-}): Promise<TrialTokensOut> {
-  return request<TrialTokensOut>("/public/demo-access/verify", {
-    method: "POST",
-    body: JSON.stringify(data),
-  });
-}
-
 /** Same keys the dashboard's own login writes, plus a hash handoff so a
  * cross-subdomain redirect to dashboard.softunebd.com can pick them up. */
 export function storeDashboardSession(

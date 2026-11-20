@@ -1,3 +1,4 @@
+import { ChatWidget } from "@/components/chat-widget";
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { Instrument_Serif, Manrope, DM_Sans, Plus_Jakarta_Sans, Niconne, Noto_Sans_Bengali } from "next/font/google";
@@ -173,6 +174,7 @@ export default async function RootLayout({
         <StructuredData data={websiteSchema()} />
         <ThemeProvider>{children}</ThemeProvider>
         <MetaEvents />
+        <ChatWidget />
         <VercelAnalytics />
         <SpeedInsights />
       </body>

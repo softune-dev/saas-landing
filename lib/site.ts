@@ -63,3 +63,9 @@ export const TWITTER_CREATOR = "@khxKallol";
 export const SUPPORT_EMAIL = "support@softunebd.com";
 /** E.164 — same WhatsApp number the contact page already publishes. */
 export const SUPPORT_PHONE = "+8801630582639";
+
+/** Help widget social links. Messenger opens the SoftuneBD Facebook page
+ * (facebook.com/softunebd) in Messenger. */
+export const MESSENGER_URL = "https://m.me/softunebd";
+/** Instagram handle not confirmed yet; update when the account is final. */
+export const INSTAGRAM_URL = "https://www.instagram.com/softunebd/";
