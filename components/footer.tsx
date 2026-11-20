@@ -13,7 +13,6 @@ const colsEn = [
       { label: "Advanced Features", href: "#addons" },
       { label: "Documentation", href: "/support/documentation" },
       { label: "Blog & Resources", href: "/blog" },
-      { label: "Community Forum", href: "/support/community" },
     ],
   },
   {
@@ -49,7 +48,6 @@ const colsBn = [
       { label: "অ্যাডভান্সড ফিচার", href: "/bn/#addons" },
       { label: "ডকুমেন্টেশন", href: "/bn/support/documentation" },
       { label: "ব্লগ ও রিসোর্স", href: "/bn/blog" },
-      { label: "কমিউনিটি ফোরাম", href: "/bn/support/community" },
     ],
   },
   {

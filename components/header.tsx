@@ -78,7 +78,7 @@ const linksEn: NavLink[] = [
   },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blogs", href: "/blog" },
+  { label: "Demo", href: "/demo" },
   {
     label: "Support",
     href: "/#support",
@@ -87,7 +87,6 @@ const linksEn: NavLink[] = [
       { label: "FAQ", href: "/support/faq", icon: "/icons/help-desk.svg" },
       { label: "Contact Support", href: "/support/contact", icon: "/icons/chat.svg" },
       { label: "Video Tutorials", href: "/support/tutorials", icon: "/icons/play.svg" },
-      { label: "Community Forum", href: "/support/community", icon: "/icons/user.svg" },
     ],
   },
 ];
@@ -139,7 +138,7 @@ const linksBn: NavLink[] = [
   },
   { label: "প্রাইসিং", href: "/bn/pricing" },
   { label: "আমাদের কথা", href: "/bn/about" },
-  { label: "ব্লগ", href: "/bn/blog" },
+  { label: "ডেমো", href: "/bn/demo" },
   {
     label: "সাপোর্ট",
     href: "/bn/#support",
@@ -148,7 +147,6 @@ const linksBn: NavLink[] = [
       { label: "FAQ", href: "/bn/support/faq", icon: "/icons/help-desk.svg" },
       { label: "কন্টাক্ট সাপোর্ট", href: "/bn/support/contact", icon: "/icons/chat.svg" },
       { label: "ভিডিও টিউটোরিয়াল", href: "/bn/support/tutorials", icon: "/icons/play.svg" },
-      { label: "কমিউনিটি ফোরাম", href: "/bn/support/community", icon: "/icons/user.svg" },
     ],
   },
 ];
