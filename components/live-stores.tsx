@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { DeviceShots, STORES } from "./demo-stores";
+import { PhoneShot, STORES } from "./demo-stores";
 
-/** Home page strip of the real demo stores: a swipeable row of cards, each
+/** Home page strip of the real demo stores: a grid of phone-only cards, each
  * opening the live store, and a button through to the full /demo page. */
 export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
@@ -30,27 +30,27 @@ export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
         </h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed font-medium text-[var(--color-muted)] sm:mt-5 sm:text-base">
           {isBn
-            ? "SoftuneBD দিয়ে বানানো ১০টি স্টোর, ডেস্কটপ ও মোবাইল দুটোতেই। যেকোনোটি খুলে ঘুরে দেখুন।"
-            : "Ten stores built with SoftuneBD, on desktop and mobile. Open any of them and shop around."}
+            ? "SoftuneBD দিয়ে বানানো ১০টি স্টোর, যেকোনোটি খুলে ঘুরে দেখুন।"
+            : "Ten stores built with SoftuneBD, on mobile. Open any of them and shop around."}
         </p>
       </div>
 
-      <div className="-mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] sm:-mx-5 sm:px-5 md:-mx-8 md:mt-14 md:px-8 [&::-webkit-scrollbar]:hidden">
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 md:mt-14 md:grid-cols-3 lg:grid-cols-5">
         {STORES.map((s) => (
           <a
             key={s.id}
             href={`https://${s.host}/`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex w-[84%] shrink-0 snap-center flex-col gap-4 rounded-3xl bg-[var(--color-surface)] p-4 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:w-[48%] sm:p-5 lg:w-[32%]"
+            className="group flex flex-col gap-3 rounded-2xl bg-[var(--color-surface)] p-3 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-4"
           >
-            <DeviceShots id={s.id} name={s.name} host={s.host} />
-            <div className="flex items-center justify-between gap-3">
+            <PhoneShot id={s.id} name={s.name} />
+            <div className="flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <h3 className="text-[16px] font-bold text-[var(--color-ink)]">{s.name}</h3>
-                <p className="mt-0.5 truncate text-[13px] text-[var(--color-muted)]">{isBn ? s.nicheBn : s.niche}</p>
+                <h3 className="truncate text-[14px] font-bold text-[var(--color-ink)] sm:text-[15px]">{s.name}</h3>
+                <p className="mt-0.5 truncate text-[12px] text-[var(--color-muted)] sm:text-[13px]">{isBn ? s.nicheBn : s.niche}</p>
               </div>
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
                 <ArrowUpRight className="size-4" strokeWidth={2.2} />
               </span>
             </div>
