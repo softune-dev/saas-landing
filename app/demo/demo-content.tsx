@@ -32,6 +32,10 @@ const STORES: StoreDemo[] = [
   { id: "tinytots", name: "TinyTots", host: "tinytots.softunebd.com", theme: 2, niche: "Toys & baby care", nicheBn: "খেলনা ও বেবি কেয়ার" },
   { id: "pawpal", name: "PawPal", host: "pawpal.softunebd.com", theme: 3, niche: "Pet supplies", nicheBn: "পোষা প্রাণীর পণ্য" },
   { id: "ghorkona", name: "Ghorkona", host: "ghorkona.softunebd.com", theme: 2, niche: "Home decor & kitchen", nicheBn: "হোম ডেকর ও কিচেন" },
+  { id: "swarna", name: "Swarna Jewels", host: "swarnajewels.softunebd.com", theme: 1, niche: "Jewellery", nicheBn: "গহনা" },
+  { id: "freshkart", name: "FreshKart", host: "freshkart.softunebd.com", theme: 2, niche: "Groceries", nicheBn: "গ্রোসারি" },
+  { id: "stride", name: "Stride", host: "stride.softunebd.com", theme: 3, niche: "Footwear", nicheBn: "জুতা" },
+  { id: "oudh", name: "Oudh House", host: "oudhhouse.softunebd.com", theme: 1, niche: "Perfume & attar", nicheBn: "পারফিউম ও আতর" },
 ];
 
 /** Desktop and phone screenshots of one store, shown together: a browser
