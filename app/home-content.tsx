@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Why } from "@/components/why";
 import { Themes } from "@/components/themes";
+import { LiveStores } from "@/components/live-stores";
 import { PlatformFeatures } from "@/components/platform-features";
 import { AddonsShowcase } from "@/components/addons-showcase";
 import { AppsShowcase } from "@/components/apps-showcase";
@@ -19,6 +20,7 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
         <Hero locale={locale} />
         <Why locale={locale} />
         <Themes locale={locale} />
+        <LiveStores locale={locale} />
         <AppsShowcase locale={locale} />
         <PlatformFeatures locale={locale} />
         <AddonsShowcase locale={locale} />
