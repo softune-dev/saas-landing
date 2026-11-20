@@ -35,17 +35,17 @@ export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 md:mt-14 md:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-10 grid grid-cols-2 gap-2 sm:gap-3 md:mt-14 md:grid-cols-3 lg:grid-cols-5">
         {STORES.map((s) => (
           <a
             key={s.id}
             href={`https://${s.host}/`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col gap-3 rounded-2xl bg-[var(--color-surface)] p-3 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-4"
+            className="group flex flex-col gap-2 rounded-2xl bg-[var(--color-surface)] p-1.5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-2"
           >
             <PhoneShot id={s.id} name={s.name} />
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center justify-between gap-2 px-1 pb-0.5">
               <div className="min-w-0">
                 <h3 className="truncate text-[14px] font-bold text-[var(--color-ink)] sm:text-[15px]">{s.name}</h3>
                 <p className="mt-0.5 truncate text-[12px] text-[var(--color-muted)] sm:text-[13px]">{isBn ? s.nicheBn : s.niche}</p>
