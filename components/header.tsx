@@ -76,9 +76,9 @@ const linksEn: NavLink[] = [
       },
     ],
   },
+  { label: "Demo", href: "/demo" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Demo", href: "/demo" },
   {
     label: "Support",
     href: "/#support",
@@ -136,9 +136,9 @@ const linksBn: NavLink[] = [
       },
     ],
   },
+  { label: "ডেমো", href: "/bn/demo" },
   { label: "প্রাইসিং", href: "/bn/pricing" },
   { label: "আমাদের কথা", href: "/bn/about" },
-  { label: "ডেমো", href: "/bn/demo" },
   {
     label: "সাপোর্ট",
     href: "/bn/#support",
