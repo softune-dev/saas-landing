@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { ThemeCarousel } from "./theme-carousel";
 
 export function Themes({ locale = "en" }: { locale?: "en" | "bn" }) {
@@ -62,6 +64,16 @@ export function Themes({ locale = "en" }: { locale?: "en" | "bn" }) {
 
       <div className="mt-10 md:mt-14">
         <ThemeCarousel />
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <Link
+          href={isBn ? "/bn/demo" : "/demo"}
+          className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
+        >
+          {isBn ? "ডেমো দেখুন" : "See demo"}
+          <ArrowUpRight className="size-4" strokeWidth={2.2} />
+        </Link>
       </div>
     </section>
   );

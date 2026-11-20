@@ -9,19 +9,21 @@ export type StoreDemo = {
   nicheBn: string;
 };
 
-/** Demo stores built on SoftuneBD's three themes, all on their own demo
+/** Order is the display order: theme 2 and 3 stores first, the theme 1
+ * stores (Noor, Swarna, Oudh) last.
+ * Demo stores built on SoftuneBD's three themes, all on their own demo
  * accounts (scripts/demo_stores in the backend repo). Covers are real
  * desktop and phone screenshots of each store's home page. */
 export const STORES: StoreDemo[] = [
-  { id: "noor", name: "Noor Modest", host: "noormodest.softunebd.com", theme: 1, niche: "Modest fashion", nicheBn: "মডেস্ট ফ্যাশন" },
-  { id: "voltix", name: "Voltix", host: "voltix.softunebd.com", theme: 2, niche: "Electronics & gadgets", nicheBn: "ইলেকট্রনিক্স ও গ্যাজেট" },
   { id: "raaj", name: "Raaj", host: "raaj.softunebd.com", theme: 3, niche: "Men's panjabi", nicheBn: "ছেলেদের পাঞ্জাবি" },
   { id: "tinytots", name: "TinyTots", host: "tinytots.softunebd.com", theme: 2, niche: "Toys & baby care", nicheBn: "খেলনা ও বেবি কেয়ার" },
+  { id: "voltix", name: "Voltix", host: "voltix.softunebd.com", theme: 2, niche: "Electronics & gadgets", nicheBn: "ইলেকট্রনিক্স ও গ্যাজেট" },
   { id: "pawpal", name: "PawPal", host: "pawpal.softunebd.com", theme: 3, niche: "Pet supplies", nicheBn: "পোষা প্রাণীর পণ্য" },
   { id: "ghorkona", name: "Ghorkona", host: "ghorkona.softunebd.com", theme: 2, niche: "Home decor & kitchen", nicheBn: "হোম ডেকর ও কিচেন" },
-  { id: "swarna", name: "Swarna Jewels", host: "swarnajewels.softunebd.com", theme: 1, niche: "Jewellery", nicheBn: "গহনা" },
   { id: "freshkart", name: "FreshKart", host: "freshkart.softunebd.com", theme: 2, niche: "Groceries", nicheBn: "গ্রোসারি" },
   { id: "stride", name: "Stride", host: "stride.softunebd.com", theme: 3, niche: "Footwear", nicheBn: "জুতা" },
+  { id: "noor", name: "Noor Modest", host: "noormodest.softunebd.com", theme: 1, niche: "Modest fashion", nicheBn: "মডেস্ট ফ্যাশন" },
+  { id: "swarna", name: "Swarna Jewels", host: "swarnajewels.softunebd.com", theme: 1, niche: "Jewellery", nicheBn: "গহনা" },
   { id: "oudh", name: "Oudh House", host: "oudhhouse.softunebd.com", theme: 1, niche: "Perfume & attar", nicheBn: "পারফিউম ও আতর" },
 ];
 
