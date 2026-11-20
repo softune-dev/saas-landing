@@ -14,7 +14,7 @@ const ROW_TWO = STORES.filter((_, i) => i % 2 === 1);
 export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
   return (
-    <section id="live-stores" className="mx-auto max-w-[1400px] px-4 py-14 sm:px-5 md:px-8 md:py-20">
+    <section id="live-stores" className="mx-auto max-w-[1400px] px-4 pt-0 pb-6 sm:px-5 md:px-8 md:pb-10">
       <div className="mx-auto flex flex-col items-center text-center">
         <motion.span
           initial={{ opacity: 0, y: 8 }}
@@ -39,7 +39,7 @@ export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
         </p>
       </div>
 
-      <div className="mt-10 space-y-3 md:mt-14 md:space-y-4">
+      <div className="mt-6 space-y-3 md:mt-8 md:space-y-4">
         {[ROW_ONE, ROW_TWO].map((row, r) => (
           <Marquee
             key={r}
@@ -73,7 +73,7 @@ export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
         ))}
       </div>
 
-      <div className="mt-6 flex justify-center">
+      <div className="mt-4 flex justify-center">
         <Link
           href={isBn ? "/bn/demo" : "/demo"}
           className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
