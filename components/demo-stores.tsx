@@ -55,15 +55,12 @@ export function DeviceShots({ id, name, host }: { id: string; name: string; host
 }
 
 
-/** Phone-size screenshot of one store in a simple phone frame. */
+/** Phone-size screenshot of one store, just the image. */
 export function PhoneShot({ id, name }: { id: string; name: string }) {
   return (
-    <div className="mx-auto w-full max-w-[220px] rounded-[1.6rem] bg-[#0b0b0d] p-[5px] shadow-[0_18px_40px_-18px_rgba(0,0,0,0.55)] ring-1 ring-white/10">
-      <div className="relative overflow-hidden rounded-[1.25rem] bg-[var(--color-canvas)]">
-        <span className="absolute top-1.5 left-1/2 z-10 h-[9px] w-[34%] -translate-x-1/2 rounded-full bg-black" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/demos/${id}-mobile.webp`} alt={`${name} store built with SoftuneBD, on a phone`} loading="lazy" decoding="async" width={390} height={844} className="block aspect-[390/844] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" />
-      </div>
+    <div className="overflow-hidden rounded-xl bg-[var(--color-canvas)] ring-1 ring-[var(--color-line)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`/demos/${id}-mobile.webp`} alt={`${name} store built with SoftuneBD, on a phone`} loading="lazy" decoding="async" width={390} height={844} className="block aspect-[390/844] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" />
     </div>
   );
 }
