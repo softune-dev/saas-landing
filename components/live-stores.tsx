@@ -3,10 +3,14 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 import { PhoneShot, STORES } from "./demo-stores";
 
-/** Home page strip of the real demo stores: a grid of phone-only cards, each
- * opening the live store, and a button through to the full /demo page. */
+const ROW_ONE = STORES.filter((_, i) => i % 2 === 0);
+const ROW_TWO = STORES.filter((_, i) => i % 2 === 1);
+
+/** Home page strip of the real demo stores: two endless rows of phone-only cards sliding in
+ * opposite directions, each opening the live store, and a button through to the full /demo page. */
 export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
   const isBn = locale === "bn";
   return (
@@ -35,26 +39,37 @@ export function LiveStores({ locale = "en" }: { locale?: "en" | "bn" }) {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-2 sm:gap-3 md:mt-14 md:grid-cols-3 lg:grid-cols-5">
-        {STORES.map((s) => (
-          <a
-            key={s.id}
-            href={`https://${s.host}/`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col gap-2 rounded-2xl bg-[var(--color-surface)] p-1.5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-2"
+      <div className="mt-10 space-y-3 md:mt-14 md:space-y-4">
+        {[ROW_ONE, ROW_TWO].map((row, r) => (
+          <Marquee
+            key={r}
+            // Opposite directions; hover pauses so a card can be clicked.
+            direction={r === 0 ? "left" : "right"}
+            speed={r === 0 ? 28 : 24}
+            pauseOnHover
+            autoFill
           >
-            <PhoneShot id={s.id} name={s.name} />
-            <div className="flex items-center justify-between gap-2 px-1 pb-0.5">
-              <div className="min-w-0">
-                <h3 className="truncate text-[14px] font-bold text-[var(--color-ink)] sm:text-[15px]">{s.name}</h3>
-                <p className="mt-0.5 truncate text-[12px] text-[var(--color-muted)] sm:text-[13px]">{isBn ? s.nicheBn : s.niche}</p>
-              </div>
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
-                <ArrowUpRight className="size-4" strokeWidth={2.2} />
-              </span>
-            </div>
-          </a>
+            {row.map((s) => (
+              <a
+                key={s.id}
+                href={`https://${s.host}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mr-3 flex w-[150px] shrink-0 flex-col gap-2 rounded-2xl bg-[var(--color-surface)] p-1.5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:mr-4 sm:w-[200px] sm:rounded-3xl sm:p-2"
+              >
+                <PhoneShot id={s.id} name={s.name} />
+                <div className="flex items-center justify-between gap-2 px-1 pb-0.5">
+                  <div className="min-w-0">
+                    <h3 className="truncate text-[13px] font-bold text-[var(--color-ink)] sm:text-[15px]">{s.name}</h3>
+                    <p className="mt-0.5 truncate text-[11px] text-[var(--color-muted)] sm:text-[13px]">{isBn ? s.nicheBn : s.niche}</p>
+                  </div>
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] sm:size-8">
+                    <ArrowUpRight className="size-3.5 sm:size-4" strokeWidth={2.2} />
+                  </span>
+                </div>
+              </a>
+            ))}
+          </Marquee>
         ))}
       </div>
 
