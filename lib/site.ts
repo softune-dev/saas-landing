@@ -69,3 +69,7 @@ export const SUPPORT_PHONE = "+8801630582639";
 export const MESSENGER_URL = "https://m.me/softunebd";
 /** Instagram handle not confirmed yet; update when the account is final. */
 export const INSTAGRAM_URL = "https://www.instagram.com/softunebd/";
+
+/** Same profiles the footer links to (founder's LinkedIn and X). */
+export const LINKEDIN_URL = "https://www.linkedin.com/in/kamrul-hasan-dev/";
+export const X_URL = "https://x.com/khxKallol";

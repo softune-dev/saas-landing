@@ -17,6 +17,8 @@ export type Answer = {
   /** Where the answer came from, shown under the reply. */
   source: string;
   actions?: Action[];
+  /** Show the WhatsApp / Messenger / Instagram logo buttons. */
+  channels?: boolean;
   /** Questions worth asking next. */
   followUps?: string[];
 };
@@ -112,10 +114,10 @@ const TOPICS: Topic[] = [
     keys: ["contact", "call", "phone", "number", "email", "human", "person", "agent", "talk", "support", "help", "যোগাযোগ", "ফোন", "নাম্বার", "কল", "সাপোর্ট", "মানুষ"],
     answer: (l) => ({
       text: l === "bn"
-        ? `আমাদের টিমের সাথে সরাসরি কথা বলুন: WhatsApp ${SUPPORT_PHONE}, ইমেইল ${SUPPORT_EMAIL}। "মানুষের সাথে কথা" ট্যাবে Messenger ও Instagram-ও আছে।`
-        : `Talk to the team directly: WhatsApp ${SUPPORT_PHONE} or email ${SUPPORT_EMAIL}. Messenger and Instagram are on the "Talk to us" tab.`,
+        ? `আমাদের টিমের সাথে সরাসরি কথা বলুন: WhatsApp ${SUPPORT_PHONE}, ইমেইল ${SUPPORT_EMAIL}। নিচের যেকোনো একটিতে ক্লিক করুন।`
+        : `Talk to the team directly: WhatsApp ${SUPPORT_PHONE} or email ${SUPPORT_EMAIL}. Or tap any of these:`,
       source: l === "bn" ? "যোগাযোগ" : "Contact page",
-      actions: [{ label: "WhatsApp", href: `https://wa.me/${SUPPORT_PHONE.replace("+", "")}`, external: true }],
+      channels: true,
     }),
   },
   {

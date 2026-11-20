@@ -6,7 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, ArrowUpRight, Mail, X } from "lucide-react";
 import { answer, STARTERS, type Answer, type Locale } from "./help/knowledge";
-import { INSTAGRAM_URL, MESSENGER_URL, SUPPORT_EMAIL, SUPPORT_PHONE } from "@/lib/site";
+import { INSTAGRAM_URL, LINKEDIN_URL, MESSENGER_URL, SUPPORT_EMAIL, SUPPORT_PHONE, X_URL } from "@/lib/site";
 
 /**
  * Floating help: one button, two tabs. "Ask" answers from a fixed, written
@@ -26,15 +26,72 @@ const T = {
     ask: "Ask Softy", talk: "Talk to us", hello: "Hi, I'm Softy! Ask me anything about SoftuneBD: pricing, payments, couriers, setup. Or pick one:",
     placeholder: "Type your question", unknown: "I don't have that one written down yet. Send it to the team and a person will answer:",
     sendWa: "Ask on WhatsApp", from: "From", fastest: "Fastest, usually within minutes", msgr: "Message our Facebook page",
-    ig: "DM us on Instagram", email: "Or email",
+    ig: "DM us on Instagram", email: "Or email", li: "Follow us on LinkedIn", xnote: "Follow and message on X", soon: "Coming soon", soonNote: "Not live yet",
   },
   bn: {
     ask: "Softy-কে জিজ্ঞেস করুন", talk: "কথা বলুন", hello: "হ্যালো, আমি Softy! SoftuneBD নিয়ে যা জানতে চান জিজ্ঞেস করুন: দাম, পেমেন্ট, কুরিয়ার, সেটআপ। অথবা একটি বেছে নিন:",
     placeholder: "আপনার প্রশ্ন লিখুন", unknown: "এই প্রশ্নের উত্তর এখনো লেখা নেই। টিমকে পাঠান, একজন মানুষ উত্তর দেবেন:",
     sendWa: "WhatsApp-এ জিজ্ঞেস করুন", from: "সূত্র", fastest: "সবচেয়ে দ্রুত, সাধারণত কয়েক মিনিটে", msgr: "আমাদের ফেসবুক পেজে মেসেজ দিন",
-    ig: "Instagram-এ DM করুন", email: "অথবা ইমেইল",
+    ig: "Instagram-এ DM করুন", email: "অথবা ইমেইল", li: "LinkedIn-এ ফলো করুন", xnote: "X-এ ফলো ও মেসেজ করুন", soon: "শীঘ্রই আসছে", soonNote: "এখনো চালু হয়নি",
   },
 };
+
+/** Brand glyphs for channels that have no image file in /icons. */
+const GLYPH: Record<string, string> = {
+  x: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
+  tiktok: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z",
+  youtube: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+  telegram: "M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z",
+};
+
+type Chan = { name: string; tint: string; href?: string; img?: string; glyph?: string };
+
+const LIVE: Chan[] = [
+  { name: "WhatsApp", tint: "#25D366", href: WA, img: "/icons/whatsapp.svg" },
+  { name: "Messenger", tint: "#0866FF", href: MESSENGER_URL, img: "/icons/facebook.webp" },
+  { name: "Instagram", tint: "#E1306C", href: INSTAGRAM_URL, img: "/icons/insta.webp" },
+  { name: "LinkedIn", tint: "#0A66C2", href: LINKEDIN_URL, img: "/icons/linkedin.webp" },
+  { name: "X", tint: "#111111", href: X_URL, glyph: "x" },
+];
+/** Not set up yet: shown greyed out, not clickable. */
+const SOON: Chan[] = [
+  { name: "TikTok", tint: "#111111", glyph: "tiktok" },
+  { name: "YouTube", tint: "#FF0000", glyph: "youtube" },
+  { name: "Telegram", tint: "#27A7E7", glyph: "telegram" },
+];
+
+function ChanIcon({ c, size }: { c: Chan; size: number }) {
+  return c.img ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={c.img} alt="" width={size} height={size} className="object-contain" style={{ width: size, height: size }} />
+  ) : (
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden fill="currentColor" style={{ color: c.tint === "#111111" ? "var(--color-ink)" : c.tint }}>
+      <path d={c.glyph ? GLYPH[c.glyph] : ""} />
+    </svg>
+  );
+}
+
+/** The three main ways to reach us, as logo buttons inside a chat reply. */
+function ChannelRow() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {LIVE.slice(0, 3).map((c) => (
+        <a
+          key={c.name}
+          href={c.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={c.name}
+          title={c.name}
+          className="flex size-11 items-center justify-center rounded-2xl ring-1 ring-[var(--color-line)] transition-transform hover:-translate-y-0.5"
+          style={{ backgroundColor: `${c.tint}1A` }}
+        >
+          <ChanIcon c={c} size={24} />
+        </a>
+      ))}
+    </div>
+  );
+}
 
 /** Softy, the help assistant: a small friendly robot in the brand colour. */
 function BotAvatar({ size = 32, className = "" }: { size?: number; className?: string }) {
@@ -171,10 +228,14 @@ export function ChatWidget() {
                 </form>
               </>
             ) : (
-              <div className="flex-1 space-y-2.5 overflow-y-auto px-3.5 pt-1 pb-4">
-                <Channel href={WA} icon="/icons/whatsapp.svg" tint="#25D366" name="WhatsApp" note={t.fastest} />
-                <Channel href={MESSENGER_URL} icon="/icons/facebook.webp" tint="#0866FF" name="Messenger" note={t.msgr} />
-                <Channel href={INSTAGRAM_URL} icon="/icons/insta.webp" tint="#E1306C" name="Instagram" note={t.ig} />
+              <div className="flex-1 space-y-2 overflow-y-auto px-3.5 pt-1 pb-4">
+                {LIVE.map((c) => (
+                  <Channel key={c.name} c={c} note={c.name === "WhatsApp" ? t.fastest : c.name === "Messenger" ? t.msgr : c.name === "Instagram" ? t.ig : c.name === "LinkedIn" ? t.li : t.xnote} />
+                ))}
+                <p className="px-1 pt-3 text-[11px] font-semibold tracking-wide text-[var(--color-muted)] uppercase">{t.soon}</p>
+                {SOON.map((c) => (
+                  <Channel key={c.name} c={c} note={t.soonNote} disabled />
+                ))}
                 <a href={`mailto:${SUPPORT_EMAIL}`} className="flex items-center justify-center gap-2 pt-3 text-[13px] text-[var(--color-muted)] hover:text-[var(--color-ink)]">
                   <Mail className="size-4" strokeWidth={1.8} />
                   {t.email} {SUPPORT_EMAIL}
@@ -250,6 +311,7 @@ function BotReply({ msg, t, onPick }: { msg: Extract<Msg, { from: "bot" }>; t: (
           {t.sendWa}
           <ArrowUpRight className="size-3.5" strokeWidth={2.4} />
         </a>
+        <ChannelRow />
       </BotRow>
     );
   }
@@ -282,23 +344,35 @@ function BotReply({ msg, t, onPick }: { msg: Extract<Msg, { from: "bot" }>; t: (
           })}
         </div>
       ) : null}
+      {a.channels ? <ChannelRow /> : null}
       {a.followUps?.length ? <Chips items={a.followUps} onPick={onPick} /> : null}
     </BotRow>
   );
 }
 
-function Channel({ href, icon, tint, name, note }: { href: string; icon: string; tint: string; name: string; note: string }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl bg-[var(--color-canvas)] p-3 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)]">
-      <span className="flex size-11 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: `${tint}1A` }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={icon} alt="" className="size-6 object-contain" />
+function Channel({ c, note, disabled }: { c: Chan; note: string; disabled?: boolean }) {
+  const body = (
+    <>
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: `${c.tint}1A` }}>
+        <ChanIcon c={c} size={24} />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-[14.5px] font-bold text-[var(--color-ink)]">{name}</span>
+        <span className="block text-[14.5px] font-bold text-[var(--color-ink)]">{c.name}</span>
         <span className="block truncate text-[12.5px] text-[var(--color-muted)]">{note}</span>
       </span>
-      <ArrowUpRight className="size-4 shrink-0 text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-ink)]" strokeWidth={2.2} />
+      {disabled ? null : <ArrowUpRight className="size-4 shrink-0 text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-ink)]" strokeWidth={2.2} />}
+    </>
+  );
+  if (disabled) {
+    return (
+      <div aria-disabled="true" className="flex cursor-not-allowed items-center gap-3 rounded-2xl bg-[var(--color-canvas)] p-3 opacity-45 ring-1 ring-[var(--color-line)] grayscale">
+        {body}
+      </div>
+    );
+  }
+  return (
+    <a href={c.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl bg-[var(--color-canvas)] p-3 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)]">
+      {body}
     </a>
   );
 }
