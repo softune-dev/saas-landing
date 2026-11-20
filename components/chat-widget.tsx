@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUp, ArrowUpRight, Mail, X } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Gift, LayoutGrid, Mail, Tag, Wallet, X } from "lucide-react";
 import { answer, STARTERS, type Answer, type Locale } from "./help/knowledge";
 import { INSTAGRAM_URL, LINKEDIN_URL, MESSENGER_URL, SUPPORT_EMAIL, SUPPORT_PHONE, X_URL } from "@/lib/site";
 
@@ -23,13 +23,13 @@ const waWith = (text: string) => `${WA}?text=${encodeURIComponent(text)}`;
 
 const T = {
   en: {
-    ask: "Ask Softy", talk: "Talk to us", hello: "Hi, I'm Softy! Ask me anything about SoftuneBD: pricing, payments, couriers, setup. Or pick one:",
+    ask: "Ask Softy", talk: "Talk to us", hello: "Hi, I'm Softy! Ask me anything about SoftuneBD, or start here:",
     placeholder: "Type your question", unknown: "I don't have that one written down yet. Send it to the team and a person will answer:",
     sendWa: "Ask on WhatsApp", from: "From", fastest: "Fastest, usually within minutes", msgr: "Message our Facebook page",
     ig: "DM us on Instagram", email: "Or email", li: "Follow us on LinkedIn", xnote: "Follow and message on X",
   },
   bn: {
-    ask: "Softy-কে জিজ্ঞেস করুন", talk: "কথা বলুন", hello: "হ্যালো, আমি Softy! SoftuneBD নিয়ে যা জানতে চান জিজ্ঞেস করুন: দাম, পেমেন্ট, কুরিয়ার, সেটআপ। অথবা একটি বেছে নিন:",
+    ask: "Softy-কে জিজ্ঞেস করুন", talk: "কথা বলুন", hello: "হ্যালো, আমি Softy! SoftuneBD নিয়ে যা জানতে চান জিজ্ঞেস করুন, অথবা এখান থেকে শুরু করুন:",
     placeholder: "আপনার প্রশ্ন লিখুন", unknown: "এই প্রশ্নের উত্তর এখনো লেখা নেই। টিমকে পাঠান, একজন মানুষ উত্তর দেবেন:",
     sendWa: "WhatsApp-এ জিজ্ঞেস করুন", from: "সূত্র", fastest: "সবচেয়ে দ্রুত, সাধারণত কয়েক মিনিটে", msgr: "আমাদের ফেসবুক পেজে মেসেজ দিন",
     ig: "Instagram-এ DM করুন", email: "অথবা ইমেইল", li: "LinkedIn-এ ফলো করুন", xnote: "X-এ ফলো ও মেসেজ করুন",
@@ -155,7 +155,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-2 bottom-[5.25rem] z-[90] flex h-[min(600px,calc(100dvh-7rem))] flex-col overflow-hidden rounded-3xl bg-[var(--color-surface)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-[var(--color-line)] sm:inset-x-auto sm:right-5 sm:w-[380px]"
+            className={`fixed inset-x-2 bottom-[5.25rem] z-[90] flex h-[min(496px,calc(100dvh-7rem))] flex-col overflow-hidden rounded-3xl bg-[var(--color-surface)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-[var(--color-line)] sm:inset-x-auto sm:right-5 sm:w-[380px]`}
           >
             <div className="p-2.5">
               <div className="grid grid-cols-2 gap-1 rounded-2xl bg-[var(--color-canvas)] p-1 text-[13px] font-semibold ring-1 ring-[var(--color-line)]">
@@ -178,7 +178,7 @@ export function ChatWidget() {
                 <div ref={scroller} className="flex-1 space-y-4 overflow-y-auto px-3.5 pt-1 pb-4">
                   <BotRow>
                     <Bubble>{t.hello}</Bubble>
-                    <Chips items={STARTERS[locale]} onPick={ask} />
+                    <Starters items={STARTERS[locale]} onPick={ask} />
                   </BotRow>
                   {msgs.map((m, i) =>
                     m.from === "user" ? (
@@ -276,11 +276,38 @@ function Bubble({ children, footer }: { children: React.ReactNode; footer?: Reac
   );
 }
 
+const STARTER_ICONS = [Tag, Gift, Wallet, LayoutGrid];
+
+/** Opening suggestions: a short, quiet list with thin line icons. */
+function Starters({ items, onPick }: { items: string[]; onPick: (q: string) => void }) {
+  return (
+    <div className="overflow-hidden rounded-2xl ring-1 ring-[var(--color-line)]">
+      {items.map((q, i) => {
+        const Icon = STARTER_ICONS[i % STARTER_ICONS.length];
+        return (
+          <button
+            key={q}
+            type="button"
+            onClick={() => onPick(q)}
+            className="group flex w-full items-center gap-3 border-b border-[var(--color-line)] px-3 py-2.5 text-left last:border-b-0 transition-colors hover:bg-[var(--color-canvas)]"
+          >
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-full ring-1 ring-[var(--color-line)] transition-colors group-hover:ring-[var(--color-brand)]">
+              <Icon className="size-3.5 text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-brand)]" strokeWidth={1.5} />
+            </span>
+            <span className="flex-1 text-[13px] text-[var(--color-ink)]">{q}</span>
+            <ArrowUpRight className="size-3.5 shrink-0 text-[var(--color-muted)] opacity-0 transition-opacity group-hover:opacity-100" strokeWidth={1.5} />
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function Chips({ items, onPick }: { items: string[]; onPick: (q: string) => void }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {items.map((q) => (
-        <button key={q} type="button" onClick={() => onPick(q)} className="rounded-full bg-[var(--color-surface)] px-3 py-1.5 text-left text-[12.5px] font-medium text-[var(--color-ink)] ring-1 ring-[var(--color-line)] transition-colors hover:text-[var(--color-brand)] hover:ring-[var(--color-brand)]">
+        <button key={q} type="button" onClick={() => onPick(q)} className="rounded-full px-3 py-1 text-left text-[12px] text-[var(--color-muted)] ring-1 ring-[var(--color-line)] transition-colors hover:text-[var(--color-brand)] hover:ring-[var(--color-brand)]">
           {q}
         </button>
       ))}

@@ -196,6 +196,6 @@ function related(item: FaqItem, faq: FaqItem[]): string[] {
 }
 
 export const STARTERS: Record<Locale, string[]> = {
-  en: ["How much does it cost?", "Is there a free trial?", "Which payments can I take?", "Which couriers work?", "Can I see a demo store?", "Can I use my own domain?"],
-  bn: ["দাম কত?", "ফ্রি ট্রায়াল আছে?", "কোন পেমেন্ট নেওয়া যায়?", "কোন কুরিয়ার কানেক্ট করা যায়?", "ডেমো স্টোর দেখা যাবে?", "নিজের ডোমেইন ব্যবহার করা যাবে?"],
+  en: ["How much does it cost?", "Is there a free trial?", "Which payments can I take?", "Can I see a demo store?"],
+  bn: ["দাম কত?", "ফ্রি ট্রায়াল আছে?", "কোন পেমেন্ট নেওয়া যায়?", "ডেমো স্টোর দেখা যাবে?"],
 };
