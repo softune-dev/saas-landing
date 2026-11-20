@@ -127,7 +127,7 @@ export function Why({ locale = "en" }: { locale?: "en" | "bn" }) {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-6 md:mt-16 lg:grid-cols-3">
           {items.map((item, i) => (
             <motion.article
               key={item.title}
@@ -135,26 +135,26 @@ export function Why({ locale = "en" }: { locale?: "en" | "bn" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="group relative cursor-pointer overflow-hidden rounded-[20px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] md:p-10"
+              className="group relative cursor-pointer overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-3.5 transition-all duration-300 hover:border-[var(--color-brand)] sm:rounded-[24px] sm:p-6 md:p-10"
             >
               <div className="pointer-events-none absolute top-0 right-0 h-2/3 w-2/3 bg-dot-grid-dense opacity-80 [mask-image:radial-gradient(circle_at_top_right,black_0%,transparent_80%)]" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1.5 transition-transform duration-300 group-hover:scale-110">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm">
+                <div className="inline-flex items-center justify-center rounded-full border border-dashed border-[var(--color-brand)] p-1 transition-transform sm:p-1.5 duration-300 group-hover:scale-110">
+                  <div className="flex size-9 items-center justify-center rounded-full bg-[var(--color-brand)] shadow-sm sm:size-12">
                     <img
                       loading="lazy"
                       decoding="async"
                       src={item.icon}
                       alt=""
-                      className="size-5 object-contain brightness-0 invert"
+                      className="size-4 object-contain brightness-0 invert sm:size-5"
                     />
                   </div>
                 </div>
-                <h3 className="mt-6 text-[18px] font-extrabold tracking-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)] md:text-[20px]">
+                <h3 className="mt-3 text-[14px] leading-snug font-extrabold sm:mt-6 sm:text-[18px] tracking-tight text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)] md:text-[20px]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-muted)] md:text-[16px]">
+                <p className="mt-1.5 line-clamp-5 text-[12px] leading-snug text-[var(--color-muted)] sm:mt-3 sm:line-clamp-none sm:text-[15px] sm:leading-relaxed md:text-[16px]">
                   {item.body}
                 </p>
               </div>
