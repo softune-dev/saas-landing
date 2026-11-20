@@ -17,6 +17,7 @@ const STATIC_ROUTES: {
   { path: "/pricing", priority: 0.9, changeFrequency: "weekly" },
   { path: "/features", priority: 0.85, changeFrequency: "monthly" },
   { path: "/signup", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/demo", priority: 0.8, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/brandkit", priority: 0.3, changeFrequency: "yearly" },
   { path: "/careers", priority: 0.4, changeFrequency: "monthly" },

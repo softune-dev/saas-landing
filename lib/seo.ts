@@ -22,6 +22,7 @@ const VALID_BN_STATIC_ROUTES = new Set([
   "/about",
   "/blog",
   "/changelog",
+  "/demo",
   "/features",
   "/pricing",
   "/signup",

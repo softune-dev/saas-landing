@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "./ui/button";
 import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
-import { DemoAccessModal } from "./demo-access-modal";
 
 /** Shared Start Free + See Demo pair — homepage hero and feature pages. */
 export function HeroCtas({
@@ -16,7 +14,6 @@ export function HeroCtas({
   /** For use on a dark panel: the secondary button gets white text and a light outline. */
   dark?: boolean;
 }) {
-  const [demoOpen, setDemoOpen] = useState(false);
   const isBn = locale === "bn";
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
@@ -75,7 +72,7 @@ export function HeroCtas({
       <Button
         type="button"
         variant="outline"
-        onClick={() => setDemoOpen(true)}
+        onClick={() => window.location.assign(isBn ? "/bn/demo" : "/demo")}
         className={["flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[13px] font-semibold transition-colors sm:min-h-12 sm:px-6 sm:py-3 sm:text-[14px] md:px-8 md:py-4 md:text-[15px]", dark ? "!border-white/15 !bg-transparent !text-white hover:!bg-white/10" : "hover:bg-[var(--color-brand)]/5"].join(" ")}
       >
         <img
@@ -85,7 +82,6 @@ export function HeroCtas({
         />
         {demoText}
       </Button>
-      <DemoAccessModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </div>
   );
 }

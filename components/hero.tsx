@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
 import dynamic from "next/dynamic";
-import { DemoAccessModal } from "./demo-access-modal";
 import { HERO_IDEA_KEY } from "@/lib/trial";
 
 // Loaded after first paint: the rays are decoration, never worth delaying the headline.
@@ -80,7 +79,6 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
   const [userMode, setUserMode] = useState(false);
   const [userText, setUserText] = useState("");
   const [visible, setVisible] = useState(true);
-  const [demoOpen, setDemoOpen] = useState(false);
   // A reference image the visitor can attach for the AI (kept in the browser only).
   const [refImage, setRefImage] = useState<{ url: string; name: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -322,10 +320,10 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
               {isBn ? TRIAL_CTA_BN : TRIAL_CTA}
               <MaskIcon src="/icons/arrow-right.svg" className="size-3.5" />
             </a>
-            <button type="button" onClick={() => setDemoOpen(true)} className="flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-6 text-[14px] font-semibold text-white transition-colors hover:border-white/35">
+            <a href={isBn ? "/bn/demo" : "/demo"} className="flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-6 text-[14px] font-semibold text-white transition-colors hover:border-white/35">
               <MaskIcon src="/icons/play.svg" className="size-3.5" />
               {isBn ? "লাইভ ডেমো দেখুন" : "See Demo"}
-            </button>
+            </a>
           </div>
           <p className="mt-5 text-[12px] text-white/45 sm:mt-8">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
         </div>
@@ -340,7 +338,6 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
 
         </div>
       </div>
-      <DemoAccessModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </section>
   );
 }
