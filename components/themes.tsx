@@ -71,7 +71,7 @@ export function Themes({ locale = "en" }: { locale?: "en" | "bn" }) {
           href={isBn ? "/bn/demo" : "/demo"}
           className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-6 py-3 text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
         >
-          {isBn ? "ডেমো দেখুন" : "See demo"}
+          {isBn ? "লাইভ দেখুন" : "View Live"}
           <ArrowUpRight className="size-4" strokeWidth={2.2} />
         </Link>
       </div>
