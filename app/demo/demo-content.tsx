@@ -16,55 +16,40 @@ import { Header } from "@/components/header";
 type StoreDemo = {
   id: string;
   name: string;
-  url: string;
   host: string;
-  image: string;
-  theme: string;
-  themeBn: string;
+  theme: 1 | 2 | 3;
   niche: string;
   nicheBn: string;
 };
 
+/** Demo stores built on SoftuneBD's three themes, all on their own demo
+ * accounts (scripts/demo_stores in the backend repo). Covers are real
+ * phone-size screenshots of each store's home page. */
 const STORES: StoreDemo[] = [
-  {
-    id: "elara",
-    name: "Elara",
-    url: "https://www.elarabd.store/",
-    host: "elarabd.store",
-    image: "/demos/elara.webp",
-    theme: "Theme 3",
-    themeBn: "থিম ৩",
-    niche: "Korean skincare",
-    nicheBn: "কোরিয়ান স্কিনকেয়ার",
-  },
-  {
-    id: "rivelle",
-    name: "Rivelle",
-    url: "https://aurora-owner.softunebd.com/",
-    host: "aurora-owner.softunebd.com",
-    image: "/demos/rivelle.webp",
-    theme: "Theme 1",
-    themeBn: "থিম ১",
-    niche: "Modern fashion",
-    nicheBn: "মডার্ন ফ্যাশন",
-  },
-  {
-    id: "voltix",
-    name: "Voltix",
-    url: "https://voltix.softunebd.com/",
-    host: "voltix.softunebd.com",
-    image: "/demos/voltix.webp",
-    theme: "Theme 2",
-    themeBn: "থিম ২",
-    niche: "Electronics & gadgets",
-    nicheBn: "ইলেকট্রনিক্স ও গ্যাজেট",
-  },
+  { id: "noor", name: "Noor Modest", host: "noormodest.softunebd.com", theme: 1, niche: "Modest fashion", nicheBn: "মডেস্ট ফ্যাশন" },
+  { id: "voltix", name: "Voltix", host: "voltix.softunebd.com", theme: 2, niche: "Electronics & gadgets", nicheBn: "ইলেকট্রনিক্স ও গ্যাজেট" },
+  { id: "raaj", name: "Raaj", host: "raaj.softunebd.com", theme: 3, niche: "Men's panjabi", nicheBn: "ছেলেদের পাঞ্জাবি" },
+  { id: "tinytots", name: "TinyTots", host: "tinytots.softunebd.com", theme: 2, niche: "Toys & baby care", nicheBn: "খেলনা ও বেবি কেয়ার" },
+  { id: "pawpal", name: "PawPal", host: "pawpal.softunebd.com", theme: 3, niche: "Pet supplies", nicheBn: "পোষা প্রাণীর পণ্য" },
+  { id: "ghorkona", name: "Ghorkona", host: "ghorkona.softunebd.com", theme: 2, niche: "Home decor & kitchen", nicheBn: "হোম ডেকর ও কিচেন" },
 ];
+
+/** A store's phone-size screenshot inside a simple phone frame. */
+function PhoneShot({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="mx-auto w-full max-w-[260px] rounded-[2.2rem] bg-[#0b0b0d] p-[7px] shadow-[0_24px_50px_-20px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
+      <div className="relative overflow-hidden rounded-[1.8rem] bg-[var(--color-canvas)]">
+        <span className="absolute top-2 left-1/2 z-10 h-[14px] w-[64px] -translate-x-1/2 rounded-full bg-black" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={alt} loading="lazy" decoding="async" width={390} height={844} className="block aspect-[390/844] w-full object-cover object-top" />
+      </div>
+    </div>
+  );
+}
 
 function Shot({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative overflow-hidden rounded-t-2xl border-b border-[var(--color-line)] bg-[var(--color-canvas)]">
-      {/* A browser-window strip, so it reads as a live website. */}
       <div className="flex items-center gap-1.5 px-3 py-2">
         <span className="size-2 rounded-full bg-[#ff5f57]" />
         <span className="size-2 rounded-full bg-[#febc2e]" />
@@ -108,27 +93,25 @@ export default function DemoContent({ locale = "en" }: { locale?: "en" | "bn" })
           <h2 className="mb-6 text-xl font-bold tracking-tight text-[var(--color-ink)] md:text-2xl">
             {L("Live store demos", "লাইভ স্টোর ডেমো")}
           </h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {STORES.map((s) => (
               <a
                 key={s.id}
-                href={s.url}
+                href={`https://${s.host}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
+                className="group flex flex-col items-center gap-4 rounded-3xl bg-[var(--color-surface)] px-5 pt-6 pb-5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
               >
-                <Shot src={s.image} alt={`${s.name} store built with SoftuneBD`} />
-                <div className="flex items-center justify-between gap-3 p-4">
+                <PhoneShot src={`/demos/${s.id}-mobile.webp`} alt={`${s.name} store built with SoftuneBD, on a phone`} />
+                <div className="flex w-full items-center justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <h3 className="text-[17px] font-bold text-[var(--color-ink)]">{s.name}</h3>
                       <span className="rounded-full bg-[var(--color-brand)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--color-brand)]">
-                        {isBn ? s.themeBn : s.theme}
+                        {L(`Theme ${s.theme}`, `থিম ${["", "১", "২", "৩"][s.theme]}`)}
                       </span>
                     </div>
-                    <p className="mt-0.5 truncate text-[13px] text-[var(--color-muted)]">
-                      {isBn ? s.nicheBn : s.niche} · {s.host}
-                    </p>
+                    <p className="mt-0.5 truncate text-[13px] text-[var(--color-muted)]">{isBn ? s.nicheBn : s.niche}</p>
                   </div>
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
                     <ArrowUpRight className="size-4" strokeWidth={2.2} />
