@@ -6,7 +6,7 @@ import { DarkHero } from "@/components/dark-hero";
 import { DemoAccessModal } from "@/components/demo-access-modal";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { DeviceShots, STORES } from "@/components/demo-stores";
+import { PhoneShot, STORES } from "@/components/demo-stores";
 
 /**
  * /demo: see SoftuneBD in action before signing up. Three real stores built
@@ -60,27 +60,22 @@ export default function DemoContent({ locale = "en" }: { locale?: "en" | "bn" })
           <h2 className="mb-6 text-xl font-bold tracking-tight text-[var(--color-ink)] md:text-2xl">
             {L("Live store demos", "লাইভ স্টোর ডেমো")}
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
             {STORES.map((s) => (
               <a
                 key={s.id}
                 href={`https://${s.host}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col gap-5 rounded-3xl bg-[var(--color-surface)] p-4 sm:p-6 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
+                className="group flex flex-col gap-3 rounded-2xl bg-[var(--color-surface)] p-3 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)] sm:rounded-3xl sm:p-4"
               >
-                <DeviceShots id={s.id} name={s.name} host={s.host} />
-                <div className="flex w-full items-center justify-between gap-3">
+                <PhoneShot id={s.id} name={s.name} />
+                <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-[17px] font-bold text-[var(--color-ink)]">{s.name}</h3>
-                      <span className="rounded-full bg-[var(--color-brand)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--color-brand)]">
-                        {L(`Theme ${s.theme}`, `থিম ${["", "১", "২", "৩"][s.theme]}`)}
-                      </span>
-                    </div>
-                    <p className="mt-0.5 truncate text-[13px] text-[var(--color-muted)]">{isBn ? s.nicheBn : s.niche}</p>
+                    <h3 className="truncate text-[14px] font-bold text-[var(--color-ink)] sm:text-[15px]">{s.name}</h3>
+                    <p className="mt-0.5 truncate text-[12px] text-[var(--color-muted)] sm:text-[13px]">{isBn ? s.nicheBn : s.niche}</p>
                   </div>
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] text-[var(--color-canvas)] transition-transform group-hover:scale-105">
                     <ArrowUpRight className="size-4" strokeWidth={2.2} />
                   </span>
                 </div>
