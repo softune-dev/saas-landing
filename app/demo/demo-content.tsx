@@ -24,7 +24,7 @@ type StoreDemo = {
 
 /** Demo stores built on SoftuneBD's three themes, all on their own demo
  * accounts (scripts/demo_stores in the backend repo). Covers are real
- * phone-size screenshots of each store's home page. */
+ * desktop and phone screenshots of each store's home page. */
 const STORES: StoreDemo[] = [
   { id: "noor", name: "Noor Modest", host: "noormodest.softunebd.com", theme: 1, niche: "Modest fashion", nicheBn: "মডেস্ট ফ্যাশন" },
   { id: "voltix", name: "Voltix", host: "voltix.softunebd.com", theme: 2, niche: "Electronics & gadgets", nicheBn: "ইলেকট্রনিক্স ও গ্যাজেট" },
@@ -34,14 +34,30 @@ const STORES: StoreDemo[] = [
   { id: "ghorkona", name: "Ghorkona", host: "ghorkona.softunebd.com", theme: 2, niche: "Home decor & kitchen", nicheBn: "হোম ডেকর ও কিচেন" },
 ];
 
-/** A store's phone-size screenshot inside a simple phone frame. */
-function PhoneShot({ src, alt }: { src: string; alt: string }) {
+/** Desktop and phone screenshots of one store, shown together: a browser
+ * window with the phone overlapping its lower right corner, so a visitor
+ * sees at a glance that the same store works on both. */
+function DeviceShots({ id, name, host }: { id: string; name: string; host: string }) {
   return (
-    <div className="mx-auto w-full max-w-[260px] rounded-[2.2rem] bg-[#0b0b0d] p-[7px] shadow-[0_24px_50px_-20px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
-      <div className="relative overflow-hidden rounded-[1.8rem] bg-[var(--color-canvas)]">
-        <span className="absolute top-2 left-1/2 z-10 h-[14px] w-[64px] -translate-x-1/2 rounded-full bg-black" />
+    <div className="relative w-full pr-[14%] pb-[9%]">
+      <div className="overflow-hidden rounded-xl bg-[var(--color-canvas)] shadow-[0_20px_45px_-22px_rgba(0,0,0,0.45)] ring-1 ring-[var(--color-line)]">
+        <div className="flex items-center gap-1.5 border-b border-[var(--color-line)] px-3 py-2">
+          <span className="size-2 rounded-full bg-[#ff5f57]" />
+          <span className="size-2 rounded-full bg-[#febc2e]" />
+          <span className="size-2 rounded-full bg-[#28c840]" />
+          <span className="ml-2 min-w-0 flex-1 truncate rounded-md bg-[var(--color-surface)] px-2 py-0.5 text-[10px] text-[var(--color-muted)]">
+            {host}
+          </span>
+        </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} loading="lazy" decoding="async" width={390} height={844} className="block aspect-[390/844] w-full object-cover object-top" />
+        <img src={`/demos/${id}-desktop.webp`} alt={`${name} store built with SoftuneBD, on a computer`} loading="lazy" decoding="async" width={1200} height={750} className="block aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" />
+      </div>
+      <div className="absolute right-0 bottom-0 w-[27%] rounded-[1.1rem] bg-[#0b0b0d] p-[4px] shadow-[0_18px_40px_-14px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-500 group-hover:-translate-y-1">
+        <div className="relative overflow-hidden rounded-[0.85rem] bg-[var(--color-canvas)]">
+          <span className="absolute top-1 left-1/2 z-10 h-[7px] w-[32%] -translate-x-1/2 rounded-full bg-black" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/demos/${id}-mobile.webp`} alt={`${name} store built with SoftuneBD, on a phone`} loading="lazy" decoding="async" width={390} height={844} className="block aspect-[390/844] w-full object-cover object-top" />
+        </div>
       </div>
     </div>
   );
@@ -93,16 +109,16 @@ export default function DemoContent({ locale = "en" }: { locale?: "en" | "bn" })
           <h2 className="mb-6 text-xl font-bold tracking-tight text-[var(--color-ink)] md:text-2xl">
             {L("Live store demos", "লাইভ স্টোর ডেমো")}
           </h2>
-          <div className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {STORES.map((s) => (
               <a
                 key={s.id}
                 href={`https://${s.host}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-4 rounded-3xl bg-[var(--color-surface)] px-5 pt-6 pb-5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
+                className="group flex flex-col gap-5 rounded-3xl bg-[var(--color-surface)] p-4 sm:p-6 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-[0_18px_50px_-20px_rgba(0,0,0,0.35)]"
               >
-                <PhoneShot src={`/demos/${s.id}-mobile.webp`} alt={`${s.name} store built with SoftuneBD, on a phone`} />
+                <DeviceShots id={s.id} name={s.name} host={s.host} />
                 <div className="flex w-full items-center justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
