@@ -1,7 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Why } from "@/components/why";
-import { Themes } from "@/components/themes";
 import { LiveStores } from "@/components/live-stores";
 import { PlatformFeatures } from "@/components/platform-features";
 import { AddonsShowcase } from "@/components/addons-showcase";
@@ -19,7 +18,8 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
       <main>
         <Hero locale={locale} />
         <Why locale={locale} />
-        <Themes locale={locale} />
+        {/* Themes section hidden for now; component kept in components/themes.tsx. */}
+        {/* <Themes locale={locale} /> */}
         <LiveStores locale={locale} />
         <AppsShowcase locale={locale} />
         <PlatformFeatures locale={locale} />
