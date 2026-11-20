@@ -127,7 +127,7 @@ export function ChatWidget() {
                   {typing ? (
                     <div className="flex gap-1 px-1 py-2" aria-label="Typing">
                       {[0, 1, 2].map((d) => (
-                        <span key={d} className="size-1.5 animate-bounce rounded-full bg-[var(--color-muted)]" style={{ animationDelay: `${d * 120}ms` }} />
+                        <span key={d} className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)]" style={{ animationDelay: `${d * 120}ms` }} />
                       ))}
                     </div>
                   ) : null}
