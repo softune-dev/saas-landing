@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUp, ArrowUpRight, Mail, MessageCircle, X } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Mail, X } from "lucide-react";
 import { answer, STARTERS, type Answer, type Locale } from "./help/knowledge";
 import { INSTAGRAM_URL, MESSENGER_URL, SUPPORT_EMAIL, SUPPORT_PHONE } from "@/lib/site";
 
@@ -23,20 +23,43 @@ const waWith = (text: string) => `${WA}?text=${encodeURIComponent(text)}`;
 
 const T = {
   en: {
-    open: "Help", title: "SoftuneBD help", sub: "Instant answers, or a real person on WhatsApp",
-    ask: "Ask", talk: "Talk to us", hello: "Hi! Ask anything about SoftuneBD: pricing, payments, couriers, setup. Or pick one:",
+    ask: "Ask Softy", talk: "Talk to us", hello: "Hi, I'm Softy! Ask me anything about SoftuneBD: pricing, payments, couriers, setup. Or pick one:",
     placeholder: "Type your question", unknown: "I don't have that one written down yet. Send it to the team and a person will answer:",
     sendWa: "Ask on WhatsApp", from: "From", fastest: "Fastest, usually within minutes", msgr: "Message our Facebook page",
     ig: "DM us on Instagram", email: "Or email",
   },
   bn: {
-    open: "সাহায্য", title: "SoftuneBD সাহায্য", sub: "সাথে সাথে উত্তর, অথবা WhatsApp-এ সরাসরি মানুষ",
-    ask: "প্রশ্ন করুন", talk: "কথা বলুন", hello: "হ্যালো! SoftuneBD নিয়ে যা জানতে চান জিজ্ঞেস করুন: দাম, পেমেন্ট, কুরিয়ার, সেটআপ। অথবা একটি বেছে নিন:",
+    ask: "Softy-কে জিজ্ঞেস করুন", talk: "কথা বলুন", hello: "হ্যালো, আমি Softy! SoftuneBD নিয়ে যা জানতে চান জিজ্ঞেস করুন: দাম, পেমেন্ট, কুরিয়ার, সেটআপ। অথবা একটি বেছে নিন:",
     placeholder: "আপনার প্রশ্ন লিখুন", unknown: "এই প্রশ্নের উত্তর এখনো লেখা নেই। টিমকে পাঠান, একজন মানুষ উত্তর দেবেন:",
     sendWa: "WhatsApp-এ জিজ্ঞেস করুন", from: "সূত্র", fastest: "সবচেয়ে দ্রুত, সাধারণত কয়েক মিনিটে", msgr: "আমাদের ফেসবুক পেজে মেসেজ দিন",
     ig: "Instagram-এ DM করুন", email: "অথবা ইমেইল",
   },
 };
+
+/** Softy, the help assistant: a small friendly robot in the brand colour. */
+function BotAvatar({ size = 32, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden className={`shrink-0 ${className}`}>
+      <defs>
+        <linearGradient id="softy-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#FF7A45" />
+          <stop offset="1" stopColor="#E8431A" />
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="20" fill="url(#softy-bg)" />
+      <line x1="20" y1="7.5" x2="20" y2="11" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="20" cy="6.5" r="1.9" fill="#FFE1D4" />
+      <rect x="9.5" y="11" width="21" height="17" rx="6.5" fill="#fff" />
+      <rect x="7" y="17" width="2.5" height="5.5" rx="1.25" fill="#fff" opacity="0.85" />
+      <rect x="30.5" y="17" width="2.5" height="5.5" rx="1.25" fill="#fff" opacity="0.85" />
+      <rect x="12.5" y="14" width="15" height="10" rx="4.5" fill="#1F1B2E" />
+      <circle cx="16.8" cy="18.4" r="1.7" fill="#5EEAD4" />
+      <circle cx="23.2" cy="18.4" r="1.7" fill="#5EEAD4" />
+      <path d="M17.6 21.4 Q20 23.1 22.4 21.4" stroke="#5EEAD4" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+      <rect x="15" y="29.5" width="10" height="3.5" rx="1.75" fill="#fff" opacity="0.9" />
+    </svg>
+  );
+}
 
 export function ChatWidget() {
   const pathname = usePathname() || "/";
@@ -70,7 +93,7 @@ export function ChatWidget() {
     window.setTimeout(() => {
       setMsgs((m) => [...m, { from: "bot", answer: answer(question, locale), question }]);
       setTyping(false);
-    }, 550);
+    }, 650);
   }
 
   return (
@@ -79,31 +102,23 @@ export function ChatWidget() {
         {open ? (
           <motion.div
             role="dialog"
-            aria-label={t.title}
+            aria-label="SoftuneBD help"
             initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-x-2 bottom-[5.25rem] z-[90] flex h-[min(620px,calc(100dvh-7rem))] flex-col overflow-hidden rounded-3xl bg-[var(--color-surface)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-[var(--color-line)] sm:inset-x-auto sm:right-5 sm:w-[380px]"
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-x-2 bottom-[5.25rem] z-[90] flex h-[min(600px,calc(100dvh-7rem))] flex-col overflow-hidden rounded-3xl bg-[var(--color-surface)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-[var(--color-line)] sm:inset-x-auto sm:right-5 sm:w-[380px]"
           >
-            <div className="bg-[var(--color-ink)] px-5 pt-5 pb-3 text-[var(--color-canvas)]">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-[16px] font-bold tracking-tight">{t.title}</p>
-                  <p className="mt-0.5 text-[12.5px] opacity-70">{t.sub}</p>
-                </div>
-                <button type="button" onClick={() => setOpen(false)} aria-label="Close" className="-mt-1 -mr-1 flex size-8 items-center justify-center rounded-full opacity-70 transition-opacity hover:opacity-100">
-                  <X className="size-4" strokeWidth={2.2} />
-                </button>
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-1 rounded-full bg-[var(--color-canvas)]/10 p-1 text-[13px] font-semibold">
+            <div className="p-2.5">
+              <div className="grid grid-cols-2 gap-1 rounded-2xl bg-[var(--color-canvas)] p-1 text-[13px] font-semibold ring-1 ring-[var(--color-line)]">
                 {(["ask", "talk"] as const).map((k) => (
                   <button
                     key={k}
                     type="button"
                     onClick={() => setTab(k)}
-                    className={`rounded-full py-1.5 transition-colors ${tab === k ? "bg-[var(--color-canvas)] text-[var(--color-ink)]" : "opacity-75 hover:opacity-100"}`}
+                    className={`flex items-center justify-center gap-1.5 rounded-xl py-2 transition-colors ${tab === k ? "bg-[var(--color-ink)] text-[var(--color-canvas)] shadow-sm" : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"}`}
                   >
+                    {k === "ask" ? <BotAvatar size={18} /> : null}
                     {k === "ask" ? t.ask : t.talk}
                   </button>
                 ))}
@@ -112,24 +127,28 @@ export function ChatWidget() {
 
             {tab === "ask" ? (
               <>
-                <div ref={scroller} className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
-                  <BotText>{t.hello}</BotText>
-                  <Chips items={STARTERS[locale]} onPick={ask} />
+                <div ref={scroller} className="flex-1 space-y-4 overflow-y-auto px-3.5 pt-1 pb-4">
+                  <BotRow>
+                    <Bubble>{t.hello}</Bubble>
+                    <Chips items={STARTERS[locale]} onPick={ask} />
+                  </BotRow>
                   {msgs.map((m, i) =>
                     m.from === "user" ? (
-                      <div key={i} className="flex justify-end">
-                        <p className="max-w-[80%] rounded-2xl rounded-br-md bg-[var(--color-brand)] px-3.5 py-2 text-[14px] leading-snug text-white">{m.text}</p>
-                      </div>
+                      <motion.div key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex justify-end">
+                        <p className="max-w-[80%] rounded-2xl rounded-br-md bg-[var(--color-ink)] px-3.5 py-2 text-[14px] leading-snug text-[var(--color-canvas)]">{m.text}</p>
+                      </motion.div>
                     ) : (
                       <BotReply key={i} msg={m} t={t} onPick={ask} />
                     ),
                   )}
                   {typing ? (
-                    <div className="flex gap-1 px-1 py-2" aria-label="Typing">
-                      {[0, 1, 2].map((d) => (
-                        <span key={d} className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)]" style={{ animationDelay: `${d * 120}ms` }} />
-                      ))}
-                    </div>
+                    <BotRow>
+                      <div className="inline-flex gap-1 rounded-2xl rounded-tl-md bg-[var(--color-canvas)] px-3.5 py-3 ring-1 ring-[var(--color-line)]" aria-label="Typing">
+                        {[0, 1, 2].map((d) => (
+                          <span key={d} className="size-1.5 animate-pulse rounded-full bg-[var(--color-muted)]" style={{ animationDelay: `${d * 150}ms` }} />
+                        ))}
+                      </div>
+                    </BotRow>
                   ) : null}
                 </div>
                 <form
@@ -137,7 +156,7 @@ export function ChatWidget() {
                     e.preventDefault();
                     ask(input);
                   }}
-                  className="flex items-center gap-2 border-t border-[var(--color-line)] p-3"
+                  className="flex items-center gap-2 border-t border-[var(--color-line)] p-2.5"
                 >
                   <input
                     value={input}
@@ -152,7 +171,7 @@ export function ChatWidget() {
                 </form>
               </>
             ) : (
-              <div className="flex-1 space-y-2.5 overflow-y-auto p-4">
+              <div className="flex-1 space-y-2.5 overflow-y-auto px-3.5 pt-1 pb-4">
                 <Channel href={WA} icon="/icons/whatsapp.svg" tint="#25D366" name="WhatsApp" note={t.fastest} />
                 <Channel href={MESSENGER_URL} icon="/icons/facebook.webp" tint="#0866FF" name="Messenger" note={t.msgr} />
                 <Channel href={INSTAGRAM_URL} icon="/icons/insta.webp" tint="#E1306C" name="Instagram" note={t.ig} />
@@ -170,28 +189,50 @@ export function ChatWidget() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        aria-label={open ? "Close help" : t.open}
-        className="fixed right-4 bottom-4 z-[90] flex h-14 items-center gap-2 rounded-full bg-[var(--color-ink)] pr-5 pl-4 text-[var(--color-canvas)] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.5)] transition-transform hover:scale-[1.03] active:scale-95 sm:right-5 sm:bottom-5"
+        aria-label={open ? "Close chat" : "Let's Talk"}
+        className="fixed right-4 bottom-4 z-[90] flex h-14 items-center gap-2.5 rounded-full bg-[var(--color-ink)] pr-5 pl-2 text-[var(--color-canvas)] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.5)] transition-transform hover:scale-[1.03] active:scale-95 sm:right-5 sm:bottom-5"
       >
-        <span className="relative flex size-6 items-center justify-center">
-          {open ? <X className="size-5" strokeWidth={2.2} /> : <MessageCircle className="size-5" strokeWidth={2} />}
-          {open ? null : <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-[#25D366] ring-2 ring-[var(--color-ink)]" />}
+        <span className="relative">
+          {open ? (
+            <span className="flex size-10 items-center justify-center rounded-full bg-[var(--color-canvas)]/15">
+              <X className="size-5" strokeWidth={2.2} />
+            </span>
+          ) : (
+            <>
+              <BotAvatar size={40} />
+              <span className="absolute right-0 bottom-0 size-3 rounded-full bg-[#22C55E] ring-2 ring-[var(--color-ink)]" />
+            </>
+          )}
         </span>
-        <span className="text-[14px] font-semibold">{t.open}</span>
+        <span className="text-[14px] font-semibold">{open ? "Close" : "Let's Talk"}</span>
       </button>
     </>
   );
 }
 
-function BotText({ children }: { children: React.ReactNode }) {
-  return <p className="max-w-[92%] text-[14px] leading-relaxed whitespace-pre-line text-[var(--color-ink)]">{children}</p>;
+function BotRow({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex items-start gap-2">
+      <BotAvatar size={30} className="mt-0.5" />
+      <div className="min-w-0 flex-1 space-y-2">{children}</div>
+    </motion.div>
+  );
+}
+
+function Bubble({ children, footer }: { children: React.ReactNode; footer?: React.ReactNode }) {
+  return (
+    <div className="w-fit max-w-full rounded-2xl rounded-tl-md bg-[var(--color-canvas)] px-3.5 py-2.5 ring-1 ring-[var(--color-line)]">
+      <p className="text-[14px] leading-relaxed whitespace-pre-line text-[var(--color-ink)]">{children}</p>
+      {footer}
+    </div>
+  );
 }
 
 function Chips({ items, onPick }: { items: string[]; onPick: (q: string) => void }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {items.map((q) => (
-        <button key={q} type="button" onClick={() => onPick(q)} className="rounded-full bg-[var(--color-canvas)] px-3 py-1.5 text-left text-[12.5px] font-medium text-[var(--color-ink)] ring-1 ring-[var(--color-line)] transition-colors hover:ring-[var(--color-brand)]">
+        <button key={q} type="button" onClick={() => onPick(q)} className="rounded-full bg-[var(--color-surface)] px-3 py-1.5 text-left text-[12.5px] font-medium text-[var(--color-ink)] ring-1 ring-[var(--color-line)] transition-colors hover:text-[var(--color-brand)] hover:ring-[var(--color-brand)]">
           {q}
         </button>
       ))}
@@ -203,42 +244,46 @@ function BotReply({ msg, t, onPick }: { msg: Extract<Msg, { from: "bot" }>; t: (
   const a = msg.answer;
   if (!a) {
     return (
-      <div className="space-y-2.5">
-        <BotText>{t.unknown}</BotText>
-        <a href={waWith(msg.question)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-[13px] font-semibold text-white">
+      <BotRow>
+        <Bubble>{t.unknown}</Bubble>
+        <a href={waWith(msg.question)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#128C4A] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#0F7A40]">
           {t.sendWa}
           <ArrowUpRight className="size-3.5" strokeWidth={2.4} />
         </a>
-      </div>
+      </BotRow>
     );
   }
   return (
-    <div className="space-y-2.5">
-      <div className="border-l-2 border-[var(--color-brand)] pl-3">
-        <BotText>{a.text}</BotText>
-        <p className="mt-1.5 text-[11px] font-semibold tracking-wide text-[var(--color-muted)] uppercase">
-          {t.from} {a.source}
-        </p>
-      </div>
+    <BotRow>
+      <Bubble
+        footer={
+          <p className="mt-2 border-t border-[var(--color-line)] pt-1.5 text-[10.5px] font-semibold tracking-wide text-[var(--color-muted)] uppercase">
+            {t.from} {a.source}
+          </p>
+        }
+      >
+        {a.text}
+      </Bubble>
       {a.actions?.length ? (
         <div className="flex flex-wrap gap-1.5">
-          {a.actions.map((ac) =>
-            ac.external ? (
-              <a key={ac.href} href={ac.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-ink)] px-3.5 py-1.5 text-[12.5px] font-semibold text-[var(--color-canvas)]">
+          {a.actions.map((ac) => {
+            const cls = "inline-flex items-center gap-1.5 rounded-full bg-[var(--color-brand)] px-3.5 py-1.5 text-[12.5px] font-semibold text-white";
+            const body = (
+              <>
                 {ac.label}
                 <ArrowUpRight className="size-3.5" strokeWidth={2.4} />
-              </a>
+              </>
+            );
+            return ac.external ? (
+              <a key={ac.href} href={ac.href} target="_blank" rel="noopener noreferrer" className={cls}>{body}</a>
             ) : (
-              <Link key={ac.href} href={ac.href} className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-ink)] px-3.5 py-1.5 text-[12.5px] font-semibold text-[var(--color-canvas)]">
-                {ac.label}
-                <ArrowUpRight className="size-3.5" strokeWidth={2.4} />
-              </Link>
-            ),
-          )}
+              <Link key={ac.href} href={ac.href} className={cls}>{body}</Link>
+            );
+          })}
         </div>
       ) : null}
       {a.followUps?.length ? <Chips items={a.followUps} onPick={onPick} /> : null}
-    </div>
+    </BotRow>
   );
 }
 
