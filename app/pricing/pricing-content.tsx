@@ -4,6 +4,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Pricing } from "@/components/pricing";
+import { PlanComparison } from "@/components/plan-comparison";
 import { Faq } from "@/components/faq";
 import { Contact } from "@/components/contact";
 import { HeroCtas } from "@/components/hero-ctas";
@@ -96,6 +97,7 @@ export default function PricingPage({ locale = "en" }: { locale?: "en" | "bn" })
           </section>
         </div>
         <Pricing locale={locale} showIntro={false} />
+        <PlanComparison locale={locale} />
         <Faq locale={locale} />
         <Contact />
       </main>

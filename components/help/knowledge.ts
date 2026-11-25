@@ -35,7 +35,7 @@ const taka = (n: number) => `৳${n.toLocaleString("en-US")}`;
 
 function pricingText(l: Locale): string {
   const list = l === "bn" ? plansBn : plans;
-  const lines = list.map((pl) => `• ${pl.name}: ${taka(pl.priceMonthly)}/${l === "bn" ? "মাস" : "month"} (${taka(pl.priceAnnually)}/${l === "bn" ? "মাস, বাৎসরিক" : "month billed yearly"})`);
+  const lines = list.map((pl) => `• ${pl.name}: ${taka(pl.priceMonthly)}/${l === "bn" ? "মাস" : "month"} (${taka(pl.priceAnnually)}/${l === "bn" ? "মাস, বাৎসরিক; 3 ও 6 মাসেও ছাড় আছে" : "month billed yearly; 3 and 6 month discounts too"})`);
   return l === "bn"
     ? `তিনটি প্ল্যান:\n${lines.join("\n")}\n\nপ্রোডাক্ট: Starter ৫০, Growth ৫০০, Business আনলিমিটেড। সব প্ল্যানে ৭ দিনের ফ্রি ট্রায়াল, কোনো কার্ড লাগবে না, ট্রানজেকশন ফি ০%।`
     : `Three plans:\n${lines.join("\n")}\n\nProducts: Starter 50, Growth 500, Business unlimited. Every plan starts with a 7-day free trial, no card needed, and 0% transaction fee.`;

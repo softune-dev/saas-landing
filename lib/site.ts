@@ -35,6 +35,10 @@ export const BRANDING_CLAIM =
 export const BRANDING_CLAIM_BN =
   "SoftuneBD আপনার ব্র্যান্ডের স্বতন্ত্র পরিচয়কে প্রাধান্য দেয়, যাতে আপনার অনলাইন স্টোরটি অনন্য রূপ পায়।";
 
+/** Launch switch for the Free plan: turn on only when the backend's
+ * FREE_PLAN_ENABLED is on. Until then new stores get the trial. */
+export const FREE_PLAN_LIVE: boolean = false;
+
 /** Self-serve trial length — matches app/config.py's trial_days. */
 export const TRIAL_DAYS = 7;
 export const TRIAL_CTA = "Start Free";

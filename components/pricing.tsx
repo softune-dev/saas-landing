@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Check, Gift } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
-import { getPlans } from "@/lib/pricing-data";
-import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
+import { BILLING_MONTHS, freePlanCard, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
+import { FREE_PLAN_LIVE, TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
 
 // Purpose-made artwork gives each tier a distinct, premium surface while keeping the
 // established sand → orange → ember progression. The image compositions leave their
@@ -45,8 +45,8 @@ const TILES = {
 } as const;
 
 export function Pricing({ locale = "en", showIntro = true, homepage = false }: { locale?: "en" | "bn"; showIntro?: boolean; homepage?: boolean }) {
-  // Annual pricing is selected initially; the card states the yearly bill below.
-  const [isAnnual, setIsAnnual] = useState(true);
+  // A year is selected first; each card states what is billed.
+  const [months, setMonths] = useState<BillingMonths>(12);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -58,19 +58,31 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
   // English digits on both languages, by request.
   const money = (n: number) => n.toLocaleString("en-US");
   const paidPlans = getPlans(locale);
-  const freePlan = {
+  const trialPlan = {
+    key: "free" as const,
     name: "Free",
-    priceMonthly: 0,
-    priceAnnually: 0,
     popular: false,
     description: isBn
-      ? "৭ দিনের জন্য ফ্রি। নিজের স্টোর তৈরি করুন ও প্রিমিয়াম ফিচারগুলো দেখুন।"
+      ? "7 দিনের জন্য ফ্রি। নিজের স্টোর তৈরি করুন ও প্রিমিয়াম ফিচারগুলো দেখুন।"
       : "Free for 7 days. Build your store and explore premium features.",
     features: isBn
-      ? ["৭ দিনের ফ্রি অ্যাক্সেস", "কোনো ক্রেডিট কার্ড লাগবে না", "থিম এডিটর ও লাইভ প্রিভিউ", "AI অ্যাসিস্ট্যান্ট (দিনে 15 ক্রেডিট)", "৫০টি প্রোডাক্ট যোগ করুন", "500MB মিডিয়া স্টোরেজ", "ফ্রড প্রোটেকশন", "বেসিক অ্যানালিটিক্স"]
-      : ["7 days of free access", "No credit card required", "Theme editor & live preview", "AI Assistant (15 credits/day)", "Add up to 50 products", "500MB media storage", "Fraud protection", "Basic analytics"],
+      ? ["7 দিনের ফ্রি অ্যাক্সেস", "কোনো ক্রেডিট কার্ড লাগবে না", "থিম এডিটর ও লাইভ প্রিভিউ", "AI অ্যাসিস্ট্যান্ট (দিনে 15 ক্রেডিট)", "50টি প্রোডাক্ট যোগ করুন", "500MB মিডিয়া স্টোরেজ", "ফ্রড প্রোটেকশন", "সম্পূর্ণ অ্যানালিটিক্স"]
+      : ["7 days of free access", "No credit card required", "Theme editor & live preview", "AI Assistant (15 credits/day)", "Add up to 50 products", "500MB media storage", "Fraud protection", "Full analytics"],
   };
-  const planList = homepage ? [freePlan, ...paidPlans.filter((plan) => plan.name !== "Business")] : paidPlans;
+  const card = freePlanCard[isBn ? "bn" : "en"];
+  const freePlan = FREE_PLAN_LIVE
+    ? { ...trialPlan, description: card.description, features: [...card.features] }
+    : trialPlan;
+  // Home shows three cards. The pricing page shows every plan, and the trial
+  // card only on home: it is not a plan anyone can compare or stay on.
+  const planList = homepage
+    ? [freePlan, ...paidPlans.filter((plan) => plan.key !== "business")]
+    : FREE_PLAN_LIVE
+      ? [freePlan, ...paidPlans]
+      : paidPlans;
+  const periodName = isBn
+    ? { 1: "1 মাস", 3: "3 মাস", 6: "6 মাস", 12: "12 মাস" }
+    : { 1: "1 month", 3: "3 months", 6: "6 months", 12: "12 months" };
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
   const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
@@ -138,53 +150,51 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
           </p>
         </div> : null}
 
-        <div className="mb-10 flex justify-center md:mb-16">
-          <div className="relative flex w-full max-w-[320px] items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5 sm:max-w-none sm:w-auto">
-            <button
-              type="button"
-              onClick={() => setIsAnnual(false)}
-              className={`relative z-10 min-h-11 flex-1 rounded-full px-3 py-2.5 text-[14px] font-bold transition-colors duration-200 sm:w-32 sm:flex-none ${
-                !isAnnual
-                  ? "text-[var(--color-surface)]"
-                  : "text-[var(--color-ink)] hover:text-[var(--color-ink-soft)]"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsAnnual(true)}
-              className={`relative z-10 min-h-11 flex-1 rounded-full px-3 py-2.5 text-[14px] font-bold transition-colors duration-200 sm:w-36 sm:flex-none ${
-                isAnnual
-                  ? "text-[var(--color-surface)]"
-                  : "text-[var(--color-ink)] hover:text-[var(--color-ink-soft)]"
-              }`}
-            >
-              Yearly{" "}
-              <span
-                className={`ml-0.5 text-[10px] tracking-wider uppercase ${
-                  isAnnual ? "text-[var(--color-surface)]/80" : "text-[var(--color-brand)]"
-                }`}
-              >
-                -20%
-              </span>
-            </button>
-
-            <div
-              className={`absolute top-1.5 bottom-1.5 rounded-full bg-[var(--color-ink)] transition-all duration-300 ease-in-out ${
-                isAnnual
-                  ? "left-[calc(50%+3px)] w-[calc(50%-9px)] sm:left-[134px] sm:w-36"
-                  : "left-1.5 w-[calc(50%-9px)] sm:w-32"
-              }`}
-            />
+        <div className="mb-10 flex justify-center md:mb-14">
+          <div
+            role="radiogroup"
+            aria-label={isBn ? "বিলিং মেয়াদ" : "Billing period"}
+            className="grid w-full max-w-[480px] grid-cols-4 gap-1 rounded-[22px] border border-[var(--color-line)] bg-[var(--color-surface)] p-1.5"
+          >
+            {BILLING_MONTHS.map((m) => {
+              const active = months === m;
+              const percent = periodPrice("starter", m).percent;
+              return (
+                <button
+                  key={m}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => setMonths(m)}
+                  className={`relative flex min-h-[52px] flex-col items-center justify-center rounded-[17px] px-1 text-[13px] leading-tight font-bold whitespace-nowrap transition-colors duration-200 sm:text-[14px] ${
+                    active ? "text-[var(--color-surface)]" : "text-[var(--color-ink)] hover:bg-[var(--color-ink)]/[0.05]"
+                  }`}
+                >
+                  {active ? (
+                    <motion.span
+                      layoutId="billing-period"
+                      className="absolute inset-0 rounded-[17px] bg-[var(--color-ink)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  ) : null}
+                  <span className="relative">{periodName[m]}</span>
+                  {percent > 0 ? (
+                    <span className={`relative text-[11px] font-bold ${active ? "text-[var(--color-surface)]/75" : "text-[var(--color-brand)]"}`}>
+                      {isBn ? `${percent}% ছাড়` : `Save ${percent}%`}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="grid items-stretch gap-5 md:grid-cols-3 lg:gap-6">
+        <div className={`grid items-stretch gap-5 lg:gap-6 ${planList.length === 4 ? "md:grid-cols-2 xl:grid-cols-4 xl:!gap-4" : "md:grid-cols-3"}`}>
           {planList.map((plan, i) => {
-            const isFree = plan.name === "Free";
+            const isFree = plan.key === "free";
             const popular = Boolean(plan.popular);
-            const price = isAnnual ? plan.priceAnnually : plan.priceMonthly;
+            const paidPrice = plan.key === "free" ? null : periodPrice(plan.key, months);
+            const price = paidPrice?.perMonth ?? 0;
             const tile = TILES[isFree ? "free" : plan.name === "Growth" ? "featured" : plan.name === "Starter" ? "entry" : "top"];
             return (
               <motion.div
@@ -201,7 +211,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
               >
                 {/* The plan tile: custom tier artwork, plan name top-left, price bottom-left. */}
                 <div
-                  className={`relative flex h-[224px] flex-col justify-between overflow-hidden rounded-[22px] p-5 pb-3 sm:h-[234px] sm:p-6 sm:pb-4 ${tile.ink}`}
+                  className={`relative flex h-[224px] flex-col justify-between overflow-hidden rounded-[22px] p-5 pb-3 sm:h-[234px] sm:p-6 sm:pb-4 ${planList.length === 4 ? "xl:!px-4" : ""} ${tile.ink}`}
                 >
                   <div
                     aria-hidden
@@ -217,12 +227,12 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       {isFree ? <Gift aria-hidden="true" className="size-4 text-[var(--color-brand)]" strokeWidth={2.5} /> : null}
                       {plan.name}
                     </span>
-                    {isFree ? (
+                    {isFree && !FREE_PLAN_LIVE ? (
                       <span className="rounded-full border border-[var(--color-brand)] bg-[var(--color-brand)] px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-white shadow-sm uppercase">
-                        {isBn ? "৭ দিন ফ্রি" : "7 days free"}
+                        {isBn ? "7 দিন ফ্রি" : "7 days free"}
                       </span>
                     ) : popular ? (
-                      <span className="rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-[var(--color-brand)] shadow-[0_8px_20px_rgb(55_12_4/0.18)] uppercase">
+                      <span className="rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider whitespace-nowrap text-[var(--color-brand)] shadow-[0_8px_20px_rgb(55_12_4/0.18)] uppercase">
                         {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
                       </span>
                     ) : null}
@@ -234,16 +244,24 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                         className="text-[46px] leading-none font-bold tracking-[-0.045em] sm:text-[52px]"
                         style={{ fontFamily: PRICE_FONT }}
                       >
-                        {isFree ? "Free" : `৳${money(price)}`}
+                        {isFree ? (FREE_PLAN_LIVE ? "৳0" : "Free") : `৳${money(price)}`}
                       </span>
-                      <span className={`text-[14px] font-semibold ${tile.sub}`}>{isFree ? (isBn ? "/ ৭ দিন" : "/ 7 days") : "/mo"}</span>
+                      <span className={`text-[14px] font-semibold ${tile.sub}`}>{isFree && !FREE_PLAN_LIVE ? (isBn ? "/ 7 দিন" : "/ 7 days") : "/mo"}</span>
                     </div>
                     <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
-                      {isFree ? (isBn ? "এরপর একটি পেইড প্ল্যান বেছে নিন" : "Choose a paid plan after your trial") : isAnnual
-                        ? isBn
-                          ? `বিল হবে ৳${money(plan.priceAnnually * 12)} প্রতি বছর`
-                          : `Billed ৳${money(plan.priceAnnually * 12)} yearly`
-                        : null}
+                      {!paidPrice
+                        ? FREE_PLAN_LIVE
+                          ? card.note
+                          : isBn
+                            ? "এরপর একটি পেইড প্ল্যান বেছে নিন"
+                            : "Choose a paid plan after your trial"
+                        : months === 1
+                          ? isBn
+                            ? "প্রতি মাসে বিল হবে"
+                            : "Billed every month"
+                          : isBn
+                            ? `${periodName[months]}ে ৳${money(paidPrice.total)} · ৳${money(paidPrice.saving)} সাশ্রয়`
+                            : `৳${money(paidPrice.total)} for ${periodName[months]} · Save ৳${money(paidPrice.saving)}`}
                     </p>
                   </div>
                 </div>
@@ -257,7 +275,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}
                   >
-                    {isFree ? (isBn ? "৭ দিন ফ্রি শুরু করুন" : "Start 7 days free") : ctaText}
+                    {isFree ? (FREE_PLAN_LIVE ? card.cta : isBn ? "7 দিন ফ্রি শুরু করুন" : "Start 7 days free") : ctaText}
                     <img
                       loading="lazy"
                       decoding="async"
