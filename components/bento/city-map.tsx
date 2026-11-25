@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 /* An illustrated city for the courier tile, drawn like a delivery app's map. It
  * is not a real place. Streets sit on a grid that is tilted a few degrees; the
  * parcel's route is written in the same grid, so it always follows a road.
@@ -5,7 +7,7 @@
 
 const TILT = (-14 * Math.PI) / 180;
 const CX = 198;
-const CY = 172;
+const CY = 204;
 
 const US = [-308, -252, -196, -140, -82, -20, 44, 104, 168, 226, 282, 340];
 const VS = [-296, -238, -184, -128, -70, -14, 46, 104, 160, 220, 276, 334];
@@ -40,12 +42,11 @@ const STOPS: [number, number][] = [
   [-82, -14],
   [44, -14],
   [44, -70],
-  [128, -70],
+  [132, -70],
 ];
 
 export const ROUTE = roundedRoute(STOPS, 14);
 export const SHOP = at(...STOPS[0]);
-export const HOME = at(...STOPS[STOPS.length - 1]);
 
 // Parks, as grid rectangles: no buildings are drawn inside them.
 const PARKS = [
@@ -54,8 +55,9 @@ const PARKS = [
   { u: -82, v: 104, w: 62, h: 56 },
 ];
 
-// The customer's building, just above the end of the route.
-const TARGET = { u: 112, v: -118, w: 40, h: 40 };
+// The customer's building, beside the end of the route. The pin stands on it.
+const TARGET = { u: 110, v: -122, w: 44, h: 44 };
+export const HOUSE = at(TARGET.u + TARGET.w / 2, TARGET.v + TARGET.h / 2);
 
 /** The same small pseudo-random sequence every render, server and browser. */
 function sequence(seed: number) {
@@ -109,7 +111,14 @@ function buildings(): Rect[] {
       }
     }
   }
-  return out.map((r) => ({ x: +r.x.toFixed(1), y: +r.y.toFixed(1), w: +r.w.toFixed(1), h: +r.h.toFixed(1), tall: r.tall }));
+  // Only what a tile can ever show is drawn, which keeps phones light.
+  const visible = (r: Rect) => {
+    const c = at(r.x + r.w / 2, r.y + r.h / 2);
+    return c.x > -170 && c.x < 566 && c.y > -50 && c.y < 430;
+  };
+  return out
+    .filter(visible)
+    .map((r) => ({ x: +r.x.toFixed(1), y: +r.y.toFixed(1), w: +r.w.toFixed(1), h: +r.h.toFixed(1), tall: r.tall }));
 }
 
 function trees() {
@@ -151,7 +160,8 @@ export const MAP_COLORS = [
   "dark:[--park:#17352a] dark:[--tree:#214a38] dark:[--name:#98a0ae] dark:[--water-name:#6ba8d4] dark:[--park-name:#6fae86] dark:[--halo:#1a1e25]",
 ].join(" ");
 
-export function CityMap({ bn }: { bn: boolean }) {
+/* Memoised: the delivery status changes often, the city never does. */
+export const CityMap = memo(function CityMap({ bn }: { bn: boolean }) {
   const n = bn ? NAMES.bn : NAMES.en;
   const label = { fontSize: 9.5, fontWeight: 600, paintOrder: "stroke", strokeWidth: 3, strokeLinejoin: "round" } as const;
 
@@ -194,7 +204,7 @@ export function CityMap({ bn }: { bn: boolean }) {
         <path d="M -140 46 L 44 46 M -82 -70 L 168 -70" stroke="var(--casing)" strokeWidth={9} />
         <path d="M -140 46 L 44 46 M -82 -70 L 168 -70" stroke="var(--street)" strokeWidth={7} />
 
-        <rect x={TARGET.u} y={TARGET.v} width={TARGET.w} height={TARGET.h} rx={5} fill="#ff5a36" fillOpacity={0.32} stroke="#ff5a36" strokeWidth={2} />
+        <rect x={TARGET.u} y={TARGET.v} width={TARGET.w} height={TARGET.h} rx={5} fill="#ff5a36" fillOpacity={0.45} stroke="#ff5a36" strokeWidth={2.5} />
 
         <g stroke="var(--halo)" style={label}>
           <text transform="translate(-36 17) rotate(80)" textAnchor="middle" fill="var(--water-name)" stroke="var(--water)">
@@ -210,4 +220,4 @@ export function CityMap({ bn }: { bn: boolean }) {
       </g>
     </g>
   );
-}
+});

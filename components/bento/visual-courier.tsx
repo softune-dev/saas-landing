@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, animate, motion, useMotionValue, useTransform } from "framer-motion";
-import { Check, House, Store } from "lucide-react";
+import { Check, House, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { MdDeliveryDining } from "react-icons/md";
-import { CityMap, HOME, MAP_COLORS, ROUTE, SHOP } from "./city-map";
+import { CityMap, HOUSE, MAP_COLORS, ROUTE, SHOP } from "./city-map";
 import { CARD_SHADOW, OUT, Stage, useScenes } from "./stage";
 
 // booked, picked up, on the way, delivered
@@ -17,6 +17,7 @@ const COURIERS = [
   { id: "pathao", src: "/bento/pathao.png" },
   { id: "redx", src: "/bento/redx.svg" },
   { id: "ecourier", src: "/bento/ecourier.png" },
+  { id: "carrybee", src: "/bento/carrybee.png" },
 ];
 
 const SURFACE = "bg-white text-[#171717] ring-1 ring-black/5 dark:bg-[#1d1a1c] dark:text-white dark:ring-white/15";
@@ -42,13 +43,17 @@ export function CourierVisual({ bn }: { bn: boolean }) {
   const y = useTransform(progress, (p) => point(p).y);
   // The scooter turns to face the way it is travelling.
   const facing = useTransform(progress, (p) => (point(Math.min(p + 0.02, 1)).x < point(Math.max(p - 0.02, 0)).x - 0.5 ? -1 : 1));
+  // The ring round the courier logo fills as the rider travels.
+  const ring = useTransform(progress, (p) => 0.14 + 0.86 * p);
 
   return (
     <Stage light="bottomLeft" innerRef={ref}>
       <div className={`absolute inset-0 ${MAP_COLORS}`}>
-        <svg width={396} height={380} viewBox="0 0 396 380" fill="none" className="overflow-visible">
+        {/* Two layers: the city is painted once, only the route redraws. */}
+        <svg width={396} height={380} viewBox="0 0 396 380" fill="none" className="absolute inset-0 transform-gpu overflow-visible">
           <CityMap bn={bn} />
-
+        </svg>
+        <svg width={396} height={380} viewBox="0 0 396 380" fill="none" className="absolute inset-0 transform-gpu overflow-visible">
           {/* The route: what is left is bright, what is behind fades. */}
           <path d={ROUTE} stroke="#fff" strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" />
           <path ref={path} d={ROUTE} stroke="#ff5a36" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
@@ -60,11 +65,11 @@ export function CourierVisual({ bn }: { bn: boolean }) {
           className={`absolute flex size-[34px] items-center justify-center rounded-full ${SURFACE} shadow-[0_8px_18px_-6px_rgba(0,0,0,0.45)]`}
           style={{ left: SHOP.x - 17, top: SHOP.y - 17 }}
         >
-          <Store className="size-4" strokeWidth={2.4} />
+          <ShoppingCart className="size-4" strokeWidth={2.4} />
         </span>
 
         {/* The customer's house: a pin that pulses until the parcel arrives */}
-        <span className="absolute" style={{ left: HOME.x, top: HOME.y }}>
+        <span className="absolute" style={{ left: HOUSE.x, top: HOUSE.y }}>
           {[0, 1].map((i) => (
             <motion.span
               key={i}
@@ -75,11 +80,11 @@ export function CourierVisual({ bn }: { bn: boolean }) {
             />
           ))}
           <motion.span
-            className="absolute -top-[56px] -left-[23px] block w-[46px] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]"
+            className="absolute -top-[49px] -left-[20px] block w-[40px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.3)]"
             animate={{ y: done ? [0, -10, 0] : 0 }}
             transition={{ duration: 0.55, ease: OUT }}
           >
-            <svg viewBox="0 0 46 56" width={46} height={56}>
+            <svg viewBox="0 0 46 56" width={40} height={49}>
               <path
                 d="M23 55 C 23 55 2 36 2 22 A 21 21 0 0 1 44 22 C 44 36 23 55 23 55 Z"
                 className="transition-colors duration-300"
@@ -88,8 +93,8 @@ export function CourierVisual({ bn }: { bn: boolean }) {
                 strokeWidth={2.5}
               />
             </svg>
-            <span className="absolute inset-x-0 top-[9px] flex justify-center text-white">
-              {done ? <Check className="size-6" strokeWidth={3.2} /> : <House className="size-[22px]" strokeWidth={2.4} />}
+            <span className="absolute inset-x-0 top-[8px] flex justify-center text-white">
+              {done ? <Check className="size-5" strokeWidth={3.2} /> : <House className="size-[19px]" strokeWidth={2.4} />}
             </span>
           </motion.span>
         </span>
@@ -109,52 +114,57 @@ export function CourierVisual({ bn }: { bn: boolean }) {
       </div>
 
       {/* Couriers you can connect */}
-      <div className={`absolute top-4 left-4 flex gap-1.5 rounded-full p-1.5 ${SURFACE} shadow-[0_12px_26px_-10px_rgba(0,0,0,0.45)]`}>
+      <div className={`absolute top-4 left-4 flex gap-[5px] rounded-full p-[5px] ${SURFACE} shadow-[0_12px_26px_-10px_rgba(0,0,0,0.45)]`}>
         {COURIERS.map((c) => (
-          <span key={c.id} className="flex size-[34px] items-center justify-center rounded-full bg-white p-1.5 ring-1 ring-black/[0.07]">
+          <span key={c.id} className="flex size-[31px] items-center justify-center rounded-full border border-[#d8d2cc] bg-white p-[5px] dark:border-white/40">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={c.src} alt="" className="max-h-full max-w-full object-contain" />
           </span>
         ))}
       </div>
 
-      {/* Status */}
-      <div className={`absolute inset-x-4 bottom-4 rounded-[20px] p-3.5 ${SURFACE} ${CARD_SHADOW}`}>
-        <div className="flex items-center gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white p-1.5 ring-1 ring-black/[0.07]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/bento/steadfast.png" alt="" className="max-h-full max-w-full object-contain" />
+      {/* Status: a small pill, with the delivery's progress round the logo */}
+      <div className="absolute inset-x-0 bottom-3.5 flex justify-center">
+        <div className={`flex h-[54px] w-[272px] items-center gap-2.5 rounded-full pr-5 pl-[7px] ${SURFACE} ${CARD_SHADOW}`}>
+          <span className="relative flex size-[40px] shrink-0 items-center justify-center">
+            <span className="flex size-[32px] items-center justify-center rounded-full bg-white p-[5px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/bento/steadfast.png" alt="" className="max-h-full max-w-full object-contain" />
+            </span>
+            <svg viewBox="0 0 40 40" className="absolute inset-0 -rotate-90" fill="none">
+              <circle cx={20} cy={20} r={18} strokeWidth={3} className="stroke-[#ece8e5] dark:stroke-white/15" />
+              <motion.circle
+                cx={20}
+                cy={20}
+                r={18}
+                strokeWidth={3}
+                strokeLinecap="round"
+                className="transition-colors duration-500"
+                stroke={done ? "#12a05c" : "#ff5a36"}
+                style={{ pathLength: ring }}
+              />
+            </svg>
           </span>
           <div className="min-w-0 flex-1">
-            <div className="relative h-[21px] overflow-hidden">
+            <div className="relative h-[18px] overflow-hidden">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.p
                   key={scene}
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 18, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
+                  exit={{ y: -18, opacity: 0 }}
                   transition={{ duration: 0.45, ease: OUT }}
-                  className="text-[15.5px] leading-[21px] font-bold tracking-tight"
+                  className="truncate text-[14px] leading-[18px] font-bold tracking-tight"
                 >
                   {steps[scene]}
                 </motion.p>
               </AnimatePresence>
             </div>
-            <p className="truncate text-[12.5px] text-[#6d6661] dark:text-white/60">{bn ? "Steadfast, অর্ডার ১০৪২" : "Steadfast, order 1042"}</p>
+            <p className="truncate text-[12px] leading-[16px] text-[#6d6661] dark:text-white/60">
+              {bn ? "Steadfast, অর্ডার ১০৪২" : "Steadfast, order 1042"}
+            </p>
           </div>
-          <span className="text-[15px] font-extrabold tracking-tight tabular-nums">{bn ? "৳২,১৫২" : "৳2,152"}</span>
-        </div>
-        <div className="mt-3 grid grid-cols-4 gap-1.5">
-          {steps.map((s, i) => (
-            <span key={s} className="h-[5px] overflow-hidden rounded-full bg-[#ece8e5] dark:bg-white/15">
-              <motion.span
-                className="block h-full rounded-full"
-                animate={{ width: i <= scene ? "100%" : "0%", backgroundColor: done ? "#12804a" : "#ff5a36" }}
-                transition={{ duration: scene === 0 ? 0 : 0.6, ease: OUT }}
-                initial={false}
-              />
-            </span>
-          ))}
+          <span className="text-[14px] font-extrabold tracking-tight tabular-nums">{bn ? "৳২,১৫২" : "৳2,152"}</span>
         </div>
       </div>
     </Stage>
