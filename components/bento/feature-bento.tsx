@@ -22,8 +22,8 @@ const TILES: Tile[] = [
   {
     id: "payments",
     Visual: PaymentsVisual,
-    en: { title: "Every payment, connected", points: ["bKash, Nagad, Rocket and cards", "Softune Pay matches wallet SMS", "Cash on Delivery built in"] },
-    bn: { title: "সব পেমেন্ট এক জায়গায়", points: ["বিকাশ, নগদ, রকেট ও কার্ড", "Softune Pay ওয়ালেট SMS মিলিয়ে দেয়", "ক্যাশ অন ডেলিভারি আছেই"] },
+    en: { title: "Every payment, connected", points: ["bKash, Nagad and cards", "Softune Pay matches wallet SMS", "Cash on Delivery built in"] },
+    bn: { title: "সব পেমেন্ট এক জায়গায়", points: ["বিকাশ, নগদ ও কার্ড", "Softune Pay ওয়ালেট SMS মিলিয়ে দেয়", "ক্যাশ অন ডেলিভারি আছেই"] },
   },
   {
     id: "seo",
