@@ -274,29 +274,28 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
           })}
         </div>
 
-        {/* What all three share, said once, with the way to the full table. */}
-        <div className="mt-5 rounded-[28px] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 sm:p-6 lg:mt-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="text-[15px] font-bold text-[var(--color-ink)]">{PAID_INCLUDES[locale].title}</p>
+        {/* One row, two cards: what the paid plans share, and the Free plan. */}
+        <div className="mt-5 grid items-stretch gap-5 lg:mt-6 lg:grid-cols-2 lg:gap-6">
+          <div className="flex h-full flex-col rounded-[28px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6">
+            <p className="text-[18px] font-extrabold tracking-tight text-[var(--color-ink)]">{PAID_INCLUDES[locale].title}</p>
+            <ul className="mt-5 grid grid-cols-2 content-start gap-x-4 gap-y-3 border-t border-[var(--color-line)] pt-5">
+              {PAID_INCLUDES[locale].items.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-[13px] leading-snug font-medium text-[var(--color-ink-soft)]">
+                  <Check aria-hidden className="mt-[2px] size-3.5 shrink-0 text-[var(--color-brand)]" strokeWidth={3} />
+                  {item}
+                </li>
+              ))}
+            </ul>
             <a
               href={`${isBn ? "/bn/pricing" : "/pricing"}#compare-plans`}
-              className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[var(--color-brand)] hover:underline"
+              className="mt-auto inline-flex w-fit items-center gap-1.5 pt-6 text-[14px] font-bold text-[var(--color-brand)] hover:underline"
             >
               {isBn ? "সব ফিচার দেখুন" : "See all features"}
               <ArrowUpRight className="size-4" strokeWidth={2.6} aria-hidden />
             </a>
           </div>
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 md:grid-cols-3 lg:grid-cols-4">
-            {PAID_INCLUDES[locale].items.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-[13px] leading-snug font-medium text-[var(--color-ink-soft)]">
-                <Check aria-hidden className="mt-[2px] size-3.5 shrink-0 text-[var(--color-brand)]" strokeWidth={3} />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <FreePlanCard locale={locale} />
         </div>
-
-        <FreePlanCard locale={locale} />
 
         {homepage ? (
           <div className="mt-8 flex justify-center">

@@ -69,7 +69,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         type: "list",
         content: [
           "10 products, 50 orders a month and 100MB of media storage",
-          "Cash on Delivery, manual payments, Softune Pay, Steadfast and the store chat assistant",
+          "Every payment method (COD, manual, Softune Pay, bKash, Nagad, SSLCommerz), Steadfast and the store chat assistant",
           "An AI store setup and 5 images at sign-up",
           "No credit card, and 0% commission on orders",
         ],
@@ -803,7 +803,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "connecting-payment-gateways",
     "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Advanced Features).",
     [
-      { type: "callout", content: "The official bKash, Nagad and SSLCommerz connections need Growth or Business. Cash on Delivery, manual payments and Softune Pay are on every plan." },
+      { type: "callout", content: "Every plan, including Free, has all these payment methods." },
       {
         type: "p",
         content:
@@ -1383,7 +1383,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         type: "list",
         content: [
           "10টি প্রোডাক্ট, মাসে 50টি অর্ডার ও 100MB মিডিয়া স্টোরেজ",
-          "ক্যাশ অন ডেলিভারি, ম্যানুয়াল পেমেন্ট, Softune Pay, Steadfast ও স্টোর চ্যাট অ্যাসিস্ট্যান্ট",
+          "সব পেমেন্ট পদ্ধতি (COD, ম্যানুয়াল, Softune Pay, bKash, Nagad, SSLCommerz), Steadfast ও স্টোর চ্যাট অ্যাসিস্ট্যান্ট",
           "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি",
           "ক্রেডিট কার্ড লাগে না, অর্ডারে 0% কমিশন",
         ],
@@ -2211,7 +2211,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "Included by Default কি?",
     ],
     body: [
-      { type: "callout", content: "অফিশিয়াল bKash, Nagad ও SSLCommerz কানেকশনের জন্য Growth বা Business লাগে। ক্যাশ অন ডেলিভারি, ম্যানুয়াল পেমেন্ট ও Softune Pay সব প্ল্যানে আছে।" },
+      { type: "callout", content: "ফ্রি সহ সব প্ল্যানে এই সব পেমেন্ট পদ্ধতি আছে।" },
       {
         type: "p",
         content:

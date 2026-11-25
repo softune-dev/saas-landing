@@ -28,7 +28,6 @@ export const COMPARE_GROUPS: CompareGroup[] = [
       row("Products", "প্রোডাক্ট", "10", "50", "500", unlimited),
       row("Orders a month", "মাসিক অর্ডার", "50", unlimited, unlimited, unlimited),
       row("Media storage", "মিডিয়া স্টোরেজ", "100MB", "500MB", "2GB", "3GB"),
-      row("Stores", "স্টোর", "1", "1", "1", "2"),
       every("0% commission on orders", "অর্ডারে 0% কমিশন"),
     ],
   },
@@ -45,7 +44,7 @@ export const COMPARE_GROUPS: CompareGroup[] = [
   {
     title: { en: "AI", bn: "AI" },
     rows: [
-      row("AI requests a day", "দিনে AI রিকোয়েস্ট", false, "30", "100", "150"),
+      row("AI requests a month", "মাসে AI রিকোয়েস্ট", false, "900", "3,000", "4,500"),
       every("AI store setup and 5 images at sign-up", "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি"),
       paid("AI agent and Write with AI", "AI এজেন্ট ও Write with AI"),
       paid("ChatGPT connector (beta)", "ChatGPT কানেক্টর (বেটা)"),
@@ -81,7 +80,7 @@ export const COMPARE_GROUPS: CompareGroup[] = [
     rows: [
       every("Cash on Delivery and manual payments", "ক্যাশ অন ডেলিভারি ও ম্যানুয়াল পেমেন্ট"),
       every("Softune Pay", "Softune Pay"),
-      row("bKash, Nagad and SSLCommerz gateways", "bKash, Nagad ও SSLCommerz গেটওয়ে", false, false, true, true),
+      every("bKash, Nagad and SSLCommerz checkout", "bKash, Nagad ও SSLCommerz চেকআউট"),
       row("Couriers", "কুরিয়ার", "Steadfast", "Steadfast, eCourier", allCouriers, allCouriers),
     ],
   },
