@@ -4,59 +4,104 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, Check } from "lucide-react";
 import { CARD_SHADOW, OUT, Stage, useScenes, useTyped } from "./stage";
 
-// type, send, think, build, live
-const SCENES = [2300, 500, 1500, 2400, 2600] as const;
+/* Each round: type the next request, send it, think, show the new product. The
+   card never empties: the last product stays until the next one covers it. The
+   very last scene lands back on the first product, which is also what people
+   with motion turned off see. */
+const ROUND = [2300, 500, 1300, 2600];
+const SCENES = [...ROUND, ...ROUND, ...ROUND];
+
+const PRODUCTS = [
+  {
+    photo: "/bento/p/koti.webp",
+    en: {
+      ask: "Add the gold brocade koti for ৳2,152",
+      name: "Gold Brocade Koti",
+      price: "৳2,152",
+      lines: ["Woven gold brocade,", "antique buttons, and a", "tailored festive fit."],
+    },
+    bn: {
+      ask: "২,১৫২ টাকায় গোল্ড ব্রোকেড কোটি যোগ করো",
+      name: "গোল্ড ব্রোকেড কোটি",
+      price: "৳২,১৫২",
+      lines: ["নরম কটনে সোনালি ব্রোকেড,", "অ্যান্টিক বোতাম আর", "উৎসবের ফিট।"],
+    },
+  },
+  {
+    photo: "/bento/p/linen-koti.webp",
+    en: {
+      ask: "Now the linen koti for ৳1,752",
+      name: "Linen Koti",
+      price: "৳1,752",
+      lines: ["Light, breathable linen,", "a clean cut that layers", "well all year."],
+    },
+    bn: {
+      ask: "এবার ১,৭৫২ টাকায় লিনেন কোটি",
+      name: "লিনেন কোটি",
+      price: "৳১,৭৫২",
+      lines: ["হালকা, আরামদায়ক লিনেন,", "পরিপাটি কাট, সারা বছর", "পরার মতো।"],
+    },
+  },
+  {
+    photo: "/bento/p/fatua.webp",
+    en: {
+      ask: "Add the indigo fatua for ৳1,096",
+      name: "Indigo Fatua",
+      price: "৳1,096",
+      lines: ["Soft indigo cotton with", "a hand block print and", "an easy daily fit."],
+    },
+    bn: {
+      ask: "১,০৯৬ টাকায় নীল ফতুয়া যোগ করো",
+      name: "নীল ফতুয়া",
+      price: "৳১,০৯৬",
+      lines: ["নরম নীল কটন,", "হাতের ব্লক প্রিন্ট আর", "আরামের ফিট।"],
+    },
+  },
+];
 
 const COPY = {
-  en: {
-    ask: "Add the gold brocade koti for ৳2,152",
-    name: "Gold Brocade Koti",
-    price: "৳2,152",
-    lines: ["Woven gold brocade,", "antique buttons, and a", "tailored festive fit."],
-    live: "Live on your store",
-    thinking: "Writing it up",
-    hint: "Ask for anything",
-  },
-  bn: {
-    ask: "২,১৫২ টাকায় গোল্ড ব্রোকেড কোটি যোগ করো",
-    name: "গোল্ড ব্রোকেড কোটি",
-    price: "৳২,১৫২",
-    lines: ["নরম কটনে সোনালি ব্রোকেড,", "অ্যান্টিক বোতাম আর", "উৎসবের ফিট।"],
-    live: "স্টোরে লাইভ",
-    thinking: "লেখা হচ্ছে",
-    hint: "যা দরকার বলুন",
-  },
+  en: { live: "Live on your store", thinking: "Writing it up", hint: "Ask for anything" },
+  bn: { live: "স্টোরে লাইভ", thinking: "লেখা হচ্ছে", hint: "যা দরকার বলুন" },
 };
 
-/** One sentence becomes a finished product page. */
+/** One sentence becomes a finished product page, one after another. */
 export function AiVisual({ bn }: { bn: boolean }) {
-  const c = bn ? COPY.bn : COPY.en;
+  const lang = bn ? "bn" : "en";
+  const c = COPY[lang];
   const { ref, scene } = useScenes(SCENES);
-  const typed = useTyped(c.ask, scene === 0, 42);
-  const built = scene >= 3;
+
+  const round = Math.floor(scene / ROUND.length);
+  const phase = scene % ROUND.length; // 0 type, 1 send, 2 think, 3 shown
+  const next = (round + 1) % PRODUCTS.length;
+  const shown = phase === 3 ? next : round;
+  const product = PRODUCTS[shown];
+  const text = product[lang];
+  const ask = PRODUCTS[next][lang].ask;
+  const typed = useTyped(ask, phase === 0, 42);
 
   return (
     <Stage light="bottom" innerRef={ref}>
-      {/* The product, assembling */}
-      <div className={`absolute inset-x-6 top-6 flex h-[238px] gap-4 rounded-[22px] bg-white p-3 text-[#171717] ${CARD_SHADOW}`}>
-        <div className="relative w-[148px] shrink-0 overflow-hidden rounded-[14px] bg-[#f3efec]">
-          <AnimatePresence>
-            {built ? (
-              <motion.img
-                key="photo"
-                src="/bento/p/koti.webp"
-                alt=""
-                className="absolute inset-0 size-full object-cover object-top"
-                initial={{ clipPath: "inset(100% 0% 0% 0%)", scale: 1.15 }}
-                animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.1, ease: OUT }}
-              />
-            ) : null}
+      {/* The product on the store */}
+      <div
+        className={`absolute inset-x-6 top-6 flex h-[238px] gap-4 rounded-[22px] bg-white p-3 text-[#171717] ring-1 ring-transparent dark:bg-[#1d1a1c] dark:text-white dark:ring-white/15 ${CARD_SHADOW}`}
+      >
+        <div className="relative isolate w-[148px] shrink-0 overflow-hidden rounded-[14px] bg-[#f3efec] dark:bg-[#2a2527]">
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={product.photo}
+              src={product.photo}
+              alt=""
+              className="absolute inset-0 size-full object-cover object-top"
+              initial={{ clipPath: "inset(100% 0% 0% 0%)", scale: 1.15, zIndex: 1 }}
+              animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1, zIndex: 1 }}
+              // The old photo holds underneath until the new one has covered it.
+              exit={{ opacity: 0, zIndex: 0, transition: { opacity: { delay: 1, duration: 0.1 }, zIndex: { duration: 0 } } }}
+              transition={{ duration: 1, ease: OUT }}
+            />
           </AnimatePresence>
-          {scene === 2 ? (
+          {phase === 2 ? (
             <motion.div
-              className="absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-[#ff5a36]/35 to-transparent"
+              className="absolute inset-x-0 z-10 h-24 bg-gradient-to-b from-transparent via-[#ff5a36]/40 to-transparent"
               initial={{ y: -96 }}
               animate={{ y: 220 }}
               transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
@@ -65,72 +110,37 @@ export function AiVisual({ bn }: { bn: boolean }) {
         </div>
 
         <div className="flex min-w-0 flex-1 flex-col py-1.5 pr-1">
-          <div className="h-[22px]">
-            {built ? (
-              <motion.p
-                initial={{ opacity: 0, y: 8, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.6, ease: OUT, delay: 0.15 }}
-                className="truncate text-[16.5px] font-bold tracking-tight"
-              >
-                {c.name}
-              </motion.p>
-            ) : (
-              <span className="block h-4 w-4/5 rounded-md bg-[#efedeb]" />
-            )}
-          </div>
-          <div className="mt-1.5 h-[26px]">
-            {built ? (
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: OUT, delay: 0.3 }}
-                className="text-[21px] font-extrabold tracking-tight text-[#e2481f]"
-              >
-                {c.price}
-              </motion.p>
-            ) : (
-              <span className="block h-5 w-2/5 rounded-md bg-[#efedeb]" />
-            )}
-          </div>
-          <div className="mt-2 space-y-1">
-            {c.lines.map((line, i) =>
-              built ? (
-                <motion.p
-                  key={line}
-                  initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
-                  animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                  transition={{ duration: 0.7, ease: "linear", delay: 0.5 + i * 0.35 }}
-                  className="truncate text-[13px] leading-[19px] text-[#5d5854]"
-                >
-                  {line}
-                </motion.p>
-              ) : (
-                <span key={line} className={`block h-[10px] rounded bg-[#efedeb] ${i === 2 ? "w-1/2" : "w-full"}`} />
-              ),
-            )}
-          </div>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={shown}
+              initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -8, filter: "blur(4px)", transition: { duration: 0.18 } }}
+              transition={{ duration: 0.55, ease: OUT }}
+            >
+              <p className="truncate text-[16.5px] leading-[22px] font-bold tracking-tight">{text.name}</p>
+              <p className="mt-1.5 text-[21px] leading-[26px] font-extrabold tracking-tight text-[#e2481f] dark:text-[#ff7a52]">
+                {text.price}
+              </p>
+              <div className="mt-2">
+                {text.lines.map((line) => (
+                  <p key={line} className="truncate text-[13px] leading-[19px] text-[#5d5854] dark:text-white/65">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
           <div className="mt-auto h-7">
-            <AnimatePresence mode="wait">
-              {scene === 4 ? (
-                <motion.span
-                  key="live"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 420, damping: 24 }}
-                  className="inline-flex h-7 items-center gap-1.5 rounded-full bg-[#12804a] px-3 text-[12px] font-bold text-white"
-                >
-                  <Check className="size-3.5" strokeWidth={3} />
-                  {c.live}
-                </motion.span>
-              ) : scene === 2 || scene === 3 ? (
+            <AnimatePresence mode="wait" initial={false}>
+              {phase === 2 ? (
                 <motion.span
                   key="think"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="inline-flex h-7 items-center gap-2 text-[12.5px] font-semibold text-[#6d6661]"
+                  exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                  className="inline-flex h-7 items-center gap-2 text-[12.5px] font-semibold text-[#6d6661] dark:text-white/70"
                 >
                   <motion.img
                     src="/icons/gemini.webp"
@@ -141,17 +151,29 @@ export function AiVisual({ bn }: { bn: boolean }) {
                   />
                   {c.thinking}
                 </motion.span>
-              ) : null}
+              ) : (
+                <motion.span
+                  key="live"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                  transition={{ type: "spring", stiffness: 420, damping: 24 }}
+                  className="inline-flex h-7 items-center gap-1.5 rounded-full bg-[#12804a] px-3 text-[12px] font-bold text-white"
+                >
+                  <Check className="size-3.5" strokeWidth={3} />
+                  {c.live}
+                </motion.span>
+              )}
             </AnimatePresence>
           </div>
         </div>
       </div>
 
-      {/* The sentence that made it */}
+      {/* The sentence that makes the next one */}
       <div className="absolute inset-x-6 bottom-6">
         <div className="flex h-[58px] items-center gap-3 rounded-[20px] border border-white/20 bg-[#1a0f0b]/70 pr-2 pl-5 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.7)]">
           <p className="min-w-0 flex-1 truncate text-[14.5px] font-medium">
-            {scene === 0 ? (
+            {phase === 0 ? (
               <>
                 {typed}
                 <motion.span
@@ -160,15 +182,15 @@ export function AiVisual({ bn }: { bn: boolean }) {
                   transition={{ duration: 0.9, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
                 />
               </>
-            ) : scene === 1 ? (
-              c.ask
+            ) : phase === 1 ? (
+              ask
             ) : (
               <span className="text-white/55">{c.hint}</span>
             )}
           </p>
           <motion.span
             className="flex size-[42px] shrink-0 items-center justify-center rounded-[14px] bg-[var(--color-brand)]"
-            animate={scene === 1 ? { scale: [1, 0.86, 1.06, 1] } : { scale: 1 }}
+            animate={phase === 1 ? { scale: [1, 0.86, 1.06, 1] } : { scale: 1 }}
             transition={{ duration: 0.45, ease: OUT }}
           >
             <ArrowUp className="size-5" strokeWidth={2.6} />
