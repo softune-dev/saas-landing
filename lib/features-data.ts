@@ -990,7 +990,6 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Create a named sale campaign, like Eid Sale or Weekend Flash Sale, set a percent-off discount, choose which products it applies to, and SoftuneBD handles the discounted price at checkout automatically.",
     heroPlaceholderColor: "#111827",
-    planNote: "Free and Starter can run 3 sale events, Growth 10 and Business 25.",
     introTitle: "A real campaign, not a manual price edit",
     introDesc:
       "Events sits next to Products. Turn a campaign on or off without touching each product's price, and the storefront shows the original price struck through next to the sale price.",
@@ -1322,6 +1321,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "The moment a shopper enters their phone number at checkout, SoftuneBD captures it, so you have a real contact and cart to follow up with even if they never finish the order.",
     heroPlaceholderColor: "#111827",
+    planNote: "Included in Starter and above.",
     introTitle: "A contact list, not a lost sale",
     introDesc:
       "Abandoned Checkouts sits next to Orders. Every entry has a phone number and the items that were in the cart, so following up is a phone call away, not a guess.",
@@ -2314,7 +2314,6 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "নিজের নামে সেল ক্যাম্পেইন তৈরি করুন, ঈদ সেল, উইকএন্ড ফ্ল্যাশ সেল, যা খুশি নাম দিন, পার্সেন্ট ডিসকাউন্ট সেট করুন, কোন প্রোডাক্টে প্রযোজ্য হবে বেছে নিন, আর SoftuneBD চেকআউটে ডিসকাউন্ট প্রাইস অটোমেটিক হিসাব করবে।",
     heroPlaceholderColor: "#111827",
-    planNote: "ফ্রি ও Starter-এ 3টি, Growth-এ 10টি আর Business-এ 25টি সেল ইভেন্ট চালানো যায়।",
     introTitle: "ম্যানুয়াল প্রাইস এডিট নয়, আসল ক্যাম্পেইন",
     introDesc:
       "Products পেজের পাশেই Events থাকে। প্রতিটি প্রোডাক্টের দাম আলাদাভাবে পরিবর্তন না করেই ক্যাম্পেইন চালু বা বন্ধ করুন, স্টোরফ্রন্টে আসল দাম কেটে দেখিয়ে পাশে সেল প্রাইস দেখানো হবে।",
@@ -2646,6 +2645,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "শপার চেকআউটে ফোন নম্বর টাইপ করার সাথে সাথেই SoftuneBD সেটা ধরে রাখে, তাই অর্ডার শেষ না করলেও ফলোআপ করার জন্য একটা আসল কন্টাক্ট ও কার্ট আপনার হাতে থাকে।",
     heroPlaceholderColor: "#111827",
+    planNote: "Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "হারানো সেল নয়, একটা কন্টাক্ট লিস্ট",
     introDesc:
       "Orders-এর পাশেই Abandoned Checkouts থাকে। প্রতিটি এন্ট্রিতে একটা ফোন নম্বর ও কার্টে থাকা আইটেম থাকে, তাই ফলোআপ করা মানে একটা ফোন কল দূরত্ব, আন্দাজ নয়।",

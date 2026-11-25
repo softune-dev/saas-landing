@@ -16,7 +16,7 @@ function row(en: string, bn: string, free: Cell, starter: Cell, growth: Cell, bu
 }
 
 const unlimited = { en: "Unlimited", bn: "আনলিমিটেড" };
-const full = { en: "Full", bn: "সম্পূর্ণ" };
+const full = { en: "Full, with profit and export", bn: "সম্পূর্ণ, প্রফিট ও এক্সপোর্টসহ" };
 const allCouriers = { en: "Steadfast, Pathao, RedX, eCourier", bn: "Steadfast, Pathao, RedX, eCourier" };
 const every = (en: string, bn: string) => row(en, bn, true, true, true, true);
 const paid = (en: string, bn: string) => row(en, bn, false, true, true, true);
@@ -29,14 +29,23 @@ export const COMPARE_GROUPS: CompareGroup[] = [
       row("Orders a month", "মাসিক অর্ডার", "50", unlimited, unlimited, unlimited),
       row("Media storage", "মিডিয়া স্টোরেজ", "100MB", "500MB", "2GB", "3GB"),
       row("Stores", "স্টোর", "1", "1", "1", "2"),
-      row("Sale events", "সেল ইভেন্ট", "3", "3", "10", "25"),
       every("0% commission on orders", "অর্ডারে 0% কমিশন"),
+    ],
+  },
+  {
+    title: { en: "Your online store", bn: "আপনার অনলাইন স্টোর" },
+    rows: [
+      every("Free web address (yourshop.softunebd.com)", "ফ্রি ওয়েব ঠিকানা (yourshop.softunebd.com)"),
+      every("Theme editor with live desktop and mobile preview", "ডেস্কটপ ও মোবাইল লাইভ প্রিভিউসহ থিম এডিটর"),
+      every("Variants with their own price and stock", "আলাদা দাম ও স্টকসহ ভ্যারিয়েন্ট"),
+      every("Sale events with popups", "পপআপসহ সেল ইভেন্ট"),
+      every("Dashboard in English and Bangla, installable on your phone", "বাংলা ও ইংরেজি ড্যাশবোর্ড, ফোনে ইনস্টল করা যায়"),
     ],
   },
   {
     title: { en: "AI", bn: "AI" },
     rows: [
-      row("AI credits a day", "দিনে AI ক্রেডিট", false, "30", "100", "150"),
+      row("AI requests a day", "দিনে AI রিকোয়েস্ট", false, "30", "100", "150"),
       every("AI store setup and 5 images at sign-up", "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি"),
       paid("AI agent and Write with AI", "AI এজেন্ট ও Write with AI"),
       paid("ChatGPT connector (beta)", "ChatGPT কানেক্টর (বেটা)"),
@@ -58,7 +67,10 @@ export const COMPARE_GROUPS: CompareGroup[] = [
     title: { en: "Selling and customers", bn: "বিক্রি ও কাস্টমার" },
     rows: [
       row("Analytics", "অ্যানালিটিক্স", { en: "Last 7 days", bn: "শেষ 7 দিন" }, full, full, full),
-      paid("Customer records", "কাস্টমার রেকর্ড"),
+      every("Order alerts on your phone", "ফোনে অর্ডার নোটিফিকেশন"),
+      every("Print invoices and delivery slips", "ইনভয়েস ও ডেলিভারি স্লিপ প্রিন্ট"),
+      paid("Customer records and risk score", "কাস্টমার রেকর্ড ও রিস্ক স্কোর"),
+      paid("Abandoned checkouts", "অ্যাবানডন্ড চেকআউট"),
       paid("Store Sale (POS)", "স্টোর সেল (POS)"),
       every("Basic fake order blocking", "বেসিক ফেক অর্ডার ব্লকিং"),
       paid("Fraud controls", "ফ্রড কন্ট্রোল"),

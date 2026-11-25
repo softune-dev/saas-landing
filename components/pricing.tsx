@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { FreePlanCard } from "./free-plan-card";
 import { BILLING_MONTHS, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
-import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
+import { FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 
 // Purpose-made artwork gives each tier a distinct, premium surface while keeping the
 // established sand → orange → ember progression. The image compositions leave their
@@ -54,11 +54,13 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
   const money = (n: number) => n.toLocaleString("en-US");
   const planList = getPlans(locale);
   // Free sits under this grid in its own compact card.
+  const billedEvery = isBn
+    ? { 1: "মাসিক", 3: "3 মাসে", 6: "6 মাসে", 12: "বছরে" }
+    : { 1: "monthly", 3: "every 3 months", 6: "every 6 months", 12: "yearly" };
   const periodName = isBn
     ? { 1: "1 মাস", 3: "3 মাস", 6: "6 মাস", 12: "12 মাস" }
     : { 1: "1 month", 3: "3 months", 6: "6 months", 12: "12 months" };
   const signupHref = isBn ? "/bn/signup" : "/signup";
-  const ctaText = isBn ? FREE_CTA_BN : FREE_CTA;
   const trialNote = isBn ? FREE_NOTE_BN : FREE_NOTE;
 
   const isDark = !mounted || resolvedTheme === "dark";
@@ -215,20 +217,28 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       </span>
                       <span className={`text-[14px] font-semibold ${tile.sub}`}>/mo</span>
                     </div>
-                    <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
-                      {months === 1
-                          ? isBn
-                            ? "প্রতি মাসে বিল হবে"
-                            : "Billed every month"
-                          : isBn
-                            ? `${periodName[months]}ে ৳${money(paidPrice.total)} · ৳${money(paidPrice.saving)} সাশ্রয়`
-                            : `৳${money(paidPrice.total)} for ${periodName[months]} · Save ৳${money(paidPrice.saving)}`}
+                    <p className={`mt-2.5 flex min-h-[38px] flex-wrap content-start items-center gap-x-2 gap-y-1 text-[12.5px] font-semibold ${tile.sub}`}>
+                      {months === 1 ? (
+                        <span>{isBn ? "প্রতি মাসে বিল হবে" : "Billed every month"}</span>
+                      ) : (
+                        <>
+                          <s className="opacity-80">৳{money(periodPrice(plan.key, 1).perMonth)}</s>
+                          <span className="rounded-full bg-white/90 px-2 py-0.5 text-[11px] leading-4 font-bold text-[#2a1306]">
+                            {isBn ? `${paidPrice.percent}% ছাড়` : `Save ${paidPrice.percent}%`}
+                          </span>
+                          <span>
+                            {isBn
+                              ? `${billedEvery[months]} ৳${money(paidPrice.total)} বিল`
+                              : `৳${money(paidPrice.total)} billed ${billedEvery[months]}`}
+                          </span>
+                        </>
+                      )}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-1 flex-col px-3 pt-5 pb-3 sm:px-4">
-                  <p className="min-h-[44px] text-[14px] leading-relaxed text-[var(--color-muted)]">{plan.description}</p>
+                  <p className="min-h-[48px] text-[14px] leading-[23px] text-[var(--color-muted)]">{plan.description}</p>
 
                   <a
                     href={signupHref}
@@ -236,7 +246,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}
                   >
-                    {ctaText}
+                    {isBn ? `${plan.name} নিন` : `Get ${plan.name}`}
                     <img
                       loading="lazy"
                       decoding="async"
@@ -246,23 +256,28 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                     />
                   </a>
 
-                  <ul className="mt-6 flex flex-1 flex-col gap-3.5 border-t border-[var(--color-line)] pt-6">
-                    {plan.features.map((feature) =>
-                      feature.endsWith(":") ? (
-                        // "Everything in Growth, plus:" introduces the list; it isn't a feature itself.
-                        <li key={feature} className="text-[12px] font-bold tracking-wider text-[var(--color-muted)] uppercase">
-                          {feature.replace(/:$/, "")}
-                        </li>
-                      ) : (
+                  <div className="mt-6 flex flex-1 flex-col border-t border-[var(--color-line)] pt-5">
+                    <p className="text-[13.5px] font-bold text-[var(--color-ink)]">
+                      {isBn ? `${plan.includes === "Free" ? "ফ্রি" : plan.includes}-এর সব কিছু, সাথে:` : `Everything in ${plan.includes}, plus:`}
+                    </p>
+                    <ul className="mt-4 flex flex-1 flex-col gap-3">
+                      {plan.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
                           <span className="mt-px flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/14">
                             <Check className="size-3.5 text-[var(--color-brand)]" strokeWidth={3} />
                           </span>
-                          <span className="text-[14px] font-medium text-[var(--color-ink-soft)]">{feature}</span>
+                          <span className="text-[14px] leading-snug font-medium text-[var(--color-ink-soft)]">{feature}</span>
                         </li>
-                      ),
-                    )}
-                  </ul>
+                      ))}
+                    </ul>
+                    <a
+                      href={`${isBn ? "/bn/pricing" : "/pricing"}#compare-plans`}
+                      className="mt-6 inline-flex w-fit items-center gap-1.5 text-[14px] font-bold text-[var(--color-brand)] hover:underline"
+                    >
+                      {isBn ? "সব ফিচার দেখুন" : "See all features"}
+                      <ArrowUpRight className="size-4" strokeWidth={2.6} aria-hidden />
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             );
