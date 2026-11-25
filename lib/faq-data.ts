@@ -20,7 +20,7 @@ export const faqData: FaqItem[] = [
   {
     category: "Billing",
     q: "Is there a free plan?",
-    a: "Yes. SoftuneBD has a Free plan: 10 products, 50 orders a month and 100MB of media storage, with no credit card. It is free as long as you're active: a Free store that is not used for 30 days is deleted, after warning emails. Paid plans add more products, unlimited orders and more features.",
+    a: "Yes. SoftuneBD has a Free plan: 10 products, 50 orders a month and 100MB of media storage, with no credit card. It is free as long as you're active: a Free store that is not used for 30 days is deleted, after warning emails. We keep your account and store setup details, so you can start again. Paid plans add more products, unlimited orders and more features.",
   },
   {
     category: "Billing",
@@ -118,7 +118,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "Billing",
     q: "এখানে কি কোনো ফ্রি প্ল্যান আছে?",
-    a: "হ্যাঁ। SoftuneBD-এ ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট, মাসে 50টি অর্ডার আর 100MB মিডিয়া স্টোরেজ, কোনো ক্রেডিট কার্ড ছাড়া। সক্রিয় থাকলে ফ্রি: 30 দিন ব্যবহার না হলে সতর্কতা ইমেইলের পর ফ্রি স্টোর মুছে ফেলা হয়। পেইড প্ল্যানে আরও প্রোডাক্ট, আনলিমিটেড অর্ডার ও বেশি ফিচার পাবেন।",
+    a: "হ্যাঁ। SoftuneBD-এ ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট, মাসে 50টি অর্ডার আর 100MB মিডিয়া স্টোরেজ, কোনো ক্রেডিট কার্ড ছাড়া। সক্রিয় থাকলে ফ্রি: 30 দিন ব্যবহার না হলে সতর্কতা ইমেইলের পর ফ্রি স্টোর মুছে ফেলা হয়। আপনার অ্যাকাউন্ট ও স্টোর সেটআপের তথ্য রাখা হয়, তাই আবার শুরু করতে পারবেন। পেইড প্ল্যানে আরও প্রোডাক্ট, আনলিমিটেড অর্ডার ও বেশি ফিচার পাবেন।",
   },
   {
     category: "Billing",

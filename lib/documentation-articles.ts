@@ -75,7 +75,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         ],
       },
       { type: "p", content: "When a Free store has used its 50 orders for the month, checkout switches to ordering by WhatsApp. The count starts again at the beginning of the next calendar month." },
-      { type: "callout", content: "Free is for stores that are in use. A Free account with no activity for 30 days is deleted after warning emails (90 days if you have paid for a plan before). Logging in, using the dashboard, editing a product or receiving an order counts as activity." },
+      { type: "callout", content: "Free is for stores that are in use. A Free account with no activity for 30 days is deleted after warning emails (90 days if you have paid for a plan before). Logging in, using the dashboard, editing a product or receiving an order counts as activity. When that happens the store, orders, customer records and uploaded files are removed, and your account and store setup details are kept." },
       { type: "h2", content: "Paying for a paid plan" },
       { type: "p", content: "Choose 1, 3, 6 or 12 months. Longer periods save about 5%, 10% and 20%." },
       {
@@ -1389,7 +1389,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         ],
       },
       { type: "p", content: "মাসের 50টি অর্ডার শেষ হলে চেকআউট WhatsApp অর্ডারে চলে যায়। পরের ক্যালেন্ডার মাসে গণনা নতুন করে শুরু হয়।" },
-      { type: "callout", content: "ফ্রি প্ল্যান সচল স্টোরের জন্য। 30 দিন কোনো কার্যকলাপ না থাকলে সতর্কতা ইমেইলের পর ফ্রি অ্যাকাউন্ট মুছে ফেলা হয় (আগে পেইড প্ল্যান নিয়ে থাকলে 90 দিন)। লগইন, ড্যাশবোর্ড ব্যবহার, প্রোডাক্ট এডিট বা অর্ডার পাওয়া সবই কার্যকলাপ।" },
+      { type: "callout", content: "ফ্রি প্ল্যান সচল স্টোরের জন্য। 30 দিন কোনো কার্যকলাপ না থাকলে সতর্কতা ইমেইলের পর ফ্রি অ্যাকাউন্ট মুছে ফেলা হয় (আগে পেইড প্ল্যান নিয়ে থাকলে 90 দিন)। লগইন, ড্যাশবোর্ড ব্যবহার, প্রোডাক্ট এডিট বা অর্ডার পাওয়া সবই কার্যকলাপ। তখন স্টোর, অর্ডার, কাস্টমার রেকর্ড ও আপলোড করা ফাইল মুছে যায়; আপনার অ্যাকাউন্ট ও স্টোর সেটআপের তথ্য রাখা হয়।" },
       { type: "h2", content: "পেইড প্ল্যানের পেমেন্ট" },
       { type: "p", content: "1, 3, 6 বা 12 মাস বেছে নিন। বেশি মেয়াদে প্রায় 5%, 10% ও 20% সাশ্রয়।" },
       {

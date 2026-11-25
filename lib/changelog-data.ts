@@ -32,7 +32,7 @@ export const changelogData: ChangelogRelease[] = [
       { type: "Feature", content: "Free stores include Cash on Delivery, manual payments, Softune Pay, Steadfast and the store chat assistant." },
       { type: "Feature", content: "After 50 orders in a month, checkout switches to ordering by WhatsApp, so you keep selling." },
       { type: "Improvement", content: "A paid plan that is not renewed moves to Free instead of closing your store. Extra data is kept and locked." },
-      { type: "Improvement", content: "Free is for active stores: after 30 days without activity (90 if you have paid before), the account is deleted following warning emails." },
+      { type: "Improvement", content: "Free is for active stores: after 30 days without activity (90 if you have paid before), the store is deleted following warning emails. Your account and store setup details are kept." },
     ],
   },
   {

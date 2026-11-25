@@ -25,7 +25,7 @@ const termsList = [
   },
   {
     title: "Free Plan & Inactive Accounts",
-    content: "The Free plan costs nothing and has limits, which are shown on the pricing page. When a Free store reaches its monthly order limit, its checkout switches to ordering by WhatsApp until the next month. The Free plan is available while your account stays active: using the dashboard, logging in, editing a product or receiving an order counts as activity. A Free account with no activity for 30 days is deleted together with its store and data. For an account that has paid for a plan before, the period is 90 days. We send warning emails before deleting an account."
+    content: "The Free plan costs nothing and has limits, which are shown on the pricing page. When a Free store reaches its monthly order limit, its checkout switches to ordering by WhatsApp until the next month. The Free plan is available while your account stays active: using the dashboard, logging in, editing a product or receiving an order counts as activity. A Free account with no activity for 30 days is deleted: its store, orders, customer records and uploaded files are removed. For an account that has paid for a plan before, the period is 90 days. We send warning emails before deleting an account. We keep your account details and your store setup, as described in the Privacy Policy."
   },
   {
     title: "When a Paid Plan Ends",
