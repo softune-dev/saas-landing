@@ -29,6 +29,13 @@ function polar(radius: number, angle: number) {
   return { x, y };
 }
 
+/* Shooting stars: where each starts, the way it falls, and how often. Each is
+ * in flight for a short slice of its cycle and unseen the rest of it. */
+const COMETS = [
+  { left: 8, top: 22, angle: 24, length: 78, every: 6.5, after: 0.8 },
+  { left: 236, top: 250, angle: 31, length: 56, every: 10.5, after: 4.2 },
+];
+
 /** Where logo `i` sits, and the swirled arm from it into the middle, once the
  * whole wheel has turned by `turn` radians. */
 function place(i: number, turn: number) {
@@ -85,7 +92,7 @@ export function PaymentsVisual() {
 
   return (
     <Stage light="space" innerRef={ref}>
-      <style>{"@keyframes pay-beam { from { stroke-dashoffset: 26 } to { stroke-dashoffset: -100 } } @keyframes pay-star { 50% { opacity: 0.25 } }"}</style>
+      <style>{"@keyframes pay-beam { from { stroke-dashoffset: 26 } to { stroke-dashoffset: -100 } } @keyframes pay-star { 50% { opacity: 0.25 } } @keyframes pay-comet { 0% { transform: translateX(0); opacity: 0 } 3% { opacity: 1 } 13% { opacity: 1 } 19% { transform: translateX(230px); opacity: 0 } 100% { transform: translateX(230px); opacity: 0 } }"}</style>
 
       {/* Stars: two small groups twinkle, the rest hold still. */}
       <svg className="absolute inset-0 overflow-visible" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
@@ -104,6 +111,27 @@ export function PaymentsVisual() {
           </g>
         ))}
       </svg>
+
+      {/* Comets: only position and fade change, so a phone barely notices. */}
+      {COMETS.map((c) => (
+        <span
+          key={c.every}
+          className="absolute block origin-left"
+          style={{ left: c.left, top: c.top, transform: `rotate(${c.angle}deg)` }}
+        >
+          <span
+            className="relative block h-[1.5px] rounded-full will-change-transform"
+            style={{
+              width: c.length,
+              background: "linear-gradient(90deg, rgba(120,165,255,0), rgba(150,190,255,0.45) 60%, #ffffff)",
+              animation: `pay-comet ${c.every}s linear ${c.after}s infinite both`,
+              animationPlayState: moving ? "running" : "paused",
+            }}
+          >
+            <span className="absolute top-1/2 -right-[1.5px] size-[3.5px] -translate-y-1/2 rounded-full bg-white shadow-[0_0_8px_2px_rgba(150,190,255,0.85)]" />
+          </span>
+        </span>
+      ))}
 
       {/* The sun's light stays close to the middle. */}
       <div
