@@ -47,8 +47,8 @@ const TILES: Tile[] = [
   {
     id: "free",
     Visual: FreeVisual,
-    en: { title: "Start your store for free", points: ["No monthly fee, no card needed", "Cash on Delivery and Softune Pay", "Upgrade only when you grow"] },
-    bn: { title: "বিনামূল্যে স্টোর শুরু করুন", points: ["মাসিক ফি নেই, কার্ড লাগে না", "ক্যাশ অন ডেলিভারি ও Softune Pay", "ব্যবসা বাড়লে তবেই আপগ্রেড"] },
+    en: { title: "Start your store for free", points: ["10 products and 50 orders a month", "0% commission, no card needed", "Free as long as you're active"] },
+    bn: { title: "বিনামূল্যে স্টোর শুরু করুন", points: ["১০টি প্রোডাক্ট, মাসে ৫০টি অর্ডার", "০% কমিশন, কার্ড লাগে না", "সক্রিয় থাকলে ফ্রি"] },
   },
 ];
 
