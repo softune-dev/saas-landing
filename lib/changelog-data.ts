@@ -22,6 +22,78 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "4.0",
+    version: "v4.0.0",
+    date: "Nov 26, 2026",
+    title: "Pay for 3, 6 or 12 months and save",
+    description: "Choose how long you pay for. Longer periods cost less each month.",
+    changes: [
+      { type: "Feature", content: "Pay for 1, 3, 6 or 12 months. Longer periods save about 5%, 10% or 20%." },
+      { type: "Improvement", content: "When you move between paid plans, your unused time is carried over by its value." },
+    ],
+  },
+  {
+    serial: "3.10",
+    version: "v3.10.0",
+    date: "Nov 25, 2026",
+    title: "More room on every paid plan",
+    description: "Higher limits at the same prices.",
+    changes: [
+      { type: "Improvement", content: "Daily AI credits are up: Starter 15 to 30, Growth 80 to 100, Business 120 to 150." },
+      { type: "Improvement", content: "Growth now holds 500 products, up from 200. Business has no product limit." },
+      { type: "Improvement", content: "Starter can now switch themes." },
+    ],
+  },
+  {
+    serial: "3.9",
+    version: "v3.9.0",
+    date: "Nov 21, 2026",
+    title: "A chat assistant for your store",
+    description: "Shoppers get answers about your store at any hour, from details you control.",
+    changes: [
+      { type: "Feature", content: "Chat assistant on your storefront, answering from your store's details. It is on by default; edit or turn it off in Settings, Chat Assistant." },
+      { type: "Feature", content: "See the questions it could not answer and add your own answers, or draft them with AI." },
+      { type: "Improvement", content: "Live previews while you edit SEO, About, Terms, Privacy and FAQs." },
+      { type: "Improvement", content: "Meta tracking sends richer purchase details for better matching, retries failed sends and shows whether tracking is working." },
+      { type: "Improvement", content: "Your storefront shows variant stock and sale prices, and products are now in the sitemap." },
+      { type: "Bug Fix", content: "WhatsApp ordering now uses your store's own number." },
+    ],
+  },
+  {
+    serial: "3.8",
+    version: "v3.8.0",
+    date: "Nov 20, 2026",
+    title: "Tidier orders and records",
+    description: "See what was ordered at a glance, and clear out what you no longer need.",
+    changes: [
+      { type: "Feature", content: "New orders keep each product's photo, shown with the order." },
+      { type: "Feature", content: "Delete orders, customers, abandoned checkouts, inquiries, notifications and Softune Pay payment records." },
+    ],
+  },
+  {
+    serial: "3.7",
+    version: "v3.7.0",
+    date: "Nov 13, 2026",
+    title: "Sign in with Google",
+    description: "One click to log in or create your account.",
+    changes: [
+      { type: "Feature", content: "Log in or sign up with your Google account." },
+    ],
+  },
+  {
+    serial: "3.6",
+    version: "v3.6.0",
+    date: "Nov 12, 2026",
+    title: "Better store search and a fairer delivery charge",
+    description: "Shoppers find products faster and pay delivery once.",
+    changes: [
+      { type: "Improvement", content: "Search shows results while the shopper types." },
+      { type: "Improvement", content: "The first variant is already selected on a product page." },
+      { type: "Improvement", content: "Every theme shows the same order receipt." },
+      { type: "Bug Fix", content: "Delivery is now charged once per order, not once for each item." },
+    ],
+  },
+  {
     serial: "3.5",
     version: "v3.5.0",
     date: "Nov 12, 2026",
