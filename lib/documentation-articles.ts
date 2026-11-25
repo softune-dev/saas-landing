@@ -801,7 +801,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Payments & Courier ────────────────────────────────────────────────────
   "connecting-payment-gateways": article(
     "connecting-payment-gateways",
-    "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Advanced Features).",
+    "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 26 paid Advanced Features).",
     [
       { type: "callout", content: "The official bKash, Nagad and SSLCommerz connections need a paid plan: Starter, Growth or Business. Cash on Delivery, manual payments and Softune Pay are on every plan." },
       {
@@ -1237,7 +1237,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "5. Enable only what solves a current bottleneck",
         ],
       },
-      { type: "h2", content: "The four optional categories (25 Advanced Features)" },
+      { type: "h2", content: "The four optional categories (26 Advanced Features)" },
       {
         type: "list",
         content: [
