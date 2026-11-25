@@ -48,7 +48,7 @@ const TILES: Tile[] = [
     id: "free",
     Visual: FreeVisual,
     en: { title: "Start your store for free", points: ["10 products and 50 orders a month", "0% commission, no card needed", "Free as long as you're active"] },
-    bn: { title: "বিনামূল্যে স্টোর শুরু করুন", points: ["১০টি প্রোডাক্ট, মাসে ৫০টি অর্ডার", "০% কমিশন, কার্ড লাগে না", "সক্রিয় থাকলে ফ্রি"] },
+    bn: { title: "বিনামূল্যে স্টোর শুরু করুন", points: ["10টি প্রোডাক্ট, মাসে 50টি অর্ডার", "0% কমিশন, কার্ড লাগে না", "সক্রিয় থাকলে ফ্রি"] },
   },
 ];
 

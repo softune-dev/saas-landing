@@ -13,48 +13,48 @@ const SCENES = [...ROUND, ...ROUND, ...ROUND];
 
 const PRODUCTS = [
   {
-    photo: "/bento/p/koti.webp",
+    photo: "/bento/p/headphones.webp",
     en: {
-      ask: "Add the gold brocade koti for ৳2,152",
-      name: "Gold Brocade Koti",
-      price: "৳2,152",
-      lines: ["Woven gold brocade,", "antique buttons, and a", "tailored festive fit."],
+      ask: "Add the ANC headphones for ৳7,642",
+      name: "ANC Headphones",
+      price: "৳7,642",
+      lines: ["Active noise cancelling,", "soft ear cushions and", "long battery life."],
     },
     bn: {
-      ask: "২,১৫২ টাকায় গোল্ড ব্রোকেড কোটি যোগ করো",
-      name: "গোল্ড ব্রোকেড কোটি",
-      price: "৳২,১৫২",
-      lines: ["নরম কটনে সোনালি ব্রোকেড,", "অ্যান্টিক বোতাম আর", "উৎসবের ফিট।"],
+      ask: "৳7,642-এ ANC হেডফোন যোগ করো",
+      name: "ANC হেডফোন",
+      price: "৳7,642",
+      lines: ["নয়েজ ক্যান্সেলিং,", "নরম ইয়ার কুশন আর", "লম্বা ব্যাটারি।"],
     },
   },
   {
-    photo: "/bento/p/linen-koti.webp",
+    photo: "/bento/p/perfume.webp",
     en: {
-      ask: "Now the linen koti for ৳1,752",
-      name: "Linen Koti",
-      price: "৳1,752",
-      lines: ["Light, breathable linen,", "a clean cut that layers", "well all year."],
+      ask: "Now the amber perfume for ৳4,242",
+      name: "Noir Amber EDP",
+      price: "৳4,242",
+      lines: ["Warm amber and vanilla,", "a rich evening scent", "in a 100ml bottle."],
     },
     bn: {
-      ask: "এবার ১,৭৫২ টাকায় লিনেন কোটি",
-      name: "লিনেন কোটি",
-      price: "৳১,৭৫২",
-      lines: ["হালকা, আরামদায়ক লিনেন,", "পরিপাটি কাট, সারা বছর", "পরার মতো।"],
+      ask: "এবার ৳4,242-এ অ্যাম্বার পারফিউম",
+      name: "নোয়ার অ্যাম্বার EDP",
+      price: "৳4,242",
+      lines: ["অ্যাম্বার আর ভ্যানিলার", "গাঢ় সন্ধ্যার সুবাস,", "100ml বোতল।"],
     },
   },
   {
-    photo: "/bento/p/fatua.webp",
+    photo: "/bento/p/sneaker.webp",
     en: {
-      ask: "Add the indigo fatua for ৳1,096",
-      name: "Indigo Fatua",
-      price: "৳1,096",
-      lines: ["Soft indigo cotton with", "a hand block print and", "an easy daily fit."],
+      ask: "Add the running shoes for ৳3,392",
+      name: "Aero Runner",
+      price: "৳3,392",
+      lines: ["Breathable knit upper,", "a cushioned sole and", "an easy daily fit."],
     },
     bn: {
-      ask: "১,০৯৬ টাকায় নীল ফতুয়া যোগ করো",
-      name: "নীল ফতুয়া",
-      price: "৳১,০৯৬",
-      lines: ["নরম নীল কটন,", "হাতের ব্লক প্রিন্ট আর", "আরামের ফিট।"],
+      ask: "৳3,392-এ রানিং শু যোগ করো",
+      name: "অ্যারো রানার",
+      price: "৳3,392",
+      lines: ["বাতাস চলাচলের নিট,", "কুশন সোল আর", "আরামের ফিট।"],
     },
   },
 ];
@@ -91,7 +91,7 @@ export function AiVisual({ bn }: { bn: boolean }) {
               key={product.photo}
               src={product.photo}
               alt=""
-              className="absolute inset-0 size-full object-cover object-top"
+              className="absolute inset-0 size-full object-cover"
               initial={{ clipPath: "inset(100% 0% 0% 0%)", scale: 1.15, zIndex: 1 }}
               animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1, zIndex: 1 }}
               // The old photo holds underneath until the new one has covered it.

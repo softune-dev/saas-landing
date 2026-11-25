@@ -10,8 +10,8 @@ const MUTED = "text-[#6d6661] dark:text-white/60";
 const COPY = {
   en: {
     order: "New order",
-    item: "Gold Brocade Koti",
-    price: "৳2,152",
+    item: "Temple Jhumka Earrings",
+    price: "৳1,607",
     api: "Conversions API",
     side: "Sent from the server",
     meta: "Purchase received",
@@ -19,8 +19,8 @@ const COPY = {
   },
   bn: {
     order: "নতুন অর্ডার",
-    item: "গোল্ড ব্রোকেড কোটি",
-    price: "৳২,১৫২",
+    item: "টেম্পল ঝুমকা",
+    price: "৳1,607",
     api: "Conversions API",
     side: "সার্ভার থেকে পাঠানো",
     meta: "পারচেজ পৌঁছেছে",
@@ -64,7 +64,7 @@ export function AdsVisual({ bn }: { bn: boolean }) {
         {/* The sale */}
         <div className={`flex h-[62px] w-[290px] items-center gap-3 rounded-[18px] p-[7px] pr-4 ${SURFACE} ${CARD_SHADOW}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/bento/p/koti.webp" alt="" className="size-12 rounded-[12px] object-cover object-top" />
+          <img src="/bento/p/jhumka.webp" alt="" className="size-12 rounded-[12px] object-cover" />
           <span className="min-w-0 flex-1">
             <span className="block text-[14px] leading-[18px] font-bold tracking-tight">{c.order}</span>
             <span className={`block truncate text-[12px] leading-[17px] ${MUTED}`}>{c.item}</span>

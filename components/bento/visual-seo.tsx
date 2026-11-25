@@ -42,7 +42,7 @@ export function SeoVisual({ bn }: { bn: boolean }) {
       <div className={`absolute inset-x-6 top-6 flex h-12 items-center gap-3 rounded-full bg-white pr-4 pl-4 text-[#171717] ${CARD_SHADOW}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/google.webp" alt="" className="size-5 object-contain" />
-        <span className="flex-1 truncate text-[14.5px] font-medium">{bn ? "ঈদের কোটি অনলাইনে কিনুন" : "buy eid koti online"}</span>
+        <span className="flex-1 truncate text-[14.5px] font-medium">{bn ? "অনলাইনে স্মার্ট ওয়াচ কিনুন" : "buy smart watch online"}</span>
         <Search className="size-[18px] text-[#8b847f]" strokeWidth={2.2} />
       </div>
 
@@ -59,14 +59,14 @@ export function SeoVisual({ bn }: { bn: boolean }) {
           initial={false}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/bento/p/koti.webp" alt="" className="size-[48px] rounded-[12px] object-cover object-top" />
+          <img src="/bento/p/watch.webp" alt="" className="size-[48px] rounded-[12px] object-cover" />
           <span className="min-w-0 flex-1">
             <span className="block truncate text-[12px] text-[#5d5854]">yourshop.com</span>
             <span className="block truncate text-[14.5px] font-bold tracking-tight text-[#1a0dab]">
-              {bn ? "গোল্ড ব্রোকেড কোটি, আপনার শপ" : "Gold Brocade Koti, Your Shop"}
+              {bn ? "AMOLED স্মার্ট ওয়াচ, আপনার শপ" : "AMOLED Smart Watch, Your Shop"}
             </span>
             <span className="block truncate text-[12px] text-[#5d5854]">
-              {bn ? "৳২,১৫২ · স্টকে আছে" : "৳2,152 · In stock"}
+              {bn ? "৳5,517 · স্টকে আছে" : "৳5,517 · In stock"}
             </span>
           </span>
         </motion.div>

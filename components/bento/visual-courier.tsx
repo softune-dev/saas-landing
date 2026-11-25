@@ -161,10 +161,10 @@ export function CourierVisual({ bn }: { bn: boolean }) {
               </AnimatePresence>
             </div>
             <p className="truncate text-[12px] leading-[16px] text-[#6d6661] dark:text-white/60">
-              {bn ? "Steadfast, অর্ডার ১০৪২" : "Steadfast, order 1042"}
+              {bn ? "Steadfast, অর্ডার 1042" : "Steadfast, order 1042"}
             </p>
           </div>
-          <span className="text-[14px] font-extrabold tracking-tight tabular-nums">{bn ? "৳২,১৫২" : "৳2,152"}</span>
+          <span className="text-[14px] font-extrabold tracking-tight tabular-nums">{bn ? "৳2,152" : "৳2,152"}</span>
         </div>
       </div>
     </Stage>
