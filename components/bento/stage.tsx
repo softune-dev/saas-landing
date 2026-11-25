@@ -34,10 +34,12 @@ const LIGHT = {
 export function Stage({
   light,
   innerRef,
+  interactive,
   children,
 }: {
   light: keyof typeof LIGHT;
   innerRef?: RefObject<HTMLDivElement | null>;
+  interactive?: boolean;
   children: ReactNode;
 }) {
   // Every visual is drawn once, on a 396 by 380 board, and the whole board
@@ -56,7 +58,7 @@ export function Stage({
   return (
     <div
       ref={root}
-      aria-hidden
+      aria-hidden={interactive ? undefined : true}
       className="relative isolate overflow-hidden rounded-[22px] bg-[#0c0a0d] text-white select-none"
       style={{ height: BOARD_H * scale }}
     >

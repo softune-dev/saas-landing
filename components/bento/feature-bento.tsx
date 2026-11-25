@@ -1,17 +1,18 @@
 import { Check } from "lucide-react";
 import type { ComponentType } from "react";
 import { AiVisual } from "./visual-ai";
-import { AssistantVisual } from "./visual-assistant";
+import { AdsVisual } from "./visual-ads";
 import { CourierVisual } from "./visual-courier";
 import { PaymentsVisual } from "./visual-payments";
-import { PosVisual } from "./visual-pos";
+import { FreeVisual } from "./visual-free";
 import { SeoVisual } from "./visual-seo";
 
 type Copy = { title: string; points: string[] };
 type Tile = { id: string; Visual: ComponentType<{ bn: boolean }>; en: Copy; bn: Copy };
 
-/* The last tile becomes the Free plan when it launches: until then a new store
-   gets a 7-day trial, so this page must not promise Free. */
+/* The last tile sells the Free plan, so this section must not go live before the
+   Free plan does: until then a new store gets a 7-day trial. The chat assistant
+   tile (visual-assistant.tsx) is parked until we decide what to do with it. */
 const TILES: Tile[] = [
   {
     id: "ai",
@@ -28,8 +29,8 @@ const TILES: Tile[] = [
   {
     id: "seo",
     Visual: SeoVisual,
-    en: { title: "SEO and tracking", points: ["Google-ready titles and sitemap", "Meta Pixel with Conversions API", "TikTok, GA4 and Tag Manager"] },
-    bn: { title: "SEO ও ট্র্যাকিং", points: ["গুগল-রেডি টাইটেল ও সাইটম্যাপ", "Meta Pixel ও Conversions API", "TikTok, GA4 ও Tag Manager"] },
+    en: { title: "Found on Google", points: ["Google-ready titles and sitemap", "Product details Google can read", "Link previews with your own photo"] },
+    bn: { title: "গুগলে খুঁজে পাওয়া যায়", points: ["গুগল-রেডি টাইটেল ও সাইটম্যাপ", "গুগল পড়তে পারে এমন প্রোডাক্ট তথ্য", "নিজের ছবিসহ লিংক প্রিভিউ"] },
   },
   {
     id: "courier",
@@ -38,16 +39,16 @@ const TILES: Tile[] = [
     bn: { title: "কুরিয়ার ইন্টিগ্রেশন", points: ["এক ক্লিকে Steadfast পার্সেল বুক", "Pathao, RedX ও eCourier যুক্ত করুন", "একসাথে অনেক অর্ডার বুক করুন"] },
   },
   {
-    id: "assistant",
-    Visual: AssistantVisual,
-    en: { title: "Live chat assistant", points: ["Answers shoppers day and night", "Replies from your own store details", "Bangla and English"] },
-    bn: { title: "লাইভ চ্যাট অ্যাসিস্ট্যান্ট", points: ["দিন-রাত ক্রেতাদের উত্তর দেয়", "আপনার স্টোরের তথ্য থেকেই উত্তর", "বাংলা ও ইংরেজি"] },
+    id: "ads",
+    Visual: AdsVisual,
+    en: { title: "Ads that learn from real sales", points: ["Meta Pixel and Conversions API", "TikTok Pixel and Tag Manager built in", "Orders reach Meta from the server"] },
+    bn: { title: "আসল বিক্রি থেকে শেখে অ্যাড", points: ["Meta Pixel ও Conversions API", "TikTok Pixel ও Tag Manager বিল্ট-ইন", "অর্ডার সার্ভার থেকেই Meta-তে যায়"] },
   },
   {
-    id: "pos",
-    Visual: PosVisual,
-    en: { title: "Store Sale (POS)", points: ["Sell at the counter from one catalog", "Stock updates by itself", "Print a receipt"] },
-    bn: { title: "স্টোর সেল (POS)", points: ["একই ক্যাটালগ থেকে দোকানে বিক্রি", "স্টক নিজে থেকেই আপডেট হয়", "রসিদ প্রিন্ট করুন"] },
+    id: "free",
+    Visual: FreeVisual,
+    en: { title: "Start your store for free", points: ["No monthly fee, no card needed", "Cash on Delivery and Softune Pay", "Upgrade only when you grow"] },
+    bn: { title: "বিনামূল্যে স্টোর শুরু করুন", points: ["মাসিক ফি নেই, কার্ড লাগে না", "ক্যাশ অন ডেলিভারি ও Softune Pay", "ব্যবসা বাড়লে তবেই আপগ্রেড"] },
   },
 ];
 

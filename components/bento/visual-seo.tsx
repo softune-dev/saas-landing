@@ -2,20 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
-import { SiGoogleanalytics, SiGoogletagmanager, SiMeta, SiTiktok } from "react-icons/si";
+import { SiFacebook, SiGoogleanalytics, SiGooglesearchconsole, SiWhatsapp } from "react-icons/si";
 import { CARD_SHADOW, Stage, useScenes } from "./stage";
 
-// low, climb, climb, then one tracking service after another, hold
-const SCENES = [1400, 900, 1300, 700, 700, 700, 700, 2200] as const;
+// low, climb, climb, then along the dock one app at a time, hold
+const SCENES = [1400, 900, 1300, 650, 650, 650, 650, 650, 2200] as const;
 
-const EVENTS = [
-  { id: "meta", Icon: SiMeta, color: "#0866ff" },
-  { id: "tiktok", Icon: SiTiktok, color: null },
-  { id: "ga", Icon: SiGoogleanalytics, color: "#e37400" },
-  { id: "gtm", Icon: SiGoogletagmanager, color: "#246fdb" },
+/* Search tools, then the places a shared link shows your own picture. */
+const DOCK = [
+  { id: "console", Icon: SiGooglesearchconsole, color: "#458cf5" },
+  { id: "analytics", Icon: SiGoogleanalytics, color: "#e37400" },
+  { id: "facebook", Icon: SiFacebook, color: "#0866ff" },
+  { id: "whatsapp", Icon: SiWhatsapp, color: "#1faf52" },
 ];
 
-const ROW = 68;
+const ROW = 72;
 
 function Other({ widths }: { widths: [string, string, string] }) {
   return (
@@ -27,11 +28,11 @@ function Other({ widths }: { widths: [string, string, string] }) {
   );
 }
 
-/** The store's result climbs, then every tracking service hears the sale. */
+/** The store's result climbs to the top; below, the places it gets seen. */
 export function SeoVisual({ bn }: { bn: boolean }) {
   const { ref, scene } = useScenes(SCENES);
   const place = scene === 0 ? 2 : scene === 1 ? 1 : 0;
-  const heard = scene - 3;
+  const lifted = scene - 3;
   const spring = { type: "spring", stiffness: 120, damping: 19, mass: 0.9 } as const;
   // The other results slide down to make room, in their fixed order.
   const others = [0, 1, 2].filter((slot) => slot !== place);
@@ -45,7 +46,7 @@ export function SeoVisual({ bn }: { bn: boolean }) {
         <Search className="size-[18px] text-[#8b847f]" strokeWidth={2.2} />
       </div>
 
-      <div className="absolute inset-x-6 top-[88px]" style={{ height: ROW * 3 }}>
+      <div className="absolute inset-x-6 top-[90px]" style={{ height: ROW * 3 }}>
         {others.map((slot, i) => (
           <motion.div key={i} className="absolute inset-x-0" animate={{ y: slot * ROW }} transition={spring} initial={false}>
             <Other widths={i === 0 ? ["26%", "68%", "84%"] : ["32%", "54%", "72%"]} />
@@ -71,34 +72,25 @@ export function SeoVisual({ bn }: { bn: boolean }) {
         </motion.div>
       </div>
 
-      {/* Tracking: one shelf, four equal places */}
-      <div className="absolute inset-x-6 bottom-[18px] grid grid-cols-4 gap-2 rounded-[24px] bg-white/[0.08] p-2 ring-1 ring-white/12 ring-inset">
-        {EVENTS.map(({ id, Icon, color }, i) => {
-          const on = heard >= i;
-          return (
+      {/* A small dock: whichever app has its turn rises, like a desktop taskbar. */}
+      <div className="absolute inset-x-0 bottom-[18px] flex justify-center">
+        <div className="flex items-end gap-1.5 rounded-[18px] bg-white/[0.1] p-1.5 ring-1 ring-white/15 ring-inset">
+          {[null, ...DOCK].map((app, i) => (
             <motion.span
-              key={id}
-              className={`relative flex h-[56px] items-center justify-center rounded-[17px] ring-1 ring-inset transition-colors duration-300 ${
-                on ? "bg-white ring-transparent dark:bg-[#1d1a1c] dark:ring-white/15" : "bg-white/[0.06] ring-white/[0.06]"
-              }`}
-              animate={{ y: on ? [0, -6, 0] : 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              key={app?.id ?? "google"}
+              className="flex size-[38px] origin-bottom items-center justify-center rounded-[12px] bg-white ring-1 ring-transparent ring-inset dark:bg-[#1d1a1c] dark:ring-white/15"
+              animate={{ y: lifted === i ? -7 : 0, scale: lifted === i ? 1.18 : 1 }}
+              transition={{ type: "spring", stiffness: 320, damping: 20 }}
             >
-              <Icon
-                className={`size-[26px] transition-colors duration-300 ${on ? (color ? "" : "text-black dark:text-white") : "text-white/45"}`}
-                style={on && color ? { color } : undefined}
-              />
-              {on ? (
-                <motion.span
-                  className="absolute inset-0 rounded-[17px] border-2 border-white"
-                  initial={{ opacity: 0.55, scale: 1 }}
-                  animate={{ opacity: 0, scale: 1.28 }}
-                  transition={{ duration: 0.9, ease: "easeOut" }}
-                />
-              ) : null}
+              {app ? (
+                <app.Icon className="size-[19px]" style={{ color: app.color }} />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src="/icons/google.webp" alt="" className="size-[19px] object-contain" />
+              )}
             </motion.span>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </Stage>
   );
