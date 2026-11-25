@@ -807,7 +807,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Menu → Payments is where SoftuneBD connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Advanced Features page - core infrastructure, not one of the 25 optional marketplace Advanced Features.",
+          "Menu → Payments is where SoftuneBD connects the ways customers pay. You can enable Cash on Delivery, manual wallet payments (bKash and Nagad: the shopper pays your number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant accounts. Payments (with Courier) shows as Included by Default on the Advanced Features page - core infrastructure, not one of the 26 optional marketplace Advanced Features.",
       },
       { type: "h2", content: "Enable a payment method" },
       {
@@ -934,7 +934,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "p",
         content:
-          "Menu → Couriers lists SoftuneBD’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Advanced Features page - not one of the 25 optional Advanced Features.",
+          "Menu → Couriers lists SoftuneBD’s Bangladesh courier partners on one screen. You can connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo appear on the same roster. Like Payments, Courier is Included by Default on the Advanced Features page - not one of the 26 optional Advanced Features.",
       },
       { type: "h2", content: "Connect a partner" },
       {
@@ -1219,12 +1219,12 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
   // ── Advanced Features ───────────────────────────────────────────────────────────────
   "browsing-addons-marketplace": article(
     "browsing-addons-marketplace",
-    "Browse SoftuneBD’s Advanced Features page - 25 optional Advanced Features in four categories, plus Payments & Courier marked Included by Default.",
+    "Browse SoftuneBD’s Advanced Features page - 26 optional Advanced Features in four categories, plus Payments & Courier marked Included by Default.",
     [
       {
         type: "p",
         content:
-          "Menu → Advanced Features is SoftuneBD’s native marketplace. SoftuneBD lists 25 optional Advanced Features across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, SoftuneBD shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
+          "Menu → Advanced Features is SoftuneBD’s native marketplace. SoftuneBD lists 26 optional Advanced Features across Customer Engagement, Marketing & Sales, AI Automation, and Operations & Insights. On the same page, SoftuneBD shows Payments and Courier as Included by Default because they are core - not part of the paid optional catalog.",
       },
       { type: "h2", content: "How to browse" },
       {
@@ -1356,7 +1356,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       {
         type: "callout",
         content:
-          "Payments and Courier remain Included by Default on this page. SoftuneBD’s 25 optional Advanced Features never replace those core Menu items.",
+          "Payments and Courier remain Included by Default on this page. SoftuneBD’s 26 optional Advanced Features never replace those core Menu items.",
       },
     ],
   ),
