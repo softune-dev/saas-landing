@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Why } from "@/components/why";
 import { LiveStores } from "@/components/live-stores";
-import { PlatformFeatures } from "@/components/platform-features";
+import { FeatureBento } from "@/components/bento/feature-bento";
 import { AddonsShowcase } from "@/components/addons-showcase";
 import { AppsShowcase } from "@/components/apps-showcase";
 import { Pricing } from "@/components/pricing";
@@ -22,7 +22,7 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
         {/* <Themes locale={locale} /> */}
         <LiveStores locale={locale} />
         <AppsShowcase locale={locale} />
-        <PlatformFeatures locale={locale} />
+        <FeatureBento locale={locale} />
         <AddonsShowcase locale={locale} />
         <Pricing locale={locale} homepage />
         <Comparison locale={locale} />
