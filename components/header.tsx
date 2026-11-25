@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import { GeoBanner } from "./geo-banner";
-import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
+import { FREE_CTA, FREE_CTA_BN } from "@/lib/site";
 
 type SubmenuItem = {
   label: string;
@@ -160,7 +160,7 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
   const links = isBn ? linksBn : linksEn;
   const signupHref = isBn ? "/bn/signup" : "/signup";
   const homeHref = isBn ? "/bn" : "/";
-  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
+  const ctaText = isBn ? FREE_CTA_BN : FREE_CTA;
 
   return (
     <>

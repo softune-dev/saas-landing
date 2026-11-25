@@ -314,13 +314,13 @@ export default function AboutPage({ locale = "en" }: { locale?: "en" | "bn" }) {
               </h3>
               <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium mb-8">
                 {isBn
-                  ? "POS লিন্ক, সিকিউর পেমেন্ট, স্মার্ট এনালিটিক্স এবং লোকাল কুরিয়ার ইন্টিগ্রেশন সমৃদ্ধ SoftuneBD ট্রায়াল ব্যবহার করুন।"
+                  ? "POS লিন্ক, সিকিউর পেমেন্ট, স্মার্ট এনালিটিক্স এবং লোকাল কুরিয়ার ইন্টিগ্রেশন সমৃদ্ধ SoftuneBD ব্যবহার করে দেখুন।"
                   : "Experience an integrated system with POS logs, secure payment pathways, smart analytics, and courier integrations configured for conversion."}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="primary" as="a" href={signupHref} className="px-8 py-3.5 font-bold gap-2">
-                  {isBn ? "ফ্রি ট্রায়াল" : "Start Free"}
+                  {isBn ? "ফ্রিতে শুরু করুন" : "Start Free"}
                   <img src="/icons/arrow-right.svg" alt="" className="size-4 object-contain brightness-0 invert" />
                 </Button>
                 <Button variant="secondary" as="a" href={contactHref} className="px-8 py-3.5 font-bold">

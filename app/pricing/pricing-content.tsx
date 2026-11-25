@@ -82,8 +82,8 @@ export default function PricingPage({ locale = "en" }: { locale?: "en" | "bn" })
               className="relative z-10 mx-auto max-w-2xl text-[16px] leading-relaxed font-medium text-white/60 md:text-lg"
             >
               {locale === "bn"
-                ? "৭ দিন ফ্রি ট্রায়াল দিয়ে শুরু করুন। কোনো ক্রেডিট কার্ড নেই, কোনো সেটআপ ফি নেই, আর প্রতি অর্ডারে কোনো কমিশন নেই।"
-                : "Start with a 7-day free trial. No credit card, no setup fee, and no commission on your orders."}
+                ? "ফ্রি প্ল্যানে শুরু করুন। কোনো ক্রেডিট কার্ড নেই, কোনো সেটআপ ফি নেই, আর প্রতি অর্ডারে কোনো কমিশন নেই।"
+                : "Start on the Free plan. No credit card, no setup fee, and no commission on your orders."}
             </motion.p>
 
             <motion.div

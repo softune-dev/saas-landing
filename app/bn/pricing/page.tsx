@@ -6,7 +6,7 @@ import PricingPage from "@/app/pricing/pricing-content";
 export const metadata = pageSeo({
   title: "SoftuneBD প্রাইসিং প্ল্যান - টাকায় পেমেন্ট",
   description:
-    "SoftuneBD-এ কোনো ক্রেডিট কার্ড ছাড়াই ৭ দিনের ফ্রি ট্রায়াল শুরু করুন। এরপর টাকাতেই বেছে নিন Starter, Growth বা Business প্ল্যান - কোনো হিডেন চার্জ বা পার-অর্ডার ফি নেই।",
+    "SoftuneBD-এ ফ্রি প্ল্যান আছে, এরপর টাকাতেই 1, 3, 6 বা 12 মাসের জন্য বেছে নিন Starter, Growth বা Business - কোনো হিডেন চার্জ বা পার-অর্ডার ফি নেই।",
   path: "/bn/pricing",
   lang: "bn",
 });

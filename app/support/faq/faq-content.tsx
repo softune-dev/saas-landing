@@ -21,7 +21,7 @@ export default function FAQPage({ locale = "en" }: { locale?: "en" | "bn" }) {
   const categoryLabels: Record<string, string> = {
     All: isBn ? "সকল প্রশ্ন" : "All",
     General: isBn ? "সাধারণ" : "General",
-    Billing: isBn ? "বিলিং ও ট্রায়াল" : "Billing",
+    Billing: isBn ? "বিলিং ও প্ল্যান" : "Billing",
     Themes: isBn ? "থিম ও ডিজাইন" : "Themes",
     Integrations: isBn ? "পেমেন্ট ও কুরিয়ার" : "Integrations",
     Security: isBn ? "সিকিউরিটি" : "Security",

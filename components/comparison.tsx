@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { TRIAL_CTA_BN } from "@/lib/site";
+import { FREE_CTA_BN } from "@/lib/site";
 
 type Row = {
   softune: string;
@@ -213,7 +213,7 @@ export function Comparison({ locale = "en" }: { locale?: "en" | "bn" }) {
                 variant="primary"
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg py-3.5 text-[14px] font-bold"
               >
-                {isBn ? TRIAL_CTA_BN : "Start Free"}
+                {isBn ? FREE_CTA_BN : "Start Free"}
                 <img
                   loading="lazy"
                   decoding="async"

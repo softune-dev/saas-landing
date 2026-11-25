@@ -201,9 +201,9 @@ export function ThemeStep(props: ThemeStepProps) {
             {isBn ? "আপনার স্টোর খোলা হচ্ছে..." : "Opening your store..."}
           </>
         ) : isBn ? (
-          "৭ দিনের ট্রায়াল শুরু করুন"
+          "ফ্রি স্টোর তৈরি করুন"
         ) : (
-          "Start 7-day trial"
+          "Create my free store"
         )}
       </button>
     </form>

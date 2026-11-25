@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
+import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
 import dynamic from "next/dynamic";
 import { HERO_IDEA_KEY } from "@/lib/trial";
@@ -193,7 +193,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
             >
               {isBn ? "নতুন" : "New"}
             </motion.span>
-            <span className="truncate">{isBn ? "AI এজেন্ট ও ChatGPT কানেক্টর" : "AI agent and ChatGPT connector"}</span>
+            <span className="truncate">{isBn ? "ফ্রি প্ল্যান: ৳0-তে আপনার স্টোর" : "Free plan: open your store at ৳0"}</span>
             <MaskIcon src="/icons/arrow-right.svg" className="size-3.5 text-white/60 transition-transform group-hover:translate-x-0.5" />
           </Link>
 
@@ -317,7 +317,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-6">
             <a href={signupHref} className="flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-[14px] font-semibold text-[#09080b] transition-opacity hover:opacity-90">
-              {isBn ? TRIAL_CTA_BN : TRIAL_CTA}
+              {isBn ? FREE_CTA_BN : FREE_CTA}
               <MaskIcon src="/icons/arrow-right.svg" className="size-3.5" />
             </a>
             <a href={isBn ? "/bn/demo" : "/demo"} className="flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-6 text-[14px] font-semibold text-white transition-colors hover:border-white/35">
@@ -325,7 +325,7 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
               {isBn ? "লাইভ ডেমো দেখুন" : "See Demo"}
             </a>
           </div>
-          <p className="mt-5 text-[12px] text-white/45 sm:mt-8">{isBn ? TRIAL_NOTE_BN : TRIAL_NOTE}</p>
+          <p className="mt-5 text-[12px] text-white/45 sm:mt-8">{isBn ? FREE_NOTE_BN : FREE_NOTE}</p>
         </div>
 
         {/* The product, floating in perspective and cut off by the panel's edge. */}

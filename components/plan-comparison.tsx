@@ -2,7 +2,6 @@ import { Check, Minus } from "lucide-react";
 import { Fragment } from "react";
 import { BILLING_MONTHS, getPlans, periodPrice, type BillingMonths, type PaidPlanKey, type PlanKey } from "@/lib/pricing-data";
 import { COMPARE_GROUPS, type Cell } from "@/lib/plan-compare-data";
-import { FREE_PLAN_LIVE } from "@/lib/site";
 
 const COPY = {
   en: {
@@ -38,9 +37,7 @@ const DIGITS = { fontFamily: "var(--font-heading), sans-serif" };
 
 /* Each row is a grid. On a phone the label takes a line of its own above the
  * plan values; from md up it becomes the first column. */
-const GRID = FREE_PLAN_LIVE
-  ? "grid grid-cols-4 md:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))]"
-  : "grid grid-cols-3 md:grid-cols-[minmax(0,1.5fr)_repeat(3,minmax(0,1fr))]";
+const GRID = "grid grid-cols-4 md:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))]";
 const LABEL = "col-span-full px-4 pt-3 text-[13px] font-semibold text-[var(--color-ink)] md:col-span-1 md:px-6 md:py-3.5 md:text-[14.5px]";
 const VALUE = "flex flex-col items-center justify-center px-1.5 py-3 text-center md:px-3 md:py-3.5";
 const FEATURED = "bg-[var(--color-brand)]/[0.06]";
@@ -49,7 +46,7 @@ export function PlanComparison({ locale = "en" }: { locale?: "en" | "bn" }) {
   const c = COPY[locale];
   const paid = getPlans(locale);
   const columns: { key: PlanKey; name: string; popular?: boolean }[] = [
-    ...(FREE_PLAN_LIVE ? [{ key: "free" as const, name: "Free" }] : []),
+    { key: "free", name: "Free" },
     ...paid.map((p) => ({ key: p.key, name: p.name, popular: p.popular })),
   ];
   const tint = (popular?: boolean) => (popular ? FEATURED : "");
@@ -83,7 +80,7 @@ export function PlanComparison({ locale = "en" }: { locale?: "en" | "bn" }) {
       <>
         <span className="text-[15px] leading-tight font-bold tracking-tight text-[var(--color-ink)] tabular-nums md:text-[19px]" style={DIGITS}>
           {money(p.perMonth)}
-          <span className={`text-[10.5px] font-semibold text-[var(--color-muted)] md:text-[12px] ${columns.length === 4 ? "block md:inline" : ""}`}>{c.perMonth}</span>
+          <span className={`text-[10.5px] font-semibold text-[var(--color-muted)] md:text-[12px] block md:inline`}>{c.perMonth}</span>
         </span>
         {months > 1 ? (
           <>

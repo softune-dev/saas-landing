@@ -2,9 +2,9 @@ import { AgentOnboarding } from "@/components/auth/agent/agent-onboarding";
 import { pageSeo } from "@/lib/seo";
 
 export const metadata = pageSeo({
-  title: "ফ্রি ট্রায়াল শুরু করুন | কোনো কার্ড লাগবে না",
+  title: "ফ্রিতে শুরু করুন | কোনো কার্ড লাগবে না",
   description:
-    "SoftuneBD-এ শুরু করুন ৭ দিনের ফ্রি ট্রায়াল - কোনো ক্রেডিট কার্ড লাগবে না। একাউন্ট তৈরি করুন, থিম বেছে নিন এবং COD, bKash ও Nagad সহ অনলাইন স্টোর লাইভ করুন।",
+    "SoftuneBD-এ ফ্রি স্টোর খুলুন - কোনো ক্রেডিট কার্ড লাগবে না। একাউন্ট তৈরি করুন, থিম বেছে নিন এবং COD ও ম্যানুয়াল bKash, Nagad সহ অনলাইন স্টোর লাইভ করুন।",
   path: "/bn/signup",
   lang: "bn",
 });

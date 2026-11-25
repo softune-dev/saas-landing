@@ -42,8 +42,8 @@ export const INDUSTRY_PAGES: Record<
         a: "Yes - SoftuneBD's product editor supports variants (size, color, or both) with separate stock and pricing per combination.",
       },
       {
-        q: "Is there a free trial?",
-        a: "Yes - a 7-day free trial with full access. No credit card required.",
+        q: "Is there a free plan?",
+        a: "Yes. SoftuneBD has a Free plan with 10 products and 50 orders a month. No credit card required, and it is free as long as you're active.",
       },
     ],
     ctaText: "Start Your Fashion Store",
@@ -81,8 +81,8 @@ export const INDUSTRY_PAGES: Record<
         a: "Yes - COD is supported natively, alongside bKash, Nagad, and SSLCommerz, so you're not limited to one payment method.",
       },
       {
-        q: "Is there a free trial?",
-        a: "Yes - a 7-day free trial with full access. No credit card required.",
+        q: "Is there a free plan?",
+        a: "Yes. SoftuneBD has a Free plan with 10 products and 50 orders a month. No credit card required, and it is free as long as you're active.",
       },
     ],
     ctaText: "Start Your Beauty Store",
@@ -120,8 +120,8 @@ export const INDUSTRY_PAGES: Record<
         a: "Yes - SoftuneBD supports categories and subcategories, so a grocery catalog can be browsed the way customers expect.",
       },
       {
-        q: "Is there a free trial?",
-        a: "Yes - a 7-day free trial with full access. No credit card required.",
+        q: "Is there a free plan?",
+        a: "Yes. SoftuneBD has a Free plan with 10 products and 50 orders a month. No credit card required, and it is free as long as you're active.",
       },
     ],
     ctaText: "Start Your Grocery Store",

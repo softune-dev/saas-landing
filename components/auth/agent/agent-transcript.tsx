@@ -159,8 +159,8 @@ export function Transcript(p: Props) {
       case "account":
         return {
           tools: [{ label: L("Saving your answers", "উত্তরগুলো রাখছি"), detail: `${slug}.softunebd.com` }],
-          text: L(`**${draft.name}** is ready to build. Create your account to keep it. Your 7-day trial needs no card.`,
-            `**${draft.name}** বানানোর জন্য প্রস্তুত। রাখতে একাউন্ট তৈরি করুন। ৭ দিনের ট্রায়ালে কার্ড লাগবে না।`),
+          text: L(`**${draft.name}** is ready to build. Create your account to keep it. The Free plan needs no card.`,
+            `**${draft.name}** বানানোর জন্য প্রস্তুত। রাখতে একাউন্ট তৈরি করুন। ফ্রি প্ল্যানে কার্ড লাগবে না।`),
           widget: live ? (
             <>
               <AccountCard locale={locale} {...p.account} />

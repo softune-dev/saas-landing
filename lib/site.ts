@@ -24,7 +24,7 @@ export const SITE_NAME = "SoftuneBD";
 export const DEFAULT_TITLE = `${SITE_NAME} | Ecommerce Website Builder for Bangladesh`;
 
 export const SITE_DESCRIPTION =
-  "Start a free 7-day SoftuneBD trial - no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
+  "Start free with SoftuneBD, no credit card. Ecommerce SaaS for Bangladesh: themes, COD, bKash, Nagad, SSLCommerz, couriers, POS, and AI in one dashboard.";
 
 /** Same sentence in FAQ JSON-LD, SoftwareApplication schema, About, and
  *  the Theme Editor page — crawlers and answer engines cite one claim,
@@ -35,16 +35,13 @@ export const BRANDING_CLAIM =
 export const BRANDING_CLAIM_BN =
   "SoftuneBD আপনার ব্র্যান্ডের স্বতন্ত্র পরিচয়কে প্রাধান্য দেয়, যাতে আপনার অনলাইন স্টোরটি অনন্য রূপ পায়।";
 
-/** Launch switch for the Free plan: turn on only when the backend's
- * FREE_PLAN_ENABLED is on. Until then new stores get the trial. */
-export const FREE_PLAN_LIVE: boolean = false;
-
-/** Self-serve trial length — matches app/config.py's trial_days. */
-export const TRIAL_DAYS = 7;
-export const TRIAL_CTA = "Start Free";
-export const TRIAL_CTA_BN = "ফ্রি ট্রায়াল";
-export const TRIAL_NOTE = "7-day free trial · No credit card required";
-export const TRIAL_NOTE_BN = "৭ দিনের ফ্রি ট্রায়াল · কোনো ক্রেডিট কার্ড লাগবে না";
+/** The sign-up button and the line under it. The Free plan's limits live in
+ * lib/pricing-data.ts. Say "free as long as you're active", never "free
+ * forever": unused Free stores are deleted. */
+export const FREE_CTA = "Start Free";
+export const FREE_CTA_BN = "ফ্রিতে শুরু করুন";
+export const FREE_NOTE = "Free plan · No credit card required";
+export const FREE_NOTE_BN = "ফ্রি প্ল্যান · কোনো ক্রেডিট কার্ড লাগবে না";
 
 /** Number of stores created and published on the platform. Taken from the
  * database (140 published sites on 17 Oct 2026), so update it from a real
@@ -55,7 +52,7 @@ export const STORES_LAUNCHED_NOTE_BN = "১৪০+ স্টোর SoftuneBD-ত
 /** Default social card (1200×630) at public/og-image.png. */
 export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT =
-  "SoftuneBD | free 7-day trial ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
+  "SoftuneBD | free to start ecommerce website builder for Bangladesh with bKash, Nagad, SSLCommerz, and COD";
 
 /** Open Graph locale: English content, Bangladesh market. */
 export const OG_LOCALE = "en_BD";

@@ -37,8 +37,8 @@ function pricingText(l: Locale): string {
   const list = l === "bn" ? plansBn : plans;
   const lines = list.map((pl) => `• ${pl.name}: ${taka(pl.priceMonthly)}/${l === "bn" ? "মাস" : "month"} (${taka(pl.priceAnnually)}/${l === "bn" ? "মাস, বাৎসরিক; 3 ও 6 মাসেও ছাড় আছে" : "month billed yearly; 3 and 6 month discounts too"})`);
   return l === "bn"
-    ? `তিনটি প্ল্যান:\n${lines.join("\n")}\n\nপ্রোডাক্ট: Starter ৫০, Growth ৫০০, Business আনলিমিটেড। সব প্ল্যানে ৭ দিনের ফ্রি ট্রায়াল, কোনো কার্ড লাগবে না, ট্রানজেকশন ফি ০%।`
-    : `Three plans:\n${lines.join("\n")}\n\nProducts: Starter 50, Growth 500, Business unlimited. Every plan starts with a 7-day free trial, no card needed, and 0% transaction fee.`;
+    ? `ফ্রি প্ল্যান (৳0): 10টি প্রোডাক্ট, মাসে 50টি অর্ডার, সক্রিয় থাকলে ফ্রি।\n\nপেইড প্ল্যান:\n${lines.join("\n")}\n\nপ্রোডাক্ট: Starter 50, Growth 500, Business আনলিমিটেড। কোনো কার্ড লাগবে না, অর্ডারে কমিশন 0%।`
+    : `Free plan (৳0): 10 products and 50 orders a month, free as long as you're active.\n\nPaid plans:\n${lines.join("\n")}\n\nProducts: Starter 50, Growth 500, Business unlimited. No card needed to start, and 0% commission on orders.`;
 }
 
 const TOPICS: Topic[] = [
@@ -82,7 +82,7 @@ const TOPICS: Topic[] = [
       text: pricingText(l),
       source: l === "bn" ? "প্রাইসিং পেজ" : "Pricing page",
       actions: [{ label: l === "bn" ? "সব প্ল্যান দেখুন" : "Compare plans", href: `${p(l)}/pricing` }],
-      followUps: l === "bn" ? ["ফ্রি ট্রায়াল আছে?", "কোন পেমেন্ট নেওয়া যায়?"] : ["Is there a free trial?", "Which payments can I take?"],
+      followUps: l === "bn" ? ["ফ্রি প্ল্যান আছে?", "কোন পেমেন্ট নেওয়া যায়?"] : ["Is there a free plan?", "Which payments can I take?"],
     }),
   },
   {
@@ -102,10 +102,10 @@ const TOPICS: Topic[] = [
     keys: ["trial", "free", "start", "sign up", "signup", "register", "try", "ট্রায়াল", "ফ্রি", "শুরু", "সাইন আপ", "রেজিস্টার"],
     answer: (l) => ({
       text: l === "bn"
-        ? "হ্যাঁ, ৭ দিনের ফ্রি ট্রায়াল, পুরো ড্যাশবোর্ড ব্যবহার করতে পারবেন। কোনো ক্রেডিট কার্ড লাগবে না, শুধু ইমেইল দিয়ে সাইন আপ।"
-        : "Yes: a 7-day free trial with the full dashboard. No credit card, just sign up with your email.",
+        ? "হ্যাঁ, ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট আর মাসে 50টি অর্ডার। কোনো ক্রেডিট কার্ড লাগবে না। সক্রিয় থাকলে ফ্রি।"
+        : "Yes, there is a Free plan: 10 products and 50 orders a month. No credit card. It stays free as long as you're active.",
       source: l === "bn" ? "FAQ · বিলিং" : "FAQ · Billing",
-      actions: [{ label: l === "bn" ? "ফ্রি ট্রায়াল শুরু করুন" : "Start free trial", href: `${p(l)}/signup` }],
+      actions: [{ label: l === "bn" ? "ফ্রি স্টোর খুলুন" : "Open a free store", href: `${p(l)}/signup` }],
       followUps: l === "bn" ? ["দাম কত?", "কোডিং জানা লাগবে?"] : ["How much does it cost?", "Do I need coding skills?"],
     }),
   },
@@ -196,6 +196,6 @@ function related(item: FaqItem, faq: FaqItem[]): string[] {
 }
 
 export const STARTERS: Record<Locale, string[]> = {
-  en: ["How much does it cost?", "Is there a free trial?", "Which payments can I take?", "Can I see a demo store?"],
-  bn: ["দাম কত?", "ফ্রি ট্রায়াল আছে?", "কোন পেমেন্ট নেওয়া যায়?", "ডেমো স্টোর দেখা যাবে?"],
+  en: ["How much does it cost?", "Is there a free plan?", "Which payments can I take?", "Can I see a demo store?"],
+  bn: ["দাম কত?", "ফ্রি প্ল্যান আছে?", "কোন পেমেন্ট নেওয়া যায়?", "ডেমো স্টোর দেখা যাবে?"],
 };

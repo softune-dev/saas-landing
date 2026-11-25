@@ -19,13 +19,13 @@ export const faqData: FaqItem[] = [
   },
   {
     category: "Billing",
-    q: "Is there a free trial?",
-    a: "Yes. SoftuneBD includes a 7-day free trial with full dashboard access. No credit card is required to start. After the trial you choose Starter, Growth, or Business on the pricing page.",
+    q: "Is there a free plan?",
+    a: "Yes. SoftuneBD has a Free plan: 10 products, 50 orders a month and 100MB of media storage, with no credit card. It is free as long as you're active: a Free store that is not used for 30 days is deleted, after warning emails. Paid plans add more products, unlimited orders and more features.",
   },
   {
     category: "Billing",
     q: "Do I need a credit card to start SoftuneBD?",
-    a: "No. Sign up with an email and password. SoftuneBD does not ask for a card to start the 7-day free trial.",
+    a: "No. Sign up with your email. SoftuneBD does not ask for a card to start on the Free plan.",
   },
   {
     category: "General",
@@ -102,13 +102,13 @@ export const faqDataBn: FaqItem[] = [
   },
   {
     category: "Billing",
-    q: "এখানে কী কোনো ফ্রি ট্রায়াল আছে?",
-    a: "হ্যাঁ। SoftuneBD-এ রয়েছে ৭ দিনের ফ্রি ট্রায়াল উইথ ফুল ড্যাশবোর্ড অ্যাক্সেস। ট্রায়াল শুরু করতে কোনো ক্রেডিট কার্ড লাগে না। ট্রায়াল শেষে আপনি প্রয়োজনমতো Starter, Growth বা Business প্ল্যান বেছে নিতে পারবেন।",
+    q: "এখানে কি কোনো ফ্রি প্ল্যান আছে?",
+    a: "হ্যাঁ। SoftuneBD-এ ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট, মাসে 50টি অর্ডার আর 100MB মিডিয়া স্টোরেজ, কোনো ক্রেডিট কার্ড ছাড়া। সক্রিয় থাকলে ফ্রি: 30 দিন ব্যবহার না হলে সতর্কতা ইমেইলের পর ফ্রি স্টোর মুছে ফেলা হয়। পেইড প্ল্যানে আরও প্রোডাক্ট, আনলিমিটেড অর্ডার ও বেশি ফিচার পাবেন।",
   },
   {
     category: "Billing",
-    q: "ট্রায়াল শুরু করতে কি ক্রেডিট কার্ড লাগবে?",
-    a: "না। শুধু ইমেইল ও পাসওয়ার্ড দিয়ে সাইন আপ করুন। SoftuneBD ট্রায়ালের জন্য কোনো ক্রেডিট কার্ড চায় না।",
+    q: "ফ্রি প্ল্যান শুরু করতে কি ক্রেডিট কার্ড লাগবে?",
+    a: "না। শুধু ইমেইল দিয়ে সাইন আপ করুন। ফ্রি প্ল্যানে SoftuneBD কোনো ক্রেডিট কার্ড চায় না।",
   },
   {
     category: "General",

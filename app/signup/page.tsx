@@ -2,9 +2,9 @@ import { AgentOnboarding } from "@/components/auth/agent/agent-onboarding";
 import { pageSeo } from "@/lib/seo";
 
 export const metadata = pageSeo({
-  title: "Start Free Trial | No Credit Card",
+  title: "Start Free | No Credit Card",
   description:
-    "Start a free 7-day SoftuneBD trial with no credit card. Create your account, pick a theme, and open a live Bangladesh ecommerce store with COD, bKash, and Nagad.",
+    "Open a free SoftuneBD store with no credit card. Create your account, pick a theme, and go live in Bangladesh with COD and manual bKash and Nagad.",
   path: "/signup",
 });
 

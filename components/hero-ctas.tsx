@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { TRIAL_CTA, TRIAL_CTA_BN } from "@/lib/site";
+import { FREE_CTA, FREE_CTA_BN } from "@/lib/site";
 
 /** Shared Start Free + See Demo pair — homepage hero and feature pages. */
 export function HeroCtas({
@@ -16,7 +16,7 @@ export function HeroCtas({
 }) {
   const isBn = locale === "bn";
   const signupHref = isBn ? "/bn/signup" : "/signup";
-  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
+  const ctaText = isBn ? FREE_CTA_BN : FREE_CTA;
   const demoText = isBn ? "লাইভ ডেমো দেখুন" : "See Demo";
 
   return (

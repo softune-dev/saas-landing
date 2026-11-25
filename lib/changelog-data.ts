@@ -22,6 +22,20 @@ export type ChangelogRelease = {
 
 export const changelogData: ChangelogRelease[] = [
   {
+    serial: "5.0",
+    version: "v5.0.0",
+    date: "Nov 26, 2026",
+    title: "The Free plan is here",
+    description: "Open a store at no cost, with no credit card. It replaces the 7-day trial.",
+    changes: [
+      { type: "Feature", content: "Free plan: 10 products, 50 orders a month and 100MB media storage, with 0% commission." },
+      { type: "Feature", content: "Free stores include Cash on Delivery, manual payments, Softune Pay, Steadfast and the store chat assistant." },
+      { type: "Feature", content: "After 50 orders in a month, checkout switches to ordering by WhatsApp, so you keep selling." },
+      { type: "Improvement", content: "A paid plan that is not renewed moves to Free instead of closing your store. Extra data is kept and locked." },
+      { type: "Improvement", content: "Free is for active stores: after 30 days without activity (90 if you have paid before), the account is deleted following warning emails." },
+    ],
+  },
+  {
     serial: "4.0",
     version: "v4.0.0",
     date: "Nov 26, 2026",

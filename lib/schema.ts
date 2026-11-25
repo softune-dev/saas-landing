@@ -16,7 +16,6 @@ import {
   SITE_URL,
   SUPPORT_EMAIL,
   SUPPORT_PHONE,
-  TRIAL_DAYS,
 } from "./site";
 
 /** 14-day money-back on the first subscription, matching /refund. */
@@ -66,12 +65,12 @@ function digitalShippingDetails() {
   };
 }
 
-function trialOffer() {
+function freeOffer() {
   const priceValidUntil = `${new Date().getFullYear()}-12-31`;
   return {
     "@type": "Offer" as const,
-    name: `${TRIAL_DAYS}-day free trial`,
-    description: `Full SoftuneBD access for ${TRIAL_DAYS} days. No credit card required.`,
+    name: "Free plan",
+    description: "10 products and 50 orders a month. No credit card required. Free as long as you're active.",
     price: "0",
     priceCurrency: "BDT",
     priceValidUntil,
@@ -194,7 +193,7 @@ export function softwareApplicationSchema() {
     operatingSystem: "Web",
     description: `${SITE_DESCRIPTION} ${BRANDING_CLAIM}`,
     featureList: [
-      `${TRIAL_DAYS}-day free trial, no credit card`,
+      "Free plan, no credit card",
       BRANDING_CLAIM,
       "Theme Editor with live preview of logo, colors, fonts, and sections",
       "COD, bKash, Nagad, and SSLCommerz payments",
@@ -206,7 +205,7 @@ export function softwareApplicationSchema() {
     countriesSupported: "BD",
     inLanguage: ["en", "bn"],
     author: founderRef(),
-    offers: trialOffer(),
+    offers: freeOffer(),
   };
 }
 
@@ -236,7 +235,7 @@ export function productSchema() {
       availability: "https://schema.org/InStock",
       hasMerchantReturnPolicy: merchantReturnPolicy(),
       shippingDetails: digitalShippingDetails(),
-      offers: [trialOffer(), ...planOffers()],
+      offers: [freeOffer(), ...planOffers()],
     },
   };
 }
@@ -348,9 +347,9 @@ export function pricingSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      `Ecommerce storefront platform with a ${TRIAL_DAYS}-day free trial (no credit card). Themes, catalog, orders, payments, couriers, and AI - priced in Bangladeshi Taka.`,
+      `Ecommerce storefront platform with a Free plan (no credit card). Themes, catalog, orders, payments, couriers, and AI - priced in Bangladeshi Taka.`,
     brand: { "@type": "Brand", name: SITE_NAME },
     url: `${SITE_URL}/pricing`,
-    offers: [trialOffer(), ...planOffers()],
+    offers: [freeOffer(), ...planOffers()],
   };
 }

@@ -6,7 +6,7 @@ import { Check, Gift } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { BILLING_MONTHS, freePlanCard, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
-import { FREE_PLAN_LIVE, TRIAL_CTA, TRIAL_CTA_BN, TRIAL_NOTE, TRIAL_NOTE_BN } from "@/lib/site";
+import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 
 // Purpose-made artwork gives each tier a distinct, premium surface while keeping the
 // established sand → orange → ember progression. The image compositions leave their
@@ -58,34 +58,24 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
   // English digits on both languages, by request.
   const money = (n: number) => n.toLocaleString("en-US");
   const paidPlans = getPlans(locale);
-  const trialPlan = {
+  const card = freePlanCard[isBn ? "bn" : "en"];
+  const freePlan = {
     key: "free" as const,
     name: "Free",
     popular: false,
-    description: isBn
-      ? "7 দিনের জন্য ফ্রি। নিজের স্টোর তৈরি করুন ও প্রিমিয়াম ফিচারগুলো দেখুন।"
-      : "Free for 7 days. Build your store and explore premium features.",
-    features: isBn
-      ? ["7 দিনের ফ্রি অ্যাক্সেস", "কোনো ক্রেডিট কার্ড লাগবে না", "থিম এডিটর ও লাইভ প্রিভিউ", "AI অ্যাসিস্ট্যান্ট (দিনে 15 ক্রেডিট)", "50টি প্রোডাক্ট যোগ করুন", "500MB মিডিয়া স্টোরেজ", "ফ্রড প্রোটেকশন", "সম্পূর্ণ অ্যানালিটিক্স"]
-      : ["7 days of free access", "No credit card required", "Theme editor & live preview", "AI Assistant (15 credits/day)", "Add up to 50 products", "500MB media storage", "Fraud protection", "Full analytics"],
+    description: card.description,
+    features: [...card.features],
   };
-  const card = freePlanCard[isBn ? "bn" : "en"];
-  const freePlan = FREE_PLAN_LIVE
-    ? { ...trialPlan, description: card.description, features: [...card.features] }
-    : trialPlan;
-  // Home shows three cards. The pricing page shows every plan, and the trial
-  // card only on home: it is not a plan anyone can compare or stay on.
+  // Home shows three cards; the pricing page shows every plan.
   const planList = homepage
     ? [freePlan, ...paidPlans.filter((plan) => plan.key !== "business")]
-    : FREE_PLAN_LIVE
-      ? [freePlan, ...paidPlans]
-      : paidPlans;
+    : [freePlan, ...paidPlans];
   const periodName = isBn
     ? { 1: "1 মাস", 3: "3 মাস", 6: "6 মাস", 12: "12 মাস" }
     : { 1: "1 month", 3: "3 months", 6: "6 months", 12: "12 months" };
   const signupHref = isBn ? "/bn/signup" : "/signup";
-  const ctaText = isBn ? TRIAL_CTA_BN : TRIAL_CTA;
-  const trialNote = isBn ? TRIAL_NOTE_BN : TRIAL_NOTE;
+  const ctaText = isBn ? FREE_CTA_BN : FREE_CTA;
+  const trialNote = isBn ? FREE_NOTE_BN : FREE_NOTE;
 
   const isDark = !mounted || resolvedTheme === "dark";
   const enterpriseImageSrc = isDark ? "/price-enter-d.webp" : "/price-enter-l.webp";
@@ -227,11 +217,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       {isFree ? <Gift aria-hidden="true" className="size-4 text-[var(--color-brand)]" strokeWidth={2.5} /> : null}
                       {plan.name}
                     </span>
-                    {isFree && !FREE_PLAN_LIVE ? (
-                      <span className="rounded-full border border-[var(--color-brand)] bg-[var(--color-brand)] px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider text-white shadow-sm uppercase">
-                        {isBn ? "7 দিন ফ্রি" : "7 days free"}
-                      </span>
-                    ) : popular ? (
+                    {popular ? (
                       <span className="rounded-full border border-white/70 bg-white/92 px-3 py-1.5 text-[10.5px] leading-none font-bold tracking-wider whitespace-nowrap text-[var(--color-brand)] shadow-[0_8px_20px_rgb(55_12_4/0.18)] uppercase">
                         {isBn ? "সবচেয়ে পপুলার" : "Most Popular"}
                       </span>
@@ -244,17 +230,13 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                         className="text-[46px] leading-none font-bold tracking-[-0.045em] sm:text-[52px]"
                         style={{ fontFamily: PRICE_FONT }}
                       >
-                        {isFree ? (FREE_PLAN_LIVE ? "৳0" : "Free") : `৳${money(price)}`}
+                        {`৳${money(price)}`}
                       </span>
-                      <span className={`text-[14px] font-semibold ${tile.sub}`}>{isFree && !FREE_PLAN_LIVE ? (isBn ? "/ 7 দিন" : "/ 7 days") : "/mo"}</span>
+                      <span className={`text-[14px] font-semibold ${tile.sub}`}>/mo</span>
                     </div>
                     <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
                       {!paidPrice
-                        ? FREE_PLAN_LIVE
-                          ? card.note
-                          : isBn
-                            ? "এরপর একটি পেইড প্ল্যান বেছে নিন"
-                            : "Choose a paid plan after your trial"
+                        ? card.note
                         : months === 1
                           ? isBn
                             ? "প্রতি মাসে বিল হবে"
@@ -275,7 +257,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}
                   >
-                    {isFree ? (FREE_PLAN_LIVE ? card.cta : isBn ? "7 দিন ফ্রি শুরু করুন" : "Start 7 days free") : ctaText}
+                    {isFree ? card.cta : ctaText}
                     <img
                       loading="lazy"
                       decoding="async"

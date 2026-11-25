@@ -6,7 +6,7 @@ import PricingPage from "./pricing-content";
 export const metadata = pageSeo({
   title: "SoftuneBD Pricing in Taka",
   description:
-    "Start a free 7-day SoftuneBD trial with no credit card. Then pick Starter, Growth, or Business in BDT - no per-order cut, no setup fee.",
+    "SoftuneBD has a Free plan, then Starter, Growth and Business in BDT for 1, 3, 6 or 12 months - no per-order cut, no setup fee.",
   path: "/pricing",
 });
 

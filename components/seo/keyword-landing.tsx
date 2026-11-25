@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TRIAL_NOTE } from "@/lib/site";
+import { FREE_NOTE } from "@/lib/site";
 
 export type KeywordFeature = { icon: string; title: string; desc: string };
 export type KeywordFaq = { q: string; a: string };
@@ -95,7 +95,7 @@ export function KeywordLanding({ data }: { data: KeywordLandingData }) {
             </Button>
             {data.ctaHref === "/signup" ? (
               <p className="mt-3 text-[13px] font-medium text-[var(--color-muted)]">
-                {TRIAL_NOTE}
+                {FREE_NOTE}
               </p>
             ) : null}
           </motion.div>
