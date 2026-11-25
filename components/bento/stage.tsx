@@ -18,7 +18,8 @@ export const BOARD_H = 380;
 
 const LIGHT = {
   bottom: ember("50% 118%", "95% 78%"),
-  center: ember("50% 50%", "62% 58%"),
+  // A night sky: no ember wash. The tile draws its own sun and stars.
+  space: "radial-gradient(110% 100% at 50% 50%, #12101a 0%, #09080f 55%, #050508 100%)",
   topRight: ember("104% -8%", "95% 92%"),
   bottomLeft: ember("-6% 108%", "98% 88%"),
   top: ember("50% -22%", "100% 82%"),

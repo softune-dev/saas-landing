@@ -41,6 +41,28 @@ function place(i: number, turn: number) {
 
 const IDLE = [1000] as const;
 
+/* The night sky, the same on server and browser. It reaches past the board so a
+ * wider tile still has stars at its edges. */
+const STARS = (() => {
+  let state = 424243;
+  const next = () => {
+    state = (state * 48271) % 2147483647;
+    return state / 2147483647;
+  };
+  return Array.from({ length: 110 }, (_, i) => {
+    const x = +(-130 + next() * (W + 260)).toFixed(1);
+    const y = +(next() * H).toFixed(1);
+    const size = next();
+    return {
+      x,
+      y,
+      r: size > 0.93 ? 1.5 : size > 0.65 ? 1 : 0.65,
+      o: +(0.22 + next() * 0.5).toFixed(2),
+      twinkle: i % 9 === 0 ? (i % 2 === 0 ? 1 : 2) : 0,
+    };
+  }).filter((s) => Math.hypot(s.x - CX, s.y - CY) > 62);
+})();
+
 /** Every way to pay, circling one place and always wired to it. */
 export function PaymentsVisual() {
   const { ref, moving } = useScenes(IDLE);
@@ -62,8 +84,36 @@ export function PaymentsVisual() {
   });
 
   return (
-    <Stage light="center" innerRef={ref}>
-      <style>{"@keyframes pay-beam { from { stroke-dashoffset: 26 } to { stroke-dashoffset: -100 } }"}</style>
+    <Stage light="space" innerRef={ref}>
+      <style>{"@keyframes pay-beam { from { stroke-dashoffset: 26 } to { stroke-dashoffset: -100 } } @keyframes pay-star { 50% { opacity: 0.25 } }"}</style>
+
+      {/* Stars: two small groups twinkle, the rest hold still. */}
+      <svg className="absolute inset-0 overflow-visible" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
+        {[0, 1, 2].map((group) => (
+          <g
+            key={group}
+            style={
+              group === 0
+                ? undefined
+                : { animation: `pay-star ${group * 1.7 + 1.6}s ease-in-out infinite`, animationPlayState: moving ? "running" : "paused" }
+            }
+          >
+            {STARS.filter((s) => s.twinkle === group).map((s) => (
+              <circle key={`${s.x}-${s.y}`} cx={s.x} cy={s.y} r={s.r} fill="#fff" fillOpacity={s.o} />
+            ))}
+          </g>
+        ))}
+      </svg>
+
+      {/* The sun's light stays close to the middle. */}
+      <div
+        className="absolute size-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          left: CX,
+          top: CY,
+          background: "radial-gradient(closest-side, rgba(255,150,80,0.55) 38%, rgba(255,108,50,0.2) 60%, rgba(255,90,40,0.05) 80%, rgba(255,90,40,0) 100%)",
+        }}
+      />
 
       <svg className="absolute inset-0" width={W} height={H} viewBox={`0 0 ${W} ${H}`} fill="none">
         {LOGOS.map((logo, i) => {
@@ -94,12 +144,12 @@ export function PaymentsVisual() {
         {[0, 1].map((i) => (
           <motion.span
             key={i}
-            className="absolute inset-0 rounded-full border border-white/40"
+            className="absolute inset-0 rounded-full border border-[#ffb182]/50"
             animate={moving ? { scale: [1, 1.5], opacity: [0.5, 0] } : { opacity: 0 }}
             transition={moving ? { duration: 2.6, ease: "easeOut", repeat: Infinity, delay: i * 1.3 } : { duration: 0 }}
           />
         ))}
-        <span className={`relative size-[92px] ${CIRCLE}`}>
+        <span className={`relative size-[92px] ${CIRCLE} !shadow-[0_0_28px_4px_rgba(255,140,70,0.55)]`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-icon.png" alt="" className="h-[50px] w-auto" />
         </span>
