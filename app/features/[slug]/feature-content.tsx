@@ -52,6 +52,7 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
     ? [
         { slug: "multiple-themes", title: "থিম এডিটর", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন - লাইভ প্রিভিউ সহ" },
         { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
+        { slug: "chat-assistant", title: "চ্যাট অ্যাসিস্ট্যান্ট", icon: "/icons/chat.svg", desc: "আপনার স্টোরের তথ্য থেকেই দিন-রাত ক্রেতাদের উত্তর দেয়" },
         { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
         { slug: "store-sale", title: "স্টোর সেল", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },
         { slug: "events-campaigns", title: "ইভেন্ট ও ক্যাম্পেইন", icon: "/icons/events.svg", desc: "নির্দিষ্ট প্রোডাক্টে পার্সেন্ট ডিসকাউন্ট সেল ক্যাম্পেইন" },
@@ -149,6 +150,10 @@ export default function FeaturePage({ locale = "en" }: { locale?: "en" | "bn" })
           >
             <HeroCtas locale={locale} dark />
           </motion.div>
+
+          {feature.planNote ? (
+            <p className="relative z-10 mx-auto mt-5 max-w-xl text-[13px] leading-relaxed font-medium text-white/55">{feature.planNote}</p>
+          ) : null}
 
           {heroImageSrc && (
             <motion.div

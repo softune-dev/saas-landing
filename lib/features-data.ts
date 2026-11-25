@@ -36,6 +36,8 @@ export interface FeatureData {
    * screenshot exists yet. The component renders a styled div at the same
    * aspect-[16/9] size. Prefer heroImage once a real screenshot is available. */
   heroPlaceholderColor?: string;
+  /** Which plans include this feature, shown under the hero buttons. */
+  planNote?: string;
   introTitle: string;
   introDesc: string;
   alternating: AlternatingItem[];
@@ -45,6 +47,72 @@ export interface FeatureData {
 }
 
 export const FEATURE_PAGES: Record<string, FeatureData> = {
+  "chat-assistant": {
+    slug: "chat-assistant",
+    pillText: "Chat Assistant",
+    titleStart: "Answers for",
+    titleHighlight: "Every Shopper",
+    titleEnd: "",
+    description: "A chat assistant on your storefront answers shoppers at any hour, in English, Bangla or Banglish, using your own products, delivery charges, payment methods and FAQs. It comes with every plan, including Free.",
+    heroPlaceholderColor: "#111827",
+    introTitle: "It answers from your store, not from guesses",
+    introDesc: "It checks your written answers and FAQs first, then your store settings, and reads price and stock live. When it is not sure, it says so and hands the shopper to you. Shopper questions use no AI credits.",
+    alternating: [
+      {
+        pillText: "What it answers",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "Questions Shoppers",
+        titleHighlight: "Ask Most",
+        titleEnd: "",
+        description: "Instead of waiting for a reply, a shopper gets the answer on your store, with product cards they can open.",
+        bullets: [
+          "Price, stock and options of a product, read live",
+          "Delivery charges and your free delivery amount",
+          "The payment methods your store accepts",
+          "Sale events running right now",
+          "For order tracking, it sends shoppers to your team",
+          "Your contact details, address and categories",
+        ],
+      },
+      {
+        pillText: "Your words",
+        pillIcon: "/icons/ai-pencil.svg",
+        titleStart: "Teach It",
+        titleHighlight: "Your Answers",
+        titleEnd: "",
+        description: "Your own answers come first. Questions it could not answer are listed for you, so you answer each one once.",
+        bullets: [
+          "Write up to 100 questions and answers",
+          "See the questions it could not answer",
+          "Answer once and it knows next time",
+          "On paid plans, draft an answer with Write with AI",
+          "New products, delivery charges and FAQs are picked up automatically",
+        ],
+      },
+      {
+        pillText: "Your look",
+        pillIcon: "/icons/color.svg",
+        titleStart: "Make It",
+        titleHighlight: "Yours",
+        titleEnd: "",
+        description: "Set it up in Settings, Chat Assistant, with a live preview. It is on by default and you can turn it off at any time.",
+        bullets: [
+          "Choose its name and avatar",
+          "Write the greeting and the button text",
+          "Place it on the left or the right",
+          "Match it to your brand colour",
+          "Turn it on or off whenever you like",
+        ],
+      },
+    ],
+    extraTitle: "Honest when it does not know",
+    extraDesc: "For order tracking and anything it cannot answer, it asks the shopper to reach your team through your own contact details.",
+    extraCards: [
+      { title: "Bangla and English", desc: "Shoppers can ask in English, Bangla or Banglish.", icon: "/icons/chat.svg" },
+      { title: "Live Prices", desc: "Price and stock are read when the shopper asks.", icon: "/icons/shop-bag.svg" },
+      { title: "Your Store Only", desc: "It answers only from your own store's information.", icon: "/icons/lock.svg" },
+    ],
+  },
   "multiple-themes": {
     slug: "multiple-themes",
     pillText: "Theme Editor",
@@ -53,6 +121,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "SoftuneBD cares about your branding and identity, not a generic storefront. The Theme Editor lets you change logo, colors, fonts, and homepage sections with a live preview, then publish when the shop looks like your brand.",
+    planNote: "Every plan can edit its theme. Switching to another theme needs a paid plan.",
     introTitle: "Your brand, not a default template",
     introDesc:
       "SoftuneBD is built so each store looks like the merchant, not like every other shop on the same theme. Desktop, tablet, and mobile previews sit beside your edits, so customers only see the identity you publish.",
@@ -69,6 +138,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Live preview of your real theme template",
           "Desktop, tablet, and mobile device sizes",
           "Navigate pages inside the preview while you edit",
+          "Your store searches as shoppers type and shows variant stock and sale prices",
         ],
         image: { light: "/feature/theme/t1-l.webp", dark: "/feature/theme/t1-d.webp" },
       },
@@ -120,6 +190,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "SoftuneBD’s AI is powered by Google Gemini. It writes product copy, suggests theme changes, and chats about your store data. You review every change before it saves.",
+    planNote: "Every new store gets an AI setup at sign-up. The AI assistant itself is included in Starter and above.",
     introTitle: "Gemini drafts. You approve.",
     introDesc:
       "Product descriptions, Theme Editor suggestions, and dashboard AI chat all share the same rule: SoftuneBD never writes to your live store until you confirm.",
@@ -190,6 +261,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Protect Cash on Delivery sales with a phone blocklist, site-wide IP blocking, device checkout rules, and a Suspicious Orders review queue, all controlled from one SoftuneBD screen.",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
+    planNote: "Every plan blocks obvious fake orders. These fraud controls are included in Starter and above.",
     introTitle: "Built for COD abuse, not card scoring",
     introDesc:
       "Fraud Protection sits next to Orders. Block bad phones and IPs, stop repeat checkout attempts from the same device, and review flagged orders before you ship, all tuned to match how your store gets burned.",
@@ -261,6 +333,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Every customer gets a 0-100 risk score, calculated live from their real order history (delivery success rate, fraud flags, device and IP signals), so you know whether to trust a COD order before you pack it.",
     heroPlaceholderColor: "#111827",
+    planNote: "Included in Starter and above.",
     introTitle: "A transparent score, not a black box",
     introDesc:
       "Risk Score sits inside each customer's profile. Every point added or subtracted comes from a rule you can see, with no hidden machine learning model deciding who to trust.",
@@ -329,6 +402,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Connect Steadfast, Pathao, RedX, and eCourier from SoftuneBD Couriers with your own merchant accounts. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo.",
     heroImage: { light: "/feature/courier-l.webp", dark: "/feature/courier-d.webp" },
+    planNote: "Free includes Steadfast, Starter adds eCourier, and Growth and Business add Pathao and RedX.",
     introTitle: "Bangladesh couriers on one SoftuneBD screen",
     introDesc:
       "SoftuneBD does not use a shared SoftuneBD courier login. You connect your own credentials. Steadfast, Pathao, RedX, and eCourier can connect today; the rest of the roster lives on the same Couriers page.",
@@ -372,7 +446,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Your Account",
         titleEnd: "",
         description:
-          "Courier credentials are encrypted at rest, scoped per store, and never shared SoftuneBD logins. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo stay on the same roster as those connects land.",
+          "Courier credentials are encrypted at rest, scoped per store, and never shared SoftuneBD logins. Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo are listed on the same Couriers page.",
         bullets: [
           "Encrypted credential storage",
           "Per-store courier settings",
@@ -400,6 +474,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Track revenue, visitor traffic, conversion rate, and profit from your SoftuneBD storefront and orders. Export CSV, JSON, or PDF when you need a report.",
     heroImage: { light: "/feature/analytics-l.webp", dark: "/feature/analytics-d.webp" },
+    planNote: "The Free plan shows the last 7 days; paid plans show the full reports.",
     introTitle: "Sales, traffic, and profit in one place",
     introDesc:
       "Pick a 1 to 26 week window. SoftuneBD shows revenue, orders, refunds, unique visitors, conversion rate, and profit when you have set Cost Prices on products.",
@@ -503,6 +578,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Totals priced from your catalog on the server",
           "Refunds and disputes stay accurate",
           "Trustworthy history for support and accounting",
+          "New orders keep each product's photo",
         ],
       },
       {
@@ -519,12 +595,13 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Notes when your team needs context",
           "Keep customers updated at each stage",
           "One place for the whole order lifecycle",
+          "Delete orders you no longer need",
         ],
       },
     ],
     extraTitle: "Built for daily ops",
     extraDesc:
-      "Orders are tenant-scoped and server-priced. Bulk tools and packing barcodes are still expanding.",
+      "Prices come from your catalog on the server. Select several orders to delete them, or book many with Steadfast at once.",
     extraCards: [
       { title: "Status Flow", desc: "Move orders through fulfillment statuses as work happens.", icon: "/icons/zap.svg" },
       { title: "Server Totals", desc: "Totals come from your catalog, not client-submitted prices.", icon: "/icons/wallet.svg" },
@@ -541,6 +618,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       "Take Cash on Delivery, manual bKash/Nagad/Rocket, official bKash, Nagad, and SSLCommerz from one SoftuneBD Payments screen. With the free Softune Pay app, manual wallet payments confirm themselves.",
     // Note: source filenames are "paymet-*" (typo in the asset itself), not "payment-*".
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
+    planNote: "Cash on Delivery, manual wallet payments and Softune Pay are on every plan, including Free. The official bKash, Nagad and SSLCommerz connections need Growth or Business.",
     introTitle: "BD payments on one SoftuneBD screen",
     introDesc:
       "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials, SoftuneBD does not use a shared payment login.",
@@ -628,6 +706,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Softune Pay is a free Android app that reads your bKash, Nagad and Rocket payment SMS and marks the matching order paid. No gateway, no fee, no checking your phone order by order.",
     heroImage: { light: "/feature/softune-pay-l.webp", dark: "/feature/softune-pay-d.webp" },
+    planNote: "It is included on every plan, including Free.",
     introTitle: "Manual wallet payments, without the manual part",
     introDesc:
       "Shoppers pay your own bKash, Nagad or Rocket number and type the transaction ID at checkout. Softune Pay, running on the phone with your wallet SIM, sees the payment SMS and confirms the order for you.",
@@ -696,6 +775,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "SoftuneBD builds customer records from real orders using phone numbers, so you can see order history, spend, and last purchase in one place.",
     heroImage: { light: "/feature/customer-l.webp", dark: "/feature/customer-d.webp" },
+    planNote: "Included in Starter and above.",
     introTitle: "Customers from checkout, not spreadsheets",
     introDesc:
       "The first time a phone checks out, SoftuneBD creates a customer. Later orders from that number link to the same record, even when the number is typed in different formats.",
@@ -767,6 +847,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Connect Facebook/Meta Pixel, TikTok Pixel, Google Tag Manager, and GA4 to your SoftuneBD store. SoftuneBD fires real ecommerce events, ViewContent, AddToCart, InitiateCheckout, Purchase, not just a generic PageView. Meta Conversions API sends Purchase events server-side so ad blockers and iOS privacy settings cannot strip them.",
     heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
+    planNote: "Pixels and server tracking are included in Starter and above.",
     introTitle: "Real events on every platform, server-side where it counts",
     introDesc:
       "SoftuneBD fires ecommerce events, not just PageView, across Meta, TikTok, GTM, and GA4. The Meta Conversions API layer sends Purchase data from SoftuneBD's own server, deduplicated against the browser pixel automatically.",
@@ -778,12 +859,12 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         titleHighlight: "Not Just PageView",
         titleEnd: "",
         description:
-          "Facebook/Meta Pixel and TikTok Pixel both fire the full ecommerce event set: ViewContent when a shopper views a product, AddToCart, InitiateCheckout, and Purchase on order completion. Previously only a generic PageView was sent.",
+          "Facebook/Meta Pixel and TikTok Pixel both fire the full ecommerce event set: ViewContent when a shopper views a product, AddToCart, InitiateCheckout, and Purchase on order completion.",
         bullets: [
           "ViewContent, AddToCart, InitiateCheckout, Purchase events",
-          "Facebook/Meta Pixel, real ecommerce events (upgraded from PageView only)",
-          "TikTok Pixel, new, same event set",
-          "Add your Pixel ID from the SoftuneBD integrations screen",
+          "Facebook/Meta Pixel with the full ecommerce events",
+          "TikTok Pixel with the same event set",
+          "Paste your Pixel ID in Settings, Site Settings, SEO",
           "No custom code or tag setup required",
         ],
       },
@@ -798,7 +879,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
         bullets: [
           "Google Tag Manager, container-based, add your own GTM ID",
           "You manage tags inside GTM as normal",
-          "GA4, real ecommerce events (upgraded from PageView only)",
+          "GA4 with the same ecommerce events",
           "GTM and GA4 can run alongside Meta and TikTok pixels",
           "One integrations screen for all tracking connections",
         ],
@@ -817,6 +898,8 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Automatic deduplication against the browser-side Meta Pixel",
           "No double-counting, each sale reported once to Meta",
           "A real edge over setups that only fire client-side pixels",
+          "Better matching: hashed phone, name and city, Meta browser IDs and product details",
+          "Retries a failed send, supports a test event code and shows whether tracking works",
         ],
       },
     ],
@@ -838,6 +921,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "SoftuneBD Store Sale is a walk-in checkout against your live product catalog. Search products, filter by category, build a sale, record how the customer paid, and print a receipt, without a separate POS product.",
     heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
+    planNote: "Included in Starter and above.",
     introTitle: "Counter sales that use your real SoftuneBD inventory",
     introDesc:
       "Store Sale creates orders on the same catalog and stock your storefront uses, tagged as POS channel so you can tell walk-in sales from online checkouts.",
@@ -906,6 +990,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Create a named sale campaign, like Eid Sale or Weekend Flash Sale, set a percent-off discount, choose which products it applies to, and SoftuneBD handles the discounted price at checkout automatically.",
     heroPlaceholderColor: "#111827",
+    planNote: "Free and Starter can run 3 sale events, Growth 10 and Business 25.",
     introTitle: "A real campaign, not a manual price edit",
     introDesc:
       "Events sits next to Products. Turn a campaign on or off without touching each product's price, and the storefront shows the original price struck through next to the sale price.",
@@ -974,6 +1059,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Generate on-brand product, marketing, and hero images with Google Gemini, right from a preset or your own prompt, with or without text baked in, then save straight to your store's gallery.",
     heroPlaceholderColor: "#111827",
+    planNote: "Every new store gets 5 images at sign-up. More images need Starter or above.",
     introTitle: "A design studio, not a blank prompt box",
     introDesc:
       "Pick from dozens of ready-made presets across Product, Events, Marketing, Category, Hero, and Bento styles, or describe what you want yourself. Either way, SoftuneBD guides the AI toward a clean, professional result instead of a generic AI look.",
@@ -1042,6 +1128,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     description:
       "Connect your SoftuneBD store to ChatGPT and just ask: check today's sales, add a product, change your homepage headline, or have ChatGPT make a hero image and put it on your site. You approve every change, and every change can be undone.",
     heroPlaceholderColor: "#111827",
+    planNote: "Included in Starter and above.",
     introTitle: "What is this, in plain words?",
     introDesc:
       "ChatGPT can talk to other apps through a standard called MCP (Model Context Protocol). SoftuneBD runs an MCP server for your store: you sign in once from ChatGPT, approve what it may do, and from then on ChatGPT can read your store and make the changes you ask for. The thinking happens on your own ChatGPT plan, so SoftuneBD uses no AI credits for it.",
@@ -1282,6 +1369,72 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
 };
 
 export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
+  "chat-assistant": {
+    slug: "chat-assistant",
+    pillText: "চ্যাট অ্যাসিস্ট্যান্ট",
+    titleStart: "প্রতিটি ক্রেতার",
+    titleHighlight: "প্রশ্নের উত্তর",
+    titleEnd: "",
+    description: "আপনার স্টোরের চ্যাট অ্যাসিস্ট্যান্ট দিন-রাত ক্রেতাদের উত্তর দেয় বাংলা, ইংরেজি বা বাংলিশে, আপনার নিজের প্রোডাক্ট, ডেলিভারি চার্জ, পেমেন্ট ও FAQ থেকে। ফ্রি সহ সব প্ল্যানেই আছে।",
+    heroPlaceholderColor: "#111827",
+    introTitle: "অনুমান নয়, আপনার স্টোরের তথ্য থেকেই উত্তর",
+    introDesc: "প্রথমে আপনার লেখা উত্তর ও FAQ দেখে, তারপর স্টোরের সেটিংস, আর দাম ও স্টক লাইভ পড়ে। নিশ্চিত না হলে সেটাই জানায় এবং ক্রেতাকে আপনার কাছে পাঠায়। ক্রেতার প্রশ্নে কোনো AI ক্রেডিট খরচ হয় না।",
+    alternating: [
+      {
+        pillText: "কী উত্তর দেয়",
+        pillIcon: "/icons/zap.svg",
+        titleStart: "ক্রেতাদের",
+        titleHighlight: "সাধারণ প্রশ্ন",
+        titleEnd: "",
+        description: "উত্তরের অপেক্ষা না করে ক্রেতা স্টোরেই উত্তর পায়, সাথে খোলার মতো প্রোডাক্ট কার্ড।",
+        bullets: [
+          "প্রোডাক্টের দাম, স্টক ও অপশন, লাইভ",
+          "ডেলিভারি চার্জ ও ফ্রি ডেলিভারির পরিমাণ",
+          "আপনার স্টোরে কোন পেমেন্ট নেওয়া হয়",
+          "এখন চলছে এমন সেল ইভেন্ট",
+          "অর্ডার ট্র্যাকিংয়ের জন্য ক্রেতাকে আপনার টিমের কাছে পাঠায়",
+          "যোগাযোগ, ঠিকানা ও ক্যাটাগরি",
+        ],
+      },
+      {
+        pillText: "আপনার ভাষায়",
+        pillIcon: "/icons/ai-pencil.svg",
+        titleStart: "শিখিয়ে দিন",
+        titleHighlight: "আপনার উত্তর",
+        titleEnd: "",
+        description: "আপনার লেখা উত্তরই আগে। যেসব প্রশ্নের উত্তর দিতে পারেনি, সেগুলো তালিকায় থাকে, একবার উত্তর দিলেই হয়।",
+        bullets: [
+          "100টি পর্যন্ত প্রশ্ন ও উত্তর লিখুন",
+          "যেসব প্রশ্নের উত্তর পারেনি সেগুলো দেখুন",
+          "একবার উত্তর দিন, পরের বার সে জানবে",
+          "পেইড প্ল্যানে Write with AI দিয়ে উত্তর খসড়া করুন",
+          "নতুন প্রোডাক্ট, ডেলিভারি চার্জ ও FAQ নিজে থেকেই যুক্ত হয়",
+        ],
+      },
+      {
+        pillText: "আপনার ডিজাইন",
+        pillIcon: "/icons/color.svg",
+        titleStart: "সাজিয়ে নিন",
+        titleHighlight: "নিজের মতো",
+        titleEnd: "",
+        description: "Settings থেকে Chat Assistant-এ লাইভ প্রিভিউ দেখে সাজান। শুরুতে চালু থাকে, যেকোনো সময় বন্ধ করা যায়।",
+        bullets: [
+          "নাম ও অ্যাভাটার বেছে নিন",
+          "শুভেচ্ছা বার্তা ও বাটনের লেখা দিন",
+          "বামে বা ডানে রাখুন",
+          "আপনার ব্র্যান্ডের রঙ দিন",
+          "যখন ইচ্ছা চালু বা বন্ধ করুন",
+        ],
+      },
+    ],
+    extraTitle: "না জানলে সৎভাবে বলে",
+    extraDesc: "অর্ডার ট্র্যাকিং বা যে প্রশ্নের উত্তর জানে না, তার জন্য ক্রেতাকে আপনার যোগাযোগ নম্বরে টিমের সাথে কথা বলতে বলে।",
+    extraCards: [
+      { title: "বাংলা ও ইংরেজি", desc: "ক্রেতা বাংলা, ইংরেজি বা বাংলিশে প্রশ্ন করতে পারেন।", icon: "/icons/chat.svg" },
+      { title: "লাইভ দাম", desc: "ক্রেতা প্রশ্ন করার সময়ই দাম ও স্টক পড়া হয়।", icon: "/icons/shop-bag.svg" },
+      { title: "শুধু আপনার স্টোর", desc: "শুধু আপনার স্টোরের তথ্য থেকেই উত্তর দেয়।", icon: "/icons/lock.svg" },
+    ],
+  },
   "multiple-themes": {
     slug: "multiple-themes",
     pillText: "থিম এডিটর",
@@ -1290,6 +1443,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "SoftuneBD আপনার ব্র্যান্ড আইডেন্টিটিকে প্রাধান্য দেয়। Theme Editor দিয়ে লোগো, কালার, ফন্ট ও সেকশন কাস্টমাইজ করুন, লাইভ প্রিভিউ দেখে পছন্দমত পাবলিশ করুন।",
+    planNote: "সব প্ল্যানেই থিম এডিট করা যায়। অন্য থিমে যেতে পেইড প্ল্যান লাগে।",
     introTitle: "আপনার নিজস্ব ব্র্যান্ড আইডেন্টিটি",
     introDesc:
       "প্রতিটি শপ যেন মার্চেন্টের নিজস্ব ব্র্যান্ডের স্টাইলে দেখা যায়। ডেস্কটপ, ট্যাবলেট ও মোবাইলে লাইভ প্রিভিউ দেখে সম্পাদন করুন।",
@@ -1306,6 +1460,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "থিম টেমপ্লেটের লাইভ প্রিভিউ",
           "ডেস্কটপ, ট্যাবলেট ও মোবাইল সাইজ সাপোর্ট",
           "প্রিভিউ স্ক্রিনের ভেতর সরাসরি পেজ নেভিগেশন",
+          "ক্রেতা টাইপ করলেই সার্চ ফলাফল আসে, ভ্যারিয়েন্টের স্টক ও সেল প্রাইস দেখা যায়",
         ],
         image: { light: "/feature/theme/t1-l.webp", dark: "/feature/theme/t1-d.webp" },
       },
@@ -1357,6 +1512,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "গুগল জেমিনি চালিত AI প্রোডাক্ট ডেসক্রিপশন ড্রাফট করে, থিম সাজেশন দেয় এবং ড্যাশবোর্ড ডেটা থেকে প্রশ্নের উত্তর দেয়। সব চেঞ্জ অ্যাপ্লাইয়ের আগে রিভিউ করার পূর্ণ স্বাধীনতা পাবেন।",
+    planNote: "সাইন-আপের সময় প্রতিটি নতুন স্টোর AI সেটআপ পায়। AI অ্যাসিস্ট্যান্ট Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "জেমিনি ড্রাফট করবে, আপনি অ্যাপ্রুভ করবেন",
     introDesc:
       "প্রোডাক্ট ডেসক্রিপশন থেকে শুরু করে চ্যাটবট, আপনার অনুমতি ছাড়া AI কখনোই লাইভ স্টোরে সরাসরি কিছু সেভ করবে না।",
@@ -1425,6 +1581,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "ক্যাশ অন ডেলিভারি (COD) ফেইক অর্ডার রোধ করতে ফোন ব্লকক্লিপ, সাইট-ওয়াইড IP ব্লকিং, ডিভাইস চেকআউট রুলস এবং Suspicious Orders রিভিউ কিউ ব্যবহার করুন, সব এক স্ক্রিন থেকেই নিয়ন্ত্রণ করা যায়।",
     heroImage: { light: "/feature/fraud-l.webp", dark: "/feature/fraud-d.webp" },
+    planNote: "সব প্ল্যানেই সাধারণ ফেক অর্ডার ব্লক হয়। এই ফ্রড কন্ট্রোলগুলো Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "COD জালিয়াতি প্রতিরোধের বিশেষ ব্যবস্থা",
     introDesc:
       "খারাপ নম্বর ও IP ব্লক করুন, একই ডিভাইস থেকে বারবার চেকআউট চেষ্টা বন্ধ করুন, এবং শিপ করার আগে ফ্ল্যাগ করা অর্ডার রিভিউ করুন, সব আপনার ব্যবসার ধরন অনুযায়ী কাস্টমাইজেবল।",
@@ -1496,6 +1653,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "প্রতিটি কাস্টমারের জন্য ০-১০০ রিস্ক স্কোর লাইভ হিসাব হয় তাদের আসল অর্ডার হিস্ট্রি থেকে (ডেলিভারি সাকসেস রেট, ফ্রড ফ্ল্যাগ, ডিভাইস ও IP সিগন্যাল), তাই প্যাক করার আগেই বুঝবেন COD অর্ডারটি বিশ্বাসযোগ্য কিনা।",
     heroPlaceholderColor: "#111827",
+    planNote: "Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "ব্ল্যাক-বক্স নয়, স্বচ্ছ স্কোর",
     introDesc:
       "Risk Score প্রতিটি কাস্টমার প্রোফাইলের ভেতরেই থাকে। স্কোর বাড়া বা কমার প্রতিটি কারণ দেখা যায়, কোনো লুকানো মেশিন লার্নিং মডেল সিদ্ধান্ত নেয় না কাকে বিশ্বাস করবেন।",
@@ -1564,6 +1722,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "Steadfast, Pathao, RedX এবং eCourier আপনার নিজস্ব মার্চেন্ট অ্যাকাউন্ট দিয়ে সরাসরি কানেক্ট করুন। একই সাথে Paperfly, Sundarban, Carrybee ও অন্যান্য কুরিয়ার সুবিধা উপভোগ করুন।",
     heroImage: { light: "/feature/courier-l.webp", dark: "/feature/courier-d.webp" },
+    planNote: "ফ্রিতে Steadfast, Starter-এ সাথে eCourier, আর Growth ও Business-এ Pathao ও RedX।",
     introTitle: "বাংলাদেশের সব জনপ্রিয় কুরিয়ার এক প্ল্যাটফর্মে",
     introDesc:
       "SoftuneBD কোনো শেয়ার্ড অ্যাকাউন্ট ব্যবহার করে না। আপনার নিজস্ব কুরিয়ার মার্চেন্ট আইডি ও কি দিয়ে সরাসরি কানেক্ট করতে পারবেন।",
@@ -1635,6 +1794,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "রেভিনিউ, ভিজিটর ট্রাফিক, কনভার্সন রেট এবং নেট প্রফিট লাইভ ট্র্যাক করুন। যেকোনো সময় CSV বা PDF রিপোর্ট ডাউনলোড করুন।",
     heroImage: { light: "/feature/analytics-l.webp", dark: "/feature/analytics-d.webp" },
+    planNote: "ফ্রি প্ল্যানে শেষ 7 দিনের হিসাব দেখা যায়; পেইড প্ল্যানে সম্পূর্ণ রিপোর্ট।",
     introTitle: "সেলস, ট্রাফিক ও প্রফিট এক জায়গায়",
     introDesc:
       "১ থেকে ২৬ সপ্তাহের টাইমলাইন সিলেক্ট করুন। কস্ট প্রাইস দেওয়া থাকলে রেভিনিউ, অর্ডার, রিফান্ড ও নেট প্রফিট এক নজরে দেখতে পাবেন।",
@@ -1740,6 +1900,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "সার্ভার সাইডে অটোমেটিক নিখুঁত টোটাল প্রাইস হিসাব",
           "রিফান্ড ও হিসাবের খাতা থাকে সবসময় নির্ভুল",
           "অডিটিং ও কাস্টমার সাপোর্টের জন্য নির্ভরযোগ্য হিস্ট্রি",
+          "নতুন অর্ডারে প্রতিটি প্রোডাক্টের ছবি থাকে",
         ],
       },
       {
@@ -1756,12 +1917,13 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "টিমের অভ্যন্তরীণ যোগাযোগের জন্য ইন্টারনাল নোটস",
           "প্রতিটি ধাপে অর্ডারের অগ্রগতি পর্যবেক্ষণ",
           "অর্ডারের শুরু থেকে শেষ পর্যন্ত এক জায়গায় সমাধান",
+          "অপ্রয়োজনীয় অর্ডার ডিলিট করুন",
         ],
       },
     ],
     extraTitle: "দৈনিক অপারেশনের জন্য প্রস্তুত",
     extraDesc:
-      "অর্ডার সামলানো এবং মেমো প্রিন্ট করা এখন একদম সহজ।",
+      "অর্ডার সামলানো ও মেমো প্রিন্ট সহজ। কয়েকটি অর্ডার একসাথে ডিলিট করুন, বা Steadfast-এ অনেক অর্ডার একবারে বুক করুন।",
     extraCards: [
       { title: "স্ট্যাটাস ফ্লো", desc: "Pending থেকে Delivered পর্যন্ত সহজ ট্র্যাকিং।", icon: "/icons/zap.svg" },
       { title: "সার্ভার টোটাল", desc: "সার্ভার সাইডে অটোমেটিক টোটাল প্রাইস হিসাব।", icon: "/icons/wallet.svg" },
@@ -1777,6 +1939,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "Cash on Delivery, ম্যানুয়াল bKash/Nagad/Rocket এবং অফিশিয়াল bKash, Nagad ও SSLCommerz পেমেন্ট গেটওয়ে সেন্ট্রালি কানেক্ট করুন। ফ্রি Softune Pay অ্যাপ দিয়ে ম্যানুয়াল পেমেন্ট নিজে থেকেই কনফার্ম হয়।",
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
+    planNote: "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট পেমেন্ট ও Softune Pay সব প্ল্যানে আছে, ফ্রিতেও। অফিসিয়াল bKash, Nagad ও SSLCommerz কানেকশনের জন্য Growth বা Business লাগে।",
     introTitle: "বাংলাদেশের সব পেমেন্ট সিস্টেম এক স্ক্রিনে",
     introDesc:
       "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট বা অফিশিয়াল পেমেন্ট গেটওয়ে, আপনার মার্চেন্ট একাউন্ট দিয়ে এক ড্যাশবোর্ড থেকেই সেটআপ করুন।",
@@ -1864,6 +2027,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "Softune Pay একটি ফ্রি অ্যান্ড্রয়েড অ্যাপ, যা bKash, Nagad ও Rocket-এর পেমেন্ট SMS পড়ে মিলে যাওয়া অর্ডার Paid করে দেয়। কোনো গেটওয়ে নেই, কোনো চার্জ নেই, প্রতিটি অর্ডারের জন্য ফোন চেক করতে হয় না।",
     heroImage: { light: "/feature/softune-pay-l.webp", dark: "/feature/softune-pay-d.webp" },
+    planNote: "এটি সব প্ল্যানে আছে, ফ্রিতেও।",
     introTitle: "ম্যানুয়াল ওয়ালেট পেমেন্ট, ম্যানুয়াল কাজ ছাড়াই",
     introDesc:
       "কাস্টমার আপনার নিজের bKash, Nagad বা Rocket নম্বরে টাকা পাঠিয়ে চেকআউটে Transaction ID দেয়। ওয়ালেট সিমওয়ালা ফোনে Softune Pay পেমেন্টের SMS দেখে অর্ডার কনফার্ম করে দেয়।",
@@ -1932,6 +2096,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "অর্ডার থেকে ফোন নম্বর ম্যাচিং করে কাস্টমারের পারচেজ হিস্ট্রি ও টোটাল স্পেন্ড দেখুন।",
     heroImage: { light: "/feature/customer-l.webp", dark: "/feature/customer-d.webp" },
+    planNote: "Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "অটোমেটিক কাস্টমার প্রোফাইল তৈরি",
     introDesc:
       "চেকআউটের সময় প্রথমবার ফোন নম্বর দিলে SoftuneBD অটোমেটিক কাস্টমার প্রোফাইল বানিয়ে ফেলে। পরবর্তীতে ওই নম্বরের সব অর্ডার একই প্রোফাইলে যুক্ত হয়।",
@@ -2003,6 +2168,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "Meta Pixel, TikTok Pixel, GTM ও GA4 ইভেন্টস সহ Meta CAPI সুবিধা, যাতে ব্রাউজার ব্লকার থাকলেও ট্র্যাকিং মিস না হয়।",
     heroImage: { light: "/feature/marketing-l.webp", dark: "/feature/marketing-d.webp" },
+    planNote: "পিক্সেল ও সার্ভার ট্র্যাকিং Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "সার্ভার-সাইড ট্র্যাকিং দিয়ে নিখুঁত ক্যাটালগ অ্যানালিটিক্স",
     introDesc:
       "ViewContent, AddToCart, InitiateCheckout ও Purchase, সব ইভেন্ট রিয়েল-টাইমে পিক্সেলে সেন্ড করা হয়। Meta Conversions API (CAPI) সার্ভার থেকে ডেটা পাঠায়, তাই iOS বা অ্যাড-ব্লকার হলেও ট্র্যাকিং মিস হয় না।",
@@ -2046,13 +2212,15 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
         titleHighlight: "CAPI ট্র্যাকিং",
         titleEnd: "",
         description:
-          "Meta Conversions API ব্রাউজারের বদলে সরাসরি সার্ভার থেকে Purchase ইভেন্ট পাঠায়। ফলে অ্যাড-ব্লকার বা iOS প্রাইভেসি সেটিংস থাকা সত্ত্বেও ট্র্যাকিং ১০০% সঠিক থাকে এবং অটো-ডিডুপ্লিকেশনে ডাবল কাউন্টিং হয় না।",
+          "Meta Conversions API ব্রাউজারের বদলে সরাসরি সার্ভার থেকে Purchase ইভেন্ট পাঠায়। ফলে ব্রাউজার পিক্সেল আটকে গেলেও সার্ভার থেকে বিক্রির তথ্য যায়, আর অটো-ডিডুপ্লিকেশনে ডাবল কাউন্টিং হয় না।",
         bullets: [
           "কাস্টমারের ব্রাউজারের বদলে সরাসরি সার্ভার থেকে Purchase ডেটা প্রেরণ",
           "অ্যাড-ব্লকার ও iOS প্রাইভেসি সেটিংস থাকলেও ট্র্যাকিং মিস হয় না",
           "ব্রাউজার পিক্সেলের সাথে অটোমেটিক ডিডুপ্লিকেশন (Duplicate হবে না)",
           "কোনো ডাবল কাউন্টিং নেই, প্রতি বিক্রির হিসাব একবারই পাঠানো হয়",
-          "সাধারণ ব্রাউজার পিক্সেলের চেয়ে বহুগুণ শক্তিশালী ও নিখুঁত",
+          "শুধু ব্রাউজার পিক্সেলের চেয়ে কম বিক্রি হারায়",
+          "ভালো ম্যাচিং: হ্যাশ করা ফোন, নাম ও শহর, Meta ব্রাউজার ID ও প্রোডাক্টের তথ্য",
+          "পাঠানো ব্যর্থ হলে আবার চেষ্টা করে, টেস্ট ইভেন্ট কোড আছে, আর ট্র্যাকিং কাজ করছে কিনা দেখায়",
         ],
       },
     ],
@@ -2074,6 +2242,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "অনলাইন ক্যাটালগ থেকেই দোকানের সরাসরি বিক্রি সম্পাদন করুন ও থার্মাল রসিদ প্রিন্ট করুন, আলাদা কোনো POS সফটওয়্যার ছাড়াই।",
     heroImage: { light: "/feature/pos-l.webp", dark: "/feature/pos-d.webp" },
+    planNote: "Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "অনলাইন স্টক ও শোরুমের ইনভেন্টরি এক জায়গায়",
     introDesc:
       "দোকানের কাউন্টারে বিক্রি হলে অনলাইনের প্রোডাক্ট স্টক অটোমেটিক আপডেট হয়ে যাবে।",
@@ -2145,6 +2314,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "নিজের নামে সেল ক্যাম্পেইন তৈরি করুন, ঈদ সেল, উইকএন্ড ফ্ল্যাশ সেল, যা খুশি নাম দিন, পার্সেন্ট ডিসকাউন্ট সেট করুন, কোন প্রোডাক্টে প্রযোজ্য হবে বেছে নিন, আর SoftuneBD চেকআউটে ডিসকাউন্ট প্রাইস অটোমেটিক হিসাব করবে।",
     heroPlaceholderColor: "#111827",
+    planNote: "ফ্রি ও Starter-এ 3টি, Growth-এ 10টি আর Business-এ 25টি সেল ইভেন্ট চালানো যায়।",
     introTitle: "ম্যানুয়াল প্রাইস এডিট নয়, আসল ক্যাম্পেইন",
     introDesc:
       "Products পেজের পাশেই Events থাকে। প্রতিটি প্রোডাক্টের দাম আলাদাভাবে পরিবর্তন না করেই ক্যাম্পেইন চালু বা বন্ধ করুন, স্টোরফ্রন্টে আসল দাম কেটে দেখিয়ে পাশে সেল প্রাইস দেখানো হবে।",
@@ -2213,6 +2383,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "গুগল জেমিনি দিয়ে ব্র্যান্ড-মানানসই প্রোডাক্ট, মার্কেটিং ও হিরো ইমেজ জেনারেট করুন, প্রিসেট থেকে বা নিজের প্রম্পট দিয়ে, টেক্সট সহ বা ছাড়া, তারপর সরাসরি স্টোরের গ্যালারিতে সেভ করুন।",
     heroPlaceholderColor: "#111827",
+    planNote: "সাইন-আপে প্রতিটি নতুন স্টোর 5টি ছবি পায়। আরও ছবির জন্য Starter বা তার উপরের প্ল্যান লাগে।",
     introTitle: "খালি প্রম্পট বক্স নয়, একটা ডিজাইন স্টুডিও",
     introDesc:
       "Product, Events, Marketing, Category, Hero ও Bento স্টাইলের অনেক রেডি প্রিসেট থেকে বেছে নিন, বা নিজেই লিখুন কী চান। যেভাবেই হোক, SoftuneBD AI-কে একটা পরিষ্কার, প্রফেশনাল রেজাল্টের দিকে গাইড করে, সাধারণ AI-লুক নয়।",
@@ -2281,6 +2452,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "SoftuneBD স্টোর ChatGPT-র সাথে যুক্ত করে শুধু বলুন: আজকের সেলস দেখাও, প্রোডাক্ট যোগ করো, হোমপেজের হেডলাইন বদলাও, বা হিরো ইমেজ বানিয়ে সাইটে বসিয়ে দাও। প্রতিটি পরিবর্তনে আপনার অনুমতি লাগে, আর যেকোনো পরিবর্তন আগের অবস্থায় ফেরানো যায়।",
     heroPlaceholderColor: "#111827",
+    planNote: "Starter ও তার উপরের প্ল্যানে আছে।",
     introTitle: "সহজ ভাষায়, এটা কী?",
     introDesc:
       "ChatGPT অন্য অ্যাপের সাথে কথা বলতে পারে MCP (Model Context Protocol) নামের একটি স্ট্যান্ডার্ডের মাধ্যমে। SoftuneBD আপনার স্টোরের জন্য একটি MCP সার্ভার চালায়: আপনি একবার ChatGPT থেকে সাইন-ইন করে কী কী করতে দেবেন তা অনুমোদন করেন, তারপর ChatGPT আপনার স্টোর দেখতে ও আপনার বলা পরিবর্তনগুলো করতে পারে। চিন্তার কাজটা হয় আপনার নিজের ChatGPT প্ল্যানে, তাই এতে SoftuneBD-র কোনো AI ক্রেডিট খরচ হয় না।",
@@ -2523,6 +2695,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
 export const FEATURES_LIST = [
   { slug: "multiple-themes", title: "Theme Editor", icon: "/icons/color.svg", desc: "Your branding and identity, live preview, not a generic look" },
   { slug: "ai-assistant", title: "AI Assistant", icon: "/icons/ai-pencil.svg", desc: "Gemini copy, Suggest, and chat" },
+  { slug: "chat-assistant", title: "Chat Assistant", icon: "/icons/chat.svg", desc: "Answers shoppers on your store, day and night, from your own store details" },
   { slug: "payments", title: "Payments", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad, SSLCommerz, and the Softune Pay app" },
   { slug: "softune-pay", title: "Softune Pay", icon: "/icons/send.svg", desc: "Free Android app that auto-confirms bKash, Nagad and Rocket payments" },
   { slug: "store-sale", title: "Store Sale", icon: "/icons/shop-bag.svg", desc: "Walk-in checkout on your live catalog" },

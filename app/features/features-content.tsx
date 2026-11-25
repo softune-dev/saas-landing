@@ -17,6 +17,7 @@ export default function FeaturesIndexPage({ locale = "en" }: { locale?: "en" | "
     ? [
         { slug: "multiple-themes", title: "থিম এডিটর (Theme Editor)", icon: "/icons/color.svg", desc: "আপনার ব্র্যান্ডিং ও ডিজাইন - লাইভ প্রিভিউ সহ" },
         { slug: "ai-assistant", title: "AI অ্যাসিস্ট্যান্ট", icon: "/icons/ai-pencil.svg", desc: "গুগল জেমিনি চালিত স্মার্ট কপি ও চ্যাট" },
+        { slug: "chat-assistant", title: "চ্যাট অ্যাসিস্ট্যান্ট", icon: "/icons/chat.svg", desc: "আপনার স্টোরের তথ্য থেকেই দিন-রাত ক্রেতাদের উত্তর দেয়" },
         { slug: "payments", title: "পেমেন্ট গেটওয়ে", icon: "/icons/wallet.svg", desc: "COD, bKash, Nagad এবং SSLCommerz" },
         { slug: "softune-pay", title: "Softune Pay", icon: "/icons/send.svg", desc: "bKash, Nagad ও Rocket পেমেন্ট অটো কনফার্ম করার ফ্রি অ্যাপ" },
         { slug: "store-sale", title: "স্টোর সেল (POS)", icon: "/icons/shop-bag.svg", desc: "লাইভ ক্যাটালগ দিয়ে দোকানে সরাসরি বিক্রি" },

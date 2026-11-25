@@ -41,6 +41,7 @@ const linksEn: NavLink[] = [
         items: [
           { label: "Theme Editor", href: "/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI Assistant", href: "/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+          { label: "Chat Assistant", href: "/features/chat-assistant", icon: "/icons/chat.svg" },
           { label: "Image Gen 2.0", href: "/features/ai-image-generation", icon: "/icons/gemini.svg" },
           { label: "GPT Connect", href: "/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png", badge: "Beta" },
           { label: "Claude Connect", href: "/features/claude-connector", icon: "/icons/claude-mark-dark.png", badge: "Soon" },
@@ -101,6 +102,7 @@ const linksBn: NavLink[] = [
         items: [
           { label: "থিম এডিটর", href: "/bn/features/multiple-themes", icon: "/icons/color.svg" },
           { label: "AI অ্যাসিস্ট্যান্ট", href: "/bn/features/ai-assistant", icon: "/icons/ai-pencil.svg" },
+          { label: "চ্যাট অ্যাসিস্ট্যান্ট", href: "/bn/features/chat-assistant", icon: "/icons/chat.svg" },
           { label: "ইমেজ জেন ২.০", href: "/bn/features/ai-image-generation", icon: "/icons/gemini.svg" },
           { label: "GPT কানেক্ট", href: "/bn/features/chatgpt-connector", icon: "/icons/chatgpt-mark-dark.png", badge: "বিটা" },
           { label: "Claude কানেক্ট", href: "/bn/features/claude-connector", icon: "/icons/claude-mark-dark.png", badge: "শীঘ্রই" },
