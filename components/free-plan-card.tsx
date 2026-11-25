@@ -18,7 +18,7 @@ export function FreePlanCard({ locale = "en" }: { locale?: "en" | "bn" }) {
       transition={{ duration: 0.4 }}
       className="mt-5 flex flex-col gap-4 rounded-[28px] border border-[var(--color-line)] bg-[var(--color-surface)] p-3 lg:mt-6 lg:flex-row lg:items-center lg:gap-7 lg:pr-6"
     >
-      <div className="relative flex shrink-0 items-center justify-between gap-3 self-stretch overflow-hidden rounded-[20px] p-4 text-white lg:w-[240px] lg:flex-col lg:items-start lg:px-5">
+      <div className="relative flex shrink-0 flex-row-reverse items-center justify-between gap-3 self-stretch overflow-hidden rounded-[20px] p-4 text-white lg:w-[240px] lg:flex-col lg:items-start lg:px-5">
         <div
           aria-hidden
           className="pointer-events-none absolute -inset-2 scale-105 bg-cover bg-center blur-[2px]"
@@ -28,8 +28,8 @@ export function FreePlanCard({ locale = "en" }: { locale?: "en" | "bn" }) {
           <Gift aria-hidden className="size-3.5 text-[var(--color-brand)]" strokeWidth={2.5} />
           Free
         </span>
-        <div className="relative text-right lg:text-left">
-          <p className="flex items-baseline justify-end gap-1.5 lg:justify-start">
+        <div className="relative text-left">
+          <p className="flex items-baseline gap-1.5">
             <span className="text-[38px] leading-none font-bold tracking-[-0.045em]" style={{ fontFamily: "var(--font-heading), sans-serif" }}>
               ৳0
             </span>
