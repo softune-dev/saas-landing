@@ -80,7 +80,7 @@ export const COMPARE_GROUPS: CompareGroup[] = [
     rows: [
       every("Cash on Delivery and manual payments", "ক্যাশ অন ডেলিভারি ও ম্যানুয়াল পেমেন্ট"),
       every("Softune Pay", "Softune Pay"),
-      every("bKash, Nagad and SSLCommerz checkout", "bKash, Nagad ও SSLCommerz চেকআউট"),
+      paid("bKash, Nagad and SSLCommerz checkout", "bKash, Nagad ও SSLCommerz চেকআউট"),
       row("Couriers", "কুরিয়ার", "Steadfast", "Steadfast, eCourier", allCouriers, allCouriers),
     ],
   },

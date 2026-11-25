@@ -618,7 +618,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
       "Take Cash on Delivery, manual bKash/Nagad/Rocket, official bKash, Nagad, and SSLCommerz from one SoftuneBD Payments screen. With the free Softune Pay app, manual wallet payments confirm themselves.",
     // Note: source filenames are "paymet-*" (typo in the asset itself), not "payment-*".
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
-    planNote: "Every plan, including Free, has all these payment methods.",
+    planNote: "Cash on Delivery, manual wallet payments and Softune Pay are on every plan, including Free. The official bKash, Nagad and SSLCommerz connections come with every paid plan.",
     introTitle: "BD payments on one SoftuneBD screen",
     introDesc:
       "Connect Cash on Delivery, manual bKash/Nagad wallets, official bKash merchant checkout, Nagad merchant API, and SSLCommerz from Payments. You connect your own merchant credentials, SoftuneBD does not use a shared payment login.",
@@ -1939,7 +1939,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     description:
       "Cash on Delivery, ম্যানুয়াল bKash/Nagad/Rocket এবং অফিশিয়াল bKash, Nagad ও SSLCommerz পেমেন্ট গেটওয়ে সেন্ট্রালি কানেক্ট করুন। ফ্রি Softune Pay অ্যাপ দিয়ে ম্যানুয়াল পেমেন্ট নিজে থেকেই কনফার্ম হয়।",
     heroImage: { light: "/feature/paymet-l.webp", dark: "/feature/paymet-d.webp" },
-    planNote: "ফ্রি সহ সব প্ল্যানে এই সব পেমেন্ট পদ্ধতি আছে।",
+    planNote: "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট পেমেন্ট ও Softune Pay সব প্ল্যানে আছে, ফ্রিতেও। অফিশিয়াল bKash, Nagad ও SSLCommerz কানেকশন সব পেইড প্ল্যানে আছে।",
     introTitle: "বাংলাদেশের সব পেমেন্ট সিস্টেম এক স্ক্রিনে",
     introDesc:
       "ক্যাশ অন ডেলিভারি, ম্যানুয়াল ওয়ালেট বা অফিশিয়াল পেমেন্ট গেটওয়ে, আপনার মার্চেন্ট একাউন্ট দিয়ে এক ড্যাশবোর্ড থেকেই সেটআপ করুন।",

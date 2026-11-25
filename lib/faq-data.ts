@@ -40,7 +40,7 @@ export const faqData: FaqItem[] = [
   {
     category: "Integrations",
     q: "What payment methods does SoftuneBD support?",
-    a: "Every plan, including Free, has Cash on Delivery, manual bKash, Nagad and Rocket (the shopper pays your wallet number and submits a transaction ID), the free Softune Pay Android app that confirms those manual payments from your wallet SMS, and the official bKash, Nagad and SSLCommerz connections with your own merchant accounts. Stripe and PayPal are not available.",
+    a: "Every plan, including Free, has Cash on Delivery, manual bKash, Nagad and Rocket (the shopper pays your wallet number and submits a transaction ID), and the free Softune Pay Android app, which confirms those manual payments from your wallet SMS. The official bKash, Nagad and SSLCommerz connections, with your own merchant accounts, need a paid plan: Starter, Growth or Business all include them. Stripe and PayPal are not available.",
   },
   {
     category: "General",
@@ -138,7 +138,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "Integrations",
     q: "SoftuneBD-এ কী কী পেমেন্ট মেথড সাপোর্ট করে?",
-    a: "ফ্রি সহ সব প্ল্যানে ক্যাশ অন ডেলিভারি, ম্যানুয়াল bKash, Nagad ও Rocket, ওয়ালেট SMS থেকে সেই পেমেন্ট কনফার্ম করা ফ্রি Softune Pay অ্যাপ, আর নিজের মার্চেন্ট অ্যাকাউন্টে অফিশিয়াল bKash, Nagad ও SSLCommerz কানেকশন আছে।",
+    a: "ফ্রি সহ সব প্ল্যানে ক্যাশ অন ডেলিভারি, ম্যানুয়াল bKash, Nagad ও Rocket, আর ওয়ালেট SMS থেকে সেই পেমেন্ট কনফার্ম করা ফ্রি Softune Pay অ্যাপ আছে। নিজের মার্চেন্ট অ্যাকাউন্টে অফিশিয়াল bKash, Nagad ও SSLCommerz কানেকশনের জন্য পেইড প্ল্যান লাগে: Starter, Growth ও Business সবগুলোতেই আছে।",
   },
   {
     category: "General",
