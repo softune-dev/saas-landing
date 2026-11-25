@@ -62,7 +62,7 @@ export const plans: Plan[] = [
     description: "For your own branded store",
     specs: [
       ["50", "products"],
-      ["900", "AI requests a month"],
+      ["900", "AI requests (30/day)"],
       ["500MB", "storage"],
       ["2", "courier services"],
       ["Unlimited", "orders"],
@@ -75,7 +75,7 @@ export const plans: Plan[] = [
     description: "For a growing catalog",
     specs: [
       ["500", "products"],
-      ["3,000", "AI requests a month"],
+      ["3,000", "AI requests (100/day)"],
       ["2GB", "storage"],
       ["4", "courier services"],
       ["Unlimited", "orders"],
@@ -88,7 +88,7 @@ export const plans: Plan[] = [
     description: "For big catalogs and busy brands",
     specs: [
       ["Unlimited", "products"],
-      ["4,500", "AI requests a month"],
+      ["4,500", "AI requests (150/day)"],
       ["3GB", "storage"],
       ["4", "courier services"],
       ["Unlimited", "orders"],
@@ -105,7 +105,7 @@ export const plansBn: Plan[] = [
     description: "নিজের ব্র্যান্ডের স্টোরের জন্য",
     specs: [
       ["50টি", "প্রোডাক্ট"],
-      ["900টি", "AI রিকোয়েস্ট, মাসে"],
+      ["900টি", "AI রিকোয়েস্ট (30/দিন)"],
       ["500MB", "স্টোরেজ"],
       ["2টি", "কুরিয়ার সার্ভিস"],
       ["আনলিমিটেড", "অর্ডার"],
@@ -118,7 +118,7 @@ export const plansBn: Plan[] = [
     description: "বাড়তে থাকা ক্যাটালগের জন্য",
     specs: [
       ["500টি", "প্রোডাক্ট"],
-      ["3,000টি", "AI রিকোয়েস্ট, মাসে"],
+      ["3,000টি", "AI রিকোয়েস্ট (100/দিন)"],
       ["2GB", "স্টোরেজ"],
       ["4টি", "কুরিয়ার সার্ভিস"],
       ["আনলিমিটেড", "অর্ডার"],
@@ -131,7 +131,7 @@ export const plansBn: Plan[] = [
     description: "বড় ক্যাটালগ ও ব্যস্ত ব্র্যান্ডের জন্য",
     specs: [
       ["আনলিমিটেড", "প্রোডাক্ট"],
-      ["4,500টি", "AI রিকোয়েস্ট, মাসে"],
+      ["4,500টি", "AI রিকোয়েস্ট (150/দিন)"],
       ["3GB", "স্টোরেজ"],
       ["4টি", "কুরিয়ার সার্ভিস"],
       ["আনলিমিটেড", "অর্ডার"],

@@ -241,7 +241,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                   <p className="text-[14px] leading-[23px] text-[var(--color-muted)]">{plan.description}</p>
 
                   <a
-                    href={signupHref}
+                    href={`${signupHref}?plan=${plan.key}&months=${months}`}
                     className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-4 py-3.5 text-[14px] font-bold transition-all duration-200 hover:opacity-90 ${
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}

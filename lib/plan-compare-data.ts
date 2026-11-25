@@ -44,7 +44,7 @@ export const COMPARE_GROUPS: CompareGroup[] = [
   {
     title: { en: "AI", bn: "AI" },
     rows: [
-      row("AI requests a month", "মাসে AI রিকোয়েস্ট", false, "900", "3,000", "4,500"),
+      row("AI requests", "AI রিকোয়েস্ট", false, "900 (30/day)", "3,000 (100/day)", "4,500 (150/day)"),
       every("AI store setup and 5 images at sign-up", "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি"),
       paid("AI agent and Write with AI", "AI এজেন্ট ও Write with AI"),
       paid("ChatGPT connector (beta)", "ChatGPT কানেক্টর (বেটা)"),

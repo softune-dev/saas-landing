@@ -41,6 +41,33 @@ import { AgentShell } from "./agent-shell";
 import { Transcript, type Draft } from "./agent-transcript";
 
 const DRAFT_KEY = "softune.trial.draft";
+// The paid plan picked on the pricing page (?plan=growth&months=12). Sign-up
+// always opens a Free store; the dashboard then offers this plan's payment.
+const PLAN_INTENT_KEY = "softune.trial.planIntent";
+const PAID_PLANS = ["starter", "growth", "business"];
+const PERIODS = ["1", "3", "6", "12"];
+
+/** Saved on arrival, so a sign-up that goes through OTP or Google still has it. */
+function rememberPlanIntent() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const plan = q.get("plan");
+    if (!plan || !PAID_PLANS.includes(plan)) return;
+    const months = PERIODS.includes(q.get("months") ?? "") ? q.get("months")! : "1";
+    sessionStorage.setItem(PLAN_INTENT_KEY, JSON.stringify({ plan, months }));
+  } catch {}
+}
+
+function takePlanIntent(): { plan: string; months: string } | null {
+  try {
+    const raw = sessionStorage.getItem(PLAN_INTENT_KEY);
+    sessionStorage.removeItem(PLAN_INTENT_KEY);
+    const v = raw ? JSON.parse(raw) : null;
+    return v && PAID_PLANS.includes(v.plan) && PERIODS.includes(v.months) ? v : null;
+  } catch {
+    return null;
+  }
+}
 
 function pick<T>(list: readonly T[]): T {
   return list[Math.floor(Math.random() * list.length)]!;
@@ -118,7 +145,7 @@ function handoffToDashboard(access: string, refresh: string, user: MetaUserData)
   // preview mode, so walkthroughs don't inflate counts. Browser pixel and
   // CAPI share one event_id (lib/meta.ts), so Meta counts one signup; the
   // server copy adds hashed email/phone/name and the user id for matching.
-  trackMeta("CompleteRegistration", { content_name: "Free trial", status: "trial" }, {
+  trackMeta("CompleteRegistration", { content_name: "Free plan", status: "free" }, {
     ...user,
     externalId: userIdFromAccessToken(access),
   });
@@ -127,7 +154,7 @@ function handoffToDashboard(access: string, refresh: string, user: MetaUserData)
     localStorage.removeItem(DRAFT_KEY);
   } catch {}
   storeDashboardSession(access, refresh);
-  const hash = new URLSearchParams({ softune_at: access, softune_rt: refresh }).toString();
+  const hash = new URLSearchParams({ softune_at: access, softune_rt: refresh, ...(takePlanIntent() ?? {}) }).toString();
   window.location.assign(`${DASHBOARD_URL}/onboarding#${hash}`);
 }
 
@@ -144,6 +171,7 @@ export function AgentOnboarding({ locale = "en" }: { locale?: Locale }) {
   const L = (en: string, bn: string) => t(locale, en, bn);
   const { toast } = useToast();
   const [isPreview] = useState(readPreviewFlag);
+  useEffect(rememberPlanIntent, []);
   const [checking, setChecking] = useState(true);
   const [draft, setDraft] = useState<Draft>(freshDraft);
   const [editing, setEditing] = useState<StepId | null>(null);

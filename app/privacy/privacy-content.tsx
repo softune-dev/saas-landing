@@ -100,7 +100,7 @@ export default function PrivacyPage() {
 
             <div className="relative z-10 space-y-10">
               <div className="border-b border-[var(--color-line)] pb-6">
-                <p className="text-[14px] font-bold text-[var(--color-brand)] uppercase tracking-wider mb-2">Effective Date: August 18, 2026</p>
+                <p className="text-[14px] font-bold text-[var(--color-brand)] uppercase tracking-wider mb-2">Effective Date: November 26, 2026</p>
                 <p className="text-[15.5px] leading-relaxed text-[var(--color-muted)] font-medium">
                   At SoftuneBD, we respect your privacy and are committed to protecting the personal data of our store owners, partners, and visitors.
                 </p>
