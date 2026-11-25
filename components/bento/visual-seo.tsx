@@ -10,7 +10,7 @@ const SCENES = [1400, 900, 1300, 700, 700, 700, 700, 2200] as const;
 
 const EVENTS = [
   { id: "meta", Icon: SiMeta, color: "#0866ff" },
-  { id: "tiktok", Icon: SiTiktok, color: "#000000" },
+  { id: "tiktok", Icon: SiTiktok, color: null },
   { id: "ga", Icon: SiGoogleanalytics, color: "#e37400" },
   { id: "gtm", Icon: SiGoogletagmanager, color: "#246fdb" },
 ];
@@ -71,40 +71,34 @@ export function SeoVisual({ bn }: { bn: boolean }) {
         </motion.div>
       </div>
 
-      {/* Tracking */}
-      <div className="absolute inset-x-6 bottom-5 flex items-center justify-between gap-2">
+      {/* Tracking: one shelf, four equal places */}
+      <div className="absolute inset-x-6 bottom-[18px] grid grid-cols-4 gap-2 rounded-[24px] bg-white/[0.08] p-2 ring-1 ring-white/12 ring-inset">
         {EVENTS.map(({ id, Icon, color }, i) => {
           const on = heard >= i;
           return (
             <motion.span
               key={id}
-              className="relative flex size-[50px] items-center justify-center rounded-[17px]"
-              animate={{
-                backgroundColor: on ? "#ffffff" : "rgba(255,255,255,0.08)",
-                y: on ? [0, -7, 0] : 0,
-              }}
+              className={`relative flex h-[56px] items-center justify-center rounded-[17px] ring-1 ring-inset transition-colors duration-300 ${
+                on ? "bg-white ring-transparent dark:bg-[#1d1a1c] dark:ring-white/15" : "bg-white/[0.06] ring-white/[0.06]"
+              }`}
+              animate={{ y: on ? [0, -6, 0] : 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <Icon className="size-6 transition-colors duration-300" style={{ color: on ? color : "rgba(255,255,255,0.5)" }} />
+              <Icon
+                className={`size-[26px] transition-colors duration-300 ${on ? (color ? "" : "text-black dark:text-white") : "text-white/45"}`}
+                style={on && color ? { color } : undefined}
+              />
               {on ? (
                 <motion.span
                   className="absolute inset-0 rounded-[17px] border-2 border-white"
-                  initial={{ opacity: 0.7, scale: 1 }}
-                  animate={{ opacity: 0, scale: 1.45 }}
+                  initial={{ opacity: 0.55, scale: 1 }}
+                  animate={{ opacity: 0, scale: 1.28 }}
                   transition={{ duration: 0.9, ease: "easeOut" }}
                 />
               ) : null}
             </motion.span>
           );
         })}
-        <motion.span
-          className="text-right whitespace-nowrap"
-          animate={{ opacity: heard >= 0 ? 1 : 0, x: heard >= 0 ? 0 : 8 }}
-          transition={{ duration: 0.4 }}
-        >
-          <span className="block text-[12px] text-white/75">{bn ? "পারচেজ পাঠানো" : "Purchase sent"}</span>
-          <span className="block text-[15px] font-extrabold tracking-tight tabular-nums">{bn ? "৳২,১৫২" : "৳2,152"}</span>
-        </motion.span>
       </div>
     </Stage>
   );
