@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Gift } from "lucide-react";
+import { Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
-import { BILLING_MONTHS, freePlanCard, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
+import { FreePlanCard } from "./free-plan-card";
+import { BILLING_MONTHS, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
 import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 
 // Purpose-made artwork gives each tier a distinct, premium surface while keeping the
@@ -18,12 +19,6 @@ import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 const PRICE_FONT = "var(--font-heading), sans-serif";
 
 const TILES = {
-  free: {
-    image: "/pricing/free.webp",
-    ink: "text-white",
-    pill: "border border-white/80 bg-white/78 text-[#2a1306] shadow-[0_8px_20px_rgb(42_19_6/0.14)]",
-    sub: "text-white/85",
-  },
   entry: {
     image: "/pricing/starter.webp",
     ink: "text-[#2a1306]",
@@ -57,19 +52,8 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
   const isBn = locale === "bn";
   // English digits on both languages, by request.
   const money = (n: number) => n.toLocaleString("en-US");
-  const paidPlans = getPlans(locale);
-  const card = freePlanCard[isBn ? "bn" : "en"];
-  const freePlan = {
-    key: "free" as const,
-    name: "Free",
-    popular: false,
-    description: card.description,
-    features: [...card.features],
-  };
-  // Home shows three cards; the pricing page shows every plan.
-  const planList = homepage
-    ? [freePlan, ...paidPlans.filter((plan) => plan.key !== "business")]
-    : [freePlan, ...paidPlans];
+  const planList = getPlans(locale);
+  // Free sits under this grid in its own compact card.
   const periodName = isBn
     ? { 1: "1 মাস", 3: "3 মাস", 6: "6 মাস", 12: "12 মাস" }
     : { 1: "1 month", 3: "3 months", 6: "6 months", 12: "12 months" };
@@ -179,13 +163,11 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
           </div>
         </div>
 
-        <div className={`grid items-stretch gap-5 lg:gap-6 ${planList.length === 4 ? "md:grid-cols-2 xl:grid-cols-4 xl:!gap-4" : "md:grid-cols-3"}`}>
+        <div className="grid items-stretch gap-5 md:grid-cols-3 lg:gap-6">
           {planList.map((plan, i) => {
-            const isFree = plan.key === "free";
             const popular = Boolean(plan.popular);
-            const paidPrice = plan.key === "free" ? null : periodPrice(plan.key, months);
-            const price = paidPrice?.perMonth ?? 0;
-            const tile = TILES[isFree ? "free" : plan.name === "Growth" ? "featured" : plan.name === "Starter" ? "entry" : "top"];
+            const paidPrice = periodPrice(plan.key, months);
+            const tile = TILES[plan.key === "growth" ? "featured" : plan.key === "starter" ? "entry" : "top"];
             return (
               <motion.div
                 key={plan.name}
@@ -201,7 +183,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
               >
                 {/* The plan tile: custom tier artwork, plan name top-left, price bottom-left. */}
                 <div
-                  className={`relative flex h-[224px] flex-col justify-between overflow-hidden rounded-[22px] p-5 pb-3 sm:h-[234px] sm:p-6 sm:pb-4 ${planList.length === 4 ? "xl:!px-4" : ""} ${tile.ink}`}
+                  className={`relative flex h-[224px] flex-col justify-between overflow-hidden rounded-[22px] p-5 pb-3 sm:h-[234px] sm:p-6 sm:pb-4 ${tile.ink}`}
                 >
                   <div
                     aria-hidden
@@ -214,7 +196,6 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                   />
                   <div className="relative z-10 flex items-center justify-between gap-2">
                     <span className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-bold backdrop-blur-xl ${tile.pill}`}>
-                      {isFree ? <Gift aria-hidden="true" className="size-4 text-[var(--color-brand)]" strokeWidth={2.5} /> : null}
                       {plan.name}
                     </span>
                     {popular ? (
@@ -230,14 +211,12 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                         className="text-[46px] leading-none font-bold tracking-[-0.045em] sm:text-[52px]"
                         style={{ fontFamily: PRICE_FONT }}
                       >
-                        {`৳${money(price)}`}
+                        ৳{money(paidPrice.perMonth)}
                       </span>
                       <span className={`text-[14px] font-semibold ${tile.sub}`}>/mo</span>
                     </div>
                     <p className={`mt-2 min-h-[18px] text-[12.5px] font-semibold ${tile.sub}`}>
-                      {!paidPrice
-                        ? card.note
-                        : months === 1
+                      {months === 1
                           ? isBn
                             ? "প্রতি মাসে বিল হবে"
                             : "Billed every month"
@@ -257,7 +236,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                       popular ? "bg-[var(--color-brand)] text-white" : "bg-[var(--color-ink)] text-[var(--color-surface)]"
                     }`}
                   >
-                    {isFree ? card.cta : ctaText}
+                    {ctaText}
                     <img
                       loading="lazy"
                       decoding="async"
@@ -289,6 +268,8 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
             );
           })}
         </div>
+
+        <FreePlanCard locale={locale} />
 
         {homepage ? (
           <div className="mt-8 flex justify-center">
