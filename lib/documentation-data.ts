@@ -38,6 +38,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
       { title: "Account Setup Checklist", slug: "account-setup-checklist" },
       { title: "Dashboard Tour & Key Concepts", slug: "dashboard-tour" },
       { title: "Connecting a Custom Domain", slug: "custom-domain" },
+      { title: "Plans, Billing & the Free Plan", slug: "plans-and-billing" },
     ],
   },
   {
@@ -58,6 +59,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
       { title: "Using the Theme Editor", slug: "using-theme-editor" },
       { title: "Brand Colors & Fonts with AI Suggest", slug: "brand-colors-ai-suggest" },
       { title: "Publishing Your Storefront", slug: "publishing-storefront" },
+      { title: "Store Chat Assistant", slug: "store-chat-assistant" },
     ],
   },
   {
@@ -103,6 +105,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
       { title: "অ্যাকাউন্ট সেটআপ চেকলিস্ট", slug: "account-setup-checklist" },
       { title: "ড্যাশবোর্ড ট্যুর ও ফিচার নির্দেশিকা", slug: "dashboard-tour" },
       { title: "কাস্টম ডোমেইন কানেক্ট করার নিয়ম", slug: "custom-domain" },
+      { title: "প্ল্যান, বিলিং ও ফ্রি প্ল্যান", slug: "plans-and-billing" },
     ],
   },
   {
@@ -123,6 +126,7 @@ export const DOC_CATEGORIES_BN: DocCategory[] = [
       { title: "Theme Editor ব্যবহার করার নিয়ম", slug: "using-theme-editor" },
       { title: "AI Suggest দিয়ে ব্র্যান্ড কালার ও ফন্ট", slug: "brand-colors-ai-suggest" },
       { title: "স্টোরফ্রন্ট লাইভ ও পাবলিশ করা", slug: "publishing-storefront" },
+      { title: "স্টোর চ্যাট অ্যাসিস্ট্যান্ট", slug: "store-chat-assistant" },
     ],
   },
   {

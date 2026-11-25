@@ -59,6 +59,92 @@ function article(
 }
 
 export const DOC_ARTICLES: Record<string, DocArticleContent> = {
+  "plans-and-billing": article(
+    "plans-and-billing",
+    "What each plan includes, how paying for several months works, and how the Free plan behaves.",
+    [
+      { type: "p", content: "SoftuneBD has four plans: Free, Starter, Growth and Business. The pricing page has a table that compares every limit and feature." },
+      { type: "h2", content: "The Free plan" },
+      {
+        type: "list",
+        content: [
+          "10 products, 50 orders a month and 100MB of media storage",
+          "Cash on Delivery, manual payments, Softune Pay, Steadfast and the store chat assistant",
+          "An AI store setup and 5 images at sign-up",
+          "No credit card, and 0% commission on orders",
+        ],
+      },
+      { type: "p", content: "When a Free store has used its 50 orders for the month, checkout switches to ordering by WhatsApp. The count starts again at the beginning of the next calendar month." },
+      { type: "callout", content: "Free is for stores that are in use. A Free account with no activity for 30 days is deleted after warning emails (90 days if you have paid for a plan before). Logging in, using the dashboard, editing a product or receiving an order counts as activity." },
+      { type: "h2", content: "Paying for a paid plan" },
+      { type: "p", content: "Choose 1, 3, 6 or 12 months. Longer periods save about 5%, 10% and 20%." },
+      {
+        type: "list",
+        content: [
+          "Starter: ৳499, ৳1,425, ৳2,694 or ৳4,788",
+          "Growth: ৳1,499, ৳4,275, ৳8,094 or ৳14,388",
+          "Business: ৳3,999, ৳11,397, ৳21,594 or ৳38,388",
+        ],
+      },
+      { type: "p", content: "When you move from one paid plan to another, the time you have not used is carried over by its value." },
+      { type: "h2", content: "If a paid plan is not renewed" },
+      {
+        type: "list",
+        content: [
+          "The store moves to the Free plan instead of closing",
+          "Data above the Free limits is kept and locked until you renew",
+          "Your 10 best-selling products stay visible and the others are hidden",
+          "A custom domain keeps working for 30 more days",
+        ],
+      },
+    ],
+    "3 min read",
+    "Nov 26, 2026",
+  ),
+
+  "store-chat-assistant": article(
+    "store-chat-assistant",
+    "Set up the chat assistant that answers shoppers on your store, and teach it your own answers.",
+    [
+      { type: "p", content: "The chat assistant is a chat button on your storefront. It answers shoppers in English, Bangla or Banglish from your own store's information. It is included on every plan, including Free, and no AI model writes its replies." },
+      { type: "h2", content: "What it can answer" },
+      {
+        type: "list",
+        content: [
+          "A product's price, stock and options, read at the moment of the question",
+          "Delivery charges and your free delivery amount",
+          "The payment methods your store accepts",
+          "Sale events that are running",
+          "Your contact details, address, categories, About text and FAQs",
+        ],
+      },
+      { type: "p", content: "For order tracking, and for anything it cannot answer, it asks the shopper to contact your team using your contact details. Keep those up to date in Settings." },
+      { type: "h2", content: "Set it up" },
+      {
+        type: "list",
+        content: [
+          "1. Open Settings, then Chat Assistant",
+          "2. Choose its name, avatar, greeting and button text",
+          "3. Choose the side of the screen and the colour, and check the live preview",
+          "4. Save. It is on by default; switch it off here if you do not want it",
+        ],
+      },
+      { type: "h2", content: "Teach it your answers" },
+      { type: "p", content: "You can write up to 100 questions and answers. Your own answers are used first." },
+      {
+        type: "list",
+        content: [
+          "Open the list of questions it could not answer",
+          "Write the answer once, and it uses it next time",
+          "On paid plans, Write with AI can draft the answer for you to check",
+        ],
+      },
+      { type: "callout", content: "Changes to products, delivery charges and FAQs are picked up automatically. You do not need to retrain anything." },
+    ],
+    "3 min read",
+    "Nov 26, 2026",
+  ),
+
   // ── Getting Started ───────────────────────────────────────────────────────
   "intro-to-softune": article(
     "intro-to-softune",
@@ -190,6 +276,8 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content:
           "You can still open Dashboard, Analytics, Fraud Protection, or Advanced Features while Setup is visible. The checklist does not lock the rest of SoftuneBD - it only tracks go-live readiness.",
       },
+      { type: "h2", content: "Sign in with Google" },
+      { type: "p", content: "You can create your account and log in with your Google account instead of typing a password." },
     ],
     "2 min read",
   ),
@@ -248,6 +336,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "custom-domain",
     "Connect a custom hostname in SoftuneBD Site Settings and watch live DNS status until the storefront is reachable on your brand URL.",
     [
+      { type: "callout", content: "A custom domain is included in Starter and above." },
       {
         type: "p",
         content:
@@ -453,6 +542,9 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
           "Cross-check Fraud Protection if a COD order looks risky before dispatch",
         ],
       },
+      { type: "h2", content: "Photos and deleting orders" },
+      { type: "p", content: "New orders keep each product's photo on the order line. You can delete one order, or select several and delete them together." },
+      { type: "callout", content: "Deleting an order is permanent. Items from an order that was not fulfilled go back into stock. On the Free plan, deleting orders does not reset the month's order count." },
     ],
     "2 min read",
   ),
@@ -461,6 +553,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "working-with-customers",
     "Use SoftuneBD Customers to look up buyers, review order history, and support repeat outreach without leaving the dashboard.",
     [
+      { type: "callout", content: "Customer records are included in Starter and above." },
       {
         type: "p",
         content:
@@ -506,6 +599,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "choosing-a-theme",
     "Compare SoftuneBD’s real themes - Fashion, Emporium, and Vault - and pick the storefront design that fits your brand before editing.",
     [
+      { type: "callout", content: "A Free store keeps the theme chosen at sign-up. Switching themes needs a paid plan." },
       {
         type: "p",
         content:
@@ -621,6 +715,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "brand-colors-ai-suggest",
     "Run SoftuneBD AI Suggest from Brand and Colors in the theme editor - review proposals, check contrast, then Save or Publish.",
     [
+      { type: "callout", content: "AI Suggest is included in Starter and above." },
       {
         type: "p",
         content:
@@ -708,6 +803,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "connecting-payment-gateways",
     "Connect SoftuneBD Payments - COD, manual bKash/Nagad, official bKash, Nagad, and SSLCommerz - and understand why Payments is included by default (not part of the 25 paid Advanced Features).",
     [
+      { type: "callout", content: "The official bKash, Nagad and SSLCommerz connections need Growth or Business. Cash on Delivery, manual payments and Softune Pay are on every plan." },
       {
         type: "p",
         content:
@@ -834,6 +930,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "connecting-courier-partners",
     "Connect SoftuneBD Courier to Bangladesh delivery partners for order handoff - core (Included by Default), not a paid Advanced Features.",
     [
+      { type: "callout", content: "Free includes Steadfast, Starter adds eCourier, and Growth and Business add Pathao and RedX." },
       {
         type: "p",
         content:
@@ -911,6 +1008,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "reading-store-analytics",
     "Read SoftuneBD Analytics - sales trends, best sellers, category performance, and the date-range picker - then act on Orders.",
     [
+      { type: "callout", content: "The Free plan shows the last 7 days. Paid plans show the full reports." },
       {
         type: "p",
         content:
@@ -989,6 +1087,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "fraud-protection-rules",
     "Configure SoftuneBD Fraud Protection rule-based flagging, then review held orders before courier handoff.",
     [
+      { type: "callout", content: "Every plan blocks obvious fake orders. The controls in this guide are included in Starter and above." },
       {
         type: "p",
         content:
@@ -1070,6 +1169,9 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
       { type: "p", content: "Ad blockers and iPhone privacy settings can stop the browser Pixel. On the same SEO page you can also connect Meta Conversions API: in Events Manager open your Pixel, go to Settings > Conversions API, generate an access token, and paste it into SoftuneBD. Purchase is then also sent from SoftuneBD's server. Both copies carry the order number as the event ID, so Meta merges them into one conversion instead of counting twice." },
       { type: "h2", content: "Choosing the event for your ads" },
       { type: "p", content: "For sales campaigns, choose Purchase as the conversion event. A brand-new Pixel with few orders can start on InitiateCheckout or AddToCart and switch to Purchase once orders are coming in." },
+      { type: "h2", content: "Check tracking health" },
+      { type: "p", content: "With Conversions API connected, the same page shows whether purchases are reaching Meta and the last error if one fails. A failed send is retried once when Meta cannot be reached. To test, paste the test event code from Events Manager; remove it when you finish." },
+      { type: "callout", content: "Pixels and Conversions API are included in Starter and above." },
     ],
     "3 min read",
     "Nov 11, 2026",
@@ -1078,6 +1180,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "managing-phone-blocklist",
     "Maintain SoftuneBD’s manual Fraud Protection phone blocklist with notes - add after confirmed abuse, remove mistakes quickly.",
     [
+      { type: "callout", content: "The phone blocklist is included in Starter and above." },
       {
         type: "p",
         content:
@@ -1260,6 +1363,106 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
 };
 
 export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
+  "plans-and-billing": {
+    slug: "plans-and-billing",
+    title: "প্ল্যান, বিলিং ও ফ্রি প্ল্যান",
+    category: "শুরু করুন",
+    categoryIcon: DOC_ICON_PATHS.book,
+    desc: "প্রতিটি প্ল্যানে কী আছে, কয়েক মাসের পেমেন্ট কীভাবে কাজ করে আর ফ্রি প্ল্যানের নিয়ম।",
+    readTime: "পড়ার সময়: 3 মিনিট",
+    updated: "নভেম্বর 26, 2026",
+    toc: [
+      "ফ্রি প্ল্যান",
+      "পেইড প্ল্যানের পেমেন্ট",
+      "রিনিউ না করলে",
+    ],
+    body: [
+      { type: "p", content: "SoftuneBD-এ চারটি প্ল্যান: ফ্রি, Starter, Growth ও Business। প্রাইসিং পেজের টেবিলে সব সীমা ও ফিচারের তুলনা আছে।" },
+      { type: "h2", content: "ফ্রি প্ল্যান" },
+      {
+        type: "list",
+        content: [
+          "10টি প্রোডাক্ট, মাসে 50টি অর্ডার ও 100MB মিডিয়া স্টোরেজ",
+          "ক্যাশ অন ডেলিভারি, ম্যানুয়াল পেমেন্ট, Softune Pay, Steadfast ও স্টোর চ্যাট অ্যাসিস্ট্যান্ট",
+          "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি",
+          "ক্রেডিট কার্ড লাগে না, অর্ডারে 0% কমিশন",
+        ],
+      },
+      { type: "p", content: "মাসের 50টি অর্ডার শেষ হলে চেকআউট WhatsApp অর্ডারে চলে যায়। পরের ক্যালেন্ডার মাসে গণনা নতুন করে শুরু হয়।" },
+      { type: "callout", content: "ফ্রি প্ল্যান সচল স্টোরের জন্য। 30 দিন কোনো কার্যকলাপ না থাকলে সতর্কতা ইমেইলের পর ফ্রি অ্যাকাউন্ট মুছে ফেলা হয় (আগে পেইড প্ল্যান নিয়ে থাকলে 90 দিন)। লগইন, ড্যাশবোর্ড ব্যবহার, প্রোডাক্ট এডিট বা অর্ডার পাওয়া সবই কার্যকলাপ।" },
+      { type: "h2", content: "পেইড প্ল্যানের পেমেন্ট" },
+      { type: "p", content: "1, 3, 6 বা 12 মাস বেছে নিন। বেশি মেয়াদে প্রায় 5%, 10% ও 20% সাশ্রয়।" },
+      {
+        type: "list",
+        content: [
+          "Starter: ৳499, ৳1,425, ৳2,694 বা ৳4,788",
+          "Growth: ৳1,499, ৳4,275, ৳8,094 বা ৳14,388",
+          "Business: ৳3,999, ৳11,397, ৳21,594 বা ৳38,388",
+        ],
+      },
+      { type: "p", content: "এক পেইড প্ল্যান থেকে অন্যটিতে গেলে অব্যবহৃত সময় তার মূল্য অনুযায়ী যোগ হয়।" },
+      { type: "h2", content: "রিনিউ না করলে" },
+      {
+        type: "list",
+        content: [
+          "স্টোর বন্ধ না হয়ে ফ্রি প্ল্যানে যায়",
+          "ফ্রি সীমার বাড়তি ডেটা থাকে, রিনিউ করা পর্যন্ত লক থাকে",
+          "বেশি বিক্রি হওয়া 10টি প্রোডাক্ট দেখা যায়, বাকিগুলো লুকানো থাকে",
+          "কাস্টম ডোমেইন আরও 30 দিন চলে",
+        ],
+      },
+    ],
+  },
+  "store-chat-assistant": {
+    slug: "store-chat-assistant",
+    title: "স্টোর চ্যাট অ্যাসিস্ট্যান্ট",
+    category: "স্টোরফ্রন্ট ও থিম",
+    categoryIcon: DOC_ICON_PATHS.paintbrush,
+    desc: "স্টোরে ক্রেতাদের উত্তর দেওয়া চ্যাট অ্যাসিস্ট্যান্ট সেটআপ করুন আর নিজের উত্তর শেখান।",
+    readTime: "পড়ার সময়: 3 মিনিট",
+    updated: "নভেম্বর 26, 2026",
+    toc: [
+      "কী কী উত্তর দিতে পারে",
+      "সেটআপ",
+      "নিজের উত্তর শেখান",
+    ],
+    body: [
+      { type: "p", content: "চ্যাট অ্যাসিস্ট্যান্ট আপনার স্টোরফ্রন্টের একটি চ্যাট বাটন। আপনার স্টোরের তথ্য থেকে বাংলা, ইংরেজি বা বাংলিশে উত্তর দেয়। ফ্রি সহ সব প্ল্যানে আছে, এবং কোনো AI মডেল এর উত্তর লেখে না।" },
+      { type: "h2", content: "কী কী উত্তর দিতে পারে" },
+      {
+        type: "list",
+        content: [
+          "প্রোডাক্টের দাম, স্টক ও অপশন, প্রশ্নের সময়কার",
+          "ডেলিভারি চার্জ ও ফ্রি ডেলিভারির পরিমাণ",
+          "স্টোরে কোন পেমেন্ট নেওয়া হয়",
+          "চলমান সেল ইভেন্ট",
+          "যোগাযোগ, ঠিকানা, ক্যাটাগরি, About ও FAQ",
+        ],
+      },
+      { type: "p", content: "অর্ডার ট্র্যাকিং বা অজানা প্রশ্নে এটি ক্রেতাকে আপনার যোগাযোগ নম্বরে টিমের সাথে কথা বলতে বলে। তাই Settings-এ যোগাযোগের তথ্য ঠিক রাখুন।" },
+      { type: "h2", content: "সেটআপ" },
+      {
+        type: "list",
+        content: [
+          "1. Settings থেকে Chat Assistant খুলুন",
+          "2. নাম, অ্যাভাটার, শুভেচ্ছা ও বাটনের লেখা দিন",
+          "3. কোন পাশে থাকবে আর রঙ বেছে লাইভ প্রিভিউ দেখুন",
+          "4. সেভ করুন। শুরুতে চালু থাকে; না চাইলে এখান থেকে বন্ধ করুন",
+        ],
+      },
+      { type: "h2", content: "নিজের উত্তর শেখান" },
+      { type: "p", content: "100টি পর্যন্ত প্রশ্ন ও উত্তর লিখতে পারেন। আপনার লেখা উত্তরই আগে ব্যবহার হয়।" },
+      {
+        type: "list",
+        content: [
+          "যেসব প্রশ্নের উত্তর দিতে পারেনি তার তালিকা খুলুন",
+          "একবার উত্তর লিখুন, পরের বার সেটিই বলবে",
+          "পেইড প্ল্যানে Write with AI উত্তরের খসড়া করে দেয়",
+        ],
+      },
+      { type: "callout", content: "প্রোডাক্ট, ডেলিভারি চার্জ ও FAQ বদলালে নিজে থেকেই আপডেট হয়।" },
+    ],
+  },
   "intro-to-softune": {
     slug: "intro-to-softune",
     title: "SoftuneBD পরিচিতি ও ড্যাশবোর্ড ওভারভিউ",
@@ -1364,6 +1567,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "চেকলিস্ট সম্পূর্ণ করার পর",
       "দক্ষতার সাথে চেকলিস্ট সম্পূর্ণ করার উপায়",
       "যেকোনো সময় আলাদাভাবে কাজ করার সুযোগ",
+      "Google দিয়ে সাইন ইন",
     ],
     body: [
       {
@@ -1412,6 +1616,8 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content:
           "চেকলিস্ট চলাকালীনও আপনি Dashboard, Analytics, Fraud Protection বা Advanced Features সেকশনগুলোতে অবলীলায় ভিজিট করতে পারবেন। চেকলিস্ট কেবল আপনার প্রস্তুতি ট্র্যাকিং করে, কোনো পেজ লক করে রাখে না।",
       },
+      { type: "h2", content: "Google দিয়ে সাইন ইন" },
+      { type: "p", content: "পাসওয়ার্ড না লিখে Google অ্যাকাউন্ট দিয়ে অ্যাকাউন্ট খুলতে ও লগইন করতে পারেন।" },
     ],
   },
   "dashboard-tour": {
@@ -1489,6 +1695,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "লাইভ স্টোরফ্রন্টে যাচাইকরণ",
     ],
     body: [
+      { type: "callout", content: "কাস্টম ডোমেইন Starter ও তার উপরের প্ল্যানে আছে।" },
       {
         type: "p",
         content:
@@ -1668,6 +1875,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "অর্ডার স্ট্যাটাসের ধাপসমূহ",
       "ইমিউটেবল স্ল্যাপশটের গুরুত্ব",
       "অর্ডার ফিল্টার ও ইনভয়েস প্রিন্ট",
+      "ছবি ও অর্ডার ডিলিট",
     ],
     body: [
       {
@@ -1711,6 +1919,9 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
           "Steadfast, Pathao বা RedX কানেক্ট থাকলে সোজাসুজি Send to Courier বাটনে প্রেস করুন",
         ],
       },
+      { type: "h2", content: "ছবি ও অর্ডার ডিলিট" },
+      { type: "p", content: "নতুন অর্ডারে প্রতিটি প্রোডাক্টের ছবি থাকে। একটি অর্ডার, বা কয়েকটি বেছে একসাথে ডিলিট করা যায়।" },
+      { type: "callout", content: "ডিলিট করা অর্ডার আর ফেরত আসে না। ফুলফিল না হওয়া অর্ডারের প্রোডাক্ট স্টকে ফিরে যায়। ফ্রি প্ল্যানে অর্ডার ডিলিট করলে মাসের অর্ডার গণনা কমে না।" },
     ],
   },
   "working-with-customers": {
@@ -1727,6 +1938,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "রিপিট কাস্টমার ও মার্কেটিং",
     ],
     body: [
+      { type: "callout", content: "কাস্টমার রেকর্ড Starter ও তার উপরের প্ল্যানে আছে।" },
       {
         type: "p",
         content:
@@ -1778,6 +1990,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "সঠিক থিম বেছে নেওয়ার উপায়",
     ],
     body: [
+      { type: "callout", content: "ফ্রি স্টোরে সাইন-আপে বেছে নেওয়া থিমই থাকে। থিম বদলাতে পেইড প্ল্যান লাগে।" },
       {
         type: "p",
         content:
@@ -1901,6 +2114,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "রিভিউ ও পাবলিশ",
     ],
     body: [
+      { type: "callout", content: "AI Suggest Starter ও তার উপরের প্ল্যানে আছে।" },
       {
         type: "p",
         content:
@@ -1997,6 +2211,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "Included by Default কি?",
     ],
     body: [
+      { type: "callout", content: "অফিশিয়াল bKash, Nagad ও SSLCommerz কানেকশনের জন্য Growth বা Business লাগে। ক্যাশ অন ডেলিভারি, ম্যানুয়াল পেমেন্ট ও Softune Pay সব প্ল্যানে আছে।" },
       {
         type: "p",
         content:
@@ -2143,6 +2358,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "এক ক্লিকে পার্সেল বুকিং",
     ],
     body: [
+      { type: "callout", content: "ফ্রিতে Steadfast, Starter-এ সাথে eCourier, আর Growth ও Business-এ Pathao ও RedX।" },
       {
         type: "p",
         content:
@@ -2232,6 +2448,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "সিদ্ধান্ত গ্রহণে অ্যানালিটিক্স",
     ],
     body: [
+      { type: "callout", content: "ফ্রি প্ল্যানে শেষ 7 দিনের হিসাব দেখা যায়। পেইড প্ল্যানে সম্পূর্ণ রিপোর্ট।" },
       {
         type: "p",
         content:
@@ -2323,6 +2540,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "হোল্ড হওয়া অর্ডার রিভিউ",
     ],
     body: [
+      { type: "callout", content: "সব প্ল্যানেই সাধারণ ফেক অর্ডার ব্লক হয়। এই গাইডের কন্ট্রোলগুলো Starter ও তার উপরের প্ল্যানে আছে।" },
       {
         type: "p",
         content:
@@ -2366,6 +2584,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "ঠিকমতো কাজ করছে কিনা দেখুন",
       "Conversions API দিয়ে আরও নির্ভুল",
       "বিজ্ঞাপনের জন্য কোন ইভেন্ট বাছবেন",
+      "ট্র্যাকিং ঠিক আছে কিনা দেখুন",
     ],
     body: [
       { type: "p", content: "পিক্সেল আইডি যোগ করলেই SoftuneBD আপনার স্টোরের প্রতিটি পেজ থেকে কেনাকাটার সব স্ট্যান্ডার্ড ইভেন্ট নিজে থেকে পাঠায়। কোনো কোড বসাতে হয় না, মেটার Event Setup Tool-ও লাগে না।" },
@@ -2410,6 +2629,9 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       { type: "p", content: "অ্যাড ব্লকার ও আইফোনের প্রাইভেসি সেটিং ব্রাউজারের পিক্সেল আটকে দিতে পারে। একই SEO পেজে Meta Conversions API-ও কানেক্ট করতে পারেন: Events Manager-এ পিক্সেল খুলে Settings > Conversions API থেকে একটি access token বানিয়ে SoftuneBD-তে বসান। তখন Purchase আমাদের সার্ভার থেকেও যায়। দুটোতেই অর্ডার নম্বর ইভেন্ট আইডি হিসেবে থাকে, তাই মেটা দুটোকে একটাই কনভার্সন ধরে, দুবার গোনে না।" },
       { type: "h2", content: "বিজ্ঞাপনের জন্য কোন ইভেন্ট বাছবেন" },
       { type: "p", content: "সেলস ক্যাম্পেইনে কনভার্সন ইভেন্ট হিসেবে Purchase বাছুন। নতুন পিক্সেলে অর্ডার কম থাকলে শুরুতে InitiateCheckout বা AddToCart দিয়ে চালিয়ে, অর্ডার আসা শুরু হলে Purchase-এ যান।" },
+      { type: "h2", content: "ট্র্যাকিং ঠিক আছে কিনা দেখুন" },
+      { type: "p", content: "Conversions API যুক্ত থাকলে একই পেজে দেখা যায় পারচেজ Meta-তে যাচ্ছে কিনা, আর ব্যর্থ হলে শেষ ত্রুটি। Meta-তে পৌঁছানো না গেলে একবার আবার চেষ্টা করা হয়। পরীক্ষা করতে Events Manager-এর test event code বসান, শেষে মুছে দিন।" },
+      { type: "callout", content: "পিক্সেল ও Conversions API Starter ও তার উপরের প্ল্যানে আছে।" },
     ],
   },
   "managing-phone-blocklist": {
@@ -2425,6 +2647,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "ভুলবশত ব্লক রিমুভ করা",
     ],
     body: [
+      { type: "callout", content: "ফোন ব্লকলিস্ট Starter ও তার উপরের প্ল্যানে আছে।" },
       {
         type: "p",
         content:

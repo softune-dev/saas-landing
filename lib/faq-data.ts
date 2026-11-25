@@ -35,12 +35,12 @@ export const faqData: FaqItem[] = [
   {
     category: "General",
     q: "Can I manage multiple stores from one dashboard?",
-    a: "Yes. SoftuneBD lets you switch between stores from one dashboard. The Business plan includes up to 3 storefronts on a single account. SoftuneBD does not offer unlimited stores on every plan.",
+    a: "The Business plan includes 2 storefronts on one account, and you switch between them from the dashboard. Free, Starter and Growth include 1 store.",
   },
   {
     category: "Integrations",
     q: "What payment methods does SoftuneBD support?",
-    a: "SoftuneBD Payments covers Cash on Delivery, manual bKash and Nagad (shopper pays your wallet number and submits a transaction ID), plus official bKash, Nagad, and SSLCommerz merchant connects from the same screen. The free Softune Pay Android app can confirm manual bKash, Nagad and Rocket payments for you by reading the wallet SMS on your phone. Stripe and PayPal are not available.",
+    a: "Every plan, including Free, has Cash on Delivery, manual bKash, Nagad and Rocket (the shopper pays your wallet number and submits a transaction ID), and the free Softune Pay Android app, which confirms those manual payments from your wallet SMS. The official bKash, Nagad and SSLCommerz merchant connections need Growth or Business. Stripe and PayPal are not available.",
   },
   {
     category: "General",
@@ -65,17 +65,17 @@ export const faqData: FaqItem[] = [
   {
     category: "Integrations",
     q: "What courier services are integrated with SoftuneBD?",
-    a: "SoftuneBD Couriers lets you connect Steadfast, Pathao, RedX, and eCourier with your own merchant accounts today. The same screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan, and PandaGo. SoftuneBD does not claim real-time public tracking or auto-booking for every partner.",
+    a: "You connect your own merchant accounts. Free includes Steadfast, Starter adds eCourier, and Growth and Business add Pathao and RedX. Parcels can be booked from your dashboard with Steadfast. The Couriers screen also lists Paperfly, Sundarban, Carrybee, SA Paribahan and PandaGo.",
   },
   {
     category: "Billing",
     q: "Can I upgrade or downgrade my plan anytime?",
-    a: "Yes. You can move between Starter, Growth, and Business. See the live pricing page for current limits and what’s included on each plan.",
+    a: "Yes. You can move between Starter, Growth and Business and pay for 1, 3, 6 or 12 months. When you move between paid plans, your unused time is carried over by its value. If a paid plan is not renewed, the store moves to Free: extra data is kept but locked.",
   },
   {
     category: "General",
     q: "How does SoftuneBD's AI help my business?",
-    a: "SoftuneBD’s Gemini-powered AI chatbot answers questions about your products, orders, and sales from your own store data. AI Suggest helps with theme direction, and one-click AI writing drafts product descriptions. Merchants always confirm before AI changes go live, SoftuneBD does not auto-rewrite your store SEO without review.",
+    a: "On paid plans, the AI agent answers questions about your products, orders and sales from your own store data and carries out store tasks you confirm. AI Suggest helps with theme direction and Write with AI drafts product descriptions. Every new store, including a Free one, gets an AI setup and 5 images at sign-up.",
   },
   {
     category: "Integrations",
@@ -90,7 +90,22 @@ export const faqData: FaqItem[] = [
   {
     category: "Integrations",
     q: "Does the ChatGPT connector use my SoftuneBD AI credits?",
-    a: "No. ChatGPT does the thinking and any image generation on your own ChatGPT plan. SoftuneBD only runs the actions on your store, such as saving an image to your media library, which counts toward your plan's storage like any upload.",
+    a: "No. ChatGPT does the thinking and any image generation on your own ChatGPT plan. SoftuneBD only runs the actions on your store, such as saving an image to your media library, which counts toward your plan's storage like any upload. The connector is included in Starter and above.",
+  },
+  {
+    category: "Billing",
+    q: "How much do I save if I pay for several months?",
+    a: "Paying for 3 months saves about 5%, 6 months about 10% and 12 months about 20%. For example, Starter is ৳499 for 1 month, ৳1,425 for 3 months, ৳2,694 for 6 months and ৳4,788 for 12 months. The pricing page compares every plan.",
+  },
+  {
+    category: "Billing",
+    q: "What happens when my Free store reaches 50 orders in a month?",
+    a: "Checkout switches to ordering by WhatsApp, with the cart written into the message, so you can keep selling. The count starts again each calendar month. Paid plans have unlimited orders.",
+  },
+  {
+    category: "General",
+    q: "Is there a chat assistant for my shoppers?",
+    a: "Yes, on every plan including Free. It answers shoppers in English, Bangla or Banglish from your own products, delivery charges, payment methods and FAQs. It is on by default, and you can edit it or turn it off in Settings, Chat Assistant.",
   },
 ];
 
@@ -118,12 +133,12 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "General",
     q: "এক ড্যাশবোর্ড থেকে কি একাধিক স্টোর ম্যানেজ করা যাবে?",
-    a: "হ্যাঁ। SoftuneBD ড্যাশবোর্ড থেকে একাধিক স্টোরের মধ্যে সুইচ করতে পারবেন। Business প্ল্যানে ১টি অ্যাকাউন্টেই ৩টি পর্যন্ত Storefront কানেক্ট করার সুবিধা রয়েছে।",
+    a: "Business প্ল্যানে একটি অ্যাকাউন্টে 2টি স্টোরফ্রন্ট আছে, ড্যাশবোর্ড থেকেই বদলানো যায়। ফ্রি, Starter ও Growth-এ 1টি স্টোর।",
   },
   {
     category: "Integrations",
     q: "SoftuneBD-এ কী কী পেমেন্ট মেথড সাপোর্ট করে?",
-    a: "Cash on Delivery (COD), ম্যানুয়াল bKash ও Nagad এবং অফিশিয়াল bKash, Nagad ও SSLCommerz মার্চেন্ট অ্যাকাউন্ট এক স্ক্রিন থেকেই কানেক্ট করা যায়। ফ্রি Softune Pay অ্যান্ড্রয়েড অ্যাপ ফোনের ওয়ালেট SMS পড়ে ম্যানুয়াল bKash, Nagad ও Rocket পেমেন্ট নিজে থেকেই কনফার্ম করে।",
+    a: "ফ্রি সহ সব প্ল্যানে ক্যাশ অন ডেলিভারি, ম্যানুয়াল bKash, Nagad ও Rocket, আর ফ্রি Softune Pay অ্যান্ড্রয়েড অ্যাপ আছে, যা ওয়ালেট SMS থেকে ম্যানুয়াল পেমেন্ট কনফার্ম করে। অফিশিয়াল bKash, Nagad ও SSLCommerz মার্চেন্ট কানেকশনের জন্য Growth বা Business লাগে।",
   },
   {
     category: "General",
@@ -148,17 +163,17 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "Integrations",
     q: "SoftuneBD-এ কোন কোন কুরিয়ার ইন্টিগ্রেটেড আছে?",
-    a: "Steadfast, Pathao, RedX এবং eCourier মার্চেন্ট অ্যাকাউন্ট সহজে কানেক্ট করে এক ক্লিকে পার্সেল এন্ট্রি দিতে পারবেন।",
+    a: "নিজের মার্চেন্ট অ্যাকাউন্ট কানেক্ট করবেন। ফ্রিতে Steadfast, Starter-এ সাথে eCourier, আর Growth ও Business-এ Pathao ও RedX। ড্যাশবোর্ড থেকে Steadfast-এ পার্সেল বুক করা যায়।",
   },
   {
     category: "Billing",
     q: "যেকোনো সময় প্ল্যান আপগ্রেড বা ডাউনগ্রেড করা যাবে?",
-    a: "হ্যাঁ। যেকোনো সময় আপনি Starter, Growth এবং Business প্ল্যানের মধ্যে চেঞ্জ করতে পারবেন।",
+    a: "হ্যাঁ। Starter, Growth ও Business-এর মধ্যে বদলাতে পারবেন এবং 1, 3, 6 বা 12 মাসের জন্য পেমেন্ট করতে পারবেন। পেইড প্ল্যান বদলালে অব্যবহৃত সময় তার মূল্য অনুযায়ী যোগ হয়। রিনিউ না করলে স্টোর ফ্রি প্ল্যানে চলে যায়; বাড়তি ডেটা থাকে, তবে লক থাকে।",
   },
   {
     category: "General",
     q: "SoftuneBD-এর AI কীভাবে সাহায্য করে?",
-    a: "Gemini AI বট আপনার স্টোরের প্রোডাক্ট, অর্ডার ও সেলস রিলেটেড প্রশ্নের দ্রুত উত্তর দেয় এবং AI Assistant এক ক্লিকে আকর্ষক প্রোডাক্ট ডেসক্রিপশন ড্রাফট করে দেয়।",
+    a: "পেইড প্ল্যানে AI এজেন্ট আপনার স্টোরের ডেটা থেকে প্রোডাক্ট, অর্ডার ও বিক্রি নিয়ে উত্তর দেয় এবং আপনি নিশ্চিত করলে কাজও করে। Write with AI প্রোডাক্টের বিবরণ লিখে দেয়। ফ্রি সহ প্রতিটি নতুন স্টোর সাইন-আপে AI সেটআপ ও 5টি ছবি পায়।",
   },
   {
     category: "Integrations",
@@ -174,6 +189,21 @@ export const faqDataBn: FaqItem[] = [
     category: "Integrations",
     q: "ChatGPT কানেক্টরে কি আমার SoftuneBD AI ক্রেডিট খরচ হয়?",
     a: "না। চিন্তা ও ছবি বানানোর কাজ হয় আপনার নিজের ChatGPT প্ল্যানে। SoftuneBD শুধু আপনার স্টোরে কাজগুলো চালায়, যেমন ছবি মিডিয়া লাইব্রেরিতে সেভ করা, যা অন্য যেকোনো আপলোডের মতো আপনার প্ল্যানের স্টোরেজে ধরা হয়।",
+  },
+  {
+    category: "Billing",
+    q: "একসাথে কয়েক মাসের টাকা দিলে কত সাশ্রয় হয়?",
+    a: "3 মাসে প্রায় 5%, 6 মাসে প্রায় 10% আর 12 মাসে প্রায় 20% সাশ্রয় হয়। যেমন Starter: 1 মাস ৳499, 3 মাস ৳1,425, 6 মাস ৳2,694 আর 12 মাস ৳4,788। প্রাইসিং পেজে সব প্ল্যানের তুলনা আছে।",
+  },
+  {
+    category: "Billing",
+    q: "ফ্রি স্টোরে মাসে 50টি অর্ডার হয়ে গেলে কী হবে?",
+    a: "চেকআউট WhatsApp অর্ডারে চলে যায়, কার্টের তথ্য মেসেজে লেখা থাকে, তাই বিক্রি চালু থাকে। প্রতি ক্যালেন্ডার মাসে গণনা নতুন করে শুরু হয়। পেইড প্ল্যানে অর্ডার আনলিমিটেড।",
+  },
+  {
+    category: "General",
+    q: "ক্রেতাদের জন্য কি চ্যাট অ্যাসিস্ট্যান্ট আছে?",
+    a: "হ্যাঁ, ফ্রি সহ সব প্ল্যানে। এটি আপনার প্রোডাক্ট, ডেলিভারি চার্জ, পেমেন্ট ও FAQ থেকে বাংলা, ইংরেজি বা বাংলিশে উত্তর দেয়। শুরুতে চালু থাকে; Settings থেকে Chat Assistant-এ গিয়ে বদলাতে বা বন্ধ করতে পারেন।",
   },
 ];
 
