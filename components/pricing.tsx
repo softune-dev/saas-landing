@@ -6,7 +6,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { FreePlanCard } from "./free-plan-card";
-import { BILLING_MONTHS, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
+import { BILLING_MONTHS, PAID_INCLUDES, getPlans, periodPrice, type BillingMonths } from "@/lib/pricing-data";
 import { FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 
 // Purpose-made artwork gives each tier a distinct, premium surface while keeping the
@@ -238,7 +238,7 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                 </div>
 
                 <div className="flex flex-1 flex-col px-3 pt-5 pb-3 sm:px-4">
-                  <p className="min-h-[48px] text-[14px] leading-[23px] text-[var(--color-muted)]">{plan.description}</p>
+                  <p className="text-[14px] leading-[23px] text-[var(--color-muted)]">{plan.description}</p>
 
                   <a
                     href={signupHref}
@@ -256,32 +256,44 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
                     />
                   </a>
 
-                  <div className="mt-6 flex flex-1 flex-col border-t border-[var(--color-line)] pt-5">
-                    <p className="text-[13.5px] font-bold text-[var(--color-ink)]">
-                      {isBn ? `${plan.includes === "Free" ? "ফ্রি" : plan.includes}-এর সব কিছু, সাথে:` : `Everything in ${plan.includes}, plus:`}
-                    </p>
-                    <ul className="mt-4 flex flex-1 flex-col gap-3">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <span className="mt-px flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/14">
-                            <Check className="size-3.5 text-[var(--color-brand)]" strokeWidth={3} />
-                          </span>
-                          <span className="text-[14px] leading-snug font-medium text-[var(--color-ink-soft)]">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href={`${isBn ? "/bn/pricing" : "/pricing"}#compare-plans`}
-                      className="mt-6 inline-flex w-fit items-center gap-1.5 text-[14px] font-bold text-[var(--color-brand)] hover:underline"
-                    >
-                      {isBn ? "সব ফিচার দেখুন" : "See all features"}
-                      <ArrowUpRight className="size-4" strokeWidth={2.6} aria-hidden />
-                    </a>
-                  </div>
+                  <ul className="mt-6 flex flex-1 flex-col gap-3.5 border-t border-[var(--color-line)] pt-6">
+                    {plan.specs.map(([value, label]) => (
+                      <li key={`${value} ${label}`} className="flex items-center gap-3">
+                        <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)]/14">
+                          <Check className="size-3.5 text-[var(--color-brand)]" strokeWidth={3} />
+                        </span>
+                        <span className="text-[14px] leading-snug font-medium text-[var(--color-ink-soft)]">
+                          <strong className="font-extrabold text-[var(--color-ink)] tabular-nums">{value}</strong> {label}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             );
           })}
+        </div>
+
+        {/* What all three share, said once, with the way to the full table. */}
+        <div className="mt-5 rounded-[28px] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 sm:p-6 lg:mt-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-[15px] font-bold text-[var(--color-ink)]">{PAID_INCLUDES[locale].title}</p>
+            <a
+              href={`${isBn ? "/bn/pricing" : "/pricing"}#compare-plans`}
+              className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[var(--color-brand)] hover:underline"
+            >
+              {isBn ? "সব ফিচার দেখুন" : "See all features"}
+              <ArrowUpRight className="size-4" strokeWidth={2.6} aria-hidden />
+            </a>
+          </div>
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 md:grid-cols-3 lg:grid-cols-4">
+            {PAID_INCLUDES[locale].items.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-[13px] leading-snug font-medium text-[var(--color-ink-soft)]">
+                <Check aria-hidden className="mt-[2px] size-3.5 shrink-0 text-[var(--color-brand)]" strokeWidth={3} />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <FreePlanCard locale={locale} />

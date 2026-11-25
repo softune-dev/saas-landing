@@ -30,6 +30,9 @@ export function periodPrice(plan: PaidPlanKey, months: BillingMonths) {
   };
 }
 
+/** One line on a card: the number or value in bold, then what it is. */
+export type Spec = [value: string, label: string];
+
 type Plan = {
   key: PaidPlanKey;
   name: string;
@@ -37,12 +40,12 @@ type Plan = {
   priceMonthly: number;
   /** Per month when a year is paid at once. */
   priceAnnually: number;
-  /** Who the plan is for, in one line. */
+  /** Who the plan is for, in one short line. */
   description: string;
-  /** The plan below, whose features this one includes. */
-  includes: string;
-  /** Every line must be something the product really does for that plan. */
-  features: string[];
+  /** Every plan lists the same eight things in the same order, so the cards
+   * line up and can be compared across. Keep each line short enough for one
+   * row. What all paid plans share goes in PAID_INCLUDES instead. */
+  specs: Spec[];
 };
 
 const base = (key: PaidPlanKey) => ({
@@ -56,49 +59,46 @@ export const plans: Plan[] = [
     ...base("starter"),
     name: "Starter",
     popular: true,
-    description: "For shops ready to sell under their own name",
-    includes: "Free",
-    features: [
-      "Your own custom domain, with no SoftuneBD badge",
-      "Unlimited orders and 50 products",
-      "AI agent that runs your store by chat, in Bangla or English",
-      "30 AI requests a day, plus ChatGPT connect (beta)",
-      "Meta Pixel and Conversions API, TikTok, GA4 and Tag Manager",
-      "Full analytics with profit, and export",
-      "Customer list, risk score and abandoned checkouts",
-      "Block fake orders by phone, IP and repeat attempts",
-      "Store Sale (POS) with printed receipts",
-      "Switch themes any time",
-      "Steadfast and eCourier",
-      "500MB media storage",
+    description: "For your own branded store",
+    specs: [
+      ["50", "products"],
+      ["Unlimited", "orders"],
+      ["30", "AI requests a day"],
+      ["500MB", "storage"],
+      ["1", "store"],
+      ["2", "courier services"],
+      ["COD", "and Softune Pay"],
+      ["Help desk", "support"],
     ],
   },
   {
     ...base("growth"),
     name: "Growth",
-    description: "For growing shops that want customers to pay online",
-    includes: "Starter",
-    features: [
-      "bKash, Nagad and SSLCommerz checkout with your own accounts",
-      "Card payments through SSLCommerz",
-      "Pathao and RedX, with Steadfast and eCourier",
-      "500 products",
-      "100 AI requests a day",
-      "2GB media storage",
-      "Priority email support",
+    description: "For taking payments online",
+    specs: [
+      ["500", "products"],
+      ["Unlimited", "orders"],
+      ["100", "AI requests a day"],
+      ["2GB", "storage"],
+      ["1", "store"],
+      ["4", "courier services"],
+      ["3", "payment gateways"],
+      ["Priority", "email support"],
     ],
   },
   {
     ...base("business"),
     name: "Business",
-    description: "For established brands with big catalogs",
-    includes: "Growth",
-    features: [
-      "Unlimited products",
-      "2 stores from one login",
-      "150 AI requests a day",
-      "3GB media storage",
-      "Your own Account Manager",
+    description: "For big catalogs and two stores",
+    specs: [
+      ["Unlimited", "products"],
+      ["Unlimited", "orders"],
+      ["150", "AI requests a day"],
+      ["3GB", "storage"],
+      ["2", "stores"],
+      ["4", "courier services"],
+      ["3", "payment gateways"],
+      ["Account Manager", ""],
     ],
   },
 ];
@@ -108,52 +108,87 @@ export const plansBn: Plan[] = [
     ...base("starter"),
     name: "Starter",
     popular: true,
-    description: "নিজের নামে বিক্রি শুরু করতে প্রস্তুত শপের জন্য",
-    includes: "Free",
-    features: [
-      "নিজের কাস্টম ডোমেইন, SoftuneBD ব্যাজ ছাড়া",
-      "আনলিমিটেড অর্ডার ও 50টি প্রোডাক্ট",
-      "AI এজেন্ট, চ্যাট করেই স্টোর চালান বাংলা বা ইংরেজিতে",
-      "দিনে 30টি AI রিকোয়েস্ট, সাথে ChatGPT কানেক্ট (বেটা)",
-      "Meta Pixel ও Conversions API, TikTok, GA4 ও Tag Manager",
-      "প্রফিটসহ সম্পূর্ণ অ্যানালিটিক্স ও এক্সপোর্ট",
-      "কাস্টমার লিস্ট, রিস্ক স্কোর ও অ্যাবানডন্ড চেকআউট",
-      "ফোন, IP ও বারবার চেষ্টা দেখে ফেক অর্ডার আটকান",
-      "রসিদ প্রিন্টসহ স্টোর সেল (POS)",
-      "যেকোনো সময় থিম বদলান",
-      "Steadfast ও eCourier",
-      "500MB মিডিয়া স্টোরেজ",
+    description: "নিজের ব্র্যান্ডের স্টোরের জন্য",
+    specs: [
+      ["50টি", "প্রোডাক্ট"],
+      ["আনলিমিটেড", "অর্ডার"],
+      ["30টি", "AI রিকোয়েস্ট, দিনে"],
+      ["500MB", "স্টোরেজ"],
+      ["1টি", "স্টোর"],
+      ["2টি", "কুরিয়ার সার্ভিস"],
+      ["COD", "ও Softune Pay"],
+      ["হেল্প ডেস্ক", "সাপোর্ট"],
     ],
   },
   {
     ...base("growth"),
     name: "Growth",
-    description: "অনলাইনে পেমেন্ট নিতে চাওয়া বাড়ন্ত শপের জন্য",
-    includes: "Starter",
-    features: [
-      "নিজের অ্যাকাউন্টে bKash, Nagad ও SSLCommerz চেকআউট",
-      "SSLCommerz দিয়ে কার্ড পেমেন্ট",
-      "Pathao ও RedX, সাথে Steadfast ও eCourier",
-      "500টি প্রোডাক্ট",
-      "দিনে 100টি AI রিকোয়েস্ট",
-      "2GB মিডিয়া স্টোরেজ",
-      "প্রায়োরিটি ইমেইল সাপোর্ট",
+    description: "অনলাইনে পেমেন্ট নেওয়ার জন্য",
+    specs: [
+      ["500টি", "প্রোডাক্ট"],
+      ["আনলিমিটেড", "অর্ডার"],
+      ["100টি", "AI রিকোয়েস্ট, দিনে"],
+      ["2GB", "স্টোরেজ"],
+      ["1টি", "স্টোর"],
+      ["4টি", "কুরিয়ার সার্ভিস"],
+      ["3টি", "পেমেন্ট গেটওয়ে"],
+      ["প্রায়োরিটি", "ইমেইল সাপোর্ট"],
     ],
   },
   {
     ...base("business"),
     name: "Business",
-    description: "বড় ক্যাটালগের প্রতিষ্ঠিত ব্র্যান্ডের জন্য",
-    includes: "Growth",
-    features: [
-      "আনলিমিটেড প্রোডাক্ট",
-      "এক লগইনে 2টি স্টোর",
-      "দিনে 150টি AI রিকোয়েস্ট",
-      "3GB মিডিয়া স্টোরেজ",
-      "নিজস্ব অ্যাকাউন্ট ম্যানেজার",
+    description: "বড় ক্যাটালগ ও দুটি স্টোরের জন্য",
+    specs: [
+      ["আনলিমিটেড", "প্রোডাক্ট"],
+      ["আনলিমিটেড", "অর্ডার"],
+      ["150টি", "AI রিকোয়েস্ট, দিনে"],
+      ["3GB", "স্টোরেজ"],
+      ["2টি", "স্টোর"],
+      ["4টি", "কুরিয়ার সার্ভিস"],
+      ["3টি", "পেমেন্ট গেটওয়ে"],
+      ["অ্যাকাউন্ট ম্যানেজার", ""],
     ],
   },
 ];
+
+/** What Starter, Growth and Business all have, shown once under the cards. */
+export const PAID_INCLUDES = {
+  en: {
+    title: "Every paid plan includes",
+    items: [
+      "Custom domain",
+      "No SoftuneBD badge",
+      "AI store agent",
+      "Meta, TikTok and GA4 tracking",
+      "Full analytics",
+      "Store Sale (POS)",
+      "Fraud controls",
+      "Customers and risk score",
+      "Abandoned checkouts",
+      "Theme switching",
+      "ChatGPT connect (beta)",
+      "0% commission",
+    ],
+  },
+  bn: {
+    title: "সব পেইড প্ল্যানে আছে",
+    items: [
+      "কাস্টম ডোমেইন",
+      "SoftuneBD ব্যাজ ছাড়া",
+      "AI স্টোর এজেন্ট",
+      "Meta, TikTok ও GA4 ট্র্যাকিং",
+      "সম্পূর্ণ অ্যানালিটিক্স",
+      "স্টোর সেল (POS)",
+      "ফ্রড কন্ট্রোল",
+      "কাস্টমার ও রিস্ক স্কোর",
+      "অ্যাবানডন্ড চেকআউট",
+      "থিম বদলানো",
+      "ChatGPT কানেক্ট (বেটা)",
+      "0% কমিশন",
+    ],
+  },
+} as const;
 
 export function getPlans(locale: "en" | "bn" = "en") {
   return locale === "bn" ? plansBn : plans;
