@@ -19,11 +19,11 @@ export const BOARD_H = 380;
 const LIGHT = {
   bottom: ember("50% 118%", "95% 78%"),
   // A night sky: no ember wash. The tile draws its own sun and stars.
-  // A little blue in two corners gives it depth.
+  // A little red in two corners gives it depth.
   space: [
-    "radial-gradient(72% 62% at 8% 6%, rgba(52,98,205,0.24), rgba(52,98,205,0) 72%)",
-    "radial-gradient(80% 68% at 96% 96%, rgba(40,84,190,0.28), rgba(40,84,190,0) 72%)",
-    "radial-gradient(110% 100% at 50% 50%, #0e1020 0%, #080a15 55%, #04050b 100%)",
+    "radial-gradient(72% 62% at 8% 6%, rgba(196,46,58,0.24), rgba(196,46,58,0) 72%)",
+    "radial-gradient(80% 68% at 96% 96%, rgba(172,32,50,0.28), rgba(172,32,50,0) 72%)",
+    "radial-gradient(110% 100% at 50% 50%, #140c11 0%, #0c070b 55%, #060406 100%)",
   ].join(", "),
   topRight: ember("104% -8%", "95% 92%"),
   bottomLeft: ember("-6% 108%", "98% 88%"),
