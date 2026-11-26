@@ -37,8 +37,8 @@ function pricingText(l: Locale): string {
   const list = l === "bn" ? plansBn : plans;
   const lines = list.map((pl) => `• ${pl.name}: ${taka(pl.priceMonthly)}/${l === "bn" ? "মাস" : "month"} (${taka(pl.priceAnnually)}/${l === "bn" ? "মাস, বাৎসরিক; 3 ও 6 মাসেও ছাড় আছে" : "month billed yearly; 3 and 6 month discounts too"})`);
   return l === "bn"
-    ? `ফ্রি প্ল্যান (৳0): 10টি প্রোডাক্ট, মাসে 50টি অর্ডার, সক্রিয় থাকলে ফ্রি।\n\nপেইড প্ল্যান:\n${lines.join("\n")}\n\nপ্রোডাক্ট: Starter 50, Growth 500, Business আনলিমিটেড। কোনো কার্ড লাগবে না, অর্ডারে কমিশন 0%।`
-    : `Free plan (৳0): 10 products and 50 orders a month, free as long as you're active.\n\nPaid plans:\n${lines.join("\n")}\n\nProducts: Starter 50, Growth 500, Business unlimited. No card needed to start, and 0% commission on orders.`;
+    ? `ফ্রি প্ল্যান (৳0): 10টি প্রোডাক্ট, মাসে 50টি অর্ডার, দিনে 10টি AI রিকোয়েস্ট, সক্রিয় থাকলে ফ্রি।\n\nপেইড প্ল্যান:\n${lines.join("\n")}\n\nপ্রোডাক্ট: Starter 50, Growth 500, Business আনলিমিটেড। কোনো কার্ড লাগবে না, অর্ডারে কমিশন 0%।`
+    : `Free plan (৳0): 10 products, 50 orders a month and 10 AI requests a day, free as long as you're active.\n\nPaid plans:\n${lines.join("\n")}\n\nProducts: Starter 50, Growth 500, Business unlimited. No card needed to start, and 0% commission on orders.`;
 }
 
 const TOPICS: Topic[] = [
@@ -98,12 +98,12 @@ const TOPICS: Topic[] = [
     }),
   },
   {
-    id: "trial",
+    id: "free",
     keys: ["trial", "free", "start", "sign up", "signup", "register", "try", "ট্রায়াল", "ফ্রি", "শুরু", "সাইন আপ", "রেজিস্টার"],
     answer: (l) => ({
       text: l === "bn"
-        ? "হ্যাঁ, ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট আর মাসে 50টি অর্ডার। কোনো ক্রেডিট কার্ড লাগবে না। সক্রিয় থাকলে ফ্রি।"
-        : "Yes, there is a Free plan: 10 products and 50 orders a month. No credit card. It stays free as long as you're active.",
+        ? "হ্যাঁ, ফ্রি প্ল্যান আছে: 10টি প্রোডাক্ট, মাসে 50টি অর্ডার আর দিনে 10টি AI রিকোয়েস্ট। কোনো ক্রেডিট কার্ড লাগবে না। সক্রিয় থাকলে ফ্রি।"
+        : "Yes, there is a Free plan: 10 products, 50 orders a month and 10 AI requests a day. No credit card. It stays free as long as you're active.",
       source: l === "bn" ? "FAQ · বিলিং" : "FAQ · Billing",
       actions: [{ label: l === "bn" ? "ফ্রি স্টোর খুলুন" : "Open a free store", href: `${p(l)}/signup` }],
       followUps: l === "bn" ? ["দাম কত?", "কোডিং জানা লাগবে?"] : ["How much does it cost?", "Do I need coding skills?"],

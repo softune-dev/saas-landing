@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { DemoLogoLoop } from "@/components/demo-logo-loop";
 import { Why } from "@/components/why";
 import { LiveStores } from "@/components/live-stores";
 import { FeatureBento } from "@/components/bento/feature-bento";
@@ -17,6 +18,7 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
       <Header locale={locale} />
       <main>
         <Hero locale={locale} />
+        <DemoLogoLoop locale={locale} />
         <Why locale={locale} />
         {/* Themes section hidden for now; component kept in components/themes.tsx. */}
         {/* <Themes locale={locale} /> */}

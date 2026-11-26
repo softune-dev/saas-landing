@@ -85,7 +85,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
           "Write up to 100 questions and answers",
           "See the questions it could not answer",
           "Answer once and it knows next time",
-          "On paid plans, draft an answer with Write with AI",
+          "Draft an answer with Write with AI",
           "New products, delivery charges and FAQs are picked up automatically",
         ],
       },
@@ -190,7 +190,7 @@ export const FEATURE_PAGES: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "SoftuneBD’s AI is powered by Google Gemini. It writes product copy, suggests theme changes, and chats about your store data. You review every change before it saves.",
-    planNote: "Every new store gets an AI setup at sign-up. The AI assistant itself is included in Starter and above.",
+    planNote: "Every plan has the AI assistant: 10 requests a day on Free, 30 on Starter, 100 on Growth and 150 on Business.",
     introTitle: "Gemini drafts. You approve.",
     introDesc:
       "Product descriptions, Theme Editor suggestions, and dashboard AI chat all share the same rule: SoftuneBD never writes to your live store until you confirm.",
@@ -1407,7 +1407,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
           "100টি পর্যন্ত প্রশ্ন ও উত্তর লিখুন",
           "যেসব প্রশ্নের উত্তর পারেনি সেগুলো দেখুন",
           "একবার উত্তর দিন, পরের বার সে জানবে",
-          "পেইড প্ল্যানে Write with AI দিয়ে উত্তর খসড়া করুন",
+          "Write with AI দিয়ে উত্তর খসড়া করুন",
           "নতুন প্রোডাক্ট, ডেলিভারি চার্জ ও FAQ নিজে থেকেই যুক্ত হয়",
         ],
       },
@@ -1512,7 +1512,7 @@ export const FEATURE_PAGES_BN: Record<string, FeatureData> = {
     titleEnd: "",
     description:
       "গুগল জেমিনি চালিত AI প্রোডাক্ট ডেসক্রিপশন ড্রাফট করে, থিম সাজেশন দেয় এবং ড্যাশবোর্ড ডেটা থেকে প্রশ্নের উত্তর দেয়। সব চেঞ্জ অ্যাপ্লাইয়ের আগে রিভিউ করার পূর্ণ স্বাধীনতা পাবেন।",
-    planNote: "সাইন-আপের সময় প্রতিটি নতুন স্টোর AI সেটআপ পায়। AI অ্যাসিস্ট্যান্ট Starter ও তার উপরের প্ল্যানে আছে।",
+    planNote: "সব প্ল্যানে AI অ্যাসিস্ট্যান্ট আছে: দিনে ফ্রিতে 10টি, Starter-এ 30টি, Growth-এ 100টি ও Business-এ 150টি রিকোয়েস্ট।",
     introTitle: "জেমিনি ড্রাফট করবে, আপনি অ্যাপ্রুভ করবেন",
     introDesc:
       "প্রোডাক্ট ডেসক্রিপশন থেকে শুরু করে চ্যাটবট, আপনার অনুমতি ছাড়া AI কখনোই লাইভ স্টোরে সরাসরি কিছু সেভ করবে না।",

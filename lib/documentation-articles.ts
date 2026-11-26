@@ -70,6 +70,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "10 products, 50 orders a month and 100MB of media storage",
           "Cash on Delivery, manual payments, Softune Pay, Steadfast and the store chat assistant",
+          "10 AI requests a day with the AI assistant",
           "An AI store setup and 5 images at sign-up",
           "No credit card, and 0% commission on orders",
         ],
@@ -136,7 +137,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
         content: [
           "Open the list of questions it could not answer",
           "Write the answer once, and it uses it next time",
-          "On paid plans, Write with AI can draft the answer for you to check",
+          "Write with AI can draft the answer for you to check",
         ],
       },
       { type: "callout", content: "Changes to products, delivery charges and FAQs are picked up automatically. You do not need to retrain anything." },
@@ -715,7 +716,7 @@ export const DOC_ARTICLES: Record<string, DocArticleContent> = {
     "brand-colors-ai-suggest",
     "Run SoftuneBD AI Suggest from Brand and Colors in the theme editor - review proposals, check contrast, then Save or Publish.",
     [
-      { type: "callout", content: "AI Suggest is included in Starter and above." },
+      { type: "callout", content: "AI Suggest is on every plan and uses your daily AI requests." },
       {
         type: "p",
         content:
@@ -1384,6 +1385,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content: [
           "10টি প্রোডাক্ট, মাসে 50টি অর্ডার ও 100MB মিডিয়া স্টোরেজ",
           "ক্যাশ অন ডেলিভারি, ম্যানুয়াল পেমেন্ট, Softune Pay, Steadfast ও স্টোর চ্যাট অ্যাসিস্ট্যান্ট",
+          "AI অ্যাসিস্ট্যান্টে দিনে 10টি AI রিকোয়েস্ট",
           "সাইন-আপে AI স্টোর সেটআপ ও 5টি ছবি",
           "ক্রেডিট কার্ড লাগে না, অর্ডারে 0% কমিশন",
         ],
@@ -1457,7 +1459,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
         content: [
           "যেসব প্রশ্নের উত্তর দিতে পারেনি তার তালিকা খুলুন",
           "একবার উত্তর লিখুন, পরের বার সেটিই বলবে",
-          "পেইড প্ল্যানে Write with AI উত্তরের খসড়া করে দেয়",
+          "Write with AI উত্তরের খসড়া করে দেয়",
         ],
       },
       { type: "callout", content: "প্রোডাক্ট, ডেলিভারি চার্জ ও FAQ বদলালে নিজে থেকেই আপডেট হয়।" },
@@ -2114,7 +2116,7 @@ export const DOC_ARTICLES_BN: Record<string, DocArticleContent> = {
       "রিভিউ ও পাবলিশ",
     ],
     body: [
-      { type: "callout", content: "AI Suggest Starter ও তার উপরের প্ল্যানে আছে।" },
+      { type: "callout", content: "AI Suggest সব প্ল্যানে আছে এবং আপনার দৈনিক AI রিকোয়েস্ট ব্যবহার করে।" },
       {
         type: "p",
         content:

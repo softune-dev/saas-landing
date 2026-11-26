@@ -269,7 +269,7 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-1.5 md:flex">
             <LanguageSwitcher locale={locale} />
             <ThemeToggle />
             <Button
@@ -287,9 +287,9 @@ export function Header({ locale = "en" }: { locale?: "en" | "bn" }) {
             </Button>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 md:hidden">
+          <div className="flex shrink-0 items-center gap-0.5 md:hidden">
             <LanguageSwitcher locale={locale} />
-            <ThemeToggle className="ml-0" />
+            <ThemeToggle />
             <button
               type="button"
               className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)]"

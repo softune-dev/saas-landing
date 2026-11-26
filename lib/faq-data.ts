@@ -75,7 +75,7 @@ export const faqData: FaqItem[] = [
   {
     category: "General",
     q: "How does SoftuneBD's AI help my business?",
-    a: "On paid plans, the AI agent answers questions about your products, orders and sales from your own store data and carries out store tasks you confirm. AI Suggest helps with theme direction and Write with AI drafts product descriptions. Every new store, including a Free one, gets an AI setup and 5 images at sign-up.",
+    a: "On every plan, the AI agent answers questions about your products, orders and sales from your own store data and carries out store tasks you confirm. Free has 10 AI requests a day, Starter 30, Growth 100 and Business 150. AI Suggest helps with theme direction and Write with AI drafts product descriptions. Every new store, including a Free one, gets an AI setup and 5 images at sign-up.",
   },
   {
     category: "Integrations",
@@ -173,7 +173,7 @@ export const faqDataBn: FaqItem[] = [
   {
     category: "General",
     q: "SoftuneBD-এর AI কীভাবে সাহায্য করে?",
-    a: "পেইড প্ল্যানে AI এজেন্ট আপনার স্টোরের ডেটা থেকে প্রোডাক্ট, অর্ডার ও বিক্রি নিয়ে উত্তর দেয় এবং আপনি নিশ্চিত করলে কাজও করে। Write with AI প্রোডাক্টের বিবরণ লিখে দেয়। ফ্রি সহ প্রতিটি নতুন স্টোর সাইন-আপে AI সেটআপ ও 5টি ছবি পায়।",
+    a: "সব প্ল্যানে AI এজেন্ট আপনার স্টোরের ডেটা থেকে প্রোডাক্ট, অর্ডার ও বিক্রি নিয়ে উত্তর দেয় এবং আপনি নিশ্চিত করলে কাজও করে। দিনে AI রিকোয়েস্ট: ফ্রিতে 10টি, Starter-এ 30টি, Growth-এ 100টি, Business-এ 150টি। Write with AI প্রোডাক্টের বিবরণ লিখে দেয়। ফ্রি সহ প্রতিটি নতুন স্টোর সাইন-আপে AI সেটআপ ও 5টি ছবি পায়।",
   },
   {
     category: "Integrations",

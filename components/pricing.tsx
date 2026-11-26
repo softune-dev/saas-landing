@@ -276,6 +276,8 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
 
         {/* One row, two cards: what the paid plans share, and the Free plan. */}
         <div className="mt-5 grid items-stretch gap-5 lg:mt-6 lg:grid-cols-2 lg:gap-6">
+          {/* Free first: left on wide screens, on top on phones. */}
+          <FreePlanCard locale={locale} />
           <div className="flex h-full flex-col rounded-[28px] border border-[var(--color-line)] bg-[var(--color-surface)] p-6">
             <p className="text-[18px] font-extrabold tracking-tight text-[var(--color-ink)]">{PAID_INCLUDES[locale].title}</p>
             <ul className="mt-5 grid grid-cols-2 content-start gap-x-4 gap-y-3 border-t border-[var(--color-line)] pt-5">
@@ -294,7 +296,6 @@ export function Pricing({ locale = "en", showIntro = true, homepage = false }: {
               <ArrowUpRight className="size-4" strokeWidth={2.6} aria-hidden />
             </a>
           </div>
-          <FreePlanCard locale={locale} />
         </div>
 
         {homepage ? (
