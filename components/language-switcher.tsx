@@ -35,7 +35,7 @@ export function LanguageSwitcher({
     <button
       type="button"
       onClick={toggleLanguage}
-      className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2 text-[13px] font-bold text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand)] ${className}`}
+      className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full border border-[var(--color-line)] px-2.5 text-[13px] font-bold text-[var(--color-ink)] transition-colors hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] ${className}`}
       title={isBn ? "Switch to English" : "বাংলায় দেখুন"}
       aria-label={isBn ? "Switch to English" : "Switch to Bangla"}
     >
