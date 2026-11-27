@@ -144,6 +144,9 @@ export function ChatWidget() {
     }, 650);
   }
 
+  // Sign-up keeps its buttons in the bottom corner this widget floats over.
+  if (pathname === "/signup" || pathname === "/bn/signup") return null;
+
   return (
     <>
       <AnimatePresence>

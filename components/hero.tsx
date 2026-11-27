@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { FREE_CTA, FREE_CTA_BN, FREE_NOTE, FREE_NOTE_BN } from "@/lib/site";
 import { MaskIcon } from "@/components/ui/mask-icon";
 import dynamic from "next/dynamic";
-import { HERO_IDEA_KEY } from "@/lib/trial";
 
 // Loaded after first paint: the rays are decoration, never worth delaying the headline.
 const Grainient = dynamic(() => import("@/components/ui/grainient"), { ssr: false });
@@ -142,16 +141,9 @@ export function Hero({ locale = "en" }: { locale?: Locale }) {
     window.requestAnimationFrame(() => inputRef.current?.focus());
   }
 
-  // What they typed becomes the store builder's first message. Handed over
-  // in sessionStorage rather than the URL: a business description can be
-  // personal, and URLs land in logs and analytics. Nothing typed means the
-  // builder simply asks.
+  // Opens the normal sign-up form. Nothing typed here is carried over: the
+  // store is set up later by the AI in the dashboard.
   const go = () => {
-    const idea = userMode ? userText.trim() : "";
-    try {
-      if (idea) sessionStorage.setItem(HERO_IDEA_KEY, idea);
-      else sessionStorage.removeItem(HERO_IDEA_KEY);
-    } catch {}
     window.location.href = signupHref;
   };
 

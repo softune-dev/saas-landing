@@ -120,7 +120,7 @@ export function OtpBoxes({
           onKeyDown={(e) => handleKeyDown(index, e)}
           onPaste={handlePaste}
           onFocus={(e) => e.currentTarget.select()}
-          className="h-11 w-full min-w-0 rounded-lg border border-border bg-search-bg px-0 text-center font-mono text-lg font-semibold tabular-nums text-foreground outline-none transition-colors focus:border-primary focus:bg-surface disabled:opacity-60 sm:h-14 sm:text-2xl"
+          className="h-13 w-full min-w-0 rounded-lg border border-line bg-surface px-0 text-center text-xl font-bold tabular-nums text-ink shadow-[0_1px_2px_rgba(16,12,10,0.04)] outline-none transition-[border-color,box-shadow] focus:border-brand focus:shadow-[0_0_0_4px_rgba(255,90,54,0.14)] disabled:opacity-60 sm:h-16 sm:text-2xl"
         />
       ))}
     </div>

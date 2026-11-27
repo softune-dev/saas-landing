@@ -102,7 +102,7 @@ export function GoogleSignIn({
       const width = Math.min(Math.max(Math.floor(box), 200), 400);
       window.google.accounts.id.renderButton(ref.current, {
         type: "standard",
-        theme: "filled_black",
+        theme: "outline",
         size: "large",
         shape: "pill",
         text,
@@ -117,12 +117,12 @@ export function GoogleSignIn({
 
   return (
     <div className={enabled ? "flex w-full flex-col items-center gap-3" : "h-0 w-full overflow-hidden opacity-0"}>
-      <div className="flex w-full items-center gap-3 text-[11px] font-medium uppercase tracking-wider text-white/40">
-        <span className="h-px flex-1 bg-white/10" />
-        {orLabel}
-        <span className="h-px flex-1 bg-white/10" />
-      </div>
       <div ref={ref} style={{ colorScheme: "light" }} className="flex min-h-10 w-full justify-center overflow-hidden rounded-full" />
+      <div className="flex w-full items-center gap-3 text-[11px] font-medium uppercase tracking-wider text-muted">
+        <span className="h-px flex-1 bg-border" />
+        {orLabel}
+        <span className="h-px flex-1 bg-border" />
+      </div>
     </div>
   );
 }

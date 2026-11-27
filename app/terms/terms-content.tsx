@@ -42,6 +42,10 @@ const termsList = [
   {
     title: "Limitation of Liability",
     content: "SoftuneBD is provided on an 'as-is' and 'as-available' basis. In no event shall SoftuneBD, its directors, or its partners be liable for any indirect, special, incidental, or consequential damages resulting from your use or inability to use the platform."
+  },
+  {
+    title: "Map Data",
+    content: "The Bangladesh district map used during sign-up is adapted (simplified) from geoBoundaries (www.geoboundaries.org), based on data from the Bangladesh Bureau of Statistics and OCHA, licensed under CC BY 3.0 IGO (creativecommons.org/licenses/by/3.0/igo)."
   }
 ];
 

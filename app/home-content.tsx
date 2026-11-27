@@ -23,11 +23,11 @@ export default function HomePage({ locale = "en" }: { locale?: "en" | "bn" }) {
         {/* Themes section hidden for now; component kept in components/themes.tsx. */}
         {/* <Themes locale={locale} /> */}
         <LiveStores locale={locale} />
-        <AppsShowcase locale={locale} />
         <FeatureBento locale={locale} />
         <AddonsShowcase locale={locale} />
         <Pricing locale={locale} homepage />
         <Comparison locale={locale} />
+        <AppsShowcase locale={locale} />
         <Faq locale={locale} />
         <Contact locale={locale} />
       </main>

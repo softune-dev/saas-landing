@@ -15,10 +15,6 @@ const AUTH_REFRESH_KEY = "softune.auth.refreshToken";
 const AUTH_PERSIST_KEY = "softune.auth.persist";
 const SIGNUP_TOKEN_KEY = "softune.trial.signupToken";
 
-/** The hero prompt's hand-off to the store builder (sessionStorage). Lives
- * here, not in the builder, so the home page doesn't import the builder. */
-export const HERO_IDEA_KEY = "softune.hero.idea";
-
 export type TrialSignupTokenOut = {
   signup_token: string;
   email_verified: boolean;
@@ -136,6 +132,12 @@ export async function updateTrialDetails(data: {
   phone: string;
   tagline?: string;
   category?: string;
+  whatsapp?: string;
+  facebook?: string;
+  instagram?: string;
+  tiktok?: string;
+  youtube?: string;
+  district?: string;
 }): Promise<TrialSignupTokenOut> {
   return request<TrialSignupTokenOut>("/trial/details", {
     method: "PATCH",
